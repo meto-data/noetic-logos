@@ -1,0 +1,1 @@
+Son kullanıcıya yönelik yazılım geliştirir.
