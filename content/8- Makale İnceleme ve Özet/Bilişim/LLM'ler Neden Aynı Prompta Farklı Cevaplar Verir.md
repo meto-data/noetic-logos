@@ -19,7 +19,5 @@ Peki neden böyle? Bunun sebebi bilgisayarın sayıları sabit sayıda basamakla
 Makalede asıl sorun **[[batch invariance]]** eksikliği olarak tanımlanıyor. Aynı örnek farklı **[[Batch]]** boyutlarında işlendiğinde **[[kernel]]** farklı davranabiliyor. Özellikle GPU/TPU gibi paralel donanımlarda kritik burası. **[[batch invariance]]** kısmını ve oradaki bağlantıları didik didik edin örnek için. Özetle kullanıcı perspektifinde sunucunun yükü değiştikçe batch boyutu değişir, batch boyutu değiştikçe bize gelen sonuç değişir. Yani kısaca girdiyi modele verdiğimizde sonucu hesaplama süreci deterministik işliyor, ancak kullanıcı seviyesinde farklı zamanlarda farklı batch boyutlarıyla sunucuya istek gönderildiği için non-determinist/belirsiz olabiliyor. Başka bir ifadeyle farklı yanıt vermesinin sebebi sunucunun o anki yoğunluğunun rastgele olması ve bu yoğunluğun da sonucu değiştirmesidir.
 
 
-[[yazı]]
-
 # > en son batch invariance'de kaldım devam edecem.
 
