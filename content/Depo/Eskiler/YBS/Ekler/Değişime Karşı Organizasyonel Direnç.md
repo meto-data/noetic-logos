@@ -1,6 +1,3 @@
-<p style = "text-align:justify"><strong>Bilgi Sistemleri Değişimi Tetikler:</strong> Bilgi sistemleri (BT) kaçınılmaz olarak organizasyondaki mevcut düzeni, yani <i>"kimin, neyi, nerede, ne zaman, kimin için yapacağını"</i>  kökten değiştirir.  </p>
-	
-**Politikaları Etkiler:** Bu temel değişiklikler doğrudan organizasyonel politikaları, yani güç dengelerini ve çıkar ilişkilerini etkiler.
     
 #### **[[Direncin Sebepleri]]:**   
 ##### **[[Politik Direnç]]:** 

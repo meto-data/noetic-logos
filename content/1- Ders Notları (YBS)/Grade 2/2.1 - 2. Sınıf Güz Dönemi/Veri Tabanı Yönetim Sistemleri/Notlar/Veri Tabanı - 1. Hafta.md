@@ -76,6 +76,12 @@ title: Veri Tabanı Yönetim Sistemleri - 1. Hafta
 7. Yedekleme, geri yükleme gibi işlemleri kolaylaştırır.
 8. Veriye kimin erişip kimin erişemeyeceğini belirler.
 9. Fiziksel yapı ve erişim karmaşıklığını kullanıcıdan gizler.
+#### VTYS Dezavantajları
+1. Maliyet
+2. Performans iyileştirme
+3. Verilerin silinme ihtimali (siber saldırı)
+4. Veri tabanı yedekleme
+5. Organizasyonel direnç (bkz. [[]])
 ### Yaygın VTYS Programları
 - Oracle, MySQL, Microsot SQL Server, PostgreSQL, MongoDB, IBM DB2... 
 
