@@ -1,10 +1,9 @@
 - Bazen bir tablodaki tek bir sütun o satırı benzersiz yapmaya yetmez. Benzersizliği sağlamak için **birden fazla sütunu bir araya getirip** birincil anahtar ilan ederiz. Buna composite key denir.
 
 <br>
-**Örnek Senaryo:**  
-- Bir okulda hangi öğrencinin hangi dersi aldığını tutan bir not tablosu düşünelim:
+- **Örnek Senaryo:** Bir okulda hangi öğrencinin hangi dersi aldığını tutan bir not tablosu düşünelim:
 
-**`Öğrenci_Ders_Notları`**
+**`Öğrenci_Ders_Notları:`**
 
 | Öğrenci_No | Ders_Kodu | Notu |
 | ---------- | --------- | ---- |

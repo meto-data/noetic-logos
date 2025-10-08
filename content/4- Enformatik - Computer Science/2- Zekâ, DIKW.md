@@ -1,10 +1,9 @@
-# [[DIKW]] Piramidi (Veri-Bilgi Piramidi)
+	# DIKW Piramidi (Data-Information-Knowledge-Wisdom)
 
 ![[dikw2.png]]
 
 # **Piramidin Seviyeleri (Aşağıdan Yukarıya):**
  
-    
 ## 1. **[[Veri]] (Data):** İşaret/Sembol
 - En basit anlamıyla **insan dünyasında algılanan semboller veya simgeler**dir.
 
@@ -20,10 +19,10 @@
 
 ## 2. **[[Enformasyon]] (Information):** Malumat
 - **Anlam kazanmış veridir**. Veriye bir context (bağlam) eklenmiş hâlidir. 
-	- Söz gelişi, "2" tek başına bir **veri**dir. Ancak "Seneca milattan önce 4 yılında doğmuştur." dersem bu bir **enformasyondur**.
+	- Söz gelişi, "3" tek başına bir **veri**dir. Ancak "Seneca 3 yılında doğmuştur." dersem bu bir **enformasyondur**.
 - **Teknolojik Karşılığı**: Veri tabanları ve SQL gibi sorgulama dilleri ham veriyi sorgulayıp ilişkilendirerek ona bir context kazandırır ve anlamlı enformasyona dönüştürür.
 - Enformasyon bir şeyin ne olduğunu söyler. Eyleme yönelik bir talimat içermez.
-## 3. **[[Bilgi]] (Knowledge):
+## 3. **[[Bilgi]] (Knowledge)**
 - Enformasyonun uygulanmış hâlidir.
 - **Bir amaca yönelik kullanılan, organiza edilmiş enformasyondur.**
 
@@ -34,7 +33,7 @@
 		- Bunu yaparken hem deneyimden bağımsız (a priori) hem de deneyime bağlı (a posteriori) bilgilerimizi kullanırız. Mantıksal bir çıkarımla ilgili bilgiye erişeceksek a priori, tecrübeyle ilintili bir bilgiye erişiyorsak a posteriori olacaktır.
 - **Teknolojik Karşılığı:** Makine öğrenmesi ve yapay zekâ algoritmaları tam olarak bu seviyede çalışır. Mevcut enformasyonu kullanarak bir amaç doğrultusunda (tahmin, sınıflandırma vb.) sonuçlar üretirler.
 ## 4. **[[Bilgelik]] (Wisdom):** (Hikmet)
-- Bilginin **felsefî ve etik** boyutudur. Bir eylemin doğruluğunu, iyiliğini, gelecekteki sonuçlarını ve daha geniş bir bağlamdaki yerini sorgulamaktadır.
+- Bilginin **felsefî**, **etik** ve **ileriye dönük** boyutudur. Bir eylemin doğruluğunu, iyiliğini, gelecekteki sonuçlarını ve daha geniş bir bağlamdaki yerini sorgulamaktadır.
 - **Bilgiyi ve deneyimi** doğru yargılarda ve kararlarda uygulama yeteneğidir.
 ### Temel Özellikleri
 - **Değer Yargıları İçerir**: "Doğru mu?", "İyi mi?", "Yapmalı mıyız?" gibi soruları sorar.
