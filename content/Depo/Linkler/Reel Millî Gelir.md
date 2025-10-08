@@ -1,0 +1,3 @@
+- ***Reel Millî Gelir***, nominalin aksine, **fiyat değişimlerinin etkisini ortadan kaldırarak ekonominin *gerçek* üretim kapasitesindeki değişimi ölçer.**
+	- Sabit fiyatlar kullanılarak yapılan bu hesaplamada belirli **[[baz yıl]]** fiyatları referans alınır sonraki tüm yıllar bu baz fiyata göre değerlendirilir.
+- Reel Millî Gelir **enflasyon etkisini içermez.** Dolayısıyla enflasyon ile birlikte gelen fiyatlar hesaba katılmaz.

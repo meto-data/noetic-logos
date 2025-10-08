@@ -9,4 +9,6 @@
 - **[[Kuponlar]]**: Tahvilin üzerinde bulunan ve belirli dönemlerde yatırımcıya yapılacak olan **faiz ödeme yükümlülüğünü** gösteren belgelerdir.
 - **[[Devlet Tahvili]]**: Devletin uzun vadeli yatırım projelerini finanse etmek için çıkardığı borçlanma senedidir.
 - **[[Özel Kesim Tahvili]] (Corporate Bond)**: Anonim şirketlerin yatırım gibi uzun vadeli finansman ihtiyaçlarını çıkardıkları tahvillerdir.
-	- **Eurobond**: Devletlerin veya şirketlerin uluslararası piyasalardaki **yabancı para birimi cinsinden** (genellikle *Euro* veya *Dolar*) ihraç ettikleri uzun vadeli tahvillerdir (Ayrıntılı bilgi için bkz. [[Eurobond]]).
+	- **Eurobond**: Devletlerin veya şirketlerin uluslararası piyasalardaki **yabancı para birimi cinsinden** (genellikle *Euro* veya *Dolar*) ihraç ettikleri *uzun vadeli* tahvillerdir (Ayrıntılı bilgi için bkz. [[Eurobond]]).
+		- Eurobond'un borsa riski ve dövizden çıkarıldığı için döviz kuru riski vardır. Bunlara bak.
+		- Para atıl bulunmamalı?

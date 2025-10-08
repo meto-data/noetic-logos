@@ -1,5 +1,6 @@
 ---
-title: Finansal Yönetime Giriş ve Temel Kavramlar
+title: 1- Finansal Yönetime Giriş ve Temel Kavramlar
+date: 2025-10-03
 ---
 
 ---
@@ -22,6 +23,11 @@ title: Finansal Yönetime Giriş ve Temel Kavramlar
 - Bu paranın geri ödenme zorunluluğu yoktur. Parayı koyan kişi işletmenin sahibi olur. Karşılığında ise işletme üzerinde **söz hakkı (hissedarlık)** ve gelecekteki **kârdan pay alma hakkı ([[temettü]])** elde eder.
 - İşletme batarsa ilk önce bu para yanar. Alacaklılar (bankalar vb.) paralarını aldıktan sonra geriye bir şey kalırsa, öz sermaye sahipleri paralarını geri alabilir. 
 	- Bu yüzden **risk sermayesi** de denir.
+
+<br>  
+
+
+
 ## [[Yabancı Kaynaklar (Borçlar)]]
 - Üçüncü kişilerin işletme varlıkları üzerindeki haklarını ifade eder.
 - Bir başka ifadeyle, işletmenin **üçüncü kişilerden borç olarak aldığı** paradır.
@@ -93,7 +99,7 @@ title: Finansal Yönetime Giriş ve Temel Kavramlar
 - Bir mal veya hizmetin üretilmesi, satın alınması ve müşteriye sunulur hâle getirilmesi için harcanan kaynakların parasal değeridir. Ham madde, işçilik, kira, elektrik, pazarlama gibi her türlü gider dâhildir. Özetle o ürünü ortaya çıkarmak için cebimizden çıkan paradır. (bkz. **[[Açık Maliyet (Muhasebe Maliyeti)|Açık Maliyet]]**)
 -  **Maliyet**: **[[TVC (Total Variable Cost)]] ∪ [[TFC (Total Fixed Cost)]]** <br>
 ##### Maliyet ve Yatırım Farkı
-- Yatırımda ilerde para kazanmak söz konusudur, buna mukabil maliyette böyle bir durum yok. (bkz. **[[Yatırım]]**)
+- Yatırımda gelecekte para kazanma beklentisi söz konusudur, buna mukabil maliyette böyle bir durum yoktur. Yatırım gelecekte temettü gibi getiriler sağlar. (bkz. **[[Yatırım]]**)
 #### [[Kâr]]
 - Gelirden, o geliri elde etmek için katlanılan tüm maliyetlerin çıkarılmasıyla geriye kalan pozitif farktır. 
 - $\text{Kâr } = \text{ Gelir } - \text{ Maliyet}$
@@ -107,10 +113,18 @@ title: Finansal Yönetime Giriş ve Temel Kavramlar
 - Geleneksek finansta tek hedef kârdır (bkz. **[[Firmalar Neden Kurulur]]**). Modern finansta ise $\text{ zaman + itibar + risk + kâr = piyasa değeri}$'dir.
 - Finansal yönetimin başlıca amacı **ortakların servetini (firma değerini)** maksimize etmektir.
 - Finans ekiplerinin öncelikli hedefleri ise **yeterli nakit akışını sağlamak (ödeme gücünü korumak)**, **işletmenin sürekliliğini temin etmek** ve **kârlılığını artırmaktır**.
+- İşletmenin *finansal* açıdan temel amacı **nakit paraya** en hızlı ve en ucuz yoldan ulaşmaktır. İşletmenin *genel amacı* ise bu nakdi ve diğer tüm kaynakları kullanarak firma değerini maksimize etmektir
+
+
+> [!industry]
+> *Anonim şirketlerde* finansal yönetimin nihai amacı hisse senedi piyasa fiyatını maksimize etmektir.
+> 
+> Finansal yönetimin başlıca amacı **ortakların servetini (firma değerini)** maksimize etmektir.
 
 ## 2.1. [[Firma Değeri Maksimizasyonu]]
 - Derste verilen LC Waikiki örneği önemli denilebilir. Bir firmanın imajı, markası vb. unsurlar firmanın değerinin maksimize edilmesinde önemli rol oynar. Yönetim-Organizasyon dersinde biraz değinilmişti aslında bu konuya (bkz. **[[Kurumsal İletişim]]**).
 	- İmajdan ve markadan etkilenen müşteriler zamanla sadık müşteri olur, genellikle o markadan satın alımlarını öncelerler diğer markalara kıyasen.
+	- Güçlü bir marka değeri firmaya fiyat belirleme gücü de verir. Müşteri sadakati sayesinde maliyetlerin üzerine istenen kâr marjı daha rahat konulabilir.
 
 > [!quote] Alıntı...
 > "Kurum **imajı**, dış çevre tarafından algılanması ve başka kişi(ler)de/kurum(lar)da olumlu etkiler bırakılması amaçlanan kimliğin **dışavurumudur**." 
@@ -120,8 +134,15 @@ title: Finansal Yönetime Giriş ve Temel Kavramlar
 	- Nakit finansal karar almada etkili olur. Kâr ise faaliyetlerin ve alınan kararların sonuçlarının değerlendirilmesinde.
 	- Firmalar firma değerini maksimize etmek için karar alırlar, ortakların serveti onların satın alma güçlerini maksimize ederek artırılabilir. **Satın alma gücü, firmanın ortaklarına ödediği nakdin artmasıyla mümkündür.**
 # 3. [[Finansal Yönetimin Fonksiyonları]]
+- Finans fonksiyonunun ilgi alanları üç temel soru etrafında şekillenir: 
+	1. Firmanın büyüklüğü ve büyüme hızı ne olmalıdır?
+	2. Firmanın kaynakları çeşitli varlıklar arasında nasıl dağıtılmalıdır? (**Aktif Yapı / Yatırım Kararları**)
+	3. Firmanın amacı açısından en iyi sonucu verecek kaynak bileşimi nasıl sağlanmalıdır? (**Pasif Yapı / Finansman Kararları**)
+
+> [!paperclip]
+> Pasif yapıyla ilgili olan *en uygun fonu sağlamak* ve aktif yapıyla ilgili olan bu fonları *en verimli şekilde dağıtmak* ile ilgilinir. 
 ## 3.1. [[Finansal Analiz]]
-- Firmalarda tutarlı kararların alınabilmesi açısından ilk basamağı oluşturur. Finansal analiz yaparak mevcut durumu saptarız ve geçmişe yönelik durumu tespit edip değerlendirerek geleceğe ilişkin kararlar alırız.
+- Firmalarda tutarlı kararların alınabilmesi açısından ilk basamağı oluşturur. Finansal analiz yapılarak işletmelerin mevcut durumları saptanıp ve geçmişe yönelik durumu tespit edilip değerlendirilerek geleceğe ilişkin kararlar alınır. Öngörü yapılır ve hedef sayısallaştırılabiliyorsa mutlaka sayısal hâle getirilir.
 	- Bkz. **[[Muhasebenin Beş İşlevi]]**
 	- Konunun daha iyi anlaşılması için muhasebeyi tekrar etmek gerekiyor.  ([[Varlıklar]]), ([[2- Hesap Kavramı ve Hesapların İşleyişi]]), ([[3- Hesapların İşleyiş Kuralları]])
 ## 3.2. [[Finansal Planlama ve Denetim]]
@@ -131,9 +152,11 @@ title: Finansal Yönetime Giriş ve Temel Kavramlar
 - "Yatırım için gerekli fonlar nasıl elde edilecek?" sorusuna cevap arar.
 - Kâr eden bir firmanın elde ettiği kârları dağıtmayıp firma bünyesinde tutması ile fon sorununun çözüleceği düşünebilir. Ancak firmalarda para giriş ve çıkışlarında miktar ve zaman yönünden farklılıklar çıkmaktadır. Bu nedenle fon açığı olduğunda aradaki fark firma dışındaki üçüncü kişi veya kurumlardan (bankalar, üçüncü kişiler, firmalar, sermaye piyasaları) sağlanabilir. Kullanılan her bir kaynağın firmaya farklı maliyetler çıkaracağı unutulmamalıdır. Bu nedenle **fonların sağlanmasının yanında en uygun fon kaynağının araştırılıp bulunması da ayrıca önemlidir**.
 - İşletmeler fon ihtiyaçlarını temelde iki ana kaynaktan karşılar: **Öz Kaynaklar** ve **Yabancı Kaynaklar**.
+- **Finansal Yapı**: Bir işletmede kullanılan sermayenin elde edildiği kaynakların türü, özellikleri ve bu kaynakların kendi aralarındaki bileşimi o işletmenin finansal yapısını ortaya koyar.
 ### 3.3.1. [[Öz Kaynaklar ve Ortaklık Yapısı]] (İç Finansman)
 
 - Firma kurulum aşamasında değer verenler verdikleri değer ([[Öz Kaynaklar (Equity)|öz kaynaklar/sermaye]]) kadar firma üzerinde söz/hak/pay sahibidir. Firma bu kişilere borçlanır.
+- Mikro ölçekli firmaların da bir sermayesi vardır ancak bu sermaye anonim şirketlerde olduğu gibi hisse senetlerine bölünmemiştir. Yatırım yapıldığonda bu nedenle hisse senedi payı yerine sermaye payı denilir, ayırt edici özelliği budur çünkü. 
 
 1. **Sahip (Owner)**: Şirketin gerçek kontrolüne sahip kişi veya kişiler.
 2. **Ortak (Partner - Shareholder)**: Şirkete sermaye koymuş kişidir. Anonim şirkette *hissedar*, limited şirkette *ortak* denir.
@@ -154,13 +177,14 @@ title: Finansal Yönetime Giriş ve Temel Kavramlar
 ### 3.3.2. [[Yabancı Kaynaklar]] (Dış Finansman - Borçlanma)
 - Firmanın, sahipleri dışındaki üçüncü kişi veya kurumlardan belirli bir **[[vadeli|vade]]** sonunda faiziyle birlikte geri ödemek koşuluyla sağladığı fonlardır. Üçüncü şahısların işletme varlıkları üzerindeki hakları da denilebilir.
 - Başlıca yabancı kaynaklar şunlardır:
-	- Satıcılar (Kredili mal alımları)
-	- Finansal kuruluşlar (Banka kredileri vb.)
+	- Satıcılar (Kredili mal alımları -*Satıcılardan borçlanma malın bedelini ileri bir tarihte ödemek üzere vadeye yaymaktır. İşletmeye kısa süreli finansman sağlar.*)
+	- [[Finansal Kuruluşlar]] (Banka kredileri vb.)
 	- **[[Devlet Kuruluşları]]** 
-	- **[[Sermaye Piyasaları]]**
+	- **[[Sermaye Piyasaları|Para ve Sermaye Piyasaları]]**
 
 #### [[Devlet Kuruluşları]]
 - Bir işletme kâr elde ettiğinde bu kâr üzerinde ilk hak sahibi devlettir. Vergiler işletme için ödenmesi zorunlu bir borçtur ve **[[Bilanço|bilançoda]]** "Yabancı Kaynak" kalemi olarak yer alır. Bu borç ödendikten sonra kalan net kâr ortaklar ve firma arasında paylaştırılabilir.
+- Ödenecek vergiler ve SGK primleri gibi kamu borçlarının vadesi gelene kadar bu tutarlar işletmenin kasasında kalır. Bu sürece **[[tahakkuk]]** denir ve bu süre zarfında para, işletme için geçici bir fon kaynağı (*emanette tutma*) işlevi görür.
 
 ##### [[Geçici Vergi Sistemi]]
 - Gelir ve kurumlar vergisi mükelleflerinin yıl içinde elde ettikleri kazançlar üzerinden üçer aylık dönemler hâlinde hesaplayıp ödedikleri bir peşin vergidir. Yıl sonunda hesaplanacak nihai vergiden **[[mahsup]]** edilir.
@@ -189,26 +213,45 @@ title: Finansal Yönetime Giriş ve Temel Kavramlar
 - **[[Devlet Tahvili]]**: Devletin uzun vadeli yatırım projelerini finanse etmek için çıkardığı borçlanma senedidir.
 - **[[Özel Kesim Tahvili]] (Corporate Bond)**: Anonim şirketlerin yatırım gibi uzun vadeli finansman ihtiyaçlarını çıkardıkları tahvillerdir.
 	- **Eurobond**: Devletlerin veya şirketlerin uluslararası piyasalardaki **yabancı para birimi cinsinden** (genellikle *Euro* veya *Dolar*) ihraç ettikleri uzun vadeli tahvillerdir (Ayrıntılı bilgi için bkz. [[Eurobond]]).
+		- Eurobondlar ihraç edildikleri para biriminin faiz oranlarına ve genel piyasa koşullarına bağlı olarak bir borsa (*fiyat*) riski taşır.
+		- Ayrıca yabancı para cinsinden oldukları için yatırımcının yerel para birimi karşısında bir döviz kuru riski de barındırırlar.
 ## 3.4. [[Fonların Tutulması]] (Yatırım Kararları)
-- Sağlanan fonların firma değerini maksimize edecek şekilde varlıklara yatırılma sürecidir. Amaç [[atıl varlıklar]]'ın en az seviyede olmasını -hatta hiç olmamasını sağlamaktır.
+- Fonların sağlanmasının yanında etkin bir şekilde kullanılması daha büyük bir önem taşımaktadır. Tüm dönen ve sabit varlıklara yatırım finansal yönetimin en büyük işlevlerinden biridir. Amaç [[atıl varlıklar]]'ın en az seviyede olmasını -hatta hiç olmamasını sağlamaktır.
 ### 3.4.1. [[Duran Varlık Yatırımları]] (Uzun Vadeli Yatırımlar)
 #### [[Malî Duran Varlıklar]] (Finansal Yatırımlar)
 - Bir firmanın başka bir firmanın yönetimine katılmak veya temettü elde etmek amacıyla edindiği hisse senetleri gibi uzun vadeli varlıklardır.
-	- **[[Bağlı Menkul Kıymet]]**: Başka bir şirkette sahip olunan pay oranının %0 ile %10 arasında olmasıdır. Yönetimde fazla söz hakkı yoktur, amaç genellikle gelir elde etmektir.
-	- **[[İştirak]]**: Pay oranının %10 ile %50 arasında olmasıdır. Yönetimde kısmî söz hakkı vardır.
-	- **[[Bağlı Ortaklık]]**: Pay oranının **%50'den fazla (%51 ve üzeri)** olmasıdır. Bu durumda ana şirket, bağlı ortaklığın yönetiminde çoğunluk hissesi sayesinde kontrol ve karar yetkisine sahip olur. 
+	- **[[Bağlı Menkul Kıymet]]**: Başka bir şirkette sahip olunan pay oranının %$0$ ile %$10$ arasında olmasıdır. Yönetimde fazla söz hakkı yoktur, amaç genellikle gelir elde etmektir.
+	- **[[İştirak]]**: Pay oranının %$10$ ile %$50$ arasında olmasıdır. Yönetimde kısmî söz hakkı vardır.
+	- **[[Bağlı Ortaklık]]**: Pay oranının **%$50$'den fazla (%$51$ ve üzeri)** olmasıdır. Bu durumda ana şirket, bağlı ortaklığın yönetiminde çoğunluk hissesi sayesinde kontrol ve karar yetkisine sahip olur. 
 - Firma yatırım yaptığı bu iştirak ve bağlı ortaklıkların yıl sonunda dağıttığı kârdan, payı oranında temettü geliri elde eder. Bu gelir firmanın ana faaliyet dışı gelirlerinden biridir.
 #### 3.4.2. [[Dönen Varlıkların Yönetimi]] (Kısa Vadeli Varlıklar)
-- Firmanın günlük faaliyetlerini sürdürebilmesi için gerekli olan ve bir yıl içinde nakde dönüşmesi beklenen varlıkların yönetimi.
+- Firmanın günlük faaliyetlerini sürdürebilmesi için gerekli olan ve bir yıl içinde nakde dönüşmesi beklenen varlıkların yönetimi. 
+- **[[Cari Aktif]]** veya **[[Çalışma Sermayesi (İşletme Sermayesi)]]** olarak da bilinir.
+- Bu yönetimin temel amacı firmanın likiditesini (*kısa vadeli borç ödeme gücü*) korumak ve kârlılığı artırmak arasında bir denge kurmaktır. Bu dengenin en önemli göstergesi **Net İşletme Sermayesi**'dir.
+
+
+> [!important] **Net İşletme Sermayesi (Net Çalışma Sermayesi)**  
+> Bir firmanın kısa vadeli borçlarını ödeme gücünü gösteren en temel finansal göstergedir.
+> 
+>` Net İşletme Sermayesi = Dönen Varlıklar (Cari Aktif) - Kısa Vadeli Yabancı Kaynaklar (Cari Pasif)`
+> 
+> - **Pozitif Fark (NİS > 0)**: Firmanın bir yıl içindeki tüm borçlarını ödedikten sonra bile elinde faaliyetlerini sürdürecek bir fon fazlası kaldığını gösterir. Bu anlaşılacağı üzere finansal sağlık ve likidite gücü demektir. Finansal kuruluşlar kredi verirken bu pozitif farka özellikle dikkat ederler çünkü bu durum firmanın borçlanma kapasitesini artırır. 
+>     
+> - **Negatif Fark (NİS < 0)**: Firmanın dönen varlıklarının kısa vadeli borçlarını karşılamaya yetmediğini gösterir. Bu durum ciddi bir likidite sıkıntısına ve iflas riskine işaret edebilir.
+>
+> 
+> **Not**: Eğer dış kaynaklardan (banka, piyasa) fon bulunamazsa, son çare olarak ortaklardan, iştiraklerden veya bağlı ortaklıklardan borç istenebilir. Bu paydaşlar arası borçlanma ilişkisi çift yönlüdür.
+
 ##### A. Nakit ve Nakit Benzerleri Yönetimi (Anlık Likidite)
  - **Kasa (Fizikî Para)**: Firmanın kasasında bulunan madeni ve kâğıt para. Genellikle küçük ve acil günlük harcamalar için kullanılır.
  - **Banka (Mevduat)**: Firmanın banka hesaplarında tutulan, daha büyük ve güvenli ödemeler için kullanılan paradır. Para transferleri bu hesap üzerinden yapılır.
 	 - **[[Havale]]**: Aynı bankanın şubeleri veya hesapları arasında yapılan para transferi.
 	 - **[[Elektronik Fon Transferi]] (EFT)**: Farklı bankalar arasındaki para transferi.
 	 - **[[Virman]]**: Kişinin veya kurumun aynı bankadaki kendi hesapları arasında yaptığı para aktarımı.
-- - Firmanın mal veya hizmet satıp bedelini hemen değil de belirli bir vade sonunda almayı kabul ettiği durumlardır. Bu alacaklar &**senetli veya senetsiz olabilir**&.
+	 - **[[Menkul Kıymetler]]**: Geçici yatırım amacıyla alınan ve kısa sürede nakde çevrilebilen hisse senetleri (*110 Hisse Senetleri Hs.*), hazine banoları gibi varlıklar.
 ##### B. Ticarî Alacakların Yönetimi (Vadeli Likidite)
-- Firmanın mal veya hizmet satıp bedelini hemen değil de belirli bir vade sonunda almayı kabul ettiği durumlardır. Bu alacaklar kıymetri evrak denilen belgelerle güvence altına alınır.
+- Firmanın mal veya hizmet satıp bedelini hemen değil de belirli bir vade sonunda almayı kabul ettiği durumlardır. Bu alacaklar kıymetli evrak denilen belgelerle güvence altına alınır. 
+- Bu alacaklar birer **ÖDEME VASITASI**'dır ve firma, nakde erişimi hızlandırmak için bu vasıtaların vadesini *minimuma indirmeye* çalışır.
 ##### Senetsiz Alacaklar (Açık Hesap / Veresiye)
 - Satıcının alıcıya sadece fatura keserek, aradaki güvene dayanarak mal veya hizmet satması. Borç fatura üzerinde belirtilen vadede ödenir.
 ##### [[Senetli Alacaklar]] (Kıymetli Evraklar ve İşlemler)
@@ -218,13 +261,18 @@ title: Finansal Yönetime Giriş ve Temel Kavramlar
 - **[[Çek]]**: Bir banka hesabından ödeme yapılması için düzenlenmiş bir ödeme emri. **Kredi aracı değil, ödeme aracıdır**. Üzerindeki tarihte ödenmesi esastır.
 - **[[Poliçe]]**: Üç taraflı bir ilişkidir; düzenleyen ([[keşideci]]), borçlusuna (muhatap), alacaklısına (lehtar) ödeme yapması için emir verir.
 ###### İşlem ve Devir
-- **[[Ciro]]**: Kıymetli evrakların mülkiyetinin arka yüzünün imzalanarak başkasına devredilmesi işlemi.
+- **[[Ciro]]**: Kıymetli evrakların mülkiyetinin arka yüzünün imzalanarak başkasına devredilmesi işlemi. **Çek ve senetin ciro işlemi vardır!**
 	- "Ciro" kelimesinin ticarî hayatta iki farklı anlamı vardır: 
 		1. Burada bahsedilen hukukî işlem olan **devir (endorsement)**. 
 		2. Bir şirketin toplam satış hasılatı (**revenue/turnover**). "Bu ay 1 milyon TL ciro yaptık" denildiğinde kastedilen ikinci anlamdır.
 ###### Güvenlik ve Taraflar
 - **Çek ve Banka İlişkisi**: Çekte ödemeyi yapma borcu altında olan taraf (muhatap) her zaman bir **bankadır**. Bu durum alacaklı için senede göre daha büyük bir güvence sağlamaktadır. Banka, hesapta para varsa ödemeyi yapmakla yükümlüdür.
-- **[[Keşideci]] (Drawer / Issuer)**: Çeki düzenleyen, imzalayan, bankaya “şu kadar parayı öde” talimatı veren kişi.
+- **[[Keşideci]] (Drawer / Issuer)**: *Çeki düzenleyen, yazan, imzalayan*, bankaya “şu kadar parayı öde” talimatı veren kişi.
 - **[[Lehtar]] (Payee / Beneficiary)**: Çek, senet veya poliçe bedelini tahsil etme hakkına sahip olan alacaklı kişi veya kurum. Çekte ismi yazılı olan kişi.
 - **[[Hamil]] (Holder)**: Çeki elinde bulunduran ve bankara [[ibraz]] eden kişi. Çeki lehtardan da devralmış olabilir.
 - **Muhatap**: Ödemeyi yapmakla görevlendirilen kurum (**banka**).
+
+## 3.5. Özel Finansal Sorunların Çözümü
+- Firmaların yaşam dönemleri boyunca çok da sık karşılaşmadıkları sorunlar vardır. **Şirket birleşmeleri**, **şirketin tamamının ya da bir kısmının satılması**, **halka açılma**, **[[konkordato|konkordatoya]]** gidilmesi, **işletmenin tasfiyesi** gibi sorunlar karşısında finansal yönetimin önemi artmakta, finans yöneticisinin sorunların gerektirdiği tüm değerlendirmeleri en etkin bir şekilde yapması gerekmektedir.
+
+
