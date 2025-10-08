@@ -38,7 +38,7 @@ Makro iktisat, ekonomilerin bütün olarak incelenmesidir. Ekonominin büyük ö
 ### [[Büyüme Nasıl Olur]]?
 #### a) [[Üretim Artışı]]
 ##### Teknolojik İlerleme
-- **[[verimlilik]]**
+- **[[verimlilik|Verimlilik]]**
 	- Minimum girdiyle maksimum çıktıya ulaşma. 
 - **[[Katma Değer]]**
 	- Üretim sürecinde kazanılan değer artışı. Üretilen ürünün kıymeti.
@@ -60,15 +60,15 @@ Makro iktisat, ekonomilerin bütün olarak incelenmesidir. Ekonominin büyük ö
 
 ## [[Enflasyon]]
 Fiyatların genel olarak ve sürekli bir biçimde artmasıdır. Başka bir deyişle, paranın zaman içinde satın alma gücünün azalmasıdır.
-### [[Talebin Çektiği Enflasyon]]
-- **Mal ve hizmetlere olan talebin arzı aşmasıyla ortaya çıkan enflasyon türüdür**. Bir diğer deyişle, mallara ve hizmetlere olan talebin aşırı artması da denilebilir.
+### [[Talebin Çektiği Enflasyon - Talep Enflasyonu]]
+- **Mal ve hizmetlere olan talebin arzı aşmasıyla ortaya çıkan enflasyon türüdür**. Bir diğer deyişle, mallara ve hizmetlere olan talebin aşırı artması da denilebilir. (*Daha detaylı bilgi için [[Talebin Çektiği Enflasyon - Talep Enflasyonu|tıklayın]]*).
     1. İnsanların satın alma gücü artar (faizler düşürülür vs.).
     2. Artan gelirle daha fazla mal ve hizmet talebi oluşur.
     3. Arz aynı hızla artmadığı için ürünler kıtlaşır.
     4. Kıtlık, satıcıların fiyatları yükseltmesine sebebiyet verir.
     5. Sonuç olarak genel fiyat seviyesi artar ve enflasyon oluşur.
-### [[Maliyetin İttiği Enflasyon]]
-- Üretim maliyetlerinin artması sonucunda fiyatların yükselmesiyle oluşan enflasyon türüdür.
+### [[Maliyetin İttiği Enflasyon - Maliyet Enflasyonu]]
+- Üretim maliyetlerinin artması sonucunda fiyatların yükselmesiyle oluşan enflasyon türüdür. (*Daha detaylı bilgi için [[Maliyetin İttiği Enflasyon - Maliyet Enflasyonu|tıklayın]]*).
 ##### **Çözüm Önerileri**
 - **Üretim verimliliği artırılmalı.**
 - Ülkeye bol bol döviz girmeli.
@@ -105,7 +105,6 @@ Fiyatların genel olarak ve sürekli bir biçimde artmasıdır. Başka bir deyi�
 - Ekonomiler küçülürken ve daralırken ortaya çıkan işsizlik türüdür.
     - Bkz. Virüs. 
 - Batı’da çok önemlidir. 
-![[Pasted image 20241102112851.png| 600]]
 
 ---
 
