@@ -2,7 +2,7 @@
 title: Bilişim Hukuku
 ---
 ---
-- Soru: "Bilişim suçu nedir? Bilişim vasıtalı suçlardan 3 adet örnek veriniz. Web'in katmanları nelerdir açıklayınız."
+- Soru: "Bilişim suçu nedir? Bilişim vasıtalı suçlardan 3 adet örnek veriniz. WEB'in katmanları nelerdir açıklayınız."
 ---
 
 ##### Bilişim (Information)
@@ -15,7 +15,7 @@ title: Bilişim Hukuku
 - Bilişim sistemlerine yönelik veya bilişim sistemleri aracılığıyla yapılan **hukuka aykırı** eylemlerin tamamı.
 	- Bkz. **[[TCK 243]], [[TCK 244]], [[TCK 245]], [[TCK 124]], [[TCK 125]]**
 
-### Web'in (World Wide Web) Katmanları
+### WEB'in (World Wide Web) Katmanları
 #### a) [[Surface Web]] (Yüzey Web - Visible Web)
 - Standart tarayıcılarla erişilebilen ve arama motorları tarafından indekslenen web sayfalarıdır. Google tarayıcıyı açtığınızda karşınıza çıkan tüm siteler bu katmandadır.
 #### b) [[Deep Web]] (Derin Web )
