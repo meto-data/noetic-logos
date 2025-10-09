@@ -1,0 +1,1 @@
+Enflasyonla beraber geleceğin belirsizliği artar ve doğru tahminlerde bulunma orayı epey düşer.

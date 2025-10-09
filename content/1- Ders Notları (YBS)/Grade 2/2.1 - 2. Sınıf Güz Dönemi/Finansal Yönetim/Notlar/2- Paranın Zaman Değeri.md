@@ -8,46 +8,58 @@ cssclasses:
 ---
 
 # 1. İşletme ve Finansal Yönetimin Rolü
-## 1.1. Muhasebe ve Finans Depertmanı Arasındaki İlişki
+## 1.1. [[Muhasebe ve Finans Depertmanı Arasındaki İlişki]]
 - Finans yönetimi, muhasebenin sağladığı verilerle başlar. Muhasebe departmanı, işletmenin finansal işlemlerini kaydeder, sınıflandırır ve özetleyerek finansal tabloları (bilanço, gelir tablosu vb.) oluşturur. 
-- Finans departmanı ise bu tabloları alarak analiz eder, yorumlar ve geleceğe yönelik stratejik kararlar alır. Kısacası **"muhasebenin bittiği yerde başlar finans"** (kafiyeli oldu).
+- Finans departmanı ise bu tabloları alarak analiz eder, yorumlar ve geleceğe yönelik stratejik kararlar alır. Kısacası **"muhasebenin bittiği yerde başlar finans"** (*kafiyeli oldu. Göndermeyi anlamak için [[zerdüşt abiden havalı söz göndermesi p.1|tıklayınız]]*).
 
-## 1.2. Finans Yöneticisi
+## 1.2. [[Finans Yöneticisi]]
 - Bir firmanın yatırım ve finans kararlarından sorumlu olan kişidir. 
 - Bilanço ve gelir tablolarındaki hesapları anlayabilmesi, mali analiz tekniklerini uygulayabilmesi,  işletme amaçlarını bilmesi ve politikaları anlayabilmesi yeterlidir.
 - İki temel sorunları karşı karşıyadır:
 	1. **Yatırım Kararı (Sermaye Bütçelemesi)**: Firma hangi tür varlıklara ne miktarda yatırım yapacaktır? (*Aktif Yönetimi*)
 	2. **Finanslama Kararı**: Yatırım için gerekli fonlar nasıl elde edilecektir? (*Pasif Yönetim*)
 
-# 2. İşletmenin Amaçları
+# 2. [[İşletmenin Amaçları]]
 - Finansal yönetimin temel amacı firma değerini maksimize etmek olsa da işletmelerin daha geniş kapsamlı amaçları vardır.
 	1. **Ortakların Refahının Maksimizasyonu**: Sadece anlık kârı değil, aynı zamanda hisse senedi değerini, itibarı ve uzun vadeli *sürdürülebilirliği* de içerir.
 	2. **Pay Başına Kazancın Maksimizasyonu**: Hisse senedi başına düşen kârı artırarak yatırımcılar için çekiciliği artırmak.
 	3. **Kâr Maksimizasyonu**: En geleneksel amaçtır ancak tek başına yeterli değildir, çünkü risk ve zaman değerini gözardı edebilir.
 
-## 2.1. İşletmelerde Belirlenmiş Amaçların Bazıları
-1. Mal ve hizmet üretimiyle toplum refahını artırmak.
-2. İşletmenin huzurunu artırmak.
-3. İstihdam yaratmak.
-4. İşletmenin sürekliliğini sağlamak.
-5. İşletmenin üretimini veya satışlarını artırmak.
-6. İşletmenin piyasa payını artırmak.
-7. İşletmenin kârını maksimize etmek.
-8. İşletmenin değerini maksimize etmek.
+## 2.1. [[İşletmelerde Belirlenmiş Amaçların Bazıları]]
+1. **Mal ve hizmet üretimiyle toplum refahını artırmak.**
+	- İşletmenin en temel işlevidir. Hem toplumsal fayda sağlar hem de işletmeye gelir getirir.
+2. **İşletmenin huzurunu artırmak.**
+	- İç düzenin, çalışan motivasyonunun, yönetim-istihdam dengesinin sağlanmasıdır. (bkz. [[Likert'in Sistem 4 Modeli]])
+3. **İstihdam yaratmak.**
+	- Üretim faaliyeti doğal olarak iş gücü talebi doğurur. Yani üretim topluma sadece ürün değil, aynı zamanda gelir de sağlar. Bu hem işletme içi verimi hem de dış itibarı yükseltir.
+		- İstihdam makroekonomik döngüye de katkı sağlar: Bir kişi işe alındığında gelir elde eder $\to$ harcama yapar $\to$ ekonomiye para döner $\to$ vergi $\to$ sistemin dönüşümü sağlanır.
+4. **İşletmenin sürekliliğini sağlamak.**
+	- Yukarıdakilerin birleşimi ve yükümlülüktür. Süreklilik yoksa üretim yok $\to$ istihdam yok $\to$ refah yok.
+5. **İşletmenin üretimini veya satışlarını artırmak.**
+	- Üretim kapasitesinin artması ve satış ağının genişlemesi hem finansal hem de kurumsal güç kazandırır. Bu aşama artık “içsel istikrar”dan “dış büyüme”ye geçiştir.
+
+> Sonraki 3 hedef bu hedefler gerçekleştirildiğinde kendiliğinden ortaya çıkar.
 
 
-# Enflasyonun İşletme Finansına Etkileri
+6. **İşletmenin piyasa payını artırmak.**
+	- Üretim ve satışlar artınca doğal olarak rekabet gücü yükselir. Daha fazla müşteri = daha büyük [[piyasa payı]].
+7. **İşletmenin kârını maksimize etmek.**
+	- Piyasa payı arttıkça [[satış hacmi]] büyür, birim maliyetler düşer $\to$ kâr artar.
+8. **İşletmenin değerini maksimize etmek.**
+	-  İşletmenin hem maddi (kâr, varlıklar) değeri hem de manevi (itibar, güven, süreklilik) temellerinin birleşimi işletme değerini oluşturur. 
+
+# 3. [[Enflasyon ve  İşletme Finansına Etkileri]]
 - **[[Enflasyon]]**: Fiyatların genel olarak ve sürekli bir biçimde artmasıdır. Başka bir deyişle, paranın zaman içinde satın alma gücünün azalmasıdır (bkz. **[[Talebin Çektiği Enflasyon - Talep Enflasyonu]], [[Maliyetin İttiği Enflasyon - Maliyet Enflasyonu]], [[Yapısal Enflasyon - Structural Inflation]]**)
 ### Etkileri
-1. **Faiz oranlarının yüksekliği:** Her maliyetin artması, borçlanması ve daha yüksek faize katlanmak demek...
-2. Planlama zorlukları
-3. Kaynak talebinin artışı: Daha çok fon sağlama derdi?
-4. Sermaye Piyasası araçlarının fiyat düşüşü ([[türev]])
-5. Yatırımların planlanmasında ihtiyatlı davranılması
-6. Muhasebe sorunları
+1. **[[Faiz oranlarının yüksekliği]]**
+2. **[[Planlama zorlukları]]**
+3. **[[Kaynak talebinin artışı]]**
+4. **[[Sermaye Piyasası araçlarının fiyat düşüşü]]**
+5. **[[Yatırımların planlanmasında ihtiyatlı davranılması]]**
+6. **[[Muhasebe sorunları]]**
 
 
-# Paranın Zaman Değeri
+# [[Paranın Zaman Değeri]]
 - **[[Faiz]]**: Paranın kira bedeli -ya da- paranın fiyatı. Bir başka tanıma göre, tasarruf sahibinin, tasarrufunu kullanmak yerine bir başkasına ödünç vermesi karşılığında aldığı bir vazgeçme ya da kullanımı erteleme bedelidir. (*Ayrıntılı bilgi için bkz.* [[Faiz Çeşitleri]]). *"Fon arz ve fon talebini eşitleyen bir fiyat"* olarak da tanımlanabilir.
 	- Parayı veren açısından getiridir, alan açısından maliyettir.
 	- Bankalar faizi 365 üzerinden hesaplarlar.
@@ -55,7 +67,7 @@ cssclasses:
 	- Biz 360 kullanacağız.
 		- Rasyo'yu hesaplarken de bunu kullanacağız.
 
-> `Varsayılan olarak -belirtilmese bile- yıllık faiz olacak kabul edeceğiz soruları. Belirtilenler müstesna.`
+> `Varsayılan olarak, sorularda süre belirtilmese bile yıllık faiz olacak kabul edeceğiz soruları. Belirtilenler müstesna.`
 ## [[Basit Faiz]] (Simple Interest)
 - Genellikle organize (standart) olmayan, **[[tezgâh üstü]] (*OTC / over-the-counter*)** olarak adlandırılan, tarafların doğrudan anlaştığı piyasalarda kullanılır.
 

@@ -1,0 +1,1 @@
+- Enflasyonist dönemlerde özellikle yabancı kaynaklardan sağlanan fonların maliyetinde önemli artışlar olur. Bu durum *borca ağırlık veren* firmalar için ciddi sorunlar yaratabilir.

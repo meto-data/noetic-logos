@@ -15,6 +15,40 @@ date: 2025-10-03
 - **[[Finansman]]**: Bir girişimin gerçekleşmesi, bir kuruluşun gelişip işleyebilmesi için gerekli mâlî imkânları sağlama.
 - **Finansal Yönetim**: Firmanın ihtiyaç duyduğu fonları temin edip bunları **firma değerini maksimize edecek yatırımlara yönlendirme faaliyetlerinin tümüdür.**
 
+
+---
+
+
+> [!note] Bilanço Mantığı: Kaynaklar ve Varlıklar  
+> Bir işletmenin finansal yapısı Bilanço ile özetlenir. Bilançonun iki temel tarafı vardır:
+> - **Pasif Taraf (Kaynaklar):** İşletmenin fonları **nereden bulduğunu** gösterir. (Öz Kaynaklar ve Yabancı Kaynaklar).
+> - **Aktif Taraf (Varlıklar):** İşletmenin bu fonları **nereye yatırdığını**, yani nelere sahip olduğunu gösterir. (Dönen ve Duran Varlıklar).
+    
+
+
+```scss
+AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
+------------------------------------------------------
+1. DÖNEN VARLIKLAR      |  3. KISA VADELİ YABANCI KAY.
+   - Kasa               |     - Satıcılar
+   - Bankalar           |     - Banka Kredileri
+   - Alacaklar          |     - Vergi Borçları
+   - Stoklar            |
+                        |  4. UZUN VADELİ YABANCI KAY.
+2. DURAN VARLIKLAR      |     - Banka Kredileri
+   - Binalar            |     - Çıkarılmış Tahviller
+   - Makineler          |
+   - Demirbaşlar        |  5. ÖZ KAYNAKLAR
+   - Mali Duran Var.    |     - Sermaye
+                        |     - Yedekler
+                        |     - Kârlar
+------------------------------------------------------
+  AKTİF TOPLAMI         =    PASİF TOPLAMI
+```
+
+
+---
+
 ## Sermaye
 - Üretim sürecinde kullanılan **mal ve hizmetlerle** **finansal kaynaklar.**
 - Bir işi kurmak, başlatmak veya yürütmek için ortaya konan ve gelecekte gelir veya kâr yaratması beklenen **[[parasal değerler|parasal]]** ve **[[ayni değerler|ayni]]** (para dışı) değerlerin tümüdür.
@@ -24,9 +58,7 @@ date: 2025-10-03
 - İşletme batarsa ilk önce bu para yanar. Alacaklılar (bankalar vb.) paralarını aldıktan sonra geriye bir şey kalırsa, öz sermaye sahipleri paralarını geri alabilir. 
 	- Bu yüzden **risk sermayesi** de denir.
 
-<br>  
-
-
+<br>
 
 ## [[Yabancı Kaynaklar (Borçlar)]]
 - Üçüncü kişilerin işletme varlıkları üzerindeki haklarını ifade eder.
@@ -110,13 +142,19 @@ date: 2025-10-03
 - Gelirin maliyeti karşılayan bu kısmı bir sonraki döngünün yeni sermayesi olur ve aynı süreç tekrarlanır...
 
 # 2. [[Finansal Yönetimin Amacı]]
+
+> [!faq] Firmanın Nihai Amacı vs. Finansal Amacı
+> **Soru:** Firmanın amacı ortakların servetini maksimize etmek mi, yoksa nakit akışı sağlamak mı?  
+> **Cevap:** İkisi de doğru ve birbiriyle bağlantılı. **Ortakların servetini maksimize etmek** firmanın nihai ve stratejik amacıdır. **Yeterli nakit akışı sağlamak** ise bu nihai amaca ulaşmak için gereken operasyonel, hayati hedeftir. Nakit olmadan şirket ölür ve zirveye asla ulaşamaz. Finans departmanı nakit akışını yöneterek firmanın nihai amacına hizmet eder.  
+> Yani bir diğer deyişle, işletmenin amacı ortakların servetini maksimize etmek iken işletmenin *finansal* amacı nakit akışı sağlamaktır.
+
 - Geleneksek finansta tek hedef kârdır (bkz. **[[Firmalar Neden Kurulur]]**). Modern finansta ise $\text{ zaman + itibar + risk + kâr = piyasa değeri}$'dir.
 - Finansal yönetimin başlıca amacı **ortakların servetini (firma değerini)** maksimize etmektir.
 - Finans ekiplerinin öncelikli hedefleri ise **yeterli nakit akışını sağlamak (ödeme gücünü korumak)**, **işletmenin sürekliliğini temin etmek** ve **kârlılığını artırmaktır**.
 - İşletmenin *finansal* açıdan temel amacı **nakit paraya** en hızlı ve en ucuz yoldan ulaşmaktır. İşletmenin *genel amacı* ise bu nakdi ve diğer tüm kaynakları kullanarak firma değerini maksimize etmektir
 
 
-> [!industry]
+> [!industry] Finansal Yönetimin Amacı
 > *Anonim şirketlerde* finansal yönetimin nihai amacı hisse senedi piyasa fiyatını maksimize etmektir.
 > 
 > Finansal yönetimin başlıca amacı **ortakların servetini (firma değerini)** maksimize etmektir.
@@ -127,7 +165,7 @@ date: 2025-10-03
 	- Güçlü bir marka değeri firmaya fiyat belirleme gücü de verir. Müşteri sadakati sayesinde maliyetlerin üzerine istenen kâr marjı daha rahat konulabilir.
 
 > [!quote] Alıntı...
-> "Kurum **imajı**, dış çevre tarafından algılanması ve başka kişi(ler)de/kurum(lar)da olumlu etkiler bırakılması amaçlanan kimliğin **dışavurumudur**." 
+> "Kurum **imajı**, dış çevre tarafından algılanması ve başka kişi(ler)de/kurum(lar)da olumlu etkiler bırakılması amaçlanan kimliğin **dışavurumudur**." <br>
 > -Metin
 
 - Birçok firmaya göre finansal karar olmaya temel olan kâr değil, **[[nakit]]**'tir.
@@ -142,12 +180,12 @@ date: 2025-10-03
 > [!paperclip]
 > Pasif yapıyla ilgili olan *en uygun fonu sağlamak* ve aktif yapıyla ilgili olan bu fonları *en verimli şekilde dağıtmak* ile ilgilinir. 
 ## 3.1. [[Finansal Analiz]]
-- Firmalarda tutarlı kararların alınabilmesi açısından ilk basamağı oluşturur. Finansal analiz yapılarak işletmelerin mevcut durumları saptanıp ve geçmişe yönelik durumu tespit edilip değerlendirilerek geleceğe ilişkin kararlar alınır. Öngörü yapılır ve hedef sayısallaştırılabiliyorsa mutlaka sayısal hâle getirilir.
+- Firmalarda tutarlı kararların alınabilmesi açısından ilk basamağı oluşturur. Finansal analiz yapılarak işletmelerin mevcut durumları saptanır ve geçmişe yönelik durumu tespit edilip değerlendirilerek geleceğe ilişkin kararlar alınır. Öngörü yapılır ve hedef sayısallaştırılabiliyorsa mutlaka sayısal hâle getirilir.
 	- Bkz. **[[Muhasebenin Beş İşlevi]]**
 	- Konunun daha iyi anlaşılması için muhasebeyi tekrar etmek gerekiyor.  ([[Varlıklar]]), ([[2- Hesap Kavramı ve Hesapların İşleyişi]]), ([[3- Hesapların İşleyiş Kuralları]])
 ## 3.2. [[Finansal Planlama ve Denetim]]
-- **Finansal Planlama**: Gelecekle ilgili risk ve belirsizlikleri içerir. Amacı gelecekte ihtiyaç duyulacak fonları belirlemek ve etkili bir şekilde kullanımını sağlamaktır. Finansal planlamanın başarılı olabilmesi için firma amaçlarının belirlenmesi gerekir.
-- **Finansal Denetim**: Gelecekle ilgili beklentilerin değişmesi, planlara uymayan uygulamalar ya da planın sağlıklı bir şekilde işlemesi denetim fonksiyonu ile mümkündür. Bu fonksiyonla beraber planlardan sapmalar izlenerek gerekli ve zamanında yapılan düzenlemeler planın sağlıklı bir şekilde işlemesini sağlayacaktır.
+- **Finansal Planlama**: Gelecekle ilgili risk ve belirsizlikleri içerir. Amacı gelecekte ihtiyaç duyulacak fonları belirlemek ve etkili bir şekilde kullanımını sağlamaktır. 
+- **Finansal Denetim**: Gelecekle ilgili beklentilerin değişmesi veya planlara uymayan uygulamalar denetim fonksiyonu ile izlenir. Böylece planlardan sapmalar tespit edilerek zamanında düzenlemeler yapılır.
 ## 3.3. [[Fonların Sağlanması]] (Finansman Kararları)
 - "Yatırım için gerekli fonlar nasıl elde edilecek?" sorusuna cevap arar.
 - Kâr eden bir firmanın elde ettiği kârları dağıtmayıp firma bünyesinde tutması ile fon sorununun çözüleceği düşünebilir. Ancak firmalarda para giriş ve çıkışlarında miktar ve zaman yönünden farklılıklar çıkmaktadır. Bu nedenle fon açığı olduğunda aradaki fark firma dışındaki üçüncü kişi veya kurumlardan (bankalar, üçüncü kişiler, firmalar, sermaye piyasaları) sağlanabilir. Kullanılan her bir kaynağın firmaya farklı maliyetler çıkaracağı unutulmamalıdır. Bu nedenle **fonların sağlanmasının yanında en uygun fon kaynağının araştırılıp bulunması da ayrıca önemlidir**.
@@ -178,9 +216,14 @@ date: 2025-10-03
 - Firmanın, sahipleri dışındaki üçüncü kişi veya kurumlardan belirli bir **[[vadeli|vade]]** sonunda faiziyle birlikte geri ödemek koşuluyla sağladığı fonlardır. Üçüncü şahısların işletme varlıkları üzerindeki hakları da denilebilir.
 - Başlıca yabancı kaynaklar şunlardır:
 	- Satıcılar (Kredili mal alımları -*Satıcılardan borçlanma malın bedelini ileri bir tarihte ödemek üzere vadeye yaymaktır. İşletmeye kısa süreli finansman sağlar.*)
-	- [[Finansal Kuruluşlar]] (Banka kredileri vb.)
+	- **[[Finansal Kuruluşlar]]** 
 	- **[[Devlet Kuruluşları]]** 
 	- **[[Sermaye Piyasaları|Para ve Sermaye Piyasaları]]**
+
+> [!note] Para Piyasası vs. Sermaye Piyasası
+> Finansal piyasalar temelde ikiye ayrılır:
+> - **[[Para Piyasası]] (Money Market)**: Bir yıldan *kısa vadeli* fonların (nakit, "sıcak para") alınıp satıldığı piyasadır. İşletmelerin günlük nakit ihtiyaçlarını (işletme sermayesi) karşılamak için kullandığı yerdir. Bankalar bu piyasanın en önemli oyuncularıdır. **[[Hazine Bonosu]]** ve **[[Finansman Bonosu]]** bu piyasanın araçlarıdır.
+> - **[[sermaye piyasaları|Sermaye Piyasası]] (Capital Market)**: Bir yıldan *uzun vadeli* fonların ve [[Menkul Kıymetler|menkul kıymetlerin]] işlem gördüğü piyasadır. İşletmelerin büyük ve uzun süreli yatırımlarını (fabrika kurmak vb.) finanse etmek için başvurduğu yerdir.
 
 #### [[Devlet Kuruluşları]]
 - Bir işletme kâr elde ettiğinde bu kâr üzerinde ilk hak sahibi devlettir. Vergiler işletme için ödenmesi zorunlu bir borçtur ve **[[Bilanço|bilançoda]]** "Yabancı Kaynak" kalemi olarak yer alır. Bu borç ödendikten sonra kalan net kâr ortaklar ve firma arasında paylaştırılabilir.
@@ -249,7 +292,7 @@ date: 2025-10-03
 	 - **[[Elektronik Fon Transferi]] (EFT)**: Farklı bankalar arasındaki para transferi.
 	 - **[[Virman]]**: Kişinin veya kurumun aynı bankadaki kendi hesapları arasında yaptığı para aktarımı.
 	 - **[[Menkul Kıymetler]]**: Geçici yatırım amacıyla alınan ve kısa sürede nakde çevrilebilen hisse senetleri (*110 Hisse Senetleri Hs.*), hazine banoları gibi varlıklar.
-##### B. Ticarî Alacakların Yönetimi (Vadeli Likidite)
+##### B. Ticarî Alacakların Yönetimi (Vadeli Likidite) (Ödeme Vasıtası)
 - Firmanın mal veya hizmet satıp bedelini hemen değil de belirli bir vade sonunda almayı kabul ettiği durumlardır. Bu alacaklar kıymetli evrak denilen belgelerle güvence altına alınır. 
 - Bu alacaklar birer **ÖDEME VASITASI**'dır ve firma, nakde erişimi hızlandırmak için bu vasıtaların vadesini *minimuma indirmeye* çalışır.
 ##### Senetsiz Alacaklar (Açık Hesap / Veresiye)
