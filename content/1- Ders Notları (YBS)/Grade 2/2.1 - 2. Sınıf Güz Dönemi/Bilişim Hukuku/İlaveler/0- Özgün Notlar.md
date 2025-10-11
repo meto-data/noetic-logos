@@ -55,17 +55,17 @@ Ransomware falan...
 ### TCK 141 - Hırsızlık
 - (1) Zilyedinin rızası olmadan başkasına ait taşınır bir malı, kendisine veya başkasına bir yarar sağlamak maksadıyla bulunduğu yerden alan kimseye **bir yıldan üç yıla kadar hapis cezası** verilir. 
 - (2) **(Mülga: 2/7/2012-6352/105 md.)**
-### TCK 142 - Nitelikli Hırsızlık
+### [[TCK 142, 2-e  - Nitelikli Hırsızlık]]
 - (...)
-- (2) a) Kişinin malını koruyamayacak durumda olmasından veya ölmesinden yararlanarak,
+- *(2)* Suçun;
 - (...)
--      e) Bilişim sistemlerinin kullanılması suretiyle
+- *e)* Bilişim sistemlerinin kullanılması suretiyle
 - İşlenmesi hâlinde **beş yıldan on yıla kadar hapis cezasına** hükmolunur. Suçun, bu fıkranın (b) bendinde belirtilen surette, beden veya ruh bakımından kendisini savunamayacak durumda olan kimseye karşı işlenmesi halinde, verilecek **ceza üçte biri oranına kadar artırılır.**
 
 
 ### TCK 157 - Dolandırıcılık
 - (1) Hileli davranışlarla bir kimseyi aldatıp, onun veya başkasının zararına olarak, kendisine veya başkasına bir yarar sağlayan kişiye bir yıldan beş yıla kadar hapis ve beşbin güne kadar adlî para cezası verilir.
-### TCK 158 - Nitelikli Dolandırıcılık
+### [[TCK 158, 1-f - Nitelikli Dolandırıcılık]]
 (...)
 - (1) f) Bilişim sistemlerinin, banka veya kredi kurumlarının araç olarak kullanılması suretiyle,
 - (1) g) Basın ve yayın araçlarının sağladığı kolaylıktan yararlanmak suretiyle,

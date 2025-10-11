@@ -1,0 +1,2 @@
+- Failin zihinsel ve iradî bağlantısıdır.
+	- Yapılan eylem *bilerek ve isteyerek* mi yapıldı (**kasıt**) yoksa *dikkatsizlik, özensizlik, öngörüsüzlükle* (**taksir**) mi yapıldı?
