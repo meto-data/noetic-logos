@@ -125,21 +125,23 @@ olduğuna göre, $p \implies q$ teoremini *doğrudan ispat yöntemiyle* ispatlay
 
 ---
 
-### Örnek: <br>$[(p' \lor p)' \lor q] \implies q \equiv 1$ ifadesinin totoloji olduğunu gösterin.
+### Örnek: <br>$[(p' \land p)' \lor q]' \implies q \equiv 1$ önermesinin totoloji olduğunu gösterin.
 
 #### 1. Yöntem: 
-##### $[1' \lor q] \implies () q \equiv 0 \implies q$
-##### $\space \space \space 0 \implies q \equiv 1 \lor q \equiv 1$
+
+##### $[(p' \land p)' \lor q] \lor q \equiv 1$
+##### $\equiv \underbrace{0' \lor q}_{1} \lor q \equiv 1$
+##### $\space \space \equiv 1 \lor q \equiv 1$
 
 #### 2. Yöntem (Tablo Yöntemi)
 
-| $p$ | $q$ | $p'$ | $q'$ | $\overbrace{p' \lor p}^{a}$ | $a'$ | $\overbrace{a' \lor q}^{b}$ | $b'$ | $b' \implies q$ |
-| --- | --- | ---- | ---- | --------------------------- | ---- | --------------------------- | ---- | --------------- |
-| 1   | 1   | 0    | 0    | 1                           | 0    | 1                           | 0    | 1               |
-| 1   | 0   | 0    | 1    | 1                           | 0    | 0                           | 1    |                 |
-| 0   | 1   | 1    | 0    | 1                           | 0    | 1                           | 0    | 1               |
-| 0   | 0   | 1    | 1    | 1                           | 0    | 0                           | 1    | 1               |
-
+| $p$ | $q$ | $p'$ | $\overbrace{p' \land p}^{a}$ | $a'$ | $\overbrace{a' \lor q}^{m}$ | $m'$ | $m \implies q$ |
+| --- | --- | ---- | ---------------------------- | ---- | --------------------------- | ---- | -------------- |
+| 1   | 1   | 0    | 0                            | 1    | 1                           | 0    | **1**          |
+| 1   | 0   | 0    | 0                            | 1    | 1                           | 0    | **1**          |
+| 0   | 1   | 1    | 0                            | 1    | 1                           | 0    | **1**          |
+| 0   | 0   | 1    | 0                            | 1    | 1                           | 0    | **1**          |
+- $m \implies q$ her zaman 1 değerini verdiğinden, önerme bir totolojidir.
 
 ---
 
