@@ -2,7 +2,9 @@
 title: Bilişim Hukuku
 ---
 ---
+
 - Soru: "Bilişim suçu nedir? Bilişim vasıtalı suçlardan 3 adet örnek veriniz. WEB'in katmanları nelerdir açıklayınız."
+
 ---
 
 ##### Bilişim (Information)
