@@ -1,5 +1,14 @@
+#### [[Tablo]]
+- Verilerin *satır* ve *sütun* hâlinde saklandığı yapılar. 
+- Her tablo belli bir konuyu (örn: `Filozoflar`) ifade eder.
+#### [[Kayıt]] (Record)
+- Tablodaki her satır bir kayıttır. 
+- Her bir satır, bir kişiye ya da nesneye ait tüm bilgileri içerir.
+#### [[Alan]]
+- Tablodaki sütunlara verilen isimdir.
+- Her alan bir özelliği temsil eder (örn: `Ad`, `Soyad`, `Ekol`)
 ### [[Birincil Anahtar]] (Primary Key)
-- Bir tablodaki her satırı (kaydı) **benzersiz** olarak tanımlayan alandır. 
+- Tablodaki her satırı (kaydı) **benzersiz** olarak tanımlayan alandır. 
 - Aynı tablodaki iki satırda aynı *primary key* değeri olamaz.
 #### Özellikleri
 - **Tekildir (unique)**: Aynı değerden sadece bir tane olabilir.
@@ -8,8 +17,8 @@
 - **Bir tabloya sadece bir tane primary key tanımlanabilir. (Ama birden fazla kolondan oluşabilir $\to$ [[composite key]])**
 - Sorgu performansını artırır, çünkü birincil anahtarlar otomatik olarak indekslenir. Bu sayede verilere erişim çok hızlı olur.
 
-### [[Yabancı Anahtar]] (Foreign Key)
-- Bir tablodaki sütunun **başka bir tablonun primary key**'ine referans vermesidir. 
+### [[Yabancı Anahtar]] / *İkincil Anahtar* (Foreign Key)
+- Bir tablodaki birincil anahtarın başka bir tabloda eklenerek ilişki kurulmasını sağlayan alandır.
 #### Amaç
 - Tablolar arasında **ilişki kurmak** (relationship).
 - Referans bütünlüğünü sağlamak.
@@ -18,7 +27,7 @@
 - Başka bir tablodaki primary key'i gösterir.
 - Veri bütünlüğünü sağlar. (misal "Sipariş" tablosundaki `customer_id`, "Müşteri" tablosundaki `id`'ye referans olur.)
 - Foreign key sayesinde veri **ilişkisel** hâle gelir; kopuk değil, bağlamlı olur.
-- Bir yabancı anahtar sütunu `NULL` değerler ieçrebilir. Bir çalışanın henüz atanmış bir departmanı yoksa `departman_id`'si boş olabilir mesela.
+- Bir yabancı anahtar sütunu `NULL` değerler içerebilir. Bir çalışanın henüz atanmış bir departmanı yoksa `departman_id`'si boş olabilir mesela.
 - Bir tabloda birden fazla yabancı anahtar olabilir. `Siparişler` tablosunda hem `customer_id`hem de `product_id` yabancı anahtarları bulunabilir.
 
 # Normalizasyon
@@ -26,10 +35,15 @@
 - Veriyi "en sade ve anlamlı forma" getirmeyi amaçlarız. 
 
 ## Normalizasyonun Amaçları
+- Bkz. [[Normalizasyon Örnek]]
+
 - Veri tekrarını azaltmak.
 - Veri tutarlılığını sağlamak.
 - Depolamayı verimli kullanmak.
 - Veri anomalilerini (Ekleme, Güncelleme, Silme) önlemek.
+	- **[[Ekleme Anomalisi]] (*Insertion Anomaly*)**: Birbiriyle ilişkili olmayan verileri aynı anda girmeden yeni bir kayıt ekleyememe durumu.
+	- **[[Güncelleme Anomalisi]] (*Update Anomaly*)**: Tek bir veriyi değiştirmek için birden fazla kaydı güncellemek zorunda kalma ve bu sırada tutarsızlık yaratma riski.
+	- **[[Silme Anomalisi]] (*Deletion Anomaly*)**: Bir veriyi silerken onunla birlikte silinmemesi gereken başka bir veriyi de kaybetme riski.
 ### Avantajları
 - **[[Consistency|Tutarlılık]] (Consistency)**: Aynı veri bir yerde tutulur.
 - **[[verimlilik|Verimlilik]] (Effiency)**: Daha az depolama.
@@ -41,15 +55,17 @@
 ## Normalizasyon Aşamaları
 - Normalizasyon seviyeleri arttıkça kurallar daha da katılaşır. Genellikle pratikte 3NF veya BCNF yeterli görülür.
 
-
 ### 1NF (Birinci Normal Form)
-- Tablodaki her bir hücre (alan) yalnızca tek bir değer ([[atomik değer]]) içermelidir. Çok değerli sütunlar (birleşik veriler) olamaz.
-- Her kaydın benzersiz bir birincil anahtarı ([[primary key]]) olmalıdır.
-- Boşluklar ortadan kaldırılmalı.
+- Her sütun (alan) **yalnızca tek bir,bölünemez değer** (*[[atomik değer]]*) içermelidir.
+	- Bir diğer deyişle, *tüm alanlar atomik (bölünemez) olmalıdır*. Çok değerli veya birleşik sütunlar bulunmamalıdır.
+	- Örneğin "`Adres`" alanı hem  `Sokak` hem `Şehir` içeriyorsa **atomik değildir** ve ayrı sütunlara ayrılmalıdır..
+- **Her kayıt** kendine özgü bir **birincil anahtarla (*[[primary key]]*)** tanımlanmalıdır.
+- **Tekrarlayan veya boş veri** olmamalıdır.
+
 ### 2NF
 - Tablo 1NF olmak zorundadır.
 - Birincil anahtar olmayan sütunların tamamı birincil anahtarın tamamına tam olarak bağımlı olmalıdır. Bu kural özellikle birden çok sütundan oluşan bileşik birincil anahtarlar ([[composite primary keys]]) için geçerlidir.
-- Eğer bir sütun birleşik anahtarın sadece bir kısmına bağlıysa, bu kısmî bağımlılıktır ve 2NF'ye aykırıdır. Bu durumda tablo bölünmelidir (anahtar alanlara ya da konulara göre).
+- Eğer bir sütun birleşik anahtarın sadece bir kısmına bağlıysa, bu [[kısmî bağımlılık|kısmî bağımlılıktır]] ve 2NF'ye aykırıdır. Bu durumda tablo bölünmelidir (anahtar alanlara ya da konulara göre).
 	- Kavramsal olarak birbirine yakın alanlar ayrı tablolara bölünür.
 - Veri tekrarı olmamalıdır.
 - Ana tablo ile ilişkili tablolar arasında anahtar kullanılarak ilişkiler tanımlanmalıdır. (PK, KF).
@@ -60,7 +76,7 @@
 	- Örneğin `Siparişler` tablosunda `MüşteriID`, `MüşteriAdı` ve `SiparişTarihi` varsa `MüşteriAdı`, `MüşteriID`'ye bağlıdır. `MüşteriID` ise birincil anahtara bağlıdır. Bu bir geçişli bağımlılıktır ve `MüşteriAdı` ayrı bir `Müşteriler` tablosuna taşınmalıdır.
 - Anahtar olmayan hiçbir kolon, anahtar olmayan başka bir kolona bağlı olmamalıdır.
 - Her kolon eşsiz (primary) anahtara tam bağlı olmalıdır.
-### BCNF (Boyce-Codd Normal Formu)
+#### BCNF (Boyce-Codd Normal Formu)
 - 3NF'nin daha katı bir versiyonudur.
 - Tablodaki her bir belirleyicinin (determinant) bir aday anahtar ([[candidate key]]) olması gerekir. Basitçe, bir sütunun değerini belirleyen her sütun grubu, o tablonun birincil anahtarı olabilecek nitelikte olmalıdır.
 - Pratikte çoğu 3NF tasarımı aynı zamanca BCNF'dir.
