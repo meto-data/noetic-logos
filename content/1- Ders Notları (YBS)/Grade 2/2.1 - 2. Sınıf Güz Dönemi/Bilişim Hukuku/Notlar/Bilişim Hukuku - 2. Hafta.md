@@ -2,9 +2,7 @@
 title: Bilişim Hukuku - 2. Hafta
 ---
 
-
-
----
+- LryuscFe34HEcv754b&+^asci%3!
 
 - **Soru**: "Doğrudan bilişim suçları nelerdir? Bilişim sistemine girme suçunda korunan hukuksal değer nedir? Bu suçun maddî unsurunu da izah ederek detaylıca açıklayınız."
 ---
