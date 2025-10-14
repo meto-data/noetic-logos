@@ -217,7 +217,7 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 - Başlıca yabancı kaynaklar şunlardır:
 	- Satıcılar (Kredili mal alımları -*Satıcılardan borçlanma malın bedelini ileri bir tarihte ödemek üzere vadeye yaymaktır. İşletmeye kısa süreli finansman sağlar.*)
 	- **[[Finansal Kuruluşlar]]** 
-	- **[[Devlet Kuruluşları]]** 
+	- **[[devlet kuruluşları|Devlet Kuruluşları]]** 
 	- **[[Sermaye Piyasaları|Para ve Sermaye Piyasaları]]**
 
 > [!note] Para Piyasası vs. Sermaye Piyasası
