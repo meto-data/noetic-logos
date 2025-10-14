@@ -1,3 +1,7 @@
+---
+title: Veri Tabanı Yönetim Sistemleri - 2. Hafta
+---
+
 #### [[Tablo]]
 - Verilerin *satır* ve *sütun* hâlinde saklandığı yapılar. 
 - Her tablo belli bir konuyu (örn: `Filozoflar`) ifade eder.
@@ -68,7 +72,7 @@
 - Eğer bir sütun birleşik anahtarın sadece bir kısmına bağlıysa, bu [[kısmî bağımlılık|kısmî bağımlılıktır]] ve 2NF'ye aykırıdır. Bu durumda tablo bölünmelidir (anahtar alanlara ya da konulara göre).
 	- Kavramsal olarak birbirine yakın alanlar ayrı tablolara bölünür.
 - Veri tekrarı olmamalıdır.
-- Ana tablo ile ilişkili tablolar arasında anahtar kullanılarak ilişkiler tanımlanmalıdır. (PK, KF).
+- Ana tablo ile ilişkili tablolar arasında anahtar kullanılarak ilişkiler tanımlanmalıdır *(PK, KF).*
 
 ### 3NF
 - Tablo 2NF olmak zorundadır.
@@ -93,9 +97,9 @@
 ### 6NF
 - Pratikte çok kullanılmaz.
 - Bu form bir tablonun bir birincil anahtar ve en fazla bir tane anahtar olmadan sütundan oluşacak şekilde parçalanmasını önerir. Amaç, zamansal veri tabanlarında (temporal databases) verinin zaman içindeki değişimini daha etkili yönetmektir.
-### Normalizasyonun Amaçları
 
-#### Veri Fazlalılığı ve Veri Artıkları
+
+## Veri Fazlalılığı ve Veri Artıkları
 - **[[Veri Fazlalığı (Data Redundancy)]]**: Aynı bilginin gereksiz yere birden fazla tabloda veya aynı tablonun birden fazla satırında tekrarlanması durumu. Örneğin her sipariş kaydında müşterinin adını ve adresini saklamak yerine sadece müşteri ID'sini saklamak ve müşteri bilgilerini ayrı bir `Müşteriler` tablosunda tutmak veri fazlalığını önler. Normalizasyonun temel hedeflerinden biri bunu azaltmaktır.
 - **[[Veri Artıkları (Data Residue)]]**: Genellike fiziksel veri depolama katmanında silinmiş veya taşınmış verilerden geriye kalan izleri ifade eder. Veri tabanı yönetim sistemleri bu tür artıkları temizlemek için mekanizmalara sahiptir. Mantıksal tasarım aşamasındaki normalizasyon ile doğrudan ilgili değildir.
 

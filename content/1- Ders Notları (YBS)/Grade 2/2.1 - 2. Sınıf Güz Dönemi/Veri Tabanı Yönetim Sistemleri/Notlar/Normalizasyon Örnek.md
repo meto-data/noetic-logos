@@ -1,8 +1,5 @@
 ## 0NF (un-normalized - flat table) -  `Ogrenci_Ders`
 
-> [!important] Not!
-> `Aldigi_Ders_ve_Egitmenler` sütunundaki isim ve soyisimleri birleşik varsayacağız.
-
 
 | `Ogrenci_No` | `Ogrenci`    | `Aldigi_Ders_ve_Egitmenler`                                  |
 | ------------ | ------------ | ------------------------------------------------------------ |
