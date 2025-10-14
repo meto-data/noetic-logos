@@ -5,6 +5,7 @@ ders: "[[Finansal Yönetim]]"
 created: "[[2025-10-08]]"
 cssclasses:
   - ders-notu
+date: 2025-10-08
 ---
 
 # 1. İşletme ve Finansal Yönetimin Rolü
