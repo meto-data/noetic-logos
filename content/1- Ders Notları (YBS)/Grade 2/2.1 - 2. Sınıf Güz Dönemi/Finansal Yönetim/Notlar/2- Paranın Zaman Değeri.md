@@ -71,8 +71,9 @@ cssclasses:
 ## [[Basit Faiz]] (Simple Interest)
 - Genellikle organize (standart) olmayan, **[[tezgâh üstü]] (*OTC / over-the-counter*)** olarak adlandırılan, tarafların doğrudan anlaştığı piyasalarda kullanılır.
 
-- Faize faizin yürütülmediği, yani faizin her zaman sadece başlangıçtaki [[ana para]] üzerinden hesaplandığı faiz türüdür. <br>
-$$\text{Faiz Tutarı (F) =} \text{Anapara (BD)}\times \text{Faiz Oranı (i)} \times \text{ Vade (n)}$$
+- Faize faizin yürütülmediği, yani faizin her zaman sadece başlangıçtaki [[ana para]] üzerinden hesaplandığı faiz türüdür. 
+ <br>
+ $$\text{Faiz Tutarı (F) =} \text{Anapara (BD)}\times \text{Faiz Oranı (i)} \times \text{ Vade (n)}$$
 
 $$= \boxed{\frac{BD \times i \times n}{100}}$$
 - $F$: Faiz Tutarı (*Interest Amount*)
