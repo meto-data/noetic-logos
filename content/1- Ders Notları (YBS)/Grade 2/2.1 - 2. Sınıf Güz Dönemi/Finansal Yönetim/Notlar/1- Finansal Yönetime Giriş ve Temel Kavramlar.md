@@ -218,7 +218,7 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 	- Satıcılar (Kredili mal alımları -*Satıcılardan borçlanma malın bedelini ileri bir tarihte ödemek üzere vadeye yaymaktır. İşletmeye kısa süreli finansman sağlar.*)
 	- **[[Finansal Kuruluşlar]]** 
 	- **[[devlet kuruluşları|Devlet Kuruluşları]]** 
-	- **[[Sermaye Piyasaları|Para ve Sermaye Piyasaları]]**
+	- **[[sermaye piyasaları|Para ve Sermaye Piyasaları]]**
 
 > [!note] Para Piyasası vs. Sermaye Piyasası
 > Finansal piyasalar temelde ikiye ayrılır:
@@ -310,7 +310,7 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 		2. Bir şirketin toplam satış hasılatı (**revenue/turnover**). "Bu ay 1 milyon TL ciro yaptık" denildiğinde kastedilen ikinci anlamdır.
 ###### Güvenlik ve Taraflar
 - **Çek ve Banka İlişkisi**: Çekte ödemeyi yapma borcu altında olan taraf (muhatap) her zaman bir **bankadır**. Bu durum alacaklı için senede göre daha büyük bir güvence sağlamaktadır. Banka, hesapta para varsa ödemeyi yapmakla yükümlüdür.
-- **[[Keşideci]] (Drawer / Issuer)**: *Çeki düzenleyen, yazan, imzalayan*, bankaya “şu kadar parayı öde” talimatı veren kişi.
+- **[[keşideci|Keşideci]] (Drawer / Issuer)**: *Çeki düzenleyen, yazan, imzalayan*, bankaya “şu kadar parayı öde” talimatı veren kişi.
 - **[[Lehtar]] (Payee / Beneficiary)**: Çek, senet veya poliçe bedelini tahsil etme hakkına sahip olan alacaklı kişi veya kurum. Çekte ismi yazılı olan kişi.
 - **[[Hamil]] (Holder)**: Çeki elinde bulunduran ve bankara [[ibraz]] eden kişi. Çeki lehtardan da devralmış olabilir.
 - **Muhatap**: Ödemeyi yapmakla görevlendirilen kurum (**banka**).
