@@ -51,7 +51,7 @@ title: Bilişim Hukuku - 2. Hafta
 
 ## [[Suçun Unsurları]]
 ### 1. Maddî Unsur  (*Objektif Tipiklik*)
-- Dış dünyadaki **insan fiili**.  Düşünce, niyet veya duygu geçerli değildir. **Davranış** olması şart.
+- Dış dünyadaki **insan fiili**. Düşünce, niyet veya duygu geçerli değildir. **Davranış** olması şart.
 ### 2. Manevî Unsur (*Subjektif Tipiklik*)
 - Failin zihinsel ve iradî bağlantısıdır.
 	- Yapılan eylem *bilerek ve isteyerek* mi yapıldı (**kasıt**) yoksa *dikkatsizlik, özensizlik, öngörüsüzlükle* (**taksir**) mi yapıldı?
