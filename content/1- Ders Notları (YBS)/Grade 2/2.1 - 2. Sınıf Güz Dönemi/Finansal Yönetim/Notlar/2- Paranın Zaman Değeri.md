@@ -8,6 +8,16 @@ cssclasses:
 date: 2025-10-08
 ---
 
+
+> [!tip] Sınav Kapsamı
+> - **Sayısal Sorumluluk:**
+>   1.  Basit Faiz Hesaplaması
+>   2.  Bileşik Faiz Hesaplaması
+>   3.  Normal Anüitenin Gelecek Değeri Hesaplaması
+> - **Sözel Sorumluluk:**
+>   - Peşin anüite, anüitenin bugünkü değeri gibi diğer konuların  *tanımları* sorulabilir,  ancak sayısal işlem bakımından diğerlerinin çıkmayacağını dile getirdi hoca. Tanımını, mantığını vb. sorar sadece, formül ezberleme durumu yok.
+
+
 # 1. İşletme ve Finansal Yönetimin Rolü
 ## 1.1. [[Muhasebe ve Finans Depertmanı Arasındaki İlişki]]
 - Finans yönetimi, muhasebenin sağladığı verilerle başlar. Muhasebe departmanı, işletmenin finansal işlemlerini kaydeder, sınıflandırır ve özetleyerek finansal tabloları (bilanço, gelir tablosu vb.) oluşturur. 
@@ -115,6 +125,7 @@ $$\text{Gelecek Değer} = \text{Ana Para } + \text{ Faiz Tutarı}$$ <br>
 ---
 
 ## [[Bileşik (Nominal) Faiz]] (Compound Interest)
+- Anüite, taksit, kredi kartı borcu... Bunların hepsinin temelinde bileşik faiz vardır.
 - Basit faizden tek ve en önemli farklı **kazanılan faizin de faiz kazanmasıdır**.
 - Her dönemin sonunda kazanılan faiz ana paraya eklenir ve bir sonraki dönemde faiz, bu yeni ve daha büyük ana para üzerinden hesaplanır. Para bu şekilde zamanla doğrusal olarak değil, **üslü (exponential)** olarak artar. 
 
@@ -138,6 +149,9 @@ $$\text{Gelecek Değer} = \text{Ana Para } + \text{ Faiz Tutarı}$$ <br>
 - $i$: Dönemlik faiz oranı
 - $n$: Dönem sayısı
 
+>[!faq] Formüldeki "+1" de neyin nesi?
+>O "+1" ana paranın kendisi demek. Yani paranın kaybolmamasını sağlıyor. `1000 x 0,10` yaparsan sadece faizi bulursun. `1000 x (1 + 0,10)` yaparsan hem ana parayı hem faizi tek seferde hesaplarsın. 
+
 
 ---
 
@@ -147,6 +161,92 @@ $$\text{Gelecek Değer} = \text{Ana Para } + \text{ Faiz Tutarı}$$ <br>
 - $BD_0$: $1.000₺$
 - $i$: $0,20$
 - $n$: $10$ yıl
-- $GD_n$:  $1.000 \times (1+0,20)^{10} = 1.000 \times 6,1917 = 6.192,7$₺
+- $GD_n$:  $1.000 \times (1+0,20)^{10} = 1.000 \times 6,1917 = 6.191,70$₺
 
 ---
+
+### Bileşik Faiz ve Gelecek Değer
+- Yılda birden fazla faiz ödemesinin söz konusu olduğu durumlarda **faiz oranı**, *bir yıldaki faiz ödeme sıklığına* bölünür, **süre** de *faiz ödeme sıklığı* kadar artırılır.
+ 
+##### $$\begin{aligned} 
+GD_n &= BD \space \left(1 + \frac{i}{m} \right)^{n\times m} \\ \\ 
+m&= \text{Bir yıldaki faiz ödeme sıklığı.}
+\end{aligned}$$
+<br>
+
+![[compound_interest_graph.png]]
+
+---
+
+#### Örnek
+
+> Bir yatırımcı %10 faiz oranı üzerinden 1.000 TL'sini bileşik faiz üzerinden bankaya yatırmıştır. Ana paraya 6 ayda bir faiz ödemesi söz konusu olsaydı ikinci yılın sonundaki tutar kaç TL olacaktı?
+
+
+- $n = \text{ Yıl}$
+
+- $1.000 \times (1 + \frac{0,10}{2})^{2 \times 2}$
+- $\space \space= 1000 \times (1,05)^4 = 1.215,5$₺
+
+
+---
+
+
+## Anüiteler (Düzgün Nakit Akışları)
+- **[[anüite|Anüite]]**: “annuity / annuite / annuitatem / annuitās” formları **Orta Latin / Anglo-Fransızca** kökenlidir ve doğrudan Latince **annus** (“yıl”) kelimesinden türemiştir. İngilizce “annuity” kelimesi 15. yüzyılda geçerken “a yearly allowance, grant payable in annual installments (**Her yıl -ya da belli periyotlarda- düzenli ve eşit miktarda ödeme**)” anlamında kullanılmıştır.
+- Belirli bir süre boyunca, **eşit zaman aralıklarında** (her ay, her yıl vb.) ve **eşit miktarda** gerçekleşen para ödemeleri veya tahsilatları serisine **[[anüite]]** denir.
+
+> [!important]
+> **Eşit miktar** ve **eşit zaman aralığı** varsa anüitelerden bahsedilebilir.
+
+
+###### Örnekler
+- Banka kredisinin aylık taksitleri 
+- Ev kirası
+- Emeklilik için her ay Bireysel Emeklilik Sistemine (BES) yatırılan para.
+
+#### Anüite Türleri
+##### 1- Normal (Sıradan) Anüite (Ordinary Annuity / End-of-Period Annuity)
+- Her dönemin **sonunda** ödeme yapılır.
+	- *Kredi taksitleri gibi* (1 Ocak'ta kredi alırsan 1 Şubat'ta değil, 31 Ocak sonunda ödersin.)
+	- Kredi kartı borcu veya banka kartı taksitleri.
+##### 2- Peşin Anüite (Annuity Due / Beginning-of-Period Annuity)
+- Her dönemin **başında** ödeme yapılır.
+	- *Ev kiraları gibi* (Ayın başında ödenir ve o ay yaşanır.)
+	- Ev kirası, sigorta primi vesair.
+
+### Anüite'nin Gelecek Değeri (GDFA - Gelecekteki Değer Faktörü Anüite) 
+
+#### Normal Anüite
+
+$$GDFA (n,i) = BD \times \frac{(GDF) -1}{i} = BD \times  \frac{(1+i)^n -1}{i}$$
+
+- **BD**: Bir dönemlik ödeme. Her yıl yatırılan sabit tutar.
+- $i$: Faiz oranı.
+- $GDF = (1+i)^n \to$ **Gelecek Değer Faktörü**. Tek bir paranın *n* yıl sonraki değeri.
+- $n \to$ **dönem sayısı.**
+
+
+---
+
+#### Örnek 
+
+>  Bir banka hesabına 4 yıl boyunca her yılın sonunda 10.000₺ para yatırılır ise faiz oranı %10 olması durumunda 4. yılın sonunda hesapta ne kadar para olur?
+
+
+> [!important] İşlem
+> Düzenli ve **her yılın sonunda** yatırıldığı için Normal/Sıradan anüitedir. Sınavda *sayısal* olarak bu anüiteden sorumlu tutulacağız, dolayısıyla diğer anüite soruları bu notlara dâhil değildir.
+
+
+##### $GDFA(n,i) = BD \times \frac{(1+i)^n-1}{i}$
+##### $GDFA(4, 0.10) = 10.000 \times \frac{(1,10)^4 -1}{0,1}$
+##### $\space \space \space \space \space = 10.000 \times \frac{0,4641}{0,1} = 10.000 \times 4,641 = 46.410$₺
+
+---
+
+#### Örnek
+
+> Her yıl sonunda bankaya yatırılan %10 faiz üzerinden 1.000₺ 3. yılın sonunda kaç ₺'ye ulaşır?
+
+
+##### $GDFA(3, 0.10) = 1.000 \times \frac{(1.10)^3-1}{0.1} = 3.310$₺

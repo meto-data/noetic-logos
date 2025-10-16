@@ -1,2 +1,2 @@
-- Belirli bir tarihte işletmenin varlıklarını ve bu varlıkların edinildiği kaynakları gösteren finansal tabloya **[[Bilanço]]** denir. 
+- Belirli bir tarihte işletmenin varlıklarını ve bu varlıkların edinildiği kaynakları gösteren finansal tabloya **[[Bilanço Tablosu|bilanço]]** denir. 
 - Finansal durum tablosudur.

@@ -1,5 +1,5 @@
 ---
 title: Makale İnceleme ve Özet
-draft: true
+draft: false
 ---
 Spesifik olarak makalelere ayrılmıştır. 

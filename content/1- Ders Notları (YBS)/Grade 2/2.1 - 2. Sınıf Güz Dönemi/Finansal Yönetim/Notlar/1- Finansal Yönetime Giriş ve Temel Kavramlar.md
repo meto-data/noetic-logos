@@ -57,6 +57,7 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 - Bu paranın geri ödenme zorunluluğu yoktur. Parayı koyan kişi işletmenin sahibi olur. Karşılığında ise işletme üzerinde **söz hakkı (hissedarlık)** ve gelecekteki **kârdan pay alma hakkı ([[temettü]])** elde eder.
 - İşletme batarsa ilk önce bu para yanar. Alacaklılar (bankalar vb.) paralarını aldıktan sonra geriye bir şey kalırsa, öz sermaye sahipleri paralarını geri alabilir. 
 	- Bu yüzden **risk sermayesi** de denir.
+- Kâr hesapları (Dönem Net Kârı, Geçmiş Yıllar Kârları) doğrudan öz sermayeyi artırdığı için işletme sahiplerini (ortakları) simgeler. Kâr arttıkça ortakların işletmedeki serveti de artar.
 
 <br>
 
@@ -91,11 +92,11 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 
 #### Şahıs Şirketleri (Kollektif, Komandit)
 - Ortakların kişiliğinin ve emeğinin ön planda olduğu şirketlerdir. 
-- Ortaklar şirketin borçlarından **tüm şahsi mal varlıklarıyla sınırsız** olarak sorumludur.
-#### Sermaye Şirketleri (Anonim, Limited)
+- Ortaklar şirketin borçlarından **tüm şahsi mal varlıklarıyla sınırsız** olarak sorumludur. Donunuza kadar alırlar yani.
+#### Sermaye Şirketleri (Anonim -A.Ş., Limited -Ltd.)
 - Ortakların gelir getirdiği sermaye esastır. 
 - Ortakların sorumluluğu şirkete getirmeyi taahhüt ettikleri **sermaye payı ile sınırlıdır**.
-- Şirketin borçlarından dolayı kişisel mal varlıklarına (kural olarak) gidilemez.
+- Şirketin borçlarından dolayı kişisel mal varlıklarına (kural olarak) gidilemez. Güvence şirketin sermayesidir.
 
 
 > [!important] Neden "Sermaye Şirketleri" deniliyor?
@@ -179,10 +180,11 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 
 > [!paperclip]
 > Pasif yapıyla ilgili olan *en uygun fonu sağlamak* ve aktif yapıyla ilgili olan bu fonları *en verimli şekilde dağıtmak* ile ilgilinir. 
-## 3.1. [[Finansal Analiz]]
+## 3.1. [[Finansal Analizi Kimler Yapar|Finansal Analiz]]
 - Firmalarda tutarlı kararların alınabilmesi açısından ilk basamağı oluşturur. Finansal analiz yapılarak işletmelerin mevcut durumları saptanır ve geçmişe yönelik durumu tespit edilip değerlendirilerek geleceğe ilişkin kararlar alınır. Öngörü yapılır ve hedef sayısallaştırılabiliyorsa mutlaka sayısal hâle getirilir.
 	- Bkz. **[[Muhasebenin Beş İşlevi]]**
 	- Konunun daha iyi anlaşılması için muhasebeyi tekrar etmek gerekiyor.  ([[Varlıklar]]), ([[2- Hesap Kavramı ve Hesapların İşleyişi]]), ([[3- Hesapların İşleyiş Kuralları]])
+- Bkz. [[Finansal Analizi Kimler Yapar]]?
 ## 3.2. [[Finansal Planlama ve Denetim]]
 - **Finansal Planlama**: Gelecekle ilgili risk ve belirsizlikleri içerir. Amacı gelecekte ihtiyaç duyulacak fonları belirlemek ve etkili bir şekilde kullanımını sağlamaktır. 
 - **Finansal Denetim**: Gelecekle ilgili beklentilerin değişmesi veya planlara uymayan uygulamalar denetim fonksiyonu ile izlenir. Böylece planlardan sapmalar tespit edilerek zamanında düzenlemeler yapılır.
@@ -216,7 +218,7 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 - Firmanın, sahipleri dışındaki üçüncü kişi veya kurumlardan belirli bir **[[vadeli|vade]]** sonunda faiziyle birlikte geri ödemek koşuluyla sağladığı fonlardır. Üçüncü şahısların işletme varlıkları üzerindeki hakları da denilebilir.
 - Başlıca yabancı kaynaklar şunlardır:
 	- Satıcılar (Kredili mal alımları -*Satıcılardan borçlanma malın bedelini ileri bir tarihte ödemek üzere vadeye yaymaktır. İşletmeye kısa süreli finansman sağlar.*)
-	- **[[Finansal Kuruluşlar]]** 
+	- **[[Finansal Kuruluşlar]]** (paraya sıkıştığında kapısını çalacağın yerler)
 	- **[[devlet kuruluşları|Devlet Kuruluşları]]** 
 	- **[[sermaye piyasaları|Para ve Sermaye Piyasaları]]**
 
@@ -226,7 +228,7 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 > - **[[sermaye piyasaları|Sermaye Piyasası]] (Capital Market)**: Bir yıldan *uzun vadeli* fonların ve [[Menkul Kıymetler|menkul kıymetlerin]] işlem gördüğü piyasadır. İşletmelerin büyük ve uzun süreli yatırımlarını (fabrika kurmak vb.) finanse etmek için başvurduğu yerdir.
 
 #### [[Devlet Kuruluşları]]
-- Bir işletme kâr elde ettiğinde bu kâr üzerinde ilk hak sahibi devlettir. Vergiler işletme için ödenmesi zorunlu bir borçtur ve **[[Bilanço|bilançoda]]** "Yabancı Kaynak" kalemi olarak yer alır. Bu borç ödendikten sonra kalan net kâr ortaklar ve firma arasında paylaştırılabilir.
+- Bir işletme kâr elde ettiğinde bu kâr üzerinde ilk hak sahibi devlettir. Vergiler işletme için ödenmesi zorunlu bir borçtur ve **[[Bilanço Tablosu|bilançoda]]** "Yabancı Kaynak" kalemi olarak yer alır. Bu borç ödendikten sonra kalan net kâr ortaklar ve firma arasında paylaştırılabilir.
 - Ödenecek vergiler ve SGK primleri gibi kamu borçlarının vadesi gelene kadar bu tutarlar işletmenin kasasında kalır. Bu sürece **[[tahakkuk]]** denir ve bu süre zarfında para, işletme için geçici bir fon kaynağı (*emanette tutma*) işlevi görür.
 
 ##### [[Geçici Vergi Sistemi]]
@@ -252,7 +254,8 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 ###### Tahviller (Bond)
 - Ayrıntılı bilgi için (bkz. [[Tahviller]])
 - Devletin veya anonim şirketlerin bir yıldan daha uzun vadeli fon sağlamak amacıyla çıkardıkları borçlanma senetleridir.
-- **[[Kuponlar]]**: Tahvilin üzerinde bulunan ve belirli dönemlerde yatırımcıya yapılacak olan **faiz ödeme yükümlülüğünü** gösteren belgelerdir.
+- **[[Kuponlar]]**: Tahvilin üzerinde bulunan ve belirli dönemlerde (örneğin 6 ayda bir) yatırımcıya yapılacak olan **faiz ödeme yükümlülüğünü** gösteren belgelerdir. **Tahvilin faiz taksitidir.**
+	- "**Kupon oranı**" tahvilin yıllık faiz oranını belirtir. "Kupon ödeme sıklığı" ise yılda kaç kez faiz ödeneceğini gösterir. Mesela 10. kupon ödemesi 10. faiz taksitinin ödenmesi demektir. Daha detaylı bilgi için kuponlar linkine tıklayınız.
 - **[[Devlet Tahvili]]**: Devletin uzun vadeli yatırım projelerini finanse etmek için çıkardığı borçlanma senedidir.
 - **[[Özel Kesim Tahvili]] (Corporate Bond)**: Anonim şirketlerin yatırım gibi uzun vadeli finansman ihtiyaçlarını çıkardıkları tahvillerdir.
 	- **Eurobond**: Devletlerin veya şirketlerin uluslararası piyasalardaki **yabancı para birimi cinsinden** (genellikle *Euro* veya *Dolar*) ihraç ettikleri uzun vadeli tahvillerdir (Ayrıntılı bilgi için bkz. [[Eurobond]]).
@@ -262,10 +265,11 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 - Fonların sağlanmasının yanında etkin bir şekilde kullanılması daha büyük bir önem taşımaktadır. Tüm dönen ve sabit varlıklara yatırım finansal yönetimin en büyük işlevlerinden biridir. Amaç [[atıl varlıklar]]'ın en az seviyede olmasını -hatta hiç olmamasını sağlamaktır.
 ### 3.4.1. [[Duran Varlık Yatırımları]] (Uzun Vadeli Yatırımlar)
 #### [[Malî Duran Varlıklar]] (Finansal Yatırımlar)
+- Bkz. [[Yatırım]]
 - Bir firmanın başka bir firmanın yönetimine katılmak veya temettü elde etmek amacıyla edindiği hisse senetleri gibi uzun vadeli varlıklardır.
-	- **[[Bağlı Menkul Kıymet]]**: Başka bir şirkette sahip olunan pay oranının %$0$ ile %$10$ arasında olmasıdır. Yönetimde fazla söz hakkı yoktur, amaç genellikle gelir elde etmektir.
-	- **[[İştirak]]**: Pay oranının %$10$ ile %$50$ arasında olmasıdır. Yönetimde kısmî söz hakkı vardır.
-	- **[[Bağlı Ortaklık]]**: Pay oranının **%$50$'den fazla (%$51$ ve üzeri)** olmasıdır. Bu durumda ana şirket, bağlı ortaklığın yönetiminde çoğunluk hissesi sayesinde kontrol ve karar yetkisine sahip olur. 
+	- **[[Bağlı Menkul Kıymet]]**: Başka bir şirkette sahip olunan pay oranının %$0$ ile %$10$ arasında olmasıdır. Yönetimde fazla söz hakkı yoktur, amaç genellikle gelir elde etmektir ([[Portföy Yatırımı|Portföy yatırımıdır]]).
+	- **[[İştirak]]**: Pay oranının %$10$ ile %$50$ arasında olmasıdır. Yönetimde kısmî söz hakkı vardır ([[Doğrudan Yatırım|Doğrudan yatırımdır]]).
+	- **[[Bağlı Ortaklık]]**: Pay oranının **%$50$'den fazla (%$51$ ve üzeri)** olmasıdır. Bu durumda ana şirket, bağlı ortaklığın yönetiminde çoğunluk hissesi sayesinde kontrol ve karar yetkisine sahip olur ([[Doğrudan Yatırım|Doğrudan yatırımdır]]). 
 - Firma yatırım yaptığı bu iştirak ve bağlı ortaklıkların yıl sonunda dağıttığı kârdan, payı oranında temettü geliri elde eder. Bu gelir firmanın ana faaliyet dışı gelirlerinden biridir.
 #### 3.4.2. [[Dönen Varlıkların Yönetimi]] (Kısa Vadeli Varlıklar)
 - Firmanın günlük faaliyetlerini sürdürebilmesi için gerekli olan ve bir yıl içinde nakde dönüşmesi beklenen varlıkların yönetimi. 
@@ -295,13 +299,20 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 ##### B. Ticarî Alacakların Yönetimi (Vadeli Likidite) (Ödeme Vasıtası)
 - Firmanın mal veya hizmet satıp bedelini hemen değil de belirli bir vade sonunda almayı kabul ettiği durumlardır. Bu alacaklar kıymetli evrak denilen belgelerle güvence altına alınır. 
 - Bu alacaklar birer **ÖDEME VASITASI**'dır ve firma, nakde erişimi hızlandırmak için bu vasıtaların vadesini *minimuma indirmeye* çalışır.
+-  **[[Alacak Senetleri İskontosu]] (*Çek/Senet Kırdırma*)**: Vadesi gelmemiş bir alacak senedi veya çek bir bankaya veya [[Faktoring Şirketleri|faktoring şirketine]] götürülerek anında nakde çevirebilir.  Vadeye kadar olan süre için bir faiz (iskonto) kesintisi yapılır ve kalan tutarı işletmeye peşin ödenir. Buna *"geriye doğru faiz hesaplama"* işlemi denir ve acil nakit ihtiyacını karşılar.
+	- Kısaca gelecekteki paranın bugünkü değerini bulma işlemi işte bu iskonto denilen şey. Bağlamın daha net anlaşılması için linklerin de incelenmesi şart.
 ##### Senetsiz Alacaklar (Açık Hesap / Veresiye)
 - Satıcının alıcıya sadece fatura keserek, aradaki güvene dayanarak mal veya hizmet satması. Borç fatura üzerinde belirtilen vadede ödenir.
 ##### [[Senetli Alacaklar]] (Kıymetli Evraklar ve İşlemler)
 - Alacağın hukukî güvencesi yüksek olan [[çek]], [[senet]], [[poliçe]] gibi devredilebilir belgelerde güvence altına alınmasıdır.
 
 - **[[Senet]] (Bono)**: Borçlunun (düzenleyenin) alacaklıya (lehtara) belirli bir tarihte, belirli bir meblağı kayıtsız şartsız ödeme taahhüdünü içeren belge. İki taraf arasında düzenlenir.
-- **[[Çek]]**: Bir banka hesabından ödeme yapılması için düzenlenmiş bir ödeme emri. **Kredi aracı değil, ödeme aracıdır**. Üzerindeki tarihte ödenmesi esastır.
+- **[[Çek]]**: Bir banka hesabından ödeme yapılması için düzenlenmiş bir ödeme emri. **Kredi aracı değil, ödeme aracıdır**. Üzerindeki tarihte ödenmesi esastır. 
+	- Çek, banka güvencesi sunduğu için poliçe ve senede göre daha kıymetli bir evraktır. Karşılıksız çek düzenlemek ticarî itibarı zedeler ve "**kara listeye**" girme gibi ciddi yaptırımları vardır.* Poliçe ve senetten daha kıymetli bir evraktır çek. Neden? E arkasında banka var da ondan. Muhatabın babanın oğlu değil. Karşılıksız çek yazarsan piyasada adın çıkar, 'karşılıksız herif' derler sana, "**kara listeye**" alırlar ceza olarak. Bir daha kimseden de mal alamazsın. Tabii hükümette tanıdığın varsa durum başka.
+		- *İbraz Süreleri*: Çekin üzerinde yazan tarihten itibaren belirli süreler içinde bankaya sunulması gerekir. Sonsuza kadar cebine tutamazsın o çeki:         
+			1. **Aynı şehirde ise:** 10 gün        
+			2. **Farklı şehirlerde (aynı ülke) ise:** 1 ay         
+			3. **Farklı kıtalarda ise:** 3 ay içinde bankaya götüreceksin. Kaçırırsan geçmiş olsun.
 - **[[Poliçe]]**: Üç taraflı bir ilişkidir; düzenleyen ([[keşideci]]), borçlusuna (muhatap), alacaklısına (lehtar) ödeme yapması için emir verir.
 ###### İşlem ve Devir
 - **[[Ciro]]**: Kıymetli evrakların mülkiyetinin arka yüzünün imzalanarak başkasına devredilmesi işlemi. **Çek ve senetin ciro işlemi vardır!**
