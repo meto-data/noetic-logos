@@ -127,7 +127,7 @@ $$
 #### **Örnek**: $(5241)_6 + (3452)_6 \stackrel{?}{=}$
 
 $$
-\begin{array}{c@{}c@{}c@{}c@{}c} & & \boxed{1} & \overbrace{\boxed{1}}^{\text{ Elde var}} & \\[-1mm]  & (5 & 2 & 4 & 1)_6 \\ + & (3 & 4 & 5 & 2)_6 \\ \hline (1 & 3 & 1 & 3 & 3)_6 \end{array}
+\begin{array}{} & & \boxed{1} & \overbrace{\boxed{1}}^{\text{ Elde var}} & \\[-1mm]  & (5 & 2 & 4 & 1)_6 \\ + & (3 & 4 & 5 & 2)_6 \\ \hline (1 & 3 & 1 & 3 & 3)_6 \end{array}
 $$
 
 - Sadece uyarlama yapılması gerekiyor. $10$'luk sistemde nasıl toplama yapıyorsak bunu 6'lık sisteme uyarlayacağız. 10 olunca elde var demek yerine 6 olunca elde var demek gibi.
@@ -137,7 +137,7 @@ $$
 
 
 $$
-\begin{array}{c@{}c@{}c@{}c@{}c} & & \boxed{1} & \boxed{1} & \\[-1mm]  & (6 & 3 & 5 & 1)_7 \\ + & (4 & 6 & 3 & 5)_7 \\ \hline (1 & 4 & 3 & 1 & 6)_7 \end{array}
+\begin{array}{} & & \boxed{1} & \boxed{1} & \\[-1mm]  & (6 & 3 & 5 & 1)_7 \\ + & (4 & 6 & 3 & 5)_7 \\ \hline (1 & 4 & 3 & 1 & 6)_7 \end{array}
 $$
 
 ---
@@ -147,7 +147,7 @@ $$
 #### **Örnek**: $(5423)_6 - (1235)_6 \stackrel{?}{=}$
 
 $$
-\begin{array}{c@{}c@{}c@{}c@{}c} &  & 3 & 7 & 9 \space\space\space \\[-1mm]  & (5 & 4 & 2 & 3)_6 \\ - & (1 & 2 & 3 & 5)_6 \\ \hline & (4 & 1 & 4 & 4)_6 \end{array}
+\begin{array}{} &  & 3 & 7 & 9 \space\space\space \\[-1mm]  & (5 & 4 & 2 & 3)_6 \\ - & (1 & 2 & 3 & 5)_6 \\ \hline & (4 & 1 & 4 & 4)_6 \end{array}
 $$
 
 
@@ -156,7 +156,7 @@ $$
 
 
 $$
-\begin{array}{c@{}c@{}c@{}c@{}c} & \space 5  & 11 & 9 &  \space\space\space \\[-1mm]  & (6 & 5 & 2 & 4)_7 \\ - & (3 & 6 & 5 & 4)_7 \\ \hline & (2 & 5 &  4 & 0)_7 \end{array}
+\begin{array}{} & \space 5  & 11 & 9 &  \space\space\space \\[-1mm]  & (6 & 5 & 2 & 4)_7 \\ - & (3 & 6 & 5 & 4)_7 \\ \hline & (2 & 5 &  4 & 0)_7 \end{array}
 $$
 
 
