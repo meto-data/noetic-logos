@@ -21,7 +21,7 @@ cssclasses:
 <br>
 
 $$
-\left(\begin{array}{c@{\;\;}c@{\;\;}c}
+\left(\begin{array}{}
 a & b & c \\[4pt]
 \downarrow & \downarrow & \downarrow \\[4pt]
 a\cdot10^2  &+ \space  b\cdot10^1 & \space +c\cdot10^0
@@ -38,7 +38,7 @@ $$
 
 
 $$
-\left( \begin{array}{c@{\;\;}c@{\;\;}c@{\;\;}c} a & b & c & d \\[4pt] \downarrow & \downarrow & \downarrow & \downarrow \\[4pt] 
+\left( \begin{array}{} a & b & c & d \\[4pt] \downarrow & \downarrow & \downarrow & \downarrow \\[4pt] 
 a\cdot2^3 &+ \space b\cdot2^2 &+ \space c\cdot2^1 &+ \space d\cdot2^0 \end{array} \right)_2 \to a.2^3 + c.2^1 + b.2^2 + a.2^3
 $$
 
