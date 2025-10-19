@@ -24,6 +24,8 @@ title: Veri Tabanı Yönetim Sistemleri - 3. Hafta
 - Veri tabanında hakkında bilgi tutulmak istenen her şey bir varlıktır.
 	- `Öğrenci`, `Ders`, `Öğretmen`, `Müşteri` vb.
 - **Gösterim**: Dikdörtgen (Rectangle).
+- Teknik tanımların canı cehenneme olm böyle tanım mı olur? Şu teknik tanımlar yapanların felsefî kavramları alıp eğip bükmesine öyle ayar oluyorum ki. Varlık dediğin hakkında bilgi tutulmak amacıyla **modellenilebilen** soyut (idea olarak varlığını sürdüren) veya somut (gözle görülebilen) nesne, olay veya olgu denilebilir illa bunu VT bağlamında ifade edeceksek. Modellenebilir olması gerekir. Modellenemeyen bir varlığı veri tabanında ifade edemeyiz nihayetinde, dolayısıyla veri tabanında da yer alamaz. 
+	- Şeffaf olması gerekir, içkin yapısı itibariyle gözlemlenebilirliğei ölçülebilirliğe «rasyo» ve tanımlanabilirliğe dayanması şeffaflıkla mümkün olabilir.  Modellenebilmesi için ön koşul budur.
 ### Varlık Kümesi (Entity Set)
 - Aynı türdeki ve aynı özelliklere sahip varlıkların oluşturduğu kümedir.
 - **Örnek**: Okuldaki tüm öğrencilerin oluşturduğu `Öğrenci` varlık kümesi.
@@ -31,6 +33,7 @@ title: Veri Tabanı Yönetim Sistemleri - 3. Hafta
 - Bir varlığı tanımlayan ve niteleyen özelliklerdir. **Her varlık kümesi bir dizi nitelikle tanımlanır.**
 - **Örnek**: `Öğrenci` varlığının `OgrenciNo`, `Ad`, `Soyad`, `DogumTarihi` gibi nitelikleri vardır.
 - **Gösterim**: Elips (Oval) ile gösterilir ve ait olduğu varlığa bir *çizgi* ile bağlanır.
+- **Karar vericinin** ve **son kullanıcının** isteklerine göre özellikler belirlenir.
 
 ### İlişki (Relationship)
 - İki veya daha fazla varlık kümesi arasındaki bağlantı veya etkileşim.
