@@ -1,5 +1,6 @@
 ---
 title: Veri Tabanı Yönetim Sistemleri - 1. Hafta
+date:
 ---
 ## DIKW Pyramid (Data - Information - Knowledge - Wisdom)
 - Daha ayrıntılı bilgi için bkz. [[2- Zekâ, DIKW]]
