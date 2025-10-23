@@ -36,7 +36,7 @@
 		- Yeryüzündeki ve evrendeki canlılığı resmeden, ifade edilişi sonsuz.
 		- Logosla (akıl) ateş ilişkisi
 			- Logos $\neq$ Ateş
-			- Ateşin canlılığı aynı zamanda aklî unsurun (logosun) da metaforudur. "Ateşli ve tanrısal" bir akıldır.
+			- Ateşin canlılığı aynı zamanda aklî unsurun (logosun) da metaforudur. "Ateşl3i ve tanrısal" bir akıldır.
 ---
 
 - **Sarsılmazlık (Constantia)** = İstikrar hâli.

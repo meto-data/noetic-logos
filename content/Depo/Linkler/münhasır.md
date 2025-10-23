@@ -1,0 +1,1 @@
+Yalnız bir kimseye, bir şeye mahsus olan, başkasıyle ilgisi bulunmayan

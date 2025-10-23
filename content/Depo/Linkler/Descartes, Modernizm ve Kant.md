@@ -1,0 +1,12 @@
+- Modernizmin genel paradigması ölçüp biçilebilen, idrake müsait ve dolayısıyla biçim verilebilen bir doğa tasavvurudur.
+	- İnsan zekâsının karşısında hiçbir şey duramaz denilebilir, doğayı her şekilde ölçüp biçer mitostan ayırırız, amiyane tabiriyle *"rasyo'ya secde ediyoruz"* ve *"buranın Tanrı'sı artık biziz"* ilânı.
+	- Hem olana hem de olması gerekene ilişkin düşünce aşılamakta. 
+	- Batı aklı genelgeçer sayar, bu şekilde kendi kavramlarını ve dünyayı yorumlayış biçimlerini de genelgeçer ilân eder. 
+	- "Rasyo", "logos" ve mantıkî olan makûldür, duygusallık ise gerilenir ve irrasyoneldir, nihayetinde bu mitosa özgedir.
+- Descartesin derdi inşadır. Hem düşüncen hem mimarî olarak alınabilir bu inşa, adına **temelcilik** denir.
+	- Descartes sırtını rasyonaliteye dayamıştır. Kartezyen geometrinin önü de böyle açılmıştır, geometrinin pratik dünyaya uygulamıdır bu, her şeyde bir orantısallık (rasyo) arıyor zira.
+
+- Ardından Kant geliyor. Descartes'i epistemolojik anakronizm ile suçluyor; öznesini alıyor, Tanrı'sını ise çöpe atıyor. Nesne, yani numen (asıl/kendinde-şey - ding an sich) bilinemez, **nesnenin özneye aksedimi** bilinebilir diyor ki, bu fenomendir (hâdis). Şöyle bir önkabul var: Her ne kadar nesneye ilişemesek ve onun izlenimiyle [[münhasır]] kalsak dâhi bu izlenimler her birimizde eşit: Aynı filtreden, kategorilerden ve aynı kanallardan geçip ulaşmakta. Mutâbakat (uzlaşma-irtibat) güme gitmedi demek bu. Fenomen üzerinden hâlen ortak modeller tesis edebilir ve irtibat kurabiliriz.
+	- Noumen, bir yansıma olmaksızın, nesnenin bizzat kendinde ne olduğudur. 
+	- Modernitenin epistemolojik önkabülü [[müşterek]] bir zeminde konumlandığımız..
+	- Kant naiv realizmi topyekün terk ediyor, araya bariyer çekiyor. Özneye yansıyan [[fâsıl]] hâlâ mutabakata ve uzlaşıya müsait. Akıl, ran, ölçü, matematik vesair.
