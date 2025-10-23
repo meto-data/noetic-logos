@@ -216,7 +216,7 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 
 ### 3.3.2. [[Yabancı Kaynaklar]] (Dış Finansman - Borçlanma)
 - Firmanın, sahipleri dışındaki üçüncü kişi veya kurumlardan belirli bir **[[vadeli|vade]]** sonunda faiziyle birlikte geri ödemek koşuluyla sağladığı fonlardır. Üçüncü şahısların işletme varlıkları üzerindeki hakları da denilebilir.
-- Başlıca yabancı kaynaklar şunlardır:
+- <span style="color:darkred"><b>Başlıca yabancı kaynaklar şunlardır:</b></span>
 	- Satıcılar (Kredili mal alımları -*Satıcılardan borçlanma malın bedelini ileri bir tarihte ödemek üzere vadeye yaymaktır. İşletmeye kısa süreli finansman sağlar.*)
 	- **[[Finansal Kuruluşlar]]** (paraya sıkıştığında kapısını çalacağın yerler)
 	- **[[devlet kuruluşları|Devlet Kuruluşları]]** 
@@ -271,6 +271,15 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 	- **[[İştirak]]**: Pay oranının %$10$ ile %$50$ arasında olmasıdır. Yönetimde kısmî söz hakkı vardır ([[Doğrudan Yatırım|Doğrudan yatırımdır]]).
 	- **[[Bağlı Ortaklık]]**: Pay oranının **%$50$'den fazla (%$51$ ve üzeri)** olmasıdır. Bu durumda ana şirket, bağlı ortaklığın yönetiminde çoğunluk hissesi sayesinde kontrol ve karar yetkisine sahip olur ([[Doğrudan Yatırım|Doğrudan yatırımdır]]). 
 - Firma yatırım yaptığı bu iştirak ve bağlı ortaklıkların yıl sonunda dağıttığı kârdan, payı oranında temettü geliri elde eder. Bu gelir firmanın ana faaliyet dışı gelirlerinden biridir.
+
+
+> [!note] [[Yatırım ve Gelir]]
+> 
+> **Yatırımın Kendis**i: Bu yatırımlar (İştirakler, Bağlı Ortaklıklar vb.) bilançonun Aktif tarafında, `24- Mâlî Duran Varlıklar` grubu altında gösterilir.
+> 
+> **Yatırımın Geliri**: Bu yatırımlardan elde edilen temettüler ise Gelir Tablosu'nda, şirketin ana işi olmadığı için Faaliyet Kârı'ndan sonra, `64- Diğer Faaliyetlerden Olağan Gelir ve Kârlar` grubu içinde yer alır.
+
+
 #### 3.4.2. [[Dönen Varlıkların Yönetimi]] (Kısa Vadeli Varlıklar)
 - Firmanın günlük faaliyetlerini sürdürebilmesi için gerekli olan ve bir yıl içinde nakde dönüşmesi beklenen varlıkların yönetimi. 
 - **[[Cari Aktif]]** veya **[[Çalışma Sermayesi (İşletme Sermayesi)]]** olarak da bilinir.
@@ -296,7 +305,12 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 	 - **[[Elektronik Fon Transferi]] (EFT)**: Farklı bankalar arasındaki para transferi.
 	 - **[[Virman]]**: Kişinin veya kurumun aynı bankadaki kendi hesapları arasında yaptığı para aktarımı.
 	 - **[[Menkul Kıymetler]]**: Geçici yatırım amacıyla alınan ve kısa sürede nakde çevrilebilen hisse senetleri (*110 Hisse Senetleri Hs.*), hazine banoları gibi varlıklar.
-##### B. Ticarî Alacakların Yönetimi (Vadeli Likidite) (Ödeme Vasıtası)
+##### B. Ticarî Alacakların Yönetimi (Vadeli Likidite) ([[Ödeme Vasıtası]])
+
+
+> [!info] Bilgi
+> - **Kasa**, **banka**, **senetsiz alacaklar** ve **senetli alacaklar** (*çek*, *senet*, *poliçe* ve bunların devri, yani *ciro*) ödeme vasıtalarındandır.
+
 - Firmanın mal veya hizmet satıp bedelini hemen değil de belirli bir vade sonunda almayı kabul ettiği durumlardır. Bu alacaklar kıymetli evrak denilen belgelerle güvence altına alınır. 
 - Bu alacaklar birer **ÖDEME VASITASI**'dır ve firma, nakde erişimi hızlandırmak için bu vasıtaların vadesini *minimuma indirmeye* çalışır.
 -  **[[Alacak Senetleri İskontosu]] (*Çek/Senet Kırdırma*)**: Vadesi gelmemiş bir alacak senedi veya çek bir bankaya veya [[Faktoring Şirketleri|faktoring şirketine]] götürülerek anında nakde çevirebilir.  Vadeye kadar olan süre için bir faiz (iskonto) kesintisi yapılır ve kalan tutarı işletmeye peşin ödenir. Buna *"geriye doğru faiz hesaplama"* işlemi denir ve acil nakit ihtiyacını karşılar.
