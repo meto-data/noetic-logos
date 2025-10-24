@@ -22,10 +22,12 @@ cssclasses:
 
 ---
 
-## Örnek: $K= \begin{bmatrix} -2 & 0 & 3 \\ 5 & 12 & -8 \\ \frac{1}{3} & \frac{5}{4} & \sqrt{2}\end{bmatrix}$
+## Örnek: $K= \begin{bmatrix} -2 & 0 & 3 \\ 5 & 12 & -8 \\ \frac{1}{3} & \frac{5}{4} & \sqrt{2}\end{bmatrix}$ <br>
+<br>
+
 
 ### A) Matrisin boyutu (türü) nedir?
-##### $3 \times 3$ 
+##### $3 \times 3$   <br>
 
 #### B) <br>$K_{23} = -8$<br>$K_{31} = \frac{1}{3}$
 
@@ -49,13 +51,8 @@ cssclasses:
 - İki matrisin eşit olabilmesi için karşılıklı elemanlarının bire-bir eşit olması gerekmektedir.
 
 ### Örnek: $A= \begin{bmatrix} 1  & -5 \\ 2x-3y & 4 \end{bmatrix} \space \space \space B= \begin{bmatrix} 1 & -x+2y \\ 8 & 4 \end{bmatrix}$<br><br>$A=B \implies x.y =?$ <br>
+<br>
 
-#### $\begin{matrix} 2y-x &=& -5 \\ 2x-3y &=& 8  \end{matrix} \implies \begin{bmatrix} 4y-2x &=& -10 \\ 2x-3y &=& 8\end{bmatrix} \implies y= -2$ <br>
-#### $\boxed{y=-2} \implies \boxed{x = 1}$
-#### $\space \to x.y = -2$
-
----
-
-
-
-
+#### $\begin{matrix}2y-x &=& -5 \\ 2x-3y &=& 8  \end{matrix} \implies \begin{bmatrix} 4y-2x &=& -10 \\ 2x-3y &=& 8\end{bmatrix} \implies y= -2$ <br>
+#### $\space \space \to \boxed{y=-2} \implies \boxed{x = 1}$
+#### $\space \space \space \to x.y = -2$
