@@ -13,7 +13,7 @@ cssclasses:
 
 <h2 style="text-align:center"><span style="color:darkblue; text-align:center">Ünite 4: Lineer Cebir (Matrisler ve Determinantlar)</span> | <span style="color:#bf3f36">24.10.2025</span></h2>
 
-- **Matris**: $i, j \in \mathbb{S}$ (i ve j sayma sayısı) olmak üzere ve $1 \le i \le m$, $1 \le j \le m$ olsun.
+- **Matris**: $i, j \in \mathbb{S}$ (i ve j sayma sayısı) olmak üzere , $1 \le i \le m \space \space$ ve  $\space 1 \le j \le m$ olsun.
 
 ### $$A = \begin{bmatrix} a_{11} & a_{12} & a_{13}  & \dots &  a_{1n} \\ a_{21} & a_{22} & a_{23} & \dots &  a_{2n} \\ \dots & \dots & \dots & \dots & \dots \\ a_{m1} & a_{m2} & a_{m3} & \dots & a_{mn} \end{bmatrix}_{m \times n}$$
 
