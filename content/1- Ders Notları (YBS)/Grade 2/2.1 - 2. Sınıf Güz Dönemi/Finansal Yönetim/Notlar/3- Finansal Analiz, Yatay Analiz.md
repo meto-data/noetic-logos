@@ -38,13 +38,20 @@ created: 15.10.2025
 
 <br>
 ### Hesap Sınıfları
+
 #### `1-5` Bilanço Hesapları
+
+
 ##### `1: Dönen Varlıklar`
+
 - Firmanın 1 yıl içinde paraya dökecek neyi varsa buradadır. Kasa, banka, alacaklar, stoklar vesair.
 	- `100 Kasa`, `102 Bankalar`,  `121 Alacak Senetleri`, `153 Ticarî Mallar`, `...`
+
 ##### `2: Duran Varlıklar`
+
 - Faydası 1 yıldan uzun süren, hemen paraya çevrilmesi düşünülmeyen ve işletmenin ana faaliyetlerini sürdürmek veya gelir elde etmek için kullandığı zımbırtılar.
 ###### [[Maddî Duran Varlıklar]] (İşletme İçi Yatırım) 
+
 - İşletmenin kendi faaliyetleri için aldığı, elle tutulur gözle görülür varlıklar (bina, makine, taşıt vb.).
 - `252 Binalar`,  `254 Taşıtlar`,  `255 Demirbaşlar`, `...`
 ###### [[Mâlî Duran Varlıklar]] (İşletme Dışı Yatırım)
@@ -81,12 +88,16 @@ created: 15.10.2025
 > Kısa Vadeli Y.K., Uzun Vadeli Y.K. ve Özkaynaklar bilançonun **pasif** tarafında yer alırlar. "O varlıkları kim fonlamış? Kimin parasıyla dönüyor bu iş?" sorularına yanıt verir.
 
 
+
 #### `6: Gelir Tablosu Hesapları`
+
 - O seneki faaliyetlerin sonucu. Ne kazandın (gelir) ne kadar harcadın (gider).
 - `60- Brüt Satışlar` grubuyla başlar (`600 Yurt İçi, 601 Yurt Dışı` vs.)
+
 - İskonto dediğimiz `61`'li grup (Satıştan İadeler `610`, Satış İskontoları `611` -yani kampanyalar, indirimler vs.-) bundan düşülür.
 - Elimizde kalan şeye `Net Satışlar` denir. Bu bizim **[[hâsılât]]** dediğimiz şeydir. **Dikey analizi hep buna göre yaparız** (%100 burasıdır).
 	- "Hâsılat" (Revenue) denilen şey tam olarak bu Net Satışlar rakamıdır.
+
 - Yatırımdan temettü geliri elde edersek, o gelir esas faaliyet kârı'ndan sonra gelir tablosuna girer. `64- Diğer Faaliyetlerden Olağan Gelir ve Kârlar (640 İştiraklerden Temettü Geirleri` gibi) grubunda yer alır.
 	- Ana işimizin dışında (faaliyet kârı) bir gelirdir bu, finansal gelirdir. Aynı şekilde bankaya ödenilen faiz (`66- Finansman Gideri`) de faaliyet kârından sonra düşülür.
 	- Bkz. [[Yatırım ve Gelir]]
@@ -179,7 +190,9 @@ created: 15.10.2025
 - Baz yılın tüm kalem tutarlarını 100 kabul ediyoruz. Sonraki yıllardaki aynı kalemlerin tutarlarını baz yıla göre yüzde olarak ifade ediyoruz. Yani zaman içinde o kalemde nasıl bir **eğilim** var, artış mı azalış mı onu görüyoruz.
 <br>
 ##### $\boxed{\text{Trend Yüzdesi } = \text{(İlgili Kalemin Cari Yıl Tutarı / İ.K. Baz Yıl T.)} \times 100}$
+
 <br>
+
 - Baz yılı seçerken dikkatli olmak lazım. Firmanın yeni kurulduğu, acayip enflasyonun olduğu, büyük yatırım yaptığı veya sel felaketi, firma birleşmesi gibi olağandışı bir durum yaşadığı yılı baz almayacağız. Normal, stabil bir faaliyet dönemi olmalı.
 ###### **Ne işe yarıyor bu trend analizi?**
 - Tablolardaki kalemlerin zaman içindeki **artış veya azalışlarını** net bir şekilde gösteriyor.
