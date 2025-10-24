@@ -25,16 +25,20 @@ cssclasses:
 ## Örnek: $K= \begin{bmatrix} -2 & 0 & 3 \\ 5 & 12 & -8 \\ \frac{1}{3} & \frac{5}{4} & \sqrt{2}\end{bmatrix}$
 
 ### A) Matrisin boyutu (türü) nedir?
-##### $3 \times 3$
+##### $3 \times 3$ 
+
 #### B) <br>$K_{23} = -8$<br>$K_{31} = \frac{1}{3}$
 
-### C) K matrisinden satır ve sütun matrisleri oluşturun.
+### C) K matrisinden satır ve sütun matrisleri oluşturun. <br>
 
-#### Satır:
-
+#### Satır: <br>
 ##### $K_1 = \begin{bmatrix} -2 & 0 & 3\end{bmatrix}$<br>$K_2 = \begin{bmatrix}5 & 12 & -8\end{bmatrix}$<br>$K_3 = \begin{bmatrix} \frac{1}{3} & \frac{5}{4} & \sqrt{2} \end{bmatrix}$
 
+<br>
+
 #### Sütun: 
+
+<br>
 
 ##### $A= \begin{bmatrix} -2 \\ 5 \\ \frac{1}{3} \end{bmatrix} \space \space \space B= \begin{bmatrix} 0 \\ 12 \\ \frac{5}{4} \end{bmatrix} \space \space \space C = \begin{bmatrix} 3 \\ -8 \\ \sqrt{2} \end{bmatrix}$
 
@@ -44,9 +48,9 @@ cssclasses:
 ## İki Matrisin Eşitliği
 - İki matrisin eşit olabilmesi için karşılıklı elemanlarının bire-bir eşit olması gerekmektedir.
 
-### Örnek: <br>$A= \begin{bmatrix} 1  & -5 \\ 2x-3y & 4 \end{bmatrix} \space \space \space B= \begin{bmatrix} 1 & -x+2y \\ 8 & 4 \end{bmatrix}$<br><br>$A=B \implies x.y =?$
+### Örnek: $A= \begin{bmatrix} 1  & -5 \\ 2x-3y & 4 \end{bmatrix} \space \space \space B= \begin{bmatrix} 1 & -x+2y \\ 8 & 4 \end{bmatrix}$<br><br>$A=B \implies x.y =?$ <br>
 
-#### $\begin{matrix} 2y-x &=& -5 \\ 2x-3y &=& 8  \end{matrix} \implies \begin{bmatrix} 4y-2x &=& -10 \\ 2x-3y &=& 8\end{bmatrix} \implies y= -2$
+#### $\begin{matrix} 2y-x &=& -5 \\ 2x-3y &=& 8  \end{matrix} \implies \begin{bmatrix} 4y-2x &=& -10 \\ 2x-3y &=& 8\end{bmatrix} \implies y= -2$ <br>
 #### $\boxed{y=-2} \implies \boxed{x = 1}$
 #### $\space \to x.y = -2$
 
