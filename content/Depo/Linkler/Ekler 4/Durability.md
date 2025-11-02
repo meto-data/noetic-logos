@@ -1,1 +1,1 @@
-İşlem tamamlandıysa veri kalıcı olmalı, sistem arıası gibi durumlarda bile kalıcı olmasının garanti edilmesi.
+Bir işlem başarıyla tamamlandığında (commit edildiğinde) yapılan değişiklikler kalıcı hâle gelir. Sistem çökse, elektrik kesintisi olsa veya başka bir hata oluşsa bile işlem sonucu kaybolmaz.

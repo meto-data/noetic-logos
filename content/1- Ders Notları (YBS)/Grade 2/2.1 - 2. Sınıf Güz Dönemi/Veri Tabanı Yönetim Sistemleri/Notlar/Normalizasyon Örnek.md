@@ -83,7 +83,7 @@
 
 ## 3NF
 - **Amaç:** 2NF'de kalan **geçişli bağımlılığı** ve buna bağlı veri tekrarı ile anomalileri ortadan kaldırmak.
-- **Çözüm:** Her tablonun tek bir işi olması ilkesini uygulayacağız. "Dersi kim veriyor?" bilgisini, ait olduğu yere, yani Dersler adında yeni bir tabloya taşıyacağız. Ders_Kayitlari tablosu ise sadece asıl işi olan öğrenci-ders eşleşmesini yapan bir **ilişki tablosuna** dönüşecek.
+- **Çözüm:** Her tablonun tek bir işi olması ilkesini uygulayacağız. "Dersi kim veriyor?" bilgisini, ait olduğu yere, yani Dersler aedında yeni bir tabloya taşıyacağız. Ders_Kayitlari tablosu ise sadece asıl işi olan öğrenci-ders eşleşmesini yapan bir **ilişki tablosuna** dönüşecek.
 
 
 #### `Ogrenciler` Tablosu

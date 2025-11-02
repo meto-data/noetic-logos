@@ -5,7 +5,7 @@
  - En popüler iki kutulama yöntemi var: Biri "kelimeleri nasıl yapıyorlar?" (yapı), diğeri "kim kimin sülalesi?" (köken).
 
 #### A) YAPI BAKIMINDAN (MORFOLOJİK) SINIFLANDIRMA
-
+ - A. Von Schleicher tarafından yapılmıştır.
 - Burada kelimelerin mimarisine bakıyoruz. Legoyla mı yapmışlar, oyun hamuruyla mı, yoksa tuğlaları üst üste mi koymuşlar...
 
 ##### 1) Tek Heceli (Yalınlayan) Diller

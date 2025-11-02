@@ -1,0 +1,1 @@
+"Önünde sonunda iyi bir şey olacak" garantisidir. "Sistem şu an cevap vermese bile, sonsuza kadar donup kalmayacak, bir noktada mutlaka cevap verecek" demektir. Zıttı 'Safety Property'dir (Güvenlik Özelliği), o da "asla kötü bir şey olmayacak" (örn: "sistem asla eski veriyi döndürmeyecek") garantisidir. 

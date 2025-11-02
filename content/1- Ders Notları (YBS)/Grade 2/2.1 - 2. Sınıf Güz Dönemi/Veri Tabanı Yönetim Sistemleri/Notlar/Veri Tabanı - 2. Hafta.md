@@ -11,6 +11,9 @@ title: Veri Tabanı Yönetim Sistemleri - 2. Hafta
 #### [[Alan]]
 - Tablodaki sütunlara verilen isimdir.
 - Her alan bir özelliği temsil eder (örn: `Ad`, `Soyad`, `Ekol`)
+
+#### **[[Anahtar]]**
+- Her varlık kümesinde, o kümedeki varlık örneğini tekil olarak tanımlamaya yarayan asgari bir nitelik seti. Eğer tek bir nitelik bu işi göremiyorsa birden fazla niteliğin birleşimi de anahtar oluşturabilir.
 ### [[Birincil Anahtar]] (Primary Key)
 - Tablodaki her satırı (kaydı) **benzersiz** olarak tanımlayan alandır. 
 - Aynı tablodaki iki satırda aynı *primary key* değeri olamaz.
@@ -40,14 +43,23 @@ title: Veri Tabanı Yönetim Sistemleri - 2. Hafta
 
 ## Normalizasyonun Amaçları
 - Bkz. [[Normalizasyon Örnek]]
+1. **Gereksiz Veri Tekrarını Önlemek *(Avoid Unnecessary Duplication)***: Veri depolamak maliyetlidir. Ne kadar az veri tutarsak o kadar kârlı oluruz.
+2. **İyi Yapılandırılmış İlişkiler Kurmak *(Well-Structured Relations)***: Veriye verimli erişebilmek ve ekleme, silme, güncelleme gibi işlemleri verimli yapabilmek için tabloları mantıksal olarak doğru yapılandırmak.
 
-- Veri tekrarını azaltmak.
-- Veri tutarlılığını sağlamak.
-- Depolamayı verimli kullanmak.
-- Veri anomalilerini (Ekleme, Güncelleme, Silme) önlemek.
-	- **[[Ekleme Anomalisi]] (*Insertion Anomaly*)**: Birbiriyle ilişkili olmayan verileri aynı anda girmeden yeni bir kayıt ekleyememe durumu.
-	- **[[Güncelleme Anomalisi]] (*Update Anomaly*)**: Tek bir veriyi değiştirmek için birden fazla kaydı güncellemek zorunda kalma ve bu sırada tutarsızlık yaratma riski.
-	- **[[Silme Anomalisi]] (*Deletion Anomaly*)**: Bir veriyi silerken onunla birlikte silinmemesi gereken başka bir veriyi de kaybetme riski.
+
+> [!important] Kısaca
+>  - Veri tekrarını azaltmak.
+>  - Veri tutarlılığını sağlamak.
+>  - Depolamayı verimli kullanmak.
+>  - Veri anomalilerini (Ekleme, Güncelleme, Silme) önlemek.
+
+##### Veri Anomalileri	
+- **[[Ekleme Anomalisi]] (*Insertion Anomaly*)**: Birbiriyle ilişkili olmayan verileri aynı anda girmeden yeni bir kayıt ekleyememe durumu.
+	- Bir çalışan sisteme kaydedilecek ama henüz bir kurs almamış. Eğer Çalışan ve Kurs bilgileri aynı tabloda ise, kurs bilgisi boş kalacağı için yeni çalışan eklenemeyebilir. *Bu bir ekleme anomalisidir*.
+- **[[Güncelleme Anomalisi]] (*Update Anomaly*)**: Tek bir veriyi değiştirmek için birden fazla kaydı güncellemek zorunda kalma ve bu sırada tutarsızlık yaratma riski.
+	- Bir çalışanın maaşı değiştiğinde, o çalışanın aldığı her kurs için tutulan kayıtlarda maaşını tek tek güncellemek gerekir. Birini atlarsak veri tutarsız olur.
+- **[[Silme Anomalisi]] (*Deletion Anomaly*)**: Bir veriyi silerken onunla birlikte silinmemesi gereken başka bir veriyi de kaybetme riski.
+	- Bir çalışan sistemden ayrıldığında kaydını silersek ve o çalışan bir dersi alan tek kişiyse, o dersin varlığına dair bilgiyi de kaybedebiliriz. "Böyle bir dersimiz var mıydı?" sorusunun cevabı kaybolur.
 ### Avantajları
 - **[[Consistency|Tutarlılık]] (Consistency)**: Aynı veri bir yerde tutulur.
 - **[[verimlilik|Verimlilik]] (Effiency)**: Daha az depolama.
@@ -59,15 +71,39 @@ title: Veri Tabanı Yönetim Sistemleri - 2. Hafta
 ## Normalizasyon Aşamaları
 - Normalizasyon seviyeleri arttıkça kurallar daha da katılaşır. Genellikle pratikte 3NF veya BCNF yeterli görülür.
 
+### **Fonksiyonel Bağımlılık** (Functional Dependency)
+- Bir kolonun (veya kolon grubunun) değerinin, başka bir kolonun değerini benzersiz olarak belirleyebilmesi durumudur.
+	- Daha anlaşılır ifadeyle, bir kolonun (attribute) diğer kolonları tanımlayabiliyor olması. O kolonun bilgisine bakarak diğer kolonlara erişebilmek.
+		- Daha da anlaşılır ifadeyle "bir niteliğin (sütunun) değerini bilirsem, başka bir niteliğin değerini de kesin olarak bilebilirim" diyebilme durumu.
+		- Örneğin `TcNo` $\to$ `Ad`, `Soyad`. `TcNo` değerini bildiğimizde, `Ad` ve `Soyad`'ı da kesin olarak bilebiliriz. Ancak tersi doğru değildir. 
+	- Fonksiyonel bağımlılık kompozit de olabilir: (OrderID, ProductID) -> OrderQuantity. Yani bir siparişteki bir ürünün miktarını bilmek için hem sipariş ID'sine hem de ürün ID'sine ihtiyaç duyarız.c
+
+### [[candidate key|Candidate Key]] (Aday Anahtar)
+- Bir tablodaki bir satırı (kaydı) benzersiz olarak tanımlayabilen kolon veya kolon gruplarıdır.
+- Bir tabloda birden fazla aday anahtar olabilir. Örneğin `TcNo` ve `KrediKartiNo` sütunları aynı tabloda ise, ikisi de tek başına bir kişiyi tanımlayabildiği için **aday anahtardır**. Bu aday anahtarlardan **biri** Birincil Anahtar (Primary Key) olarak seçilir.
+- **Tablo bazındadır.**
 ### 1NF (Birinci Normal Form)
+- **NO MULTIVALUED ATTRIBUTES!**
+	- **Temel ve en önemli kural: ÇOK DEĞERLİ ALANLAR OLMAMALIDIR (NO MULTIVALUED ATTRIBUTES)!!!**
 - Her sütun (alan) **yalnızca tek bir,bölünemez değer** (*[[atomik değer]]*) içermelidir.
-	- Bir diğer deyişle, *tüm alanlar atomik (bölünemez) olmalıdır*. Çok değerli veya birleşik sütunlar bulunmamalıdır.
-	- Örneğin "`Adres`" alanı hem  `Sokak` hem `Şehir` içeriyorsa **atomik değildir** ve ayrı sütunlara ayrılmalıdır..
+	-  Bir diğer deyişle, *tüm alanlar atomik (bölünemez) olmalıdır*. Çok değerli veya birleşik sütunlar bulunmamalıdır.
+	- Bir hücrede virgülle ayrılmış birden fazla değer olamaz. Örneğin bir kişinin "Hobileri" sütununa "Müzik, Spor, Kitap" yazmak 1NF'yi ihlal eder.
+	- **Çözüm**: Bu tür çok değerli verileri, her değer için ayrı bir satır oluşturarak çözebiliriz. Yani aynı kişi için üç ayrı satır oluşturulur: biri Müzik, biri Spor, biri Kitap için.
 - **Her kayıt** kendine özgü bir **birincil anahtarla (*[[primary key]]*)** tanımlanmalıdır.
 - **Tekrarlayan veya boş veri** olmamalıdır.
 
+
+
+> [!warning] Not
+> Bir tablonun 1NF'de olması iyi tasarlandığı anlamına gelmez. Sadece normalizasyonun ilk ve zorunlu adımının atıldığını gösterir. 1NF'deki bir tabloda hâlâ ekleme, silme ve güncelleme anomalileri bulunabilir.
+
+
 ### 2NF
 - Tablo 1NF olmak zorundadır.
+- **Kısmî Fonksiyonel Bağımlılık Olmamalıdır (No Partial Functional Dependencies).**
+- Birincil anahtar olmayan bir alan, bileşik anahtarın tamamına değil de sadece bir parçasına bağlıysa bu bir **[[kısmî bağımlılık|kısmî bağımlılıktır]]**.
+	- **Örnek**: Primary key'i (`OrderID`, `ProductID`) olan bir tabloda `OrderDate` alanı sadece `OrderID`'ye bağlıdır, `ProductID` ile bir ilgisi yoktur. Bu bir kısmî bağımlılıktır.
+	- **Çözüm**: Kısmî bağımlılıklar tespit edildiğinde tablo bölünür. Anahtarın farklı parçalarına bağımlı olan alanlar ayrı tablolara taşınır.
 - Birincil anahtar olmayan sütunların tamamı birincil anahtarın tamamına tam olarak bağımlı olmalıdır. Bu kural özellikle birden çok sütundan oluşan bileşik birincil anahtarlar ([[composite primary keys]]) için geçerlidir.
 - Eğer bir sütun birleşik anahtarın sadece bir kısmına bağlıysa, bu [[kısmî bağımlılık|kısmî bağımlılıktır]] ve 2NF'ye aykırıdır. Bu durumda tablo bölünmelidir (anahtar alanlara ya da konulara göre).
 	- Kavramsal olarak birbirine yakın alanlar ayrı tablolara bölünür.
@@ -76,10 +112,16 @@ title: Veri Tabanı Yönetim Sistemleri - 2. Hafta
 
 ### 3NF
 - Tablo 2NF olmak zorundadır.
-- Birincil anahtar olmayan hiçbir sütun yine birincil anahtar olmayan başka bir sütuna bağlı olmamalıdır (**[[geçişli fonksiyonel bağımlılık (transitive functional dependency)]]** olmamalıdır).
-	- Örneğin `Siparişler` tablosunda `MüşteriID`, `MüşteriAdı` ve `SiparişTarihi` varsa `MüşteriAdı`, `MüşteriID`'ye bağlıdır. `MüşteriID` ise birincil anahtara bağlıdır. Bu bir geçişli bağımlılıktır ve `MüşteriAdı` ayrı bir `Müşteriler` tablosuna taşınmalıdır.
+- **Geçişli Fonksiyonel Bağımlılık Olmamalıdır (No Transitive Functional Dependencies)**.
+- Birincil anahtar olmayan hiçbir sütun yine birincil anahtar olmayan başka bir sütuna bağlı olmamalıdır. Yani A $\to$ B ve B $\to$ C ise, A'dan C'ye dolaylı (geçişli) bir bağımlılık vardır. Bu durum 3NF'ye aykırıdır.
+	- **Örnek**: Siparişler tablosunda `OrderID` $\to$ `CustomerID` ve `CustomerID` $\to$ `CustomerName` bağımlılıkları varsa, `OrderID` dolaylı olarak `CustomerName`'i belirler. Burada `CustomerName` anahtar olmayan `CustomerID`'ye bağlıdır.
+	- **Çözüm**: Geçişli bağımlılık içeren alanlar (`CustomerID`, `CustomerName`, `CustomerAddress` gibi) ayrı bir `Müşteriler` tablosuna taşınır. Ana tabloda ise sadece `CustomerID` (foreign key olarak) kalır.
 - Anahtar olmayan hiçbir kolon, anahtar olmayan başka bir kolona bağlı olmamalıdır.
 - Her kolon eşsiz (primary) anahtara tam bağlı olmalıdır.
+
+
+- Genellikle buraya kadar olan normalizasyon aşaması yeterlidir.
+
 #### BCNF (Boyce-Codd Normal Formu)
 - 3NF'nin daha katı bir versiyonudur.
 - Tablodaki her bir belirleyicinin (determinant) bir aday anahtar ([[candidate key]]) olması gerekir. Basitçe, bir sütunun değerini belirleyen her sütun grubu, o tablonun birincil anahtarı olabilecek nitelikte olmalıdır.

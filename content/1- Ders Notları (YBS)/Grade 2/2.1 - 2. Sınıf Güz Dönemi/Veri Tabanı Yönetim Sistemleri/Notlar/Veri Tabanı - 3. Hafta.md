@@ -2,15 +2,9 @@
 title: Veri Tabanı Yönetim Sistemleri - 3. Hafta
 ---
 
----
-
- Sınavda soru gelecek kesinlikle, diyagramların çizimine önem göstermek gerekiyor.
-
-[Draw](https://draw.io)
 
 
-- Ödev: Varlık-İlişki (ER diagram) oluştur. 7-8 varlık olacak vesaire, zorunlu değil ancak yap sen. İlgili komplike görsel gibi.
-
+ - Sınavda soru gelecek kesinlikle, diyagramların çizimine önem göstermek gerekiyor. [Draw](https://draw.io)
 
 ---
 
@@ -19,22 +13,21 @@ title: Veri Tabanı Yönetim Sistemleri - 3. Hafta
 - Fiziksel dünyayı kavramsallaştırma, modelleme.
 
 ## ERD'nin Temel Kavramları ve Bileşenleri
-### Varlık (Entity)
-- Gerçek dünyada var olan ve diğer nesnelerden ayırt edilebilen bir nesnedir.
+### [[Varlık]] (Entity)
+- **Gerçek dünyada var olan ve diğer nesnelerden ayırt edilebilen her türlü nesne, kavram veya olgu.**
+	- Fizikî bir nesne (ör. *Araba, Ürün* gibi **somut** varlıklar) olabileceği gibi mantıksal veya somut bir kavram da olabilir (ör. *Sipariş, Rezervasyon, Müşteri İşlemi* gibi).
+	- Önemli olan, *varlığın* **kendi başına tanımlanabilir bir kimliğe sahip olması** ve **diğer varlıklardan ayırt edilebilmesidir**.
 - Veri tabanında hakkında bilgi tutulmak istenen her şey bir varlıktır.
 	- `Öğrenci`, `Ders`, `Öğretmen`, `Müşteri` vb.
 - **Gösterim**: Dikdörtgen (Rectangle).
-- Teknik tanımların canı cehenneme olm böyle tanım mı olur? Şu teknik tanımlar yapanların felsefî kavramları alıp eğip bükmesine öyle ayar oluyorum ki. Varlık dediğin hakkında bilgi tutulmak amacıyla **modellenilebilen** soyut (idea olarak varlığını sürdüren) veya somut (gözle görülebilen) nesne, olay veya olgu denilebilir illa bunu VT bağlamında ifade edeceksek. Modellenebilir olması gerekir. Modellenemeyen bir varlığı veri tabanında ifade edemeyiz nihayetinde, dolayısıyla veri tabanında da yer alamaz. 
-	- Şeffaf olması gerekir, içkin yapısı itibariyle gözlemlenebilirliğei ölçülebilirliğe «rasyo» ve tanımlanabilirliğe dayanması şeffaflıkla mümkün olabilir.  Modellenebilmesi için ön koşul budur.
 ### Varlık Kümesi (Entity Set)
 - Aynı türdeki ve aynı özelliklere sahip varlıkların oluşturduğu kümedir.
 - **Örnek**: Okuldaki tüm öğrencilerin oluşturduğu `Öğrenci` varlık kümesi.
 ### Nitelik-Özellik (Attribute)
-- Bir varlığı tanımlayan ve niteleyen özelliklerdir. **Her varlık kümesi bir dizi nitelikle tanımlanır.**
+- Bir varlığı tanımlayan ve niteleyen özelliklerdir.
 - **Örnek**: `Öğrenci` varlığının `OgrenciNo`, `Ad`, `Soyad`, `DogumTarihi` gibi nitelikleri vardır.
 - **Gösterim**: Elips (Oval) ile gösterilir ve ait olduğu varlığa bir *çizgi* ile bağlanır.
 - **Karar vericinin** ve **son kullanıcının** isteklerine göre özellikler belirlenir.
-
 ### İlişki (Relationship)
 - İki veya daha fazla varlık kümesi arasındaki bağlantı veya etkileşim.
 - **[[iş kuralları|İş kurallarına]]** göre değişkenlik gösterir.
@@ -59,6 +52,7 @@ title: Veri Tabanı Yönetim Sistemleri - 3. Hafta
 
 ## İlişki Kardinalitesi (Sayısal İlişkiler - Cardinality)
 - İlişkiye katılan varlık kümelerindeki varlıkların sayısal oranını belirtir.
+- Başka bir ifadeyle, bir ilişkideki varlık örneklerinin birbirleriyle en az veya en çok kaç defa ilişki kurabileceğini sayısal olarak ifade eder. İlişkinin "kaçarlı" olduğu belirtir.
 
 - **Dış Kısım (Kardinalite - Maksimum):**
     - **| (Çizgi):** Bir (One)
@@ -71,14 +65,14 @@ title: Veri Tabanı Yönetim Sistemleri - 3. Hafta
 ![[xtoy.jpg]]
 
 #### Bire-Bir (One-to-One / 1:1)
-- Bir varlık kümesindeki her varlık, diğer varlık kümesindeki en fazla bir varlıkla ilişkilidir (örn: Bir bölümün sadece bir başkanı olabilir, bir başkan sadece bölümü yönetebilir).
+- Bir varlık kümesindeki bir varlık, diğer varlık kümesinden en fazla bir varlık ile ilişki kurar ve tersi de geçerlidir. Örneğin, bir *kişi* varlığının en fazla bir *TC kimlik numarası* vardır ve her TC kimlik numarası da en fazla bir kişiye aittir.
 
 #### Bire-Çok (One-to-Many / 1:M)
 - Bir varlık kümesindeki **bir** varlık, diğer kümedeki **birden fazla** varlıkla ilişkili olabilir (*Örn: Bir danışman hoca birden çok öğrenciye danışmanlık yapabilir, ama bir öğrencinin sadece bir danışmanı vardır.*).
 #### Çoka-Bir (Many-to-One / M:1)
 - Bire-çok ilişkinin tersidir (*Örn: Birden çok öğrenci aynı bölümde okuyabilir*).
 #### Çoka-çok (Many-to-Many / M:N)
-- Her eiki varlık kümesindeki varlıklar, diğer kümedeki **birden fazla** varlıkla ilişkilidir (*Örn: Bir öğrenci birden fazla ders alabilir ve bir dersi de birden fazla öğrenci alabilir*).
+- Bir varlık kümesindeki varlık, diğer kümeden birden çok varlık ile ilişki kurabilir **ve tersi de geçerlidir**. *Öğrenci* ile *Ders* arasındaki ilişki *çoka-çok* olabilir: Bir öğrenci birden fazla ders alabilir ve her ders çok sayıda öğrenci tarafından alınabilir.
 
 
 ## Katılım Kısıtları (Participation Constraints)

@@ -1,0 +1,2 @@
+Yunancada "örtüyü kaldırmak, açığa çıkarmak" mânâsına gelir. Hakîkat, görünüşün ötesinde değil, **görünüşün içine saklanmıştır**. Onu bulmak için çaba göstermek, örtüyü kaldırmak gerekir. Tıpkı altının toprağın (cürufun) içinden kazılarak çıkarılması gibi.
+- T89, D40.

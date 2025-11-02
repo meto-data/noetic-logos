@@ -24,7 +24,7 @@
 - Enformasyon bir şeyin ne olduğunu söyler. Eyleme yönelik bir talimat içermez.
 ## 3. **[[Bilgi]] (Knowledge)**
 - Enformasyonun uygulanmış hâlidir.
-- **Bir amaca yönelik kullanılan, organiza edilmiş enformasyondur.**
+- **Bir amaca yönelik kullanılan, organize edilmiş enformasyondur.**
 
 ### Temel Özellikleri
 - **Amaca Yöneliktir**: Bir problemi çözmek, bir karar vermek veya bir eylemde bulunmak için kullanılır. **Enformasyonun aksine bir hedefi vardır**.

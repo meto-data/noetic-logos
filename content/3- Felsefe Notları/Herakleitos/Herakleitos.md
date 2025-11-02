@@ -33,4 +33,4 @@
 - **[[Barbar Ruh]]**: Herakleitos'a göre Logos'un dilini anlamayan, sadece görüp işiten ama kavrayamayan insanların ruhu "barbar"dır. Bu kişiler için şöyle söyler: 
 	- D34: "Barbar bir ruha sahip olanların gözleri ve kulakları insanlar için kötü tanıklardır."
 	- T82: "Barbar ruhlara özgüdür akıl dışı duyusal kavrayışlara güvenmek." 
-- **[[Sophon]] (El-Hakim / Bilge Olan)** Her şeyin içindeki ve aynı zamanda her şeyden ayrı olan tek ve en bilge varlık. Tanrı'nın bir tanımı.
+- **[[Sophon]] (El-Hakim / Bilge Olan)**: Her şeyin içindeki ve aynı zamanda her şeyden ayrı olan tek ve en bilge varlık. Tanrı'nın bir tanımı.
