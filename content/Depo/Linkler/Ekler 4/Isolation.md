@@ -1,1 +1,1 @@
-Eş zamanlı çalışan işlemler birbirine karışmamalı.
+Eş zamanlı işlemler birbirine karışmamalıdır. Her işlem diğer işlemlerden bağımsız olarak çalışır ve veri tutarlılığı korunur.

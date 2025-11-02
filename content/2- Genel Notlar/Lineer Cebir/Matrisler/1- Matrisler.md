@@ -1,8 +1,10 @@
 - **[[Matris]]**:  Doğrusal denklem sistemlerinin katsayılarının oluşturduğu gösterim biçimleridir. 
+- Matris, veriyi yapılandıran bir gösterimdir.
+- Matris, lineer dönüşümleri (döndürme, ölçekleme, büzme) temsil eden bir operatördür.
 
 #### $\underbrace{\begin{bmatrix}  1  & 2 & 0 \\ 2 & 5 & 8  \end{bmatrix}}_{\text{ 2 satır 3 satır var.}}$
 
-
+3
  #### $\begin{aligned} 3x-2y-5z &= 10 \\ x+6y+z &= 8 \end{aligned} \implies \underbrace{\begin{bmatrix} 3 & -2 & -5 \\ 1 & 6 & 1 \end{bmatrix}}_{\text{ Katsayılar Matrisi }} . \begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} 10 \\ 8 \end{bmatrix}$
 
 

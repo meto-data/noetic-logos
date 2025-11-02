@@ -1,1 +1,1 @@
-İşlem sonunda veri tüm kurallara uygun olmalı.
+İşlem sonucunda veri, tanımlanmış kurallara ve kısıtlamalara uygun bir tutarlı durumda olmalıdır. İşlem sırasında veri bütünlüğü bozulmaz.

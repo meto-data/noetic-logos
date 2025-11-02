@@ -1,0 +1,1 @@
+Sadece evren değil, aynı zamanda düzenli, akıllı ve Tanrısal bir bütünlüktür. Bizatihi Tanrı'dır.
