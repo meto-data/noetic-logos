@@ -136,8 +136,11 @@ cssclasses:
 
 ### **Örnek**:<br>$A= \begin{bmatrix} -2 & 4 \\ \space 3 & 5 \end{bmatrix}_{2 \times 2} \space \space \space \space B= \begin{bmatrix} -2 & 4 & \space 3 \\ \space 1 & 5 & -1 \end{bmatrix}_{2\times 3}$
 
+
+
  
-#### $$ A= 
+#### 
+$$ A= 
 \begin{bmatrix}
 \colorbox{blue}{$-2 \quad 4$} \\
 \colorbox{purple}{$ \space 3 \quad 5 \space \space$}
@@ -148,12 +151,14 @@ cssclasses:
 \end{bmatrix}
 $$
 
+
 ###### $A \times B = \begin{bmatrix} [(-2 \times -2) + (4 \times 1)] & [(-2 \times 4)+(4 \times 5)] & [(-2 \times 3)+(4 \times 3)] \\ [(3 \times -2)+(5 \times 1)] & [(3 \times 4)+(5 \times 5)] & [(3 \times 3)+(5 \times -1)] \end{bmatrix}$
 
-#####  $$\space = \space \begin{bmatrix} \space\space8 &  12 & -10 \\ -1 & 37 & \space 4  \end{bmatrix}$$
+#####  $\space = \space \begin{bmatrix} \space\space8 &  12 & -10 \\ -1 & 37 & \space 4  \end{bmatrix}$
+
+
 
 ![[MatrisCarpim1.mp4]]
 
 
 
----
