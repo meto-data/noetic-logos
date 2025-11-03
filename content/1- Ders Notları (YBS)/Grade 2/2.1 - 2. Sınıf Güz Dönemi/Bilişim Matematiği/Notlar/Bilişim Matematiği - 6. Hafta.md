@@ -182,3 +182,11 @@ cssclasses:
 
 
 #### $A^{17} = \begin{bmatrix} 2 & 3 \\ -4 & -2 \end{bmatrix} \times 2^{24} = \begin{bmatrix} 2^{25} & 3.2^{24} \\ -2^{26} & -2^{25} \end{bmatrix}$
+
+
+## Bir Matrisin Transpozu (Devriği)
+- A matrisi $(m \times n)$ boyutunda ise, A'nın transpozu $(A^T)$,  $(n \times m)$ boyutundadır.
+
+### $A = \begin{bmatrix} -2 & 5 & 3 \\ 4 & 7 & -1 \end{bmatrix}_{2 \times 3} \space \space A^T = \begin{bmatrix} -2 & 4 \\ 5 & 7 \\ 3  & -1 \end{bmatrix}$
+
+	
