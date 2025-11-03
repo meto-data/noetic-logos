@@ -7,7 +7,7 @@ date: 2025-10-31
 cssclasses:
   - ders-notu
 ---
-
+ 
 <h2 style="text-align:center"><span style="color:darkblue; text-align:center">Ünite 4: Lineer Cebir (Matrisler ve Determinantlar)</span> | <span style="color:#bf3f36">31.10.2025</span></h2>
 
 ## Matris Çeşitleri
@@ -113,14 +113,14 @@ cssclasses:
 
 
 
-### Örnek (<span style="color:darkred">Sınavda çıkabilir</span>): <br>$A=\begin{bmatrix} 1 & -4 \\ 2 &  \space3 \end{bmatrix} \space \land  \space f(x) = 3x-2 \implies f(A) = ?$
+### Örnek (<span style="color:darkred">Sınavda çıkabilir</span>): <br><br>$A=\begin{bmatrix} 1 & -4 \\ 2 &  \space3 \end{bmatrix} \space \land  \space f(x) = 3x-2 \implies f(A) = ?$
 #### $f(A) = 3A -2I$
 #### $\space = \begin{bmatrix} 3 & -12 \\ 6 & \space \space 9 \end{bmatrix} - \begin{bmatrix} 2 & 0 \\ 6 & 2 \end{bmatrix} = \begin{bmatrix} 1 & -12 \\ 6 & \space \space 7 \end{bmatrix}$
 
 
 ---
 
-### **Örnek**:<br> $a.\begin{bmatrix} 3 \\ 4  \end{bmatrix} + 2. \begin{bmatrix} 1 \\ b \end{bmatrix} = \begin{bmatrix} 8 \\ 0\end{bmatrix} \implies a \times b =?$
+### **Örnek**:<br><br> $a.\begin{bmatrix} 3 \\ 4  \end{bmatrix} + 2. \begin{bmatrix} 1 \\ b \end{bmatrix} = \begin{bmatrix} 8 \\ 0\end{bmatrix} \implies a \times b =?$
 
 #### $\begin{bmatrix} 3a \\ 4a \end{bmatrix} + \begin{bmatrix} 2 \\ 2b \end{bmatrix} = \begin{bmatrix} 8 \\ 0 \end{bmatrix}$
 #### $\to \space \space  3a+2=8 \land 4a+2b = 0$<br>$\space \to \space \space \space  3a=6 \implies a=2$<br>$\space \space \to \space \space \space \space 8+2b = 0 \implies b=-4 \space$<br>$\space \space \space \to \space \space \space \space  \boxed{a.b = -8}$
@@ -134,20 +134,20 @@ cssclasses:
 	1. Boyutları <u>uygun</u> olmalı $(m \times \underline{n}).(\underline{n} \times k) = (m \times k)$
 	2. Matrisler çarpılırken **"satır $\times$ sütun, yaz satıra"** mantığı kullanılmalı.
 
-### **Örnek**:<br>$A= \begin{bmatrix} -2 & 4 \\ \space 3 & 5 \end{bmatrix}_{2 \times 2} \space \space \space \space B= \begin{bmatrix} -2 & 4 & \space 3 \\ \space 1 & 5 & -1 \end{bmatrix}_{2\times 3}$
+### **Örnek**:<br><br>$A= \begin{bmatrix} -2 & 4 \\ \space 3 & 5 \end{bmatrix}_{2 \times 2} \space \space \space \space B= \begin{bmatrix} -2 & 4 & \space 3 \\ \space 1 & 5 & -1 \end{bmatrix}_{2\times 3}$
 
 
 
  
 #### 
-$$ A= 
+$$ A \times B= 
 \begin{bmatrix}
-\colorbox{blue}{$-2 \quad 4$} \\
-\colorbox{purple}{$ \space 3 \quad 5 \space \space$}
+\colorbox{}{$-2 \quad 4$} \\
+\colorbox{}{$  \space \space\space 3  \space \space \space\space \space5 \space $}
 \end{bmatrix} \times 
 \begin{bmatrix}
-\colorbox{green}{$-2$} & \colorbox{gray}{$\space \space 4 \space \space$} & \colorbox{green}{$\space \space 3 \space \space$} \\
-\colorbox{green}{$\space \space 1 \space$} & \colorbox{gray}{$\space \space 5 \space \space$} & \colorbox{green}{$-1 \space$}
+\colorbox{}{$-2$} &  \colorbox{}{$\space \space 4 \space \space$} & \colorbox{}{$\space \space 3 \space \space$} \\
+\colorbox{}{$\space \space 1 \space$} & \colorbox{}{$\space \space 5 \space \space$} & \colorbox{}{$-1 \space$}
 \end{bmatrix}
 $$
 
@@ -158,7 +158,7 @@ $$
 
 
 
-![[MatrisCarpim1.mp4]]
 
 
 
+![[1-MatrixMultiplicationStepByStep.mp4]]
