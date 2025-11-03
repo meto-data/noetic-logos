@@ -134,13 +134,13 @@ cssclasses:
 	1. Boyutları <u>uygun</u> olmalı $(m \times \underline{n}).(\underline{n} \times k) = (m \times k)$
 	2. Matrisler çarpılırken **"satır $\times$ sütun, yaz satıra"** mantığı kullanılmalı.
 
-### **Örnek**:<br><br>$A= \begin{bmatrix} -2 & 4 \\ \space 3 & 5 \end{bmatrix}_{2 \times 2} \space \space \space \space B= \begin{bmatrix} -2 & 4 & \space 3 \\ \space 1 & 5 & -1 \end{bmatrix}_{2\times 3}$
+### **Örnek**:<br><br> $A= \begin{bmatrix} -2 & 4 \\ \space 3 & 5 \end{bmatrix}_{2 \times 2} \space \space \space \space B= \begin{bmatrix} -2 & 4 & \space 3 \\ \space 1 & 5 & -1 \end{bmatrix}_{2\times 3}$
 
 
 
  
-#### 
-$$ A \times B= 
+#### $$ 
+A \times B= 
 \begin{bmatrix}
 \colorbox{}{$-2 \quad 4$} \\
 \colorbox{}{$  \space \space\space 3  \space \space \space\space \space5 \space $}
