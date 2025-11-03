@@ -1,5 +1,5 @@
 ---
-title: Veri Tabanı Yönetim Sistemleri - 2. Hafta
+title: Veri Tabanı Yönetim Sistemleri - 2. Ders
 ---
 
 #### [[Tablo]]

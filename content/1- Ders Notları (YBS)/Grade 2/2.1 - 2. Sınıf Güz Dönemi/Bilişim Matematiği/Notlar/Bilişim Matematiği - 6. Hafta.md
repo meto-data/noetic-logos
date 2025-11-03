@@ -189,4 +189,20 @@ cssclasses:
 
 ### $A = \begin{bmatrix} -2 & 5 & 3 \\ 4 & 7 & -1 \end{bmatrix}_{2 \times 3} \space \space A^T = \begin{bmatrix} -2 & 4 \\ 5 & 7 \\ 3  & -1 \end{bmatrix}$
 
-	
+
+
+
+---
+
+
+
+### Örnek:<br><br>$A$, 2. mertebeden bir kare matris $(2\times 2)$ olmak üzere, $A + A^T = \begin{bmatrix} 4 & 6 \\ 5 & -6 \end{bmatrix}$ ise,  $A$ matrisinin tüm elemanlarının toplamı nedir?
+
+#### $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} + \begin{bmatrix} a & c \\ b & d \end{bmatrix} = \begin{bmatrix} 4 & 6 \\ 5 & -6 \end{bmatrix}$
+#### $\space \to \space \space 2a = 4 \implies a=2$<br>$\space \to \space b+c=5$<br>$\space \to \space \space 2d = -6 \implies d = -3$
+#### $\space \space \space \to \space \space a+b+c+d =4$
+
+
+---
+
+### Transpozdan 1 Örnek Daha Çözülecek

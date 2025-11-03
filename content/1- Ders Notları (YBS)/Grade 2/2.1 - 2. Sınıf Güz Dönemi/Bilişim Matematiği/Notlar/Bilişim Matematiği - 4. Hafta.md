@@ -3,9 +3,6 @@ title: Bilişim Matematiği - 4. Hafta
 type: learning
 ders: "[[Bilişim Matematiği]]"
 created: "[[2025-10-18]]"
-tags:
-  - ders/bilişim_matematiği
-  - ders/bilişim_matematiği/a
 date: 2025-10-17
 cssclasses:
   - ders-notu
