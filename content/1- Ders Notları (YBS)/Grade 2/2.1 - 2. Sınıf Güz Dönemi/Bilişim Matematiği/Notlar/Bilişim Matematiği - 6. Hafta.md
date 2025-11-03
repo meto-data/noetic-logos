@@ -139,17 +139,8 @@ cssclasses:
 
 
 
-$$ 
-A \times B= 
-\begin{bmatrix}
-\colorbox{}{$-2 \quad 4$} \\
-\colorbox{}{$  \space \space\space 3  \space \space \space\space \space5 \space $}
-\end{bmatrix} \times 
-\begin{bmatrix}
-\colorbox{}{$-2$} &  \colorbox{}{$\space \space 4 \space \space$} & \colorbox{}{$\space \space 3 \space \space$} \\
-\colorbox{}{$\space \space 1 \space$} & \colorbox{}{$\space \space 5 \space \space$} & \colorbox{}{$-1 \space$}
-\end{bmatrix}
-$$
+#### $A \times B = \begin{bmatrix} -2 & 4 \\ 3 & 5 \end{bmatrix} \times \begin{bmatrix} -2 & 4 & 3 \\ 1 & 5 & -1 \end{bmatrix}$
+
 
 
 
@@ -164,3 +155,30 @@ $$
 
 
 ![[1-MatrixMultiplicationStepByStep.mp4]]
+
+
+---
+
+### $A = \begin{bmatrix} -2 & -4 & 1 \\ 3 & 2 & -1 \end{bmatrix} \space \space \space B= \begin{bmatrix} 3 & -8 \\ 4 & 1 \\ -1 & 2 \end{bmatrix} \implies A \times B = ?$
+
+
+#### $A\times B = \begin{bmatrix} -23 & 14 \\ 18 & -24  \end{bmatrix}$
+
+
+---
+
+
+### Örnek (<span style="color:darkred">Sınavda çıkabilir</span>): <br><br>$A= \begin{bmatrix}  \space 2 & \space 3 \\ -4 & -2 \end{bmatrix} \implies A^{17} = ?$
+
+
+
+#### $\to A \times A = \begin{bmatrix}  \space 2 & \space 3 \\ -4 & -2 \end{bmatrix} \times\begin{bmatrix}  \space 2 & \space 3 \\ -4 & -2 \end{bmatrix}$
+
+
+#### $\space \to \space A^2 = (A \times A) = \begin{bmatrix} -8 & 0 \\ 0 & -8 \end{bmatrix} = -8I$
+
+
+#### $\space \space \to \space A \times (A^2)^8 = A \times (-8I)^8 = A \times 8^8 \times I = A \times 2^{24} = A^{17}$
+
+
+#### $A^{17} = \begin{bmatrix} 2 & 3 \\ -4 & -2 \end{bmatrix} \times 2^{24} = \begin{bmatrix} 2^{25} & 3.2^{24} \\ -2^{26} & -2^{25} \end{bmatrix}$
