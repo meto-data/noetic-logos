@@ -1,5 +1,5 @@
 ---
-title: Veri Tabanı Yönetim Sistemleri - 3. Hafta
+title: Veri Tabanı Yönetim Sistemleri - 3. Ders
 ---
 
 
