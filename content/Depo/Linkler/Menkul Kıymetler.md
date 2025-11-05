@@ -20,8 +20,8 @@
 
 ---
 ###### Eurobond ve Devlet Tahvili
-- Devlet tahvili konu olduğunda mesela Türkiye Cumhuriyeti Hazinesi, Türk Lirası'na ihtiyaç duyduğunda Türkiye'deki yatırımcılara "Bana $1000$₺ borç ver, sana 1 yıl sonra faiziyle birlikte yine Türk Lirası olarak geri ödeyeyim." der. Her şey TL cinsindendir. 
-- Eurobond'da ise bu sefer **Dolar** veya **Euro** gibi yabancı para birimine ihtiyaç vardır. Bu yüzden Türkiye'deki veya yurt dışındaki yatırımcılara "Bana $1000$$ borç ver, sana 5 yıl boyunca her yıl **Dolar** üzerinden faiz (kupon) ödeyeyim. Vade sonunda da ana paran olan $1000$ doları sana yine dolar olarak geri vereyim." 
+- Devlet tahvili konu olduğunda mesela Türkiye Cumhuriyeti Hazinesi, Türk Lirası'na ihtiyaç duyduğunda Türkiye'deki yatırımcılara "Bana 1000₺ borç ver, sana 1 yıl sonra faiziyle birlikte yine Türk Lirası olarak geri ödeyeyim." der. Her şey TL cinsindendir. 
+- Eurobond'da ise bu sefer **Dolar** veya **Euro** gibi yabancı para birimine ihtiyaç vardır. Bu yüzden Türkiye'deki veya yurt dışındaki yatırımcılara "Bana 1000₺ borç ver, sana 5 yıl boyunca her yıl **Dolar** üzerinden faiz (kupon) ödeyeyim. Vade sonunda da ana paran olan 1000 doları sana yine dolar olarak geri vereyim." 
 ---
 #### 1.2.2. [[Bonolar]] (Bills / Short-Term Debt)
 - Genellikle 1 yıldan kısa vadeli **borçlanma araçlarıdır**.

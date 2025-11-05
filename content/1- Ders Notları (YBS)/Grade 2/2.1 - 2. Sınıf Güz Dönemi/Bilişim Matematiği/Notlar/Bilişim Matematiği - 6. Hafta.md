@@ -115,7 +115,7 @@ cssclasses:
 
 ### Örnek (<span style="color:darkred">Sınavda çıkabilir</span>): <br><br>$A=\begin{bmatrix} 1 & -4 \\ 2 &  \space3 \end{bmatrix} \space \land  \space f(x) = 3x-2 \implies f(A) = ?$
 #### $f(A) = 3A -2I$
-#### $\space = \begin{bmatrix} 3 & -12 \\ 6 & \space \space 9 \end{bmatrix} - \begin{bmatrix} 2 & 0 \\ 6 & 2 \end{bmatrix} = \begin{bmatrix} 1 & -12 \\ 6 & \space \space 7 \end{bmatrix}$
+#### $\space = \begin{bmatrix} 3 & -12 \\ 6 & \space \space 9 \end{bmatrix} - \begin{bmatrix} 2 & 0 \\ 0 & 2 \end{bmatrix} = \begin{bmatrix} 1 & -12 \\ 6 & \space \space 7 \end{bmatrix}$
 
 
 ---

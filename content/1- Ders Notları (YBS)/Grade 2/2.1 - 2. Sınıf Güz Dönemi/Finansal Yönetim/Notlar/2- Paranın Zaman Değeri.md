@@ -168,10 +168,13 @@ $$\text{Gelecek Değer} = \text{Ana Para } + \text{ Faiz Tutarı}$$ <br>
 ### Bileşik Faiz ve Gelecek Değer
 - Yılda birden fazla faiz ödemesinin söz konusu olduğu durumlarda **faiz oranı**, *bir yıldaki faiz ödeme sıklığına* bölünür, **süre** de *faiz ödeme sıklığı* kadar artırılır.
  
-##### $$\begin{aligned} 
-GD_n &= BD \space \left(1 + \frac{i}{m} \right)^{n\times m} \\ \\ 
-m&= \text{Bir yıldaki faiz ödeme sıklığı.}
-\end{aligned}$$
+#### $$
+\begin{aligned}
+GD_n &= BD \left(1 + \frac{i}{m}\right)^{n \times m} \\
+m &= \text{Bir yıldaki faiz ödeme sıklığı.}
+\end{aligned}
+$$
+
 <br>
 
 ![[compound_interest_graph.png]]
