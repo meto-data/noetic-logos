@@ -121,6 +121,13 @@ created: 15.10.2025
 - Firmanın mülkiyetinde olmayan ama takip edilmesi gereken değerler.
 	- `900 Alınan Teminat Mektupları`, `901 Verilen Teminat Mektupları`
 - **[[Nazım Hesap|Daha iyi anlaşılması için tıkla]]**
+
+
+
+>[!important] Kontra Hesap (Düzenleyici Hesap)
+>Bilançoda, ait olduğu ana hesabın zıttı (karşıtı) karakterde çalışan hesaplardır. Amacı ana hesabın brüt değerini düzenleyerek o hesabın net değerini göstermektir. Bu yüzden "eksi karakterli" olarak adlandırılırlar ve bilançoda parantez "()" içinde veya eksi "-" işaretiyle gösterilirler.
+
+
 ## **1.1.** Finansal Tablolar
 - Muhasebecilerin tuttuğu kayıtların özeti. Bu sayede patronlar, bankacılar, yatırımcılar şirketin ne yaptığını anlar. Biz analizi **bilanço** ve **gelir tablosu** üzerinden yapacağız, gerisi ayrıntı.
 ## **1.2.** Temel Mâlî Tablolar
@@ -147,53 +154,102 @@ created: 15.10.2025
 	- Konunun daha iyi anlaşılması için muhasebeyi tekrar etmek gerekiyor.  ([[Varlıklar]]), ([[2- Hesap Kavramı ve Hesapların İşleyişi]]), ([[3- Hesapların İşleyiş Kuralları]])
 - Tablolardaki rakamları alıp birbirine bölmek, çarpmak, oranlamak, sonuçtan bir anlam çıkarmaya çalışmak vesair.  Bilanço ve gelir tablosundan çekiyoruz verileri.
 	- Amaç geçmişe bakıp bugünü anlamak, bugüne bakıp geleceği tahmin etmek.
-### 2.1. [[Finansal Analizi Kimler Yapar]]?
+### 2.1. [[Finansal Analizi Kimler Yapar]]? (Kategori sorusu gelebilir)
 1. **Yöneticiler (*İşletme İçi Uzmanlar*)**:  "Nerede hata yapıyoruz kardeşim?" diye bakmak için. Daha düzgün ifadeyle karar almak, verimliliği ölçmek, zayıf yönleri tespit etmek için (**Yönetim Analizi**).
-2. **Bankacılar, Tedarikçiler (*İşletmeye Kredi Veren 3. Kişi ya da Kurumlar*)**: "Bu elemanlara kredi versek geri ödeyebilirler mi?" diye ölçmek için (**Kredi Analizi**).
+	- Nispeten büyük ölçekli işletmelerde artık departmanlar fazlalaştıkça ve sayı arttıkça finans departmanına bağlı finansal analistler vesaire yapar bunu, ancak nihayetinde yine bu işi koordine eden yöneticiler vardır.
+2. **[[Finansal Kuruluşlar]], Satıcılar/Tedarikçiler , [[sermaye piyasaları|Sermaye Piyasaları]] (*İşletmeye Kredi Veren 3. Kişi ya da Kurumlar*)**: "Bu elemanlara kredi versek geri ödeyebilirler mi?" diye ölçmek için (**Kredi Analizi**).
 3. **Yatırımcılar (*Mevcut ve Potansiyel Ortaklar*)**: "Bu şirkete para yatırsak kâr elde eder miyiz?" diye ölçmek için (**Yatırım Analizi**).
+#### Finansal Analizin Amacı
+1. İşletmenin likidite durumu (nakdi inceler).
+2. İşletmenin kârlılık durumu.
+3. İşletmenin sermaye yapısı.
+4. İşletmenin aktifliğinin kullanım durumu.
+5. İşletme ile ilgili önemli trendlerin elde edilmesi.
+
+### Başa-Baş Noktası
+- **Başa-Baş Noktası (Break-Even Point)**: "Kafa kafaya" gelinen noktadır. Ne kârdayız ne zararda. Kârımız tam olarak sıfır (0). Bu noktada firmanın elde ettiği toplam gelir (hâsılat), o geliri elde etmek için katlandığı toplam maliyete (sabit maliyetler + değişken maliyetler) tam olarak eşittir.
+
+![[output(1).png]]
 
 
-## 3. Finansal Analiz Teknikleri
-### 3.1. Karşılaştırmalı Tablolar Analizi (Yatay Analiz)
+# 3. Finansal Analiz Teknikleri
+### 3.1. **Amacına Göre Analiz Türleri**
+#### 3.1.1. Yönetim Analizi
+#### 3.1.2. Kredi Analizi
+#### 3.1.3. Yatırım Analizi
+
+### 3.2. **Kapsamına (Yapılışına) Göre Analiz Türleri**
+#### 3.2.1. Statik Analiz
+#### 3.2.2. Dinamik Analiz
+
+### 3.3. **Analistçinin Statüsüne Göre**
+#### 3.3.1. İç Analiz
+#### 3.3.2. Dış Analiz
+
+
+
+
+## 3.3.2.1. **Karşılaştırmalı Tablolar Analizi** (Yatay Analiz)
 - İşletmenin iki veya daha fazla dönemine ait mâlî tabloları alıyoruz (bilanço, gelir tablosu gibi temel tabloları yani). Bunları yan yana koyuyoruz ve kalem kalem karşılaştırıyoruz. Ne artmış ne azalmış ona bakıyoruz.
+- **Dinamik bir analiz tekniğidir, birden fazla dönem vardır**. **Tek bir analiz varsa statiktir.
+- Bunlar için en az iki dönem lazım. **Daha çok döneme bakacaksak** ya *ilk yılı baz alacağız* ya da *her yılı bir öncekiyle kıyaslayacağız*
+
 - **Hesabı şöyle yapılıyor**: 
 	- Önce farkı buluyoruz. $\boxed{\text{Değişim Değeri } = \text{ Cari Dönemdeki Değer } - \text{ Baz (önceki) Dönemdeki Değer}}$
 	-  Sonra bu farkın yüzdesini hesaplıyoruz. $\boxed{\text{ Değişim Yüzdesi } = \text{ (Değişim Değeri / Baz Dönemdeki Değer)} \times 100}$
 
-<br>
-- Bunlar için en az iki dönem lazım. **Daha çok döneme bakacaksak** ya *ilk yılı baz alacağız* ya da *her yılı bir öncekiyle kıyaslayacağız*
+
+> [!important] Baz Dönem Olma Koşulları
+> - Kuruluş, tasfiye/iflas/konkordato dönemi olmayacak.
+> - Yatırım yapılan bir yıl olmayacak.
+> - Maliyet yılı olmayacak.
+
+> [!important] Cari Dönem?
+> - **Cari dönem**, finansal analizde *incelediğimiz yıl*dır, içerisinde bulunan dönemin aksine. Normalde finansta da muhasebede de içerisinde bulunan dönemdir, ancak finansal analizde incelediğimiz yıl varsayılır.
+
+
+- **Tıkla**: [[2- İşletme Finansı (Finansal Analiz, Yatay Analiz).pdf#page=21|2- İşletme Finansı (Finansal Analiz, Yatay Analiz), s.20-23]]
+
+- **Yatay analiz hem gelir tablosu hem de bilanço için aynı şekilde hesaplanır**.
+- **Şöyle yorum yapacağız**: " $\dots$  Hesabı önceki/baz yıla kadar  $\dots$  tutarında $\dots$  yüzdesinde artış/azalış göstermiştir."
 
 ###### **Ne işe yarıyor bu yatay analiz?** 
-- İşletmenin geçmişini görmeye yarıyor. Bugünkü durumunu anlıyoruz, geleceğe dair de fikir veriyor işte. Değişimleri yorumluyoruz sonrasında, iyi mi kötü mü, neden olmuş falan
-
-> [!FAQ] Gelir Tablosu, Faaliyet Kârı ve Yatırım İlişkisi
-> **Soru**: Gelir Tablosu, iştirakler ve faaliyet kârı arasındaki ilişki nedir?
-> **Cevap**:
-> - **Faaliyet Kârı**: Şirketin **sadece kendi ana işinden** (mal satmak, hizmet üretmek vb.) ne kadar para kazandığını gösterir. Diğer gelir ve giderler (faiz, temettü, kur farkı vb.) bu kâra dâhil edilmez. **Bu yüzden şirketin operasyonel performansını ölçen en önemli göstergedir**.
-> - **İştirak ve Bağlı Ortaklık İlişkisi**: Bir şirket başka bir şirkete yatırım yaptığında ([[İştirak|iştirak]]/[[Bağlı Ortaklık|bağlı ortaklık]]) o şirketin kârından pay alıyordu, değil mi? Bu paya da **[[temettü]]** diyorduk. Bu temettü geliri şirketin *ana faaliyeti* olmadığı için `Faaliyet Kârı`'na eklenmez. Gelir tablosunda faaliyet kârından **sonra** `Diğer Faaliyetlerden Olağan Gelir ve Kârlar` kalemi içinde gösterilir. Yani bir şirketin faaliyet kârı düşük ama net kârı yüksekse, muhtemelen ana işinden değil, yaptığı yatırımlardan (temettü) veya başka yan gelirlerden para kazanıyordur.
-
+- İşletmenin geçmişini görmeye yarıyor. Bugünkü durumunu anlıyoruz, geleceğe dair de fikir veriyor işte. Değişimleri yorumluyoruz sonrasında, iyi mi kötü mü, neden olmuş falan.
 
 <br>
 
-### 3.2. Yüzde Yöntemiyle Analiz (Dikey Analiz)
+## 3.2. Yüzde Yöntemiyle Analiz (Dikey Analiz)
 - Bilançoyu ya da gelir tablosunu alıyoruz (tek bir dönemin tablosu da olur, birden fazla dönemin tablosunu alıp karşılaştırmak da mümkün), sonra **[[kalem|tablodaki her bir kalemin]]** *ait olduğu grup toplamı* veya *genel toplam içindeki yüzdesini* hesaplıyoruz. 
-	- `Grup Toplamına Göre = (Kalem Tutarı / Grup Toplamı)`
-	- `Genel Toplama Göre = (Kalem Tutarı / Genel Toplam)`
+	- `Grup Toplamına Göre = (Kalem Tutarı / Grup Toplamı) x 100`
+	- `Genel Toplama Göre = (Kalem Tutarı / Genel Toplam) x 100`
 - Yani hangi kalem ne kadar ağırlıkta, onu görüyoruz. Toplamı %100 kabul edip oranlıyoruz.
 	- **Bilançoda**: Genelde aktif veya pasif toplamı %100 alınır. Her varlık veya kaynak kaleminin bu toplama oranı bulunur. İstenilirse grup toplamını da %100 alabiliriz, mesela dönen varlıklar toplamını 100 kabul edip kasayı ona oranlamak gibi.
 	- **Gelir Tablosunda**: *Net satışlar %100 kabul edilir*, çünkü şirketin ana olayı satış yapmak ya hani. **Bu yüzden diğer tüm gelir tablosu kalemleri** (satışların maliyeti, faaliyet giderleri, kâr vs.) **net satışlara oranlanır.**
+- **Statik bir analizdir.**
+- **Tıkla**: [[3- İşletme Finansı Dikey Analiz, Trend Analizi.pdf#page=4|3- İşletme Finansı Dikey Analiz, Trend Analizi, s.4-8]]
 ###### **Ne işe yarıyor bu dikey analiz?**
 - Kalemlerin **[[nispi önemi]]**'ni gösteriyor. Hangi hesap daha baskın hangisi tırt anlıyoruz.
 - Farklı firmaları veya aynı firmanın farklı dönemlerini **karşılaştırmamıza** olanak sağlıyor
-### 3.3. Eğilim Yüzdeleriyle Analiz(Trend Analizi)
+## 3.3. Eğilim Yüzdeleriyle Analiz(Trend Analizi)
 - Birden fazla dönemin finansal tablolarına bakıyoruz. Ama bu sefer bir yılı **[[baz yıl]]** olarak seçiyoruz.
 - Baz yılın tüm kalem tutarlarını 100 kabul ediyoruz. Sonraki yıllardaki aynı kalemlerin tutarlarını baz yıla göre yüzde olarak ifade ediyoruz. Yani zaman içinde o kalemde nasıl bir **eğilim** var, artış mı azalış mı onu görüyoruz.
+	- Yorumlar baz yıla göre yapılır (100'den çıkarılarak yapılır) ve trend grafiği çizilir.
+- Düzgün bir trendin çizilebilmesi için **5 yıla ihtiyaç var.**
+
 <br>
 ##### $\boxed{\text{Trend Yüzdesi } = \text{(İlgili Kalemin Cari Yıl Tutarı / İ.K. Baz Yıl T.)} \times 100}$
 
 <br>
+- **Tıkla**: [[3- İşletme Finansı Dikey Analiz, Trend Analizi.pdf#page=11|3- İşletme Finansı Dikey Analiz, Trend Analizi, s.11-13]]
 
 - Baz yılı seçerken dikkatli olmak lazım. Firmanın yeni kurulduğu, acayip enflasyonun olduğu, büyük yatırım yaptığı veya sel felaketi, firma birleşmesi gibi olağandışı bir durum yaşadığı yılı baz almayacağız. Normal, stabil bir faaliyet dönemi olmalı.
 ###### **Ne işe yarıyor bu trend analizi?**
 - Tablolardaki kalemlerin zaman içindeki **artış veya azalışlarını** net bir şekilde gösteriyor.
 - Bu değişimlerin **önemini** ve **yönünü** anlamamızı sağlıyor. Hangi kalem sürekli artıyor hangi kalem sürekli düşüşte gibi.
+
+## 3.4. Oran Yöntemiyle Analiz (Rasyolar)
+
+
+
+
+---
