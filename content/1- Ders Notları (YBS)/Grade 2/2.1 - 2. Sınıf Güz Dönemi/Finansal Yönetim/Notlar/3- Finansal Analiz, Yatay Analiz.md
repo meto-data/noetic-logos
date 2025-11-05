@@ -44,7 +44,7 @@ created: 15.10.2025
 
 ##### `1: Dönen Varlıklar`
 
-- Firmanın 1 yıl içinde paraya dökecek neyi varsa buradadır. Kasa, banka, alacaklar, stoklar vesair.
+- Firmanın 1 yıl içinde paraya dökecek neyi varsa buradadır. Kasa, banka, alacaklar, stoklar vesaire.
 	- `100 Kasa`, `102 Bankalar`,  `121 Alacak Senetleri`, `153 Ticarî Mallar`, `...`
 
 ##### `2: Duran Varlıklar`
