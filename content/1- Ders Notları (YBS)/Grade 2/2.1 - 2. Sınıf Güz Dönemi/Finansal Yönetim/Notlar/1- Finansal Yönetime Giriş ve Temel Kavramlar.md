@@ -4,7 +4,7 @@ date: 2025-10-01
 ---
 
 ---
-- **Not**: Ders anlatımı epey karmaşık ilerlediği için kategorizasyonda sorunlar olabilir. Derste anlatılanlar, paylaşılan notlar, geçmiş dersler ve kavram tanımlamalarında finans ile ilintili web kaynaklarına bakarak bu notlar oluşturulmuştur. Dolayısıyla ders anlatımından daha fazla notlar barındıracaktır, ancak derste anlatılanları içermesini, onlarla bağlantılı olmasına önem verildi daha ziyade.
+- **Not**: Ders anlatımı epey karmaşık ilerlediği için kategorizasyonda sorunlar olabilir. Derste anlatılanlar, paylaşılan notlar, geçmiş dersler ve kavram tanımlamalarında finans ile ilintili web kaynaklarına bakarak bu notlar oluşturulmuştur. Dolayısıyla ders anlatımından daha fazla notlar barındıracaktır, ancak derste anlatılanları içermesine, onlarla bağlantılı olmasına önem verildi daha ziyade.
 
 
 # 1.1. Terminoloji ve Geçmiş Derslerden Hatırlatıcılar
@@ -14,6 +14,11 @@ date: 2025-10-01
 - **[[Finans]]**: Aysel Göndoğdu'nun Herkese Göre Finans adlı kitabında finans *"Bir bireyin ya da işletmenin fon kaynağı bulması, bulduğu kaynağı verimli bir şekilde kullanması ve bunun için araştırma yapması"* olarak tanımlanır.
 - **[[Finansman]]**: Bir girişimin gerçekleşmesi, bir kuruluşun gelişip işleyebilmesi için gerekli mâlî imkânları sağlama.
 - **Finansal Yönetim**: Firmanın ihtiyaç duyduğu fonları temin edip bunları **firma değerini maksimize edecek yatırımlara yönlendirme faaliyetlerinin tümüdür.**
+- **[[Hisse Senedi]]**: Anonim şirketin sermayesinin esas sözleşme ile belirlenmiş eşit parçalarından birine sahip olduğunu kanıtlayan kıymetli bir kâğıttır. Bsitçe **ortaklık tapusu**dur. Üç temel hak verir:
+	1. **Söz Hakkı**: Şirketin genel kuruluna katılıp oy kullanma hakkı.
+	2. **Kârdan Pay Alma Hakkı)**: Şirket kâr elde ettiğinde, o kârdan kendi payına düşeni ([[temettü]]) alma hakkı.
+	3. **Devir Hakkı**: Hisse senedini başkasına satma hakkı (borsada yapılan alım-satım işleri).
+	- Anonim şirketler bu hisse senetlerini satarak (ihraç ederek) para toplar (finansman sağlar).
 
 
 ---
@@ -115,14 +120,14 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 
 - **Ortaklar**: Tek bir gerçek veya tüzel kişi ile kurulabilir. Ortak sayısında (halka açık olmayanlar hariç, onlarda 500) üst sınır yoktur.
 - **Sorumluluk**: Ortakların sorumluluğu taahhüt ettikleri sermaye payı ile sınırlıdır. Şirketin kamu borçları (vergi, SGK vb.) dışında ortakların kişisel mal varlığına başvurulamaz.
-- **Finansman**: Hisse senedi ve tahvil gibi menkul kıymetleri ihraç edebilir. Bu borçlanma ve sermaye bulma konusunda en büyük esnekliği sağlar.
+- **Finansman**: *Hisse senedi ve tahvil gibi menkul kıymetleri ihraç edebilir. Bu borçlanma ve sermaye bulma konusunda en büyük esnekliği sağlar.*
 - **Kimler için?** Genellikle büyük ölçekli işletmeler, halka açılmayı hedefleyenler, bankacılık, sigortacılık gibi özel izin gerektiren sektörlerde faaliyet gösterenler için tercih sebebidir.
 ### Limited Şirket (LTD. ŞTİ.)
 - Türkiye'deki en yaygın şirket türüdür. Anonim şirkete göre nispeten daha az karmaşık ve daha esnek bir yapı sunar. Bu nedenle **[[KOBİ]]**'ler tarafından sıkça tercih edilir.
 - **Tanım**: Bir veya daha fazla gerçek veya tüzel kişi tarafından bir ticaret unvanı altında kurulan, esas sermayesi belirli olan ve bu sermayenin esas sermaye paylarının toplamından oluşan bir sermaye şirketidir.
 - **Ortaklar**: En az bir, en fazla 50 ortak ile kurulabilir.
 - **Sorumluluk**: Ortakların sorumluluğu kural olarak taahhüt ettikleri sermaye payı ile sınırlıdır. Ancak önemli fark şudur ki, şirketten tahsil edilemeyen kamu borçlarından (vergi, SGK primi vb.) ortaklar sermaye payları oranında şahsî mal varlıklarıyla sorumlu olurlar.
-- **Finansman**: Tahvil gibi borçlanma araçları çıkaramaz.
+- **Finansman**: *Hisse senedi ve tahvil gibi borçlanma araçları çıkaramaz.*
 - **Kimler İçin?** **[[KOBİ]]**'ler, aile şirketleri ve daha az ortaklı yapılar için idealdir.
 # 1.3. Gelir, Maliyet ve Kâr Döngüsü
 #### **[[Gelir]]**
@@ -178,8 +183,8 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 	2. Firmanın kaynakları çeşitli varlıklar arasında nasıl dağıtılmalıdır? (**Aktif Yapı / Yatırım Kararları**)
 	3. Firmanın amacı açısından en iyi sonucu verecek kaynak bileşimi nasıl sağlanmalıdır? (**Pasif Yapı / Finansman Kararları**)
 
-> [!paperclip]
-> Pasif yapıyla ilgili olan *en uygun fonu sağlamak* ve aktif yapıyla ilgili olan bu fonları *en verimli şekilde dağıtmak* ile ilgilinir. 
+> [!paperclip] Pasif ve Aktif
+> Pasif yapıyla ilgili olan *en uygun fonu sağlamak* ve aktif yapıyla ilgili olan bu fonları *en verimli şekilde dağıtmak* ile ilgilidir. 
 ## 3.1. [[Finansal Analizi Kimler Yapar|Finansal Analiz]]
 - Firmalarda tutarlı kararların alınabilmesi açısından ilk basamağı oluşturur. Finansal analiz yapılarak işletmelerin mevcut durumları saptanır ve geçmişe yönelik durumu tespit edilip değerlendirilerek geleceğe ilişkin kararlar alınır. Öngörü yapılır ve hedef sayısallaştırılabiliyorsa mutlaka sayısal hâle getirilir.
 	- Bkz. **[[Muhasebenin Beş İşlevi]]**
@@ -190,13 +195,13 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 - **Finansal Denetim**: Gelecekle ilgili beklentilerin değişmesi veya planlara uymayan uygulamalar denetim fonksiyonu ile izlenir. Böylece planlardan sapmalar tespit edilerek zamanında düzenlemeler yapılır.
 ## 3.3. [[Fonların Sağlanması]] (Finansman Kararları)
 - "Yatırım için gerekli fonlar nasıl elde edilecek?" sorusuna cevap arar.
-- Kâr eden bir firmanın elde ettiği kârları dağıtmayıp firma bünyesinde tutması ile fon sorununun çözüleceği düşünebilir. Ancak firmalarda para giriş ve çıkışlarında miktar ve zaman yönünden farklılıklar çıkmaktadır. Bu nedenle fon açığı olduğunda aradaki fark firma dışındaki üçüncü kişi veya kurumlardan (bankalar, üçüncü kişiler, firmalar, sermaye piyasaları) sağlanabilir. Kullanılan her bir kaynağın firmaya farklı maliyetler çıkaracağı unutulmamalıdır. Bu nedenle **fonların sağlanmasının yanında en uygun fon kaynağının araştırılıp bulunması da ayrıca önemlidir**.
+- Kâr eden bir firmanın elde ettiği kârları dağıtmayıp firma bünyesinde tutması ile fon sorununun çözüleceği düşünülebilir. Ancak firmalarda para giriş ve çıkışlarında miktar ve zaman yönünden farklılıklar çıkmaktadır. Bu nedenle fon açığı olduğunda aradaki fark firma dışındaki üçüncü kişi veya kurumlardan (bankalar, üçüncü kişiler, firmalar, sermaye piyasaları) sağlanabilir. Kullanılan her bir kaynağın firmaya farklı maliyetler çıkaracağı unutulmamalıdır. Bu nedenle **fonların sağlanmasının yanında en uygun fon kaynağının araştırılıp bulunması da ayrıca önemlidir**.
 - İşletmeler fon ihtiyaçlarını temelde iki ana kaynaktan karşılar: **Öz Kaynaklar** ve **Yabancı Kaynaklar**.
 - **Finansal Yapı**: Bir işletmede kullanılan sermayenin elde edildiği kaynakların türü, özellikleri ve bu kaynakların kendi aralarındaki bileşimi o işletmenin finansal yapısını ortaya koyar.
 ### 3.3.1. [[Öz Kaynaklar ve Ortaklık Yapısı]] (İç Finansman)
 
 - Firma kurulum aşamasında değer verenler verdikleri değer ([[Öz Kaynaklar (Equity)|öz kaynaklar/sermaye]]) kadar firma üzerinde söz/hak/pay sahibidir. Firma bu kişilere borçlanır.
-- Mikro ölçekli firmaların da bir sermayesi vardır ancak bu sermaye anonim şirketlerde olduğu gibi hisse senetlerine bölünmemiştir. Yatırım yapıldığonda bu nedenle hisse senedi payı yerine sermaye payı denilir, ayırt edici özelliği budur çünkü. 
+- Mikro ölçekli firmaların da bir sermayesi vardır ancak bu sermaye anonim şirketlerde olduğu gibi hisse senetlerine bölünmemiştir. Bu nedenle "hisse senedi payı" yerine **sermaye payı** denilir, ayırt edici özelliği budur çünkü. 
 
 1. **Sahip (Owner)**: Şirketin gerçek kontrolüne sahip kişi veya kişiler.
 2. **Ortak (Partner - Shareholder)**: Şirkete sermaye koymuş kişidir. Anonim şirkette *hissedar*, limited şirkette *ortak* denir.
@@ -227,7 +232,7 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 > - **[[Para Piyasası]] (Money Market)**: Bir yıldan *kısa vadeli* fonların (nakit, "sıcak para") alınıp satıldığı piyasadır. İşletmelerin günlük nakit ihtiyaçlarını (işletme sermayesi) karşılamak için kullandığı yerdir. Bankalar bu piyasanın en önemli oyuncularıdır. **[[Hazine Bonosu]]** ve **[[Finansman Bonosu]]** bu piyasanın araçlarıdır.
 > - **[[sermaye piyasaları|Sermaye Piyasası]] (Capital Market)**: Bir yıldan *uzun vadeli* fonların ve [[Menkul Kıymetler|menkul kıymetlerin]] işlem gördüğü piyasadır. İşletmelerin büyük ve uzun süreli yatırımlarını (fabrika kurmak vb.) finanse etmek için başvurduğu yerdir.
 
-#### [[Devlet Kuruluşları]]
+#### [[devlet kuruluşları|Devlet Kuruluşları]]
 - Bir işletme kâr elde ettiğinde bu kâr üzerinde ilk hak sahibi devlettir. Vergiler işletme için ödenmesi zorunlu bir borçtur ve **[[Bilanço Tablosu|bilançoda]]** "Yabancı Kaynak" kalemi olarak yer alır. Bu borç ödendikten sonra kalan net kâr ortaklar ve firma arasında paylaştırılabilir.
 - Ödenecek vergiler ve SGK primleri gibi kamu borçlarının vadesi gelene kadar bu tutarlar işletmenin kasasında kalır. Bu sürece **[[tahakkuk]]** denir ve bu süre zarfında para, işletme için geçici bir fon kaynağı (*emanette tutma*) işlevi görür.
 
@@ -304,7 +309,7 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 	 - **[[Havale]]**: Aynı bankanın şubeleri veya hesapları arasında yapılan para transferi.
 	 - **[[Elektronik Fon Transferi]] (EFT)**: Farklı bankalar arasındaki para transferi.
 	 - **[[Virman]]**: Kişinin veya kurumun aynı bankadaki kendi hesapları arasında yaptığı para aktarımı.
-	 - **[[Menkul Kıymetler]]**: Geçici yatırım amacıyla alınan ve kısa sürede nakde çevrilebilen hisse senetleri (*110 Hisse Senetleri Hs.*), hazine banoları gibi varlıklar.
+	 - **[[Menkul Kıymetler]]**: Geçici yatırım amacıyla alınan ve kısa sürede nakde çevrilebilen hisse senetleri (*110 Hisse Senetleri Hs.*), hazine banoları gibi varlıklar.3
 ##### B. Ticarî Alacakların Yönetimi (Vadeli Likidite) ([[Ödeme Vasıtası]])
 
 
@@ -322,8 +327,8 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 
 - **[[Senet]] (Bono)**: Borçlunun (düzenleyenin) alacaklıya (lehtara) belirli bir tarihte, belirli bir meblağı kayıtsız şartsız ödeme taahhüdünü içeren belge. İki taraf arasında düzenlenir.
 - **[[Çek]]**: Bir banka hesabından ödeme yapılması için düzenlenmiş bir ödeme emri. **Kredi aracı değil, ödeme aracıdır**. Üzerindeki tarihte ödenmesi esastır. 
-	- Çek, banka güvencesi sunduğu için poliçe ve senede göre daha kıymetli bir evraktır. Karşılıksız çek düzenlemek ticarî itibarı zedeler ve "**kara listeye**" girme gibi ciddi yaptırımları vardır.* Poliçe ve senetten daha kıymetli bir evraktır çek. Neden? E arkasında banka var da ondan. Muhatabın babanın oğlu değil. Karşılıksız çek yazarsan piyasada adın çıkar, 'karşılıksız herif' derler sana, "**kara listeye**" alırlar ceza olarak. Bir daha kimseden de mal alamazsın. Tabii hükümette tanıdığın varsa durum başka.
-		- *İbraz Süreleri*: Çekin üzerinde yazan tarihten itibaren belirli süreler içinde bankaya sunulması gerekir. Sonsuza kadar cebine tutamazsın o çeki:         
+	- Çek, banka güvencesi sunduğu için poliçe ve senede göre daha kıymetli bir evraktır. Karşılıksız çek düzenlemek ticarî itibarı zedeler ve "**kara listeye**" girme gibi ciddi yaptırımları vardır. Poliçe ve senetten daha kıymetli bir evraktır çek. Neden? E arkasında banka var da ondan. Muhatabın babanın oğlu değil. Karşılıksız çek yazarsan piyasada adın çıkar, 'karşılıksız herif' derler sana, "**kara listeye**" alırlar ceza olarak. Bir daha kimseden de mal alamazsın. Tabii hükümette tanıdığın varsa durum başka :D
+		- *İbraz Süreleri*: Çekin üzerinde yazan tarihten itibaren belirli süreler içinde bankaya sunulması gerekir. Sonsuza kadar cebinde tutamazsın o çeki:         
 			1. **Aynı şehirde ise:** 10 gün        
 			2. **Farklı şehirlerde (aynı ülke) ise:** 1 ay         
 			3. **Farklı kıtalarda ise:** 3 ay içinde bankaya götüreceksin. Kaçırırsan geçmiş olsun.
@@ -331,7 +336,7 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 ###### İşlem ve Devir
 - **[[Ciro]]**: Kıymetli evrakların mülkiyetinin arka yüzünün imzalanarak başkasına devredilmesi işlemi. **Çek ve senetin ciro işlemi vardır!**
 	- "Ciro" kelimesinin ticarî hayatta iki farklı anlamı vardır: 
-		1. Burada bahsedilen hukukî işlem olan **devir (endorsement)**. 
+		1. <u>Burada bahsedilen</u> hukukî işlem olan **devir (endorsement)**. 
 		2. Bir şirketin toplam satış hasılatı (**revenue/turnover**). "Bu ay 1 milyon TL ciro yaptık" denildiğinde kastedilen ikinci anlamdır.
 ###### Güvenlik ve Taraflar
 - **Çek ve Banka İlişkisi**: Çekte ödemeyi yapma borcu altında olan taraf (muhatap) her zaman bir **bankadır**. Bu durum alacaklı için senede göre daha büyük bir güvence sağlamaktadır. Banka, hesapta para varsa ödemeyi yapmakla yükümlüdür.
