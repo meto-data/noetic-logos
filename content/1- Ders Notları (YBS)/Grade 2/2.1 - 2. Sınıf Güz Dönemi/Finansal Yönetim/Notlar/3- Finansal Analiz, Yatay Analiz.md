@@ -18,6 +18,12 @@ created: 15.10.2025
 # **1.** Mâlî Tablolar
 
 ## Hatırlayalım
+
+
+>[!quote] Alıntı
+>"Hafıza-ı beşer nisyan ile mâlûldür."...
+
+
 - Bkz. [[Muhasebenin Beş İşlevi]]
 - Muhasebe bir bilgi sistemi. Bu sistem ne yapar? E bilgi sistemi olduğundan firmada olup biten para hareketlerini (malî olaylar) alıp anlamlı bir şeye dönüştürür. Bu süreç de şöyle işler:
 	1. **[[Saptamak]]**: "Mal aldım", "para ödedim" demek yeterli değil. **Elde belge olmalı**; faturadır, makbuzdur, dekonttur vs. Olayı **somut** olarak tespit edebilmek gerekli. Belgesi olmayan şeyin muhasebe yeri yoktur.
