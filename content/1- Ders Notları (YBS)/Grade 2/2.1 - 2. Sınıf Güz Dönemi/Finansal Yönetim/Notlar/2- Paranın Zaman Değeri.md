@@ -74,7 +74,7 @@ date: 2025-10-08
 - **[[Faiz]]**: Paranın kira bedeli -ya da- paranın fiyatı. Bir başka tanıma göre, tasarruf sahibinin, tasarrufunu kullanmak yerine bir başkasına ödünç vermesi karşılığında aldığı bir vazgeçme ya da kullanımı erteleme bedelidir. (*Ayrıntılı bilgi için bkz.* [[Faiz Çeşitleri]]). *"Fon arz ve fon talebini eşitleyen bir fiyat"* olarak da tanımlanabilir.
 	- Parayı veren açısından getiridir, alan açısından maliyettir.
 	- Bankalar faizi 365 üzerinden hesaplarlar.
-	- İşletmeler ise 360 üzerinden de hesaplayabilirler.
+	- İşletmeler ise 360 üzerinden de hesaplayabilirler3.
 	- Biz 360 kullanacağız.
 		- Rasyo'yu hesaplarken de bunu kullanacağız.
 
@@ -193,7 +193,7 @@ $$\text{Gelecek Değer} = \text{Ana Para } + \text{ Faiz Tutarı}$$ <br>
 
 
 ## Anüiteler (Düzgün Nakit Akışları)
-- **[[anüite|Anüite]]**: “annuity / annuite / annuitatem / annuitās” formları **Orta Latin / Anglo-Fransızca** kökenlidir ve doğrudan Latince **annus** (“yıl”) kelimesinden türemiştir. İngilizce “annuity” kelimesi 15. yüzyılda geçerken “a yearly allowance, grant payable in annual installments (**Her yıl -ya da belli periyotlarda- düzenli ve eşit miktarda ödeme**)” anlamında kullanılmıştır.
+- **[[anüite|Anüite]]**: “annuity / annuite / annuitatem / annuitās” formları **Orta Latin / Anglo-Fransızca** kökenlidir ve doğrudan Latince **annus** (“yıl”) kelimesinden türemiştir. İngilizce “annuity” kelimesi 15. yüzyıla geçerken “a yearly allowance, grant payable in annual installments (**Her yıl -ya da belli periyotlarda- düzenli ve eşit miktarda ödeme**)” anlamında kullanılmıştır.
 - Belirli bir süre boyunca, **eşit zaman aralıklarında** (her ay, her yıl vb.) ve **eşit miktarda** gerçekleşen para ödemeleri veya tahsilatları serisine **[[anüite]]** denir.
 
 > [!important]
@@ -218,8 +218,6 @@ $$\text{Gelecek Değer} = \text{Ana Para } + \text{ Faiz Tutarı}$$ <br>
 ### Anüite'nin Gelecek Değeri (GDFA - Gelecekteki Değer Faktörü Anüite) 
 
 #### Normal Anüite
-
-$$GDFA (n,i) = BD \times \frac{(GDF) -1}{i} = BD \times  \frac{(1+i)^n -1}{i}$$
 
 - **BD**: Bir dönemlik ödeme. Her yıl yatırılan sabit tutar.
 - $i$: Faiz oranı.
