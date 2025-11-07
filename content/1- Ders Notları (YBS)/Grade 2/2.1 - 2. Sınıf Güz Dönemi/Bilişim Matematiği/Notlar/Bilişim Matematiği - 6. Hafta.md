@@ -14,7 +14,7 @@ cssclasses:
 
 ### a) **Kare Matris**
 - Satır ve sütun sayısı birbirine eşit olan matrislerdir.
-
+R
 #### $A= \begin{bmatrix} \boxed{-1} & 4 & 2 \\ \frac{1}{5} & \boxed{5} & -3 \\ -2 & -5 & \boxed{4} \end{bmatrix}_{3 \times 3}$
 
 
@@ -196,9 +196,9 @@ cssclasses:
 
 
 
-### Örnek:<br><br>$A$, 2. mertebeden bir kare matris $(2\times 2)$ olmak üzere, $A + A^T = \begin{bmatrix} 4 & 6 \\ 5 & -6 \end{bmatrix}$ ise,  $A$ matrisinin tüm elemanlarının toplamı nedir?
+### Örnek:<br><br>$A$, 2. mertebeden bir kare matris $(2\times 2)$ olmak üzere, $A + A^T = \begin{bmatrix} 4 & 5 \\ 5 & -6 \end{bmatrix}$ ise,  $A$ matrisinin tüm elemanlarının toplamı nedir?
 
-#### $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} + \begin{bmatrix} a & c \\ b & d \end{bmatrix} = \begin{bmatrix} 4 & 6 \\ 5 & -6 \end{bmatrix}$
+#### $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} + \begin{bmatrix} a & c \\ b & d \end{bmatrix} = \begin{bmatrix} 4 & 5 \\ 5 & -6 \end{bmatrix}$
 #### $\space \to \space \space 2a = 4 \implies a=2$<br>$\space \to \space b+c=5$<br>$\space \to \space \space 2d = -6 \implies d = -3$
 #### $\space \space \space \to \space \space a+b+c+d =4$
 
@@ -206,3 +206,4 @@ cssclasses:
 ---
 
 ### Transpozdan 1 Örnek Daha Çözülecek
+
