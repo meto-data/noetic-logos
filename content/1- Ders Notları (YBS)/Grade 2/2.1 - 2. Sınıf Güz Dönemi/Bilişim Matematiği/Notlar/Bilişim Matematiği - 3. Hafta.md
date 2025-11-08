@@ -157,7 +157,10 @@ olduğuna göre, $p \implies q$ teoremini *doğrudan ispat yöntemiyle* ispatlay
 ![[itmat1.svg|550]]
 
 <br>
+
 ![[itmat2.svg]]
+
+
 
 ---
 
