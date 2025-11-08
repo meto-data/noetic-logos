@@ -21,7 +21,8 @@ $$\Large A = \begin{bmatrix} 2 & 3 \\ 1 & 2 \end{bmatrix} \implies A^{-1} = ?$$
 #### Çözüm Adımları:
 
 $$
-\large \begin{aligned}
+\large 
+\begin{aligned}
 & \begin{bmatrix} 2 & 3 \\ 1 & 2 \end{bmatrix} \times \begin{bmatrix} a & b \\ c & d \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \\
 & \\
 & \to 2a + 3c = 1 \qquad 2b + 3d = 0 \\
@@ -41,6 +42,7 @@ $$
 $$
 
 
+
 ---
 
 ### Örnek:
@@ -49,7 +51,8 @@ $$\Large \begin{bmatrix} -1 & 3 \\ 2 & -4 \end{bmatrix} \implies A^{-1} = ?$$
 
 
 $$
-\large \begin{aligned}
+\large 
+\begin{aligned}
 & \begin{bmatrix} -1 & 3 \\ 2 & -4 \end{bmatrix} \times \begin{bmatrix} a & b \\ c & d \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \\
 & \\
 & \to -a + 3c = 1 \quad \quad -b + 3d = 0 \\
@@ -63,6 +66,7 @@ $$
 & \quad A^{-1} = \begin{bmatrix} 2 & \frac{3}{2} \\ 1 & \frac{1}{2} \end{bmatrix}
 \end{aligned}
 $$
+
 
 
 
