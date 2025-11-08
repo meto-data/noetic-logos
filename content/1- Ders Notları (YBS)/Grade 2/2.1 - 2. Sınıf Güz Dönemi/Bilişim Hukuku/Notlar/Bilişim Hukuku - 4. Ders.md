@@ -12,13 +12,13 @@ date: 2025-10-16
 ## 1. Siber Alan, İnternet ve Web Tanımları
 
 - **İnternet**: Dünyadaki cihazları birbirine bağlayan ağ altyapısı, sunucular ve bu bağlantıları yöneten merkeziyetsiz ve halka açık protokoller (TCP/IP) bütünüdür.
-- **World Wide Web (WWW)**: İnternet üzerinde çalışan bir servistir. HTTP protokolü, HTML ve Hyperlink sistemiyle bilgiyi paylaşan ve erişilebilir kılan bilgi modelidir.
-- **Siber Alan**: İnternet, telekomünikasyon ağları, bilgisayar sistemleri ve gömülü işlemciler dâhil BT altyapılarının birbirine bağımlı ağı. "Sanal dünya" demek pek tutarlı değil, zira çokça fiziksel altyapı içeren bir alana "sanal" demek yanıltıcıdır.
+- **World Wide Web (WWW)**: İnternet üzerinde HTTP protokolü, HTML ve Hyperlink sistemleri aracılığıyla bilgiyi paylaşan ve erişilebilir kılan bilgi modeli.
+- **Siber Alan**: Bilgisayar ağlarının birbirine bağlanmasıyla oluşan sanal etkileşim evreni.
 
 ### İnternetin Toplumsallaşmasında Etkili Olan Üç Faktör
 1. Tim Berners-Lee'nin icat ettiği web'i (WWW) açık kaynak olarak sunması, ardından geliştirilmesi ve yayılması.
 2. İnternet yönetimindeki kurumsal değişimler (bkz. devlet tekelinden çıkıp bir nevi sivilleşmesi).
-3. Sosyal yapı, sosyo-kültürel davranışlarda oluşan büyük değişiklikler.
+3. Sosyal yapı ve sosyo-kültürel davranışlarda oluşan büyük değişiklikler.
 
 
 
