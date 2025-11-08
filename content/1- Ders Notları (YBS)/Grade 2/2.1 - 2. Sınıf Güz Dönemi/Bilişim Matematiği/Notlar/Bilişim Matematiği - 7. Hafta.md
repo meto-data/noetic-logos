@@ -125,7 +125,10 @@ $$
 
 ## Doğrusal Denklem Sistemlerinin Determinantlar Yardımıyla Çözümü (**Cramer Yöntemi**)
 
-### **Örnek 5**: Aşağıdaki denklemin çözüm kümesini Cramer yöntemiyle bulunuz. <br>
+### **Örnek 5**: Aşağıdaki denklemin çözüm kümesini Cramer yöntemiyle bulunuz. 
+
+<br>
+
 
 $$
 \Large
@@ -155,7 +158,9 @@ $$
 \text{Ç.K} = \{(3,\,2)\}
 $$
 
+
 ---
+
 
 ### **Örnek 6**: Aşağıdaki denklem sisteminin çözüm kümesini Cramer yönetmiyle bulunuz.
 
@@ -165,7 +170,7 @@ $$
 \LARGE
 \begin{aligned}
 2x-y+z = 11 \\
-x  + 2y -z  =  5\space\space \\
+x  + 2y -z  =   5 \space\space \\
 -x +y -2z = 3 \space\space
 \end{aligned}
 $$
@@ -195,8 +200,10 @@ $$
 1 & 2 & -1 \\
 \end{array} 
 \end{array}  
-\begin{array}
-\space \to \space (-8 +1 -1) -(-2 -2  +2) \\  = -8 +2 = 6
+\begin{array}{l}
+\space \to \space 
+(-8 +1 -1) -(-2 -2  +2) \\  
+\space \space = -8 +2 = 6
 \end{array}
 $$
 
