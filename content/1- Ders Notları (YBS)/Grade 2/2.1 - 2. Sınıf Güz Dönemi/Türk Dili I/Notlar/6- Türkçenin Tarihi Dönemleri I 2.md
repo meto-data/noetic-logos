@@ -36,11 +36,14 @@ harezm türkçesi sadece batı türkistan aklında kalsın kitabul enbiya kalsı
 
 
 
-## Türkiye Türkçesi (bu kısım aşırı önemli)
+### Türkiye Türkçesi (bu kısım aşırı önemli)
 
 
 
 ---
+---
+---
+
 
 # Orta Türkçe
 ## 1. Karahanlı (Hakaniye) Türkçesi

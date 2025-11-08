@@ -1,3 +1,8 @@
+---
+draft: true
+---
+
+
 Her ne zaman aşka yakın bir duygu hissetmeye başlasam klavyemle (kalemimle yazmıyorum zira) savunmaya geçiyorum. Düşünceler ile bu duyguyu atmak pek kolay olmuyor. Eskiye nazaran daha kolay olduğu bir gerçek, ancak bu, hissin şiddeti ile de orantılı bir biçimde ilerliyor.
 
 Burada **görünüşler** mevzusuna değinmek istiyorum. **Görünüşler, bir şeyin (bu herhangi bir şey olabilir; zengin bir insan, lüks bir mekân, güzel bir kadın…), bizdeki etkisine vesile olan girdidir.**
