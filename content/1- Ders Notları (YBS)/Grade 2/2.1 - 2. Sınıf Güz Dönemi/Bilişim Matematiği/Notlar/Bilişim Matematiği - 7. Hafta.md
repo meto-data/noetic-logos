@@ -25,7 +25,7 @@ $$
 
 ### Örnek 1:
 $$\Large A = \begin{bmatrix} 2 & 3 \\ 1 & 2 \end{bmatrix} \implies A^{-1} = ?$$
-### Çözüm Adımları:
+#### Çözüm Adımları:
 
 
 ####  $\begin{bmatrix} 2 & 3 \\ 1 & 2 \end{bmatrix} \times \begin{bmatrix} a & b \\ c & d \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$ <br>
@@ -50,7 +50,7 @@ $$\Large A = \begin{bmatrix} 2 & 3 \\ 1 & 2 \end{bmatrix} \implies A^{-1} = ?$$
 
 ### Örnek 2:
 $$\Large \begin{bmatrix} -1 & 3 \\ 2 & -4 \end{bmatrix} \implies A^{-1} = ?$$
-### Çözüm Adımları:
+#### Çözüm Adımları:
 
 
 #### $\begin{bmatrix} -1 & 3 \\ 2 & -4 \end{bmatrix} \times \begin{bmatrix} a & b \\ c & d \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$
@@ -89,7 +89,7 @@ $$
 \Large
 A = \begin{bmatrix} 11 & -1 & 1 \\ 5 & 2 & -1 \\ 3 & 1 & -2 \end{bmatrix} \implies |A| = ?
 $$
-### Çözüm Adımları:
+#### Çözüm Adımları:
 
 
 $$
@@ -111,7 +111,7 @@ A = \begin{bmatrix} 4 & 0 & 5 \\ 3 & 6 & -1 \\ 2 & 0 & -3 \end{bmatrix} \implies
 $$
 
 
-### Çözüm Adımları:
+#### Çözüm Adımları:
 
 $$
 \large
@@ -138,7 +138,7 @@ $$
 \end{array}
 $$
 
-### Çözüm Adımları:
+#### Çözüm Adımları:
 
 <br>
 
@@ -176,7 +176,7 @@ x  + 2y -z  =   5 \space\space \\
 $$
 
 
-### Çözüm Adımları:
+#### Çözüm Adımları:
 
 <br>
 
