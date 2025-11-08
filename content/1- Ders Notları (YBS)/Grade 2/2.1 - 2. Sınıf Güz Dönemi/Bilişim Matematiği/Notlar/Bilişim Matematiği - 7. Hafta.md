@@ -20,7 +20,8 @@ $$\LARGE \boxed{A\times A^{-1} = I}$$
 $$\Large A = \begin{bmatrix} 2 & 3 \\ 1 & 2 \end{bmatrix} \implies A^{-1} = ?$$
 #### Çözüm Adımları:
 
-$$\large \begin{aligned}
+$$
+\large \begin{aligned}
 & \begin{bmatrix} 2 & 3 \\ 1 & 2 \end{bmatrix} \times \begin{bmatrix} a & b \\ c & d \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \\
 & \\
 & \to 2a + 3c = 1 \qquad 2b + 3d = 0 \\
@@ -38,6 +39,7 @@ $$\large \begin{aligned}
 & \to \quad A^{-1} = \begin{bmatrix} \space \space 2 & -3 \space \\ -1 & \space \space 2 \space \end{bmatrix}
 \end{aligned}
 $$
+
 
 ---
 
@@ -61,6 +63,7 @@ $$
 & \quad A^{-1} = \begin{bmatrix} 2 & \frac{3}{2} \\ 1 & \frac{1}{2} \end{bmatrix}
 \end{aligned}
 $$
+
 
 
 ---
