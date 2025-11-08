@@ -13,8 +13,13 @@ cssclasses:
 
 ### Temel Formül
 
-$$\LARGE \displaystyle
-\begin{array}{c} \boxed{A \times A^{-1} = I} \end{array}$$
+$$
+\LARGE 
+\displaystyle 
+\begin{array}{c} 
+\boxed{A \times A^{-1} = I} 
+\end{array}
+$$
 
 ---
 
@@ -142,4 +147,4 @@ $$
 
 ---
 
-### **Örnek**: Aşağıdaki denklem sisteminin çözüm kümesini Cramer yönetmiyle bulunuz.
+### **Örnek**: Aşağıdaki denklem sisteminin çözüm kümesini Cramer yönetmiyle bulunuz. v2v2v2
