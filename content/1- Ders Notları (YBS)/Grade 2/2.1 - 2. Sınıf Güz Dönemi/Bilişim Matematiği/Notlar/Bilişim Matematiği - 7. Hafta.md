@@ -94,10 +94,8 @@ $$
 
 $$
 \large \begin{aligned}
-& \begin{bmatrix} 11 & -1 & 1 \\ 5 & 2 & -1 \\ 3 & 1 & -2 \\ 11 & -1 & 1 \\ 5 & 2 & -1 \end{bmatrix} \implies \\
-& \\
-& \to  \space |A| = (-44 + 5 + 3) - (6 -11 +10) \\
-& \to \space  |A|=-36 -5 = -41
+& \begin{bmatrix} 11 & -1 & 1 \\ 5 & 2 & -1 \\ 3 & 1 & -2 \\ 11 & -1 & 1 \\ 5 & 2 & -1 \end{bmatrix} \implies \begin{aligned} 
+ \space |A| = (-44 + 5 + 3) - (6 -11 +10)  \\ |A| = -36 -5 = -41 \qquad \qquad \quad\end{aligned}
 \end{aligned}
 $$
 
@@ -116,6 +114,7 @@ $$
 ### Çözüm Adımları:
 
 $$
+\large
 \begin{aligned}
 & \begin{bmatrix} 4 & 0 & 5 \\ 3 & 6 & -1 \\ 2 & 0 & -3 \\ 4 & 0 & 5 \\ 3 & 6 & -1 \end{bmatrix} \implies |A| = (-72 +0+0)-(60+0+0) = -132
 \end{aligned}
@@ -174,6 +173,9 @@ $$
 
 ### Çözüm Adımları:
 
+<br>
+
+
 
 $$
 \large
@@ -197,6 +199,7 @@ $$
 \space \to \space (-8 +1 -1) -(-2 -2  +2) \\  = -8 +2 = 6
 \end{array}
 $$
+
 
 
 $$
@@ -271,6 +274,9 @@ $$
 \end{array}
 $$
 
+
+<br>
+
 $$
 \large
 \text{Ç.K} = 
@@ -282,3 +288,6 @@ $$
 \right) 
 \right\}
 $$
+
+
+
