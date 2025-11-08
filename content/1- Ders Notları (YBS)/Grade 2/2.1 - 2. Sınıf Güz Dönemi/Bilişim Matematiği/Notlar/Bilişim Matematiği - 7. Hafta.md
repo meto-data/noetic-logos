@@ -12,7 +12,9 @@ cssclasses:
 ## Bir Kare Matrisin Tersi
 
 ### Temel Formül
-$$\LARGE \boxed{A\times A^{-1} = I}$$
+
+$$\LARGE \displaystyle
+\begin{array}{c} \boxed{A \times A^{-1} = I} \end{array}$$
 
 ---
 
@@ -20,26 +22,22 @@ $$\LARGE \boxed{A\times A^{-1} = I}$$
 $$\Large A = \begin{bmatrix} 2 & 3 \\ 1 & 2 \end{bmatrix} \implies A^{-1} = ?$$
 #### Çözüm Adımları:
 
-$$
-\large 
-\begin{aligned}
-& \begin{bmatrix} 2 & 3 \\ 1 & 2 \end{bmatrix} \times \begin{bmatrix} a & b \\ c & d \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \\
-& \\
-& \to 2a + 3c = 1 \qquad 2b + 3d = 0 \\
-& \to a \space \space + 2c = 0 \qquad b \space \space + 2d = 1 \\
-& \begin{array} & &&&&&&&&&&&&&&&&& \\ \hline \end{array} \\
-& \\
-& \to 2a +3c -(2a + 4c) = 1 \implies -c = 1 \\
-& \quad \to c = -1 \\
-& \\
-& \to 2b +3d -(2b + 4d) = -2 \implies -d = -2 \\
-& \quad \to d = 2 \\
-& \\
-& \to a-2 = 0 \implies a = 2 \quad \land \quad b +4 = 1 \implies b = -3 \\
-& \\
-& \to \quad A^{-1} = \begin{bmatrix} \space \space 2 & -3 \space \\ -1 & \space \space 2 \space \end{bmatrix}
-\end{aligned}
-$$
+
+####  $\begin{bmatrix} 2 & 3 \\ 1 & 2 \end{bmatrix} \times \begin{bmatrix} a & b \\ c & d \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$ <br>
+#### $\to 2a + 3c = 1 \qquad 2b + 3d = 0$
+#### $\to a \space \space + 2c = 0 \qquad b \space \space + 2d = 1$
+$\begin{array} & &&&&&&&&&&&&&&&&& \\ \hline \end{array}$
+
+#### $\to 2a +3c -(2a + 4c) = 1 \implies -c = 1 \to$
+##### $\quad c = -1$
+#### $\to 2b +3d -(2b + 4d) = -2 \implies -d = -2$
+##### $\quad d = 2$
+#### $\to a-2 = 0 \implies a = 2 \quad \land  \quad b +4 = 1 \implies b = -3$
+
+#### $\to \quad A^{-1} = \begin{bmatrix} \space \space 2 & -3 \space \\ -1 & \space \space 2 \space \end{bmatrix}$
+
+
+
 
 
 
@@ -50,23 +48,16 @@ $$\Large \begin{bmatrix} -1 & 3 \\ 2 & -4 \end{bmatrix} \implies A^{-1} = ?$$
 #### Çözüm Adımları:
 
 
-$$
-\large 
-\begin{aligned}
-& \begin{bmatrix} -1 & 3 \\ 2 & -4 \end{bmatrix} \times \begin{bmatrix} a & b \\ c & d \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \\
-& \\
-& \to -a + 3c = 1 \quad \quad -b + 3d = 0 \\
-& \to 2a -4c = 0 \quad \quad \quad 2b -4d = 1 \\
-& \begin{array} & &&&&&&&&&&&&&&&&& \\ \hline \end{array} \\
-& \\
-& c = 1, \quad a =2 \\
-& 2d = 1 \implies d = \frac{1}{2} \\
-& b-2d = 1 \implies b = \frac{3}{2} \\
-& \\
-& \quad A^{-1} = \begin{bmatrix} 2 & \frac{3}{2} \\ 1 & \frac{1}{2} \end{bmatrix}
-\end{aligned}
-$$
+#### $\begin{bmatrix} -1 & 3 \\ 2 & -4 \end{bmatrix} \times \begin{bmatrix} a & b \\ c & d \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$
 
+#### $\to -a + 3c = 1 \quad \quad -b + 3d = 0$
+#### $\to 2a -4c = 0 \quad \quad \quad 2b -4d = 1$
+$\begin{array} & &&&&&&&&&&&&&&&&& \\ \hline \end{array}$
+#### $c = 1, \quad a =2$
+#### $2d = 1 \implies d = \frac{1}{2}$
+#### $b-2d = 1 \implies b = \frac{3}{2}$
+
+#### $\quad A^{-1} = \begin{bmatrix} 2 & \frac{3}{2} \\  1 & \frac{1}{2} \end{bmatrix}$
 
 
 
@@ -81,7 +72,11 @@ $$
 ---
 
 ### Örnek:
-$$\Large A = \begin{bmatrix} 11 & -1 & 1 \\ 5 & 2 & -1 \\ 3 & 1 & -2 \end{bmatrix} \implies |A| =?$$
+
+$$
+\Large
+A = \begin{bmatrix} 11 & -1 & 1 \\ 5 & 2 & -1 \\ 3 & 1 & -2 \end{bmatrix} \implies |A| = ?
+$$
 #### Çözüm Adımları:
 
 
@@ -99,7 +94,12 @@ $$
 
 
 ### Örnek:
-$$\Large A = \begin{bmatrix} 4 & 0 & 5 \\ 3 & 6 & -1 \\ 2 & 0 & -3 \end{bmatrix} \implies |A| =?$$
+
+$$
+\Large
+A = \begin{bmatrix} 4 & 0 & 5 \\ 3 & 6 & -1 \\ 2 & 0 & -3 \end{bmatrix} \implies |A| = ?
+$$
+
 
 #### Çözüm Adımları:
 
@@ -116,7 +116,13 @@ $$
 
 ### **Örnek**: Aşağıdaki denklemin çözüm kümesini Cramer yöntemiyle bulunuz.
 
-$$\Large \begin{array}{} \textbf{3x + y = 11} \\ \textbf{x} \space \space \textbf{+y = 5} \end{array}$$
+$$
+\Large
+\begin{array}{c}
+\textbf{3x + y = 11} \\
+\textbf{x + y = 5}
+\end{array}
+$$
 
 #### Çözüm Adımları:
 
