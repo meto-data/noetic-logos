@@ -7,39 +7,47 @@ date: 2025-10-31
 cssclasses:
   - ders-notu
 ---
- 
 <h2 style="text-align:center"><span style="color:darkblue; text-align:center">Ünite 4: Lineer Cebir (Matrisler ve Determinantlar)</span> | <span style="color:#bf3f36">31.10.2025</span></h2>
 
 ## Matris Çeşitleri
 
 ### a) **Kare Matris**
 - Satır ve sütun sayısı birbirine eşit olan matrislerdir.
-R
-#### $A= \begin{bmatrix} \boxed{-1} & 4 & 2 \\ \frac{1}{5} & \boxed{5} & -3 \\ -2 & -5 & \boxed{4} \end{bmatrix}_{3 \times 3}$
 
-
+$$
+\Large
+A= \begin{bmatrix} \boxed{-1} & 4 & 2 \\ \frac{1}{5} & \boxed{5} & -3 \\ -2 & -5 & \boxed{4} \end{bmatrix}_{3 \times 3}
+$$
 - Kutu içerisine alınanlar **asal köşegen**'dir.
 
 ---
 
 ### b) **Sıfır Matrisi**
 - Tüm elemanları 0 olan matrislere denir.
-
-#### $B= \begin{bmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}$
-
+$$
+\Large
+B= \begin{bmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}
+$$
 ---
 
-### c) **Birim Matris** ($I$) - (Önemli)
+### c) **Birim Matris** (`I`) - (Önemli)
 - Bir <u>kare matris</u> üzerinde *asal köşegen üzerindeki* elemanların hepsi **1** ve diğer elemanlar **0**'sa, bu matrise **birim matris** denir.
-
-#### $$C = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \space \space \space \space \space I= \begin{bmatrix}1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1  \end{bmatrix}$$
-
+$$
+\Large
+C = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \space \space \space \space \space I= \begin{bmatrix}1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1  \end{bmatrix}
+$$
 ---
 
 ### d) **Simetrik Matris**
 - Bir <u>kare matriste</u> tüm elemanlar **asal köşegene göre simetrik** ise, bu matrise *simetrik matris* denir.
 
-#### $\begin{bmatrix} 1 & \boxed{-5} & \boxed{3} \\ \boxed{-5} & 4  & \boxed{2} \\ \boxed{3} & \boxed{2} & 7 \end{bmatrix}$
+$$
+\Large
+\begin{bmatrix} 
+1 & \boxed{-5} & \boxed{3} \\ \boxed{-5} & 4  & \boxed{2} \\
+\boxed{3} & \boxed{2} & 7 
+\end{bmatrix}
+$$
 
 
 ---
@@ -47,163 +55,207 @@ R
 ### e) **Ters Simetrik Matris**
 - Bir <u>kare matrisin</u> **asal köşegeni üzerindeki** elemanları **0** VE asal köşegene göre *simetrik* olan elemanlarının toplamı **0** İSE, bu matris **ters simetrik** matristir.
 
-
-#### $E = \begin{bmatrix} \space \space 0  & 5 \\ -5 & 0 \end{bmatrix} \space \space \space \space T= \begin{bmatrix} \space \space 0 & \space \space 5 & 4 \space \\ -5 & \space \space 0 & 3 \space \\ -4 & -3 & 0 \space \end{bmatrix}$
-
+$$
+\Large
+E = 
+\begin{bmatrix} 
+\space \space 0  & 5 \\ -5 & 0 
+\end{bmatrix} 
+\space \space \space \space 
+T= 
+\begin{bmatrix} 
+\space \space 0 & \space \space 5 & 4 \space \\ 
+-5 & \space \space 0 & 3 \space \\ 
+-4 & -3 & 0 \space 
+\end{bmatrix}
+$$
 ---
 
 ### f) **Köşegen Matris**
 
 - Bir <u>kare matriste</u> *asal köşegen dışında kalan tüm elemanlar* **0** İSE, bu matise köşegen matris denir.
-
-#### $F = \begin{bmatrix} 3 & 0 \\ 0 & 4 \end{bmatrix} \space\space\space\space K= \begin{bmatrix} -5 & 0 & 0 \\ 0 & 4 & 0 \\ 0 & 0 & 3\end{bmatrix}$
-
-
-
+$$
+\Large
+F = \begin{bmatrix} 3 & 0 \\ 0 & 4 \end{bmatrix} \space\space\space\space K= \begin{bmatrix} -5 & 0 & 0 \\ 0 & 4 & 0 \\ 0 & 0 & 3\end{bmatrix}
+$$
 
 > [!important] Not
 > Sınavda $4 \times 4$  bir köşegen matris oluşturun, $3 \times 3$ ters simetrik matris oluşturun $\dots$ gibi sorular gelebilir.
-
 
 ---
 
 ### g) **Skaler Matris** (Önemli)
 - Bir <u>köşegen matriste </u> **asal köşegen üzerindeki tüm elemanlar aynı** *İSE*, bu matris skaler matristir.
 
-#### $3I = \begin{bmatrix} 3 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 3 \end{bmatrix}$
-
-
+$$
+\Large
+3I = \begin{bmatrix} 3 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 3 \end{bmatrix}
+$$
 ---
 
 ## Bir Matrisin Skalerle Çarpımı
 
-### $A= \begin{bmatrix} 1 & 2 & -2 \\ 6 & -1 & 3 \end{bmatrix} \implies$
+### Örnek 1:
+$$
+\Large
+A= \begin{bmatrix} 1 & 2 & -2 \\ 6 & -1 & 3 \end{bmatrix}
+$$
 #### a) $3A$ matrisini oluşturun.
 
-##### $3A = \begin{bmatrix} 3 & 6 & -6 \\ 18 & -3 & 9 \end{bmatrix}$
-
+##### $$3A = \begin{bmatrix} 3 & 6 & -6 \\ 18 & -3 & 9 \end{bmatrix}$$
 
 #### b) $-2A$ matrisini oluşturun.
 
-##### $-2A = \begin{bmatrix} -2 & -4 & 4 \\ -12 & 2 & -6 \end{bmatrix}$
-
+##### $$-2A = \begin{bmatrix} -2 & -4 & 4 \\ -12 & 2 & -6 \end{bmatrix}$$
 
 #### c) $\frac{A}{2}$ matrisini oluşturun.
 
-##### $\frac{A}{2}= \begin{bmatrix} \frac{1}{2} & 1 & -1 \\ 3 & \frac{-1}{2} & \frac{3}{2} \end{bmatrix}$
-
-
+##### $$\frac{A}{2}= \begin{bmatrix} \frac{1}{2} & 1 & -1 \\ 3 & \frac{-1}{2} & \frac{3}{2} \end{bmatrix}$$
 ---
-
 
 ## Matrislerin Toplanması ve Çıkarılması
 - Aynı türden 2 matris, karşılıklı elemanların toplanması veya çıkartılması şeklinde, toplama ve çıkarma işlemine tâbi tutulabilir.
 
-### $A= \begin{bmatrix} -2 & 5 \\ 4 & -3 \\ 7 & \frac{5}{2}\end{bmatrix} \space\space\space\space B= \begin{bmatrix} -3 & -6 \\ -5 & 4 \\ -8 & \frac{7}{2} \end{bmatrix} \implies$
+### Örnek 2:
+$$
+\Large
+A= \begin{bmatrix} -2 & 5 \\ 4 & -3 \\ 7 & \frac{5}{2}\end{bmatrix} \space\space\space\space B= \begin{bmatrix} -3 & -6 \\ -5 & 4 \\ -8 & \frac{7}{2} \end{bmatrix}
+$$
+#### a) `2A+3B` matrisini bulunuz.
+##### $$ = \begin{bmatrix} -4 & 10 \\ 8 & -6 \\ 14 & 5 \end{bmatrix} + \begin{bmatrix} -9 & -18 \\ -15 & 12 \\ -24 & \frac{21}{2} \end{bmatrix} = \begin{bmatrix} -13 & -8 \\ -7 & 6 \\ -10 & \frac{31}{2} \end{bmatrix}$$
+#### b) `3B-A` matrisini bulunuz.
+##### $$= \begin{bmatrix} -9 & -18 \\ -15 & 12 \\ -24 & \frac{21} {2} \end{bmatrix} - \begin{bmatrix} -2 & 5 \\ 4 & -3 \\ 7 & \frac{5}{2} \end{bmatrix} = \begin{bmatrix} -7 & -23 \\ -19 & 15 \\ -31 & 8 \end{bmatrix}$$
+---
 
-#### a) $2A+3B$ 
-##### $= \begin{bmatrix} -4 & 10 \\ 8 & -6 \\ 14 & 5 \end{bmatrix} + \begin{bmatrix} -9 & -18 \\ -15 & 12 \\ -24 & \frac{21}{2} \end{bmatrix} = \begin{bmatrix} -13 & -8 \\ -7 & 6 \\ -10 & \frac{31}{4} \end{bmatrix}$
+### Örnek 3:
 
+$$
+\Large
+A=\begin{bmatrix} 1 & -4 \\ 2 &  \space3 \end{bmatrix} \space \land  \space f(x) = 3x-2 \implies f(A) = ?
+$$
 
-#### b) $3B-A$
-##### $= \begin{bmatrix} -9 & -18 \\ -15 & 12 \\ -24 & \frac{21} {2} \end{bmatrix} + \begin{bmatrix} 2 & -5 \\ -4 & 3 \\ -7 & \frac{-5}{2} \end{bmatrix} = \begin{bmatrix} -7 & -23 \\ -19 & 15 \\ -31 & 8 \end{bmatrix}$
+#### Çözüm Adımları:
+
+$\large f(A) = 3A -2I$ 
+
+<br>
+
+ $\large \space = 3\begin{bmatrix} 1 & -4 \\ 2 &  \space3 \end{bmatrix} - 2\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 3 & -12 \\ 6 & \space \space 9 \end{bmatrix} - \begin{bmatrix} 2 & 0 \\ 0 & 2 \end{bmatrix} = \begin{bmatrix} 1 & -12 \\ 6 & \space \space 7 \end{bmatrix}$
 
 ---
 
+### Örnek 4:
+$$
+\Large
+a \cdot \begin{bmatrix} 3 \\ 4  \end{bmatrix} + 2 \cdot \begin{bmatrix} 1 \\ b \end{bmatrix} = \begin{bmatrix} 8 \\ 0\end{bmatrix} \implies a \times b =?
+$$
+#### Çözüm Adımları:
 
+<br>
 
+$\large \begin{bmatrix} 3a \\ 4a \end{bmatrix} + \begin{bmatrix} 2 \\ 2b \end{bmatrix} = \begin{bmatrix} 8 \\ 0 \end{bmatrix}$
 
-### Örnek (<span style="color:darkred">Sınavda çıkabilir</span>): <br><br>$A=\begin{bmatrix} 1 & -4 \\ 2 &  \space3 \end{bmatrix} \space \land  \space f(x) = 3x-2 \implies f(A) = ?$
-#### $f(A) = 3A -2I$
-#### $\space = \begin{bmatrix} 3 & -12 \\ 6 & \space \space 9 \end{bmatrix} - \begin{bmatrix} 2 & 0 \\ 0 & 2 \end{bmatrix} = \begin{bmatrix} 1 & -12 \\ 6 & \space \space 7 \end{bmatrix}$
+$\large \to \space \space  3a+2=8 \land 4a+2b = 0$ <br>
 
+$\large \to \space \space \space  3a=6 \implies a=2$<br>
+$\large \to \space \space \space \space 4(2)+2b = 0 \implies 8+2b = 0 \implies b=-4 \space$ <br>
 
----
-
-### **Örnek**:<br><br> $a.\begin{bmatrix} 3 \\ 4  \end{bmatrix} + 2. \begin{bmatrix} 1 \\ b \end{bmatrix} = \begin{bmatrix} 8 \\ 0\end{bmatrix} \implies a \times b =?$
-
-#### $\begin{bmatrix} 3a \\ 4a \end{bmatrix} + \begin{bmatrix} 2 \\ 2b \end{bmatrix} = \begin{bmatrix} 8 \\ 0 \end{bmatrix}$
-#### $\to \space \space  3a+2=8 \land 4a+2b = 0$<br>$\space \to \space \space \space  3a=6 \implies a=2$<br>$\space \space \to \space \space \space \space 8+2b = 0 \implies b=-4 \space$<br>$\space \space \space \to \space \space \space \space  \boxed{a.b = -8}$
-
-
-
+$$
+\Large\to \space \space \space \space  \boxed{a \cdot b = -8}
+$$
 ---
 
 ## Matrislerin Çarpımı
 - İki matrisin çarpılabilmesi için;
-	1. Boyutları <u>uygun</u> olmalı $(m \times \underline{n}).(\underline{n} \times k) = (m \times k)$
+	1. Boyutları <u>uygun</u> olmalı $(m \times \underline{n}) \cdot (\underline{n} \times k) = (m \times k)$
 	2. Matrisler çarpılırken **"satır $\times$ sütun, yaz satıra"** mantığı kullanılmalı.
 
-### **Örnek**:<br><br> $A= \begin{bmatrix} -2 & 4 \\ \space 3 & 5 \end{bmatrix}_{2 \times 2} \space \space \space \space B= \begin{bmatrix} -2 & 4 & \space 3 \\ \space 1 & 5 & -1 \end{bmatrix}_{2\times 3}$
+### Örnek 5:
+$$
+\Large
+A= \begin{bmatrix} -2 & 4 \\ \space 3 & 5 \end{bmatrix}_{2 \times 2} \space \space \space \space B= \begin{bmatrix} -2 & 4 & \space 3 \\ \space 1 & 5 & -1 \end{bmatrix}_{2\times 3} \implies A \times B=?
+$$
+#### Çözüm Adımları:
+<br>
 
-
-
-
-#### $A \times B = \begin{bmatrix} -2 & 4 \\ 3 & 5 \end{bmatrix} \times \begin{bmatrix} -2 & 4 & 3 \\ 1 & 5 & -1 \end{bmatrix}$
-
-
-
-
-###### $A \times B = \begin{bmatrix} [(-2 \times -2) + (4 \times 1)] & [(-2 \times 4)+(4 \times 5)] & [(-2 \times 3)+(4 \times 3)] \\ [(3 \times -2)+(5 \times 1)] & [(3 \times 4)+(5 \times 5)] & [(3 \times 3)+(5 \times -1)] \end{bmatrix}$
-
-
-#####  $\space = \space \begin{bmatrix} \space\space8 &  12 & -10 \\ -1 & 37 & \space 4  \end{bmatrix}$
-
-
-
-
-
+$\large A \times B = \begin{bmatrix} -2 & 4 \\ 3 & 5 \end{bmatrix} \times \begin{bmatrix} -2 & 4 & 3 \\ 1 & 5 & -1 \end{bmatrix}$ <br>
+$\large \to \begin{bmatrix} [(-2 \cdot -2) + (4 \cdot 1)] & [(-2 \cdot 4)+(4 \cdot 5)] & [(-2 \cdot 3)+(4 \cdot -1)] \\ [(3 \cdot -2)+(5 \cdot 1)] & [(3 \cdot 4)+(5 \cdot 5)] & [(3 \cdot 3)+(5 \cdot -1)] \end{bmatrix}$
+$$
+\to \Large \begin{bmatrix} \space\space8 &  12 & -10 \\ -1 & 37 & \space 4  \end{bmatrix}
+$$
 
 ![[1-MatrixMultiplicationStepByStep.mp4]]
 
-
 ---
 
-### $A = \begin{bmatrix} -2 & -4 & 1 \\ 3 & 2 & -1 \end{bmatrix} \space \space \space B= \begin{bmatrix} 3 & -8 \\ 4 & 1 \\ -1 & 2 \end{bmatrix} \implies A \times B = ?$
+### Örnek 6:
+$$
+\Large
+A = \begin{bmatrix} -2 & -4 & 1 \\ 3 & 2 & -1 \end{bmatrix} \space \space \space B= \begin{bmatrix} 3 & -8 \\ 4 & 1 \\ -1 & 2 \end{bmatrix} \implies A \times B = ?
+$$
 
+#### Çözüm Adımları:
+$$
+\large
+A \times B = \begin{bmatrix} -23 & 14 \\ 18 & -24  \end{bmatrix}
+$$
+---
 
-#### $A\times B = \begin{bmatrix} -23 & 14 \\ 18 & -24  \end{bmatrix}$
+### **Örnek 7**: 
+<br>
+
+$$
+\Large
+A= \begin{bmatrix}  \space 2 & \space 3 \\ -4 & -2 \end{bmatrix} \implies A^{17} = ?
+$$
+#### Çözüm Adımları:
+$$
+\large
+\begin{aligned}
+A^2 &= A \times A = \begin{bmatrix}  \space 2 & \space 3 \\ -4 & -2 \end{bmatrix} \times\begin{bmatrix}  \space 2 & \space 3 \\ -4 & -2 \end{bmatrix} = \begin{bmatrix} -8 & 0 \\ 0 & -8 \end{bmatrix} = -8I \\ \\
+A^{17} &= A^{16} \times A = (A^2)^8 \times A = (-8I)^8 \times A \\ \\
+&= \left[(-8)^8 \times I^8 \times A\right] = \left[ 8^8 \times I \times A \right] = 8^8 A = (2^3)^8A \\ \\
+&= (2^3)^8 A = 2^{24} A = 2^{24} \begin{bmatrix} 2 & 3 \\ -4 & -2 \end{bmatrix} = \begin{bmatrix} 2^{25} & 3 \cdot 2^{24} \\ -2^{26} & -2^{25} \end{bmatrix}
+\end{aligned}
+$$
+
 
 
 ---
-
-
-### Örnek (<span style="color:darkred">Sınavda çıkabilir</span>): <br><br>$A= \begin{bmatrix}  \space 2 & \space 3 \\ -4 & -2 \end{bmatrix} \implies A^{17} = ?$
-
-
-
-#### $\to A \times A = \begin{bmatrix}  \space 2 & \space 3 \\ -4 & -2 \end{bmatrix} \times\begin{bmatrix}  \space 2 & \space 3 \\ -4 & -2 \end{bmatrix}$
-
-
-#### $\space \to \space A^2 = (A \times A) = \begin{bmatrix} -8 & 0 \\ 0 & -8 \end{bmatrix} = -8I$
-
-
-#### $\space \space \to \space A \times (A^2)^8 = A \times (-8I)^8 = A \times 8^8 \times I = A \times 2^{24} = A^{17}$
-
-
-#### $A^{17} = \begin{bmatrix} 2 & 3 \\ -4 & -2 \end{bmatrix} \times 2^{24} = \begin{bmatrix} 2^{25} & 3.2^{24} \\ -2^{26} & -2^{25} \end{bmatrix}$
-
 
 ## Bir Matrisin Transpozu (Devriği)
 - A matrisi $(m \times n)$ boyutunda ise, A'nın transpozu $(A^T)$,  $(n \times m)$ boyutundadır.
-
-### $A = \begin{bmatrix} -2 & 5 & 3 \\ 4 & 7 & -1 \end{bmatrix}_{2 \times 3} \space \space A^T = \begin{bmatrix} -2 & 4 \\ 5 & 7 \\ 3  & -1 \end{bmatrix}$
-
-
-
-
+$$
+\Large
+A = \begin{bmatrix} -2 & 5 & 3 \\ 4 & 7 & -1 \end{bmatrix}_{2 \times 3} \implies A^T = \begin{bmatrix} -2 & 4 \\ 5 & 7 \\ 3  & -1 \end{bmatrix}_{3 \times 2}
+$$
 ---
 
 
+### **Örnek 8**: `A`, 2. mertebeden bir kare matris olmak üzere, aşağıdaki eşitlik veriliyor. Buna göre `A` matrisinin tüm elemanlarının toplamını bulunuz.
 
-### Örnek:<br><br>$A$, 2. mertebeden bir kare matris $(2\times 2)$ olmak üzere, $A + A^T = \begin{bmatrix} 4 & 5 \\ 5 & -6 \end{bmatrix}$ ise,  $A$ matrisinin tüm elemanlarının toplamı nedir?
+<br>
 
-#### $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} + \begin{bmatrix} a & c \\ b & d \end{bmatrix} = \begin{bmatrix} 4 & 5 \\ 5 & -6 \end{bmatrix}$
-#### $\space \to \space \space 2a = 4 \implies a=2$<br>$\space \to \space b+c=5$<br>$\space \to \space \space 2d = -6 \implies d = -3$
-#### $\space \space \space \to \space \space a+b+c+d =4$
+$$
+\Large
+A + A^T = \begin{bmatrix} 4 & 5 \\ 5 & -6 \end{bmatrix}
+$$
 
+#### Çözüm Adımları:
+
+$$
+\large
+\begin{aligned}
+A &= \begin{bmatrix} a & b \\ c & d \end{bmatrix} \implies A^T = \begin{bmatrix} a & c \\ b & d \end{bmatrix} \\ \\
+A + A^T &= \begin{bmatrix} a+a & b+c \\ c+b & d+d \end{bmatrix} = \begin{bmatrix} 2a & b+c \\ b+c & 2d \end{bmatrix} = \begin{bmatrix} 4 & 5 \\ 5 & -6 \end{bmatrix} \\ \\
+ &2a = 4 \implies a=2 \\
+ &b+c =  5 \\
+&2d = -6 \implies d = -3 \\
+\end{aligned}
+$$
+
+$$
+\large \sum{A} = 2 + 5 -3 = 4
+$$
 
 ---
-
-### Transpozdan 1 Örnek Daha Çözülecek
-
