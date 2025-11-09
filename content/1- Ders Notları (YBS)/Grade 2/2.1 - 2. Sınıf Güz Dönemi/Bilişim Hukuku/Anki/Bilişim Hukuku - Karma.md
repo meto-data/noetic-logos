@@ -1,5 +1,6 @@
 ---
 cards-deck: Bilişim Hukuku::Anki
+draft: true
 ---
 
 
