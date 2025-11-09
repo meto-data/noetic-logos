@@ -27,7 +27,7 @@ date: 2025-10-16
 ## 2. Web’in Açılımı ve Dönemleri
 
 ### WWW
-- **Web 1.0 (Statik Wev)**: "Salt-okunur" (read-only) dönemdir. Kullanıcılar pasif tüketicidir, web sitelerini okumak dışında bir şey yapamazlar.
+- **Web 1.0 (Statik Web)**: "Salt-okunur" (read-only) dönemdir. Kullanıcılar pasif tüketicidir, web sitelerini okumak dışında bir şey yapamazlar.
 - **Web 2.0 (Sosyal Web)**: "Okur-yazar" (read-write) dönemdir. Veri burada akışkan ve etkileşim temellidir ancak merkezî platformlarda (Google, Facebook vb.) toplanır.
 - **Web 3.0 (Semantik/Merkeziyetsiz Web)**: Tam olarak tanımlanabilen bir kavram değil, hâlen evrim aşamasında. Web 3.0'ın odağının verinin anlamlandırılması (semantic web) ve merkezîyetsiz yapı (decentralized web) üzerine kurulu olduğunu söyleyebiliriz sadece.
 
