@@ -147,3 +147,4 @@ harezm türkçesi sadece batı türkistan aklında kalsın kitabul enbiya kalsı
 - **Önemi**: Türkler artık "destan" anlatmayı bırakıp "halk hikâyesi" anlatmaya başladığı anda, yani **destandan halk hikâyesine geçiş** döneminde yazıya geçirilmiş.
 - **Nüshalar**: 2 tane var: **Dresden** ve **Vatikan**
 - **İçerik**: 1 giriş (mukaddime) + 12 hikâye (boy).
+
