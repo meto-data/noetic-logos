@@ -2,7 +2,7 @@
 
 ## Özet
 
-Quartz tabanlı noetic-papers sitesine, arama çubuğuna özel bir komut (`logos`) girildiğinde gizli bir test modülüne yönlendiren bir özellik eklendi. Bu özellik, mevcut arama fonksiyonelliğini bozmadan çalışır ve yalnızca komutu bilen kullanıcılar için erişilebilirdir.
+Quartz tabanlı noetic-papers sitesine, arama çubuğuna özel komutlar (`logos`, `finance`) girildiğinde gizli test modüllerine yönlendiren özellikler eklendi. Bu modüller, mevcut arama fonksiyonelliğini bozmadan çalışır ve yalnızca komutu bilen kullanıcılar için erişilebilirdir.
 
 ## Problem Tanımı
 
@@ -10,6 +10,7 @@ Quartz tabanlı noetic-papers sitesine, arama çubuğuna özel bir komut (`logos
 - Bu modül, normal site navigasyonunda görünmemeli, sadece özel bir komutla erişilebilir olmalıydı
 - Mevcut Quartz arama sistemi hiçbir şekilde etkilenmemeliydi
 - Build süreci ve mevcut yapıya zarar verilmemeliydi
+- Aynı yaklaşım, `/home/logos/noetic-papers/Finansal Yönetim` klasöründe tutulan Finansal Yönetim çalışma modülü için de uygulanarak `finance` komutuyla erişilebilir kılınmalıydı
 
 ## Çözüm Yaklaşımı
 
@@ -17,20 +18,29 @@ Quartz tabanlı noetic-papers sitesine, arama çubuğuna özel bir komut (`logos
 
 **Yapılan İşlem:**
 - `ReadyForWeb/` klasöründeki üç dosya (`index.html`, `style.css`, `app.js`) `quartz/static/logos-module/` klasörüne taşındı
+- `/home/logos/noetic-papers/Finansal Yönetim` klasöründeki hub ve modül dosyaları (`index.html`, `style.css`, `module_engine.js`, veri dosyaları) `quartz/static/finance-module/` klasörüne kopyalandı
 
 **Neden Bu Yol Seçildi:**
 - Quartz'ın `Static` emitter plugin'i, `quartz/static/` altındaki tüm dosyaları otomatik olarak build çıktısına (`public/static/`) kopyalar
-- Bu sayede dosyalar build sürecine otomatik dahil olur ve `/static/logos-module/` path'i altında servis edilir
-- Orijinal `ReadyForWeb/` klasörü referans amaçlı kök dizinde bırakıldı (git'te ignore edilebilir)
+- Bu sayede her iki modül de build sürecine otomatik dahil olur ve sırasıyla `/static/logos-module/` ile `/static/finance-module/` path'leri altında servis edilir
+- Orijinal `ReadyForWeb/` klasörü referans amaçlı kök dizinde bırakıldı (git'te ignore edilebilir); Finansal Yönetim modülünün kaynakları ise `/home/logos/noetic-papers/Finansal Yönetim` altında saklanmaya devam ediyor
 
 **Dosya Yapısı:**
 ```
 quartz/
 └── static/
-    └── logos-module/
+    ├── logos-module/
+    │   ├── index.html
+    │   ├── style.css
+    │   └── app.js
+    └── finance-module/
         ├── index.html
-        ├── style.css
-        └── app.js
+        ├── finansal_yonetim_module.html
+        ├── finansal_yonetim_data.js
+        ├── paranin_zaman_degeri_module.html
+        ├── paranin_zaman_degeri_data.js
+        ├── module_engine.js
+        └── style.css
 ```
 
 ### 2. Arama Sistemine Gizli Komut Entegrasyonu
@@ -39,23 +49,26 @@ quartz/
 
 **Yapılan Değişiklikler:**
 
-#### a) Sabitlerin Tanımlanması (Satır 167-168)
+#### a) Gizli Komut Tablosunun Tanımlanması (Satır 167-170)
 ```typescript
-const secretCommand = "logos"
-const secretModulePath = "/static/logos-module/index.html"
+const secretCommands: Record<string, string> = {
+  logos: "/static/logos-module/index.html",
+  finance: "/static/finance-module/index.html",
+}
 ```
 
 #### b) Yönlendirme Fonksiyonunun Eklenmesi (Satır 208-212)
 ```typescript
-function redirectToSecretModule() {
+function redirectToSecretModule(targetPath: string) {
   hideSearch()
-  const targetUrl = new URL(secretModulePath, window.location.origin)
+  const targetUrl = new URL(targetPath, window.location.origin)
   window.location.assign(targetUrl.toString())
 }
 ```
 
 **Açıklama:**
 - `hideSearch()`: Arama panelini kapatır ve temizler
+- `targetPath`: Komut eşleştirmesinden gelen modül sayfasına yönlendirmek için kullanılan relative path
 - `new URL()`: Relative path'i absolute URL'ye dönüştürür (SPA routing ile uyumlu)
 - `window.location.assign()`: Sayfa yönlendirmesi yapar (history'ye ekler)
 
@@ -78,8 +91,9 @@ async function onType(e: HTMLElementEventMap["input"]) {
   if (!searchLayout || !index) return
   currentSearchTerm = (e.target as HTMLInputElement).value
   const normalizedTerm = currentSearchTerm.trim().toLowerCase()
-  if (normalizedTerm === secretCommand) {
-    redirectToSecretModule()
+  const targetPath = secretCommands[normalizedTerm]
+  if (targetPath) {
+    redirectToSecretModule(targetPath)
     return  // Normal arama akışını durdur
   }
   searchLayout.classList.toggle("display-results", currentSearchTerm !== "")
@@ -91,10 +105,25 @@ async function onType(e: HTMLElementEventMap["input"]) {
 **Önemli Detaylar:**
 - `trim()`: Başta/sonda boşlukları temizler
 - `toLowerCase()`: Büyük/küçük harf duyarsız kontrol sağlar
+- `const targetPath = ...`: Komut tablo eşleşmesini tek noktada tutar; yeni komut eklemek için tabloya bir satır eklemek yeterli
 - `return`: Gizli komut tespit edildiğinde normal FlexSearch akışı çalışmaz
 - Kontrol, normal arama mantığından **önce** yapılır, böylece performans etkisi minimaldir
 
-### 3. Güvenlik ve Yedekleme
+### 3. Finansal Yönetim Modülünün Yapılandırılması
+
+**Kaynak:** `/home/logos/noetic-papers/Finansal Yönetim`
+
+**İş Adımları:**
+- Hub sayfası (`index.html`) ve iki ayrı içerik modülü (`finansal_yonetim_module.html`, `paranin_zaman_degeri_module.html`) Quartz statikleri altına kopyalandı.
+- Ortak iş mantığı (`module_engine.js`) ve her modüle ait soru/veri dosyaları (`finansal_yonetim_data.js`, `paranin_zaman_degeri_data.js`) aynı klasöre eklendi.
+- Kopyalanan dosyalar relative path'lerle çalıştığı için ek build konfigürasyonuna ihtiyaç duyulmadı; Quartz `Static` emitter otomatik olarak `/static/finance-module/` altına yayınlıyor.
+
+**Öne Çıkan Özellikler:**
+- Hub sayfası ziyaretçiye iki modül sunuyor; her biri aynı motoru paylaşıyor.
+- `module_engine.js`, modüler veri modeli ve localStorage tabanlı ilerleme takibini kapsıyor; yeniden kullanılabilir yapı sayesinde yeni modüller sadece veri dosyası eklenerek genişletilebiliyor.
+- Tüm dosyalar default olarak TR dilinde içerik sağlıyor ve stil dosyası hem hub hem alt modüller tarafından paylaşılıyor.
+
+### 4. Güvenlik ve Yedekleme
 
 **Yedek Dosya:** `YEDEK/search.inline.ts.20251110`
 - Orijinal `search.inline.ts` dosyasının timestamp'li bir kopyası oluşturuldu
@@ -120,51 +149,64 @@ async function onType(e: HTMLElementEventMap["input"]) {
    ```
    public/
    └── static/
-       └── logos-module/
+       ├── logos-module/
+       │   ├── index.html
+       │   ├── style.css
+       │   └── app.js
+       └── finance-module/
            ├── index.html
-           ├── style.css
-           └── app.js
+           ├── finansal_yonetim_module.html
+           ├── finansal_yonetim_data.js
+           ├── paranin_zaman_degeri_module.html
+           ├── paranin_zaman_degeri_data.js
+           ├── module_engine.js
+           └── style.css
    ```
 
 ### Erişim Yolları
 
 **Canlı Site:**
 - Ana site: `https://noetic-logos.pages.dev/`
-- Gizli modül: `https://noetic-logos.pages.dev/static/logos-module/index.html`
-- Arama komutu: `Ctrl/Cmd + K` → `logos` yaz → Enter
+- Gizli modül (logos): `https://noetic-logos.pages.dev/static/logos-module/index.html`
+- Gizli modül (finance): `https://noetic-logos.pages.dev/static/finance-module/index.html`
+- Arama komutları: `Ctrl/Cmd + K` → `logos` **veya** `finance` yaz → Enter
 
 **Lokal Test:**
 ```bash
 npx quartz build --serve
 # Tarayıcı: http://localhost:8080
-# Arama: http://localhost:8080/static/logos-module/index.html
+# Arama (logos): http://localhost:8080/static/logos-module/index.html
+# Arama (finance): http://localhost:8080/static/finance-module/index.html
 ```
 
 ## Test Senaryoları
 
 ### ✅ Başarılı Senaryolar
 
-1. **Gizli Komut Çalışması:**
+1. **Gizli Komut (logos):**
    - Arama açılır (`Ctrl/Cmd + K`)
    - `logos` yazılır (büyük/küçük harf fark etmez)
    - Enter'a basılır veya yazmaya devam edilir
    - Sayfa `/static/logos-module/index.html`'e yönlendirilir
-
-2. **Normal Arama Korunması:**
+2. **Gizli Komut (finance):**
+   - Arama açılır (`Ctrl/Cmd + K`)
+   - `finance` yazılır (trim + case-insensitive)
+   - Kullanıcı `/static/finance-module/index.html` hub sayfasına yönlendirilir; hub üzerinden modüller sorunsuz açılır
+3. **Normal Arama Korunması:**
    - Arama açılır
-   - Herhangi bir başka terim yazılır (`logos` hariç)
+   - Herhangi bir başka terim yazılır (`logos` ve `finance` hariç)
    - FlexSearch sonuçları normal şekilde gösterilir
-
-3. **Tag Arama Korunması:**
+4. **Tag Arama Korunması:**
    - `#tag` formatında arama yapılır
    - Tag bazlı sonuçlar gösterilir
 
 ### ❌ Test Edilmesi Gerekenler
 
 1. **Boşluklu Girişler:** `" logos "` (trim ile çözülmüş olmalı)
-2. **Büyük/Küçük Harf:** `"LOGOS"`, `"Logos"`, `"loGos"` (hepsi çalışmalı)
-3. **Kısmi Eşleşmeler:** `"logos123"` (çalışmamalı, sadece tam eşleşme)
+2. **Büyük/Küçük Harf:** `"LOGOS"`, `"Logos"`, `"loGos"` ve `"FINANCE"`, `"Finance"` (hepsi çalışmalı)
+3. **Kısmi Eşleşmeler:** `"logos123"`, `"finance101"` (çalışmamalı, sadece tam eşleşme)
 4. **SPA Routing:** Yönlendirme sonrası browser history'nin doğru çalışması
+5. **Hub Bağımlılıkları:** `/static/finance-module/` hub'ından alt modül sayfalarına geçişte script ve stil dosyalarının doğru yüklendiği doğrulanmalı
 
 ## Dosya Değişiklikleri Özeti
 
@@ -173,19 +215,28 @@ npx quartz build --serve
 - `quartz/static/logos-module/style.css`
 - `quartz/static/logos-module/app.js`
 - `YEDEK/search.inline.ts.20251110`
+- `quartz/static/finance-module/index.html`
+- `quartz/static/finance-module/style.css`
+- `quartz/static/finance-module/module_engine.js`
+- `quartz/static/finance-module/finansal_yonetim_module.html`
+- `quartz/static/finance-module/finansal_yonetim_data.js`
+- `quartz/static/finance-module/paranin_zaman_degeri_module.html`
+- `quartz/static/finance-module/paranin_zaman_degeri_data.js`
 
 ### Değiştirilen Dosyalar
-- `quartz/components/scripts/search.inline.ts` (12 satır eklendi)
+- `quartz/components/scripts/search.inline.ts` (çoklu gizli komut desteği eklendi)
 - `baglam.md` (dokümantasyon eklendi)
+- `yaptiklarim.md` (güncel durum dokümante edildi)
 
 ### Git Commit
 ```
-feat: Add secret 'logos' command to search that redirects to hidden test module
+feat: Wire hidden finance module and multi-secret search commands
 
 - Move ReadyForWeb content to quartz/static/logos-module/
-- Intercept 'logos' search query to redirect to /static/logos-module/
-- Backup original search.inline.ts to YEDEK/
-- Document feature in baglam.md for future reference
+- Copy Finansal Yönetim hub + modülleri to quartz/static/finance-module/
+- Switch search.inline.ts to komut→path tablosu (logos, finance) ve yönlendirme parametreli hale getirildi
+- Backup original search.inline.ts to YEDEK/ (timestamp'li)
+- Document her iki modül ve komut akışı baglam.md + yaptiklarim.md dosyalarında açıklandı
 ```
 
 ## Potansiyel Sorunlar ve Çözümleri
