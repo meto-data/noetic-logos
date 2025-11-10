@@ -1,0 +1,7 @@
+**3.1. TCK 244 hükmü uyarınca, bir bilişim sisteminin işleyişini engellemek veya bozmak, verileri yok etmek, değiştirmek veya erişilmez kılmak, sisteme veri yerleştirmek, var olan verileri başka bir yere göndermek eylemlerini suçun maddî unsurunu da belirterek izah ediniz.** 
+
+- İlgili hükmün ilk fıkrası (engellemek veya bozmak), bilişim sisteminin fiziksel veya işlevsel bütünlüğünü korumaktadır. Engellemek, sistemin çalışmasını tamamen durdurmaktır ki, sistemini çökertmek veya erişimi kesmek gibi fiillerin icrâsı bu suçun maddî unsurunu oluşturur. Bozmak, sistemin olağan/normal akışını sekteye uğratmaktır ki, DoS ve DDoS gibi fiillerin icrâsı bu suçun maddî unsurunu oluşturur.
+- İlgili hükmün ikinci fıkrası ise veri ile ilintililidir ve sistemdeki verilerin güvenliğini, gizliliğini ve erişilebilirliğini korur. Verileri yok etmek, değiştirmek veya değiştirmek, verinin aslını bir şekilde tahrif etmek gibi bir fiilin icrâsını; erişilmez kılmak, mâlikin veya zilyedin erişimini engellemek gibi bir fiilin icrâsını; sisteme veri yerleştirmek, kendisinin icrâsını; var olan verileri başka bir yere göndermek, kopyalamak veya veri hırsızlığı yapmak gibi bir fiilin icrâsını gerektirir ve bu fiillerden herhangi birinin icrâsı, suçun maddî unsurunu oluşturur.
+
+- İnternet (Interconnected Network -Birbirine Bağlı Ağlar-): Fizikî dünyadaki bilgisayarların, sunucuların ve cihazların merkezîyetsiz ve halka açık bir şekilde, TCP/IP gibi çeşitli protokoller aracılığıyla birbirine bağlanmasını sağlayan devasa bir ağ.
+-  

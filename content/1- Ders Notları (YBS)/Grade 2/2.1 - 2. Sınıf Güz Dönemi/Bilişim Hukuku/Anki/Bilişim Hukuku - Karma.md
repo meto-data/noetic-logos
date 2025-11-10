@@ -1,12 +1,12 @@
 ---
-cards-deck: Bilişim Hukuku::Anki
+cards-deck: Bilişim Hukuku2 ::Anki
 draft: true
 ---
 
 
-**1.1. Bilişim suçu nedir?** :: Bilişim sistemlerine yönelik veya bilişim sistemleri aracılığıyla hukuka aykırı olarak işlenen her türlü fiil.
+**1.1. Bilişim suçu nedir?** :: Bilişim sistemlerine yönelik veya bilişim sistemleri aracılığıyla hukuka aykırı olarak işlenen her türlü fiil. a
 
-**1.2. Bilişim vasıtalı suçlardan 3 adet örnek veriniz** :: TCK 243 (Bilişim Sistemine Girme), TCK 244 (Sistemi engelleme, bozma, verileri yok etme veya değiştirme) ve TCK  125 (Hakaret -bilişim sistemleri aracılığıyla yapılan bir hakaret (2. fıkra)-)
+**1.2. Bilişim vasıtalı suçlardan 3 adet örnek veriniz** :: TCK 243 (Bilişim Sistemine Girme), TCK 244 (Sistemi engelleme, bozma, verileri yok etme veya değiştirme) ve TCK 125 (Hakaret -bilişim sistemleri aracılığıyla yapılan bir hakaret (2. fıkra)-)
 
 **1.3. WEB'in yüzey katmanını açıklayınız.** :: Arama motorlarınca indekslenen herkese açık web katmanıdır; klasik arama motorlarıyla bulunan her site bu katmandadır.
 
@@ -21,7 +21,7 @@ draft: true
 **3.1. TCK 244 hükmü uyarınca, bir bilişim sisteminin işleyişini engellemek veya bozmak, verileri yok etmek, değiştirmek veya erişilmez kılmak, sisteme veri yerleştirmek, var olan verileri başka bir yere göndermek eylemlerini suçun maddî unsurunu da belirterek izah ediniz.** :: İlgili maddenin 1. ve 2. fıkralarının maddî unsuru, işbu hükümde belirtilen ve hukuka aykırı olan (verileri yok etmek, sistemin işleyişini engellemek vb.) fiillerin icrâsıdır. Bilişim sisteminin işleyişini engellemek veya bozmak, bilişim sisteminin fiziksel veya işlevsel bütünlüğünü korumaktadır. Engellemek, sistemin çalışmasını tamamen durdurmaktır ki, çökertmek veya erişimi kesmek fiillerinden en az birisinin icrâsı maddî unsuru oluşturur. Bozmak, sistemin normal çalışmasını sekteye uğratmaktır ki, DoS ve DDoS saldırıları buna örnektir, bu DoS gibi fiilerin icrâsı da suçun maddî unsurunu oluşturur. Veri ile ilintili olanlara gelirsek, bunlar sistemdeki verinin bütünlüğünü, gizliliğini ve erişilebilirliğini korur. Verileri yok etmek veya değiştirmek, verinin aslını bir şekilde tahrip etmek gibi bir fiilin icrâsını; erişilmez kılmak, veriye mâlikin veya zilyedin erişimini engellemek gibi bir fiilin icrâsını; sisteme veri yerleştirme fiili kendisinin icrâsını; var olan verileri başka yere göndermek, kopyalamak veya veri hırsızlığı yapmak gibi bir fiilin icrâsını gerektirir ve bu fiillerden herhangi birinin icrâsı suçun maddî unsurunu oluşturur.
 
 
-**4.1. Siber alanın tanımlanmasında kullanılan internet ne demektir? Kısaca izah ediniz.** :: Fizikî dünyadaki cihazları birbirine bağlayan ağ alt yapısı, sunucular ve bu bağlantıları yöneten merkeziyetsiz ve halka açık protokoller (TCP/IP vb.) bütünü.
+**4.1. Siber alanın tanımlanmasında kullanılan internet ne demektir? Kısaca izah ediniz.** :: Fizikî dünyadaki bilgisayarları, sunucuları ve cihazları merkeziyetsiz ve halka açık protokoller(TCP/IP vb.) aracılığıyla birbirine bağlayan devasa bir ağ.
 
 **4.2. Siber alanın tanımlanmasında kullanılan web ne demektir? Kısaca izah ediniz.** :: İnternet üzerinde HTTP protokolü, HTML ve hyperlink gibi sistemler aracılığıyla bilgiyi paylaşan ve erişilebilir kılan bilgi modeli.
 

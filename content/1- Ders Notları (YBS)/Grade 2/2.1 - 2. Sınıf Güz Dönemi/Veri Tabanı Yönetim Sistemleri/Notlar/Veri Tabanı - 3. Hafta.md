@@ -15,7 +15,7 @@ title: Veri Tabanı Yönetim Sistemleri - 3. Ders
 ## ERD'nin Temel Kavramları ve Bileşenleri
 ### [[Varlık]] (Entity)
 - **Gerçek dünyada var olan ve diğer nesnelerden ayırt edilebilen her türlü nesne, kavram veya olgu.**
-	- Fizikî bir nesne (ör. *Araba, Ürün* gibi **somut** varlıklar) olabileceği gibi mantıksal veya somut bir kavram da olabilir (ör. *Sipariş, Rezervasyon, Müşteri İşlemi* gibi).
+	- Fizikî bir nesne (ör. *Araba, Ürün* gibi **somut** varlıklar) olabileceği gibi mantıksal veya soyut bir kavram da olabilir (ör. *Sipariş, Rezervasyon, Müşteri İşlemi* gibi).
 	- Önemli olan, *varlığın* **kendi başına tanımlanabilir bir kimliğe sahip olması** ve **diğer varlıklardan ayırt edilebilmesidir**.
 - Veri tabanında hakkında bilgi tutulmak istenen her şey bir varlıktır.
 	- `Öğrenci`, `Ders`, `Öğretmen`, `Müşteri` vb.

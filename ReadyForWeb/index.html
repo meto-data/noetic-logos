@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türk Dili I – Web Modülü</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Türk Dili I – Web Modülü</h1>
+        <p>Ders notları ve çoktan seçmeli testler için birleşik platform</p>
+    </header>
+
+    <nav class="top-nav">
+        <ul>
+            <li class="dropdown">
+                <button class="nav-link-dropdown">Testler</button>
+                <ul class="submenu">
+                    <li><a href="#module2" class="nav-link module2-test-link" data-section="module2" data-module2-test="DIL_TANIMI">1 - Dilin Tanımı, Nitelikleri, Kökeni</a></li>
+                    <li><a href="#module2" class="nav-link module2-test-link" data-section="module2" data-module2-test="SOSYAL">2 - Dilin Sosyal Yönü</a></li>
+                    <li><a href="#module2" class="nav-link module2-test-link" data-section="module2" data-module2-test="TURLERI">3 - Dil Türleri</a></li>
+                    <li><a href="#module2" class="nav-link module2-test-link" data-section="module2" data-module2-test="SINIF">3 - Dilin Sınıflandırılması</a></li>
+                    <li><a href="#module2" class="nav-link module2-test-link" data-section="module2" data-module2-test="DONEMLER">5 - Türkçenin Tarihi Dönemleri</a></li>
+                    <li><a href="#module2" class="nav-link module2-test-link" data-section="module2" data-module2-test="ORTA">6 - Orta Türkçe Dönemi</a></li>
+                    <li><a href="#module2" class="nav-link module2-test-link" data-section="module2" data-module2-test="YENI">7 - Yeni Türkçe Dönemi</a></li>
+                    <li><a href="#module2" class="nav-link module2-test-link" data-section="module2" data-module2-test="WRONG">Yanlış Yapılanlar</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="module2" class="module-block">
+            <div class="container">
+                <section class="module2-section active">
+                    <div class="card quiz-card" aria-live="polite">
+                        <h3>Türk Dili I Test Modülü</h3>
+                        <div id="module2-questionCounter" class="question-counter">Soru 1 / 25</div>
+                        <p id="module2-questionText" class="question-text"></p>
+                        <div id="module2-optionsContainer" class="quiz-options"></div>
+                        <div id="module2-questionFeedback" class="feedback" role="status"></div>
+                        <div class="quiz-actions">
+                            <button id="module2-prevBtn" class="btn secondary" onclick="module2PrevQuestion();">Önceki Soru</button>
+                            <button id="module2-nextBtn" class="btn" onclick="module2NextQuestion();">Sonraki Soru</button>
+                            <button id="module2-submitBtn" class="btn" onclick="module2SubmitQuiz();">Testi Bitir</button>
+                            <button id="module2-retryBtn" class="btn secondary" style="display:none" onclick="module2RetryQuiz();">Testi Tekrar Çöz</button>
+                        </div>
+                        <div id="module2-resultsBox" class="results" style="display:none"></div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <small>© 2025 Türk Dili I Web Modülü</small>
+    </footer>
+
+    <script src="app.js" defer></script>
+</body>
+</html>
+
