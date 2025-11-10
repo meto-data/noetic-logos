@@ -164,9 +164,6 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
   const searchLayout = searchElement.querySelector(".search-layout") as HTMLElement
   if (!searchLayout) return
 
-  const secretCommand = "logos"
-  const secretModulePath = "/static/logos-module/index.html"
-
   const idDataMap = Object.keys(data) as FullSlug[]
   const appendLayout = (el: HTMLElement) => {
     searchLayout.appendChild(el)
@@ -203,12 +200,6 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     if (sidebar) sidebar.style.zIndex = "1"
     container.classList.add("active")
     searchBar.focus()
-  }
-
-  function redirectToSecretModule() {
-    hideSearch()
-    const targetUrl = new URL(secretModulePath, window.location.origin)
-    window.location.assign(targetUrl.toString())
   }
 
   let currentHover: HTMLInputElement | null = null
@@ -409,11 +400,6 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
   async function onType(e: HTMLElementEventMap["input"]) {
     if (!searchLayout || !index) return
     currentSearchTerm = (e.target as HTMLInputElement).value
-    const normalizedTerm = currentSearchTerm.trim().toLowerCase()
-    if (normalizedTerm === secretCommand) {
-      redirectToSecretModule()
-      return
-    }
     searchLayout.classList.toggle("display-results", currentSearchTerm !== "")
     searchType = currentSearchTerm.startsWith("#") ? "tags" : "basic"
 
@@ -514,3 +500,5 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
     await setupSearch(element, currentSlug, data)
   }
 })
+
+
