@@ -57,6 +57,8 @@ npm run dates:write   # normalises/creates the frontmatter field in-place
 
 After running the script in write mode, review the reported “manual follow-up” files and correct the dates explicitly in frontmatter.
 
+> Toggle: tarih otomasyonunu geçici olarak kapatmak istersen `dates.config.json` içindeki `enabled` değerini `false` yapabilir veya komutları `DATES_ENFORCE=false npm run dates:…` şeklinde çalıştırabilirsin.
+
 ## Syncing your Content
 
 When your Quartz is at a point you're happy with, you can save your changes to GitHub.

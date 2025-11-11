@@ -1,5 +1,5 @@
 ---
-created: '2025-10-03'
+created: '2025-11-11'
 ---
 ##### $\lor \text{  ile gösterilir.}$ 
 ##### $p \lor q \equiv \text{  p veya q şeklinde okunur.}$

@@ -19,3 +19,4 @@
   - `npm run dates:check` → eksik/normalize edilmemiş dosyaları listeler (write yok, exit 1).
   - `npm run dates:write` → eksikleri otomatik doldurur (git creation date ya da FS fallback).
 - Script çıktısında “manual follow-up” olarak işaretlenen dosyalar, uygun tarihi elle girene kadar yeniden raporlanır.
+- Otomasyonu kapatmak için `dates.config.json` içindeki `enabled` değerini `false` yapabilir ya da tek seferlik `DATES_ENFORCE=false npm run dates:write` kullanabilirsin; yeniden açmak için `true`.
