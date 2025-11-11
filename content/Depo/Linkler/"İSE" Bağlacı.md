@@ -1,5 +1,5 @@
 ---
-created: '2025-10-03'
+created: '2025-11-11'
 ---
 ##### $\implies \text{   veya   } \rightarrow \text{     şeklinde gösterilir.}$
 ##### $p \implies q \equiv \text{   p ise q şeklinde okunur.}$

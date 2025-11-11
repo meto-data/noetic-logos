@@ -31,6 +31,29 @@ if (!args.length) {
   args.push("--check")
 }
 
+const configPath = path.join(repoRoot, "dates.config.json")
+let enforcementEnabled = true
+
+const envOverride = process.env.DATES_ENFORCE
+if (envOverride) {
+  enforcementEnabled = !["false", "0", "no", "off"].includes(envOverride.toLowerCase())
+} else {
+  try {
+    const rawConfig = await fs.readFile(configPath, "utf8")
+    const parsed = JSON.parse(rawConfig)
+    if (typeof parsed?.enabled === "boolean") {
+      enforcementEnabled = parsed.enabled
+    }
+  } catch {
+    // no config file, stick with default
+  }
+}
+
+if (!enforcementEnabled) {
+  console.log("\nCreated date normalisation is disabled (toggle via dates.config.json or DATES_ENFORCE env).")
+  process.exit(0)
+}
+
 const files = await globby("**/*.md", {
   cwd: contentDir,
   gitignore: true,
