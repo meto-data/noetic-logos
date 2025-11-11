@@ -167,6 +167,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
   const secretCommands: Record<string, string> = {
     logos: "/static/logos-module/index.html",
     finance: "/static/finance-module/index.html",
+    oop1: "/static/oop1-module/index.html",
   }
 
   const idDataMap = Object.keys(data) as FullSlug[]
