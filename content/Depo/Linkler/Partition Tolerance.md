@@ -1,3 +1,6 @@
+---
+created: '2025-11-03'
+---
 - Dağıtık bir sistemdeki düğümler arasındaki iletişimin kesilmesi durumuna **[[ağ bölünmesi]]** denir. Birbirleriyle iletişim kuramayan alt kümelere ayrılır ağ; bölünme toleransı da **sistemin bu tür arızalar karşısında çalışmaya devam edebilme yetisidir**.
 -  $P(t, n_A, n_B)$ fonksiyonunu düşleyelim (*Buradaki $n_A$ (Node A) ve $n_B$ (Node B) ispatta kullanacağımız iki düğümün sembolik adlarıdır.)*. Eğer `t` zamanında düğüm $n_A$, düğüm $n_B$ ile iletişim kurabiliyorsa, $P(t, n_A, n_B) = 1$, aksi hâlde $0$'dır. **Herhangi bir düğümün başka bir düğümle iletişim <u>kuramadığı</u> maksimum süreye** `TP (Partition Time)` denir.
 	- TP, "Ağ kesintisi ne kadar sürdü?" sorusunun cevabıdır. TP = 30 saniye veya TP = 2 saat gibi.

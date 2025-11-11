@@ -1,3 +1,6 @@
+---
+created: '2025-10-03'
+---
 ##### $\space \space \land \space \space$ ile gösterilir.
 ##### $p \land q \equiv \text{ p ve q şeklinde okunur.}$ 
 ##### 1: $p\land q \equiv q \land p$

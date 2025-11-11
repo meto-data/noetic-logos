@@ -1,3 +1,6 @@
+---
+created: '2025-10-14'
+---
 - Bir işi tanımlayan ya da sınırlarını belirleyen ifadeler.
 - Politikalar, prosedürler, olaylar, fonksiyonlardan vb. çıkar.
 - Tabiatı itibariyle normatiftir denilebilir.

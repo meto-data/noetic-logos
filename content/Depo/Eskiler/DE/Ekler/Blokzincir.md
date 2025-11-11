@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Temelinde **[[Dağıtık Defter Teknolojisi]]** vardır.
 	- Verilerin merkezi bir otoriteye ihtiyaç duymadan, birden çok yerde eşzamanlı olarak saklandığı ve güncellendiği bir sistem.
 	- İşlem yapabilmek için tüm bilgisayarların (binlerce) işlemi onaylaması gerekmektedir.

@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - İhraç edenin (devlet veya firma) yatırımcıya borçlandığını ve belirli bir faiz ödemesi yapacağını garanti ettiği araçlardır
 #### 1.2.1. **[[Tahviller]]** (Bonds)
 - Devlet veya firma tarafından ihraç edilir.

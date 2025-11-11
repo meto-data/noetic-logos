@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Müşteri bilgilerinin ve ödeme verilerinin korunması büyük bir sorumluluktur. Veri sızıntıları ya da siber saldırılar hem müşteri güvenini zedeler hem de yasal sorunlara yol açabilir.
 	- KVKK gibi yasal düzenlemelere uyum sağlamak gereklidir.
 

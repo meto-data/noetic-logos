@@ -1,3 +1,6 @@
+---
+created: '2025-09-29'
+---
 **Bağlantı Linki**: **[Defeating Nondeterminism in LLM Inference](https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference)**
 
 

@@ -1,3 +1,6 @@
+---
+created: '2025-10-03'
+---
 > Farklı operatörler arasında parantez açma/kapama kuralıdır.
 
 - $p \lor (q \land r) \equiv (p \lor q)\land(p \lor r)$  

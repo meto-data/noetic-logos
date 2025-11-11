@@ -1,3 +1,6 @@
+---
+created: '2025-10-02'
+---
 - Merkez Bankası tarafından belirlenen ve bankalar arası para piyasasında geçerli olan, bankaların birbirlerinden ve merkez bankasından borç aldıkları faiz oranıdır.
 - Politika faizini etkileyen en önemli faktörler; enflasyon, ekonomik büyüme, işsizlik ve döviz kurudur. 
 

@@ -1,6 +1,7 @@
 ---
 title: Bilişim Hukuku - 3. Ders
-date: 2025-10-16
+date: 2025-10-16T00:00:00.000Z
+created: '2025-10-16'
 ---
 
 - **Soru**: "TCK 244 hükmü uyarınca, **bir bilişim sisteminin işleyişini engellemek veya bozmak**$_1$, verileri yok etmek$_2$, değiştirmek veya erişilmez kılmak$_3$, sisteme veri yerleştirmek$_5$, var olan verileri başka bir yere göndermek$_5$ eylemlerini suçun maddî unsurunu da belirterek izah ediniz."

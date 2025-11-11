@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Yeni nesil bir çalışma düzeni ve bunun getirdiği yeni bir iş piyasası, iş kültürü ve ekonomisi olarak özetlenen **gig ekonomisi**, en sade hâliyle; serbest çalışanlar ile bu kişilerden belirli bir süre için belirli bir iş talep eden müşterileri dijital platformlardan üzerinden buluşturan bir ekonomi modeli olarak tanımlanmaktadır.
 - Bu alanda en ünlü örnek olan **Uber**'i ele alırsak; Uber uygulamasından çağırdığımızda kendi arabasıyla bizi almaya gelen kişi **serbest çalışan**, belirli bir süre için taşımacılık hizmeti talep eden biz **müşteri**, buluşmamızı ve işin gerçekleşmesini sağlayan ***Uber*** ise iki tarafa aracılık eden ve bu işten komisyonunu alan **dijital platformdur.**
 - Türkiye'de, evimiz tadilat olacaksa tadilat ustasıyla; şirketimize bir web sitesi kuruluyorsa web tasarımcısıyla; tez çevirtmek istiyorsak bizi çevirmenle bir araya getiren **dijital platform** ***Armut*** uygulamasıdır..

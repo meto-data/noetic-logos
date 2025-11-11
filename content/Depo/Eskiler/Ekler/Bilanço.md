@@ -1,2 +1,5 @@
+---
+created: '2025-08-31'
+---
 - Belirli bir tarihte işletmenin varlıklarını ve bu varlıkların edinildiği kaynakları gösteren finansal tabloya **[[Bilanço Tablosu|bilanço]]** denir. 
 - Finansal durum tablosudur.

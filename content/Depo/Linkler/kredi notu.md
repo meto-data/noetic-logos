@@ -1,3 +1,6 @@
+---
+created: '2025-10-08'
+---
 > [!important] **Kredi Notu Nedir?**  
 > Bir bireyin veya firmanın geçmiş finansal davranışlarına dayanarak gelecekteki borç ödeme yükümlülüklerini yerine getirme olasılığını ölçen sayısal bir puandır. Tıpkı bir öğrencinin karnesi gibi kişinin veya kurumun **"finansal karnesi"** olarak düşünülebilir.
 > 

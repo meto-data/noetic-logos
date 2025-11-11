@@ -1,1 +1,4 @@
+---
+created: '2025-08-31'
+---
 - Tedarikçilerden gelen malzemelerin (ham madde, parça vb.) teslim alınması, depolanması ve üretim/operasyon için hazır hâle getirilmesi. (Değer: Malzemeyi doğru zamanda, doğru yerde, hasarsız bulundurmak).

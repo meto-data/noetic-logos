@@ -1,3 +1,6 @@
+---
+created: '2025-10-16'
+---
 1. **Yöneticiler (*İşletme İçi Uzmanlar*)**:  "Nerede hata yapıyoruz kardeşim?" diye bakmak için. Daha düzgün ifadeyle karar almak, verimliliği ölçmek, zayıf yönleri tespit etmek için (**Yönetim Analizi**).
 2. **Bankacılar, Tedarikçiler (*İşletmeye Kredi Veren 3. Kişi ya da Kurumlar*)**: "Bu elemanlara kredi versek geri ödeyebilirler mi?" diye ölçmek için (**Kredi Analizi**).
 3. **Yatırımcılar (*Mevcut ve Potansiyel Ortaklar*)**: "Bu şirkete para yatırsak kâr elde eder miyiz?" diye ölçmek için (**Yatırım Analizi**).

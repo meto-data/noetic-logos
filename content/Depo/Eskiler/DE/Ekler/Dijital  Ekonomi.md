@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - E-Ticaret Platformları
 - Sosyal Medya Platformları
 - Tele-tıp

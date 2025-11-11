@@ -1,1 +1,4 @@
+---
+created: '2025-08-31'
+---
 - İş süreçlerinin yeniden yapılanması ya da tanımlanması olarak da adlandırılan değişim mühendisliği, verimlilik ve kalitede çarpıcı geliştirmek yapmak için toplam kalite yönetiminin aksine tüm çekirdek ana iş süreçlerinin **radikal değişimini** ve **yeniden tasarlanmasını** araştırmaktadır. Bkz. **[[Yalın Üretim]]**

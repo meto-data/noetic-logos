@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Büyüme, bir ülkenin reel GSYH'sinin bir yıldan ötekine artması hâline verilen isimdir.
 	- Reel Büyüme ve Nominal Büyüme.
 	

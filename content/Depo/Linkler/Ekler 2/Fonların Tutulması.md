@@ -1,3 +1,6 @@
+---
+created: '2025-10-02'
+---
 - Sağlanan fonların firma değerini maksimize edecek şekilde varlıklara yatırılma sürecidir. Amaç [[atıl varlıklar]]'ın en az seviyede olmasını -hatta hiç olmamasını sağlamaktır.
 ### 3.4.1. [[Duran Varlık Yatırımları]] (Uzun Vadeli Yatırımlar)
 #### [[Malî Duran Varlıklar]] (Finansal Yatırımlar)

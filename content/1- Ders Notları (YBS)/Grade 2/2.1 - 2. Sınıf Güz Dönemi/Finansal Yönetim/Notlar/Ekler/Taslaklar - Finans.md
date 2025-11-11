@@ -1,3 +1,6 @@
+---
+created: '2025-09-24'
+---
 - Finans y
 #### Yatırım Kararları
 - "Hangi tür varlıklara ne miktarda yatırım yapılacak?" sorusu önemlidir. (Sermaye Bütçelemesi veya Yatırım Kararı)

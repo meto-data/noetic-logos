@@ -1,1 +1,4 @@
+---
+created: '2025-10-02'
+---
 Üretimde kullanılacak bir makine, şirketin ofis olarak kullanacağı bir bina, bir araba, bir patent hakkı veya bir markanın isim hakkı gibi paraya çevrilebilir her türlü varlık.

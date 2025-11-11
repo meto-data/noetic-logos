@@ -1,6 +1,7 @@
 ---
 title: Dijital Ekonomi
-slug:
+slug: null
+created: '2025-09-20'
 ---
 Dijital Ekonomi... En sevdiğim derstir muhtemelen en düşük ikinci notum olmasına rağmen. 
 

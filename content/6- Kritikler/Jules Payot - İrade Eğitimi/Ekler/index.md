@@ -1,6 +1,7 @@
 ---
-title: "Ekler"
-slug: "/6-kritikler/jules-payot-irade-egitimi/ekler/"
+title: Ekler
+slug: /6-kritikler/jules-payot-irade-egitimi/ekler/
+created: '2025-09-20'
 ---
 
 # Ekler

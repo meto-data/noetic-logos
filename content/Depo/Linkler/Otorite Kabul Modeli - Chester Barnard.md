@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - **Otorite Kabul Modeli**, çalışanların yöneticilerden gelen emirleri kabul etmesi ve bu emirlere uymaları esasına dayanır.
 - Çalışanlar verilen talimatların kendileri için anlamlı, mantıklı ve kabul edilebilir olduğunu düşündüklerinde emirleri yerine getirmeye daha yatkın olurlar. 
 #### 1- Talimatların Anlaşılır Olması

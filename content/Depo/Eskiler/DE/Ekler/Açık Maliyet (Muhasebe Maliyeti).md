@@ -1,3 +1,6 @@
+---
+created: '2025-10-02'
+---
 - Muhasebeleştirilen, ölçülüp kayıt altına alınabilen maliyetlerdir. Firmanın katlanmak zorunda olduğu maliyetlerdir.
 - Firmanın üretim esnasında kullandığı üretim faktörlerine ödediği ve masraf olarak muhasebe kayıtlarına geçirdiği tüm giderlerin toplamına denir.
 	- Çalışan maaşları, kira, ham madde maliyeti; elektrik ve su faturaları, nakliye giderleri gibi maliyetler.

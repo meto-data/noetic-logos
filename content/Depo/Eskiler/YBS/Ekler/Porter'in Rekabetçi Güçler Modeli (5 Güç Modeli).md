@@ -5,7 +5,8 @@ tags:
   - ybskapsayici
 Ders: YBS
 Kavramlar: "```dataview\rLIST from outgoing([[Porter'in Rekabetçi Güçler Modeli (5 Güç Modeli)]])\r```"
-Konu: Bilgi Sistemleri, Organizasyon ve Strateji II
+Konu: 'Bilgi Sistemleri, Organizasyon ve Strateji II'
+created: '2025-08-31'
 ---
 - Bir sektördeki rekabet yapısını analiz ederek işletmelerin stratejik pozisyonlarını belirlemelerine yardımcı olan bir modeldir.
 #### [[Rakipler Arasındaki Rekabet Şiddeti]]

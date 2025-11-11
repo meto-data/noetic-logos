@@ -1,6 +1,7 @@
 ---
 title: Veri Tabanı Yönetim Sistemleri - 1. Ders
-date:
+date: null
+created: '2025-10-05'
 ---
 ## DIKW Pyramid (Data - Information - Knowledge - Wisdom)
 - Daha ayrıntılı bilgi için bkz. [[2- Zekâ, DIKW]]

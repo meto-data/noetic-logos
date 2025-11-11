@@ -1,3 +1,6 @@
+---
+created: '2025-09-23'
+---
 - Dil TDK tarafından "İnsanların düşündüklerini ve duyduklarını bildirmek için kelimelerle veya işaretlerle yapılan anlaşma, lisan, zeban." olarak tanımlanır.
 - Prof. Dr. Muharrem Ergin ise "İnsan arasında anlaşmayı sağlayan tabii bir vasıta; kendi kanunları içinde yaşayan ve gelişen canlı bir varlık; milleti birleştiren, koruyan ve onun ortak malı olan sosyal bir müessese; seslerden örülmüş muazzam bir yapı; temeli bilinmeyen zamanlarda atılmış bir gizli antlaşmalar ve sözleşmeler sitemidir." olarak tanımlamaktadır.
 

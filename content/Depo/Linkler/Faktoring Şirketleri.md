@@ -1,3 +1,6 @@
+---
+created: '2025-10-08'
+---
 - Firmaların **kısa vadeli, senetsiz (*faturalı*) yurt içi ve yurt dışı alacakların** devralarak karşılığında anında nakit sağlayan kurumlardır.
 	- Bkz. [[faktoring]]
 - Genellikle 30-180 gün vadelidir.

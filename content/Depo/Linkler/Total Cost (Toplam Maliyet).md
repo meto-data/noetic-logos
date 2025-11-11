@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 Bir üretim sürecinin tamamının maliyeti.
 <BR>
 - **[[TVC (Total Variable Cost)|Total Variable Cost (Toplam Değişken Maliyet):]]** Üretim miktarına bağlı olarak değişen maliyetlerdir. Ham madde, nakliyat, üretim vb.

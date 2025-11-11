@@ -2,11 +2,12 @@
 Ders: Üretim ve Hizmetler Yönetimi
 Dönem: II. Dönem
 Hafta: VI. Hafta
-Konu: 
+Konu: null
 tags:
   - uretimders
   - anabaslik
 Kavramlar: "```dataview\rLIST from outgoing([[5- Tesis İçi Yerleşimi ve Kapasite Planlaması]])\r```"
+created: '2025-08-31'
 ---
 ## Tesis Yerleşim Planlaması
 - Mal ya da hizmet üreten bir tesis içinde yer kaplayan tüm kaynakların en iyi (optimum) fiziksel düzenlemesine karar vermektir.

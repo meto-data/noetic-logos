@@ -1,6 +1,7 @@
 ---
-title: "Ekler"
-slug: "/6-kritikler/irade-terbiyesi/ekler/"
+title: Ekler
+slug: /6-kritikler/irade-terbiyesi/ekler/
+created: '2025-09-20'
 ---
 
 # Ekler

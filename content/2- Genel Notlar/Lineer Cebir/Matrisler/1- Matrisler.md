@@ -1,3 +1,6 @@
+---
+created: '2025-10-24'
+---
 - **[[Matris]]**:  Doğrusal denklem sistemlerinin katsayılarının oluşturduğu gösterim biçimleridir. 
 - Matris, veriyi yapılandıran bir gösterimdir.
 - Matris, lineer dönüşümleri (döndürme, ölçekleme, büzme) temsil eden bir operatördür.

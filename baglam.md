@@ -9,3 +9,13 @@
 - Not: Bu özellik yalnızca gizli komutu bilenler için görünür; ReadyForWeb klasörü hâlâ depo kökünde referans amaçlı duruyor, canlı yayın `/static/logos-module/` altından servis ediliyor. Build/publish komutlarını çalıştırmadan önce gerekli yedeklemelerin alındığından emin ol.
 - `/home/logos/noetic-papers/Finansal Yönetim` dizisindeki hub ve iki ders modülü `quartz/static/finance-module/` altına kopyalandı; `/static/finance-module/` altında yayınlanıyor.
 - Arama çubuğuna `finance` yazıldığında (trim + case-insensitive) `/static/finance-module/index.html` hub sayfasına yönlendiriliyor; `logos` ve `finance` komutları `search.inline.ts` içinde tek bir eşleme tablosundan yönetiliyor.
+- `/home/logos/noetic-papers/OOP` dizisindeki tek sayfalık modül `quartz/static/oop1-module/` altına taşındı; arama çubuğuna `oop1` yazıldığında `/static/oop1-module/index.html` açılıyor.
+
+## Tarih Metadata - 2025-11-11
+
+- Tüm `content/**/*.md` dosyalarının frontmatter’ına ISO formatında (`YYYY-MM-DD`) `created` alanı girilmesi zorunlu kılındı; güncel durum `scripts/manage-created-dates.mjs --write` ile normalize edildi.
+- Quartz konfigürasyonunda `CreatedModifiedDate` plugin’i artık öncelikle frontmatter, ardından git geçmişini (son olarak filesystem) kullanacak şekilde ayarlandı.
+- CI/sync öncesi kontrol için:
+  - `npm run dates:check` → eksik/normalize edilmemiş dosyaları listeler (write yok, exit 1).
+  - `npm run dates:write` → eksikleri otomatik doldurur (git creation date ya da FS fallback).
+- Script çıktısında “manual follow-up” olarak işaretlenen dosyalar, uygun tarihi elle girene kadar yeniden raporlanır.

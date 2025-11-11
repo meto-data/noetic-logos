@@ -1,3 +1,6 @@
+---
+created: '2025-10-11'
+---
 ### Olmayana Ergi (reductio ad absurdum - saçmaya indirgeme)
 - $p \implies q$ önermesini ispatlamak için $p$ **doğru** kabul edilir, $q$ ise *yanlış* kabul edilir ve bir çelişki bulunur.  
 - Bir önermenin doğru olduğunu göstermek için onun **yanlış olduğunu varsayıp mantıksal bir çelişkiye** varırız. Çelişki varsa başlangıç varsayımı yanlış demektir. Dolayısıyla orijinal önerme doğru.

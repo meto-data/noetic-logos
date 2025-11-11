@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 ### Tahviller (Bond)
 - Ayrıntılı bilgi için (bkz. [[Tahviller]])
 - Devletin veya anonim şirketlerin bir yıldan daha uzun vadeli fon sağlamak amacıyla çıkardıkları borçlanma senetleridir.

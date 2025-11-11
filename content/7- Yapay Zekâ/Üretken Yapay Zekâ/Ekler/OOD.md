@@ -1,3 +1,6 @@
+---
+created: '2025-09-20'
+---
 **Out-of-Distribution (OOD)**, makine öğrenmesi modellerinin, eğitim verilerinde yer almayan veya önemli ölçüde farklı olan yeni verilerle karşılaştığında yaşadığı performans düşüşünü tanımlar. Model, eğitim sırasında gördüğü veri dağılımının dışında kalan verileri "dağılım dışı" olarak kabul eder. Bu durum, modelin güvenilirliğini ve doğruluğunu olumsuz etkileyebilir.
 
 **Neden Önemlidir?**

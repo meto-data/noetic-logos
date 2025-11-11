@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 Ağ etkisi (veya ağ dışsallığı), bir ürün veya hizmetin değeri veya faydasının, o ürünü veya hizmeti kullanan kişi sayısı arttıkça artması durumudur. Bir ürünü ne kadar çok kişi kullanırsa o ürün o kadar değerli hale gelir.
 
 ---

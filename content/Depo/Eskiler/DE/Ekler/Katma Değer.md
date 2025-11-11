@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 Bir üretim sürecindeki girdi ile çıktı arasındaki fark. Üretim sürecinde kazanılan değer artışı. Üretilen ürünün kıymeti.
 
 ---

@@ -4,6 +4,7 @@ Dönem: II. Dönem
 Hafta: VII. Hafta
 Konu: Bilgi Teknolojileri Altyapısı
 Kavramlar: "```dataview\rLIST from outgoing([[]])\r```"
+created: '2025-08-31'
 ---
 
 ## [[İkili Sayı Sistemi]] (Binary Digit Systems)

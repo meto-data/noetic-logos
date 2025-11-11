@@ -1,1 +1,4 @@
+---
+created: '2025-08-31'
+---
 - Taylor, iş süreçlerini analiz etmek için zaman ve hareket etüdlerini kullanmıştır. Bu etüdler, işçilerin her bir hareketi için gereken zamanı ve en verimli hareket sırasını belirlemeyi amaçlamıştır.

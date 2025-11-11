@@ -1,3 +1,6 @@
+---
+created: '2025-10-05'
+---
 - Enformasyonun uygulanmış hâlidir.
 - **Bir amaca yönelik kullanılan, organiza edilmiş enformasyondur.**
 

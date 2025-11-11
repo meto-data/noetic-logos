@@ -1,3 +1,6 @@
+---
+created: '2025-10-09'
+---
 ### Piyasa Payı (Market Share)
 - Bir işletmenin toplam **piyasadaki satışlar içindeki payını** gösterir.
 - **Rekabet gücünü** ve **sektördeki ağırlığını** gösterir.

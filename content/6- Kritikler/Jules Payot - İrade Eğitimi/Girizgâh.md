@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 ### Tanımlar
 **[[Özgürlük]]**: Benliğine egemen olmak, içimizdeki hayvanın zorlamalarına karşı soylu duygulara ve ahlâkî fikirlere hâkimiyet sağlamak. Özgürlük bir hak veyahut olgu değildir, ödüldür; en yüce, mutluluk açısından en verimli ödüldür. >Stoacılıkla bağlantı kur<
 

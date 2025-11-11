@@ -1,3 +1,6 @@
+---
+created: '2025-10-05'
+---
 1. Gereksiz veri tekrarını önler.
 2. Veriler üzerinde merkezî denetim sağlar.
 3. **[[Veri bütünlüğü]]** sağlar. 

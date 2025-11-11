@@ -1,3 +1,6 @@
+---
+created: '2025-10-11'
+---
 - Bir ifadenin doğruluğunu değil *yanlışlığını* ispatlamada kullanılır. **Bir ifadenin doğruluğu örnek verilerek ispat edilemez.**
 ### Örnek: "$\text{Tüm asal sayılar tek sayıdır.}$" doğruluğunu veya yanlışlığını ispat ediniz. 
 - 2 asal sayıdır ve tek değildir, bu ifade yanlıştır.

@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - E-ticaret sayesinde fiziksel mağazaların sınırlamaları ortadan kalkar ve ürünler dünyanın her köşesine ulaştırılabilir.
 
 > [!cite] Diogenes ve Kozmopolit...

@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 
 > [!important] ***Hafıza-ı beşer nisyan ile malûldür*...**
 > **Büyük veri neydi hatırlayalım:**

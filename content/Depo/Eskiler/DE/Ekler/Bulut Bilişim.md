@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 Veri depolama, işleme ve paylaşma için bulut tabanlı sistemlerin kullanılması.
 
 ---

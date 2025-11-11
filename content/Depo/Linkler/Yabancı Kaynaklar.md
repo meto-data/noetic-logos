@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - Firmanın, sahipleri dışındaki üçüncü kişi veya kurumlardan belirli bir **[[vadeli|vade]]** sonunda faiziyle birlikte geri ödemek koşuluyla sağladığı fonlardır. Üçüncü şahısların işletme varlıkları üzerindeki hakları da denilebilir.
 - Başlıca yabancı kaynaklar şunlardır:
 	- Satıcılar (Kredili mal alımları)

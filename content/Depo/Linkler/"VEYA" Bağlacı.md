@@ -1,3 +1,6 @@
+---
+created: '2025-10-03'
+---
 ##### $\lor \text{  ile gösterilir.}$ 
 ##### $p \lor q \equiv \text{  p veya q şeklinde okunur.}$
 ##### 1: $p \lor q \equiv q \lor p$

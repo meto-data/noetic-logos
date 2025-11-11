@@ -1,3 +1,6 @@
+---
+created: '2025-09-20'
+---
 - **Halüsinasyonlar**: Dil modellerinin ürettiği, temelinde birer hata olan ancak yüzeysel olarak inandrııcı görünen ifadelerdir. İlgili hatalar dil modellerinin eğitim verileri, dış gerçeklikle çelişen (dışsal halüsinasyonlar) ya da kullanıcının istemiyle çelişen (içsel halüsinasyonlar) olası yanlışlıklar olarak tanımlanıyor.
 ##### Dışsal Halüsinasyonlar (Extrinsic Hallucinations)
 - Dil modelinin **eğitim verileriyle veya dış gerçeklikle çelişen** bilgiler üretmesi. Model kendi öğrendiği bilgilerle veya genel olarak kabul görmüş gerçeklerle uyumsuz, ancak yine de inandırıcı görünen ifadeler ortaya koyar. 	

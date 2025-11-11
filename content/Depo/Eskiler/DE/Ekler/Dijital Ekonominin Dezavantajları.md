@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 ### 1) [[Gizlilik ve Güvenlik]]
 **[[Gizlilik]]:** Hangi verinin kime ait olduğunun belli olmaması.
 **[[Güvenlik]]:** [[Gizlilik]] kapsamındaki verilerin başkalarının eline geçmemesi

@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - Örgütsel iletişim, **yalnızca bir kurumun** içerisinde gerçekleşen iletişimdir. Kurumsal iletişim ise, yakın dış çevre ile gerçekleşen iletişimdir. Kurumun iç çevresiyle değil, dış çevresiyle ilintilidir. Buna mukabil örgütsel iletişim ise iç çevreyle ilintilidir.
 - Bir kurumun **imaj** oluşturmak amacıyla **dış çevreye verdiği mesajların tamamıdır**.
 - Kurumsallaşma sürecinin önemli kriterlerinden birisidir.

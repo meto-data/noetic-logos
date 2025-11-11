@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Marjinal maliyet, bir birim daha fazla mal veya hizmet üretmenin ek maliyetidir.
 
 > [!NOTE] Anlaşılmadı mı?

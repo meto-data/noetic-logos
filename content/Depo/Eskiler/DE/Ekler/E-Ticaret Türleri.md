@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 1- [[İşletmeden İşletmee]] (Business-to-business -B2B-)
 Endüstriyel pazarlarda üretim mallarının alınıp satıldığı e-ticaret türüdür.
 ##### [[Endüstriyel Pazar]] 

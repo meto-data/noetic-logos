@@ -1,3 +1,6 @@
+---
+created: '2025-10-23'
+---
 - Fiziksel olmayan ancak şirkete uzun süre fayda sağlayan değerler.
 	- `260 Haklar (Patent, Lisans, telif hakkı vb.)`
 

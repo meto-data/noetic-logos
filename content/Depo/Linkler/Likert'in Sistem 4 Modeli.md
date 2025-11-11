@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 ### Sistem 1: [[İstismarcı-Otoriter]]
 Bu sistemde yöneticiler astlarına güvenmez, kontrolü sıkı tutar ve cezalandırmaya dayalı bir yöntem kullanır. İletişim çoğunlukla yukarıdan aşağıya doğrudur ve astların katılımına izin verilmez.
 ### Sistem 2: [[Babacan-Otoriter]]

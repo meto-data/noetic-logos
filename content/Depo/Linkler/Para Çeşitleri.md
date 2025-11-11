@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 #### 1- [[nakit]] (Kâğıt para, madeni para)
 #### 2- [[Vadesiz Mevduat]]
 - Likit olduğu için getirisi az olmasına rağmen tercih edilir.

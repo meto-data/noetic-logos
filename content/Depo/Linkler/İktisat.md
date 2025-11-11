@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - İktisatta insanların ihtiyaçları sonsuz, kaynaklar ise sınırlıdır.
 - İhtiyaçlara yemek, su, kıyafet, ulaşım, barınma, sağlık hizmeti, kablosuz internet vb. ihtiyaçları örnek gösterebiliriz.
 - Sınırlı kaynaklara gelirsek, bunlara kömür, aluminyum, su, zaman vb. diyebiliriz.

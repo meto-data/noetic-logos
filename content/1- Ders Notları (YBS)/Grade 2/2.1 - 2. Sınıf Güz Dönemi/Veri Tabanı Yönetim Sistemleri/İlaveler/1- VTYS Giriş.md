@@ -1,6 +1,7 @@
 ---
-title:
+title: null
 draft: true
+created: '2025-09-29'
 ---
 - Kuvvetle muhtemel piramitteki aşamalar hakkında soru gelecek.
 	- Verinin alternatif tanımlarına bak

@@ -1,3 +1,6 @@
+---
+created: '2025-10-08'
+---
 - Kredi notu, bir işletmenin finansal geçmişine ve mevcut durumuna bakarak hesaplanan bir risk göstergesidir. Not ne kadar yüksekse işletmenin borcunu zamanında ödeme olasılığı o kadar yüksek kabul edilir.
 
 > [!industry] Bilgi

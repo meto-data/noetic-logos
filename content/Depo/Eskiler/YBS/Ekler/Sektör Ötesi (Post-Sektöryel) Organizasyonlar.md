@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 
  <h6 style="color:red; font-weight:bolder; text-align:center">Yetkinin Temeli: Bilgi ve Yetenek:</h6>
 <p style="text-align:justify">Bu yapıların en ayırt edici özelliği, yetkinin kişinin hiyerarşideki yerinden çok, sahip olduğu <u><strong>bilgi ve uzmanlığa</u> </strong> dayanmasıdır. (Örn: Projedeki uzman bir danışmanın hiyerarşik olarak üstte olan bir yöneticiden daha etkili olması).</p>

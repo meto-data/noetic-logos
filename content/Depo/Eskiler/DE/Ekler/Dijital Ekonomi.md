@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Atası internet ekonomisidir.
 
 ---

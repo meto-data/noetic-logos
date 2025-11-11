@@ -1,3 +1,6 @@
+---
+created: '2025-09-25'
+---
 - **[[Bilişim]]**:  Bilginin toplanması, işlenmesi, saklanması, iletilmesi ve kullanılmasını sağlayan kuram, yöntem, sistem ve teknolojilerin bütünü. **(Daha ayrıntılı bilgi için bkz.** *[[bilişim, bilgi teknolojisi ve bilgi sistemleri|Bilişim, Bilgi Teknolojisi ve Bilgi Sistemleri]]***)**
 - **[[Bilişim Hukuku]]**: Elektronik ortamlarda iletişim, bilgi, belge paylaşımının sağlanmasının hukukî çerçevesi ve sonuçları ile bu ortamlarda vukû bulan hukuka aykırı fiillere ilişkin yaptırımın öngörüldüğü **[[mevzuat|mevzuatın]]** oluşturduğu hukuk normlarıdır.
 - **[[Bilişim Suçları]]**: Bilişim sistemlerinin suçta araç olarak kullanıldıkları ya da bu sistemlerin hedef alındıkları hukuka aykırı fiillerdir.

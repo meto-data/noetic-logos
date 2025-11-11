@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 #### 1- [[Küresel Pazarlara Erişim]]
 - E-ticaret sayesinde fiziksel mağazaların sınırlamaları ortadan kalkar ve ürünler dünyanın her köşesine ulaştırılabilir.
 #### 2- [[Ürün Siparişini Kolaylaştırma]]

@@ -1,3 +1,6 @@
+---
+created: '2025-11-08'
+---
 
 ***Değer*** ***yıkan*** ve ***değer*** ***yaratan*** diyorlar kendilerine, o hâlde, soruyorum sizlere: Eriştiniz mi erginliğe ve mütekâmiliyete?
 Kadir misiniz yaratmaya? Hükmediyor musunuz duygularınıza?

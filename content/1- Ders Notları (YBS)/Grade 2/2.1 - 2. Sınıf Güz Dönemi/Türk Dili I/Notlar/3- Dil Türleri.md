@@ -1,3 +1,6 @@
+---
+created: '2025-10-13'
+---
 ### Ana Dil
 - Kişinin ilk öğrenme döneminde (anne, yakın çevre veya toplum aracılığıyla) doğal biçimde edindiği, bilinçaltına yerleşen ve bireyin toplumla en güçlü bağını kurduğu dildir.
 

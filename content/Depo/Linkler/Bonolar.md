@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - Genellikle 1 yıldan kısa vadeli **borçlanma araçlarıdır**.
 - Faiz yerine genellikle [[iskonto]] ile satılırlar.
 ##### [[Hazine Bonosu]]

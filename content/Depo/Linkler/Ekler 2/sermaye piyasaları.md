@@ -1,3 +1,6 @@
+---
+created: '2025-10-02'
+---
 - Sermaye Piyasaları **fon arz edenler (tasarruf sahipleri)** ile **fon talep edenleri (şirketler, devletler)** **[[Menkul Kıymetler|menkul kıymetler]]** aracılığıyla bir araya getiren piyasalardır. Şirketler için banka kredilerine alternatif, önemli bir borçlanma kanalıdır.
 ##### [[Kısa Vadeli Borçlanma Araçları]] (Vadesi 1 Yıldan Az)
 - [[Hazine Bonosu]]: Devletin bir yıldan kısa vadeli borçlanma ihtiyaçları için çıkardığı borçlanma aracı.

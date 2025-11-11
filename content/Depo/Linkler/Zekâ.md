@@ -1,3 +1,6 @@
+---
+created: '2025-10-05'
+---
 - Piramidin basamakları arasında **aşağı ve yukarı hareket edebilme** yeteneğidir. 
 - **Doğada olmayan bir şeyleri var edebilme, yaratabilme yeteneği** de denilebilir.
 - Kaostan düzen, anlamsızlıktan anlam çıkarma sürecidir.

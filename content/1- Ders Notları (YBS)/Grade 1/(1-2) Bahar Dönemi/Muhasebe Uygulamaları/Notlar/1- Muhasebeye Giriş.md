@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - **İşletme:** Toplum ihtiyaçlarını karşılayacak fayda sağlamak için mal ya da hizmet üreten veya pazarlayan örgütler. 
 	- Genel olarak üç amaçları vardır: Kâr elde etme, topluma hizmet etme ve işletmenin yaşamını devam ettirme.
 ## Faaliyet Konusuna Göre İşletmeler

@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
  - **Bir kişinin işsiz sayılabilmesi için;**
 	1. 15 yaşından büyük olması gerekir.
 	2. Çalışmak istemesi gerekir.

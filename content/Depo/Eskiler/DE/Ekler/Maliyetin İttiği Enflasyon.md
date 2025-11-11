@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Üretim maliyetlerinin artması sonucunda oluşan enflasyon türüdür.
 - Çözüm Önerileri
     - Ülkeye bol bol döviz girmeli.

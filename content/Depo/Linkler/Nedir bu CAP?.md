@@ -1,3 +1,6 @@
+---
+created: '2025-11-03'
+---
 - Captain America'dan söz etmiyoruz tabii, bahsettiğimiz CAP Teoremi ve bu teorem diyor ki, "[[Consistency]] (Tutarlılık), **[[availability|Availability]]** (Erişilebilirlik) ve [[Partition Tolerance]] (Bölünme Toleransı) aynı anda sağlanamaz, bunlardan **yalnızca ikisi** aynı anda garanti edilebilir."
 
 

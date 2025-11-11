@@ -1,3 +1,6 @@
+---
+created: '2025-09-20'
+---
  Makineler düşünebilir mi sorusu yerine taklit oyunu üzerinden ilerleyeceğiz . Bunun sebebi "düşünme" kavramının felsefî bakımdan sonu bitmeyen itiraz silsilesine kapılabilmesi, herkesin kendi "düşünme" kavramı üzerinden öznel itirazlar yöneltebilmesidir, bundan dolayı böyle bir soru hiçbir şeyi sonucuna erdirmez Turing'e göre.
 
 Buna mukabil "makine, bir insanı taklit edebilir mi?" sorusu ise felsefî tanımlardan kaçınması bakımından, fiziksel ve zihinsel kapasiteleri ayırması, makinelerin görünüşünü yahut materyali önemsememesi ve sadece "taklit" etme yeteneği bakımından teste tabî tutulması bakımından çok daha iyi bir sorudur.

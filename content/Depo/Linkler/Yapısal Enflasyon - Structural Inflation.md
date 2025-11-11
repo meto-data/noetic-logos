@@ -1,2 +1,5 @@
+---
+created: '2025-10-08'
+---
 - Genellikle gelişmekte olan ülkelerde görülen ve ekonominin temel yapısındaki bozukluktan kaynaklanan inatçı bir enflasyon türü. Sorun ne anlık bir talep patlaması ne de bir maliyet şokudur, sorun sistemin kendisindedir.
 	- Tarımdaki verimsizlik, altyapı eksiklikleri, piyasalardaki rekabet eksikliği ([[Monopol (Tekel) Oluşumu|tekel]]) gibi faktörler.

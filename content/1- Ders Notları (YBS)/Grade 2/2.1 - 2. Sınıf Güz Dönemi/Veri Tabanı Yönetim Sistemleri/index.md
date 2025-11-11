@@ -1,5 +1,6 @@
 ---
 title: Veri Tabanı Yönetim Sistemleri
+created: '2025-09-25'
 ---
 
 

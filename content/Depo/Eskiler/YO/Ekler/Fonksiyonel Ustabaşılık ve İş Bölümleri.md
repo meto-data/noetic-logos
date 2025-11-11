@@ -1,1 +1,4 @@
+---
+created: '2025-08-31'
+---
 - *Fonksiyonel Ustabaşılık Sistemi*, iş verimliliğini artırmak için her iş aşamasında uzmanlaşmış ustabaşıların görev aldığı bir yönetim modelidir. Her işçi, farkı alanlarda uzmanlaşmış birkaç ustabaşıdan talimat alır. Böylelikle iş bölümleri küçük parçalara ayrılarak uzmanlaşma sağlanır.

@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 
 ### Fikir, Fiil ve İradenin Doğası
 

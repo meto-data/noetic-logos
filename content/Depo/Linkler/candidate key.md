@@ -1,3 +1,6 @@
+---
+created: '2025-10-06'
+---
 - Bir tablodaki bir satırı **benzersiz (unique)** olarak tanımlayabilecek **her sütun veya sütun grubuna** aday anahtar denir. Yani [[primary key]] olmaya aday olan her şeydir.
 
 - **Örnek: Öğrenciler Tablosu**  

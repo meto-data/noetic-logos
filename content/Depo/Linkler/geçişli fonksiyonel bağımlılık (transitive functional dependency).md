@@ -1,3 +1,6 @@
+---
+created: '2025-10-06'
+---
 - Bir sütun başka bir sütuna bağlıysa, o da başka bir sütuna bağlıysa **geçişli fonksiyonel bağımlılık (transitive dependency)** olur. 
 	- 3NF bunu yasaklar, çünkü:
 		- Aynı bilgi birden fazla yerde tutulur ([[Veri Fazlalığı (Data Redundancy)|veri tekrarı]]).

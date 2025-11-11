@@ -2,10 +2,11 @@
 Ders: Muhasebe Uygulamaları
 tags:
   - kapsayici_muh
-  - "#oz"
+  - '#oz'
 Kavramlar: "```dataview\rLIST from outgoing([[Muhasebenin Beş İşlevi]])\r```"
 Dönem: II. Dönem
 Konu: I. Hafta
+created: '2025-10-02'
 ---
 - **Muhasebe:** İşletmelerdeki mâlî olayları 
   1. **[[Saptamak]]** (Somut bir biçimde olayın gerçekleştiğini ortaya koymak. Bir belge söz konusu olmalı.), 

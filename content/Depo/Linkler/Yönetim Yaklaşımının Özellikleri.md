@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 ##### 1- Evrensellik
 - Fayol, yönetim prensiplerinin her türlü organizasyonda uygulanabileceğine inanıyordu.
 ##### 2- Kumanda Birliği

@@ -1,5 +1,6 @@
 ---
 draft: true
+created: '2025-08-31'
 ---
 
 #### Makine 1: Dengeli

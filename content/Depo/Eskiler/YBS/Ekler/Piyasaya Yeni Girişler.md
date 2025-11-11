@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Sektöre yeni firmaların girme ihtimali ve bunun mevcut firmalar için ne kadar tehlikeli olduğu.
 - Yeni girenler pazardan pay kapabilir, fiyatları aşağı çekebilir ve mevcut firmaların işini zorlaştırabilir.
 ###### **Ne Zaman Artar?**

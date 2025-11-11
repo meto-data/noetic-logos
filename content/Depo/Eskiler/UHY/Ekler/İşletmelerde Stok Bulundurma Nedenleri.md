@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 1. **[[Talep]] Dalgalanmaları:** Beklenmedik veya mevsimsel talep artışlarını karşılamak.
 2. **Tedarik Sorunları:** Tedarikçilerden kaynaklanabilecek gecikme veya aksaklıklara karşı hazırlıklı olmak.
 3. **Üretim/İstihdam İstikrarı:** Üretim akışını düzenli tutarak çalışan sayısında istikrar sağlamak.

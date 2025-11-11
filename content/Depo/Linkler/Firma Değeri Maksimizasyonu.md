@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - Derste verilen LC Waikiki örneği önemli denilebilir. Bir firmanın imajı, markası vb. unsurlar firmanın değerinin maksimize edilmesinde önemli rol oynar. Yönetim-Organizasyon dersinde biraz değinilmişti aslında bu konuya (bkz. **[[Kurumsal İletişim]]**).
 	- İmajdan ve markadan etkilenen müşteriler zamanla sadık müşteri olur, genellikle o markadan satın alımlarını öncelerler diğer markalara kıyasen.
 

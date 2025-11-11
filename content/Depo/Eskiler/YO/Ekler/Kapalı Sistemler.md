@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Çevreleriyle etkileşimde bulunmayan veya sınırlı etkileşimde bulunan sistemlerdir. 
 - Dışarıdan girdi almazlar ve dışarıya çıktı vermezler.
 - Kapalı sistemler zamanla **[[entropi]]ye** maruz kalırlar ve ölürler.

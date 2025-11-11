@@ -1,6 +1,7 @@
 ---
 title: Bilişim Hukuku - 4. Ders
-date: 2025-10-16
+date: 2025-10-16T00:00:00.000Z
+created: '2025-11-06'
 ---
 
 ###### **Sorular**: 

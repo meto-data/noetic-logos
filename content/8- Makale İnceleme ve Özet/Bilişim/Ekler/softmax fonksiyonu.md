@@ -1,3 +1,6 @@
+---
+created: '2025-09-29'
+---
 $$p_i = \frac{e^{z_i}}{\sum_{j} e^{z_j}}$$
 
 Bir vektör içerisindeki gerçek sayı değerlerini (misal **[[logit]]** değerleri) **olasılık dağılımına** çeviren bir fonksiyon. <br> <br>

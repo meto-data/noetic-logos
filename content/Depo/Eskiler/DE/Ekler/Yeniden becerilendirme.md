@@ -1,1 +1,4 @@
+---
+created: '2025-08-31'
+---
 - Yeniden becerilendirme eğitimi, bireylerin değişen işgücü piyasasının ihtiyaçlarına uyum sağlamaları için yeni beceriler kazanmalarını veya mevcut becerilerini geliştirmelerini amaçlayan eğitim programlarıdır. Bu programlar, teknolojik gelişmeler, küreselleşme veya ekonomik dönüşüm gibi nedenlerle işlerini kaybeden veya mesleklerini değiştirmek isteyen kişilere yeni kariyer fırsatları yakalamalarında yardımcı olur.

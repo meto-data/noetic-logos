@@ -1,3 +1,6 @@
+---
+created: '2025-10-09'
+---
 ### Satış Hacmi (Sales Volume)
 - Bir işletmenin belirli bir dönemde sattığı **ürün veya hizmet miktarı**.
 - `Ölçü Birimi`: *adet, kg, litre, paket vb.*

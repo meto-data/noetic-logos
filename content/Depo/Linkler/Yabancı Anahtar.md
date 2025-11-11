@@ -1,3 +1,6 @@
+---
+created: '2025-10-06'
+---
 - Bir tablodaki sütunun **başka bir tablonun primary key**'ine referans vermesidir. 
 #### Amaç
 - Tablolar arasında **ilişki kurmak** (relationship).

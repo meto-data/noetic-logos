@@ -1,3 +1,6 @@
+---
+created: '2025-09-26'
+---
 Bir olayın gerçekleşmesi için tek başına yeterli olan koşuldur.
 
 

@@ -4,7 +4,8 @@ Konu: Yönetim Bilişim Sistemlerine Giriş & Çağdaş Dünyanın Bilişim Sist
 Hafta: II. Hafta
 Dönem: II. Dönem
 tags:
-  - "#ybsders"
+  - '#ybsders'
+created: '2025-08-31'
 ---
 ### [[Veri, Enformasyon ve Bilgi]]
 - Veri, işlenmemiş bilgidir. Bilginin ham hâlidir. 

@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - Firmanın günlük faaliyetlerini sürdürebilmesi için gerekli olan ve bir yıl içinde nakde dönüşmesi beklenen varlıkların yönetimi.
 ##### A. Nakit ve Nakit Benzerleri Yönetimi (Anlık Likidite)
  - **Kasa (Fizikî Para)**: Firmanın kasasında bulunan madeni ve kâğıt para. Genellikle küçük ve acil günlük harcamalar için kullanılır.

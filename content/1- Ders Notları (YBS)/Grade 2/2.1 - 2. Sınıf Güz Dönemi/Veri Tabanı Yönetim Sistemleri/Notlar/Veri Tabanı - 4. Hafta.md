@@ -1,5 +1,6 @@
 ---
 title: Veri Tabanı Yönetim Sistemleri - 4. Ders
+created: '2025-10-23'
 ---
 
 ## SQL Komutları

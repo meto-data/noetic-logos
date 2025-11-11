@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Gerçekler hakkında birbirinden kopuk küçük parçalar.
 
 - En basit anlamıyla **insan dünyasında algılanan semboller veya simgeler**dir.

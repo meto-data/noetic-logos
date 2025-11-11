@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - Fayol'a göre yönetimin beş ana fonksiyonu vardır.
 ##### 1. Planlama
 - Hedeflerin belirlenmesi ve gerekli adımların planlanması.
