@@ -1,3 +1,6 @@
+---
+created: '2025-10-08'
+---
 - İşaretçi olarak da bilinir.
 - Bir değişkenin *kendisini* değil, o değişkenin **bellekteki adresini** tutan özel bir değişkendir.
 - Program bir veriye erişmek istediğinde, o verinin adresini tutan pointer'i takip eder ve RAM'deki ilgili adrese giderek veriyi okur veya yazar.

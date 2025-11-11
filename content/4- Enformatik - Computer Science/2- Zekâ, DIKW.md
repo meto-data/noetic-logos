@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 	# DIKW Piramidi (Data-Information-Knowledge-Wisdom)
 
 ![[dikw2.png]]

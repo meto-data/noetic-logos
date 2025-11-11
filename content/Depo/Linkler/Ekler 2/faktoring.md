@@ -1,3 +1,6 @@
+---
+created: '2025-09-24'
+---
 - **[[vadeli]]** alacağın vadesinden önce nakde çevrilmesi işlemi. "Çek kırdırmak" veya "senet kırdırmak" işleminin faturalı versiyonu.
 
 Tam tanım: <br> 

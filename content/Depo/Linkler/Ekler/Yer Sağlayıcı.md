@@ -1,2 +1,5 @@
+---
+created: '2025-09-25'
+---
 - Hizmet ve içerikleri barındıran sistemleri sağlayan veya işleten gerçek veya tüzel kişilerdir.
 	- Hukuka aykırı içerikten Kanun'da belirtilen usuller çerçevesinde haberdar edilmesi durumunda, içeriği çıkarmakla yükümlüdür.

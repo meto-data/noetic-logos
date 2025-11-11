@@ -1,5 +1,6 @@
 ---
 draft: true
+created: '2025-08-31'
 ---
 
 ## BÖLÜM 1: Temel Problem ve Akıllıca Çözüm

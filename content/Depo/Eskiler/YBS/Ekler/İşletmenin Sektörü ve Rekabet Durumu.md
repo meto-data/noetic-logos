@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - **Sektör yapısı** nedir? Rekabetçi güçler, yeni rakipler, tedarikçi ve müşteri gücü, ikame ürünlerin etkisi nasıl?
 - Temel **rekabet öğesi** ne? Kalite, fiyat veya marka mı?
 - Sektördeki **değişim yönü** ve **bilgi sistemlerinin kullanımı** nasıl?

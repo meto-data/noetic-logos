@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 1. **Talep Sabit ve Biliniyor** (D): Müşteri talebi yıl boyunca hiç değişmez, hep aynı hızdadır ve ne kadar olacağı kesinlikle bilinir.
 2. **Sipariş Miktarı ve Sabit** (Q): Her siparişte aynı miktarda ($Q^*$) mal alınır.
 3. **Birim Fiyat Sabit** (C): Aldığın malın fiyatı değişmez, toplu alımda indirim falan olmaz.

@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Bir işletmenin sahiplerinin veya hissedarlarının/ortaklarının işletmeye yatırdığı toplam sermayedir.
 - Bu paranın geri ödenme zorunluluğu yoktur. Parayı koyan kişi işletmenin sahibi olur. Karşılığında ise işletme üzerinde **söz hakkı (hissedarlık)** ve gelecekteki **kârdan pay alma hakkı ([[temettü]])** elde eder.
 - İşletme batarsa ilk önce bu para yanar. Alacaklılar (bankalar vb.) paralarını aldıktan sonra geriye bir şey kalırsa, öz sermaye sahipleri paralarını geri alabilir. 

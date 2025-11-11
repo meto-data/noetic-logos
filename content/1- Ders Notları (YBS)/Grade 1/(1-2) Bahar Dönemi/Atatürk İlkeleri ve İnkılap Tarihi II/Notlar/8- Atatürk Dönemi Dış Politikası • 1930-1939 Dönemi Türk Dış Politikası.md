@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 	
 - **GENEL VAZİYET (1930'LARIN KAHPE DÜNYASI):**
     

@@ -1,3 +1,6 @@
+---
+created: '2025-10-23'
+---
 - Firmanın mal veya hizmet satıp bedelini hemen değil de belirli bir vade sonunda almayı kabul ettiği durumlardır. Bu alacaklar kıymetli evrak denilen belgelerle güvence altına alınır. 
 - Bu alacaklar birer **ÖDEME VASITASI**'dır ve firma, nakde erişimi hızlandırmak için bu vasıtaların vadesini *minimuma indirmeye* çalışır.
 -  **[[Alacak Senetleri İskontosu]] (*Çek/Senet Kırdırma*)**: Vadesi gelmemiş bir alacak senedi veya çek bir bankaya veya [[Faktoring Şirketleri|faktoring şirketine]] götürülerek anında nakde çevirebilir.  Vadeye kadar olan süre için bir faiz (iskonto) kesintisi yapılır ve kalan tutarı işletmeye peşin ödenir. Buna *"geriye doğru faiz hesaplama"* işlemi denir ve acil nakit ihtiyacını karşılar.

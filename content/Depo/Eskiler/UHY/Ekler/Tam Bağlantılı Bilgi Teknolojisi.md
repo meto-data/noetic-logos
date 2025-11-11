@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 **Amazon’un Lojistik ve Depo Yönetimi:**
 - Amazon, **tam bağlantılı BT** kullanarak depolama ve lojistik süreçlerini hızlı hale getiriyor.
 - Depolar **gerçek zamanlı** sipariş takibi yaparak en uygun ürünü otomatik seçiyor.

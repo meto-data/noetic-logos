@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - Deep Web'in kapsamı içerisindedir.
 - Özel ağlar (Tor, I2P vb.) üzerinden anonimlik sağlayarak erişilen, arama motorlarınca indekslenmeyen içerikleri kapsar.
 	- Erişim için özel yazılım ve anonimleştirme araçları kullanılır.

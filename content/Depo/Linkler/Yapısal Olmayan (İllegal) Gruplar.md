@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - Fikir birliği
 - Ortak çıkarlar
 - Benzer beğeniler/eğilimler/tutumlar/değerler

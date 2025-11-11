@@ -1,3 +1,6 @@
+---
+created: '2025-10-03'
+---
 - Önerme sayısına *n* dersek, $2^n$ tane doğruluk değeri ortaya çıkar.
 - $p$ ve $q$ olmak üzere $2$ önermemiz var diyelim, bu durumda $4$ adet doğruluk değeri ortaya çıkacaktır.
 

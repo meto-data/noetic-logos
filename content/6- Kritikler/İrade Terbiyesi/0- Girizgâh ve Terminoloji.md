@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - **[[Doğal tekâmül kanunu]]**: Toplumların, kültürlerin, devletlerin zaman içerisinde değişip gelişmesi -siyasi olarak ele alıyor- ([[Ethem Bakar - İrade Terbiyesi.pdf#page=19&selection=14,2,14,24|Bakar, 2023: 19]]).
 - Fert ve toplum olarak ne olduğumuzu ve ne olmamız gerektiğini bilmemiz gerekir. Gerek millî gerek şahsî eğitimimizin ilk adımını bu bilme edimi ile atmak zorundayız. Zaten ilerleyen metinlerde de kötümser teori ile ahlâkî teoriyi seçmeyi bu bağlamda ele alacak )[[Ethem Bakar - İrade Terbiyesi.pdf#page=21&selection=0,25,0,26|Bakar, 2023: 21]]).
 

@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Ürün veya hizmetleri internet üzerinden tanıtmak ve satmak için kullanılan tüm pazarlama faaliyetleridir.
 	- E-ticarette potansiyel müşterilere ulaşmak, markayı tanıtmak ve satışları artırmak için olmazsa olmazdır. SEO (Search Engine Optimization), SEM (Search Engine Marketing), sosyal medya pazarlaması, e-posta pazarlaması gibi farklı dijital pazarlama yöntemleri bulunur.
 

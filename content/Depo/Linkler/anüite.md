@@ -1,2 +1,5 @@
+---
+created: '2025-10-16'
+---
 - “annuity / annuite / annuitatem / annuitās” formları **Orta Latin / Anglo-Fransızca** kökenlidir ve doğrudan Latince **annus** (“yıl”) kelimesinden türemiştir. İngilizce “annuity” kelimesi 15. yüzyılda geçerken “a yearly allowance, grant payable in annual installments (**Her yıl -ya da belli periyotlarda- düzenli ve eşit miktarda ödeme**)” anlamında kullanılmıştır
 - Belirli bir süre boyunca, **eşit zaman aralıklarında** (her ay, her yıl vb.) ve **eşit miktarda** gerçekleşen para ödemeleri veya tahsilatları serisine denir.

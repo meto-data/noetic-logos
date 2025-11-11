@@ -1,1 +1,4 @@
+---
+created: '2025-09-24'
+---
 Şirketlerin elinde bulundurduğu ve hemen kullanılabilir parayı ifade eder. Sadece [[Para Çeşitleri|fiziksel parayı]] değil aynı zamanda banka hesabındaki parayı ve kolayca nakde çevrilebilen kısa vadeli finansal varlıkları da kapsar.

@@ -1,5 +1,6 @@
 ---
 title: Veri Tabanı Yönetim Sistemleri - 5. Ders
+created: '2025-11-10'
 ---
 
 ### INSERT

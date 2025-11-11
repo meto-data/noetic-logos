@@ -1,3 +1,6 @@
+---
+created: '2025-10-08'
+---
 ### İlk Dersin Tekrarı
 - Ders 1 ile ilgili;
 	- Sermaye hesapları

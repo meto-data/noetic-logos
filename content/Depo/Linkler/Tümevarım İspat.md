@@ -1,3 +1,6 @@
+---
+created: '2025-10-11'
+---
 - Tümevarım ile ispata ne zaman ihtiyaç duyarız?
 	- *Genellikle* eşitliklerin doğruluğunun ispatlanmasında kullanılır.
 		- $1+2+3+ \dots+ n  = \frac{n.(n+1)}{2}, n \in \mathbb{N}^{+}$

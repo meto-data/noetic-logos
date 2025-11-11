@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 ##### [[X Teorisi]]
 - Çalışanlar doğası gereği tembeldir ve mümkün olduğunca az çalışır, 
 - Hırs ve azimden yoksundur. Sorumluluk almaktan hoşlanmaz ve yönetilmeyi tercih eder, 

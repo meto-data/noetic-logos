@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 ### 1- [[Ham Maddeler]] (Raw Materials)
 - **Tanım:** Üretim sürecine girecek, işlenecek, dönüştürülecek veya bitmiş ürüne monte edilecek temel girdi malzemeleridir.
 - **Açıklama:** Üretim sürecinde kullanılacak temel girdilerdir ve işlenerek [[mâmul]] (bitmiş ürün) haline getirilirler. Üretimin kesintisiz sürmesi, yeterli ve kaliteli ham madde bulunmasına bağlıdır. Eksikliği üretimi durdurabilir, bu yüzden tedarik yönetimi kritiktir.

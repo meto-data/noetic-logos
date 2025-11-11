@@ -1,0 +1,14 @@
+---
+created: '2025-11-11'
+---
+- 25 soru test.
+- If-else, for bil.
+- Metod oluşturmayı ve metod çağırmayı bilmen gerekiyor.
+	- Değer döndürenleri değer döndürmeyenleri falan.
+- Temel kontroller (combobox, listbox, datetimepicker) gibi, ne işe yarar nasıl kullanılır, örneğin listbox'a nasıl öge eklenir gibi temel şeyleri bilmemiz gerekiyor.
+- Olaylara bağlı metodlar
+	- OnClicked, onLoad, onHover gibi gibi olaya bağlı metodlar.
+- Nesne tabanlı programlamanın temel mantığı; nesne nasıl türetilir, yapıcı (constructor) metod nasıl çalışır? Yapıcı metod nedir gibi gibi.
+	- W3Schools'daki C# Classes kısmını tamamıyla hatmet.
+- Sınıf nedir, sınıf üyesi nedir, erişim belirteçleri nedir?
+- Field ile property arasındaki fark nedir?

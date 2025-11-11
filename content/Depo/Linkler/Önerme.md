@@ -1,3 +1,6 @@
+---
+created: '2025-10-03'
+---
 - Önerme, doğru ya da yanlış olarak nitelenebilen bir ifade/yargıdır.
 - Önermenin doğru ya da yanlış olmasına ilişkin bir sınırlama yoktur.
 - Yargı belirtmeyen veya sonucu zamanla değişen ifadeler önerme değildir.

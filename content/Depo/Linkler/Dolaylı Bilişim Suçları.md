@@ -1,3 +1,6 @@
+---
+created: '2025-10-11'
+---
 ### 1- [[TCK 142, 2-e  - Nitelikli Hırsızlık]]
 - (...)
 - *(2)* Suçun;

@@ -1,3 +1,6 @@
+---
+created: '2025-10-24'
+---
 ## 1- Sıfır Matrisi
 - İçindeki tüm elemanlar sıfırdır.
 

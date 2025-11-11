@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - Klasik Yönetim, verimliliği artırmak için iş süreçlerinin rasyonelleştirilmesine ve çalışanların makine gibi görülmesine odaklanıyor, insanların sorunlarına dört duvar içerisinde çözüm bulmaya çalışıyordu. Hawthorne Araştırmaları ise, çalışanların sosyal ve psikolojik ihtiyaçlarının verimlilik üzerindeki etkisini ortaya koyarak bu anlayışı sorgulamıştır.
 	- **[[Elton Mayo]]** tarafından yapılmıştır.
 - Hawthorne çalışmaları ilk başta aydınlatmanın işçi verimliliği üzerindeki etkisini incelemek amacıyla tasarlanmıştı. Ancak çalışmalar ilerledikçe, araştırmacılar aydınlatma gibi fiziksel koşullardan ziyade çalışanların tutum ve inançlarının verimliliği daha fazla etkilediğini gözlemlemiştir. Bu gözlemler, ***Hawthorne Etkisi*** olarak bilinen şu fenomeni ortaya çıkarmıştır: ***İnsanlar gözlemlendiklerini bildikleri zaman davranışlarını değiştirirler.***

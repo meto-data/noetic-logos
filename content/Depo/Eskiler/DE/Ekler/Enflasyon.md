@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 Fiyatların genel olarak ve sürekli bir biçimde artmasıdır. Başka bir deyişle, paranın zaman içinde satın alma gücünün azalmasıdır.
 # [[Talebin Çektiği Enflasyon - Talep Enflasyonu]]
 - Mal ve hizmetlere olan *talebin arzı aşmasıyla* ortaya çıkan enflasyon türüdür. Bir diğer deyişle, mallara ve hizmetlere olan talebin aşırı artması da denilebilir.

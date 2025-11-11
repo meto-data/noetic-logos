@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 
 ## **CISSP CBK (Common Body of Knowledge - Ortak Bilgi Bütünü)**
 #### 1- <span style="color:darkcyan">Risk Definition</span>

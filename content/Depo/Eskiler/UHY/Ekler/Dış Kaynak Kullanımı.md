@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Bir işletmenin temel faaliyetleri dışında kalan faaliyetlerini başka işletmeler aracılığıyla sürdürmesine dış kaynak kullanımı (outsourcing) denir.
 	- Söz gelimi, üniversitenin **temel** faaliyeti **eğitim**dir. Ancak bu faaliyeti gerçekleştirmek için **güvenlik görevlisi** vardır, **yemekhane** vardır vb. İşte, dış kaynak kullanımı (outsourcing) budur.
 

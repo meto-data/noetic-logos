@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - Firma kurulum aşamasında değer verenler verdikleri değer ([[Öz Kaynaklar (Equity)|öz kaynaklar]]) kadar firma üzerinde söz/hak/pay sahibidir. Firma bu kişilere borçlanır.
 1. **Sahip (Owner)**: Şirketin gerçek kontrolüne sahip kişi veya kişiler.
 2. **Ortak (Partner - Shareholder)**: Şirkete sermaye koymuş kişidir. Anonim şirkette *hissedar*, limited şirkette *ortak* denir.

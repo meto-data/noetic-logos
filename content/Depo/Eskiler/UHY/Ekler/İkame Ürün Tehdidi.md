@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Müşterinin, bizim ürünümüzün veya hizmetimizin yerine farklı türde ama aynı ihtiyacı karşılayan başka bir şeyi tercih etme olasılığı.
 - Eğer iyi ve ucuz ikameler varsa, müşteriler fiyat biraz artsa hemen onlara kaçabilir. Bu da senin fiyat artırma gücünü sınırlar.
 ###### **Ne Zaman Artar?** 

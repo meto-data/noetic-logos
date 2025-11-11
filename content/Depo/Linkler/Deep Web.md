@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - Arama motorlarının indekslemediği, gizli kalan ancak meşru/normal sitelerin bir parçası olan içerikler. Çoğunlukla yasak içeriklerden oluşur.
 - Erişim için özel kimlik doğrulama, oturum açma veya doğrudan bağlantı gerekebilir.
 - Surface Web'den ayrıktır.

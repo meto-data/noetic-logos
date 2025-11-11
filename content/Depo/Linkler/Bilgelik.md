@@ -1,3 +1,6 @@
+---
+created: '2025-10-05'
+---
 - Bilginin **felsefî ve etik** boyutudur. Bir eylemin doğruluğunu, iyiliğini, gelecekteki sonuçlarını ve daha geniş bir bağlamdaki yerini sorgulamaktadır.
 - **Bilgiyi ve deneyimi** doğru yargılarda ve kararlarda uygulama yeteneğidir.
 ### Temel Özellikleri

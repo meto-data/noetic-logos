@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - **[[M. Weber]]** tarafından ortaya atılmıştır.
 - Kaynağını tanımlardan, yönetmeliklerden ve yasalardan alır.
 - Her pozisyon için **net** görev tanımları ve sorumluluklar bulunmaktadır.

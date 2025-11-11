@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 1. [[Vergiler]]
 2. [[Harçlar]]
 3. [[Borçlanma]]

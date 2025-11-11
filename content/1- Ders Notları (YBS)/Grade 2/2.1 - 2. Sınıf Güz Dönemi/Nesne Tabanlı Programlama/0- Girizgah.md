@@ -1,3 +1,6 @@
+---
+created: '2025-09-23'
+---
 
 
 - C# Intro kısmına bak. Vize sınavı kuvvetle muhtemel birçok sözel sorularla, teoriyle oluşacak.

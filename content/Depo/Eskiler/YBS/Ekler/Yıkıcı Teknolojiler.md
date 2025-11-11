@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 **Yıkıcı Teknolojinin Tanımı:** İşletmeleri, sektörleri ve mevcut pazar düzenini kökten değiştiren teknolojilerdir. (Örnekler: PC, İnternet, Kelime İşlemciler).  
     
 **Piyasaya İlk Giren Olmak Yeterli Değil:** Bir yıkıcı teknolojiyi ilk geliştiren firma olmak, pazarda başarıyı garantilemez. Bu çok önemli bir nokta, genellikle tersi düşünülür.  

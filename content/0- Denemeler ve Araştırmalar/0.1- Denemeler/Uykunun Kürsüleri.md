@@ -1,3 +1,6 @@
+---
+created: '2025-09-21'
+---
 Şöyle söylüyor Münzevi:
 
 Severim insanlar uyuyorken uyanık olmayı ve dolaşmayı gecenin karanlığında. Ay ışığının altında dolaşmak şevk verir sarsılmaktan yoksun olan ruhuma.

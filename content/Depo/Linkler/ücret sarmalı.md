@@ -1,3 +1,6 @@
+---
+created: '2025-10-08'
+---
 ## Ücret Sarmalı (Wage-Price Spiral)
 - Enflasyonun kendi kendini beslediği bir kısır döngüdür. Adım adım şöyle işler:
 

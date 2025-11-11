@@ -1,2 +1,5 @@
+---
+created: '2025-08-31'
+---
 - Birden fazla katılımcının etkileşimde bulunduğu piyasadır.
 - Alıcılar, satıcılar, hizmet sağlayıcılar gibi farklı taraflar bir arada bulunur.

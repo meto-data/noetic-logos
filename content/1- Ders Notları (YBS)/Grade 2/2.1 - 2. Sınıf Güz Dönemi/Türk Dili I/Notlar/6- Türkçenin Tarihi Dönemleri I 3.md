@@ -1,3 +1,6 @@
+---
+created: '2025-11-10'
+---
 ### Giriş: Dil neden yine bölünüyor?
 
 - Mesele 13. yüzyılda başlıyor. Sebep: Moğol İstilası.

@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 ### **1. Asıl Sorun: HTTP ile Gerçek Zamanlı İletişim Yapmaya Çalışmak**
 
 - İlkin Websocket'in neden var olduğunu anlayabilmek için ondan öncesini irdeleyelim. Bir kere HTTP tek yönlü çalışır; istemci sunucuya sorar, sunucu yanıt verir. Ammâ bazı uygulamalar var ki -sohbet, canlı skor, bildirim vn.

@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Firmaların değer önerilerini dijital teknolojilerle yeniden biçimlendirerek, iş süreçlerini, ürünlerini ve hizmetlerini iyileştirmektir.
 	- Örneğin sinemanın bilgisayarda izlenilebilmesi.
 - Firmaların arz ettiği hizmetler/ürünler yeniden biçimlendirilir. Bkz. Netflix.

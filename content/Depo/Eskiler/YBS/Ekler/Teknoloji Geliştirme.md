@@ -1,1 +1,4 @@
+---
+created: '2025-08-31'
+---
 Ürünlerin iyileştirilmesi, yeni ürünlerin geliştirilmesi, süreçlerin (üretim, lojistik vb.) daha verimli hale getirilmesi için yapılan araştırma, geliştirme ve teknolojik yenilik faaliyetleri. (Değer: Rekabet gücünü artıracak yenilikleri ve verimliliği sağlamak).

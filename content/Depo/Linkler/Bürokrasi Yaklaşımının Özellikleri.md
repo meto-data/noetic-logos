@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 #### Hiyerarşik Yapılanma ve Komuta Zinciri
 - Bürokrasi yaklaşımı, merkeziyetçi bir yapıdadır.
 

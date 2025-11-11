@@ -1,3 +1,6 @@
+---
+created: '2025-10-02'
+---
 ## 3.1. [[Finansal Analiz]]
 - Firmalarda tutarlı kararların alınabilmesi açısından ilk basamağı oluşturur. Finansal analiz yaparak mevcut durumu saptarız ve geçmişe yönelik durumu tespit edip değerlendirerek geleceğe ilişkin kararlar alırız.
 	- Bkz. **[[Muhasebenin Beş İşlevi]]**

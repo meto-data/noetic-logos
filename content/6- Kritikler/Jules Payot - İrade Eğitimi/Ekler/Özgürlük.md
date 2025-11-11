@@ -1,1 +1,4 @@
+---
+created: '2025-08-31'
+---
 Benliğine egemen olmak, içimizdeki hayvanın zorlamalarına karşı soylu duygulara ve ahlâkî fikirlere hâkimiyet sağlamak.

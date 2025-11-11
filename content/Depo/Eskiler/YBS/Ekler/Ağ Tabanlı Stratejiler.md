@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - İnternet ve IT sayesinde işletmelerin ağlar üzerinden haberleşmeleri stratejik avantaj sağlayan bir fırsat niteliğindedir.
 - **Ağ ekonomileri** ile **sanal şirketler ve işletme ekosistemi** ağ tabanlı stratejileri oluşturmaktadır.
 #### a) [[Ağ Ekonomileri]]

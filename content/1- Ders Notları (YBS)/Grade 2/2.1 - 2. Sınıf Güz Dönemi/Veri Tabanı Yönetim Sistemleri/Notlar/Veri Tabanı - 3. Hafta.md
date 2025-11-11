@@ -1,5 +1,6 @@
 ---
 title: Veri Tabanı Yönetim Sistemleri - 3. Ders
+created: '2025-10-14'
 ---
 
 

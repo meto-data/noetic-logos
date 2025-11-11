@@ -1,3 +1,6 @@
+---
+created: '2025-09-29'
+---
 ## Mantık ve Matematiksel İspat
 
 ### Temel Kavramlar ve Önemi

@@ -1,3 +1,6 @@
+---
+created: '2025-10-08'
+---
 - Genellikle organize (standart) olmayan, **[[tezgâh üstü]] (*OTC / over-the-counter*)** olarak adlandırılan, tarafların doğrudan anlaştığı piyasalarda kullanılır.
 
 - Faize faizin yürütülmediği, yani faizin her zaman sadece başlangıçtaki [[ana para]] üzerinden hesaplandığı faiz türüdür.

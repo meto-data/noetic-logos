@@ -1,3 +1,6 @@
+---
+created: '2025-10-09'
+---
 1. **Mal ve hizmet üretimiyle toplum refahını artırmak.**
 	- İşletmenin en temel işlevidir. Hem toplumsal fayda sağlar hem de işletmeye gelir getirir.
 2. **İşletmenin huzurunu artırmak.**

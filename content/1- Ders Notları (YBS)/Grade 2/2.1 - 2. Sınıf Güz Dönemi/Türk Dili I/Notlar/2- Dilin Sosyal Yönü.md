@@ -1,3 +1,6 @@
+---
+created: '2025-10-06'
+---
 ## 1. Dil ve Toplum
 ### 1.1. Yan Katman Etkisi
 - Taraflardan birinin birine bir baskı (zorlama) olmaksızın aralarındaki siyasi, ekonomik, sosyal ve kültürel ilişkiler sebebiyle birbirlerinin dillerinden az veya çok etkilenmesi.

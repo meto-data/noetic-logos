@@ -1,3 +1,6 @@
+---
+created: '2025-10-05'
+---
 - Belirli biçimlerde organize edilmiş dağınık olmayan veriler.
 	- Tablolara dökülebilir ve sorgulanabilir.
 - **Örneğin**:

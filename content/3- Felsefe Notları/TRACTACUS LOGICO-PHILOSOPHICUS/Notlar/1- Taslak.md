@@ -1,3 +1,6 @@
+---
+created: '2025-10-06'
+---
 - **Olgu (*Tatsache*)**: *Gerçekleşmiş*, *var olan*. "Dünya olguların toplamıdır, şeylerin değil."
 - **Olgu Bağlamı (*Sachverhalt*) *-veya durum, olgusal durum-***: Nesnelerin bir araya gelerek oluşturabileceği *mümkün olan en basit durum*. Bir nevi "*atomik olgu*". Henüz gerçekleşip gerçekleşmediği bilinmiyor, sadece bir *ihtimal*. Saf bir **mantıksal olasılık**.
 

@@ -1,3 +1,6 @@
+---
+created: '2025-10-23'
+---
 #### [[Malî Duran Varlıklar]] (Finansal Yatırımlar)
 - Bkz. [[Yatırım]]
 - Bir firmanın başka bir firmanın yönetimine katılmak veya temettü elde etmek amacıyla edindiği hisse senetleri gibi uzun vadeli varlıklardır.

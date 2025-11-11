@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 #### 1- Teknik Fonksiyonlar
 - Üretim, imalat ve teknik süreçlerle ilgili faaliyetler.
 #### 2- Ticari Fonksiyonlar

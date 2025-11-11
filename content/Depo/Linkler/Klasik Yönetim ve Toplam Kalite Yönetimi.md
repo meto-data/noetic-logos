@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Toplam kalite yönetimine göre; kalite, maliyeti düşürür.
 	- Kalitesizliğin de bir maliyeti olduğu için, kalite, maliyeti düşürecektir.
 - Klasik yönetime göreyse kalite, maliyeti artırır.

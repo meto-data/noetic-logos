@@ -1,3 +1,6 @@
+---
+created: '2025-10-02'
+---
 - "Yatırım için gerekli fonlar nasıl elde edilecek?" sorusuna cevap arar.
 - Kâr eden bir firmanın elde ettiği kârları dağıtmayıp firma bünyesinde tutması ile fon sorununun çözüleceği düşünebilir. Ancak firmalarda para giriş ve çıkışlarında miktar ve zaman yönünden farklılıklar çıkmaktadır. Bu nedenle fon açığı olduğunda aradaki fark firma dışındaki üçüncü kişi veya kurumlardan (bankalar, üçüncü kişiler, firmalar, sermaye piyasaları) sağlanabilir. Kullanılan her bir kaynağın firmaya farklı maliyetler çıkaracağı unutulmamalıdır. Bu nedenle **fonların sağlanmasının yanında en uygun fon kaynağının araştırılıp bulunması da ayrıca önemlidir**.
 - İşletmeler fon ihtiyaçlarını temelde iki ana kaynaktan karşılar: **Öz Kaynaklar** ve **Yabancı Kaynaklar**.

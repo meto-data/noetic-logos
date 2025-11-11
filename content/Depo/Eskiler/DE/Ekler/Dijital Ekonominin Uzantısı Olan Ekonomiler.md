@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 ### [[Paylaşım Ekonomisi]]
 - Dijital Ekonominin bir uzantısıdır.
 - Elde duran [[atıl varlıklar]]ı paylaştığımız ekonomidir.

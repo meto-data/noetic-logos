@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 **Tanım:** İmalat süreci tamamlanmış, perakendecilere veya nihai müşterilere satılmaya/dağıtılmaya hazır olan ürünlerdir.
 **Açıklama:** Üretimi tamamlanmış, müşteriye satılmaya hazır ürünlerdir. Müşteri talebini karşılamak, gelir elde etmek için tutulur. Doğru seviyede yönetimi, aşırı stok maliyetinden veya eksik stok nedeniyle satış kaybından kaçınmak için önemlidir. Gelecek üretimi planlamada kullanılır.
 #### **[[Bitmiş Ürün Stok Takibinin Nedenleri]]**

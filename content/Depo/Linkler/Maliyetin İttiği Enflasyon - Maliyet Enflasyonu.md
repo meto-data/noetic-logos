@@ -1,3 +1,6 @@
+---
+created: '2025-10-08'
+---
 
 - Talepte artış olmasa bile üretim maliyetlerinin artması sonucunda oluşan enflasyon türüdür. Üreticiler artan maliyetlerini kâr marjlarını korumak için fiyatlara yansıtmak zorunda kalırlar. Yani esas sorun üretimin pahalılaşmasıdır.
 

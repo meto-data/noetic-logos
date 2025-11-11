@@ -7,6 +7,7 @@ tags:
   - uretimders
   - anabaslik
 Kavramlar: "```dataview\rLIST from outgoing([[4- Tesis Yerleşimi ve Kapasite Planlaması]])\r```"
+created: '2025-08-31'
 ---
 ## Tesis Yeri Seçimi
 - Tanım olarak, **bir kuruluşun tesisi için en iyi coğrafi konumu belirlemesi**dir.

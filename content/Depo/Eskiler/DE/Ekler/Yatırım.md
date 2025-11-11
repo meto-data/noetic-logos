@@ -1,3 +1,6 @@
+---
+created: '2025-10-02'
+---
 ##### a) [[Portföy Yatırımı]] (Kısa Vadeli Cüzdan Yatırımı)
  - Hisse senedi, tahvil, türevler gibi menkul kıymetlere yapılan yatırımlardır.
 ##### b) [[Doğrudan Yatırım]]

@@ -1,3 +1,6 @@
+---
+created: '2025-10-13'
+---
 - Bir tablonun *birincil anahtarı* birden fazla sütundan (bileşik anahtar) oluşuyorsa, herhangi bir "anahtar olmayan sütun"un bu anahtarın sadece bir parçasına bağlı olması durumuna kısmi bağımlılık denir. 
 - Yani anahtar tam olarak birden çok sütundan oluşurken, bazı sütunlar sadece o anahtarın alt kümesindeki bir veya birkaç parçaya bağlı kalıyor, tam anahtara değil.
 

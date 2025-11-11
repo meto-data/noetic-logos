@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 ##### [[Maliyet Avantajı]]
 - Donanım ve altyapı gibi yatırımları azaltır.
 ##### [[Zaman Avantajı]]

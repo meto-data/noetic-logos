@@ -1,4 +1,6 @@
 ---
 title: Görseller
-slug:
+slug: null
+created: '2025-09-20'
 ---
+

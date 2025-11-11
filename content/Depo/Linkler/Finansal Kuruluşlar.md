@@ -1,3 +1,6 @@
+---
+created: '2025-10-08'
+---
 ## A. Bankalar
 - İşletmeler için en temel borçlanma kaynağıdır. İşletmelere kredi verirken temel olarak geri ödeme kapasitesini ve riskini analiz eder. Bu analizde en önemli araçlardan biri **[[kredi notu]]**'dur. 
 #### **[[Kredi Notu ve Borçlanma]]**

@@ -1,4 +1,6 @@
 ---
 title: Jules Payot - İrade Eğitimi
-slug:
+slug: null
+created: '2025-09-20'
 ---
+

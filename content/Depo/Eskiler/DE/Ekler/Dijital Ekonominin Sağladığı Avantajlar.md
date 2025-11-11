@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 ### 1) [[Verimlilik Artışı]]
 ### 2) [[Maliyetlerde Azalma]]
 - Bulut Bilişim Teknolojileri, marjinal maliyet sıfır vb.

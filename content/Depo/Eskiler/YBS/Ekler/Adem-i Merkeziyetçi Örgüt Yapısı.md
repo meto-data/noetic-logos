@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Kontrolü zorlaşır.
 - Uzmanlaşma azalır ancak bakış açısı ve [[inovasyon kültürü]] gelişir.
 - İletişim kolaylaşır.

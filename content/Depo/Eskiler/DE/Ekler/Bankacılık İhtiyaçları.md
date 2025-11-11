@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Mevduat toplama
 	- Vadesiz mevduat
 		- Likit olduğu için getirisi az olmasına rağmen tercih edilir.

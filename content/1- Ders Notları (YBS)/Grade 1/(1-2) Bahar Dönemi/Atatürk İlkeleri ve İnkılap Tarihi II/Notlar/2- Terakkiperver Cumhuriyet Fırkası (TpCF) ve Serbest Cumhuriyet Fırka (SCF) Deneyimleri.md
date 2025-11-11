@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - **[[Mudanya Ateşkes Antlaşması]]** ve **[[Lozan Barış Antlaşması]]** sonrası dış politikadaki sorunlar azaldıkça muhalefetin sesi yükselmeye başladı.
 ### Lozan Barış Antlaşması Sürecinde Muhalefet
 - **[[Saltanatın Kaldırılması]] (1 Kasım 1922)**, bazı milletvekilleri ve asker kökenli siyasetçiler arasında tepki yarattı. Tepkilerin nedenleri arasında Millî Mücadele'nin başında saltanatın kaldırılmaması ve İstanbul'un işgâlden kurtulduktan sonra saltanatın yeniden ihya edileceği beklentisiydi.

@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 Makro iktisat, ekonomilerin bütün olarak incelenmesidir. Ekonominin büyük ölçekli veya genel ekonomik faktörlerle ve bunların ekonomilerde nasıl etkileşime girdiğiyle ilgili kısımdır.
 
 ## [[Millî Gelir]] (Ülkenin Geliri -GSYH-)

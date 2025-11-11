@@ -1,5 +1,6 @@
 ---
 title: Finansal Yönetim
+created: '2025-09-24'
 ---
 
 Dersi veren: [Doç. Dr. Nevin Özer](https://akademik.duzce.edu.tr/nevinozer)

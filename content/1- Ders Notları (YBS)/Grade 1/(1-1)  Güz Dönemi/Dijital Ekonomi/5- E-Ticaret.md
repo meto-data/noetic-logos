@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Ürün alışverişinin çevrim içi ortamda yapılmasına e-ticaret denir.
 	- Ürün alışverişinin internet ortamında yapılması olarak da tanımlanabilir.
 - E-Ticaret, iktisadi faaliyeti kolaylaştıran en önemli unsurdur.

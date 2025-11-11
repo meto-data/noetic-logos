@@ -4,8 +4,9 @@ Hafta: V. Hafta
 Dönem: II. Dönem
 tags:
   - ybsders
-Konu: Bilgi Sistemleri, Organizasyon ve Strateji II
+Konu: 'Bilgi Sistemleri, Organizasyon ve Strateji II'
 Kavramlar: "```dataview\rLIST from outgoing([[Bilgi Sistemleri, Organizasyon ve Strateji II]])\r```"
+created: '2025-08-31'
 ---
 
 ## İnternet ve Organizasyonlar

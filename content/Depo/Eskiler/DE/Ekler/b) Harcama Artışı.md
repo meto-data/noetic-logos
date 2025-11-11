@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 ##### Faizleri Düşürmek
 - Faiz oranlarını düşürmek için merkez bankası [[politika faizi]]ni düşürür. Politika faizinin düşmesi, bankaların müşterilerine sundukları kredi faiz oranlarını da düşürür.
 	- Düşük faiz oranları, borçlanma maliyetlerini minimize ederek şirketlerin daha düşük faizlerle kredi almasını ve yeni fabrikalar kurmasını, ekipmanlarını yenilemesine olanak sağlar ve böylelikle **yatırımlar artar.**

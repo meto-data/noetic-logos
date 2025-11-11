@@ -1,3 +1,6 @@
+---
+created: '2025-08-31'
+---
 - Bkz. [[Fonksiyonel Ustabaşılık ve İş Bölümleri]]
 - İş bölümü, büyük/karmaşık bir üretim sürecini daha küçük ve basit görevlere ayırmaktır.
 - Uzmanlaşma, bireylerin veya makinelerin belirli bir işte ustalaşmasıdır.

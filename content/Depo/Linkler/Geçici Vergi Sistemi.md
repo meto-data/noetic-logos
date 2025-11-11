@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - Gelir ve kurumlar vergisi mükelleflerinin yıl içinde elde ettikleri kazançlar üzerinden üçer aylık dönemler hâlinde hesaplayıp ödedikleri bir peşin vergidir. Yıl sonunda hesaplanacak nihai vergiden **[[mahsup]]** edilir.
 	- $\to$ Şirket yıl içinde **kazanç elde ediyor**.
 	- $\to$ Vergiyi her **3 ayda bir peşin** ödüyor (geçici vergi).

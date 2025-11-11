@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - Alacağın hukukî güvencesi yüksek olan [[çek]], [[senet]], [[poliçe]] gibi devredilebilir belgelerde güvence altına alınmasıdır.
 
 - **[[Senet]] (Bono)**: Borçlunun (düzenleyenin) alacaklıya (lehtara) belirli bir tarihte, belirli bir meblağı kayıtsız şartsız ödeme taahhüdünü içeren belge. İki taraf arasında düzenlenir.

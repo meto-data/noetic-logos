@@ -1,3 +1,6 @@
+---
+created: '2025-10-08'
+---
 - Mal ve hizmetlere olan *talebin arzı aşmasıyla* ortaya çıkan enflasyon türüdür. Bir diğer deyişle, mallara ve hizmetlere olan talebin aşırı artması da denilebilir.
 ## Nedenleri
 - **Genişletici Para Politikaları**: Merkez Bankası'nın faizleri düşürmesi veya piyasaya daha fazla para sürmesi.

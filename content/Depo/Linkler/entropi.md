@@ -1,3 +1,6 @@
+---
+created: '2025-10-04'
+---
 - Entropi, bir sistemdeki düzensizlik (kaos) ve rastlantısallık derecesidir. Zamanla her sistem, tıpkı canlı organizmalar gibi "ölür", yani düzensizleşir ve işlevini yitirir. Bu **kaçınılmaz** süreç, entropinin doğal bir sonucudur.
 - **Örnek:** Zamanla eskiyen ve işlevini kaybeden bir bilgisayar entropiye uğramıştır.
 

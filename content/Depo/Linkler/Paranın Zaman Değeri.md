@@ -1,3 +1,6 @@
+---
+created: '2025-10-08'
+---
 - **[[Faiz]]**: Paranın kira bedeli -ya da- paranın fiyatı. Bir başka tanıma göre, tasarruf sahibinin, tasarrufunu kullanmak yerine bir başkasına ödünç vermesi karşılığında aldığı bir vazgeçme ya da kullanımı erteleme bedelidir. (*Ayrıntılı bilgi için bkz.* [[Faiz Çeşitleri]]). *"Fon arz ve fon talebini eşitleyen bir fiyat"* olarak da tanımlanabilir.
 	- Parayı veren açısından getiridir, alan açısından maliyettir.
 	- Bankalar faizi 365 üzerinden hesaplarlar.

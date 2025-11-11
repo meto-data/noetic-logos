@@ -1,1 +1,4 @@
+---
+created: '2025-10-16'
+---
 Vadesi gelmemiş bir alacak senedi veya çeki bir bankaya veya [[Faktoring Şirketleri|faktoring şirketine]] götürülerek anında nakde çevirebilir.  Vadeye kadar olan süre için bir faiz (iskonto) kesintisi yapılır ve kalan tutarı işletmeye peşin ödenir. Buna *"geriye doğru faiz hesaplama"* işlemi denir ve acil nakit ihtiyacını karşılar.
