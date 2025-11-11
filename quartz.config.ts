@@ -1,6 +1,14 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 
+const folderSortCollator = new Intl.Collator("tr", {
+  numeric: true,
+  sensitivity: "base",
+})
+
+const getSortableTitle = (file: { frontmatter?: { title?: string }; slug?: string }) =>
+  (file.frontmatter?.title ?? file.slug ?? "").toString()
+
 /**
  * Quartz 4 Configuration
  *
@@ -212,7 +220,9 @@ const config: QuartzConfig = {
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
       Plugin.ContentPage(),
-      Plugin.FolderPage(),
+      Plugin.FolderPage({
+        sort: (f1, f2) => folderSortCollator.compare(getSortableTitle(f1), getSortableTitle(f2)),
+      }),
       Plugin.TagPage(),
       Plugin.ContentIndex({
         enableSiteMap: true,
