@@ -1,6 +1,3 @@
----
-created: '2025-10-06'
----
 - Bir tablodaki her satırı (kaydı) **benzersiz** olarak tanımlayan alandır. 
 - Aynı tablodaki iki satırda aynı *primary key* değeri olamaz.
 #### Özellikleri
