@@ -1,2 +1,5 @@
+---
+created: '2025-08-31'
+---
 - Eldeki verileri kullanarak çıkarım/tahminler yapar. 
 - "Ne olacak?" sorusuna yanıt vermeye çalışır. Adı üstünde kestirimci olduğundan gelecekteki olaylar veya eğilimler hakkında tahminlerde bulunur.
