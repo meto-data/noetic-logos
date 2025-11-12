@@ -1,6 +1,3 @@
----
-created: '2025-10-04'
----
 #### [[Malî Duran Varlıklar]] (Finansal Yatırımlar)
 - Bir firmanın başka bir firmanın yönetimine katılmak veya temettü elde etmek amacıyla edindiği hisse senetleri gibi uzun vadeli varlıklardır.
 	- **[[Bağlı Menkul Kıymet]]**: Başka bir şirkette sahip olunan pay oranının %0 ile %10 arasında olmasıdır. Yönetimde fazla söz hakkı yoktur, amaç genellikle gelir elde etmektir.

@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - İki veya daha fazla tarafın bir araya girip etkileşim kurduğu çevrim içi platformlardır.
 	- Platform: Mekân, alan.
 ## Platform Ekonomisini Oluşturan Unsurlar

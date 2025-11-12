@@ -1,5 +1,2 @@
----
-created: '2025-08-31'
----
 - Güvenlik bir avantaj olduğu gibi aynı zamanda dezavantajdır. Büyük bir şirkette güvenlik riski çok azken küçük bir şirkette fazla olabilir. 
 - Bulut bilişimde veriler üçüncü taraf sunucularda depolandığı için siber saldırılara uğrama ihtimali vardır.

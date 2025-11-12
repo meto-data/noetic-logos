@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - **Tanım:** Müşterinin doğrudan talep ettiği **bitmiş mamul** (Bağımsız Talep) için oluşturulan Üretim Ana Planına (MPS) dayanarak; bu **mamulü** meydana getirmek için gerekli olan tüm alt parçaların, bileşenlerin ve hammaddelerin (Bağımlı Talep) **"Neye ihtiyaç var?", "Ne kadar ihtiyaç var?"** ve **"Ne zaman ihtiyaç var?"** sorularını yanıtlayarak tedarik/üretim zamanlamasını planlayan bir sistemdir.
 
 

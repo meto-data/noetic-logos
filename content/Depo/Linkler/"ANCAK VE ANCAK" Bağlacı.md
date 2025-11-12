@@ -1,6 +1,3 @@
----
-created: '2025-11-12'
----
 ##### $\iff \space \text{ veya} \leftrightarrow  \text{sembolü ile gösterilir.}$
 #### $\text{Çift yönlü koşullu olasılık (Biconditional)}$
 d3

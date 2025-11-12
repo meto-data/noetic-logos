@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 Merkez Bankası Politika Faizi, 1 Haftalık Fonlama Faizi olarak da adlandırılmaktadır.
 
 ---

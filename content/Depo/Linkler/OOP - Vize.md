@@ -1,6 +1,3 @@
----
-created: '2025-11-11'
----
 - 25 soru test.
 - If-else, for bil.
 - Metod oluşturmayı ve metod çağırmayı bilmen gerekiyor.

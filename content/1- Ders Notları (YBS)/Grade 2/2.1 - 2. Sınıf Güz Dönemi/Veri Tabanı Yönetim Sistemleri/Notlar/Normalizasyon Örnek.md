@@ -1,6 +1,3 @@
----
-created: '2025-10-13'
----
 ## 0NF (un-normalized - flat table) -  `Ogrenci_Ders`
 
 

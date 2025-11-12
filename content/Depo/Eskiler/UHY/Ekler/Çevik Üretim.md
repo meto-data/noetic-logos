@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - Bugünün hızlı değişen pazarlarında rekabet avantajı sağlamaya çalışan bir yaklaşımdır.
 - İşletme, rekabet avantajı olarak müşterilerine hızlı cevap vermek için hızlı ve çevik olmaya odaklanmaktadır.
 - Çevik üretim stratejisi, ürünün maliyet ve kalitesinden ödün vermeden müşterilerin istek ve gereksinimlerini hızlı karşılayabilmek için **süreç, araç** ve **eğitimi** kullanmaktadır.

@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 #### [[İhracat(D)]]
 - İhracat yapıldığında ülkeye diğer ülkelerden döviz girer ve döviz arzı artar.
 #### [[Turizm(D)]]

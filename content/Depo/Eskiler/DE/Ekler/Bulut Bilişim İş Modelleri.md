@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 ##### [[Hizmet Olarak Platform]] - Platform as a Service (PaaS)
 - Sağlayıcı işletme, internet üzerinden erişilen platform sunar (yazılım/uygulama vb.).
 - **Örneğin:** Google App Engine, Microsoft Azure

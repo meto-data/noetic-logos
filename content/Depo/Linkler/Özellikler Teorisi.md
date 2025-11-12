@@ -1,6 +1,3 @@
----
-created: '2025-10-04'
----
 - Liderlerin ortaya çıkmasında ve etkililiğinde kişisel özelliklerin önemli olduğunu savunur.
 - Etkili liderin özelliklerine ilişkin sınıflandırmalardan bazıları şu şekildedir:
 	1. Fizyolojik (Boy, görünüş, Kilo vb.) 

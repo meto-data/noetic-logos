@@ -1,6 +1,3 @@
----
-created: '2025-10-23'
----
 - “Nispi önem” = “göreli önem” = "oransal önem".
 - Mesela “Kalemlerin nispi önemi artıyor.” dediğinde demek istiyorsun ki: “Artık her kalemin değeri, toplam içindeki payına göre anlam kazanıyor." 
 - Yani “kasanın önemi arttı” demiyorsun, “kasadaki paranın, toplam varlık içindeki payı diğerlerine göre arttı” diyorsun.

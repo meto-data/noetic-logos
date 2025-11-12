@@ -1,6 +1,3 @@
----
-created: '2025-10-11'
----
 (...)
 - (1) f) Bilişim sistemlerinin, banka veya kredi kurumlarının araç olarak kullanılması suretiyle,
 (...)

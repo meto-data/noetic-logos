@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 ## Kanun-i Esasi
 - Kanun-i Esasi, Osmanlı Devleti'nin ilan edilen ilk anayasasıdır. Bu olay, 19. yüzyılın başlarından itibaren Osmanlı topraklarında belirmeye başlayan anayasal düzen arayışlarının bir sonucu olarak ortaya çıkmıştır. Hatta Osmanlı'ya bağlı bazı devletlerde daha önce anayasalı yönetimler yürürlüğe konulmuş ve Babıali tarafından onaylanmıştır. Romanya'da 1832'de yürürlüğe giren Memleketeyn Nizamnamesi bu ilk anayasal hareketlerdendir. Balkanlardaki bağımsızlık girişimleri de benzer süreçler göstermiştir. Aynı zamanda, 1856 Islahat Fermanı sonrasında gayrimüslim toplulukların kendi iç yönetimlerini düzenlemek için oluşturdukları nizamnameler de hatırlanmalıdır. Tüm bu gelişmeler, 1876 tarihli Kanun-i Esasi'nin padişahın bir lütfu olmaktan ziyade tarihi bir gereklilik olduğunu gösterir.
     

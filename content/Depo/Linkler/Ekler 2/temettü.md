@@ -1,6 +1,3 @@
----
-created: '2025-10-02'
----
 - Kâr payı demektir.
 - Bir şirketin elde ettiği kârın bir kısmını hissedarlarına dağıtmasıdır.
 - Dağıtım nakit para ya da ek hisse senedi şeklinde olabilir.

@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - 1 veya 0 (Binary) = Bit
 - Byte = 8 bit
 - Kilobyte = 1024 byte

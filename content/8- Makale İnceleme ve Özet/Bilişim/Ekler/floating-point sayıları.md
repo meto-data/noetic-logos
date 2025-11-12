@@ -1,6 +1,3 @@
----
-created: '2025-09-29'
----
 - Floating-point -ya da yüzen noktalı sayı bilgisayarda ondalık sayıları temsil etmenin bir yolu. <br>
 - Mesela 3.14124, 0.000123 ve 1e20 gibi çok küçük ya da çok büyük sayıları tutmak istiyoruz. Eğer normal tam sayı (integer) kullanırsak bunları temsil edemeyiz. Floating-point burada devreye girer. Sayıyı bilimsel gösterimde saklarız.
 

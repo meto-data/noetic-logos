@@ -1,6 +1,3 @@
----
-created: '2025-09-25'
----
 Bilişim esasında uygulamalı bilgi teknolojisi (information technology -IT) alanlarının ve onun daha insanî/kuramsal yönünü ifade eden bilgi sistemlerinin (information systems -IS) arkasındaki teorik ve temel bilgilere ilişkindir.
 
 Arayüzlerin, organizasyonların, teknolojilerin ve sistemlerin inşasının yanı sıra insanlar ve bilgi arasındaki etkileşimi dikkate alan konuları ele almak için bilgi teknolojisi, bilgisayar bilimi (CS) ve bilgi bilimi alanlarını birleştirmektedir.

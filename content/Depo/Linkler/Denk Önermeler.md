@@ -1,6 +1,3 @@
----
-created: '2025-10-03'
----
 - Doğruluk değerleri aynı olan önermelerdir
 
 >[!example] Örnek

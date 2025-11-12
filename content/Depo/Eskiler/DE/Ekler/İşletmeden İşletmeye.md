@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - Endüstriyel pazarlarda üretim mallarının alınıp satıldığı e-ticaret türüdür.
 - **Örneğin:** Made-in-china, Grainger, Thomasnet.
 - **En büyükleri:** Alibaba ve Amazon

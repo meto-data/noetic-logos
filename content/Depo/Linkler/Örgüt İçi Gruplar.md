@@ -1,6 +1,3 @@
----
-created: '2025-10-04'
----
 ### [[Yapısal (Legal) Gruplar]] (Formal)
 - Örgüt şemasıyla oluşturulabilir.
 - İş analizinin bir ürünü olan görev tanımlarıyla oluşturulabilir.

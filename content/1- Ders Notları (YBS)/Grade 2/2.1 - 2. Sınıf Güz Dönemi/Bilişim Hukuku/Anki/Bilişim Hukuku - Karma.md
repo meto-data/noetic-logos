@@ -1,7 +1,6 @@
 ---
-cards-deck: 'Bilişim Hukuku2 ::Anki'
+cards-deck: Bilişim Hukuku2 ::Anki
 draft: true
-created: '2025-11-09'
 ---
 
 

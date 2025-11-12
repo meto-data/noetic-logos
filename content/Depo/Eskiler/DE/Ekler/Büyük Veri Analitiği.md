@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - Çok fazla çeşitlilik içeren, yüksek hacimde ve önemli hızdaki veri setlerinden oluşur.
 - Başka bir tanımla, daha fazla çeşitlilik içeren ve hacmi hızlıca artan verilerdir.
 ###### [[Çeşitliliği fazladır]]. (Variety)

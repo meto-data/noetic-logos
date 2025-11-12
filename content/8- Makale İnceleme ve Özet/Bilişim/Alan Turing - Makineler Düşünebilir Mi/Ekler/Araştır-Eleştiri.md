@@ -1,4 +1,1 @@
----
-created: '2025-09-20'
----
 - **Eleştiri:** Bu cevap, "taklit" için yeterli olabilir. Ancak, eğer insan bilincinin veya zekasının temelinde, dijital sistemlerin yakalayamayacağı kuantum etkileri gibi gerçekten de sürekli ve analog süreçler yatıyorsa (bu, Roger Penrose'ün argümanıdır), o zaman Turing'in taklidi, sadece bir yüzey taklidi olarak kalacaktır. Turing, altta yatan felsefi soruyu ("Gerçek zeka, analog bir işlemci mi gerektirir?") cevaplamaz, sadece testin bu soruyu ölçemeyeceğini gösterir. (Yapay Zekâ metni)

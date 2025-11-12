@@ -1,6 +1,3 @@
----
-created: '2025-10-03'
----
 - Bir önermenin doğruluk değerini değiştirir.
 	- $p$: Türkiye'nin başkenti Ankara'dır. $p \equiv 1$
 	- $\neg p$: Türkiye'nin başkenti Ankara değildir. $p \equiv 0$

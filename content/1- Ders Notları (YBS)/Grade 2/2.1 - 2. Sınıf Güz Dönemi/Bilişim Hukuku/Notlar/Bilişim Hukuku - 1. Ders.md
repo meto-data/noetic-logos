@@ -1,7 +1,6 @@
 ---
 title: Bilişim Hukuku - 1. Ders
-date: 2025-10-02T00:00:00.000Z
-created: '2025-10-04'
+date: 2025-10-02
 ---
 
 - Soru: "Bilişim suçu nedir? Bilişim vasıtalı suçlardan 3 adet örnek veriniz. WEB'in katmanları nelerdir açıklayınız."

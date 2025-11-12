@@ -1,6 +1,5 @@
 ---
 title: 5- Linux Notları
-slug: null
-created: '2025-09-20'
+slug:
 ---
 Burası da uzunca süre boş kalacak gibi.

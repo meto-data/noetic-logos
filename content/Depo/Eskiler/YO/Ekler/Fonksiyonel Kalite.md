@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - NASIL? sorusuna cevap verir.
 	- Bu ürün/hizmet bana nasıl sunuluyor? Hangi deneyimi yaşıyorum?
 - Algılanan hizmetin kalitesidir.

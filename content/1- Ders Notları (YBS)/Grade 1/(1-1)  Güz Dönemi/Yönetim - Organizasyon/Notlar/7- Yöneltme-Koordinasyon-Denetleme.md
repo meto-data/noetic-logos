@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 # [[Yöneltme]]
 
 - Açık ve anlaşılır hedefler belirlenmelidir. Bkz. **[[SMART]]** 

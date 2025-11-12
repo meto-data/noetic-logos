@@ -1,6 +1,3 @@
----
-created: '2025-10-11'
----
 ### 1. [[Maddî Unsur]]  (*Objektif Tipiklik*)
 - Dış dünyadaki **insan fiili**.  Düşünce, niyet veya duygu geçerli değildir. **Davranış** olması şart.
 ### 2. [[Manevî Unsur]](*Subjektif Tipiklik*)

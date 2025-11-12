@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - Dijital Ekonominin bir uzantısıdır.
 - Elde duran **[[atıl varlıklar]]ı** paylaştığımız ekonomidir.
 - **Dijital teknolojiler vasıtasıyla** bireylerin ve kurumların sahip oldukları **atıl varlıkları başkalarıyla paylaşarak gelir elde etmelerini sağlayan bir ekonomik model**.

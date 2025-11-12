@@ -1,6 +1,3 @@
----
-created: '2025-10-08'
----
 - **Rücu etmek** kelime anlamıyla "geri dönmek, başvurmak" demektir.  
 - **Rücusuz** "geri dönme hakkı olmadan" anlamına gelir.
 

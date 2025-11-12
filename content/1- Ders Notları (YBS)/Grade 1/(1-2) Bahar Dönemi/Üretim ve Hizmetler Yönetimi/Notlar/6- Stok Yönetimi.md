@@ -6,7 +6,6 @@ tags:
   - uretimders
   - anabaslik
 Kavramlar: "```dataview\rLIST from outgoing([[7- Stok Yönetimi]])\r```"
-created: '2025-08-31'
 ---
 
 

@@ -7,7 +7,6 @@ tags:
   - anabaslik
   - uretimders
 Kavramlar: "```dataview\rLIST from outgoing([[2- Üretim Yönetimine Giriş II]])\r```"
-created: '2025-08-31'
 ---
 
 - Üretim, insanoğlunun var olmasından beri süregelmektedir. 

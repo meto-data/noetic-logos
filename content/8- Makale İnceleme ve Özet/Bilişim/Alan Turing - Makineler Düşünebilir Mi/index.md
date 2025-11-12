@@ -1,8 +1,7 @@
 ---
 title: Alan Turing - Makineler Düşünebilir Mi
-slug: null
+slug:
 draft: true
-created: '2025-09-20'
 ---
 
 # Alan Turing Makineler Düşünebilir Mi

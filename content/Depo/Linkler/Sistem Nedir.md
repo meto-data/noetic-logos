@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 Bir sistemin özelliklerini 3 temel öge ile açıklamak mümkündür:
 	1. Alt bileşenleri vardır.
 	2. Bu bileşenler arasında karşılıklı ilişkiler mevcuttur.

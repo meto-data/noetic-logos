@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 kGerçek dünyanın bilgisayar tarafından üretilen görüntüler, sesler ve diğer duyusal bilgilerle zenginleştirilerek daha interaktif bir hale getirilmesidir.
 
 ---

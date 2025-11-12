@@ -1,6 +1,3 @@
----
-created: '2025-10-04'
----
 - Finansal anlamda türev, değeri bir dayanak varlığın değerine göre belirlenen bir araçtır (Russo vd., 2002: 59). 
 - Bir benzer tanımlamada ise türevler, değerlerini bir finansal varlık, bir varlık demeti, bir emtia, bir faiz oranı veya pratik olarak ölçülebilen ve nesnel olarak doğrulanabilen temel bir referans varlıktan türeten finansal sözleşmelerdir (Baker, 2016: 5).
 

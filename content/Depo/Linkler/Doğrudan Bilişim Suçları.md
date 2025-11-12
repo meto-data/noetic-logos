@@ -1,6 +1,3 @@
----
-created: '2025-10-11'
----
 ### 1- [[TCK 243]] (Bilişim Sistemine Girme)
 - (1) Bir bilişim sisteminin **bütününe veya bir kısmına, hukuka aykırı olara**k giren veya orada kalmaya devam eden kimseye **bir yıla kadar hapis veya adlî para cezası verilir.**
 - (2) Yukarıdaki fıkrada tanımlanan fiillerin bedeli karşılığı yararlanılabilen sistemler hakkında işlenmesi halinde, verilecek ceza yarı oranına kadar indirilir.

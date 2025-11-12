@@ -1,6 +1,3 @@
----
-created: '2025-10-20'
----
 
 ### GİRİŞ: DİLLERİ KUTULAMA MERAKI
  - Dünyada kaç dil var, kimse bilmiyor. Kimine göre 4000, kimine göre 6000. Sayısını bilen yok.   

@@ -1,6 +1,3 @@
----
-created: '2025-10-04'
----
 - Matris 5 liderlik türünü tanımlamaya yöneliktir. 1-9 arası yatay ve dikey eksen ve 81 hücreden oluşmaktadır. Dikey eksen çalışanlarla, yatay eksen ise üretim ve görev ile ilgili davranışları ölçmektedir.
 	
 1. **Şehir Kulübü Liderliği (9.1):** Lider insan odaklıdır. 

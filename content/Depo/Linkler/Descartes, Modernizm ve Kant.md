@@ -1,6 +1,3 @@
----
-created: '2025-10-23'
----
 - Modernizmin genel paradigması ölçüp biçilebilen, idrake müsait ve dolayısıyla biçim verilebilen bir doğa tasavvurudur.
 	- İnsan zekâsının karşısında hiçbir şey duramaz denilebilir, doğayı her şekilde ölçüp biçer mitostan ayırırız, amiyane tabiriyle *"rasyo'ya secde ediyoruz"* ve *"buranın Tanrı'sı artık biziz"* ilânı.
 	- Hem olana hem de olması gerekene ilişkin düşünce aşılamakta. 

@@ -1,6 +1,3 @@
----
-created: '2025-10-02'
----
 - Firmalarda tutarlı kararların alınabilmesi açısından ilk basamağı oluşturur. Finansal analiz yapılarak işletmelerin mevcut durumları saptanır ve geçmişe yönelik durumu tespit edilip değerlendirilerek geleceğe ilişkin kararlar alınır. Öngörü yapılır ve hedef sayısallaştırılabiliyorsa mutlaka sayısal hâle getirilir.
 	- Bkz. **[[Muhasebenin Beş İşlevi]]**
 	- Konunun daha iyi anlaşılması için muhasebeyi tekrar etmek gerekiyor.  ([[Varlıklar]]), ([[2- Hesap Kavramı ve Hesapların İşleyişi]]), ([[3- Hesapların İşleyiş Kuralları]])

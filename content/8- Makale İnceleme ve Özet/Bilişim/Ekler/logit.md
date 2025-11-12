@@ -1,6 +1,3 @@
----
-created: '2025-09-29'
----
 Modelin normalize edilmemiş ham çıktı skorları. Bunlar olasılık değildir.
 
 - Mesela diyelim ki;

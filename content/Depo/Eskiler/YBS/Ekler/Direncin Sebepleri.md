@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 ##### **[[Politik Direnç]]:** 
 Mevcut güç dengelerinin ve çıkarların tehdit edilmesi.
 ###### **[[Çaba ve Zorluk]]:**

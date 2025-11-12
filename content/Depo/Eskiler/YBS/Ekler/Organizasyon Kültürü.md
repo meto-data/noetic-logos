@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - Organizasyonun amaçlarını ve ürünlerini tanımlayan, organizasyonun hangi ürünleri kim için, nerede ve nasıl üretmesi gerektiği gibi bir dizi varsayımı kapsar.
 - İnsanlar doğası gereği değişimden ve yenilikten kaçınırlar. Bu, işletmelerde de geçerlidir, neticesinde işletme, teker teker insanların bütünü değil midir?
 	- Bu yüzden organizasyon kültürü birleştirici bir güç olabileceği gibi değişimi -özellikle teknolojik- kısıtlayan bir engel de olabilir.

@@ -1,6 +1,3 @@
----
-created: '2025-09-29'
----
 Dil modelleri bir prompt'a göre bir sonraki token'i seçeerken her aday token için bir "logit" değeri üretir. Bu **[[logit]]**'ler **[[softmax fonksiyonu]]** aracılığıyla olasılıklara (probability distribution) dönüştürülür. Temperature parametresi bu dönüşüm sırasında logit değerlerini ölçeklendirir.
 
 $T$ (Temperature) değeri ne kadar küçükse model o kadar deterministik olur. Buna mukabil ne kadar yüksek olursa o kadar düşük olasılıklı seçeneklerin seçilme olasılığını artırır, yani daha indeterministiktir denilebilir bir nevi, ancak daha ziyade **[[stokastik]]** deniliyor. T değeri 1 olduğunda ise logit değerleri değiştirilmeden olduğu gibi softmax'a girer, normal dağılımla seçim yapılır.

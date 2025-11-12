@@ -1,6 +1,3 @@
----
-created: '2025-10-24'
----
 - Diğer Miletoslu filozofların (Thales, Anaksimandros vb.) aksine tüccar bir aileden değil, aristokrak bir aileden gelir. Bu sosyal konumu halkı ve onların yönetim anlayışını eleştiren felsefesini de etkilemiştir.
 - Diğer filozoflara (Pisagir, Ksenofanes, Homeros, Hesiodos) ve halkın geneline karşı oldukça eleştirel bir tavrı vardır. Onların çok şey bilmesini (`polymathes`), gerçek anlayışna (`nous`) sahip olmak için yeterli bulmaz.
 

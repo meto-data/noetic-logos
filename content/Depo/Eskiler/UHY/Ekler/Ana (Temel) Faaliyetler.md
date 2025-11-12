@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - Doğrudan ürünün/hizmetin yaratılması, üretilmesi, satılması, teslim edilmesi ve desteklenmesiyle ilgili olan **asıl işlerdir**. Müşterinin doğrudan gördüğü veya deneyimlediği değer genellikle bu adımlarda yaratılır.
 #### a) **[[İçe Yönelik Lojistik]]** (Inbound Logistics): 
 - Tedarikçilerden gelen malzemelerin (ham madde, parça vb.) teslim alınması, depolanması ve üretim/operasyon için hazır hâle getirilmesi. (Değer: Malzemeyi doğru zamanda, doğru yerde, hasarsız bulundurmak).

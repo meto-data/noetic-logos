@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - Bir üretim sürecinde daha büyük üretim hacimlerine ulaştıkça birim başına maliyetin düşmesi durumudur.
 	- Yani, birim zamanda üretim miktarı arttıkça, sabit maliyetler daha fazla ürüne yayıldığı için üretim daha verimli hâle gelir ve maliyetler azalır.
 	- Söz gelimi, fırıncılar sabit maliyetleri (örneğin kira.) daha fazla ekmeğe yayarlar. Bu sayede üretim maliyetleri düşer ve ekmeğin birim fiyatı daha uygun hâle gelir.

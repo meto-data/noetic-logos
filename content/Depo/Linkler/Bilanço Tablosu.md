@@ -1,6 +1,3 @@
----
-created: '2025-10-16'
----
 - Firmanın belli bir andaki röntgeni. O gün neyi var, ne kadar borcu var vesair onu gösterir. Anlık bir fotoğraf gibi işte.
 - **Aktif (Varlıklar)**: Firmanın ekonomik gücüdür, ekonomik değeridir, ekonomik tarafı gösterir. En hızlı paraya **dönen**den (kasa) en yavaşına/**duran**ına (bina) doğru sıralanır. Buna **[[ATLAS/Depo/Linkler/Ekler 2/likidite|likidite]]** derler.
 - **Pasif (Kaynaklar)**: Firmanın finansal yapısıdır. Şirketin kimin parasıyla döndüğünü gösterir. Borçlar vadesine göre sıralanır. En önce ödenmesi gereken en üsttedir.  "Firma bugün batsa, kim parasını hangi sırayla alır?" sorusuna da yanıt verir. 

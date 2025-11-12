@@ -1,6 +1,3 @@
----
-created: '2025-09-26'
----
 Bir olayın meydana gelebilmesi için mutlaka var olması gereken, olmazsa olmaz koşuldur. <br>
 - Eğer $q$ gerçekleşmemişse $p$'nin gerçekleşmesi imkânsızdır.
 - "Eğer $q$ yoksa $p$ olabilir mi?" sorusuna verilen cevap "hayır" ise $q$, $p$ için gerekli bir koşuldur.

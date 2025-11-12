@@ -1,6 +1,3 @@
----
-created: '2025-11-07'
----
 - <u>Kare matrislerde</u> hesaplanan **sabit** bir değerdir
 - Determinant, bir **sayıya** eşittir.
 - Bu sayı, "denklem sistemleri" hakkında çözülebilir mi çözülemez mi yorumu yapmamızı sağlar.

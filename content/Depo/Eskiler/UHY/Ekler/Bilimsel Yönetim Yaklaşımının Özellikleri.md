@@ -6,7 +6,6 @@ tags:
   - uretimders
   - uretimbaslik
 bslk: Bilimsel Yönetim Yaklaşımı
-created: '2025-08-31'
 ---
 ##### [[İş Süreçlerinin Standartlaştırılması]]
 - **[[Standartlaştırma]]:** Belirli bir düzeni, kaliteyi veya yöntemi tanımlayan norm, ölçüt.

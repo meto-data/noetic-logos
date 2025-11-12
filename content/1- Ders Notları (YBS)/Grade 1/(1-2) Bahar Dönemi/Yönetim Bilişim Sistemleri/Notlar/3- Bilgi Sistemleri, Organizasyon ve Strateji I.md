@@ -4,9 +4,8 @@ Hafta: IV. Hafta
 Dönem: II. Dönem
 tags:
   - ybsders
-Konu: 'Bilgi Sistemleri, Organizasyon ve Strateji I'
+Konu: Bilgi Sistemleri, Organizasyon ve Strateji I
 Kavramlar: "```dataview\rLIST from outgoing([[Bilgi Sistemleri, Organizasyon ve Strateji I]])\r```"
-created: '2025-08-31'
 ---
 # [[Organizasyon]] Nedir?
 - Çevreden gerekli kaynakları alıp işleyerek çıktı hâline dönüştüren, kendi kuralları olan sosyal ve yasal bir yapıdır.

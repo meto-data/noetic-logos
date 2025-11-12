@@ -1,6 +1,3 @@
----
-created: '2025-11-03'
----
 - **Eğer** başarısız olmayan her **[[düğüm]]**, aldığı her isteğe sonunda (sınırlı ama sonlu bir sürede) yanıt veriyorsa, **bir sistem <u>erişilebilirdir</u>**.
 	- Kritik nokta şudur ki, bu tanımda **maksimum gecikme sınırı <u>yoktur</u>**. İstek bir hafta sonra bile yanıtlansa, sistem hâlâ *erişilebilir* sayılır. 
 	- Gilbert ve Lynch'in formel tanımıdır bu tanım.

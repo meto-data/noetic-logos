@@ -1,6 +1,3 @@
----
-created: '2025-09-29'
----
 Bir kerede işlenen örnek sayısı. Yani veri topluluğu veya kümesi. 
 
 Örnekler:

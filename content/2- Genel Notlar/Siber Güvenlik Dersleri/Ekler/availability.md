@@ -1,6 +1,3 @@
----
-created: '2025-09-29'
----
 #### <span style="color:darkred">Availability</span> (Erişilebilirlik)
 - Making the data accessiple to authorized entities. You can access your information when you need it.
 	- **Regular data backups**

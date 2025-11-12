@@ -1,6 +1,3 @@
----
-created: '2025-10-06'
----
 #### **[[Şey / Nesne]] (*Gegenstand*)**
 - Gerçekliğin en temel, en basit, daha fazla analiz edilemeyen yapıtaşı. Dünyanın tözünü oluşturur. Bir "*şey*" kendi başına var olan somut bir varlık **değildir**. Daha ziyade olguları oluşturan **saf bir potansiyel noktasıdır.**
 	- "Kombinasyon potansiyeli olan şey."

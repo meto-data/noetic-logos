@@ -1,6 +1,3 @@
----
-created: '2025-10-04'
----
 - Hisse senedi, bono, senet, tahvil gibi taşınabilir değerler<br>
 - Finansal piyasalarda alınıp satılabilen, değeri olan ve genellikle yatırım amacıyla kullanılan ***taşınabilir***  finansal araçlardır. Bu araçlar sahibine ortaklık veya alacak hakkı sağlayarak sermaye piyasalarında işlem görürler. Çıkarılması için genellikle Sermaye Piyasası Kurulu'ndan izin alınması gereken kıymetli evraklardır.
 

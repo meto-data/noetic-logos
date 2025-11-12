@@ -1,6 +1,3 @@
----
-created: '2025-11-05'
----
 Anonim şirketin sermayesinin esas sözleşme ile belirlenmiş eşit parçalarından birine sahip olduğunu kanıtlayan kıymetli bir kâğıttır. Bsitçe **ortaklık tapusu**dur. Üç temel hak verir:
 	1. **Söz Hakkı**: Şirketin genel kuruluna katılıp oy kullanma hakkı.
 	2. **Kârdan Pay Alma Hakkı)**: Şirket kâr elde ettiğinde, o kârdan kendi payına düşeni ([[temettü]]) alma hakkı.

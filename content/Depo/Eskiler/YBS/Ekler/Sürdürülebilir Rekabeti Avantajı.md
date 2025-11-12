@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 
 - **Sürdürülebilir Rekabetçi Avantaj**, stratejik bilgi sistemlerinin sadece iş süreçlerini değil, aynı zamanda ürünleri, hizmetleri ve organizasyon yapısını da dönüştürerek işletmelere avantaj sağlamasıyla elde edilir. Ancak:
 	- Rekabetçi avantajın uzun vadeli sürdürülmesi zordur, çünkü rakipler bu stratejik sistemleri **kopyalayarak** avantajınızı yok edebilirler.

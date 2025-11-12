@@ -1,6 +1,3 @@
----
-created: '2025-10-03'
----
 - "$p \implies q$" gibi bir *şartlı önerme* gelirse, doğrudan ispat yönteminin kullanılabilme *ihtimali* vardır.
 	- "$n$ tek sayı ise, $n^2$ de tek sayıdır." $\to$ Doğrudan ispat kullanılabilir.
 	- "$m$ ve $n$ çift sayı ise, $m+n$ de çift sayıdır." $\to$ Doğrudan ispat kullanılabilir.

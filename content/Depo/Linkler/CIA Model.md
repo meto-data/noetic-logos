@@ -1,6 +1,3 @@
----
-created: '2025-10-04'
----
 #### <span style="color:darkred">Confidentiality</span> (Gizlilik)
 - Only those who are authorised have access to the data. Only the right people can see the information. It's about privacy.
 	- **Data encryption**

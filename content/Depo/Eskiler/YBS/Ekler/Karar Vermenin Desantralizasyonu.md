@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - **Neden?** Alt düzey çalışanlar, BT sayesinde ihtiyaç duydukları bilgiye aracısız ve zamanında ulaşabilirler.
 - **Etkisi:** Karar verme yetkisi ve sorumluluğu daha alt seviyelere kayar, çalışanlar daha fazla inisiyatif alır. Bu, güçlenmeyi (empowerment) sağlar.
      

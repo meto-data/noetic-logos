@@ -1,4 +1,1 @@
----
-created: '2025-08-31'
----
 Doğru kişilerin işe alınması, eğitilmesi, geliştirilmesi, motive edilmesi ve ücretlendirilmesi gibi tüm personel ile ilgili faaliyetler. (Değer: Ana ve diğer destek faaliyetlerini yürütecek yetkin iş gücünü sağlamak).

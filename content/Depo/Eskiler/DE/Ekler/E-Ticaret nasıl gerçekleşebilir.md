@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 1. Satıcılar kendi internet sitelerinden satabilir. (E-Ticaret)
 2. Çevrim içi **[[perakende]]** satış yapabilirler. (E-Ticaret)
 3. *Mağazalarda (fizikî ortam) gerçekleşebilir.* (Ticaret) 

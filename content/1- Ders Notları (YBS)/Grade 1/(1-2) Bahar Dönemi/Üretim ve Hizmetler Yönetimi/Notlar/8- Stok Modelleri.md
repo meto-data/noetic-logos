@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 ## Ekonomik Üretim Miktarı (Economic Production Quantity -EPQ)
 
 - **Tanım**: İşletmenin kendi ürettiği ürünler için *stokların depoya anında değil, üretim süreci boyunca kademeli olarak girdiği*  durumlarda kullanılan bir stok modelidir. Temel amacı, bir üretim partisinde ne kadar ürün üretilmesi gerektiğini belirleyerek, toplam envanter maliyetlerini (üretim, hazırlık maliyeti ve stokta bulundurma maliyeti) en aza indirmektir. EPQ modeli, özellikle **üretim devam ederken aynı zamanda tüketimin de olduğu** senaryolar için tasarlanmıştır.

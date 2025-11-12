@@ -1,6 +1,5 @@
 ---
 draft: true
-created: '2025-08-31'
 ---
 
 ### **Markov Zincirlerinin Doğuşu ve Felsefi Arka Planı**

@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 Fırsat maliyeti, bir seçenek tercih edildiğinde vazgeçilen en iyi alternatif seçeneğin değeridir.
 
 Ya da denilebilir ki, en iyi ikinci alternatiften feragat etmektir.

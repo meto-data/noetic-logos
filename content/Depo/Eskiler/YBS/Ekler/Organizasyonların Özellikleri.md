@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 Aşağıdaki tüm özellikler organizasyonda kullanılan bilgi sistemlerini tür ve içerik olarak yakından etkiler.
 - Hiyerarşik yapı / Otorite
 - İş birimleri ve iş gücünün sorumluluk ve **[[verimlilik]]** odaklı dağılımı.

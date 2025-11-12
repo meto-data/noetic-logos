@@ -1,5 +1,2 @@
----
-created: '2025-08-31'
----
 - Doğrudan gelir veya servet üzerinden alınan vergilerdir. Vergi yükümlüsü, vergiyi doğrudan devlete öder.
     1. ***[[Gelir Vergisi]]***, ***[[Kurumlar Vergisi]]***, ***[[Emlak Vergisi]]***, ***[[Motorlu Taşıtlar Vergisi]]***…

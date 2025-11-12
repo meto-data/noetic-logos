@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - Seneca. (2023). Mutlu Yaşam Üzerine ~ Yaşamın Kısalığı Üzerine (Çeviri: Cengiz Çevik). İstanbul: Türkiye İş Bankası Kültür Yayınları.
 -
 - ## İdol

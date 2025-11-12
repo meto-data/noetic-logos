@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 ### 1) [[E-iş Altyapısı]]
 - Donanım
 - Yazılım

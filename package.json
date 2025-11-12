@@ -17,6 +17,7 @@
     "check": "tsc --noEmit && npx prettier . --check",
     "dates:check": "node scripts/manage-created-dates.mjs",
     "dates:write": "node scripts/manage-created-dates.mjs --write",
+    "dates:write:changed": "node scripts/manage-created-dates.mjs --write --scope=changed",
     "format": "npx prettier . --write",
     "test": "tsx --test",
     "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1"

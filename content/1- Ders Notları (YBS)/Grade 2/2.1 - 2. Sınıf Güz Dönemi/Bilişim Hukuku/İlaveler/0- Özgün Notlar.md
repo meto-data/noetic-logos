@@ -1,6 +1,3 @@
----
-created: '2025-09-25'
----
 3- **[[Bilişim Hukuku]]**: Teknolojideki gelişmeler ile beraber ortaya çıkacak ihtilafların çözümü ile ilgilenen hukuk dalı.
 - **[[Bilişim Suçu]] (Bilgisayar Suçu)**: Bir bilgisayar ve bilgisayar ağı kullanılarak işlenen herhangi bir suçu ifade etmek için kullanılır. Bilgisayar, bir suçun işlenmesinde kullanılmış olabileceği gibi bir suçun hedefi de olabilir.
 

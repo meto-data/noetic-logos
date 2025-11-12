@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - Vekalet teorisine göre, organizasyondaki **yöneticiler**, firmanın asıl sahipleri olan **hissedarların bir vekili (acentesi)** olarak kabul edilir.
 
 - **Vekil Kimdir?** Başkası (hissedar) adına, onun verdiği yetkiyle hareket eden kişidir (yönetici). Yönetici, kendi çıkarları yerine hissedarların çıkarlarını gözetmekle yükümlüdür (teorik olarak).

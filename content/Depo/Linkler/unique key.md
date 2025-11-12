@@ -1,6 +1,3 @@
----
-created: '2025-10-06'
----
 - Adından da anlaşıldığı gibi, bir sütundaki veya sütun grubundaki tüm değerlerin birbirinden farklı (benzersiz) olmasını zorunlu kılan bir kısıtlamadır (constraint).
 - Bir tablodaki her sütuna "buradaki her değer farklı olacak olum!! tekrar edemezsin!!" demektir.
 

@@ -1,6 +1,3 @@
----
-created: '2025-10-04'
----
 - Kişisel arasında, formalite dışı iletişimdir. 
 - Örgüt içerisindeki farklı departmanlarda çalışan ve farklı hiyerarşik düzeydeki insanların bir araya getirdiği yönetim tarafından tanımlanmamış kurumlardır.
 - **Söz gelişi**, çalışanlar birbirleriyle iş dışında günlük hayat bağlamında iletişim kurabilirler. 

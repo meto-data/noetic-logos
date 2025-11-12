@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 
 
 ##  İş Analizi (Hemşire örneği)

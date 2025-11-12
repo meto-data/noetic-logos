@@ -1,6 +1,3 @@
----
-created: '2025-09-21'
----
 “Çok kez de gerçekler yüzünden değil, yanlış kanılar yüzünden acı çekeriz.” **(Seneca, 2018: 64).**
 
 Çektiğimiz acılardan pek çok zaman başkalarını, yeri geldiğindeyse kendimizi suçlarız. Başkaları derken kastedilen yalnızca insan değil, aynı zamanda nesnelerdir. Söz gelişi, bilgisayar olabilir, dizi/film olabilir; oyun, müzik, herhangi bir olay, bir kadın, birisinin ölümü…

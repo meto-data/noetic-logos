@@ -4,8 +4,7 @@ tags:
   - ybskapsayici
   - ybsders
 Kavramlar: "```dataview\rLIST from outgoing([[Organizasyonun Üç Temel Unsuru]])\r```"
-Konu: 'Bilgi Sistemleri, Organizasyon ve Strateji I'
-created: '2025-08-31'
+Konu: Bilgi Sistemleri, Organizasyon ve Strateji I
 ---
 1. **[[Sermaye]]**
 2. **[[Emek]]**

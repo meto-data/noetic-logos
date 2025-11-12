@@ -1,5 +1,2 @@
----
-created: '2025-10-04'
----
 > [!important] Kendini Gerçekleştiren Kehanet (Pygmalin Etkisi)
 > Bir malın fiyat beklentisi yükselecekse o mal alınır ve talep yüzünden fiyat yükselir. Aynı şekilde, bir malın fiyat beklentisi düşecekse, o mal alınmaz ve böylelikle fiyat düşer.

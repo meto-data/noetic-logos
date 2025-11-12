@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 #### 1- [[Kripto Para Birimleri]] (Cryptocurrencies)
 - **Bitcoin:** Dünyanın ilk ve en yaygın kullanılan kripto para birimi olan Bitcoin, blokzincir tabanlıdır ve merkeziyetsiz bir dijital para birimi olarak çalışır.
 

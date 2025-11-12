@@ -1,4 +1,1 @@
----
-created: '2025-10-09'
----
 Bir yıldan *kısa vadeli* fonların (nakit, "sıcak para") alınıp satıldığı piyasadır. İşletmelerin günlük nakit ihtiyaçlarını (işletme sermayesi) karşılamak için kullandığı yerdir. Bankalar bu piyasanın en önemli oyuncularıdır. **[[Hazine Bonosu]]** ve **[[Finansman Bonosu]]** bu piyasanın araçlarıdır.

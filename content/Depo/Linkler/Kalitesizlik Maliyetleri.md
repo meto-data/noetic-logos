@@ -1,6 +1,3 @@
----
-created: '2025-10-04'
----
 #### İç Kalitesizlik Maliyeti
 - Bir kalem hatalı üretildi diyelim ve o kalemi satmadan bunun farkına vardın. Bu hatalı üretim sonucunda herhangi bir satış yapmadan ürünü düzelterek **tekrar** üretmenin bir **maliyeti** olacaktır. İşte o maliyet **iç kalitesizlik maliyeti**dir.
 #### Dış Kalitesizlik Maliyeti

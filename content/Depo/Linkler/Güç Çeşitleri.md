@@ -1,6 +1,3 @@
----
-created: '2025-10-04'
----
 ##### Karizmatik Güç
 - Liderin özel nitelikleri ve karizması nedeniyle ona duyulan bağlılığa dayanır. Bu güç, liderin karizmasına inanan kişiler tarafından kabul edilir.
 ##### Dogmatik Güç

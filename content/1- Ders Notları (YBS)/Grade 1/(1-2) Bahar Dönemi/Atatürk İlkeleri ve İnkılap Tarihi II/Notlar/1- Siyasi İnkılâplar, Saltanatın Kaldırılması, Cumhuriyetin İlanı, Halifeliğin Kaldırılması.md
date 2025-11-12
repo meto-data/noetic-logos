@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 # Saltanatın Kaldırılması
 - Mustafa Kemal, 9. Ordu Müfettişi olarak Samsun'da gönderdiği ilk raporda "**milli irade**" kavramını vurgulamıştır.
 - **Amasya Tamimi (21-22 Haziran 1919)** ile *millî egemenlik* kavramı öne çıkarılmış, kongreler süreci başlamıştır.

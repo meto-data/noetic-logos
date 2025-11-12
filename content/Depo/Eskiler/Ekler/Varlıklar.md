@@ -5,7 +5,6 @@ tags:
   - oz
 Kavramlar: "```dataview\rLIST from outgoing([[Varlıklar]])\r```"
 Konu: II. Hafta
-created: '2025-10-02'
 ---
 ###### Dönen Varlıklar + Duran Varlıklar = Öz Kaynaklar (Öz Sermaye) + Yabancı Kaynaklar (Kısa Vadeli & Uzun Vadeli)
 

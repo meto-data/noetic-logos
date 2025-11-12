@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 # Network Transmissions (Ağ İletimleri)
 
 ## Network Basics (Ağ Temelleri)

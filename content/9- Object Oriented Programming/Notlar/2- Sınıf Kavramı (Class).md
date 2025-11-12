@@ -1,6 +1,3 @@
----
-created: '2025-10-08'
----
 ## 1. Sınıf (Class) Nedir ve Neden Kullanılır
 - OOP'de bir nesne (`object`) oluşturabilmek için öncelikle o nesnenin bir **modelinin** veya **şablonunun** tasarlanması gerekir. İşte bu modeli tanımladığımız yapıysa **sınıf (*class*)** denir.
 - Bir binayı inşa etmeden önce projesini çizeriz. O proje binanın temelidir (`class`). O projeye bakılarak inşa edilen somut bina ise nesnenin (`object`) kendisidir.

@@ -1,5 +1,2 @@
----
-created: '2025-10-04'
----
 - **Davranışsal Liderlik Teorisi**, liderlik başarısını liderin doğuştan gelen özelliklerinden ziyade **davranışlarına** odaklanarak açıklayan bir yaklaşımdır.
 - X ve Y, Likert'in Sistem 4 Model, Mouton ve Blake Matrisi, Kurt Lewin

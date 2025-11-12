@@ -1,5 +1,5 @@
 ---
-Başlık: null
+Başlık: 
 tags:
   - uretimders
   - uretimbaslik
@@ -12,7 +12,6 @@ Kavramlar: |-
   ```
 Konu: Üretim Yönetiminde Çağdaş Yaklaşımlar
 skonu: Toplam Kalite Yönetimi
-created: '2025-08-31'
 ---
  - **[[Toplam]]**: Herkesin katılımı.
  - **[[Kalite]]**: Müşteri gereksinim ve beklentilerinin tam olarak karşılanması. 
