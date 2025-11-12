@@ -1,5 +1,5 @@
 ---
-created: '2025-11-11'
+created: '2025-11-12'
 ---
 ##### $\space \space \land \space \space$ ile gösterilir.
 ##### $p \land q \equiv \text{ p ve q şeklinde okunur.}$ 

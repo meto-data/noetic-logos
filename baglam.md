@@ -10,6 +10,7 @@
 - `/home/logos/noetic-papers/Finansal Yönetim` dizisindeki hub ve iki ders modülü `quartz/static/finance-module/` altına kopyalandı; `/static/finance-module/` altında yayınlanıyor.
 - Arama çubuğuna `finance` yazıldığında (trim + case-insensitive) `/static/finance-module/index.html` hub sayfasına yönlendiriliyor; `logos` ve `finance` komutları `search.inline.ts` içinde tek bir eşleme tablosundan yönetiliyor.
 - `/home/logos/noetic-papers/OOP` dizisindeki tek sayfalık modül `quartz/static/oop1-module/` altına taşındı; arama çubuğuna `oop1` yazıldığında `/static/oop1-module/index.html` açılıyor.
+- `quartz/static/finance-module/` hubına `Modül 3: Finansal Analiz` eklendi; `finansal_analiz_module.html` + `finansal_analiz_data.js` finansal oran/tabloları içeren 31 soruluk yeni seti ve stilize tablo bileşenlerini yüklüyor.
 
 ## Tarih Metadata - 2025-11-11
 

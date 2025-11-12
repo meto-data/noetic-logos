@@ -66,6 +66,14 @@
     };
   }
 
+  function formatQuestionBody(text) {
+    if (text === null || text === undefined) return "";
+    const trimmed = String(text).trim();
+    if (!trimmed) return "";
+    if (trimmed.startsWith("<")) return trimmed;
+    return `<p>${trimmed}</p>`;
+  }
+
   function defaultQuizState() {
     const length = moduleQuestions.length;
     return {
@@ -243,10 +251,16 @@
     
     const optionOrder = quiz.optionOrder[questionIndex];
     const selectedLabel = quiz.answers[questionIndex];
+    const questionBodyHtml = formatQuestionBody(question.text);
 
     container.innerHTML = `
             <div class="quiz-question">
-                <p><strong>Soru ${orderIndex + 1}/${moduleQuestions.length} (No:${question.number}):</strong> ${question.text}</p>
+                <div class="question-header">
+                    <p><strong>Soru ${orderIndex + 1}/${moduleQuestions.length} (No:${question.number}):</strong></p>
+                </div>
+                <div class="question-body">
+                    ${questionBodyHtml}
+                </div>
                 <div class="quiz-options">${optionOrder.map(label => {
                     const option = question.options.find(opt => opt.label === label);
                     const id = `q${question.number}_${option.label}`;
