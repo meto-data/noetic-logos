@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - **Tanım:** Stok kontrol sistemleri, envanterdeki ürünler için sipariş verme zamanını ve miktarını belirlemek ve izlemek için kullanılan yöntemlerdir.
 - **Temel Amaç:** Malzeme veya ürün ihtiyaçlarının "istenilen zamanda", "istenilen miktarda", "istenilen yerde" ve "istenilen kalitede" karşılanmasını sağlamaktır. Bu, hizmet seviyesi ile maliyet arasında bir denge kurmayı hedefler.
 - **Cevap Aranan Sorular:** Bu sistemler temel olarak "hangi malzemeler stoklanacak?" ve "ne kadar stok bulundurulacak?" sorularına yanıt arar.

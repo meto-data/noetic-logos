@@ -1,6 +1,3 @@
----
-created: '2025-10-04'
----
 Ekonomik kâr, bir işletmenin toplam gelirinden hem açık (muhasebe) maliyetlerini hem de örtük maliyetlerini çıkardıktan sonra kalan kârdır.
 
  ##### $Gelir = P.Q \to P(Price) \space x \space  Q(Quantity)$

@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 ### [[İthalat (D)]]
 - Bir ülke ithalat yaptığında diğer ülkelere döviz ödemesi yapmak zorundadır. Bu da döviz talebini artırır.
 ### [[Yatırım (D)]]

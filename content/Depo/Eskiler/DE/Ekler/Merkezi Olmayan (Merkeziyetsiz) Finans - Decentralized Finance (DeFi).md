@@ -1,5 +1,2 @@
----
-created: '2025-08-31'
----
 - Temelini blokzincir oluşturur. Blokzincir teknolojisiyle çalışır.
 	- Kripto para birimleri dijital varlık olarak kullanılır ve geleneksel finansal aracılara olan ihtiyacı (bkz. Takas odaları) ortadan kaldırır.

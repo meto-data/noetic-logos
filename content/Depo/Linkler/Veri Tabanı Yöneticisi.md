@@ -1,6 +1,3 @@
----
-created: '2025-10-05'
----
 - Veri tabanının tasarımı, oluşturulması ve işletiminden sorumlu kişi.
 - **Görevleri**:
 	1. Veri tabanı tasarımı

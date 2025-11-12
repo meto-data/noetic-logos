@@ -1,6 +1,3 @@
----
-created: '2025-10-04'
----
 
 - **Bilgi eksikliği,** örgütsel direncin en önemli faktörüdür. Bilgi eksikliği olan kişiler değişimin karşısında direnirler.
 - Örgütsel değişim sürecinin örgütün niteliklerine uygun olmaması da örgütsel direnci artırır. Değişim yönünün strateji ile uyumlu olması gerekmektedir.

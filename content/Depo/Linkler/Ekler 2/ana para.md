@@ -1,6 +1,3 @@
----
-created: '2025-10-02'
----
 >	Ödünç veya fâizle verilen paranın aslı, re’sülmal.
 
 - Tam mânâsıyla ana para. Yani işin çekirdeği, aslı, kendisi olan para.

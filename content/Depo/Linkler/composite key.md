@@ -1,6 +1,3 @@
----
-created: '2025-10-06'
----
 - Bazen bir tablodaki tek bir sütun o satırı benzersiz yapmaya yetmez. Benzersizliği sağlamak için **birden fazla sütunu bir araya getirip** birincil anahtar ilan ederiz. Buna composite key denir.
 
 <br>

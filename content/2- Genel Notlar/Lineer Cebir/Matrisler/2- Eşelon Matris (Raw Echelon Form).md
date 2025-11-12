@@ -1,6 +1,3 @@
----
-created: '2025-10-24'
----
 ### Eşelon Matris Olma Şartları
 - Tamamen 0'dan oluşan satır varsa en aşağı satırda olmalıdır.
 - Her satırın *0'dan farklı **ilk** elemanı* 1 olmalıdır.

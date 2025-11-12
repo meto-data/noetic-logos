@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 ##### [[Tanımlayıcı Analitik]] (Descriptive Analytics)
 - Tanımlayıcıdır. Geçmiş verilerden yola çıkarak "ne oldu?" sorusuna yanıt verir.
 ##### [[Kestirimci Analitik]]

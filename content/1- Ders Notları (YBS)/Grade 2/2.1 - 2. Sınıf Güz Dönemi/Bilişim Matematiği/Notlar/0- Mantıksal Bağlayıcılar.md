@@ -1,6 +1,3 @@
----
-created: '2025-09-26'
----
 c### Kesişim (Conjunction)
 - İki basit önerme aralarına 've' kelimesi koyarak bağlanabilir. Bunun sonucunda oluşan **[[bileşke önerme|bileşke önermeye]]** iki basit önerme bileşeninin kesişimi denir. Eper $p$ ve $q$ iki basit önerme ise $p \land q$ (veya $p.q$) $p$ ve $q$'nun birleşimini temsil eder.
 

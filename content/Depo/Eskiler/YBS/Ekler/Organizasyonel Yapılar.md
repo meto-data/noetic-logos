@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 
 #### **[[Girişimci Yapılar]]** 
 Küçük, genç, esnek, hızlı adapte olur (Örn: Yeni kurulan şirketler). 

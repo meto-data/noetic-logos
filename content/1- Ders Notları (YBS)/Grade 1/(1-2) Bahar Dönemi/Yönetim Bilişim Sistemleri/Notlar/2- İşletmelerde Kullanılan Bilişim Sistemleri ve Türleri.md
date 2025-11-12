@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - **[[Bilgi İşlem]]**, organizasyonların işlevlerini yerine getirmek, ürün ve hizmetlerini sunmak için sahip oldukları bilgileri işleyerek kullandıkları birimdir.
 - **Bilişim (Bilgi) Sistemleri**, iş süreçlerini geliştirmek için bilgi sağlar.
 

@@ -1,4 +1,1 @@
----
-created: '2025-10-06'
----
 Aynı bilginin gereksiz yere birden fazla tabloda veya aynı tablonun birden fazla satırında tekrarlanması durumu. Örneğin her sipariş kaydında müşterinin adını ve adresini saklamak yerine sadece müşteri ID'sini saklamak ve müşteri bilgilerini ayrı bir `Müşteriler` tablosunda tutmak veri fazlalığını önler. Normalizasyonun temel hedeflerinden biri bunu azaltmaktır.

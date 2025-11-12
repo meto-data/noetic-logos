@@ -1,6 +1,3 @@
----
-created: '2025-09-30'
----
 ## Önermeler Matematiği
 
 ### Temel Kavramlar

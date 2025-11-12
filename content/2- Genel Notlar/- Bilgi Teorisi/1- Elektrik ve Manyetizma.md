@@ -1,6 +1,5 @@
 ---
 draft: true
-created: '2025-08-31'
 ---
 
 ### 1. Ørsted'in "Anasını Satayım" Keşfi (1819)

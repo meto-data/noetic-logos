@@ -1,6 +1,3 @@
----
-created: '2025-10-23'
----
 - Devlet babanın açtığı 10 Milyon TL'lik bir ihaleye gireceksin. Devlet baba senden "Bu işi yarım bırakıp kaçmayacağına dair" bir güvence istiyor. Cebinde o kadar nakit yok. 
 - Sen de bankana gidiyorsun ve diyorsun ki, "devlete benim adıma 1 Milyon TL'lik bir teminat mektubu ver." Banka bir kağıt yazar, imzalar ve devlete verir.
 

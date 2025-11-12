@@ -1,6 +1,3 @@
----
-created: '2025-11-08'
----
 Aşkı, istisnaları saymazsak, yoğun ve derin bir idealize etme süreci olarak tanımlıyorum.
 
 Karşımızdaki kişiyi kafamızda ideal bir düzleme oturtmak için çaba gösteririz. Görünüşünden, sesinden ve hatta yazı yazma üslubundan/biçiminden; süslenmesinden, giyim/kuşamından, **tüketim alışkanlıklarından** yola çıkarız ve onu zihnimizde **mükemmelmişçesine** idealize ederiz.

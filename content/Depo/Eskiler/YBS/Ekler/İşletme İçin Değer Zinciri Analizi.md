@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - **Değer nasıl oluşturuluyor?** Düşük maliyet mi, yüksek kalite mi?
 - Değer zincirinde işletme veya müşteriler için **ekstra değer yaratılabilir mi**?
 - İşletme, sektördeki **en iyi uygulamaları** kullanıyor ve iş süreçlerini **verimli yönetebiliyor mu**?

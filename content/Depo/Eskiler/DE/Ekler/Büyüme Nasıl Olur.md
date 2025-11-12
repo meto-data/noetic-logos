@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 #### [[a) Üretim Artışı]]
 ##### Teknolojik İlerleme
 - [[verimlilik]]

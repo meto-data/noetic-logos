@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - İşletmeler, **pazara katılım maliyeti** olarak da bilinen **işlem maliyetlerini** en aza indirmeye çalışır. 
 		
 **İşlem Maliyeti Nedir?** Pazarda faaliyet göstermenin getirdiği maliyetlerdir. Bunlar şunları içerir:

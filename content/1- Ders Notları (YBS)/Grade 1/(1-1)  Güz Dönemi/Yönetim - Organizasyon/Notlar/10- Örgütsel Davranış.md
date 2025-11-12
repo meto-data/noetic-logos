@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 **Davranış:** Bir kişinin doğduğu andan itibaren gerek içsel gerek dışsal şekilde bilinçli veya bilinçdışı olarak geliştirdiği ve geliştirmeye devam ettiği düşünceler vasıtasıyla bulunduğu gözlemlenebilir fiziksel faaliyetler/tepkiler ya da faaliyet/tepki biçimleri. <br>
 - Gözlemlenebilir.
 - Fiziksel hareketler.

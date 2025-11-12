@@ -1,6 +1,3 @@
----
-created: '2025-10-09'
----
 - Finansal yönetimin temel amacı firma değerini maksimize etmek olsa da işletmelerin daha geniş kapsamlı amaçları vardır.
 	1. **Ortakların Refahının Maksimizasyonu**: Sadece anlık kârı değil, aynı zamanda hisse senedi değerini, itibarı ve uzun vadeli *sürdürülebilirliği* de içerir.
 	2. **Pay Başına Kazancın Maksimizasyonu**: Hisse senedi başına düşen kârı artırarak yatırımcılar için çekiciliği artırmak.

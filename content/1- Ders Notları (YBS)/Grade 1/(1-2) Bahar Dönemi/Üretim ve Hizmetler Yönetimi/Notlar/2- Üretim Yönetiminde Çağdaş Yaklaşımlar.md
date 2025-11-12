@@ -6,8 +6,7 @@ tags:
   - uretimders
   - anabaslik
 Kavramlar: "```dataview\rLIST from outgoing([[3- Üretim Yönetiminde Çağdaş Yaklaşımlar]])\r```"
-Konu: null
-created: '2025-08-31'
+Konu:
 ---
 - Çağdaş yaklaşımlarda yöntem farklıdır ancak amaç öz olarak aynıdır: Toplumsal fayda, verimlilik vb.
 ## [[Toplam Kalite Yönetimi]] (Total Quality Management -TQY)

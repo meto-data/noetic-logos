@@ -1,5 +1,2 @@
----
-created: '2025-09-29'
----
  - İşlem ya tamamen yapılır ya hiç yapılmaz.
  - Para transferi ya hem A'dan 100₺ çıkar ve B'ye 100₺ gider (atomik) ya da hibiri olmaz. İşlemin kesinkes tamamlanması gerekir.

@@ -6,7 +6,6 @@ Kavramlar: "```dataview\rLIST from outgoing([[6 Sigma'nın Aşamaları]])\r```"
 tags:
   - uretimders
   - uretimbaslik
-created: '2025-08-31'
 ---
 
 - **Sigma (σ)**: İstatistikte, standart sapmayı ifade eder ve bir sürecin değişkenliğini ölçer.

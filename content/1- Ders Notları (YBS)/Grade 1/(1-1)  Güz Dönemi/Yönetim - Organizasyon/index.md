@@ -1,6 +1,5 @@
 ---
 title: Yönetim Organizasyon
-created: '2025-09-20'
 ---
 Yönetim-Organizasyon... Bu notları düzeltmek gerekiyor aslında, misal derste Newton'un mekanik bir görüşün temsilcisi olduğu söyleniyor ancak öyle değil, bilakis mekanik görüşlere karşı çıkıyor Newton, koyu bir dindar olması da buna etkili tabii. Neyse uzun uzun değinmek lazım buna bi ara, şimdilik boş verelim.  
 

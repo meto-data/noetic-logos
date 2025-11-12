@@ -1,6 +1,3 @@
----
-created: '2025-10-05'
----
 - Bir alanda (sütunda) ne türde veri saklanacağını önceden tanımlamak için kullanılır. Bu sayede;
 	1. [[Veri bütünlüğü]] sağlanır.
 	2.  Bellek kullanımı optimize edilir.

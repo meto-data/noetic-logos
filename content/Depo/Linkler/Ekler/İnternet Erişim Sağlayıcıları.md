@@ -1,5 +1,2 @@
----
-created: '2025-09-25'
----
 - İnternet toplu kullanım sağlayıcılarına ve abone olan kullanıcılara, internet ortamına erişim olanağı sağlayan gerçek veya tüzel kişilerdir.
 	- Kullanıcıların internete koyduğu içerikten sorumlu değildir. Sadece hukuka aykırı içeriğin erişimini engellemekle yükümlüdür.

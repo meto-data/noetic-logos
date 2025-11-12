@@ -1,6 +1,3 @@
----
-created: '2025-10-02'
----
 - Ne finansdır üzerine örnek soru gelebilir, finans tanımına uyup uymayan gibi.
 - Firma/İşletme tanımı
 	- İhtiyaç ve istek ayrımı, bkz  **[[1- Mikro İktisat]]**

@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 #### Operasyonel Sistemler
 - Temel faaliyetlere ve işlemlere ilişkin kayıtları tutarak *operasyonel yönetici*'leri destekleyen sistemlerdir.
 #### Yönetsel Sistemler

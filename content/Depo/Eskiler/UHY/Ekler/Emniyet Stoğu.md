@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 
 > [!important] Özce
 > Beklenmedik bir ham madde sıkıntısı olması durumunda üretimin devam etmesini sağlamak.

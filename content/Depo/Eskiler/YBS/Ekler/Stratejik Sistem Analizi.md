@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - **Stratejik Sistem Analizi**, bilgi sistemlerinin rekabetçi avantaj sağlamada etkin olabilmesi için yapılması gereken bir değerlendirmedir. Bu analiz için **iki temel soru grubu** sorulmalıdır:
 #### 1- [[İşletmenin Sektörü ve Rekabet Durumu]]:
 - **Sektör yapısı** nedir? Rekabetçi güçler, yeni rakipler, tedarikçi ve müşteri gücü, ikame ürünlerin etkisi nasıl?

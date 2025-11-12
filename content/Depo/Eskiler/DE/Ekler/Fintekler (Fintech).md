@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 ##### [[Ön Tanımlamalar]]
 ###### [[Bankacılık]]
 - Fon Fazlası Olanlar ve Fon İhtiyacı olanlar olarak iki ayrı grup ve bu iki grubun merkezine yerleşen aracı kurum (genelde banka olur) vardır. Fon fazlası olanlar bankaya mevduat olarak fazlalıklarını yatırırlar, bunun karşılığında faizle birlikte belirli bir süre karşılığında paralarını alırlar. Banka, fon fazlası olanlardan aldığı parayı fon ihtiyacı olanlara kredi olarak verir. Fon ihtiyacı olanlarsa bu krediyi faiziyle birlikte öderler.

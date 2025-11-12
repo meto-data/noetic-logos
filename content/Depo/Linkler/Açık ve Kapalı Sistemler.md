@@ -1,6 +1,3 @@
----
-created: '2025-10-04'
----
 #### [[Açık Sistemler]]
 - Çevreleriyle sürekli etkileşim hâlinde olan sistemlerdir. 
 - Dışarıdan enerji, bilgi, malzeme gibi girdiler alır ve sistemden çıkan çıktılar verir.

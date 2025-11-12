@@ -1,6 +1,3 @@
----
-created: '2025-10-09'
----
 - Bir firmanın yatırım ve finans kararlarından sorumlu olan kişidir. 
 - Bilanço ve gelir tablolarındaki hesapları anlayabilmesi, mali analiz tekniklerini uygulayabilmesi,  işletme amaçlarını bilmesi ve politikaları anlayabilmesi yeterlidir.
 - İki temel sorunları karşı karşıyadır:

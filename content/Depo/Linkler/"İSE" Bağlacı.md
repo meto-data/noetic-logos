@@ -1,6 +1,3 @@
----
-created: '2025-11-12'
----
 ##### $\implies \text{   veya   } \rightarrow \text{     şeklinde gösterilir.}$
 ##### $p \implies q \equiv \text{   p ise q şeklinde okunur.}$
 

@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 
 > [!important] ÖNEMLİ
 > Tüm bu liste bir kolondor. **BİRİSİ BİLE EKSİK OLAMAZ!**

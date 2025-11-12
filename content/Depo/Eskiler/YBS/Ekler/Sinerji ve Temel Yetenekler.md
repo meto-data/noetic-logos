@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 #### **[[Sinerji]]**
 - Sinerji, <span style="color:red">farklı bileşenlerin birlikte çalışarak bireysel etkilerinden daha büyük bir etki yaratmasıdır.</span> Bu durum sistemin verimliliğini artırarak daha etkin sonuçlar elde edilmesini sağlar. <span style="color:red; font-weight:bolder">Sinerji, sadece bileşenlerin toplamı değil, onların birlikte ürettikleri değeri ifade eder.</soan>
 - <span style= "color:darkred; font-weight:bolder">Bir başka tanımla, bir organizasyondaki farklı birimlerin bütünleştirilmesiyle elde edilen, parçaların toplamından daha büyük bir etki yaratma çabasıdır</span>.

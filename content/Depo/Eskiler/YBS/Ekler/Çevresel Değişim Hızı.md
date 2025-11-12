@@ -1,5 +1,2 @@
----
-created: '2025-08-31'
----
 - Çevre, genellike organizasyonlardan daha hızlı bir değişim gösterir.
 - Yeni teknolojiler, ürünler ve yasal düzenlemeler çevresel değişimin temel etkenleridir.

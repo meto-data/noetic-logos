@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - Dijitalleşme esasında fiziksel dünyada mümkün olmayan 3 temel işlemi mümkün kılar. [[Yıkıcı Teknolojiler|yıkıcı teknoloji]] dediğimiz radikal değişim yapan teknolojileri de içinde bulundurduğundan dijitalleşme yıkıcı teknolojiye geçiş evresidir.
 
 ###  1- Eşitlik/Mükemmel Kopyalama

@@ -53,6 +53,7 @@ Quartz will fall back to git history or filesystem metadata if the field is miss
 ```bash
 npm run dates:check   # dry run – lists files that need attention
 npm run dates:write   # normalises/creates the frontmatter field in-place
+npm run dates:write:changed  # sadece değiştirdiğin notları işler (daha hızlı)
 ```
 
 After running the script in write mode, review the reported “manual follow-up” files and correct the dates explicitly in frontmatter.

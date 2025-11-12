@@ -7,7 +7,6 @@ Kavramlar: "```dataview\rLIST from outgoing([[3- Hesapların İşleyiş Kurallar
 Hafta: V. Hafta
 Dönem: II. Dönem
 Konu: Hesapların İşleyiş Kuralları
-created: '2025-08-31'
 ---
 
 ### Borçlandırma ve Alacaklandırma

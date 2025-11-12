@@ -1,6 +1,3 @@
----
-created: '2025-11-03'
----
 - **Atomik tutarlılık** ya da **doğrusallaştırılabilirlik** (linearizability) mânâsına gelir. En güçlü tutarlılık modelidir, garanti ettiği ise tam olarak şudur: 
 	1. Tüm işlemler tek bir kopya üzerinde **[[Atomicity|atomik]]** olarak gerçekleşiyormuş gibi davranır.
 	2. Bir girdi/yazma işlemi tamamlandıktan sonra, bunu takip eden bütün okuma işlemleri **yeni değeri <u>döndürmelidir</u>**.

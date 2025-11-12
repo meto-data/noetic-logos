@@ -1,5 +1,2 @@
----
-created: '2025-08-31'
----
 - İşçiler, ürettikleri çıktıya göre ücretlendirilir. Diğer bir deyişle verimliliklerine göre.
 - Parça başı ücret sistemi.

@@ -1,6 +1,5 @@
 ---
 title: Ayrık Matematik
-created: '2025-09-29'
 ---
 ###### Kaynaklar
 - Rosen, K. H. (2015). *Ayrık matematik ve uygulamaları* (Çeviri: Ö. Akın ve M. Özöğüt). Ankara: Palme Yayıncılık.

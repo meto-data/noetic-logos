@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 #### a) [[Formal İletişim]]
 - Formalite icabı, belirli kurallara ve kalıplara uygun olarak yapılan, tanımlanmış iletişim sürecidir. Yönetim tarafından belirlenmiştir, kimin dâhil olup kimin dâhil olamayacağı bellidir.
 - Formal iletişim, **kişiler arasında olmaz.**

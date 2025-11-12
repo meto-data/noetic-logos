@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - Seneca. (2023). Bilgenin Sarsılmazlığı Üzerine ~ İnziva Üzerine (Çeviri: Cengiz Çevik). İstanbul: Türkiye İş Bankası ve Kültür Yayınları.
 - "Kadınlar ve erkekler birlikte insan topluluğunu meydana getirirken, biri boyun eğmek, diğeri ise hükmetmek için doğmuştur." (3)
 - "*Nesnelerin doğasında hakaretle karşılaşmayacak hiçbir kutsallık yoktur, aksine, dokunamayacakları kadar uzakta bulunmalarına rağmen kendilerini ziyadesiyle aşan o büyüklüğe saldırmaya çalışan insanlar var olsa bile, tanrısal unsurlar yüceliklerinden hiçbir şey kaybetmez.* (6)

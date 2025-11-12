@@ -1,6 +1,5 @@
 ---
 title: Yönetim Bilişim Sistemleri
-created: '2025-09-20'
 ---
 Malum meşhur ders... Öğrenciler tarafından pek sevilmez ödevler zorlayıcı olduğu için ve fazla vaaz verdiği için, ancak bunu bir fırsat olmak görmek lâzım. Ayriyeten kendisi idealist bir kişidir, kendisini de asıl bu sebepten ötürü severim, bir de öğrencileri zorladığı için.
 

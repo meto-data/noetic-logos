@@ -1,6 +1,3 @@
----
-created: '2025-10-05'
----
 - Tabloların aralarında önceden tanımlanmış mantıksal ilişkiler (bağlantılar) kurularak organize edildiği veri tabanı modelidir.
 	- Tablolar arası bağlantılar **ortak alanlar (anahtar alanlar)** üzerinden kurulur.
 	- Veri tekrarını en aza indirir ve [[Veri bütünlüğü|veri bütünlüğünü]] güçlendirir.

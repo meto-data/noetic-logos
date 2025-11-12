@@ -1,6 +1,5 @@
 ---
-title: Siber Güvenlik Dersleri
-slug: /2-genel-notlar/siber-guvenlik-dersleri/
-created: '2025-09-20'
+title: "Siber Güvenlik Dersleri"
+slug: "/2-genel-notlar/siber-guvenlik-dersleri/"
 ---
 Yarım kaldık...

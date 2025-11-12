@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - **Değişim:** Mevcut hâlden başka bir hâle pozitif ya da negatif bir biçimde geçiş süreci.
 - **Örgütsel Değişim:** Mevcut hâlden başka bir hâle **pozitif** bir biçimde geçiş süreci.
 

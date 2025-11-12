@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - **İşletme Ekosistemi**, farklı sektörlerden firmaların —satıcılar, tedarikçiler, dağıtıcılar, teknoloji sağlayıcıları— bir **ağ yapısı içinde** birlikte çalıştığı, dinamik ve karşılıklı bağımlılığa dayalı bir iş dünyası modelidir.
 - Geleneksel **Porter modeli**, net çizilmiş sektör sınırlarını ve sabit aktörleri varsayarken, işletme ekosistemi bu sınırların eridiği, işbirliklerinin sektörler arası aktığı bir yapıyı esas alır.
 

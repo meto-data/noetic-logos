@@ -1,6 +1,3 @@
----
-created: '2025-11-03'
----
 - Ağa bağlı tek bir sunucu/bilgisayar demektir. 
 
 - Dağıtık sistemdeki her bir bağımsız bilgisayar, sunucu yahut cihaza verilen addır. Her düğüm için şu özellikler sayılabilir:

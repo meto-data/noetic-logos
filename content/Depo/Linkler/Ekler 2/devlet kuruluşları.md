@@ -1,6 +1,3 @@
----
-created: '2025-10-02'
----
 - Bir işletme kâr elde ettiğinde bu kâr üzerinde ilk hak sahibi devlettir. Vergiler işletme için ödenmesi zorunlu bir borçtur ve **[[Bilanço|bilançoda]]** "Yabancı Kaynak" kalemi olarak yer alır. Bu borç ödendikten sonra kalan net kâr ortaklar ve firma arasında paylaştırılabilir.
 
 ##### [[Geçici Vergi Sistemi]]

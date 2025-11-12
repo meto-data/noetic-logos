@@ -1,7 +1,6 @@
 ---
 title: I. Bölüm Temel Değerlendirmeler
-slug: null
-created: '2025-09-20'
+slug:
 ---
 
 ## İçerik

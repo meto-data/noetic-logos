@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - Belirli bir dönemde bir işletmenin gelirlerini, giderlerini ve sonuç olarak kâr veya zararını gösteren ayrıntılı bir **finansal tablo**dur.
 
 <br>

@@ -1,6 +1,3 @@
----
-created: '2025-09-20'
----
 Yapay Zekâ -> Makine Öğrenmesi -> Derin Öğrenme -> GenerativeAI
 
 - İlkin hiyerarşiyi şöyle belirliyoruz: Yapay Zekâ hepsini kaplayan bir küme olmak üzere sırasıyla makine öğrenmesini, makine öğrenmesi derin öğrenmeyi, derin öğrenme de üretken yapay zekâ'yı kapsamaktadır.

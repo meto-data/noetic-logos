@@ -1,6 +1,3 @@
----
-created: '2025-11-03'
----
 
 
 ## 1- Ön Türkçe (Proto-Turkish)

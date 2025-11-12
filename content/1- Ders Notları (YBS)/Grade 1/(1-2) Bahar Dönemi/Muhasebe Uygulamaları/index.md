@@ -1,6 +1,5 @@
 ---
 title: Muhasebe Uygulamaları
-created: '2025-09-20'
 ---
 Anlatımını en beğenmediğim ders. Dersin zorlayıcı olduğunu bilindiğinden bağıl değerlendirme ile not ölçümü yapılmakta zannımca, yahut notlar aşırı düşük olduğundandır belki...
 

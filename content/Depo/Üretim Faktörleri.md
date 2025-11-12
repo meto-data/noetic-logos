@@ -1,6 +1,3 @@
----
-created: '2025-09-24'
----
 - Doğal kaynak, sermaye, bilgi, girişimci, emek, teknoloji.
 ##### Doğal Kaynak
 Doğada bulunan ve insan tarafından işlenerek kullanılabilir hâle getirilen her şey.

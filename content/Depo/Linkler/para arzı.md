@@ -1,6 +1,3 @@
----
-created: '2025-10-09'
----
 - Piyasada dolaşan toplam para miktarı.
 - Piyasadaki para bolluğu.
 

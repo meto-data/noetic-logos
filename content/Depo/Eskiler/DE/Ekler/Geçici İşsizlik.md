@@ -1,5 +1,2 @@
----
-created: '2025-08-31'
----
 - Kişinin kendi isteğiyle veya başka nedenlerle işinden ayrıldıktan sonra yeni bir iş bulana kadar geçen süreçteki durumudur.
 - Ekonomide sadece geçici işsizliğin olması durumuna _**[[tam istihdam]]**_ denmektedir.

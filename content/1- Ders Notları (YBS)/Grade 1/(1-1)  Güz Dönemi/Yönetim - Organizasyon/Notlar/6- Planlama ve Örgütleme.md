@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 # [[Planlama]]
 - Planlama, çevresel faktörlerin analiz edilerek amaçların/hedeflerin belirlenmesi sürecidir.
 ## [[Çevre Analizi]]

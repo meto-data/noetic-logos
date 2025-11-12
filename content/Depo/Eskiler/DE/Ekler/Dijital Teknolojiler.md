@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 ### 1) [[Yapay Zekâ]] (Dinî anlatıdaki deccâl tasviriyle örtüşüyor.)
 - İnsanın akıl yürütme ve problem çözme becerilerini taklit eden algoritma.
 ### 2) [[Artırılmış Gerçeklik (AR)]] (Augmented Reality)

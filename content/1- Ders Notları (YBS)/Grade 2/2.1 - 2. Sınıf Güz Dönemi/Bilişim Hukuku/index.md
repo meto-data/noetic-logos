@@ -1,6 +1,5 @@
 ---
 title: Bilişim Hukuku
-created: '2025-09-25'
 ---
 
 **Dersi Veren**: [Şerife Büşra ÜMİT IŞIK](https://akademik.duzce.edu.tr/sbusraumitisik)

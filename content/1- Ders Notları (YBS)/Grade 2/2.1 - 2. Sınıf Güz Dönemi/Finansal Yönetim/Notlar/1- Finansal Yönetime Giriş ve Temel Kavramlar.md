@@ -1,7 +1,6 @@
 ---
 title: 1- Finansal Yönetime Giriş ve Temel Kavramlar
-date: 2025-10-01T00:00:00.000Z
-created: '2025-10-02'
+date: 2025-10-01
 ---
 
 ---

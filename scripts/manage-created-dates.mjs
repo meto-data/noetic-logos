@@ -23,12 +23,22 @@ const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, "..")
 const contentDir = path.join(repoRoot, "content")
 
-const args = process.argv.slice(2)
-const shouldWrite = args.some((arg) => ["--write", "--apply"].includes(arg))
-const verbose = args.includes("--verbose")
+const rawArgs = process.argv.slice(2)
 
-if (!args.length) {
-  args.push("--check")
+if (!rawArgs.some((arg) => ["--write", "--apply", "--check"].includes(arg))) {
+  rawArgs.push("--check")
+}
+
+const shouldWrite = rawArgs.some((arg) => ["--write", "--apply"].includes(arg))
+const verbose = rawArgs.includes("--verbose")
+
+const scopeArg = rawArgs.find((arg) => arg.startsWith("--scope="))
+const scope = scopeArg ? scopeArg.split("=")[1] ?? "all" : "all"
+const validScopes = new Set(["all", "changed", "staged"])
+
+if (!validScopes.has(scope)) {
+  console.error(`Unknown scope "${scope}". Valid options: ${Array.from(validScopes).join(", ")}.`)
+  process.exit(1)
 }
 
 const configPath = path.join(repoRoot, "dates.config.json")
@@ -54,10 +64,57 @@ if (!enforcementEnabled) {
   process.exit(0)
 }
 
-const files = await globby("**/*.md", {
-  cwd: contentDir,
-  gitignore: true,
-})
+function collectContentFilesFromGit(scopeMode) {
+  try {
+    let output = ""
+    if (scopeMode === "staged") {
+      output = execSync("git diff --cached --name-only --diff-filter=ACMR", {
+        cwd: repoRoot,
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "ignore"],
+      })
+    } else {
+      output = execSync("git status --porcelain", {
+        cwd: repoRoot,
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "ignore"],
+      })
+    }
+
+    return output
+      .split("\n")
+      .map((line) => line.trim())
+      .filter(Boolean)
+      .map((line) => {
+        if (scopeMode === "staged") {
+          return line
+        }
+        // porcelain output starts with XY status markers
+        return line.length > 3 ? line.slice(3) : line
+      })
+      .map((file) => file.replace(/\\/g, "/"))
+      .filter((file) => file.startsWith("content/") && file.endsWith(".md"))
+      .map((file) => file.slice("content/".length))
+  } catch {
+    return []
+  }
+}
+
+let files
+if (scope === "all") {
+  files = await globby("**/*.md", {
+    cwd: contentDir,
+    gitignore: true,
+  })
+} else {
+  const scoped = collectContentFilesFromGit(scope)
+  const unique = Array.from(new Set(scoped))
+  if (!unique.length) {
+    console.log(`No Markdown files under content/ matched scope "${scope}". Nothing to do.`)
+    process.exit(0)
+  }
+  files = unique
+}
 
 const pad = (num) => String(num).padStart(2, "0")
 

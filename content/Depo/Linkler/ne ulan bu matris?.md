@@ -1,6 +1,3 @@
----
-created: '2025-11-03'
----
 3### Etimoloji, Kısa Tarihçe Falan
 
 #### Matris (*Matrix*) 

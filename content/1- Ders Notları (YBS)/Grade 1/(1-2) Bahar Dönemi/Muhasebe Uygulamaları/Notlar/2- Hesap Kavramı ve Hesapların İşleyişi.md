@@ -4,11 +4,10 @@ tags:
   - kapsayici_muh
   - coz
 Kavramlar: "```dataview\rLIST from outgoing([[2- Hesap Kavramı ve Hesapların İşleyişi]])\r```"
-Başlık: null
+Başlık: 
 Dönem: II. Dönem
 Hafta: II. Hafta
 Konu: II. Hafta
-created: '2025-08-31'
 ---
 
 ## [[Bilanço Eşitliği (Muhasebenin Temel Denkliği)]]

@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - **ATATÜRK DÖNEMİ DIŞ POLİTİKASI: 1923-1930 DÖNEMİ TÜRK DIŞ POLİTİKASI**
     - **Atatürk Dönemi Dış Politikasının Esasları**
         - **Misâk-ı Milli’yi gerçekleştirmek, Milli Dış Siyaset, Gerçekçilik, Bağımsızlık, Barışçılık, Akılcılık**

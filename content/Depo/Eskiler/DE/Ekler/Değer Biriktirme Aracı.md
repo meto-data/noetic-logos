@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - Para, elde edilen değerin korunmasını ve gelecekte kullanılabilmesini sağlar.
 	-  Bir nesneyle birikim yapabilme ve bu birikimleri gelecekte kullanabilmek de denilebilir
 		- Bir nesnenin değer biriktirme aracı olabilmesi için zaman içerisinde değerini koruması gerekir.

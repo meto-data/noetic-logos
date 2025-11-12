@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - Tümüyle doğa temelli bir toplum.
 - Toplum, kolektif olarak gerçek tanrısallığın peşinde koşar.
 - Eğitim kurumları/merkezlerine yer yoktur. Ancak buna çözüm olarak ne sunduğu Zenon'un metinleri elimize ulaşmadığı için bilemiyoruz.

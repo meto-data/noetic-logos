@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 ###### $\text{ROP} = d \times L$ <br> $\space \space (\text{d = temin süresindeki talep,} \space \text{  L = temin süresi})$
 
 - Stok yenileme ihtiyacını belirlemek için kullanılan stok seviyesidir. Stok yeniden sipariş noktasına ulaştığında, satıcı ikmal için tedarikçiye yeni satın alma siparişleri verebilir

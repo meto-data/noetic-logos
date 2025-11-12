@@ -1,6 +1,3 @@
----
-created: '2025-10-03'
----
 ## 1-**[[Tümevarım İspat|Tümevarım Yöntemi]]**
 
 ## 2-**[[Tümdengelim|Tümdengelim Yöntemi]]**

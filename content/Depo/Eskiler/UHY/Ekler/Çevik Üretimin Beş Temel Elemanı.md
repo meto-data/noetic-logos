@@ -5,7 +5,6 @@ tags:
   - uretimbaslik
 Kavramlar: "```dataview\rLIST from outgoing([[Çevik Üretimin Beş Temel Elemanı]])\r```"
 Konu: Üretim Yönetiminde Çağdaş Yaklaşımlar
-created: '2025-08-31'
 ---
 
 #### 1- **[[Modüler Ürün Tasarımı]]**

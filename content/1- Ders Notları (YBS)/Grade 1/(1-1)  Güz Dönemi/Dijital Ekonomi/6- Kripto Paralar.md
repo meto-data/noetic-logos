@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 ## [[Paranın Fonksiyonları]]
 ### 1- [[Değişim Aracı]] (Medium of Exchange)
 - Para, değiş-tokuşta kullanılan bir nesnedir.
