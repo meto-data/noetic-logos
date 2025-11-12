@@ -15,6 +15,10 @@
   const excludeQuantitative = config.excludeQuantitativeFromAnalysis !== false;
 
   let quiz = defaultQuizState();
+  const keyboardState = {
+    pending: null,
+    listenerReady: false
+  };
 
   function normalizeQuestion(rawQuestion, index) {
     const question = rawQuestion || {};
@@ -248,10 +252,11 @@
     const question = moduleQuestions[questionIndex];
     const container = document.getElementById("quizQuestionContainer");
     if (!question || !container) return;
-    
+
     const optionOrder = quiz.optionOrder[questionIndex];
     const selectedLabel = quiz.answers[questionIndex];
     const questionBodyHtml = formatQuestionBody(question.text);
+    keyboardState.pending = null;
 
     container.innerHTML = `
             <div class="quiz-question">
@@ -265,7 +270,7 @@
                     const option = question.options.find(opt => opt.label === label);
                     const id = `q${question.number}_${option.label}`;
                     return `
-                        <label for="${id}" data-label="${option.label}">
+                        <label for="${id}" data-label="${option.label}" data-question-index="${questionIndex}">
                             <input type="radio" id="${id}" name="q_${questionIndex}" value="${option.label}" ${selectedLabel === option.label ? "checked" : ""}>
                             <span><strong>${option.label})</strong> ${option.text}</span>
                         </label>`;
@@ -278,13 +283,18 @@
 
     if (selectedLabel) showAnswerFeedback(questionIndex, selectedLabel);
     else updateQuizFeedback(null);
-    
+
     applyOptionStyling(questionIndex);
     startActiveQuestionTimer(true, questionIndex, orderIndex);
   }
 
   function handleAnswerSelection(questionIndex, orderIndex, selectedLabel) {
     quiz.answers[questionIndex] = selectedLabel;
+    keyboardState.pending = null;
+    const input = document.querySelector(`#quizQuestionContainer [name="q_${questionIndex}"][value="${selectedLabel}"]`);
+    if (input instanceof HTMLInputElement) {
+      input.checked = true;
+    }
     const isCorrect = moduleQuestions[questionIndex].correctLabel === selectedLabel;
     updateIncorrectQuestion(questionIndex, !isCorrect);
     saveState();
@@ -326,13 +336,23 @@
 
   function applyOptionStyling(questionIndex) {
     const question = moduleQuestions[questionIndex];
+    if (!question) return;
     const selected = quiz.answers[questionIndex];
-    if (!question || !selected) return;
+    const pendingLabel = keyboardState.pending && keyboardState.pending.questionIndex === questionIndex
+      ? keyboardState.pending.label
+      : null;
+
     document.querySelectorAll(`#quizQuestionContainer [name="q_${questionIndex}"]`).forEach(input => {
       const label = input.closest('label');
-      label.classList.remove("option-correct", "option-incorrect");
-      if (input.value === question.correctLabel) label.classList.add("option-correct");
-      else if (input.value === selected) label.classList.add("option-incorrect");
+      if (!label) return;
+      label.classList.remove("option-correct", "option-incorrect", "option-pending");
+      if (selected) {
+        if (input.value === question.correctLabel) label.classList.add("option-correct");
+        else if (input.value === selected) label.classList.add("option-incorrect");
+      }
+      if (pendingLabel && input.value === pendingLabel) {
+        label.classList.add("option-pending");
+      }
     });
   }
 
@@ -346,10 +366,101 @@
   function navigateQuestion(newIndex) {
     finalizeActiveQuestionTime();
     if (newIndex < 0 || newIndex >= moduleQuestions.length) return;
+    keyboardState.pending = null;
     quiz.currentQuestionIndex = newIndex;
     saveState();
     renderQuestion(newIndex);
     updateQuizNavigation();
+  }
+
+  function setPendingSelection(questionIndex, label) {
+    if (!label || typeof questionIndex !== "number") return;
+    keyboardState.pending = { questionIndex, label };
+    applyOptionStyling(questionIndex);
+  }
+
+  function clearPendingSelection(questionIndex) {
+    if (keyboardState.pending && keyboardState.pending.questionIndex === questionIndex) {
+      keyboardState.pending = null;
+      applyOptionStyling(questionIndex);
+    } else if (!keyboardState.pending) {
+      applyOptionStyling(questionIndex);
+    }
+  }
+
+  function commitPendingSelection() {
+    if (!keyboardState.pending) return;
+    const { questionIndex, label } = keyboardState.pending;
+    const orderIndex = quiz.currentQuestionIndex;
+    handleAnswerSelection(questionIndex, orderIndex, label);
+    keyboardState.pending = null;
+    applyOptionStyling(questionIndex);
+  }
+
+  function getActiveQuestionIndices() {
+    const orderIndex = quiz.currentQuestionIndex;
+    const questionIndex = quiz.order[orderIndex];
+    return { orderIndex, questionIndex };
+  }
+
+  function handleDigitKey(key) {
+    const digit = Number.parseInt(key, 10);
+    if (!Number.isFinite(digit)) return;
+    const { questionIndex } = getActiveQuestionIndices();
+    const optionOrder = quiz.optionOrder[questionIndex];
+    const optionIndex = digit - 1;
+    if (optionIndex < 0 || optionIndex >= optionOrder.length) return;
+    setPendingSelection(questionIndex, optionOrder[optionIndex]);
+  }
+
+  function setupKeyboardShortcuts() {
+    if (keyboardState.listenerReady) return;
+    keyboardState.listenerReady = true;
+
+    document.addEventListener("keydown", event => {
+      const quizSection = document.getElementById("module-quiz");
+      if (!quizSection?.classList.contains("active")) return;
+
+      const target = event.target;
+      if (target && target.tagName) {
+        const tagName = target.tagName.toUpperCase();
+        if (["INPUT", "TEXTAREA", "SELECT"].includes(tagName)) return;
+        if (target.isContentEditable) return;
+      }
+
+      const { questionIndex } = getActiveQuestionIndices();
+
+      switch (event.key) {
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+          event.preventDefault();
+          handleDigitKey(event.key);
+          break;
+        case "Enter":
+          event.preventDefault();
+          commitPendingSelection();
+          break;
+        case "Escape":
+          event.preventDefault();
+          clearPendingSelection(questionIndex);
+          break;
+        case "ArrowLeft":
+        case "ArrowUp":
+          event.preventDefault();
+          navigateQuestion(Math.max(quiz.currentQuestionIndex - 1, 0));
+          break;
+        case "ArrowRight":
+        case "ArrowDown":
+          event.preventDefault();
+          navigateQuestion(Math.min(quiz.currentQuestionIndex + 1, moduleQuestions.length - 1));
+          break;
+        default:
+          break;
+      }
+    });
   }
   
   function formatDuration(ms) {
@@ -472,6 +583,7 @@
     setupNavigation();
     renderModuleOverview();
     initControls();
+    setupKeyboardShortcuts();
     renderQuestion(quiz.currentQuestionIndex);
     updateQuizNavigation();
     updateScoreBoard();

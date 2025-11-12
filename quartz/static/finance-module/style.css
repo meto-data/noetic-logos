@@ -248,6 +248,10 @@ h2 {
 
 .correct-choice, .option-correct { background: var(--success-bg) !important; color: var(--success-text) !important; border-color: #b7dfc2 !important; }
 .incorrect-choice, .option-incorrect { background: var(--error-bg) !important; color: var(--error-text) !important; border-color: #f1b7bd !important; }
+.option-pending {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
 
 .quiz-navigation, .quiz-actions {
     display: flex;
