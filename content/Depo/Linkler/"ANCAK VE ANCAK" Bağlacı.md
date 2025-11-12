@@ -1,5 +1,5 @@
 ---
-created: '2025-11-11'
+created: '2025-11-12'
 ---
 ##### $\iff \space \text{ veya} \leftrightarrow  \text{sembolü ile gösterilir.}$
 #### $\text{Çift yönlü koşullu olasılık (Biconditional)}$

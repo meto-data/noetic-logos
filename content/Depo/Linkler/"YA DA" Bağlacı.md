@@ -1,5 +1,5 @@
 ---
-created: '2025-11-11'
+created: '2025-11-12'
 ---
 #### $\oplus \text{  veya } \veebar \text{ sembolleriyle gösterilir.}$
 ##### $p \oplus q \equiv \text{p ya da q şeklinde okunur.}$

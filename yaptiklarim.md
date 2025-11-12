@@ -33,7 +33,7 @@ quartz/
     │   ├── index.html
     │   ├── style.css
     │   └── app.js
-    └── finance-module/
+    ├── finance-module/
         ├── index.html
         ├── finansal_yonetim_module.html
         ├── finansal_yonetim_data.js
@@ -41,6 +41,10 @@ quartz/
         ├── paranin_zaman_degeri_data.js
         ├── module_engine.js
         └── style.css
+    └── oop1-module/
+        ├── index.html
+        ├── style.css
+        └── app.js
 ```
 
 ### 2. Arama Sistemine Gizli Komut Entegrasyonu
@@ -54,6 +58,7 @@ quartz/
 const secretCommands: Record<string, string> = {
   logos: "/static/logos-module/index.html",
   finance: "/static/finance-module/index.html",
+  oop1: "/static/oop1-module/index.html",
 }
 ```
 
@@ -123,7 +128,20 @@ async function onType(e: HTMLElementEventMap["input"]) {
 - `module_engine.js`, modüler veri modeli ve localStorage tabanlı ilerleme takibini kapsıyor; yeniden kullanılabilir yapı sayesinde yeni modüller sadece veri dosyası eklenerek genişletilebiliyor.
 - Tüm dosyalar default olarak TR dilinde içerik sağlıyor ve stil dosyası hem hub hem alt modüller tarafından paylaşılıyor.
 
-### 4. Güvenlik ve Yedekleme
+### 4. OOP1 Modülünün Entegrasyonu
+
+**Kaynak:** `/home/logos/noetic-papers/OOP`
+
+**İş Adımları:**
+- Tek sayfalık modül (`index.html`) ve bağlı varlıklar (`style.css`, `app.js`) `quartz/static/oop1-module/` altına kopyalandı.
+- Modül doğrudan SPA dışı çalıştığı için ek routing gerekmedi; gizli komut yönlendirmesi `/static/oop1-module/index.html`'e yapılacak şekilde tanımlandı.
+- Stil ve script dosyaları aynı klasör içerisinde tutuldu, böylece Cloudflare build çıktısında `/static/oop1-module/` altında erişilebilir oldular.
+
+**Öne Çıkan Özellikler:**
+- Tüm OOP notları ve etkileşimli içerikler tek sayfada sunuluyor.
+- `app.js`, ders içerisindeki bölümleri filtreleyerek hızlı gezinmeyi sağlıyor (orijinal yapısı korunarak taşındı).
+
+### 5. Güvenlik ve Yedekleme
 
 **Yedek Dosya:** `YEDEK/search.inline.ts.20251110`
 - Orijinal `search.inline.ts` dosyasının timestamp'li bir kopyası oluşturuldu
@@ -155,6 +173,8 @@ async function onType(e: HTMLElementEventMap["input"]) {
        │   └── app.js
        └── finance-module/
            ├── index.html
+           ├── finansal_analiz_module.html
+           ├── finansal_analiz_data.js
            ├── finansal_yonetim_module.html
            ├── finansal_yonetim_data.js
            ├── paranin_zaman_degeri_module.html
@@ -168,8 +188,10 @@ async function onType(e: HTMLElementEventMap["input"]) {
 **Canlı Site:**
 - Ana site: `https://noetic-logos.pages.dev/`
 - Gizli modül (logos): `https://noetic-logos.pages.dev/static/logos-module/index.html`
-- Gizli modül (finance): `https://noetic-logos.pages.dev/static/finance-module/index.html`
-- Arama komutları: `Ctrl/Cmd + K` → `logos` **veya** `finance` yaz → Enter
+- Finans hub: `https://noetic-logos.pages.dev/static/finance-module/index.html`
+- Finansal Analiz modülü: `https://noetic-logos.pages.dev/static/finance-module/finansal_analiz_module.html`
+- Gizli modül (oop1): `https://noetic-logos.pages.dev/static/oop1-module/index.html`
+- Arama komutları: `Ctrl/Cmd + K` → `logos` / `finance` / `oop1` yaz → Enter (finance komutu hub'a yönlendirir; hub üzerinden üç modül listelenir)
 
 **Lokal Test:**
 ```bash
@@ -177,6 +199,8 @@ npx quartz build --serve
 # Tarayıcı: http://localhost:8080
 # Arama (logos): http://localhost:8080/static/logos-module/index.html
 # Arama (finance): http://localhost:8080/static/finance-module/index.html
+# Modül (Finansal Analiz): http://localhost:8080/static/finance-module/finansal_analiz_module.html
+# Arama (oop1): http://localhost:8080/static/oop1-module/index.html
 ```
 
 ## Test Senaryoları
@@ -216,6 +240,8 @@ npx quartz build --serve
 - `quartz/static/logos-module/app.js`
 - `YEDEK/search.inline.ts.20251110`
 - `quartz/static/finance-module/index.html`
+- `quartz/static/finance-module/finansal_analiz_module.html`
+- `quartz/static/finance-module/finansal_analiz_data.js`
 - `quartz/static/finance-module/style.css`
 - `quartz/static/finance-module/module_engine.js`
 - `quartz/static/finance-module/finansal_yonetim_module.html`
