@@ -84,8 +84,8 @@
       currentQuestionIndex: 0,
       answers: new Array(length).fill(null),
       completed: false,
-      order: shuffleArray(Array.from({ length }, (_, idx) => idx)),
-      optionOrder: moduleQuestions.map(question => shuffleArray(question.options.map(option => option.label))),
+      order: createSequentialOrder(length),
+      optionOrder: moduleQuestions.map(question => question.options.map(option => option.label)),
       questionTimes: new Array(length).fill(0),
       longQuestionIndices: [],
       incorrectQuestionIndices: [],
@@ -104,6 +104,18 @@
     return array;
   }
 
+  function createSequentialOrder(length) {
+    return Array.from({ length }, (_, idx) => idx);
+  }
+
+  function isSequentialOrder(order) {
+    if (!Array.isArray(order)) return false;
+    for (let i = 0; i < order.length; i += 1) {
+      if (order[i] !== i) return false;
+    }
+    return true;
+  }
+
   function isValidOrder(order, length) {
     if (!Array.isArray(order) || order.length !== length) return false;
     const seen = new Set();
@@ -117,9 +129,9 @@
   function normalizeOptionOrder(order, questionIndex) {
     const question = moduleQuestions[questionIndex];
     const labels = question.options.map(option => option.label);
-    if (!Array.isArray(order) || order.length !== labels.length) return shuffleArray(labels);
+    if (!Array.isArray(order) || order.length !== labels.length) return labels;
     const unique = new Set(order);
-    if (unique.size !== labels.length || !labels.every(label => unique.has(label))) return shuffleArray(labels);
+    if (unique.size !== labels.length || !labels.every(label => unique.has(label))) return labels;
     return order.slice();
   }
 
@@ -133,8 +145,12 @@
     const length = moduleQuestions.length;
     if (!quiz.answers || quiz.answers.length !== length) quiz.answers = new Array(length).fill(null);
     if (!quiz.questionTimes || quiz.questionTimes.length !== length) quiz.questionTimes = new Array(length).fill(0);
-    if (!isValidOrder(quiz.order, length)) quiz.order = shuffleArray(Array.from({ length }, (_, idx) => idx));
-    if (!quiz.optionOrder || quiz.optionOrder.length !== length) quiz.optionOrder = moduleQuestions.map(q => shuffleArray(q.options.map(opt => opt.label)));
+
+    if (!isValidOrder(quiz.order, length) || !isSequentialOrder(quiz.order)) {
+      quiz.order = createSequentialOrder(length);
+    }
+
+    if (!quiz.optionOrder || quiz.optionOrder.length !== length) quiz.optionOrder = moduleQuestions.map(q => q.options.map(opt => opt.label));
     else quiz.optionOrder = quiz.optionOrder.map((order, idx) => normalizeOptionOrder(order, idx));
     quiz.longQuestionIndices = normalizeIndexList(quiz.longQuestionIndices);
     quiz.incorrectQuestionIndices = normalizeIndexList(quiz.incorrectQuestionIndices);
