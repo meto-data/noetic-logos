@@ -182,7 +182,7 @@ $$
 
 $$
 \large
-\frac{\text{Dönem sonu ticari mallar (stok) + Dönem başı ticari mallar} (stok)}{2}
+OrtalamaStok = \frac{\text{Dönem sonu ticari mallar (stok) + Dönem başı ticari mallar} (stok)}{2}
 $$
 
 
