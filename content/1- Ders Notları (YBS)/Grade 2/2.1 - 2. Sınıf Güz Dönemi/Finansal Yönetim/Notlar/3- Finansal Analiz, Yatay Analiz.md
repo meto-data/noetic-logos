@@ -7,7 +7,6 @@ cssclasses:
   - ders-notu
 created: 15.10.2025
 ---
-
 - **Not**: Finans dersinden nispeten bıktığım için bazı notlar akademik düzeyden sapıyor. İdare ediverin.
 	- Notlar henüz yarımdır. Haftaya göre değil konuya göre alınmaktadır notlar.
 
@@ -25,7 +24,7 @@ created: 15.10.2025
 
 
 - Bkz. [[Muhasebenin Beş İşlevi]]
-- Muhasebe bir bilgi sistemi. Bu sistem ne yapar? E bilgi sistemi olduğundan firmada olup biten para hareketlerini (malî olaylar) alıp anlamlı bir şeye dönüştürür. Bu süreç de şöyle işler:
+- Muhasebe bir bilgi sistemi. Bu sistem ne yapar? E bilgi sistemi olduğundan firmada olup biten para hareketlerini (mâlî olaylar) alıp anlamlı bir şeye dönüştürür. Bu süreç de şöyle işler:
 	1. **[[Saptamak]]**: "Mal aldım", "para ödedim" demek yeterli değil. **Elde belge olmalı**; faturadır, makbuzdur, dekonttur vs. Olayı **somut** olarak tespit edebilmek gerekli. Belgesi olmayan şeyin muhasebe yeri yoktur.
 	2. **[[Kaydetmek]]**: Saptanılan belgeler alınıp sırayla, günü gününe bir deftere ([[Kaydetmek (Yevmiye Defteri)|Yevmiye Defteri]]) yazılır.
 	3. **[[Sınıflandırmak]]**: Yazılan binlerce kayıt ayıklanır, "kasayla ilgili olanlar buraya", "borçlar şuraya", "satışlar buraya" şeklinde hesaplara dağıtılır. Buna da **[[Sınıflandırmak (Defter-i Kebir)|defter-i kebir]]** derler.
