@@ -25,7 +25,11 @@
     const normalized = {
       number: Number.isFinite(question.number) ? question.number : index + 1,
       text: String(question.text || ""),
-      options: Array.isArray(question.options) ? question.options.map((option, optionIndex) => normalizeOption(option, optionIndex)) : [],
+      options: Array.isArray(question.options)
+        ? question.options
+            .map((option, optionIndex) => normalizeOption(option, optionIndex))
+            .sort((a, b) => a.label.localeCompare(b.label, "tr", { sensitivity: "base", numeric: true }))
+        : [],
       correctLabel: question.correctLabel ? String(question.correctLabel).trim() : null,
       isQuantitative: Boolean(question.isQuantitative)
     };
@@ -38,6 +42,9 @@
       console.warn(`Soru ${normalized.number} için doğru şık bulunamadı. İlk seçenek doğru olarak işaretlendi.`);
       normalized.correctLabel = normalized.options[0].label;
     }
+    if (normalized.correctLabel) {
+      normalized.correctLabel = normalized.correctLabel.toUpperCase();
+    }
 
     return normalized;
   }
@@ -47,7 +54,7 @@
       return { label: String.fromCharCode(65 + index), text: "Seçenek tanımsız" };
     }
     return {
-      label: option.label ? String(option.label).trim() : String.fromCharCode(65 + index),
+      label: option.label ? String(option.label).trim().toUpperCase() : String.fromCharCode(65 + index),
       text: option.text ? String(option.text) : "Seçenek"
     };
   }
@@ -168,6 +175,11 @@
       console.warn("Could not load state.", e);
     }
     normalizeState();
+    quiz.currentQuestionIndex = 0;
+    quiz.activeQuestionGlobalIndex = null;
+    quiz.activeOrderIndex = null;
+    quiz.activeQuestionStart = null;
+    saveState();
     recalculateLongQuestions(true);
   }
   
@@ -558,12 +570,23 @@
     return { total, answeredCount, correctCount, accuracy: total > 0 ? (correctCount / total * 100).toFixed(0) : 0 };
   }
 
+  function updateProgressBar(scores) {
+    const { total, answeredCount } = scores ?? getScores();
+    const percent = total ? Math.round((answeredCount / total) * 100) : 0;
+    const fill = document.getElementById("quizProgressFill");
+    const label = document.getElementById("quizProgressLabel");
+    if (fill) fill.style.width = `${percent}%`;
+    if (label) label.textContent = `${percent}% tamamlandı (${answeredCount}/${total})`;
+  }
+
   function updateScoreBoard() {
-    const { correctCount, total, answeredCount, accuracy } = getScores();
+    const scores = getScores();
+    const { correctCount, total, answeredCount, accuracy } = scores;
     document.getElementById("moduleCorrect").textContent = correctCount;
     document.getElementById("moduleTotal").textContent = total;
     document.getElementById("moduleAnswered").textContent = answeredCount;
     document.getElementById("moduleAccuracy").textContent = `${accuracy}%`;
+    updateProgressBar(scores);
   }
 
   function resetQuiz(isFullReset = false) {
