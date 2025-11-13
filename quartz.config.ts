@@ -1,6 +1,24 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 
+const folderSortCollator = new Intl.Collator("tr", {
+  numeric: true,
+  sensitivity: "base",
+})
+
+const getSortableTitle = (file: { frontmatter?: { title?: string }; slug?: string }) =>
+  (file.frontmatter?.title ?? file.slug ?? "").toString()
+
+const cloudflareBeaconToken = process.env.CLOUDFLARE_BEACON_TOKEN?.trim()
+const analyticsConfig =
+  cloudflareBeaconToken && cloudflareBeaconToken.length > 0
+    ? ({
+        provider: "cloudflare",
+        beaconToken: cloudflareBeaconToken,
+        spaMode: true,
+      } as const)
+    : null
+
 /**
  * Quartz 4 Configuration
  *
@@ -164,10 +182,7 @@ const config: QuartzConfig = {
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
-    analytics: {
-      provider: 'google',
-      tagId: 'G-W727BKLZVN',
-    },
+    analytics: analyticsConfig,
     locale: "tr-TR",
     baseUrl: "https://noetic-logos.pages.dev",
     ignorePatterns: ["private", "templates", ".obsidian"],
@@ -191,7 +206,7 @@ const config: QuartzConfig = {
     transformers: [
       Plugin.FrontMatter(),
       Plugin.CreatedModifiedDate({
-        priority: ["frontmatter", "filesystem"],
+        priority: ["frontmatter", "git", "filesystem"],
       }),
       Plugin.Latex({ renderEngine: "katex" }),
       Plugin.SyntaxHighlighting({
@@ -212,7 +227,9 @@ const config: QuartzConfig = {
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
       Plugin.ContentPage(),
-      Plugin.FolderPage(),
+      Plugin.FolderPage({
+        sort: (f1, f2) => folderSortCollator.compare(getSortableTitle(f1), getSortableTitle(f2)),
+      }),
       Plugin.TagPage(),
       Plugin.ContentIndex({
         enableSiteMap: true,

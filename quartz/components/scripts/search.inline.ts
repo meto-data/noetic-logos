@@ -164,8 +164,11 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
   const searchLayout = searchElement.querySelector(".search-layout") as HTMLElement
   if (!searchLayout) return
 
-  const secretCommand = "logos"
-  const secretModulePath = "/static/logos-module/index.html"
+  const secretCommands: Record<string, string> = {
+    logos: "/static/logos-module/index.html",
+    finance: "/static/finance-module/index.html",
+    oop1: "/static/oop1-module/index.html",
+  }
 
   const idDataMap = Object.keys(data) as FullSlug[]
   const appendLayout = (el: HTMLElement) => {
@@ -205,9 +208,9 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     searchBar.focus()
   }
 
-  function redirectToSecretModule() {
+  function redirectToSecretModule(targetPath: string) {
     hideSearch()
-    const targetUrl = new URL(secretModulePath, window.location.origin)
+    const targetUrl = new URL(targetPath, window.location.origin)
     window.location.assign(targetUrl.toString())
   }
 
@@ -410,8 +413,9 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     if (!searchLayout || !index) return
     currentSearchTerm = (e.target as HTMLInputElement).value
     const normalizedTerm = currentSearchTerm.trim().toLowerCase()
-    if (normalizedTerm === secretCommand) {
-      redirectToSecretModule()
+    const targetPath = secretCommands[normalizedTerm]
+    if (targetPath) {
+      redirectToSecretModule(targetPath)
       return
     }
     searchLayout.classList.toggle("display-results", currentSearchTerm !== "")
