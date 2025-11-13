@@ -99,7 +99,8 @@
     const contextSegments = [];
     const contextRegex = /<(pre|table)([\s\S]*?)<\/\1>/gi;
     remaining = remaining.replace(contextRegex, match => {
-      contextSegments.push(match.trim());
+      const cleaned = sanitizeContextSegment(match.trim());
+      if (cleaned) contextSegments.push(cleaned);
       return "";
     });
 
@@ -114,6 +115,47 @@
       body: remaining.trim(),
       context: contextHtml
     };
+  }
+
+  function sanitizeContextSegment(segment) {
+    if (!segment) return "";
+    let cleaned = segment;
+    if (/<table/i.test(cleaned)) cleaned = stripOptionRowsFromTable(cleaned);
+    if (/<pre/i.test(cleaned)) cleaned = stripOptionLinesFromPre(cleaned);
+    const plain = stripHtmlTags(cleaned).trim();
+    if (!plain) return "";
+    return cleaned;
+  }
+
+  function stripOptionRowsFromTable(html) {
+    return html.replace(/<table([\s\S]*?)<\/table>/gi, tableMatch => {
+      let working = tableMatch;
+      working = working.replace(/<tr\b[^>]*>[\s\S]*?<\/tr>/gi, row => {
+        const text = stripHtmlTags(row).trim();
+        if (/^[A-E][\)\.]/i.test(text)) return "";
+        return row;
+      });
+      working = working.replace(/<tbody>\s*<\/tbody>/gi, "");
+      working = working.replace(/<thead>\s*<\/thead>/gi, "");
+      if (!/<td\b/i.test(working)) return "";
+      if (!stripHtmlTags(working).trim()) return "";
+      return working;
+    });
+  }
+
+  function stripOptionLinesFromPre(html) {
+    return html.replace(/<pre([^>]*)>([\s\S]*?)<\/pre>/gi, (match, attrs = "", body = "") => {
+      const filtered = body
+        .split("\n")
+        .filter(line => !/^[\s]*[A-E][\)\.]/i.test(line.trim()))
+        .join("\n");
+      if (!filtered.trim()) return "";
+      return `<pre${attrs}>${filtered}</pre>`;
+    });
+  }
+
+  function stripHtmlTags(html) {
+    return String(html || "").replace(/<\/?[^>]+>/g, " ").replace(/\s+/g, " ");
   }
 
   function defaultQuizState() {

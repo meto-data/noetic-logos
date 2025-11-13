@@ -259,42 +259,6 @@ const moduleQuestions = [
   },
   {
     number: 22,
-    text: "Cari oranı 1 olan işletme için doğru olan ifadeler aşağıdakilerden hangisinde birlikte verilmiştir?\n\ni - Duran varlıklarının tamamı devamlı sermaye ile finanse edilebilmektedir.<br>\nii - Net çalışma sermayesi sıfırdır.<br>\niii - Hazır değerler oranı düşüktür.<br>\niv - Çalışma sermayesi, kısa vadeli borçlarından düşüktür.<br>\nv – Dönen varlıkları, kısa vadeli yabancı kaynaklarını eşittir.",
-    options: [
-      { label: 'A', text: "i- ii - v" },
-      { label: 'B', text: "ii-v" },
-      { label: 'C', text: "ii – iii - v" },
-      { label: 'D', text: "iv – v" },
-      { label: 'E', text: "ii – iii" }
-    ],
-    correctLabel: 'A'
-  },
-  {
-    number: 23,
-    text: "Bir işletmenin cari oranı ve asit test oranı birbirine eşit ise aşağıdaki ifadeler hangisi doğrudur?",
-    options: [
-      { label: 'A', text: "Likiditesi düşüktür." },
-      { label: 'B', text: "Likiditesi yüksektir." },
-      { label: 'C', text: "Stok mevcudu sıfırdır." },
-      { label: 'D', text: "Net çalışma sermayesi yeterlidir." },
-      { label: 'E', text: "Net çalışma sermayesi noksanı vardır." }
-    ],
-    correctLabel: 'C'
-  },
-  {
-    number: 24,
-    text: "Bir işletmenin asit-test oranı ve nakit oranı birbirine eşit ise aşağıdaki ifadelerden hangisi doğrudur?",
-    options: [
-      { label: 'A', text: "Ticari alacak mevcudu sıfırdır." },
-      { label: 'B', text: "Stok mevcudu sıfırdır." },
-      { label: 'C', text: "Likiditesi düşüktür." },
-      { label: 'D', text: "Net çalışma sermayesi noksanı vardır." },
-      { label: 'E', text: "Kısa vadeli yabancı kaynakları yüksektir." }
-    ],
-    correctLabel: 'A'
-  },
-  {
-    number: 25,
     text: "Nakit oran, likidite oranı ve cari oranın işletmeler açısından sırasıyla genel olarak hangi seviyede olması gerekir?",
     options: [
       { label: 'A', text: "0,2 – 2 – 2" },
@@ -306,7 +270,7 @@ const moduleQuestions = [
     correctLabel: 'E'
   },
   {
-    number: 26,
+    number: 23,
     text: "İşletmenin Çalışma Sermayesi yeterli ise Cari Oran için aşağıdakilerden hangisi doğrudur?",
     options: [
       { label: 'A', text: "Cari Oran 1' e eşittir." },
@@ -318,7 +282,7 @@ const moduleQuestions = [
     correctLabel: 'E'
   },
   {
-    number: 27,
+    number: 24,
     text: "Stok bağımlılık oranının hesaplanabilmesi için aşağıdakilerden hangilerine gerek yoktur?\n\ni. Kısa vadeli Borçlar<br>\nii. Stoklar<br>\niii. Hazır değerler<br>\niv. Menkul kıymetler<br>\nv. Dönen varlıklar<br>\nvi. Alacaklar",
     options: [
       { label: 'A', text: "i – v" },
@@ -330,7 +294,7 @@ const moduleQuestions = [
     correctLabel: 'B'
   },
   {
-    number: 28,
+    number: 25,
     text: "Stok bağımlılık oranı yüksek olan bir işletme aşağıdakilerden hangisini yapmamalıdır?\n\ni. Pazarlama etkinliğini artırmalıdır.<br>\nii. Satışlarını artırmalıdır.<br>\niii. Stok alımlarını artırmalıdır.<br>\niv. Stok devir hızını artırmalıdır.<br>\nv. Kâr marjını artırmalıdır.<br>\nvi. Stok alımlarını peşin yapmalıdır.",
     options: [
       { label: 'A', text: "iii – v – vi" },
@@ -342,7 +306,7 @@ const moduleQuestions = [
     correctLabel: 'A'
   },
   {
-    number: 29,
+    number: 26,
     text: "Hangi oranın 1'den düşük olması durumunda stok bağımlılık oranının hesaplanması gerekir?",
     options: [
       { label: 'A', text: "Cari oran" },
@@ -354,7 +318,7 @@ const moduleQuestions = [
     correctLabel: 'B'
   },
   {
-    number: 30,
+    number: 27,
     text: "Aşağıdaki bilanço kalemleri verilmiş olan işletmenin likidite oranları aşağıdakilerden hangisinde doğru olarak verilmiştir?\n\n<pre class=\"question-pre\">\nDönen Varlıklar   : 5000\nKVYK              : 4000\nStoklar           : 2000\nHazır Değerler    : 400\nMenkul Kıymetler  : 600\nAlacaklar         : 2000\nDuran Varlıklar   : 3000\nÖzkaynaklar       : 3000\n</pre>\n<table class=\"question-table\">\n  <thead>\n    <tr>\n      <th></th>\n      <th>Nakit Oran</th>\n      <th>Likidite Oranı</th>\n      <th>Cari Oran</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>A)</td>\n      <td>0,20</td>\n      <td>1,00</td>\n      <td>1,50</td>\n    </tr>\n    <tr>\n      <td>B)</td>\n      <td>0,25</td>\n      <td>0,90</td>\n      <td>2,00</td>\n    </tr>\n    <tr>\n      <td>C)</td>\n      <td>0,25</td>\n      <td>0,75</td>\n      <td>1,25</td>\n    </tr>\n    <tr>\n      <td>D)</td>\n      <td>0,40</td>\n      <td>0,75</td>\n      <td>1,75</td>\n    </tr>\n    <tr>\n      <td>E)</td>\n      <td>0,20</td>\n      <td>1,00</td>\n      <td>1,25</td>\n    </tr>\n  </tbody>\n</table>\n<br>",
     options: [
       { label: 'A', text: "0,20 | 1,00 | 1,50" },
