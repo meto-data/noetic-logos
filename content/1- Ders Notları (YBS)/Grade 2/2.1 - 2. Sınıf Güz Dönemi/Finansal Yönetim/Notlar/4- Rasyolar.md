@@ -7,7 +7,7 @@ cssclasses:
   - ders-notu
 created: 12.11.2025
 ---
- **İşletmenin kredili (veresiye) net satışlarının, ortalama ticarî alacaklarına oranıdır **.
+ **İşletmenin kredili (veresiye) net satışlarının, ortalama ticarî alacaklarına oranıdır**.
  
 ## Kısa Anımsatma
 - **Dönen varlıklar (cari aktif)** genel olarak **kısa vadeli borçlarla (cari pasif)** finanse edilir. 
@@ -72,7 +72,7 @@ $$
 \boxed{\text{NİS} = \text{Dönen Varlıklar - Kısa Vadeli Borçlar}}
 $$
 
-- **İlişki**: Cari oran $> 1$ ise, net işletme sermayemiz pozitiftir. Cari oran $< 1$ ise, net işletme sermayesi noksanımız (negatif) vardır.
+- **İlişki**: Cari oran $>1$ ise, net işletme sermayemiz pozitiftir. Cari oran $< 1$ ise, net işletme sermayesi noksanımız (negatif) vardır.
 
 
 ### 1.2. **Asit-Test Oranı** (Çabuk Likidite Oranı | Quick Ratio/Acid-Test Ratio)
