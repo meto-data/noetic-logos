@@ -268,6 +268,10 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
       document.dispatchEvent(event)
     `)
   }
+<<<<<<< HEAD
+=======
+}
+>>>>>>> feat-finance-site-N59cy
 // This emitter should not update the `resources` parameter. If it does, partial
 // rebuilds may not work as expected.
 export const ComponentResources: QuartzEmitterPlugin = () => {
