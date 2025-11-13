@@ -1021,6 +1021,18 @@ const moduleQuestions = [
     ],
     correctLabel: 'C'
   },
+  {
+    number: 86,
+    text: "Bir işletmenin bilançosunun Aktif tarafı onun ekonomik yapısını gösterirken, Pasif tarafı neyi ifade eder?",
+    options: [
+      { label: 'A', text: "İşletmenin kârlılığını" },
+      { label: 'B', text: "İşletmenin finansal yapısını (gücünü)" },
+      { label: 'C', text: "İşletmenin satış hacmini" },
+      { label: 'D', text: "İşletmenin pazar payını" },
+      { label: 'E', text: "İşletmenin üretim kapasitesini" },
+    ],
+    correctLabel: 'B'
+  },
 ];
 
 const moduleMeta = {

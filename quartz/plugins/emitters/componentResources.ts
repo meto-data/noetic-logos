@@ -85,7 +85,22 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
     componentResources.css.push(popoverStyle)
   }
 
-  if (cfg.analytics?.provider === "google") {
+  if (cfg.analytics?.provider === "cloudflare") {
+    const beaconConfig: Record<string, unknown> = { token: cfg.analytics.beaconToken }
+    if (cfg.analytics.spaMode ?? cfg.enableSPA) {
+      beaconConfig.spa = true
+    }
+    const beaconConfigString = JSON.stringify(beaconConfig).replace(/'/g, "\\'")
+    componentResources.afterDOMLoaded.push(`
+      if (!document.querySelector('script[data-cf-beacon]')) {
+        const cfAnalyticsScript = document.createElement('script');
+        cfAnalyticsScript.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+        cfAnalyticsScript.defer = true;
+        cfAnalyticsScript.setAttribute('data-cf-beacon', '${beaconConfigString}');
+        document.head.appendChild(cfAnalyticsScript);
+      }
+    `)
+  } else if (cfg.analytics?.provider === "google") {
     const tagId = cfg.analytics.tagId
     componentResources.afterDOMLoaded.push(`
       const gtagScript = document.createElement('script');
@@ -253,8 +268,6 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
       document.dispatchEvent(event)
     `)
   }
-}
-
 // This emitter should not update the `resources` parameter. If it does, partial
 // rebuilds may not work as expected.
 export const ComponentResources: QuartzEmitterPlugin = () => {

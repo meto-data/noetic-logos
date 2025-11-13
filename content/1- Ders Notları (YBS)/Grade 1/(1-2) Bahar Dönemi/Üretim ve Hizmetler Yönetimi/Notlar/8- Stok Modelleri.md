@@ -66,13 +66,12 @@
 
 
 
-# Stok Yönetiminde Temel Performans Göstergeleri
+# [[Stok Yönetiminde Temel Performans Göstergeleri]]
 ###### Temel Performans Göstergeleri
 - Stok yönetiminni verimliliğini ölçmek amacıyla işletmelerin işlediği bazı göstergelerdir. Bu göstergeler performans konusunda görünürlük ve başarı düzeyini takip etmek için ölçüm değerleri sağlarlar.
 
 ### [[Stok Devir Hızı]]: Mal Ne Kadar Hızlı Kaçıyor?
-- Depodaki malların ne kadar hızla satılıp yerine yenisi geldiğini ölçer. Bir bakkalız diyelim, ekmeklerimiz bayatlamadan satılıyorsa, devir hızımız iyi demektir. Ama rafta iki haftalık küflü peynirlerimiz varsa -işte o zaman sıkıntımız büyük.
-- 
+- Depodaki malların ne kadar hızla satılıp yerine yenisi geldiğini ölçer. Bir bakkalız diyelim, ekmeklerimiz bayatlamadan satılıyorsa, devir hızımız iyi demektir. Ama rafta iki haftalık küflü peynirlerimiz varsa, işte o zaman sıkıntımız büyük.
 ### $$\boxed{\text{Stok Devir Hızı = }\frac{\text{Satılan ürünlerin toplam maliyeti}}{\frac{(\text{Dönem başı stok + Dönem sonu stok})}{2}}}$$
 
 

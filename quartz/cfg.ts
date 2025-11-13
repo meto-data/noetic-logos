@@ -15,6 +15,11 @@ export type Analytics =
       tagId: string
     }
   | {
+      provider: "cloudflare"
+      beaconToken: string
+      spaMode?: boolean
+    }
+  | {
       provider: "umami"
       websiteId: string
       host?: string

@@ -710,6 +710,150 @@ const moduleQuestions = [
     ],
     correctLabel: 'C',
     isQuantitative: true
+  },
+  {
+    number: 32,
+    text: "Aşağıdakilerden hangisi 'Cari Oran'ın doğru formülüdür?",
+    options: [
+      { label: 'A', text: "Dönen Varlıklar / Kısa Vadeli Borçlar" },
+      { label: 'B', text: "Kısa Vadeli Borçlar / Dönen Varlıklar" },
+      { label: 'C', text: "(Dönen Varlıklar - Stoklar) / Kısa Vadeli Borçlar" },
+      { label: 'D', text: "Dönen Varlıklar - Kısa Vadeli Borçlar" },
+      { label: 'E', text: "(Hazır Değerler + Menkul Kıymetler) / Kısa Vadeli Borçlar" }
+    ],
+    correctLabel: 'A'
+  },
+  {
+    number: 33,
+    text: "Aşağıdakilerden hangisi 'Asit-Test Oranı'nın (Likidite Oranı) doğru formülüdür?",
+    options: [
+      { label: 'A', text: "Dönen Varlıklar / Kısa Vadeli Borçlar" },
+      { label: 'B', text: "(Dönen Varlıklar - Stoklar) / Kısa Vadeli Borçlar" },
+      { label: 'C', text: "Kısa Vadeli Borçlar / (Dönen Varlıklar - Stoklar)" },
+      { label: 'D', text: "(Dönen Varlıklar + Stoklar) / Kısa Vadeli Borçlar" },
+      { label: 'E', text: "Hazır Değerler / Kısa Vadeli Borçlar" }
+    ],
+    correctLabel: 'B'
+  },
+  {
+    number: 34,
+    text: "Aşağıdakilerden hangisi 'Nakit Oranı'nın doğru formülüdür?",
+    options: [
+      { label: 'A', text: "Dönen Varlıklar / Kısa Vadeli Borçlar" },
+      { label: 'B', text: "(Dönen Varlıklar - Stoklar) / Kısa Vadeli Borçlar" },
+      { label: 'C', text: "(Hazır Değerler + Menkul Kıymetler) / Kısa Vadeli Borçlar" },
+      { label: 'D', text: "Hazır Değerler / Kısa Vadeli Borçlar" },
+      { label: 'E', text: "Kısa Vadeli Borçlar / (Hazır Değerler + Menkul Kıymetler)" }
+    ],
+    correctLabel: 'C'
+  },
+  {
+    number: 35,
+    text: "Aşağıdakilerden hangisi 'Net İşletme Sermayesi'nin doğru formülüdür?",
+    options: [
+      { label: 'A', text: "Dönen Varlıklar / Kısa Vadeli Borçlar" },
+      { label: 'B', text: "Uzun Vadeli Yabancı Kaynaklar + Öz Kaynaklar" },
+      { label: 'C', text: "Toplam Varlıklar - Toplam Borçlar" },
+      { label: 'D', text: "Dönen Varlıklar - Kısa Vadeli Borçlar" },
+      { label: 'E', text: "Kısa Vadeli Borçlar - Dönen Varlıklar" }
+    ],
+    correctLabel: 'D'
+  },
+  {
+    number: 36,
+    text: "Aşağıdakilerden hangisi 'Devamlı Sermaye'nin doğru formülüdür?",
+    options: [
+      { label: 'A', text: "Dönen Varlıklar + Duran Varlıklar" },
+      { label: 'B', text: "Kısa Vadeli Yabancı Kaynaklar + Öz Kaynaklar" },
+      { label: 'C', text: "Uzun Vadeli Yabancı Kaynaklar + Öz Kaynaklar" },
+      { label: 'D', text: "Toplam Varlıklar - Toplam Borçlar" },
+      { label: 'E', text: "Dönen Varlıklar - Kısa Vadeli Borçlar" }
+    ],
+    correctLabel: 'C'
+  },
+  {
+    number: 37,
+    text: "Aşağıdakilerden hangisi 'Stok Devir Hızı'nın doğru formülüdür?",
+    options: [
+      { label: 'A', text: "Net Satışlar / Ortalama Stok" },
+      { label: 'B', text: "Satışların Maliyeti / Ortalama Stok" },
+      { label: 'C', text: "Ortalama Stok / Satışların Maliyeti" },
+      { label: 'D', text: "360 / Ortalama Stokta Kalma Süresi" },
+      { label: 'E', text: "Net Satışlar / Stoklar" }
+    ],
+    correctLabel: 'B'
+  },
+  {
+    number: 38,
+    text: "Aşağıdakilerden hangisi 'Ortalama Stokta Kalma Süresi'nin doğru formülüdür?",
+    options: [
+      { label: 'A', text: "360 / Alacak Devir Hızı" },
+      { label: 'B', text: "Stok Devir Hızı / 360" },
+      { label: 'C', text: "360 / Stok Devir Hızı" },
+      { label: 'D', text: "Ortalama Stok / 360" },
+      { label: 'E', text: "Satışların Maliyeti / 360" }
+    ],
+    correctLabel: 'C'
+  },
+  {
+    number: 39,
+    text: "Aşağıdakilerden hangisi 'Alacak Devir Hızı'nın doğru formülüdür?",
+    options: [
+      { label: 'A', text: "Net Satışlar / Ortalama Ticari Alacaklar" },
+      { label: 'B', text: "Satışların Maliyeti / Ortalama Ticari Alacaklar" },
+      { label: 'C', text: "Ortalama Ticari Alacaklar / Net Satışlar" },
+      { label: 'D', text: "360 / Ortalama Tahsil Süresi" },
+      { label: 'E', text: "Net Satışlar / Ticari Alacaklar" }
+    ],
+    correctLabel: 'A'
+  },
+  {
+    number: 40,
+    text: "Aşağıdakilerden hangisi 'Ortalama Tahsil Süresi'nin doğru formülüdür?",
+    options: [
+      { label: 'A', text: "360 / Stok Devir Hızı" },
+      { label: 'B', text: "360 / Alacak Devir Hızı" },
+      { label: 'C', text: "Alacak Devir Hızı / 360" },
+      { label: 'D', text: "Ortalama Ticari Alacaklar / 360" },
+      { label: 'E', text: "Net Satışlar / 360" }
+    ],
+    correctLabel: 'B'
+  },
+  {
+    number: 41,
+    text: "Yatay analizde bir kalemdeki yüzdesel değişim nasıl hesaplanır?",
+    options: [
+      { label: 'A', text: "((Cari Dönem - Önceki Dönem) / Cari Dönem) * 100" },
+      { label: 'B', text: "(Cari Dönem / Önceki Dönem) * 100" },
+      { label: 'C', text: "((Cari Dönem - Önceki Dönem) / Önceki Dönem) * 100" },
+      { label: 'D', text: "(Önceki Dönem / Cari Dönem) * 100" },
+      { label: 'E', text: "Cari Dönem - Önceki Dönem" }
+    ],
+    correctLabel: 'C'
+  },
+  {
+    number: 42,
+    text: "Dikey analizde bir bilanço kaleminin ait olduğu grup içindeki payı nasıl hesaplanır?",
+    options: [
+      { label: 'A', text: "(İlgili Hesap / Genel Toplam) * 100" },
+      { label: 'B', text: "(Grup Toplamı / İlgili Hesap) * 100" },
+      { label: 'C', text: "(İlgili Hesap / Grup Toplamı) * 100" },
+      { label: 'D', text: "(İlgili Hesap / Net Satışlar) * 100" },
+      { label: 'E', text: "(Grup Toplamı / Genel Toplam) * 100" }
+    ],
+    correctLabel: 'C'
+  },
+  {
+    number: 43,
+    text: "Trend analizinde bir kalemin eğilim yüzdesi nasıl hesaplanır?",
+    options: [
+      { label: 'A', text: "((Cari Yıl - Baz Yıl) / Baz Yıl) * 100" },
+      { label: 'B', text: "(Cari Yıl / Önceki Yıl) * 100" },
+      { label: 'C', text: "(Baz Yıl / Cari Yıl) * 100" },
+      { label: 'D', text: "(Cari Yıl Tutarı / Baz Yıl Tutarı) * 100" },
+      { label: 'E', text: "(Cari Yıl - Önceki Yıl) * 100" }
+    ],
+    correctLabel: 'D'
   }
 ];
 

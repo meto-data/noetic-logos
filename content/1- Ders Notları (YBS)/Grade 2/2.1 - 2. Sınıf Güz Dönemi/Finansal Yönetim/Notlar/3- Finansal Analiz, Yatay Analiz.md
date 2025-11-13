@@ -195,6 +195,13 @@ created: 15.10.2025
 
 
 ## 3.3.2.1. **Karşılaştırmalı Tablolar Analizi** (Yatay Analiz)
+
+
+> [!faq] Aktif ve Pasif Ne Anlama Gelir?
+ >   - **Aktif Taraf**: İşletmenin ekonomik yapısını/gücünü gösterir. (Şirketin neleri var?)
+ >   - **Pasif Taraf**: İşletmenin finansal yapısını/gücünü gösterir. (Bu varlıkları kimin parasıyla almış?)
+
+
 - İşletmenin iki veya daha fazla dönemine ait mâlî tabloları alıyoruz (bilanço, gelir tablosu gibi temel tabloları yani). Bunları yan yana koyuyoruz ve kalem kalem karşılaştırıyoruz. Ne artmış ne azalmış ona bakıyoruz.
 - **Dinamik bir analiz tekniğidir, birden fazla dönem vardır**. **Tek bir analiz varsa statiktir.
 - Bunlar için en az iki dönem lazım. **Daha çok döneme bakacaksak** ya *ilk yılı baz alacağız* ya da *her yılı bir öncekiyle kıyaslayacağız*
@@ -224,9 +231,10 @@ created: 15.10.2025
 <br>
 
 ## 3.2. Yüzde Yöntemiyle Analiz (Dikey Analiz)
-- Bilançoyu ya da gelir tablosunu alıyoruz (tek bir dönemin tablosu da olur, birden fazla dönemin tablosunu alıp karşılaştırmak da mümkün), sonra **[[kalem|tablodaki her bir kalemin]]** *ait olduğu grup toplamı* veya *genel toplam içindeki yüzdesini* hesaplıyoruz. 
-	- `Grup Toplamına Göre = (Kalem Tutarı / Grup Toplamı) x 100`
-	- `Genel Toplama Göre = (Kalem Tutarı / Genel Toplam) x 100`
+- Bilançoyu ya da gelir tablosunu alıyoruz (tek bir dönemin tablosu da olur, birden fazla dönemin tablosunu alıp karşılaştırmak da mümkün), sonra **[[kalem|tablodaki her bir kalemin]]** *ait olduğu grup toplamı* veya *genel toplam içindeki yüzdesini* hesaplıyoruz.
+	- `Grup Toplamına Göre: (İlgili Hesap Tutarı / Grup Toplam Tutarı) x 100`
+	- `Genel Toplama Göre: (İlgili Hesap Tutarı / Genel Toplam Tutarı) x 100`
+	- `Gelir Tablosunda: (İlgili Hesap Tutarı / Net Satışlar Tutarı) x 100`
 - Yani hangi kalem ne kadar ağırlıkta, onu görüyoruz. Toplamı %100 kabul edip oranlıyoruz.
 	- **Bilançoda**: Genelde aktif veya pasif toplamı %100 alınır. Her varlık veya kaynak kaleminin bu toplama oranı bulunur. İstenilirse grup toplamını da %100 alabiliriz, mesela dönen varlıklar toplamını 100 kabul edip kasayı ona oranlamak gibi.
 	- **Gelir Tablosunda**: *Net satışlar %100 kabul edilir*, çünkü şirketin ana olayı satış yapmak ya hani. **Bu yüzden diğer tüm gelir tablosu kalemleri** (satışların maliyeti, faaliyet giderleri, kâr vs.) **net satışlara oranlanır.**
@@ -242,7 +250,9 @@ created: 15.10.2025
 - Düzgün bir trendin çizilebilmesi için **5 yıla ihtiyaç var.**
 
 <br>
-##### $\boxed{\text{Trend Yüzdesi } = \text{(İlgili Kalemin Cari Yıl Tutarı / İ.K. Baz Yıl T.)} \times 100}$
+$$
+\boxed{\text{Trend Yüzdesi} = \frac{\text{İlgili Kalemin Cari Yıl Tutarı}}{\text{İlgili Kalemin Baz Yıl Tutarı}} \times 100 }
+$$
 
 <br>
 - **Tıkla**: [[3- İşletme Finansı Dikey Analiz, Trend Analizi.pdf#page=11|3- İşletme Finansı Dikey Analiz, Trend Analizi, s.11-13]]
@@ -253,8 +263,3 @@ created: 15.10.2025
 - Bu değişimlerin **önemini** ve **yönünü** anlamamızı sağlıyor. Hangi kalem sürekli artıyor hangi kalem sürekli düşüşte gibi.
 
 ## 3.4. Oran Yöntemiyle Analiz (Rasyolar)
-
-
-
-
----
