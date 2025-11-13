@@ -25,7 +25,7 @@ const moduleQuestions = [
   },
   {
     number: 3,
-    text: "Aşağıdakilerden hangisi gelir tablosu’nda yer almaz?",
+    text: "Aşağıdakilerden hangisi gelir tablosu'nda yer almaz?",
     options: [
       { label: 'A', text: "Menkul kıymet satış kârları" },
       { label: 'B', text: "Önceki dönem gider ve zararlar" },
@@ -37,7 +37,7 @@ const moduleQuestions = [
   },
   {
     number: 4,
-    text: "Aşağıdakilerden hangisi gelir tablosu’nda yer almaz?",
+    text: "Aşağıdakilerden hangisi gelir tablosu'nda yer almaz?",
     options: [
       { label: 'A', text: "Borsa değer artış kârları" },
       { label: 'B', text: "Önceki dönem gelir ve kararlar" },

@@ -10,6 +10,7 @@
   }
 
   const moduleQuestions = config.moduleQuestions.map((question, index) => normalizeQuestion(question, index));
+  const questionContexts = moduleQuestions.map(question => (question.contextHtml && question.contextHtml.trim()) || "");
   const moduleMeta = buildModuleMeta(config.moduleMeta, moduleQuestions.length);
   const STORAGE_KEY = config.storageKey || `moduleState_${moduleMeta.id || "module"}_v1`;
   const excludeQuantitative = config.excludeQuantitativeFromAnalysis !== false;
@@ -31,8 +32,13 @@
             .sort((a, b) => a.label.localeCompare(b.label, "tr", { sensitivity: "base", numeric: true }))
         : [],
       correctLabel: question.correctLabel ? String(question.correctLabel).trim() : null,
-      isQuantitative: Boolean(question.isQuantitative)
+      isQuantitative: Boolean(question.isQuantitative),
+      contextHtml: ""
     };
+
+    const { body, context } = splitQuestionContext(normalized.text);
+    normalized.text = body;
+    normalized.contextHtml = context;
 
     if (!normalized.options.length) {
       normalized.options = [{ label: "A", text: "Seçenek bulunamadı" }];
@@ -82,7 +88,32 @@
     const trimmed = String(text).trim();
     if (!trimmed) return "";
     if (trimmed.startsWith("<")) return trimmed;
-    return `<p>${trimmed}</p>`;
+    const paragraphs = trimmed.split(/\n{2,}/).map(part => part.trim()).filter(Boolean);
+    if (paragraphs.length <= 1) return `<p>${trimmed.replace(/\n/g, "<br>")}</p>`;
+    return paragraphs.map(part => `<p>${part}</p>`).join("");
+  }
+
+  function splitQuestionContext(rawText) {
+    if (rawText === null || rawText === undefined) return { body: "", context: "" };
+    let remaining = String(rawText);
+    const contextSegments = [];
+    const contextRegex = /<(pre|table)([\s\S]*?)<\/\1>/gi;
+    remaining = remaining.replace(contextRegex, match => {
+      contextSegments.push(match.trim());
+      return "";
+    });
+
+    const contextHtml = contextSegments.join("\n").trim();
+
+    remaining = remaining
+      .replace(/(<br\s*\/?>\s*){2,}/gi, "<br><br>")
+      .replace(/^\s*(<br\s*\/?>|\n)+/, "")
+      .replace(/(<br\s*\/?>|\n)+\s*$/, "");
+
+    return {
+      body: remaining.trim(),
+      context: contextHtml
+    };
   }
 
   function defaultQuizState() {
@@ -284,26 +315,44 @@
     const optionOrder = quiz.optionOrder[questionIndex];
     const selectedLabel = quiz.answers[questionIndex];
     const questionBodyHtml = formatQuestionBody(question.text);
+    const { html: contextHtml, ownerIndex } = getContextForQuestion(questionIndex);
     keyboardState.pending = null;
 
+    const contextSection = contextHtml
+      ? `<aside class="question-context">
+            <div class="context-title">${ownerIndex === null || ownerIndex === questionIndex ? "Referans Veriler" : `Referans Veriler (Soru ${moduleQuestions[ownerIndex].number})`}</div>
+            <div class="context-body">${contextHtml}</div>
+         </aside>`
+      : "";
+
+    const questionMain = `
+      <div class="question-main">
+        <div class="question-header">
+          <p><strong>Soru ${orderIndex + 1}/${moduleQuestions.length} (No:${question.number}):</strong></p>
+        </div>
+        <div class="question-body">
+          ${questionBodyHtml || "<p>Soru metni bulunamadı.</p>"}
+        </div>
+        <div class="quiz-options">
+          ${optionOrder
+            .map(label => {
+              const option = question.options.find(opt => opt.label === label);
+              const id = `q${question.number}_${option.label}`;
+              return `
+                <label for="${id}" data-label="${option.label}" data-question-index="${questionIndex}">
+                  <input type="radio" id="${id}" name="q_${questionIndex}" value="${option.label}" ${selectedLabel === option.label ? "checked" : ""}>
+                  <span><strong>${option.label})</strong> ${option.text}</span>
+                </label>`;
+            })
+            .join("")}
+        </div>
+      </div>`;
+
     container.innerHTML = `
-            <div class="quiz-question">
-                <div class="question-header">
-                    <p><strong>Soru ${orderIndex + 1}/${moduleQuestions.length} (No:${question.number}):</strong></p>
-                </div>
-                <div class="question-body">
-                    ${questionBodyHtml}
-                </div>
-                <div class="quiz-options">${optionOrder.map(label => {
-                    const option = question.options.find(opt => opt.label === label);
-                    const id = `q${question.number}_${option.label}`;
-                    return `
-                        <label for="${id}" data-label="${option.label}" data-question-index="${questionIndex}">
-                            <input type="radio" id="${id}" name="q_${questionIndex}" value="${option.label}" ${selectedLabel === option.label ? "checked" : ""}>
-                            <span><strong>${option.label})</strong> ${option.text}</span>
-                        </label>`;
-                }).join("")}</div>
-            </div>`;
+      <div class="quiz-question${contextHtml ? " has-context" : ""}">
+        ${contextSection}
+        ${questionMain}
+      </div>`;
 
     container.querySelectorAll('input[type="radio"]').forEach(input => {
       input.addEventListener('change', e => handleAnswerSelection(questionIndex, orderIndex, e.target.value));
@@ -314,6 +363,17 @@
     
     applyOptionStyling(questionIndex);
     startActiveQuestionTimer(true, questionIndex, orderIndex);
+  }
+
+  function getContextForQuestion(questionIndex) {
+    if (questionIndex == null || questionIndex < 0 || questionIndex >= moduleQuestions.length) {
+      return { html: "", ownerIndex: null };
+    }
+    for (let idx = questionIndex; idx >= 0; idx -= 1) {
+      const html = questionContexts[idx];
+      if (html) return { html, ownerIndex: idx };
+    }
+    return { html: "", ownerIndex: null };
   }
 
   function handleAnswerSelection(questionIndex, orderIndex, selectedLabel) {

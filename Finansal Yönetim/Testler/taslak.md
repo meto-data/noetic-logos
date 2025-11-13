@@ -322,14 +322,14 @@ C) Çalışmayan kısım gider ve zararları
 D) İskonto faiz gelirleri
 **E)** Alacak senetleri iskontosu
 
-**3. Aşağıdakilerden hangisi gelir tablosu’nda yer almaz?**
+**3. Aşağıdakilerden hangisi gelir tablosu'nda yer almaz?**
 A) Menkul kıymet satış kârları
 B) Önceki dönem gider ve zararlar
 **C)** Hisse senedi ihraç primleri
 D) Çalışmayan kısım gider ve zararları
 E) İskonto faiz giderleri
 
-**4. Aşağıdakilerden hangisi gelir tablosu’nda yer almaz?**
+**4. Aşağıdakilerden hangisi gelir tablosu'nda yer almaz?**
 A) Borsa değer artış kârları
 B) Önceki dönem gelir ve kararlar
 C) İskonto faiz giderleri
@@ -762,10 +762,10 @@ C) 200
 E) Hesaplanamaz
 
 **7. Aktif toplam 60.000 TL, dönen varlıkları 40.000 TL ve net çalışma sermayesi 10.000 TL olan işletme ile ilgili olarak aşağıdakilerden hangisi yanlıştır?**
-A) Dönen varlıkların dikey yüzdesi % 67’dir.
-B) Kısa vadeli yabancı kaynakların dikey yüzdesi %50’dir
+A) Dönen varlıkların dikey yüzdesi % 67'dir.
+B) Kısa vadeli yabancı kaynakların dikey yüzdesi %50'dir
 C) İşletme, ticari işletme görünümündedir.
-D) Duran varlıkların dikey yüzdesi % 33’dür.
+D) Duran varlıkların dikey yüzdesi % 33'dür.
 **E)** İşletmenin devamlı sermayesi, duran varlıklarından küçüktür.
 
 **8. Dikey (Yüzde) Analiz Tekniğinin amacı aşağıdakilerden hangisidir?**
@@ -804,7 +804,7 @@ E) Oran analizi
 
 **2. Trend analizi ile ilgili olarak aşağıdaki ifadelerden hangisi yanlıştır?**
 A) Eğilim yüzdeleri endeks şeklinde ve genellikle pozitif değerlerdir.
-B) Eğilim yüzdesi 100’ün altında olan kalemler, baz yıla göre azalmıştır.
+B) Eğilim yüzdesi 100'ün altında olan kalemler, baz yıla göre azalmıştır.
 C) Eğilim yüzdeleri aynı seyri göstermiyorsa, ilgili kalemin eğiliminden söz edilemez.
 **D)** Kapsamına göre statik analizdir.
 E) İstatistiksel (regresyon analizi) yöntemlerin kullanılabildiği bir analiz tekniğidir.
@@ -945,17 +945,17 @@ E) Faiz karşılama oranı
   <tbody>
     <tr>
       <td>A)</td>
-      <td>1600.000 TL</td>
+      <td>1.600.000 TL</td>
       <td>800.000 TL</td>
     </tr>
     <tr>
       <td>B)</td>
-      <td>1000.000 TL</td>
+      <td>1.000.000 TL</td>
       <td>200.000 TL</td>
     </tr>
     <tr>
       <td><strong>C)</strong></td>
-      <td>1500.000 TL</td>
+      <td>1.500.000 TL</td>
       <td>700.000 TL</td>
     </tr>
     <tr>
@@ -1105,109 +1105,54 @@ C) 0,8
 **D)** 1,33
 E) 0,50
 
-**22. ŞİRİN A.Ş. nin cari oranının 2 olması için ne kadarlık uzun vadeli kredi alması gerekir?**
-**A)** 400.000
-B) 200.000
-C) 100.000
-D) 500.000
-E) 600.000
-
-**23. ŞİRİN A.Ş. 100.00 TL’lik banka kredisini öderse, cari oranı aşağıdakilerden hangisi olarak gerçekleşir?**
-A) 1,2
-B) 1,33
-**C)** 1,4
-D) 1
-E) 0,8
-
-**24. ŞİRİN A.Ş. 100.00 TL’lik banka kredisini öderse, nakit oranı aşağıdakilerden hangisi olarak gerçekleşir?**
-**A)** 0,2
-B) 0,4
-C) 0,3
-D) 0,1
-E) 0,6
-
-**25. ŞİRİN A.Ş. 220.000 TL’lik, 4 ay vadeli ticari mal alırsa, likidite oranı aşağıdakilerden hangisi olarak gerçekleşir?**
-A) 1
-**B)** 0,61
-C) 0,83
-D) 0,5
-E) 0,2
-
-**26. ŞİRİN A.Ş. 200.000 TL’lik, yarısı 3 ay vadeli, yarısı peşin olarak ticari mal alırsa, stok bağımlılık oranı aşağıdakilerden hangisi olarak gerçekleşir?**
-A) 1,8
-B) 1
-**C)** 1,2
-D) 0,9
-E) 1,4
-
-**27. Cari oranı 1 olan işletme için doğru olan ifadeler aşağıdakilerden hangisinde birlikte verilmiştir?**
-i - Duran varlıklarının tamamı devamlı sermaye ile finanse edilebilmektedir.
-ii - Net çalışma sermayesi sıfırdır.
-iii - Hazır değerler oranı düşüktür.
-iv - Çalışma sermayesi, kısa vadeli borçlarından düşüktür.
-v – Dönen varlıkları, kısa vadeli yabancı kaynaklarını eşittir.
-**A)** i- ii - v
-B) ii-v
-C) ii – iii - v
-D) iv – v
-E) ii – iii
-
-**28. Bir işletmenin cari oranı ve asit test oranı birbirine eşit ise aşağıdaki ifadeler hangisi doğrudur?**
-A) Likiditesi düşüktür.
-B) Likiditesi yüksektir.
-**C)** Stok mevcudu sıfırdır.
-D) Net çalışma sermayesi yeterlidir.
-E) Net çalışma sermayesi noksanı vardır.
-
-**29. Bir işletmenin asit-test oranı ve nakit oranı birbirine eşit ise aşağıdaki ifadelerden hangisi doğrudur?**
-**A)** Ticari alacak mevcudu sıfırdır.
-B) Stok mevcudu sıfırdır.
-C) Likiditesi düşüktür.
-D) Net çalışma sermayesi noksanı vardır.
-E) Kısa vadeli yabancı kaynakları yüksektir.
-
-**30. Nakit oran, likidite oranı ve cari oranın işletmeler açısından sırasıyla genel olarak hangi seviyede olması gerekir?**
-A) 0,2 – 2 2
+**27. Nakit oran, likidite oranı ve cari oranın işletmeler açısından sırasıyla genel olarak hangi seviyede olması gerekir?**
+A) 0,2 – 2 – 2
 B) 0,5 – 1 – 2
 C) 0,2 – 0,5 – 2
 D) 0,2 – 1 – 2,5
 **E)** 0,2 – 1 – 2
 
-**31. İşletmenin Çalışma Sermayesi yeterli ise Cari Oran için aşağıdakilerden hangisi doğrudur?**
-A) Cari Oran 1’ e eşittir.
+**28. İşletmenin Çalışma Sermayesi yeterli ise Cari Oran için aşağıdakilerden hangisi doğrudur?**
+A) Cari Oran 1' e eşittir.
 B) Cari Oran sıfırdır.
 C) Cari Oran 0 ile 1 arasındadır.
 D) Cari Oran negatiftir.
-**E)** Cari oran 1 ‘in üzerindedir.
+**E)** Cari oran 1 'in üzerindedir.
 
-**32. Stok bağımlılık oranının hesaplanabilmesi için aşağıdakilerden hangilerine gerek yoktur?**
-i. Kısa vadeli Borçlar iv. Menkul kıymetler
-ii. Stoklar v. Dönen varlıklar
-iii. Hazır değerler vi. Alacaklar
+**29. Stok bağımlılık oranının hesaplanabilmesi için aşağıdakilerden hangilerine gerek yoktur?**
+i. Kısa vadeli Borçlar<br>
+ii. Stoklar<br>
+iii. Hazır değerler<br>
+iv. Menkul kıymetler<br>
+v. Dönen varlıklar<br>
+vi. Alacaklar
 A) i – v
-**B)** v- vi
-C) iii - v
+**B)** v – vi
+C) iii – v
 D) vi – i
-E) ii- vi
+E) ii – vi
 
-**33. Stok bağımlılık oranı yüksek olan bir işletme aşağıdakilerden hangisini yapmamalıdır?**
-i. Pazarlama etkinliğini artırmalıdır. iv.Stok devir hızını artırmalıdır.
-ii. Satışlarını artırmalıdır v. Kâr marjını artırmalıdır.
-iii.Stok alımlarını artırmalıdır. vi. Stok alımlarını peşin yapmalıdır.
-**A)** iii-v-vi
-B) iv-v-vi
-C) i-iii-v
-D) ii-iii-iv
-E) iv-v-vi
+**30. Stok bağımlılık oranı yüksek olan bir işletme aşağıdakilerden hangisini yapmamalıdır?**
+i. Pazarlama etkinliğini artırmalıdır.<br>
+ii. Satışlarını artırmalıdır.<br>
+iii. Stok alımlarını artırmalıdır.<br>
+iv. Stok devir hızını artırmalıdır.<br>
+v. Kâr marjını artırmalıdır.<br>
+vi. Stok alımlarını peşin yapmalıdır.
+**A)** iii – v – vi
+B) iv – v – vi
+C) i – iii – v
+D) ii – iii – iv
+E) iv – v – vi
 
-**34. Hangi oranın 1’den düşük olması durumunda stok bağımlılık oranının hesaplanması gerekir?**
+**31. Hangi oranın 1'den düşük olması durumunda stok bağımlılık oranının hesaplanması gerekir?**
 A) Cari oran
 **B)** Asit-test oranı
 C) Faiz karşılama oranı
 D) Nakit oran
 E) Hazır değerler oranı
 
-**35. Aşağıdaki bilanço kalemleri verilmiş olan işletmenin likidite oranları aşağıdakilerden hangisinde doğru olarak verilmiştir?**
+**32. Aşağıdaki bilanço kalemleri verilmiş olan işletmenin likidite oranları aşağıdakilerden hangisinde doğru olarak verilmiştir?**
 <pre>
 Dönen Varlıklar   : 5000
 KVYK              : 4000
@@ -1550,7 +1495,7 @@ C) 45 gün
 D) 30 gün
 E) 75 gün
 
-**26. MST AŞ.nin 2016 yılında ortalama stokları kaç TL’dir?**
+**26. MST AŞ.nin 2016 yılında ortalama stokları kaç TL'dir?**
 A) 50.000
 **B)** 35.000
 C) 40.000
@@ -1661,7 +1606,7 @@ C) Özkaynak devir hızı
 D) Stok devir hızı
 E) Kapasite kullanım oranı
 
-**AKŞAR A.Ş’nin 2013 yılı dönem sonuna ait finansal tablolarından alınan bazı verileri aşağıdadır; (39-43. soruları bu verilere göre yanıtlayınız.)**
+**AKŞAR A.Ş'nin 2013 yılı dönem sonuna ait finansal tablolarından alınan bazı verileri aşağıdadır; (39-43. soruları bu verilere göre yanıtlayınız.)**
 <pre>
 Menkul Kıymetler     : 35.000
 Duran Varlıklar      : 80.000
@@ -1714,3 +1659,133 @@ A) 24
 C) 28
 D) 18
 E) 42
+
+**22. Cari oranı 1 olan işletme için doğru olan ifadeler aşağıdakilerden hangisinde birlikte verilmiştir?**
+i - Duran varlıklarının tamamı devamlı sermaye ile finanse edilebilmektedir.<br>
+ii - Net çalışma sermayesi sıfırdır.<br>
+iii - Hazır değerler oranı düşüktür.<br>
+iv - Çalışma sermayesi, kısa vadeli borçlarından düşüktür.<br>
+v – Dönen varlıkları, kısa vadeli yabancı kaynaklarını eşittir.
+**A)** i- ii - v
+B) ii-v
+C) ii – iii - v
+D) iv – v
+E) ii – iii
+
+**23. Bir işletmenin cari oranı ve asit test oranı birbirine eşit ise aşağıdaki ifadeler hangisi doğrudur?**
+A) Likiditesi düşüktür.
+B) Likiditesi yüksektir.
+**C)** Stok mevcudu sıfırdır.
+D) Net çalışma sermayesi yeterlidir.
+E) Net çalışma sermayesi noksanı vardır.
+
+**24. Bir işletmenin asit-test oranı ve nakit oranı birbirine eşit ise aşağıdaki ifadelerden hangisi doğrudur?**
+**A)** Ticari alacak mevcudu sıfırdır.
+B) Stok mevcudu sıfırdır.
+C) Likiditesi düşüktür.
+D) Net çalışma sermayesi noksanı vardır.
+E) Kısa vadeli yabancı kaynakları yüksektir.
+
+**25. Nakit oran, likidite oranı ve cari oranın işletmeler açısından sırasıyla genel olarak hangi seviyede olması gerekir?**
+A) 0,2 – 2 – 2
+B) 0,5 – 1 – 2
+C) 0,2 – 0,5 – 2
+D) 0,2 – 1 – 2,5
+**E)** 0,2 – 1 – 2
+
+**26. İşletmenin Çalışma Sermayesi yeterli ise Cari Oran için aşağıdakilerden hangisi doğrudur?**
+A) Cari Oran 1' e eşittir.
+B) Cari Oran sıfırdır.
+C) Cari Oran 0 ile 1 arasındadır.
+D) Cari Oran negatiftir.
+**E)** Cari oran 1 'in üzerindedir.
+
+**27. Stok bağımlılık oranının hesaplanabilmesi için aşağıdakilerden hangilerine gerek yoktur?**
+i. Kısa vadeli Borçlar<br>
+ii. Stoklar<br>
+iii. Hazır değerler<br>
+iv. Menkul kıymetler<br>
+v. Dönen varlıklar<br>
+vi. Alacaklar
+A) i – v
+**B)** v – vi
+C) iii – v
+D) vi – i
+E) ii – vi
+
+**28. Stok bağımlılık oranı yüksek olan bir işletme aşağıdakilerden hangisini yapmamalıdır?**
+i. Pazarlama etkinliğini artırmalıdır.<br>
+ii. Satışlarını artırmalıdır.<br>
+iii. Stok alımlarını artırmalıdır.<br>
+iv. Stok devir hızını artırmalıdır.<br>
+v. Kâr marjını artırmalıdır.<br>
+vi. Stok alımlarını peşin yapmalıdır.
+**A)** iii – v – vi
+B) iv – v – vi
+C) i – iii – v
+D) ii – iii – iv
+E) iv – v – vi
+
+**29. Hangi oranın 1'den düşük olması durumunda stok bağımlılık oranının hesaplanması gerekir?**
+A) Cari oran
+**B)** Asit-test oranı
+C) Faiz karşılama oranı
+D) Nakit oran
+E) Hazır değerler oranı
+
+**30. Aşağıdaki bilanço kalemleri verilmiş olan işletmenin likidite oranları aşağıdakilerden hangisinde doğru olarak verilmiştir?**
+<pre>
+Dönen Varlıklar   : 5000
+KVYK              : 4000
+Stoklar           : 2000
+Hazır Değerler    : 400
+Menkul Kıymetler  : 600
+Alacaklar         : 2000
+Duran Varlıklar   : 3000
+Özkaynaklar       : 3000
+</pre>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Nakit Oran</th>
+      <th>Likidite Oranı</th>
+      <th>Cari Oran</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A)</td>
+      <td>0,20</td>
+      <td>1,00</td>
+      <td>1,50</td>
+    </tr>
+    <tr>
+      <td>B)</td>
+      <td>0,25</td>
+      <td>0,90</td>
+      <td>2,00</td>
+    </tr>
+    <tr>
+      <td><strong>C)</strong></td>
+      <td>0,25</td>
+      <td>0,75</td>
+      <td>1,25</td>
+    </tr>
+    <tr>
+      <td>D)</td>
+      <td>0,40</td>
+      <td>0,75</td>
+      <td>1,75</td>
+    </tr>
+    <tr>
+      <td>E)</td>
+      <td>0,20</td>
+      <td>1,00</td>
+      <td>1,25</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+
+***

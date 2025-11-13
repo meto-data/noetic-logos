@@ -258,16 +258,97 @@ header p { margin: 4px 0 0; opacity: 0.9; font-size: 0.9rem;}
     flex: 1 1 auto;
 }
 
-.question-body {
+.quiz-question {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+}
+.quiz-question.has-context .question-main {
+    flex: 1 1 auto;
+}
+.question-main {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+.question-context {
+    flex: 0 0 280px;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.08);
+    position: sticky;
+    top: 90px;
+    max-height: calc(100vh - 140px);
+    overflow: auto;
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+.context-title {
+    font-weight: 600;
+    color: #1e3857;
+    margin-bottom: 8px;
+}
+.context-body > *:first-child {
+    margin-top: 0;
+}
+.context-body > *:last-child {
+    margin-bottom: 0;
+}
+.question-body,
+.context-body {
     margin-top: 10px;
     font-size: 1.02rem;
     line-height: 1.6;
 }
-.question-body p {
+.question-body p,
+.question-context p {
     margin: 0 0 12px 0;
 }
-.question-body p:last-child {
+.question-body p:last-child,
+.question-context p:last-child {
     margin-bottom: 0;
+}
+.question-body table,
+.question-context table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 16px 0;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(9, 30, 66, 0.08);
+}
+.question-body table thead,
+.question-context table thead {
+    background: #f0f6ff;
+}
+.question-body table th,
+.question-body table td,
+.question-context table th,
+.question-context table td {
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    text-align: left;
+    font-size: 0.95rem;
+}
+.question-body table th,
+.question-context table th {
+    font-weight: 600;
+    color: #1e3857;
+}
+.question-body pre,
+.question-context pre {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin: 12px 0 18px 0;
+    font-size: 0.95rem;
+    overflow-x: auto;
+    white-space: pre;
+}
+.question-body .question-pre,
+.question-context .question-pre {
+    display: block;
 }
 .financial-table {
     width: 100%;
@@ -411,6 +492,19 @@ footer {
     background: #1f2e3d;
     border-top: 3px solid #1a242f;
     margin-top: auto;
+}
+
+@media (max-width: 960px) {
+    .quiz-question {
+        flex-direction: column;
+    }
+    .question-context {
+        position: static;
+        width: 100%;
+        max-height: none;
+        order: -1;
+        margin-bottom: 12px;
+    }
 }
 
 @media (max-width: 640px) {
