@@ -22,7 +22,7 @@ created: 12.11.2025
 
 > 	`Batı'nın secde ettiği kavramdır âmiyâne tabiriyle.`
 
-- *Latince 'ratio'.
+- *Latince 'ratio'.*
 - **İlişkili hesapları birbirleriyle oranlayarak yaptığımız analiz türü**. 
 
 
@@ -47,11 +47,13 @@ created: 12.11.2025
 
 $$
 \large
-\begin{array} \\
-&  \text{Cari Oran} = \boxed{ \space \frac{\text{Dönen Varlıklar (Cari Aktif)}}{\text{Kısa Vadeli Borçlar (Cari Pasif)}}  \ge 1.5 \space \space} 
-\\ \\
-&  \text{Dönen Varlıklar} \ge \left(1.5 \times \text{Kısa Vadeli Borçlar}\right)
-\end{array}
+\begin{array}{} \\
+& \text{Cari Oran} = \boxed{ \space \frac{\text{Dönen Varlıklar (Cari Aktif)}}
+{\text{Kısa Vadeli Borçlar (Cari Pasif)}}  
+\ge 1.5 \space \space}  \\ \\
+& \text{Dönen Varlıklar} 
+\ge \left(1.5 \times \text{Kısa Vadeli Borçlar}\right)
+\end{array}{}
 $$
 
 - **Eğer $\ge 1.5$ ise**: İyiyiz. 1 liralık kısa vadeli borca karşılık $1.5$ liralık dönen varlığımız var. Borçları ödeyebilme gücümüzün olduğunu gösterir bu.
@@ -143,11 +145,11 @@ $$
 $$
 \large
 \space \boxed{
-\begin{array} \\
+\begin{array}{} \\
 &\text{Dönem Başı} = \text{Geçen Yılın Bilançosu} 
 \\ \\
  &\text{Dönem Sonu = Bu Yılın Bilançosu}
-\quad \end{array}
+\quad \end{array}{}
 \space }
 $$
 
