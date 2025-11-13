@@ -8,6 +8,7 @@ cssclasses:
 created: 12.11.2025
 ---
  **İşletmenin kredili (veresiye) net satışlarının, ortalama ticarî alacaklarına oranıdır **.
+ 
 ## Kısa Anımsatma
 - **Dönen varlıklar (cari aktif)** genel olarak **kısa vadeli borçlarla (cari pasif)** finanse edilir. 
 	- **[[Cari Aktif]]** = [[Dönen Varlıklar]] = [[Çalışma Sermayesi (İşletme Sermayesi)]]
@@ -15,6 +16,11 @@ created: 12.11.2025
 - *Duran varlıklar* ise genel olarak "*devamlı sermaye*" ile finanse edilir.
 	- *[[Devamlı Sermaye|Devamlı (Sürekli) Sermaye]]*: `Uzun Vadeli Yabancı Kaynaklar` $+$ `Öz Sermaye`
 
+> [!tip] Kısa Anımsatma
+> - **Hazır Değerler**: Kasadaki ve bankadaki nakit para.
+> - **Menkul Kıymetler**: Atıl parayı geçici olarak değerlendirmek için alınan hisse senedi, fon gibi kolayca paraya çevrilebilen varlıklardır.
+> - **Ticarî Alacaklar**: Mal ve hizmet satışından doğan, vadesi gelmememiş **[[Senetli Alacaklar|senetli]]** veya **senetsiz** alacaklar.
+> - **Stoklar**: Satılmak üzere bekleyen ticarî mallar. **Satışa** ve **süreye** bağlı olarak paraya dönüşürler.
 
 
 # Rasyolar (Oranlar | Ratios)
