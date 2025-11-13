@@ -280,7 +280,7 @@
     const question = moduleQuestions[questionIndex];
     const container = document.getElementById("quizQuestionContainer");
     if (!question || !container) return;
-
+    
     const optionOrder = quiz.optionOrder[questionIndex];
     const selectedLabel = quiz.answers[questionIndex];
     const questionBodyHtml = formatQuestionBody(question.text);
@@ -311,7 +311,7 @@
 
     if (selectedLabel) showAnswerFeedback(questionIndex, selectedLabel);
     else updateQuizFeedback(null);
-
+    
     applyOptionStyling(questionIndex);
     startActiveQuestionTimer(true, questionIndex, orderIndex);
   }
@@ -375,8 +375,8 @@
       if (!label) return;
       label.classList.remove("option-correct", "option-incorrect", "option-pending");
       if (selected) {
-        if (input.value === question.correctLabel) label.classList.add("option-correct");
-        else if (input.value === selected) label.classList.add("option-incorrect");
+      if (input.value === question.correctLabel) label.classList.add("option-correct");
+      else if (input.value === selected) label.classList.add("option-incorrect");
       }
       if (pendingLabel && input.value === pendingLabel) {
         label.classList.add("option-pending");
