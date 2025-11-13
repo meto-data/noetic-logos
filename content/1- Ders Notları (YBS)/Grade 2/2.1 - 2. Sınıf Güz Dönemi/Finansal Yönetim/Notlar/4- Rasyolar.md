@@ -145,7 +145,7 @@ $$
 $$
 \large
 \space \boxed{
-\begin{array}{} \\
+\begin{array}{} 
 &\text{Dönem Başı} = \text{Geçen Yılın Bilançosu} 
 \\ \\
  &\text{Dönem Sonu = Bu Yılın Bilançosu}
