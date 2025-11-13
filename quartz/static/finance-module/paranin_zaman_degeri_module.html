@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finansal Yönetim - Modül 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Modül 2: Paranın Zaman Değeri</h1>
+        <p>Etkileşimli çalışma alanı</p>
+    </header>
+
+    <nav class="top-nav">
+        <ul>
+            <li><a href="#home" class="nav-link active" data-target="home">Ana Sayfa</a></li>
+            <li><a href="#module-overview" class="nav-link" data-target="module-overview">Modül Tanıtımı</a></li>
+            <li><a href="#module-quiz" class="nav-link" data-target="module-quiz">Modül Testi</a></li>
+            <li><a href="#progress" class="nav-link" data-target="progress">İlerleme</a></li>
+        </ul>
+    </nav>
+    <div class="home-link-container">
+        <a href="index.html" class="back-to-hub">Ana Menüye Dön</a>
+    </div>
+
+    <main class="container">
+        <section id="home" class="section active">
+            <h2>Hoş Geldiniz</h2>
+            <p>Bu uygulama, <strong>Paranın Zaman Değeri</strong> konusundaki temel kavramları pekiştirmenize yardımcı olmak için tasarlandı.</p>
+        </section>
+
+        <section id="module-overview" class="section">
+             <h2>Modül 2 &mdash; Paranın Zaman Değeri</h2>
+             <div id="moduleOverviewContent"></div>
+        </section>
+
+        <section id="module-quiz" class="section">
+            <h2>Modül Testi</h2>
+            <div class="progress-wrapper">
+                <span id="quizProgressLabel">0% tamamlandı</span>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" id="quizProgressFill"></div>
+                </div>
+            </div>
+            <div id="quizQuestionContainer" class="quiz-container"></div>
+            <div id="quizFeedback" class="feedback"></div>
+            <div class="quiz-navigation">
+                <button id="prevQuestionBtn" class="btn secondary">Önceki Soru</button>
+                <button id="nextQuestionBtn" class="btn">Sonraki Soru</button>
+            </div>
+            <button id="submitQuizBtn" class="btn">Testi Bitir</button>
+             <button id="resetQuizBtn" class="btn reset">Testi Sıfırla</button>
+            <div id="quizSummary" class="results"></div>
+        </section>
+
+        <section id="progress" class="section">
+            <h2>İlerleme ve Skorlar</h2>
+            <div class="scoreboard">
+                <div class="score-card">
+                    <h3>Modül Puanı</h3>
+                    <p>Doğru Sayısı: <strong id="moduleCorrect">0</strong></p>
+                    <p>Cevaplanan Soru: <strong id="moduleAnswered">0</strong> / <strong id="moduleTotal">0</strong></p>
+                    <p>Başarı Oranı: <strong id="moduleAccuracy">0%</strong></p>
+                </div>
+                 <div class="score-card" id="challenges">
+                     <h3>Tekrar Etmeniz Gerekenler</h3>
+                    <ul id="challengeList"><li>Testi çözdükten sonra burada listelenir.</li></ul>
+                    <button id="retryChallengesBtn" class="btn">Bu Soruları Tekrar Çöz</button>
+                </div>
+            </div>
+            <button id="resetProgressBtn" class="btn reset">Tüm İlerlemeyi Sıfırla</button>
+        </section>
+    </main>
+
+    <footer><small>© 2025 Finansal Yönetim Web Modülü</small></footer>
+
+    <script src="paranin_zaman_degeri_data.js"></script>
+    <script src="module_engine.js"></script>
+</body>
+</html>

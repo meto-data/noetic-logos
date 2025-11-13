@@ -37,6 +37,29 @@ Some common frontmatter fields that are natively supported by Quartz:
 
 See [[Frontmatter]] for a complete list of frontmatter.
 
+### Required `created` metadata
+
+To keep published dates stable across rebuilds, every Markdown file in `content/` **must** declare a canonical creation date in ISO format:
+
+```yaml
+---
+title: Example Title
+created: 2025-01-15
+---
+```
+
+Quartz will fall back to git history or filesystem metadata if the field is missing, but doing so causes dates to drift whenever the repository is cloned or files are re-synced. Use the helper script to audit or populate the field:
+
+```bash
+npm run dates:check   # dry run – lists files that need attention
+npm run dates:write   # normalises/creates the frontmatter field in-place
+npm run dates:write:changed  # sadece değiştirdiğin notları işler (daha hızlı)
+```
+
+After running the script in write mode, review the reported “manual follow-up” files and correct the dates explicitly in frontmatter.
+
+> Toggle: tarih otomasyonunu geçici olarak kapatmak istersen `dates.config.json` içindeki `enabled` değerini `false` yapabilir veya komutları `DATES_ENFORCE=false npm run dates:…` şeklinde çalıştırabilirsin.
+
 ## Syncing your Content
 
 When your Quartz is at a point you're happy with, you can save your changes to GitHub.
