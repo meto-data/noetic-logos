@@ -7,7 +7,7 @@ cssclasses:
   - ders-notu
 created: 12.11.2025
 ---
-
+ **İşletmenin kredili (veresiye) net satışlarının, ortalama ticarî alacaklarına oranıdır **.
 ## Kısa Anımsatma
 - **Dönen varlıklar (cari aktif)** genel olarak **kısa vadeli borçlarla (cari pasif)** finanse edilir. 
 	- **[[Cari Aktif]]** = [[Dönen Varlıklar]] = [[Çalışma Sermayesi (İşletme Sermayesi)]]
@@ -204,7 +204,7 @@ $$
 - Çok satış yapıp yapmadığımızı değil, **veresiye (kredili) satışları iyi yönetip yönetmediğimizi gösterir.**
 
 > [!note] Not
-> - Aslında **Kredili Net Satışlar** kullanılır. Peşin sattığımızın alacağı olmaz zira. Ama *Kredili Net Satışlar* yoksa mecburen *Net Satışlar* kullanılır. **İşletmenin kredili (veresiye) net satışlarının, ortalama ticarî alacaklarına oranıdır **.
+> - Aslında **Kredili Net Satışlar** kullanılır. Peşin sattığımızın alacağı olmaz zira. Ama *Kredili Net Satışlar* yoksa mecburen *Net Satışlar* kullanılır. **İşletmenin kredili (veresiye) net satışlarının, ortalama ticarî alacaklarına oranıdır**.
 
 
 #### 2.3.0. **Alacak Devir Hızı Formülü**
