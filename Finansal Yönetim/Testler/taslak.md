@@ -1105,21 +1105,21 @@ C) 0,8
 **D)** 1,33
 E) 0,50
 
-**27. Nakit oran, likidite oranı ve cari oranın işletmeler açısından sırasıyla genel olarak hangi seviyede olması gerekir?**
+**22. Nakit oran, likidite oranı ve cari oranın işletmeler açısından sırasıyla genel olarak hangi seviyede olması gerekir?**
 A) 0,2 – 2 – 2
 B) 0,5 – 1 – 2
 C) 0,2 – 0,5 – 2
 D) 0,2 – 1 – 2,5
 **E)** 0,2 – 1 – 2
 
-**28. İşletmenin Çalışma Sermayesi yeterli ise Cari Oran için aşağıdakilerden hangisi doğrudur?**
+**23. İşletmenin Çalışma Sermayesi yeterli ise Cari Oran için aşağıdakilerden hangisi doğrudur?**
 A) Cari Oran 1' e eşittir.
 B) Cari Oran sıfırdır.
 C) Cari Oran 0 ile 1 arasındadır.
 D) Cari Oran negatiftir.
 **E)** Cari oran 1 'in üzerindedir.
 
-**29. Stok bağımlılık oranının hesaplanabilmesi için aşağıdakilerden hangilerine gerek yoktur?**
+**24. Stok bağımlılık oranının hesaplanabilmesi için aşağıdakilerden hangilerine gerek yoktur?**
 i. Kısa vadeli Borçlar<br>
 ii. Stoklar<br>
 iii. Hazır değerler<br>
@@ -1132,7 +1132,7 @@ C) iii – v
 D) vi – i
 E) ii – vi
 
-**30. Stok bağımlılık oranı yüksek olan bir işletme aşağıdakilerden hangisini yapmamalıdır?**
+**25. Stok bağımlılık oranı yüksek olan bir işletme aşağıdakilerden hangisini yapmamalıdır?**
 i. Pazarlama etkinliğini artırmalıdır.<br>
 ii. Satışlarını artırmalıdır.<br>
 iii. Stok alımlarını artırmalıdır.<br>
@@ -1145,14 +1145,14 @@ C) i – iii – v
 D) ii – iii – iv
 E) iv – v – vi
 
-**31. Hangi oranın 1'den düşük olması durumunda stok bağımlılık oranının hesaplanması gerekir?**
+**26. Hangi oranın 1'den düşük olması durumunda stok bağımlılık oranının hesaplanması gerekir?**
 A) Cari oran
 **B)** Asit-test oranı
 C) Faiz karşılama oranı
 D) Nakit oran
 E) Hazır değerler oranı
 
-**32. Aşağıdaki bilanço kalemleri verilmiş olan işletmenin likidite oranları aşağıdakilerden hangisinde doğru olarak verilmiştir?**
+**27. Aşağıdaki bilanço kalemleri verilmiş olan işletmenin likidite oranları aşağıdakilerden hangisinde doğru olarak verilmiştir?**
 <pre>
 Dönen Varlıklar   : 5000
 KVYK              : 4000
@@ -1480,64 +1480,42 @@ B) 36 gün
 D) 30 gün
 E) 75 gün
 
-**24. MST AŞ.nin 2015 yılında alacak devir hızı aşağıdakilerden hangisidir?**
-**A)** 8
-B) 13,3
-C) 6
-D) 10
-E) 12
-
-
-**25. MST AŞ.nin 2015 yılında ortalama tahsil süresi aşağıdakilerden hangisidir?**
-A) 60 gün
-**B)** 36 gün
-C) 45 gün
-D) 30 gün
-E) 75 gün
-
-**26. MST AŞ.nin 2016 yılında ortalama stokları kaç TL'dir?**
-A) 50.000
-**B)** 35.000
-C) 40.000
-D) 30.000
-E) 45.000
-
-**27. MST AŞ.nin 2016 yılında stok devir hızı aşağıdakilerden hangisidir?**
+**24. MST AŞ.nin 2016 yılında stok devir hızı aşağıdakilerden hangisidir?**
 A) 6
 B) 12
 **C)** 7
 D) 4,9
 E) 6,125
 
-**28. MST AŞ.nin 2016 yılında ortalama stokta kalma süresi aşağıdakilerden hangisidir?**
+**25. MST AŞ.nin 2016 yılında ortalama stokta kalma süresi aşağıdakilerden hangisidir?**
 A) 60 gün
 B) 73,5 gün
 **C)** 51,4 gün
 D) 45 gün
 E) 55 gün
 
-**29. MST AŞ.nin 2016 yılında alacak devir hızı aşağıdakilerden hangisidir?**
+**26. MST AŞ.nin 2016 yılında alacak devir hızı aşağıdakilerden hangisidir?**
 A) 8
 B) 12
 C) 9
 **D)** 10
 E) 6
 
-**30. MST AŞ.nin 2016 yılında ortalama tahsil süresi aşağıdakilerden hangisidir?**
+**27. MST AŞ.nin 2016 yılında ortalama tahsil süresi aşağıdakilerden hangisidir?**
 A) 40 gün
 **B)** 36 gün
 C) 75 gün
 D) 60 gün
 E) 45 gün
 
-**31. Ticari Alacak devir hızı oranının hesaplanmasında aşağıdakilerden hangisi temel alınırsa sonuç daha açıklayıcı olur?**
+**28. Ticari Alacak devir hızı oranının hesaplanmasında aşağıdakilerden hangisi temel alınırsa sonuç daha açıklayıcı olur?**
 A) Ticari Alacaklar
 **B)** Ortalama Ticari Alacaklar
 C) Şüpheli Ticari alacaklar
 D) Ortalama Alacaklar
 E) Alacaklar
 
-**32. Aşağıdakilerden hangisi işletmenin faaliyet durumu hakkında bilgi vermez?**
+**29. Aşağıdakilerden hangisi işletmenin faaliyet durumu hakkında bilgi vermez?**
 A) Alacak devir hızı
 B) Stok devir hızı
 **C)** Stok bağımlılık oranı
@@ -1557,14 +1535,14 @@ C) Ortalama tahsil süresi
 D) Brüt kâr marjı
 E) Ortalama stokta kalma süresi
 
-**34. Aşağıdakilerden hangisi faaliyet etkinliğini gösteren oranlarından değildir?**
+**31. Aşağıdakilerden hangisi faaliyet etkinliğini gösteren oranlarından değildir?**
 A) Ortalama tahsil süresi
 B) Stok devir hızı
 C) Maddi duran varlık devir hızı
 D) Çalışma sermayesi devir hızı
 **E)** Stok bağımlılık oranı
 
-**35. Aşağıdakilerden hangisi faaliyet oranlarından değildir?**
+**32. Aşağıdakilerden hangisi faaliyet oranlarından değildir?**
 A) Özkaynak devir hızı
 B) Hazır değerler devir hızı
 C) Borç devir hızı
@@ -1585,7 +1563,7 @@ D) Brüt kâr marjı
 E) Kapasite kullanım oranı
 
 
-**37. Aşağıdaki oranlardan hangisi işletmenin kapasite kullanımı hakkında bilgi vermektedir?**
+**34. Aşağıdaki oranlardan hangisi işletmenin kapasite kullanımı hakkında bilgi vermektedir?**
 A) Net çalışma sermayesi devir hızı
 B) Özkaynak devir hızı
 **C)** Maddi duran varlık devir hızı
@@ -1624,28 +1602,28 @@ Net Alışlar          : 360.000
 </pre>
 
 
-**39. AKŞAR A.Ş.nin duran varlık devir hızı aşağıdakilerden hangisidir?**
+**36. AKŞAR A.Ş.nin duran varlık devir hızı aşağıdakilerden hangisidir?**
 A) 7,5
 **B)** 11,25
 C) 9
 D) 10
 E) 7,5
 
-**40. AKŞAR A.Ş.nin çalışma sermayesi devir hızı aşağıdakilerden hangisidir?**
+**37. AKŞAR A.Ş.nin çalışma sermayesi devir hızı aşağıdakilerden hangisidir?**
 **A)** 9
 B) 6
 C) 8
 D) 12
 E) 15
 
-**41. AKŞAR A.Ş.nin aktif devir hızı aşağıdakilerden hangisidir?**
+**38. AKŞAR A.Ş.nin aktif devir hızı aşağıdakilerden hangisidir?**
 A) 3,3
 B) 4,8
 **C)** 5
 D) 11,4
 E) 8
 
-**42. AKŞAR A.Ş.nin hazır değerler devir hızı aşağıdakilerden hangisidir?**
+**39. AKŞAR A.Ş.nin hazır değerler devir hızı aşağıdakilerden hangisidir?**
 A) 45
 B) 75
 C) 30
@@ -1653,7 +1631,7 @@ D) 60
 **E)** 90
 
 
-**43. AKŞAR A.Ş.nin alacak devir hızı aşağıdakilerden hangisidir?**
+**40. AKŞAR A.Ş.nin alacak devir hızı aşağıdakilerden hangisidir?**
 A) 24
 **B)** 36
 C) 28
@@ -1700,7 +1678,7 @@ C) Cari Oran 0 ile 1 arasındadır.
 D) Cari Oran negatiftir.
 **E)** Cari oran 1 'in üzerindedir.
 
-**27. Stok bağımlılık oranının hesaplanabilmesi için aşağıdakilerden hangilerine gerek yoktur?**
+**24. Stok bağımlılık oranının hesaplanabilmesi için aşağıdakilerden hangilerine gerek yoktur?**
 i. Kısa vadeli Borçlar<br>
 ii. Stoklar<br>
 iii. Hazır değerler<br>
@@ -1713,7 +1691,7 @@ C) iii – v
 D) vi – i
 E) ii – vi
 
-**28. Stok bağımlılık oranı yüksek olan bir işletme aşağıdakilerden hangisini yapmamalıdır?**
+**25. Stok bağımlılık oranı yüksek olan bir işletme aşağıdakilerden hangisini yapmamalıdır?**
 i. Pazarlama etkinliğini artırmalıdır.<br>
 ii. Satışlarını artırmalıdır.<br>
 iii. Stok alımlarını artırmalıdır.<br>
@@ -1726,14 +1704,14 @@ C) i – iii – v
 D) ii – iii – iv
 E) iv – v – vi
 
-**29. Hangi oranın 1'den düşük olması durumunda stok bağımlılık oranının hesaplanması gerekir?**
+**26. Hangi oranın 1'den düşük olması durumunda stok bağımlılık oranının hesaplanması gerekir?**
 A) Cari oran
 **B)** Asit-test oranı
 C) Faiz karşılama oranı
 D) Nakit oran
 E) Hazır değerler oranı
 
-**30. Aşağıdaki bilanço kalemleri verilmiş olan işletmenin likidite oranları aşağıdakilerden hangisinde doğru olarak verilmiştir?**
+**27. Aşağıdaki bilanço kalemleri verilmiş olan işletmenin likidite oranları aşağıdakilerden hangisinde doğru olarak verilmiştir?**
 <pre>
 Dönen Varlıklar   : 5000
 KVYK              : 4000
