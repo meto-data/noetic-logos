@@ -25,7 +25,7 @@ const moduleQuestions = [
   },
   {
     number: 3,
-    text: "360 / Stok Devir Hızı\n\n<br>\n**Yukarıdaki formül aşağıdakilerden hangisini göstermektedir?**",
+    text: "360 / Stok Devir Hızı\n\n<br>\nYukarıdaki formül aşağıdakilerden hangisini göstermektedir?",
     options: [
       { label: 'A', text: "Ortalama tahsil süresi" },
       { label: 'B', text: "Ortalama etkinlik süresi" },
@@ -38,7 +38,7 @@ const moduleQuestions = [
   },
   {
     number: 4,
-    text: "360 / Alacak Devir Hızı\n\n<br>\n**Yukarıdaki formül aşağıdakilerden hangisini göstermektedir?**\n\n**5.\n<pre>\nSatışların Maliyeti\n-------------------\nOrtalama Stoklar\n</pre>\nYukarıdaki oran aşağıdakilerden hangisini ifade etmektedir?**\n\n**6.\n<pre>\nSatılan Ticari Mallar Maliyeti\n------------------------------\nOrtalama Ticari Mal Stoku\n</pre>\nYukarıdaki oran aşağıdakilerden hangisini ifade etmektedir?**",
+    text: "360 / Alacak Devir Hızı\n\n<br>\nYukarıdaki formül aşağıdakilerden hangisini göstermektedir?\n\n5.\n<pre class=\"question-pre\">\nSatışların Maliyeti\n-------------------\nOrtalama Stoklar\n</pre>\nYukarıdaki oran aşağıdakilerden hangisini ifade etmektedir?\n\n6.\n<pre class=\"question-pre\">\nSatılan Ticari Mallar Maliyeti\n------------------------------\nOrtalama Ticari Mal Stoku\n</pre>\nYukarıdaki oran aşağıdakilerden hangisini ifade etmektedir?",
     options: [
       { label: 'A', text: "Mamül devir hızı" },
       { label: 'B', text: "Ortalama stokta kalma süresi" },
@@ -150,7 +150,7 @@ const moduleQuestions = [
   },
   {
     number: 15,
-    text: "Net satışları 480.000 TL, ortalama stokları 30.000 TL ve ortalama alacakları 20.000 TL olan işletmenin, stok devir hızı ve ortalama stokta kalma süresi aşağıdakilerden hangisidir?\n\n<br>\n<table>\n  <thead>\n    <tr>\n      <th></th>\n      <th>Stok Devir Hızı</th>\n      <th>Ortalama Stokta Kalma Süresi(Gün)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>A)</td>\n      <td>6</td>\n      <td>60</td>\n    </tr>\n    <tr>\n      <td>B)</td>\n      <td>24</td>\n      <td>15</td>\n    </tr>\n    <tr>\n      <td><strong>C)</strong></td>\n      <td>16</td>\n      <td>22,5</td>\n    </tr>\n    <tr>\n      <td>D)</td>\n      <td>10</td>\n      <td>36</td>\n    </tr>\n    <tr>\n      <td>E)</td>\n      <td>20</td>\n      <td>18</td>\n    </tr>\n  </tbody>\n</table>\n<br>",
+    text: "Net satışları 480.000 TL, ortalama stokları 30.000 TL ve ortalama alacakları 20.000 TL olan işletmenin, stok devir hızı ve ortalama stokta kalma süresi aşağıdakilerden hangisidir?\n\n<br>\n<table class=\"question-table\">\n  <thead>\n    <tr>\n      <th></th>\n      <th>Stok Devir Hızı</th>\n      <th>Ortalama Stokta Kalma Süresi(Gün)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>A)</td>\n      <td>6</td>\n      <td>60</td>\n    </tr>\n    <tr>\n      <td>B)</td>\n      <td>24</td>\n      <td>15</td>\n    </tr>\n    <tr>\n      <td>C)</td>\n      <td>16</td>\n      <td>22,5</td>\n    </tr>\n    <tr>\n      <td>D)</td>\n      <td>10</td>\n      <td>36</td>\n    </tr>\n    <tr>\n      <td>E)</td>\n      <td>20</td>\n      <td>18</td>\n    </tr>\n  </tbody>\n</table>\n<br>",
     options: [
       { label: 'A', text: "6 | 60" },
       { label: 'B', text: "24 | 15" },
@@ -175,7 +175,7 @@ const moduleQuestions = [
   },
   {
     number: 17,
-    text: "Bir işletmeye ait bilgiler aşağıdaki gibidir:\n\n<pre>\nNet Satışlar : 3 600 000 TL\nOrtalama Alacaklar : 180 000 TL\nOrtalama Stokta Kalma Süresi : 30 gün\n</pre>\n**Yukarıdaki bilgilere göre işletmenin ortalama tahsilat süresi kaç gündür?**\n\n**18.\n<pre>\nI. Cari oranı sektör ortalamasına göre yüksek, ancak asit test oranı düşük olan bir işletmede\n   sektör ortalamasına göre daha fazla stok vardır.\nII. Stok Devir Hızı Oranı 10 olan bir işletmede ortalama tahsilat süresi 36 gündür.\nIII. Nakit oranı işletmenin stoklarına ve alacaklarına hiç dokunmadan diğer dönen varlıklarla\n    kısa vadeli borçlarını ödeme gücünü gösterir.\n</pre>\nYukarıdaki ifadelerden hangisi doğrudur?**",
+    text: "Bir işletmeye ait bilgiler aşağıdaki gibidir:\n\n<pre class=\"question-pre\">\nNet Satışlar : 3 600 000 TL\nOrtalama Alacaklar : 180 000 TL\nOrtalama Stokta Kalma Süresi : 30 gün\n</pre>\nYukarıdaki bilgilere göre işletmenin ortalama tahsilat süresi kaç gündür?\n\n18.\n<pre class=\"question-pre\">\nI. Cari oranı sektör ortalamasına göre yüksek, ancak asit test oranı düşük olan bir işletmede\n   sektör ortalamasına göre daha fazla stok vardır.\nII. Stok Devir Hızı Oranı 10 olan bir işletmede ortalama tahsilat süresi 36 gündür.\nIII. Nakit oranı işletmenin stoklarına ve alacaklarına hiç dokunmadan diğer dönen varlıklarla\n    kısa vadeli borçlarını ödeme gücünü gösterir.\n</pre>\nYukarıdaki ifadelerden hangisi doğrudur?",
     options: [
       { label: 'A', text: "Yalnız III" },
       { label: 'B', text: "Yalnız II" },
@@ -201,7 +201,7 @@ const moduleQuestions = [
   },
   {
     number: 20,
-    text: "Dönem başı stok mevcudu 28.000 TL, dönem sonu stok mevcudu 42.000 TL olan işletmenin, satışlarının maliyeti 210.000 TL ise, stok devir hızı ve ortalama stokta kalma süresi aşağıdakilerden hangisidir?\n\n<br>\n<table>\n  <thead>\n    <tr>\n      <th></th>\n      <th>Ortalama Stokta Kalma Süresi(Gün)</th>\n      <th>Stok Devir Hızı</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>A)</td>\n      <td>6</td>\n      <td>60</td>\n    </tr>\n    <tr>\n      <td>B)</td>\n      <td>30</td>\n      <td>12</td>\n    </tr>\n    <tr>\n      <td>C)</td>\n      <td>10</td>\n      <td>36</td>\n    </tr>\n    <tr>\n      <td>D)</td>\n      <td>30</td>\n      <td>6</td>\n    </tr>\n    <tr>\n      <td><strong>E)</strong></td>\n      <td>60</td>\n      <td>6</td>\n    </tr>\n  </tbody>\n</table>\n<br>",
+    text: "Dönem başı stok mevcudu 28.000 TL, dönem sonu stok mevcudu 42.000 TL olan işletmenin, satışlarının maliyeti 210.000 TL ise, stok devir hızı ve ortalama stokta kalma süresi aşağıdakilerden hangisidir?\n\n<br>\n<table class=\"question-table\">\n  <thead>\n    <tr>\n      <th></th>\n      <th>Ortalama Stokta Kalma Süresi(Gün)</th>\n      <th>Stok Devir Hızı</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>A)</td>\n      <td>6</td>\n      <td>60</td>\n    </tr>\n    <tr>\n      <td>B)</td>\n      <td>30</td>\n      <td>12</td>\n    </tr>\n    <tr>\n      <td>C)</td>\n      <td>10</td>\n      <td>36</td>\n    </tr>\n    <tr>\n      <td>D)</td>\n      <td>30</td>\n      <td>6</td>\n    </tr>\n    <tr>\n      <td>E)</td>\n      <td>60</td>\n      <td>6</td>\n    </tr>\n  </tbody>\n</table>\n<br>",
     options: [
       { label: 'A', text: "6 | 60" },
       { label: 'B', text: "30 | 12" },
@@ -214,7 +214,7 @@ const moduleQuestions = [
   },
   {
     number: 21,
-    text: "Alacak devir hızı yüksek olan bir işletme için aşağıdakilerden hangisi doğrudur?\n\n**MST AŞ.nin 2015 ve 2016 yılları itibariyle dönem sonuna ait mali tablolarından alınan bazı bilgiler aşağıdaki gibidir. (23-32. soruları bu verilere göre cevaplayınız.)**\n<pre>\n                    2015        2016\n-----------------------------------------\nStoklar             30.000      40.000\nAlacaklar           40.000      50.000\nNet Satışlar        400.000     450.000\nSatışların Maliyeti 180.000     245.000\n</pre>",
+    text: "Alacak devir hızı yüksek olan bir işletme için aşağıdakilerden hangisi doğrudur?\n\nMST AŞ.nin 2015 ve 2016 yılları itibariyle dönem sonuna ait mali tablolarından alınan bazı bilgiler aşağıdaki gibidir. (23-32. soruları bu verilere göre cevaplayınız.)\n<pre class=\"question-pre\">\n                    2015        2016\n-----------------------------------------\nStoklar             30.000      40.000\nAlacaklar           40.000      50.000\nNet Satışlar        400.000     450.000\nSatışların Maliyeti 180.000     245.000\n</pre>",
     options: [
       { label: 'A', text: "Ortalama stokta kalma süresi düşüktür." },
       { label: 'B', text: "Ortalama tahsilat süresi yüksektir." },
@@ -279,7 +279,7 @@ const moduleQuestions = [
   },
   {
     number: 26,
-    text: "MST AŞ.nin 2016 yılında ortalama stokları kaç TL’dir?",
+    text: "MST AŞ.nin 2016 yılında ortalama stokları kaç TL'dir?",
     options: [
       { label: 'A', text: "50.000" },
       { label: 'B', text: "35.000" },
@@ -356,7 +356,7 @@ const moduleQuestions = [
   },
   {
     number: 32,
-    text: "Aşağıdakilerden hangisi işletmenin faaliyet durumu hakkında bilgi vermez?\n\n**33.\n<pre>\nNet Satışlar\n--------------------------\nOrtalama Ticari Alacaklar\n</pre>\nYukarıdaki formül aşağıdakilerden hangisini göstermektedir?**",
+    text: "Aşağıdakilerden hangisi işletmenin faaliyet durumu hakkında bilgi vermez?\n\n33.\n<pre class=\"question-pre\">\nNet Satışlar\n--------------------------\nOrtalama Ticari Alacaklar\n</pre>\nYukarıdaki formül aşağıdakilerden hangisini göstermektedir?",
     options: [
       { label: 'A', text: "Alacak devir hızı" },
       { label: 'B', text: "Ticari alacak devir hızı" },
@@ -381,7 +381,7 @@ const moduleQuestions = [
   },
   {
     number: 35,
-    text: "Aşağıdakilerden hangisi faaliyet oranlarından değildir?\n\n**36.\n<pre>\nNet Satışlar\n-------------------------------\nOrtalama Maddi Duran Varlıklar\n</pre>\nYukarıdaki formül aşağıdakilerden hangisini göstermektedir?**",
+    text: "Aşağıdakilerden hangisi faaliyet oranlarından değildir?\n\n36.\n<pre class=\"question-pre\">\nNet Satışlar\n-------------------------------\nOrtalama Maddi Duran Varlıklar\n</pre>\nYukarıdaki formül aşağıdakilerden hangisini göstermektedir?",
     options: [
       { label: 'A', text: "Maddi duran varlık devir hızı" },
       { label: 'B', text: "Ticari alacak devir hızı" },
@@ -394,7 +394,7 @@ const moduleQuestions = [
   },
   {
     number: 37,
-    text: "Aşağıdaki oranlardan hangisi işletmenin kapasite kullanımı hakkında bilgi vermektedir?\n\n**38.\n<pre>\nNet Satışlar\n-------------\nAktif Toplam\n</pre>\nYukarıdaki formül aşağıdakilerden hangisini göstermektedir?**\n\n**AKŞAR A.Ş’nin 2013 yılı dönem sonuna ait finansal tablolarından alınan bazı verileri aşağıdadır; (39-43. soruları bu verilere göre yanıtlayınız.)**\n<pre>\nMenkul Kıymetler     : 35.000\nDuran Varlıklar      : 80.000\nMaddi Duran Varlıklar: 50.000\nToplam Borçlar       : 120.000\nAktif Toplamı        : 180.000\nÖzkaynak             : 60.000\nNet Satışlar         : 900.000\nSatışların Maliyeti  : 600.000\nStoklar              : 30.000\nHazır Değerler       : 10.000\nAlacaklar            : 25.000\nTicari Borçlar       : 60.000\nNet Alışlar          : 360.000\n</pre>",
+    text: "Aşağıdaki oranlardan hangisi işletmenin kapasite kullanımı hakkında bilgi vermektedir?\n\n38.\n<pre class=\"question-pre\">\nNet Satışlar\n-------------\nAktif Toplam\n</pre>\nYukarıdaki formül aşağıdakilerden hangisini göstermektedir?\n\nAKŞAR A.Ş'nin 2013 yılı dönem sonuna ait finansal tablolarından alınan bazı verileri aşağıdadır; (39-43. soruları bu verilere göre yanıtlayınız.)\n<pre class=\"question-pre\">\nMenkul Kıymetler     : 35.000\nDuran Varlıklar      : 80.000\nMaddi Duran Varlıklar: 50.000\nToplam Borçlar       : 120.000\nAktif Toplamı        : 180.000\nÖzkaynak             : 60.000\nNet Satışlar         : 900.000\nSatışların Maliyeti  : 600.000\nStoklar              : 30.000\nHazır Değerler       : 10.000\nAlacaklar            : 25.000\nTicari Borçlar       : 60.000\nNet Alışlar          : 360.000\n</pre>",
     options: [
       { label: 'A', text: "Duran varlık devir hızı" },
       { label: 'B', text: "Aktif devir hızı" },

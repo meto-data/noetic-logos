@@ -16,7 +16,7 @@ const moduleQuestions = [
     text: "Trend analizi ile ilgili olarak aşağıdaki ifadelerden hangisi yanlıştır?",
     options: [
       { label: 'A', text: "Eğilim yüzdeleri endeks şeklinde ve genellikle pozitif değerlerdir." },
-      { label: 'B', text: "Eğilim yüzdesi 100’ün altında olan kalemler, baz yıla göre azalmıştır." },
+      { label: 'B', text: "Eğilim yüzdesi 100'ün altında olan kalemler, baz yıla göre azalmıştır." },
       { label: 'C', text: "Eğilim yüzdeleri aynı seyri göstermiyorsa, ilgili kalemin eğiliminden söz edilemez." },
       { label: 'D', text: "Kapsamına göre statik analizdir." },
       { label: 'E', text: "İstatistiksel (regresyon analizi) yöntemlerin kullanılabildiği bir analiz tekniğidir." }
@@ -38,7 +38,7 @@ const moduleQuestions = [
   },
   {
     number: 4,
-    text: "Aşağıda stok kalemine ilişkin yapılan hesaplamada soru işaretli yerlere aşağıdakilerden hangisi gelmelidir?\n\n<pre>\n                    2013    2014    2015    2016\nStoklar             20.000  22.000  18.000  30.000\nEğilim Yüzdeleri    100     ?       ?       ?\n</pre>",
+    text: "Aşağıda stok kalemine ilişkin yapılan hesaplamada soru işaretli yerlere aşağıdakilerden hangisi gelmelidir?\n\n<pre class=\"question-pre\">\n                    2013    2014    2015    2016\nStoklar             20.000  22.000  18.000  30.000\nEğilim Yüzdeleri    100     ?       ?       ?\n</pre>",
     options: [
       { label: 'A', text: "120 90 175" },
       { label: 'B', text: "125 75 120" },
@@ -63,7 +63,7 @@ const moduleQuestions = [
   },
   {
     number: 6,
-    text: "Ticari alacakların baz yıldaki ve 2016 yılındaki değerleri aşağıdakilerden hangisinde doğru olarak verilmiştir?\n\n<pre>\n                    2014   2015     2016\nStoklar             ?      12.000   ?\nEğilim Yüzdeleri    100    75       150\n</pre>",
+    text: "Ticari alacakların baz yıldaki ve 2016 yılındaki değerleri aşağıdakilerden hangisinde doğru olarak verilmiştir?\n\n<pre class=\"question-pre\">\n                    2014   2015     2016\nStoklar             ?      12.000   ?\nEğilim Yüzdeleri    100    75       150\n</pre>",
     options: [
       { label: 'A', text: "18.000 24.000" },
       { label: 'B', text: "15.000 20.000" },
@@ -88,7 +88,7 @@ const moduleQuestions = [
   },
   {
     number: 8,
-    text: "Trend veya eğilim yüzdeleri tekniği için en uygun analiz türü aşağıdakilerden hangisidir?\n\n**9.\nI - Trend analizinin doğru sonuçlar verebilmesi için, baz yılın istikrarlı bir yıl olarak seçilmesi gerekir.\nII - Dikey Yüzdelere göre gelir tablosu analiz edilirken Dönem Net Kârı 100 olarak kabul edilir.\nIII - Mukayeseli Tablolar analizinde doğru değerlendirme yapabilmek için oranların yanında hesapların mutlak değerleri de göz önünde bulundurulmalı\n<br>Yukarıdaki ifadelerden hangileri doğrudur?**",
+    text: "Trend veya eğilim yüzdeleri tekniği için en uygun analiz türü aşağıdakilerden hangisidir?\n\n9.\nI - Trend analizinin doğru sonuçlar verebilmesi için, baz yılın istikrarlı bir yıl olarak seçilmesi gerekir.\nII - Dikey Yüzdelere göre gelir tablosu analiz edilirken Dönem Net Kârı 100 olarak kabul edilir.\nIII - Mukayeseli Tablolar analizinde doğru değerlendirme yapabilmek için oranların yanında hesapların mutlak değerleri de göz önünde bulundurulmalı\n<br>Yukarıdaki ifadelerden hangileri doğrudur?",
     options: [
       { label: 'A', text: "Yalnız I" },
       { label: 'B', text: "Yalnız II" },

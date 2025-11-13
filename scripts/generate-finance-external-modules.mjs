@@ -250,6 +250,51 @@ function normalizeWhitespace(str) {
   return str.replace(/\s+/g, " ").trim();
 }
 
+function appendClassName(existing, className) {
+  const classes = existing.split(/\s+/).filter(Boolean);
+  if (!classes.includes(className)) {
+    classes.push(className);
+  }
+  return classes.join(" ");
+}
+
+function ensureTableClasses(line) {
+  return line.replace(/<table([^>]*)>/gi, (match, attrs = "") => {
+    const hasClass = /\bclass\s*=/.test(attrs);
+    if (!hasClass) {
+      const trimmed = attrs.trim();
+      return `<table class="question-table"${trimmed ? ` ${trimmed}` : ""}>`;
+    }
+    return `<table${attrs.replace(
+      /class\s*=\s*(['"])([^'"]*)\1/gi,
+      (fullMatch, quote, classValue) => `class=${quote}${appendClassName(classValue, "question-table")}${quote}`
+    )}>`;
+  });
+}
+
+function ensurePreClasses(line) {
+  return line.replace(/<pre([^>]*)>/gi, (match, attrs = "") => {
+    const hasClass = /\bclass\s*=/.test(attrs);
+    if (!hasClass) {
+      const trimmed = attrs.trim();
+      return `<pre class="question-pre"${trimmed ? ` ${trimmed}` : ""}>`;
+    }
+    return `<pre${attrs.replace(
+      /class\s*=\s*(['"])([^'"]*)\1/gi,
+      (fullMatch, quote, classValue) => `class=${quote}${appendClassName(classValue, "question-pre")}${quote}`
+    )}>`;
+  });
+}
+
+function normalizeBodyLine(line) {
+  if (!line) return line;
+  let normalized = line.replace(/\*\*/g, "");
+  normalized = normalized.replace(/<\/?(strong|b)>/gi, "");
+  normalized = ensureTableClasses(normalized);
+  normalized = ensurePreClasses(normalized);
+  return normalized;
+}
+
 function determineIsQuantitative(text, options) {
   const base = `${text} ${options.map(opt => opt.text).join(" ")}`;
   return /<table|<pre|(\d{3,})|%/.test(base);
@@ -478,10 +523,11 @@ function parseSections(lines) {
       a.label.localeCompare(b.label, "tr", { sensitivity: "base" })
     );
 
-    const bodyLines = blockLinesCopy.filter((_, idx) => !optionLineIndexes.has(idx));
+    const bodyLines = blockLinesCopy.filter((_, idx) => !optionLineIndexes.has(idx)).map(normalizeBodyLine);
     const bodyText = bodyLines.join("\n").trim();
     const promptText = stripMarkdownBold(prompt).trim();
-    const questionText = bodyText ? `${promptText}\n\n${bodyText}` : promptText;
+    const combinedText = bodyText ? `${promptText}\n\n${bodyText}` : promptText;
+    const questionText = normalizeBodyLine(combinedText);
 
     if (!correctLabel && options.length) {
       correctLabel = options[0].label;
