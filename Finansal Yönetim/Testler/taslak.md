@@ -1226,63 +1226,57 @@ C) Stok devir hızı
 **D)** Alacak devir hızı
 E) Ortalama etkinlik süresi
 
-**3. 360 / Stok Devir Hızı**
-<br>
-**Yukarıdaki formül aşağıdakilerden hangisini göstermektedir?**
+**3. 360 / Stok Devir Hızı ifadesi aşağıdaki oranlardan hangisini verir?**
 A) Ortalama tahsil süresi
 B) Ortalama etkinlik süresi
 C) Alacak devir hızı
 D) Stok bağımlılık oranı
 **E)** Ortalama stokta kalma süresi
 
-**4. 360 / Alacak Devir Hızı**
-<br>
-**Yukarıdaki formül aşağıdakilerden hangisini göstermektedir?**
+**4. 360 / Alacak Devir Hızı ifadesi aşağıdaki oranlardan hangisini verir?**
 **A)** Ortalama tahsil süresi
 B) Ortalama etkinlik süresi
 C) Alacak devir hızı
 D) Stok bağımlılık oranı
 E) Ortalama stokta kalma süresi
 
-**5.
+**5. Aşağıdaki oran aşağıdakilerden hangisini ifade eder?**
 <pre>
 Satışların Maliyeti
 -------------------
 Ortalama Stoklar
 </pre>
-Yukarıdaki oran aşağıdakilerden hangisini ifade etmektedir?**
 **A)** Stok devir hızı
 B) Stok bağımlılık oranı
 C) Ortalama stokta kalma süresi
 D) Alacak devir hızı
-E) Alacak tahsil süresi
+E) Ortalama tahsil süresi
 
-**6.
+**6. Aşağıdaki oran aşağıdakilerden hangisini ifade eder?**
 <pre>
 Satılan Ticari Mallar Maliyeti
 ------------------------------
 Ortalama Ticari Mal Stoku
 </pre>
-Yukarıdaki oran aşağıdakilerden hangisini ifade etmektedir?**
-A) Mamül devir hızı
+A) Mamul devir hızı
 B) Ortalama stokta kalma süresi
 C) Alacak devir hızı
 **D)** Ticari malların devir hızı
 E) Stok bağımlılık oranı
 
-**7. Aşağıdakilerden hangisi stokların bir dönemde ortalama kaç günde satıldığını göstermektedir?**
+**7. Aşağıdakilerden hangisi stokların bir dönemde ortalama kaç günde satıldığını gösterir?**
 A) Ortalama tahsil süresi
 B) Ortalama etkinlik süresi
 C) Alacak devir hızı
 D) Stok bağımlılık oranı
 **E)** Ortalama stokta kalma süresi
 
-**8. İşletmenin yapmış olduğu yatırımlarının kaç katı kadar satış yapmış olduğunu gösteren oran aşağıdakilerden hangisidir?**
-**A)** Aktif Devir Hızı Oranı
-B) Ortalama Satış Süresi
-C) Ortalama Etkinlik Süresi
-D) Duran Varlık Devir Hızı Oranı
-E) Stok Devir Hızı Oranı
+**8. İşletmenin yapmış olduğu yatırımlarının kaç katı kadar satış yaptığını gösteren oran aşağıdakilerden hangisidir?**
+**A)** Aktif devir hızı oranı
+B) Ortalama satış süresi
+C) Ortalama etkinlik süresi
+D) Duran varlık devir hızı oranı
+E) Stok devir hızı oranı
 
 **9. Stok devir hızı yüksek olan bir işletme için aşağıdakilerden hangisi doğrudur?**
 A) Ortalama stokta kalma süresi yüksektir.
@@ -1291,80 +1285,47 @@ C) Alacak devir hızı yüksektir.
 **D)** Ortalama stokta kalma süresi düşüktür.
 E) Ortalama tahsilat süresi düşüktür.
 
-**10. Stok mevcudu 5.000 TL, satışlarının maliyeti 60.000 TL olan işletmenin stok devir hızı aşağıdakilerden hangisidir?**
+**10. Stok mevcudu 5.000 TL, satışlarının maliyeti 60.000 TL olan işletmenin stok devir hızı kaçtır?**
 A) 55.000
 **B)** 12
 C) 18
 D) 65.000
 E) 6
 
-**11. Stokların bir dönemde ortalama kaç kez yenilendiğini aşağıdakilerden hangisi göstermektedir?**
-A) Ortamala tahsil süresi
+**11. Stokların bir dönemde ortalama kaç kez yenilendiğini aşağıdakilerden hangisi gösterir?**
+A) Ortalama tahsil süresi
 B) Ortalama stokta kalma süresi
 C) Stok bağımlılık oranı
 D) Alacak devir hızı
 **E)** Stok devir hızı
 
-**12. Aşağıdakilerden hangisi bir dönemde alacakların ortalama kaç kez tahsil edildiğini göstermektedir?**
+**12. Aşağıdakilerden hangisi bir dönemde alacakların ortalama kaç kez tahsil edildiğini gösterir?**
 A) Stok devir hızı
 B) Ortalama etkinlik süresi
 C) Ortalama stokta kalma süresi
 D) Ortalama tahsil süresi
 **E)** Alacak devir hızı
 
-**13. Net satışları 480.000 TL, ortalama stokları 40.000 TL ve ortalama alacakları 20.000 TL olan işletmenin alacak devir hızı aşağıdakilerden hangisidir?**
+**13. Net satışları 480.000 TL, ortalama stokları 40.000 TL ve ortalama alacakları 20.000 TL olan işletmenin alacak devir hızı kaçtır?**
 A) 8
 B) 12
 **C)** 24
 D) 6
 E) 18
 
-**14. Net satışları 480.000 TL, ortalama stokları 40.000 TL ve ortalama alacakları 20.000 TL olan işletmenin, ortalama tahsil süresi aşağıdakilerden hangisidir?**
+**14. Net satışları 480.000 TL, ortalama stokları 40.000 TL ve ortalama alacakları 20.000 TL olan işletmenin ortalama tahsil süresi kaç gündür?**
 **A)** 15 gün
 B) 30 gün
 C) 10 gün
 D) 20 gün
 E) 8 gün
 
-**15. Net satışları 480.000 TL, ortalama stokları 30.000 TL ve ortalama alacakları 20.000 TL olan işletmenin, stok devir hızı ve ortalama stokta kalma süresi aşağıdakilerden hangisidir?**
-<br>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Stok Devir Hızı</th>
-      <th>Ortalama Stokta Kalma Süresi(Gün)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>A)</td>
-      <td>6</td>
-      <td>60</td>
-    </tr>
-    <tr>
-      <td>B)</td>
-      <td>24</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <td><strong>C)</strong></td>
-      <td>16</td>
-      <td>22,5</td>
-    </tr>
-    <tr>
-      <td>D)</td>
-      <td>10</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <td>E)</td>
-      <td>20</td>
-      <td>18</td>
-    </tr>
-  </tbody>
-</table>
-<br>
+**15. Net satışları 480.000 TL, ortalama stokları 30.000 TL ve ortalama alacakları 20.000 TL olan işletmenin stok devir hızı ve ortalama stokta kalma süresi hangisidir?**
+A) 6 | 60
+B) 24 | 15
+**C)** 16 | 22,5
+D) 10 | 36
+E) 20 | 18
 
 **16. Alacak devir hızı 24 olan bir işletmenin ortalama tahsilat süresi kaç gündür?**
 A) 18
@@ -1373,81 +1334,41 @@ B) 16
 D) 24
 E) 20
 
-**17. Bir işletmeye ait bilgiler aşağıdaki gibidir:**
+**17. Aşağıdaki verilere göre işletmenin ortalama tahsilat süresi kaç gündür?**
 <pre>
-Net Satışlar : 3 600 000 TL
-Ortalama Alacaklar : 180 000 TL
+Net Satışlar             : 3.600.000 TL
+Ortalama Alacaklar       :   180.000 TL
 Ortalama Stokta Kalma Süresi : 30 gün
 </pre>
-**Yukarıdaki bilgilere göre işletmenin ortalama tahsilat süresi kaç gündür?**
 A) 36
 B) 25
 C) 24
 D) 20
 **E)** 18
 
-**18.
-<pre>
-I. Cari oranı sektör ortalamasına göre yüksek, ancak asit test oranı düşük olan bir işletmede
-   sektör ortalamasına göre daha fazla stok vardır.
-II. Stok Devir Hızı Oranı 10 olan bir işletmede ortalama tahsilat süresi 36 gündür.
-III. Nakit oranı işletmenin stoklarına ve alacaklarına hiç dokunmadan diğer dönen varlıklarla
-    kısa vadeli borçlarını ödeme gücünü gösterir.
-</pre>
-Yukarıdaki ifadelerden hangisi doğrudur?**
+**18. Aşağıdaki ifadelerden hangisi doğrudur?**
+i) Cari oranı sektör ortalamasına göre yüksek, ancak asit test oranı düşük olan bir işletmede sektör ortalamasına göre daha fazla stok bulunur.<br>
+ii) Stok devir hızı oranı 10 olan bir işletmede ortalama tahsilat süresi 36 gündür.<br>
+iii) Nakit oranı, işletmenin stoklara ve alacaklara dokunmadan diğer dönen varlıklarla kısa vadeli borçlarını ödeme gücünü gösterir.
 A) Yalnız III
 B) Yalnız II
 C) Yalnız I
 **D)** I ve III
 E) I, II, III
 
-**19. [(360 x Ortalama Alacaklar) / Net Satışlar] , formülü aşağıdakilerden hangisini göstermektedir?**
-A) Alacak Bağımlılık Oranı
-B) Nakit Oran
-C) Alacak Devir Hızı
-D) Ortalama Etkinlik Süresi
-**E)** Ortalama Tahsilat Süresi
+**19. [(360 × Ortalama Alacaklar) / Net Satışlar] formülü aşağıdakilerden hangisini gösterir?**
+A) Alacak bağımlılık oranı
+B) Nakit oran
+C) Alacak devir hızı
+D) Ortalama etkinlik süresi
+**E)** Ortalama tahsilat süresi
 
-**20. Dönem başı stok mevcudu 28.000 TL, dönem sonu stok mevcudu 42.000 TL olan işletmenin, satışlarının maliyeti 210.000 TL ise, stok devir hızı ve ortalama stokta kalma süresi aşağıdakilerden hangisidir?**
-<br>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Ortalama Stokta Kalma Süresi(Gün)</th>
-      <th>Stok Devir Hızı</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>A)</td>
-      <td>6</td>
-      <td>60</td>
-    </tr>
-    <tr>
-      <td>B)</td>
-      <td>30</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <td>C)</td>
-      <td>10</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <td>D)</td>
-      <td>30</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <td><strong>E)</strong></td>
-      <td>60</td>
-      <td>6</td>
-    </tr>
-  </tbody>
-</table>
-<br>
-
+**20. Dönem başı stok mevcudu 28.000 TL, dönem sonu stok mevcudu 42.000 TL ve satışların maliyeti 210.000 TL olan işletmenin stok devir hızı ve ortalama stokta kalma süresi hangisidir?**
+A) 6 | 60
+B) 30 | 12
+C) 10 | 36
+D) 30 | 6
+**E)** 6 | 60
 
 **21. Alacak devir hızı yüksek olan bir işletme için aşağıdakilerden hangisi doğrudur?**
 A) Ortalama stokta kalma süresi düşüktür.
@@ -1456,7 +1377,8 @@ C) Stok devir hızı yüksektir.
 D) Ortalama stokta kalma süresi yüksektir.
 E) Ortalama tahsilat süresi düşüktür.
 
-**MST AŞ.nin 2015 ve 2016 yılları itibariyle dönem sonuna ait mali tablolarından alınan bazı bilgiler aşağıdaki gibidir. (23-32. soruları bu verilere göre cevaplayınız.)**
+**22. MST A.Ş.'nin 2015 yılında stok devir hızı aşağıdakilerden hangisidir?**
+Bu ve izleyen sorularda aşağıdaki verileri kullanınız:
 <pre>
                     2015        2016
 -----------------------------------------
@@ -1465,305 +1387,188 @@ Alacaklar           40.000      50.000
 Net Satışlar        400.000     450.000
 Satışların Maliyeti 180.000     245.000
 </pre>
-
-**22. MST AŞ.nin 2015 yılında stok devir hızı aşağıdakilerden hangisidir?**
 A) 8
 B) 13,3
 C) 6
 D) 10
 **E)** 12
 
-**23. MST AŞ.nin 2015 yılında ortalama stokta kalma süresi aşağıdakilerden hangisidir?**
-A) 60 gün
-B) 36 gün
-**C)** 45 gün
-D) 30 gün
-E) 75 gün
+**23. MST A.Ş.'nin 2015 yılında ortalama stokta kalma süresi kaç gündür?**
+A) 60
+B) 36
+**C)** 45
+D) 30
+E) 75
 
-**24. MST AŞ.nin 2016 yılında stok devir hızı aşağıdakilerden hangisidir?**
+**24. MST A.Ş.'nin 2015 yılında alacak devir hızı kaçtır?**
+A) 8
+B) 13,3
+**C)** 6
+D) 10
+E) 12
+
+**25. MST A.Ş.'nin 2015 yılında ortalama tahsil süresi kaç gündür?**
+A) 60
+**B)** 36
+C) 45
+D) 30
+E) 75
+
+**26. MST A.Ş.'nin 2016 yılında ortalama stok tutarı kaç TL'dir?**
+A) 50.000
+**B)** 35.000
+C) 40.000
+D) 30.000
+E) 45.000
+
+**27. MST A.Ş.'nin 2016 yılında stok devir hızı kaçtır?**
 A) 6
 B) 12
 **C)** 7
 D) 4,9
 E) 6,125
 
-**25. MST AŞ.nin 2016 yılında ortalama stokta kalma süresi aşağıdakilerden hangisidir?**
-A) 60 gün
-B) 73,5 gün
-**C)** 51,4 gün
-D) 45 gün
-E) 55 gün
+**28. MST A.Ş.'nin 2016 yılında ortalama stokta kalma süresi kaç gündür?**
+A) 60
+B) 73,5
+**C)** 51,4
+D) 45
+E) 55
 
-**26. MST AŞ.nin 2016 yılında alacak devir hızı aşağıdakilerden hangisidir?**
+**29. MST A.Ş.'nin 2016 yılında alacak devir hızı kaçtır?**
 A) 8
 B) 12
-C) 9
-**D)** 10
+**C)** 9
+D) 10
 E) 6
 
-**27. MST AŞ.nin 2016 yılında ortalama tahsil süresi aşağıdakilerden hangisidir?**
-A) 40 gün
-**B)** 36 gün
-C) 75 gün
-D) 60 gün
-E) 45 gün
+**30. MST A.Ş.'nin 2016 yılında ortalama tahsil süresi kaç gündür?**
+A) 40
+**B)** 36
+C) 75
+D) 60
+E) 45
 
-**28. Ticari Alacak devir hızı oranının hesaplanmasında aşağıdakilerden hangisi temel alınırsa sonuç daha açıklayıcı olur?**
-A) Ticari Alacaklar
-**B)** Ortalama Ticari Alacaklar
-C) Şüpheli Ticari alacaklar
-D) Ortalama Alacaklar
+**31. Ticari alacak devir hızı oranının hesaplanmasında aşağıdakilerden hangisi temel alınırsa sonuç daha açıklayıcı olur?**
+A) Ticari alacaklar
+**B)** Ortalama ticari alacaklar
+C) Şüpheli ticari alacaklar
+D) Ortalama alacaklar
 E) Alacaklar
 
-**29. Aşağıdakilerden hangisi işletmenin faaliyet durumu hakkında bilgi vermez?**
+**32. Aşağıdakilerden hangisi işletmenin faaliyet durumu hakkında bilgi vermez?**
 A) Alacak devir hızı
 B) Stok devir hızı
 **C)** Stok bağımlılık oranı
 D) Ortalama etkinlik süresi
 E) Ortalama tahsil süresi
 
-**33.
+**33. Aşağıdaki formül aşağıdaki oranlardan hangisini verir?**
 <pre>
 Net Satışlar
 --------------------------
 Ortalama Ticari Alacaklar
 </pre>
-Yukarıdaki formül aşağıdakilerden hangisini göstermektedir?**
 A) Alacak devir hızı
 **B)** Ticari alacak devir hızı
 C) Ortalama tahsil süresi
 D) Brüt kâr marjı
 E) Ortalama stokta kalma süresi
 
-**31. Aşağıdakilerden hangisi faaliyet etkinliğini gösteren oranlarından değildir?**
+**34. Aşağıdakilerden hangisi faaliyet etkinliğini gösteren oranlardan değildir?**
 A) Ortalama tahsil süresi
 B) Stok devir hızı
 C) Maddi duran varlık devir hızı
 D) Çalışma sermayesi devir hızı
 **E)** Stok bağımlılık oranı
 
-**32. Aşağıdakilerden hangisi faaliyet oranlarından değildir?**
+**35. Aşağıdakilerden hangisi faaliyet oranlarından değildir?**
 A) Özkaynak devir hızı
 B) Hazır değerler devir hızı
 C) Borç devir hızı
 D) Net çalışma sermayesi devir hızı
 **E)** Asit-test oranı
 
-**36.
+**36. Aşağıdaki formül aşağıdaki oranlardan hangisini verir?**
 <pre>
 Net Satışlar
 -------------------------------
 Ortalama Maddi Duran Varlıklar
 </pre>
-Yukarıdaki formül aşağıdakilerden hangisini göstermektedir?**
 **A)** Maddi duran varlık devir hızı
 B) Ticari alacak devir hızı
 C) Özkaynak devir hızı
 D) Brüt kâr marjı
 E) Kapasite kullanım oranı
 
-
-**34. Aşağıdaki oranlardan hangisi işletmenin kapasite kullanımı hakkında bilgi vermektedir?**
+**37. Aşağıdaki oranlardan hangisi işletmenin kapasite kullanımı hakkında bilgi verir?**
 A) Net çalışma sermayesi devir hızı
 B) Özkaynak devir hızı
 **C)** Maddi duran varlık devir hızı
 D) Borç devir hızı
 E) Alacak devir hızı
 
-
-**38.
+**38. Aşağıdaki formül aşağıdaki oranlardan hangisini verir?**
 <pre>
 Net Satışlar
 -------------
 Aktif Toplam
 </pre>
-Yukarıdaki formül aşağıdakilerden hangisini göstermektedir?**
 A) Duran varlık devir hızı
 **B)** Aktif devir hızı
 C) Özkaynak devir hızı
 D) Stok devir hızı
 E) Kapasite kullanım oranı
 
-**AKŞAR A.Ş'nin 2013 yılı dönem sonuna ait finansal tablolarından alınan bazı verileri aşağıdadır; (39-43. soruları bu verilere göre yanıtlayınız.)**
+**39. AKŞAR A.Ş.'nin duran varlık devir hızı aşağıdakilerden hangisidir?**
+Aşağıdaki verileri kullanınız:
 <pre>
-Menkul Kıymetler     : 35.000
-Duran Varlıklar      : 80.000
-Maddi Duran Varlıklar: 50.000
-Toplam Borçlar       : 120.000
-Aktif Toplamı        : 180.000
-Özkaynak             : 60.000
-Net Satışlar         : 900.000
-Satışların Maliyeti  : 600.000
-Stoklar              : 30.000
-Hazır Değerler       : 10.000
-Alacaklar            : 25.000
-Ticari Borçlar       : 60.000
-Net Alışlar          : 360.000
+Menkul Kıymetler      :  35.000
+Duran Varlıklar       :  80.000
+Maddi Duran Varlıklar :  50.000
+Toplam Borçlar        : 120.000
+Aktif Toplam          : 180.000
+Özkaynak              :  60.000
+Net Satışlar          : 900.000
+Satışların Maliyeti   : 600.000
+Stoklar               :  30.000
+Hazır Değerler        :  10.000
+Alacaklar             :  25.000
+Ticari Borçlar        :  60.000
+Net Alışlar           : 360.000
 </pre>
-
-
-**36. AKŞAR A.Ş.nin duran varlık devir hızı aşağıdakilerden hangisidir?**
 A) 7,5
 **B)** 11,25
 C) 9
 D) 10
 E) 7,5
 
-**37. AKŞAR A.Ş.nin çalışma sermayesi devir hızı aşağıdakilerden hangisidir?**
+**40. AKŞAR A.Ş.'nin çalışma sermayesi devir hızı aşağıdakilerden hangisidir?**
 **A)** 9
 B) 6
 C) 8
 D) 12
 E) 15
 
-**38. AKŞAR A.Ş.nin aktif devir hızı aşağıdakilerden hangisidir?**
+**41. AKŞAR A.Ş.'nin aktif devir hızı aşağıdakilerden hangisidir?**
 A) 3,3
 B) 4,8
 **C)** 5
 D) 11,4
 E) 8
 
-**39. AKŞAR A.Ş.nin hazır değerler devir hızı aşağıdakilerden hangisidir?**
+**42. AKŞAR A.Ş.'nin hazır değerler devir hızı aşağıdakilerden hangisidir?**
 A) 45
 B) 75
 C) 30
 D) 60
 **E)** 90
 
-
-**40. AKŞAR A.Ş.nin alacak devir hızı aşağıdakilerden hangisidir?**
+**43. AKŞAR A.Ş.'nin alacak devir hızı aşağıdakilerden hangisidir?**
 A) 24
 **B)** 36
 C) 28
 D) 18
 E) 42
-
-**22. Cari oranı 1 olan işletme için doğru olan ifadeler aşağıdakilerden hangisinde birlikte verilmiştir?**
-i - Duran varlıklarının tamamı devamlı sermaye ile finanse edilebilmektedir.<br>
-ii - Net çalışma sermayesi sıfırdır.<br>
-iii - Hazır değerler oranı düşüktür.<br>
-iv - Çalışma sermayesi, kısa vadeli borçlarından düşüktür.<br>
-v – Dönen varlıkları, kısa vadeli yabancı kaynaklarını eşittir.
-**A)** i- ii - v
-B) ii-v
-C) ii – iii - v
-D) iv – v
-E) ii – iii
-
-**23. Bir işletmenin cari oranı ve asit test oranı birbirine eşit ise aşağıdaki ifadeler hangisi doğrudur?**
-A) Likiditesi düşüktür.
-B) Likiditesi yüksektir.
-**C)** Stok mevcudu sıfırdır.
-D) Net çalışma sermayesi yeterlidir.
-E) Net çalışma sermayesi noksanı vardır.
-
-**24. Bir işletmenin asit-test oranı ve nakit oranı birbirine eşit ise aşağıdaki ifadelerden hangisi doğrudur?**
-**A)** Ticari alacak mevcudu sıfırdır.
-B) Stok mevcudu sıfırdır.
-C) Likiditesi düşüktür.
-D) Net çalışma sermayesi noksanı vardır.
-E) Kısa vadeli yabancı kaynakları yüksektir.
-
-**25. Nakit oran, likidite oranı ve cari oranın işletmeler açısından sırasıyla genel olarak hangi seviyede olması gerekir?**
-A) 0,2 – 2 – 2
-B) 0,5 – 1 – 2
-C) 0,2 – 0,5 – 2
-D) 0,2 – 1 – 2,5
-**E)** 0,2 – 1 – 2
-
-**26. İşletmenin Çalışma Sermayesi yeterli ise Cari Oran için aşağıdakilerden hangisi doğrudur?**
-A) Cari Oran 1' e eşittir.
-B) Cari Oran sıfırdır.
-C) Cari Oran 0 ile 1 arasındadır.
-D) Cari Oran negatiftir.
-**E)** Cari oran 1 'in üzerindedir.
-
-**24. Stok bağımlılık oranının hesaplanabilmesi için aşağıdakilerden hangilerine gerek yoktur?**
-i. Kısa vadeli Borçlar<br>
-ii. Stoklar<br>
-iii. Hazır değerler<br>
-iv. Menkul kıymetler<br>
-v. Dönen varlıklar<br>
-vi. Alacaklar
-A) i – v
-**B)** v – vi
-C) iii – v
-D) vi – i
-E) ii – vi
-
-**25. Stok bağımlılık oranı yüksek olan bir işletme aşağıdakilerden hangisini yapmamalıdır?**
-i. Pazarlama etkinliğini artırmalıdır.<br>
-ii. Satışlarını artırmalıdır.<br>
-iii. Stok alımlarını artırmalıdır.<br>
-iv. Stok devir hızını artırmalıdır.<br>
-v. Kâr marjını artırmalıdır.<br>
-vi. Stok alımlarını peşin yapmalıdır.
-**A)** iii – v – vi
-B) iv – v – vi
-C) i – iii – v
-D) ii – iii – iv
-E) iv – v – vi
-
-**26. Hangi oranın 1'den düşük olması durumunda stok bağımlılık oranının hesaplanması gerekir?**
-A) Cari oran
-**B)** Asit-test oranı
-C) Faiz karşılama oranı
-D) Nakit oran
-E) Hazır değerler oranı
-
-**27. Aşağıdaki bilanço kalemleri verilmiş olan işletmenin likidite oranları aşağıdakilerden hangisinde doğru olarak verilmiştir?**
-<pre>
-Dönen Varlıklar   : 5000
-KVYK              : 4000
-Stoklar           : 2000
-Hazır Değerler    : 400
-Menkul Kıymetler  : 600
-Alacaklar         : 2000
-Duran Varlıklar   : 3000
-Özkaynaklar       : 3000
-</pre>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Nakit Oran</th>
-      <th>Likidite Oranı</th>
-      <th>Cari Oran</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>A)</td>
-      <td>0,20</td>
-      <td>1,00</td>
-      <td>1,50</td>
-    </tr>
-    <tr>
-      <td>B)</td>
-      <td>0,25</td>
-      <td>0,90</td>
-      <td>2,00</td>
-    </tr>
-    <tr>
-      <td><strong>C)</strong></td>
-      <td>0,25</td>
-      <td>0,75</td>
-      <td>1,25</td>
-    </tr>
-    <tr>
-      <td>D)</td>
-      <td>0,40</td>
-      <td>0,75</td>
-      <td>1,75</td>
-    </tr>
-    <tr>
-      <td>E)</td>
-      <td>0,20</td>
-      <td>1,00</td>
-      <td>1,25</td>
-    </tr>
-  </tbody>
-</table>
-<br>
 
 ***
