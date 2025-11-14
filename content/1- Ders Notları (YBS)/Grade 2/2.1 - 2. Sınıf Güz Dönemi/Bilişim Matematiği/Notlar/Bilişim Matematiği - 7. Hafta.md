@@ -153,13 +153,14 @@ $$
 
 <br>
 
-$$ \large
+$$ 
+\large
 \begin{aligned}
 & \Delta = \left| \begin{matrix} 3 & 1 \\ 1 & 1 \end{matrix} \right| = 3-1 = 2 \\
 & \\
 & \Delta_x = \left| \begin{matrix} 11 & 1 \\ 5 & 1 \end{matrix} \right| = 6 \space \to x= \frac{\Delta_x}{\Delta} = \frac{6}{2} = 3 \\
 & \\
-& \Delta_y = \left | \begin{matrix} 3 & 1 \\ 11 & 5 \end{matrix} \right | = 4 \space \to y = \frac{\Delta_y}{\Delta} = 2 \\
+& \Delta_y = \left | \begin{matrix} 3 & 11 \\ 1 & 5 \end{matrix} \right | = 4 \space \to y = \frac{\Delta_y}{\Delta} = 2 \\
 & \\
 \end{aligned}
 $$
