@@ -16,14 +16,12 @@ cssclasses:
 ### Onluk Sistemde Çözümleme
 #### Onluk tabandaki üç basamaklı bir sayının (`abc`) çözümlenmesi:
 <br>
-$$
-\Large
+$$\Large
 \begin{array}{}
 (\LARGE a \quad b \quad c)_{\large 10} \\[4pt]
 \downarrow \quad \downarrow \quad \downarrow \\[4pt]
 a\cdot10^2  + \space  b\cdot10^1 + \space c\cdot10^0
-\end{array}
-$$
+\end{array}$$
 
 <br>
 
@@ -31,6 +29,7 @@ $$
 #### Herhangi bir tabandaki dört basamaklı bir sayının (`abcd`) çözümlenmesi:
 
 <br>
+
 $$
 \Large
 \begin{array}{c}
@@ -48,6 +47,7 @@ $$
 ### **Örnek 1**:  İki basamaklı `ab` sayısı, rakamları toplamının `7` katından `9` fazladır. Bu koşulu sağlayan iki basamaklı `ab` sayılarının toplamı kaçtır?
 
 #### Çözüm Adımları:
+
 $$
 \Large
 \begin{aligned}{}
@@ -331,6 +331,7 @@ $$
 
 $$
 \large \mathbf{
-m_\text{{min}} = 7 \land  n_\text{{min}} = 9 \implies m+n =\boxed{16}}
+m_\text{{min}} = 7 \space \space \land \space \space  n_\text{{min}} = 9 \implies m+n =\boxed{16}}
 $$
+
 

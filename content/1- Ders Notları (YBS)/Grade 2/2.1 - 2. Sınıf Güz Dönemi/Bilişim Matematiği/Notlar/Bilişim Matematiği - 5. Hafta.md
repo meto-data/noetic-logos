@@ -13,8 +13,7 @@ cssclasses:
 - $m, n \in \mathbb{S^+}$ (pozitif sayma sayıları) olmak üzere, $a_{ij}$ elemanlarından oluşan $m \times n$ boyutundaki dikdörtgen tabloya **matris** denir.
 
 
-$$
-\Large
+$$\Large
 \textbf{A}=
 \begin{bmatrix}
 a_{11} & a_{12} & a_{13} & \dots & a_{1n} \\

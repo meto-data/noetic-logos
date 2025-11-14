@@ -95,7 +95,7 @@ $$
 
 ## Bir Matrisin Skalerle Çarpımı
 
-### Örnek 1:
+### **Örnek 1**:
 $$
 \Large
 A= \begin{bmatrix} 1 & 2 & -2 \\ 6 & -1 & 3 \end{bmatrix}
@@ -116,7 +116,7 @@ $$
 ## Matrislerin Toplanması ve Çıkarılması
 - Aynı türden 2 matris, karşılıklı elemanların toplanması veya çıkartılması şeklinde, toplama ve çıkarma işlemine tâbi tutulabilir.
 
-### Örnek 2:
+### **Örnek 2**:
 $$
 \Large
 A= \begin{bmatrix} -2 & 5 \\ 4 & -3 \\ 7 & \frac{5}{2}\end{bmatrix} \space\space\space\space B= \begin{bmatrix} -3 & -6 \\ -5 & 4 \\ -8 & \frac{7}{2} \end{bmatrix}
@@ -127,7 +127,7 @@ $$
 ##### $$= \begin{bmatrix} -9 & -18 \\ -15 & 12 \\ -24 & \frac{21} {2} \end{bmatrix} - \begin{bmatrix} -2 & 5 \\ 4 & -3 \\ 7 & \frac{5}{2} \end{bmatrix} = \begin{bmatrix} -7 & -23 \\ -19 & 15 \\ -31 & 8 \end{bmatrix}$$
 ---
 
-### Örnek 3:
+### **Örnek 3:**
 
 $$
 \Large
@@ -144,7 +144,7 @@ $\large f(A) = 3A -2I$
 
 ---
 
-### Örnek 4:
+### **Örnek 4**:
 $$
 \Large
 a \cdot \begin{bmatrix} 3 \\ 4  \end{bmatrix} + 2 \cdot \begin{bmatrix} 1 \\ b \end{bmatrix} = \begin{bmatrix} 8 \\ 0\end{bmatrix} \implies a \times b =?
@@ -170,7 +170,7 @@ $$
 	1. Boyutları <u>uygun</u> olmalı $(m \times \underline{n}) \cdot (\underline{n} \times k) = (m \times k)$
 	2. Matrisler çarpılırken **"satır $\times$ sütun, yaz satıra"** mantığı kullanılmalı.
 
-### Örnek 5:
+### **Örnek 5**:
 $$
 \Large
 A= \begin{bmatrix} -2 & 4 \\ \space 3 & 5 \end{bmatrix}_{2 \times 2} \space \space \space \space B= \begin{bmatrix} -2 & 4 & \space 3 \\ \space 1 & 5 & -1 \end{bmatrix}_{2\times 3} \implies A \times B=?
@@ -178,8 +178,15 @@ $$
 #### Çözüm Adımları:
 <br>
 
-$\large A \times B = \begin{bmatrix} -2 & 4 \\ 3 & 5 \end{bmatrix} \times \begin{bmatrix} -2 & 4 & 3 \\ 1 & 5 & -1 \end{bmatrix}$ <br>
+$\large A \times B = \begin{bmatrix} -2 & 4 \\ 3 & 5 \end{bmatrix} \times \begin{bmatrix} -2 & 4 & 3 \\ 1 & 5 & -1 \end{bmatrix}$
+
+
+<br>
+<br>
+
+
 $\large \to \begin{bmatrix} [(-2 \cdot -2) + (4 \cdot 1)] & [(-2 \cdot 4)+(4 \cdot 5)] & [(-2 \cdot 3)+(4 \cdot -1)] \\ [(3 \cdot -2)+(5 \cdot 1)] & [(3 \cdot 4)+(5 \cdot 5)] & [(3 \cdot 3)+(5 \cdot -1)] \end{bmatrix}$
+
 $$
 \to \Large \begin{bmatrix} \space\space8 &  12 & -10 \\ -1 & 37 & \space 4  \end{bmatrix}
 $$
