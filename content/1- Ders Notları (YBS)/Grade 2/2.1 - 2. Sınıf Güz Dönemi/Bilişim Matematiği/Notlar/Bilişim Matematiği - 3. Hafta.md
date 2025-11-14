@@ -1,158 +1,263 @@
 ---
 title: Bilişim Matematiği - 3. Hafta
 type: learning
-ders: "[[Bilişim Matematiği - 3. Hafta]]"
+ders: Bilişim Matematiği
 created: "[[2025-10-10]]"
 cssclasses:
   - ders-notu
 ---
-
 <h2 style="text-align:center"><span style="color:darkblue; text-align:center">Ünite 2: Mantık</span> | <span style="color:#bf3f36">10.10.2025</span></h2>
 
-## Koşullu Önermeler
-### a) [["İSE" Bağlacı| Tek Yönlü Koşullu Önerme]] ($\implies$ -İSE-)
+# Koşullu Önermeler
+## a) [["İSE" Bağlacı| Tek Yönlü Koşullu Önerme]] ("İSE" Bağlacı) (**⇒**)
+- Sonucun `0` olduğu tek durum, birinci önermenin doğru (`1`), ikinci önermenin yanlış (`0`) olduğu durumdur. (`100` kuralı)
 
-| $p$ | $q$ | $p \implies q$ |
-| --- | --- | -------------- |
-| 1   | 1   | 1              |
-| 1   | 0   | 0              |
-| 0   | 1   | 1              |
-| 0   | 0   | 1              |
+| $\mathbf{p}$ | $\mathbf{q}$ | $\mathbf{p \implies q}$ |
+| :----------: | :----------: | :---------------------: |
+|      1       |      1       |            1            |
+|      1       |      0       |            0            |
+|      0       |      1       |            1            |
+|      0       |      0       |            1            |
 
-#### $p \implies q \equiv \neg p \land q$ 
+$$
+\LARGE
+\boxed{p \implies q \equiv p' \lor q}
+$$
+---
+
+### **Örnek 1**: Aşağıdaki ifadenin doğru olduğu bilindiğine göre, **p**, **q** ve **r**'nin doğruluk değerini bulunuz.
+
+$$
+\Large
+\left[(p \lor q) \implies (q \lor r)\right]' \equiv 1
+$$
+#### Çözüm Adımları:
+
+$$
+\large
+\begin{aligned}{}
+&\equiv \left[ (p' \land q') \lor (q \lor r)\right]' \equiv 1 \\ \\
+&\equiv \left[ \underbrace{(p' \lor q')}_1 \land \underbrace{(q' \land r')}_{1} \right] \equiv 1 \\ \\
+&\to \boxed{q \equiv 0, \quad r \equiv 0 \quad p \equiv 1}
+\end{aligned}{}
+$$
+
+
 
 ---
 
-### Örnek: $\left[(p \lor q) \implies (q \lor r)\right]' \equiv 1 \text{ ise,} \space \space \text{ p, q ve r'nin doğruluk değeri nedir?}$
-##### $[(p' \land q') \lor (q \lor r)]' \equiv 1$
-##### $\equiv [\underbrace{(p \lor q)}_{1} \land \underbrace{(q' \land r')}_{1} \equiv 1]$
-##### $\space \space \space \space q \equiv 0, \space r \equiv 0, \space p \equiv 1$
+### Örnek 2 (**Sınavda çıkabilir**): Aşağıdaki ifadenin en sade halini bulunuz.
 
-***
+$$
+\Large
+(p' \implies q') \implies (p \lor q)' \equiv \space ?
+$$
+#### Çözüm Adımları:
 
-### Örnek (<span style="color:darkred">Sınavda çıkabilir</span>): <br> $(p' \implies q') \implies (p \lor q)' \equiv \space ?$
-
-##### $(p \lor q') \implies (p \lor q)'$
-##### $\equiv (p' \land q) \lor (p' \land q')$
-##### $\space \space \space \equiv  p' \land (q \lor q')$
-##### $\space \space \space \space \space \space \equiv p' \land 1 \equiv p'$
-
----
----
-***
-
-### b) [["ANCAK VE ANCAK" Bağlacı|Çift Yönlü Koşullu Önerme]] ($\iff$ -ANCAK VE ANCAK-) 
-
-| $p$ | $q$ | $\iff$ |
-| --- | --- | ------ |
-| 1   | 1   | 1      |
-| 1   | 0   | 0      |
-| 0   | 1   | 0      |
-| 0   | 0   | 1      |
-### $p \iff q \equiv (p \implies q) \land (q \implies p) \equiv (p' \lor q) \land (q' \lor p)$
-
----
-### Örnek: <br>$p\iff (q \lor p')' \equiv \space ?$
-##### $\equiv p \iff (q' \land p)$
-##### $\space \space \equiv [p \implies (q' \land p)] \land [(q'\land p) \implies p]$
-##### $\space \space \space \space \equiv [p' \lor (q' \land p)] \land [(q \lor p') \lor p]$
-##### $\space \space \space\space \space \space \equiv [(p' \lor p) \land (p' \lor q')] \land \underbrace{[q \lor p]}_{1}$
-##### $\space \space \space\space \space \space\space \space \equiv [1 \land (p' \lor q')] \land 1 \equiv p' \lor q'$
+$$
+\large
+\begin{aligned}{}
+&\equiv \left( p \lor q' \right) \implies \left( p \lor q\right)' \\  
+&\equiv \left( p' \land q \right) \lor \left(p' \land q' \right)  \equiv p' \land \left( q \lor q'\right) \\
+& \equiv p' \land 1 \quad \equiv \boxed{p'}
+\end{aligned}{}
+$$
 
 ---
 
-### Örnek: <br>$(p' \iff q)' \lor (q \land p)' \equiv \space?$
-##### $\equiv [(p' \implies q )\land (q \implies p')]' \lor (q' \lor p' )$
-##### $\space\space \equiv [(p \lor q) \land (q' \lor p')]' \lor (q' \lor p')$
-##### $\space\space\space\space \equiv [(p' \land q') \lor (q \land p)] \lor (q' \lor p')$
-$\space\space\space\space\space\space \lor \text{ olduğundan parantezi atlayabiliriz. Ayrıca, } (q' \lor p') = (q \land p)'$
-##### $\space\space\space\space\space\space \equiv (p' \land q') \lor \underbrace{(q \land p) \lor (q \land p)'}_{1}$
-##### $\space\space\space\space\space\space\space\space \equiv (p' \land q') \lor 1 \equiv \boxed{1}$
+### b) [["ANCAK VE ANCAK" Bağlacı|Çift Yönlü Koşullu Önerme]] ("ANCAK VE ANCAK" Bağlacı) (**⇔**)
+- Her iki önermenin doğruluk değeri **aynı** ise sonuç doğru (`1`), **farklı** ise sonuç yanlıştır (`0`).
+
+| $\mathbf{p}$ | $\mathbf{q}$ | $\mathbf{p \iff q}$ |
+| :----------: | :----------: | :-----------------: |
+|      1       |      1       |          1          |
+|      1       |      0       |          0          |
+|      0       |      1       |          0          |
+|      0       |      0       |          1          |
+
+$$
+\LARGE
+\boxed{p \iff q \equiv (p \implies q) \land (q \implies p)}
+$$
 
 ---
----
----
 
+### **Örnek 3:** Aşağıdaki ifadenin en sade halini bulunuz.
 
-## İspat Yöntemleri
-### 1- [[Doğrudan İspat]]
-- $p \implies q$ önermesinde, $p \equiv 1$ iken $q$'nun da $1$ olduğunun gösterilmesine doğrudan ispat yöntemi denir.
+$$
+\mathbf{
+\Large
+p \iff (q \lor p')' \equiv \space ?}
+$$
+#### Çözüm Adımları:
 
----
+$$
+\large
+\begin{aligned}{}
+&\equiv  p \iff \left(q' \land p \right) \\
+&\equiv \left[p \implies (q' \land p) \right] \land \left[ (q' \land p) \implies p\right] \\ \\
+&\equiv \left[ p' \lor (q' \land p)\right] \land \left[ \underbrace{(q \lor p') \lor p}_{1}\right] \\\\
+&\equiv \left[(p' \lor q') \land \underbrace{(p' \lor p)}_{ 1}\right] \land 1  \equiv \LARGE \mathbf{(p' \lor q')}
 
-### Örnek: <br>$p: x^2-1 = 0$ <br>$q: x=1, x=-1$
-
-olduğuna göre, $p \implies q$ teoremini *doğrudan ispat yöntemiyle* ispatlayın.
-
-###### *$p \equiv 1$ olduğunu varsayalım.
-- $x^2 -1 = 0$
-	- $x^2 -1 = (x-1)(x+1) = 0$
-		- $\underbrace{x=1 \lor x= -1}_{q:}$
----
----
-
-### 2- [[Olmayana Ergi Yöntemi]]
-- $p \implies q$ teoreminin karşıt tersinin ($q' \implies p'$) ispatlanmasına denir.
-
----
-### Örnek: <br>$p: 4x-32 =0$<br>$q: x=8$
-- olduğuna göre, $p \implies q$'yu *olmayana ergi yöntemiyle* ispatlayın.
-
-#### $p': 4x-32 \not = 0$
-#### $q': x \not = 8$
-
-##### $\underbrace{(x \not = 8)}_{\text{Doğru kabul edilir. } \equiv 1} \implies \underbrace{(4x-32 \not = 0)}_{\text{ Doğruluğu gösterilir.}}$
-
-##### $\text{Dolayısıyla } q' \implies p' \text{ doğrudur.}$
-
- - Karşıt tersi doğru olan her önerme doğru olduğundan $p \implies q$' da doğrudur.
+\end{aligned}{}
+$$
 
 
 ---
+
+
+### **Örnek 4:** Aşağıdaki ifadenin en sade halini bulunuz.
+$$
+\Large \mathbf{
+(p' \iff q)' \lor (q \land p)'} \equiv \space?
+$$
+
+#### Çözüm Adımları:
+$$
+\large
+\begin{aligned}{}
+& \equiv \left[ (p' \implies q) \land (q \implies p') \right]' \lor (q' \lor p') \\
+& \equiv \left[(p \lor q) \land (q' \lor p')\right]' \lor (q' \lor p') \\
+& \equiv \left[ (p' \land q') \lor (q \land p) \right] \lor (q' \land p') \\ \\
+& \equiv (p' \land q') \lor \underbrace{(q \land p) \lor (q' \land p')}_{1} \\ \\
+&\mathbf{\equiv (p' \land q') \lor 1 \quad \equiv \quad 1}
+\end{aligned}{}
+$$
+
+
 ---
+
+# İspat Yöntemleri
+## 1- [[Doğrudan İspat]]
+- $p \implies q$ önermesinde, $p \equiv 1$ kabul edilerek $q \equiv 1$ olduğunun gösterilmesidir.
+
+### **Örnek 5**: Aşağıdaki teoremi *doğrudan ispat yöntemiyle* ispatlayınız.
+
+$$
+\Large
+\begin{array}{}
+&p: x^2-1 = 0 \\ 
+& q: x=1, \quad x=-1
+\end{array}{}
+$$
+
+#### Çözüm Adımları:
+
+- $p \equiv 1$ olduğunu varsayalım. Bu durumda $x^2-1 = 0$ denklemi doğrudur.
+$$
+\large
+\begin{aligned}
+&x^2 -1 = 0 \\
+&\to (x-1)(x+1) = 0 \\
+&\to x-1=0 \text{ veya } x+1=0 \\
+&\to \underbrace{x=1 \text{ veya } x=-1}_{q \text{ önermesi}}
+\end{aligned}
+$$
+
+- $p$ önermesinin doğru olması, $q$ önermesinin de doğru olmasını gerektirdi. Böylece ispat tamamlandı.
+
+---
+
+## 2- [[Olmayana Ergi Yöntemi]]
+
+- $p \implies q$ teoreminin, ona denk olan karşıt tersi ($q' \implies p'$) önermesinin ispatlanmasıdır.
+
+### **Örnek 6**: Aşağıdaki teoremi *olmayana ergi yöntemiyle* ispatlayınız.
+
+$$
+\Large
+\begin{array}{}
+&p: 4x-32 =0 \\
+&q: x=8  \qquad \space
+\end{array}{}
+$$
+
+
+#### Çözüm Adımları:
+
+$$
+\Large
+\begin{array}{}
+&p': 4x-32 \not = 0 \\  
+&q': x \not = 8  \qquad    
+\end{array}{}
+$$
+
+
+$$
+\Large \mathbf{
+\underbrace{(x \not = 8)}_{\text{Doğru kabul edilir. } (\equiv 1)} \implies \underbrace{(4x-32 \not = 0)}_{\text{ Doğruluğu gösterilir.}}}
+$$
+
+
+- $q'$ önermesinin doğru olması $p'$ önermesinin de doğru olmasını gerektirdi. O halde $q' \implies p'$ doğrudur. Bir önermenin karşıt tersi kendisine denk olduğu için $p \implies q$ da doğrudur.
+
 ---
 
 ## Totoloji ve Çelişki
-#### [[Totoloji]]
-- Basit bileşenlerin doğruluk değeri ne olursa olsun doğru olan bileşke önerme.
-- Söz gelişi, insanlar erkektir veya kadındır önermesi her zaman doğrudur. O nedenle bu önerme bir totolojidir.
-- $(p \lor p') \equiv 1$ totolojidir.
-- Doğruluk tablosunda her zaman $1$ değerini verir.
-##### [[Çelişki]]
-- Basit bileşenlerinin doğruluk değeri ne olursa olsun yanlış olan bileşke önerme.
-- $(p \land p') \equiv 0$ çelişkidir.
-- Doğruluk tablosunda her zaman $0$ değerini verir.
+### [[Totoloji]]
+- Bileşenlerinin doğruluk değeri ne olursa olsun daima doğru (`1`) olan bileşik önermedir. Örn: $(p \lor p')$
+### [[Çelişki]]
+- Bileşenlerinin doğruluk değeri ne olursa olsun daima yanlış (`0`) olan bileşik önermedir. Örn: $(p \land p')$
 
 ---
 
-### Örnek: <br>$[(p' \land p)' \lor q]' \implies q \equiv 1$ önermesinin totoloji olduğunu gösterin.
+### **Örnek 7**: Aşağıdaki önermenin bir totoloji olduğunu gösteriniz.
 
-#### 1. Yöntem: 
+$$
+\mathbf{
+\Large
+[(p' \land p)' \lor q]' \implies q}
+$$
 
-##### $[(p' \land p)' \lor q] \lor q \equiv 1$
-##### $\equiv \underbrace{0' \lor q}_{1} \lor q \equiv 1$
-##### $\space \space \equiv 1 \lor q \equiv 1$
+#### 1. Yöntem:
+$$
+\large
+\begin{aligned}
+&\equiv [(0)' \lor q]' \implies q \\
+&\equiv [1 \lor q]' \implies q \\
+&\equiv [1]' \implies q \\
+&\equiv 0 \implies q \\
+&\equiv 0' \lor q \equiv 1 \lor q \equiv \boxed{1}
+\end{aligned}
+$$
+
 
 #### 2. Yöntem (Tablo Yöntemi)
 
-| $p$ | $q$ | $p'$ | $\overbrace{p' \land p}^{a}$ | $a'$ | $\overbrace{a' \lor q}^{m}$ | $m'$ | $m \implies q$ |
-| --- | --- | ---- | ---------------------------- | ---- | --------------------------- | ---- | -------------- |
-| 1   | 1   | 0    | 0                            | 1    | 1                           | 0    | **1**          |
-| 1   | 0   | 0    | 0                            | 1    | 1                           | 0    | **1**          |
-| 0   | 1   | 1    | 0                            | 1    | 1                           | 0    | **1**          |
-| 0   | 0   | 1    | 0                            | 1    | 1                           | 0    | **1**          |
-- $m \implies q$ her zaman 1 değerini verdiğinden, önerme bir totolojidir.
+| $\mathbf{p}$ | $\mathbf{q}$ | $\mathbf{p'}$ | $\mathbf{\overbrace{p' \land p}^{a}}$ | $\mathbf{a'}$ | $\mathbf{\overbrace{a' \lor q}^{m}}$ | $\mathbf{m'}$ | $\mathbf{m \implies q}$ |
+| ------------ | ------------ | ------------- | ------------------------------------- | ------------- | ------------------------------------ | ------------- | ----------------------- |
+| 1            | 1            | 0             | 0                                     | 1             | 1                                    | 0             | **1**                   |
+| 1            | 0            | 0             | 0                                     | 1             | 1                                    | 0             | **1**                   |
+| 0            | 1            | 1             | 0                                     | 1             | 1                                    | 0             | **1**                   |
+| 0            | 0            | 1             | 0                                     | 1             | 1                                    | 0             | **1**                   |
+
+- $\mathbf{m \implies q}$ sütunu daima `1` olduğundan önerme bir totolojidir.
+
 
 ---
 
-### Örnek: <br>$(0 \land 1) \land (p \lor q)' \equiv 0$ çelişki olduğunu gösterin.
-##### $\equiv 0 \land (p' \land q') \equiv 0$
+### **Örnek 8**: Aşağıdaki önermenin bir çelişki olduğunu gösteriniz.
 
----
----
+$$
+\Large \mathbf{
+(0 \land 1) \land (p \lor q)' \equiv 0}
+$$
+
+#### Çözüm Adımları:
+
+$$
+\large
+\equiv 0 \land (p' \land q') \equiv \boxed{0}
+$$
+
+- "VE" bağlacında bir terimin `0` olması sonucu daima `0` yapacağından, bu önerme bir çelişkidir.
+
 ---
 
 ## Bileşik Önermelerin Elektrik Devrelerine Uygulanması
+
+- Paralel bağlı anahtarlar **VEYA (∨)**, seri bağlı anahtarlar **VE (∧)** bağlacı ile ifade edilir.
 
 ![[itmat1.svg|550]]
 
@@ -160,13 +265,24 @@ olduğuna göre, $p \implies q$ teoremini *doğrudan ispat yöntemiyle* ispatlay
 
 ![[itmat2.svg]]
 
-
-
 ---
 
-### Örnek
+### **Örnek 9**: Aşağıdaki devreye karşılık gelen bileşik önermeyi yazarak devreden akım geçip geçmediğini bulunuz.
 ![[itmat3.svg]]
-- Yukarıdaki devreyi bileşik önermelerde ifade edin ve akım geçip geçmediğine bakın.
-#### $[(p\lor r) \land q] \lor [(s \lor t) \land u] \land (k \lor y)$
-#### $\space \space \equiv [\underbrace{(0 \lor 1) \land 1}_{1}] \land [\underbrace{(0 \lor 1) \land 1}_{1}] \land (\underbrace{0 \lor 1}_{1}) \space \equiv \space 1 \space \text{ Dolayısıyla akım geçer.}$
+#### Çözüm Adımları:
 
+$$
+\Large \mathbf{
+\left( [(p \lor r) \land q] \lor [(s \lor t) \land u] \right) \land (k \lor y)}
+$$
+
+
+$$
+\large
+\begin{aligned}{}
+&\equiv \left( [(\underbrace{0 \lor 1}_{1}) \land 1] \lor [(\underbrace{0 \lor 1}_{1}) \land 1] \right) \land (\underbrace{0 \lor 1}_{1}) \\ \\
+&\equiv \left( [\underbrace{1 \land 1}_{1}] \lor [\underbrace{1 \land 1}_{1}] \right) \land 1 \\ \\
+&\equiv (\underbrace{1 \lor 1}_{1}) \land 1 \\ \\
+&\equiv 1 \land 1 \equiv \boxed{1}
+\end{aligned}{}
+$$

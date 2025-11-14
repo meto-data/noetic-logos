@@ -7,49 +7,125 @@ date: 2025-10-24
 cssclasses:
   - ders-notu
 ---
-
 <h2 style="text-align:center"><span style="color:darkblue; text-align:center">Ünite 4: Lineer Cebir (Matrisler ve Determinantlar)</span> | <span style="color:#bf3f36">24.10.2025</span></h2>
 
-- **Matris**: $i, j \in \mathbb{S}$ (i ve j sayma sayısı) olmak üzere, $1 \le i \le m \space \space$ ve  $\space 1 \le j \le m$ olsun.
+## Matris Tanımı
+- $m, n \in \mathbb{S^+}$ (pozitif sayma sayıları) olmak üzere, $a_{ij}$ elemanlarından oluşan $m \times n$ boyutundaki dikdörtgen tabloya **matris** denir.
 
-### $$A = \begin{bmatrix} a_{11} & a_{12} & a_{13}  & \dots &  a_{1n} \\ a_{21} & a_{22} & a_{23} & \dots &  a_{2n} \\ \dots & \dots & \dots & \dots & \dots \\ a_{m1} & a_{m2} & a_{m3} & \dots & a_{mn} \end{bmatrix}_{m \times n}$$
 
-- $m$: Satır sayısı
-- $n$: Sütun sayısı
+$$
+\Large
+\textbf{A}=
+\begin{bmatrix}
+a_{11} & a_{12} & a_{13} & \dots & a_{1n} \\
+a_{21} & a_{22} & a_{23} & \dots & a_{2n} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & a_{m3} & \dots & a_{mn}
+\end{bmatrix}
+_{m\times n}
+\\[8pt]
+\hspace{-3cm}
+
+\begin{aligned}
+\textbf{m} &= \text{Satır sayısı} \\
+\textbf{n} &= \text{Sütun sayısı}
+\end{aligned}
+$$
+
+
 
 ---
 
-## Örnek: $K= \begin{bmatrix} -2 & 0 & 3 \\ 5 & 12 & -8 \\ \frac{1}{3} & \frac{5}{4} & \sqrt{2}\end{bmatrix}$ <br>
-<br>
+### **Örnek 1**: Aşağıdaki K matrisi için istenenleri bulunuz.
+
+$$
+\Large
+\textbf{A}=
+\begin{bmatrix}
+a_{11} & a_{12} & a_{13} & \dots & a_{1n} \\
+a_{21} & a_{22} & a_{23} & \dots & a_{2n} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & a_{m3} & \dots & a_{mn}
+\end{bmatrix}
+_{m\times n}
+\\[10pt]
+\begin{aligned}[t]
+&\textbf{\large m} = \text{Satır sayısı} \\
+&\textbf{\large n}\space = \text{Sütun sayısı}
+\end{aligned}
+$$
 
 
-### A) Matrisin boyutu (türü) nedir?
-##### $3 \times 3$   <br>
 
-#### B) <br>$K_{23} = -8$<br>$K_{31} = \frac{1}{3}$
+#### **a)** Matrisin boyutu (türü) nedir?
 
-### C) K matrisinden satır ve sütun matrisleri oluşturun. <br>
+$$
+\large
+3 \times 3
+$$
+#### `K₂₃`  ve  `K₃₁` elemanları nelerdir?
 
-#### Satır: <br>
-##### $K_1 = \begin{bmatrix} -2 & 0 & 3\end{bmatrix}$<br>$K_2 = \begin{bmatrix}5 & 12 & -8\end{bmatrix}$<br>$K_3 = \begin{bmatrix} \frac{1}{3} & \frac{5}{4} & \sqrt{2} \end{bmatrix}$
+$$
+\large
+K_{23} = -8, \quad K_{31} = \frac{1}{3}
+$$
 
-<br>
+#### **c)** `K` matrisinden satır ve sütun matrisleri oluşturun.
+##### Satır Matrisleri:
 
-#### Sütun: 
+$$\large  K_1 = \begin{bmatrix} -2 & 0 & 3\end{bmatrix}$$
 
-<br>
+$$\large  K_2 = \begin{bmatrix}5 & 12 & -8\end{bmatrix}$$
 
-##### $A= \begin{bmatrix} -2 \\ 5 \\ \frac{1}{3} \end{bmatrix} \space \space \space B= \begin{bmatrix} 0 \\ 12 \\ \frac{5}{4} \end{bmatrix} \space \space \space C = \begin{bmatrix} 3 \\ -8 \\ \sqrt{2} \end{bmatrix}$
+$$\large  K_3 = \begin{bmatrix} \frac{1}{3} & \frac{5}{4} & \sqrt{2} \end{bmatrix}$$
 
 
+##### Sütun Matrisleri:
+$$ 
+\large 
+A= \begin{bmatrix} -2 \\ 5 \\ \frac{1}{3} \end{bmatrix} \quad B= \begin{bmatrix} 0 \\ 12 \\ \frac{5}{4} \end{bmatrix} \quad C = \begin{bmatrix} 3 \\ -8 \\ \sqrt{2} 
+\end{bmatrix} 
+$$
 ---
 
 ## İki Matrisin Eşitliği
-- İki matrisin eşit olabilmesi için karşılıklı elemanlarının bire-bir eşit olması gerekmektedir.
+- İki matrisin eşit olabilmesi için aynı boyutta olmaları ve karşılıklı elemanlarının birebir eşit olması gerekmektedir.
 
-### Örnek: $A= \begin{bmatrix} 1  & -5 \\ 2x-3y & 4 \end{bmatrix} \space \space \space B= \begin{bmatrix} 1 & -x+2y \\ 8 & 4 \end{bmatrix}$<br><br>$A=B \implies x.y =?$ <br>
-<br>
+### **Örnek 2**: Verilen matrisler eşit olduğuna göre `x.y` çarpımını bulunuz.
 
-#### $\begin{matrix}2y-x &=& -5 \\ 2x-3y &=& 8  \end{matrix} \implies \begin{bmatrix} 4y-2x &=& -10 \\ 2x-3y &=& 8\end{bmatrix} \implies y= -2$ <br>
-#### $\space \space \to \boxed{y=-2} \implies \boxed{x = 1}$
-#### $\space \space \space \to x.y = -2$
+
+$$
+\Large
+A= \begin{bmatrix} 1  & -5 \\ 2x-3y & 4 \end{bmatrix}, \quad B= \begin{bmatrix} 1 & -x+2y \\ 8 & 4 \end{bmatrix} \quad
+$$
+
+#### Çözüm Adımları:
+
+
+
+$$
+\large
+\begin{aligned}{}
+-x + 2y &= -5 \\
+2x - 3y &=  \space \space \space8 \\
+\end{aligned}{}
+$$
+
+
+
+$$
+\large{
+\begin{matrix}
+
+\space \space-2x + 4y & \space \space= -10 \\
++\quad 2x - 3y &= \space \space8 \\
+\hline
+\qquad \qquad y&= -2 \\
+
+\\
+
+\to \boxed{y=-2} \implies \boxed{x = 1} \\ \\
+\bf{x.y = -2}
+\end{matrix}} 
+$$
+
