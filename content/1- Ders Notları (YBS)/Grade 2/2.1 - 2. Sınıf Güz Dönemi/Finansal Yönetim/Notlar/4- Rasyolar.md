@@ -86,7 +86,6 @@ $$
 
 
 
-
 $$
 \Large
 \boxed{\space \frac{\text{Dönen Varlıklar - Stoklar}}{\text{Kısa Vadeli Borçlar}} 
@@ -114,6 +113,7 @@ $$
 - "Stoklar satılmazsa ve alacaklar tahsil edilemezse ne olur?" diye sorar. Sadece **kasadaki, bankadaki paraya (hazır değerler)** ve hemen bozdurulabilen **menkul kıymetlere (hisse senedi, fon vb.)** bakar.
 - "**İşletmenin hazır değerleri (kasa, banka) ve menkul kıymetleri toplamının kısa vadeli borçları karşılama oranını gösterir.**" 
 
+
 $$
 \large
 \boxed{ \space \frac{\text{Hazır Değerler + Menkul Kıymetler}}{\text{Kısa Vadeli Borçlar}} \ge 0.20 \space}
@@ -121,7 +121,7 @@ $$
 
 
 - **Eğer $\ge 0.20$ ise**: Nakit durumumuz iyi demektir, stres testini geçtik.
-- "**Eğer $< 0.20$ ise**":
+- **Eğer $< 0.20$ ise**:
 	1. **Eğer $< 0.20$ ise, AMA $\text{cari oran} \ge 1.5$  ve  $\text{asit-test oran} \ge 1$ ise**: Bunun anlamı şudur: "Kasamız zayıf, ama alacaklarımız sağlam. Kısa vadeli borçlar **alacaklara bağımlıdır**. O alacaklar *tahsil edilmezse* ödeme <u>yapamayız.</u>"
 	2. **Eğer $< 0.20$ ise, AMA $\text{asit-test oran }<1$ ise**: Durumumumuz epey kötü. Hem nakdimiz yok hem de alacaklarımız yetersiz (veya yok), üstüne bir de stoklara bağımlıyız. Ödeyemeyiz. Her işletmenin kabusudur bu.
 
