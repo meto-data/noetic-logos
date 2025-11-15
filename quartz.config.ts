@@ -1,6 +1,7 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 import { defaultFeatures, type FeatureConfig } from "./quartz/config/features"
+import { defaultStudyChatConfig } from "./quartz/config/studyChat"
 
 const folderSortCollator = new Intl.Collator("tr", {
   numeric: true,
@@ -190,10 +191,12 @@ const config: QuartzConfig = {
     defaultDateType: "created",
     features: {
       ...defaultFeatures,
+      pageBasedChat: true,
       // Kullanıcı buradan override edebilir:
       // scrollPositionRestore: false,
       // progressTracking: false,
     },
+    studyChat: defaultStudyChatConfig,
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,

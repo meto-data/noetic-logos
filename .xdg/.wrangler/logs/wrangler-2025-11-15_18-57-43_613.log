@@ -1,0 +1,30 @@
+
+--- 2025-11-15T18:57:43.756Z debug
+🪵  Writing logs to "/home/logos/.config/.wrangler/logs/wrangler-2025-11-15_18-57-43_613.log"
+---
+
+--- 2025-11-15T18:57:43.756Z debug
+Metrics dispatcher: Posting data {"deviceId":"09cce1e4-eafb-4ba4-9cec-14a45a0ba1c2","event":"wrangler command started","timestamp":1763233063755,"properties":{"amplitude_session_id":1763233063754,"amplitude_event_id":0,"wranglerVersion":"4.47.0","osPlatform":"Linux","osVersion":"#1 ZEN SMP PREEMPT_DYNAMIC Sun, 02 Nov 2025 17:27:04 +0000","nodeVersion":25,"isFirstUsage":false,"configFileType":"none","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":true,"hasAssets":false,"argsUsed":[],"argsCombination":"","command":"wrangler whoiam","args":{}}}
+---
+
+--- 2025-11-15T18:57:43.762Z log
+
+---
+
+--- 2025-11-15T18:57:43.805Z error
+✘ [ERROR] Unknown argument: whoiam
+
+
+---
+
+--- 2025-11-15T18:57:43.815Z debug
+.env file not found at "/home/logos/noetic-papers/.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2025-11-15T18:57:43.815Z debug
+.env file not found at "/home/logos/noetic-papers/.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2025-11-15T18:57:43.828Z debug
+Metrics dispatcher: Posting data {"deviceId":"09cce1e4-eafb-4ba4-9cec-14a45a0ba1c2","event":"wrangler command errored","timestamp":1763233063828,"properties":{"amplitude_session_id":1763233063754,"amplitude_event_id":1,"wranglerVersion":"4.47.0","osPlatform":"Linux","osVersion":"#1 ZEN SMP PREEMPT_DYNAMIC Sun, 02 Nov 2025 17:27:04 +0000","nodeVersion":25,"isFirstUsage":false,"configFileType":"none","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":true,"hasAssets":false,"argsUsed":[],"argsCombination":"","command":"wrangler whoiam","args":{},"durationMs":98,"durationSeconds":0.098,"durationMinutes":0.0016333333333333334,"errorType":"CommandLineArgsError","errorMessage":"yargs validation error"}}
+---

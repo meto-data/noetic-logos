@@ -1,0 +1,62 @@
+
+--- 2025-11-15T18:56:21.583Z debug
+🪵  Writing logs to "/home/logos/.config/.wrangler/logs/wrangler-2025-11-15_18-56-21_434.log"
+---
+
+--- 2025-11-15T18:56:21.583Z debug
+Metrics dispatcher: Posting data {"deviceId":"09cce1e4-eafb-4ba4-9cec-14a45a0ba1c2","event":"wrangler command started","timestamp":1763232981583,"properties":{"amplitude_session_id":1763232981581,"amplitude_event_id":0,"wranglerVersion":"4.47.0","osPlatform":"Linux","osVersion":"#1 ZEN SMP PREEMPT_DYNAMIC Sun, 02 Nov 2025 17:27:04 +0000","nodeVersion":25,"isFirstUsage":true,"configFileType":"none","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":true,"hasAssets":false,"argsUsed":[],"argsCombination":"","command":"wrangler login","args":{}}}
+---
+
+--- 2025-11-15T18:56:21.590Z debug
+.env file not found at "/home/logos/noetic-papers/.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2025-11-15T18:56:21.590Z debug
+.env file not found at "/home/logos/noetic-papers/.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2025-11-15T18:56:28.581Z log
+
+ ⛅️ wrangler 4.47.0
+───────────────────
+---
+
+--- 2025-11-15T18:56:28.597Z log
+Attempting to login via OAuth...
+---
+
+--- 2025-11-15T18:56:28.604Z log
+Opening a link in your default browser: https://dash.cloudflare.com/oauth2/auth?response_type=code&client_id=54d11594-84e4-41aa-b438-e81b8fa78ee7&redirect_uri=http%3A%2F%2Flocalhost%3A8976%2Foauth%2Fcallback&scope=account%3Aread%20user%3Aread%20workers%3Awrite%20workers_kv%3Awrite%20workers_routes%3Awrite%20workers_scripts%3Awrite%20workers_tail%3Aread%20d1%3Awrite%20pages%3Awrite%20zone%3Aread%20ssl_certs%3Awrite%20ai%3Awrite%20queues%3Awrite%20pipelines%3Awrite%20secrets_store%3Awrite%20containers%3Awrite%20cloudchamber%3Awrite%20connectivity%3Aadmin%20offline_access&state=zIOdvKFI~xd7X0sxDGEs98fjja-MpV.Z&code_challenge=dEOMLgm6Mlpfx03lQ5VlHShWdi6N0-SfOm-35GJqK3s&code_challenge_method=S256
+---
+
+--- 2025-11-15T18:56:43.663Z debug
+fetching auth token grant_type=authorization_code&code=ZOgXcOUJYR9VNiZt-1PuT8XGCOTfOmeTZJ2BCu23Lm0.zOCXMsV3zYB9hMdYXH4FzVvxn_-724d6R9RfSRuBBJY&redirect_uri=http%3A%2F%2Flocalhost%3A8976%2Foauth%2Fcallback&client_id=54d11594-84e4-41aa-b438-e81b8fa78ee7&code_verifier=TFV4T0dRXzNvaS1LSVcyflpPaXVORFlPRHAuaFlLUmpxNVNCQkVjNWg0dlRPWDRHVk96a19HWlQyQVYuX2xYM216VzI5LlBLak9ZLmlPUFJ0b3ViYzlabVFSZUdvTHIu
+---
+
+--- 2025-11-15T18:56:43.663Z debug
+Checking if domain has Access enabled: dash.cloudflare.com
+---
+
+--- 2025-11-15T18:56:43.663Z debug
+Access switch not cached for: dash.cloudflare.com
+---
+
+--- 2025-11-15T18:56:43.922Z debug
+Caching access switch for: dash.cloudflare.com
+---
+
+--- 2025-11-15T18:56:43.922Z debug
+Fetching auth token from https://dash.cloudflare.com/oauth2/token
+---
+
+--- 2025-11-15T18:56:44.699Z log
+Successfully logged in.
+---
+
+--- 2025-11-15T18:56:44.700Z debug
+Metrics dispatcher: Posting data {"deviceId":"09cce1e4-eafb-4ba4-9cec-14a45a0ba1c2","event":"login user","timestamp":1763233004700,"properties":{"category":"Workers","wranglerVersion":"4.47.0","os":"linux:x64"}}
+---
+
+--- 2025-11-15T18:56:44.703Z debug
+Metrics dispatcher: Posting data {"deviceId":"09cce1e4-eafb-4ba4-9cec-14a45a0ba1c2","event":"wrangler command completed","timestamp":1763233004703,"properties":{"amplitude_session_id":1763232981581,"amplitude_event_id":1,"wranglerVersion":"4.47.0","osPlatform":"Linux","osVersion":"#1 ZEN SMP PREEMPT_DYNAMIC Sun, 02 Nov 2025 17:27:04 +0000","nodeVersion":25,"isFirstUsage":false,"configFileType":"none","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":true,"hasAssets":false,"argsUsed":[],"argsCombination":"","command":"wrangler login","args":{},"durationMs":23151,"durationSeconds":23.151,"durationMinutes":0.38584999999999997}}
+---

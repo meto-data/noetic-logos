@@ -6,6 +6,7 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [
+    Component.StudyChat(),
     Component.ScrollRestore(), // Scroll pozisyonu geri yükleme
   ],
   footer: Component.Footer({
