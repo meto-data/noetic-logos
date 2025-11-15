@@ -33,12 +33,15 @@
         : [],
       correctLabel: question.correctLabel ? String(question.correctLabel).trim() : null,
       isQuantitative: Boolean(question.isQuantitative),
-      contextHtml: ""
+      contextHtml: (question.contextHtml && question.contextHtml.trim()) || ""
     };
 
-    const { body, context } = splitQuestionContext(normalized.text);
-    normalized.text = body;
-    normalized.contextHtml = context;
+    // contextHtml yoksa text'ten extract et
+    if (!normalized.contextHtml) {
+      const { body, context } = splitQuestionContext(normalized.text);
+      normalized.text = body;
+      normalized.contextHtml = context;
+    }
 
     if (!normalized.options.length) {
       normalized.options = [{ label: "A", text: "Seçenek bulunamadı" }];
