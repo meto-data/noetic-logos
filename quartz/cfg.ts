@@ -3,6 +3,7 @@ import { QuartzComponent } from "./components/types"
 import { ValidLocale } from "./i18n"
 import { PluginTypes } from "./plugins/types"
 import { Theme } from "./util/theme"
+import type { FeatureConfig } from "./config/features"
 
 export type Analytics =
   | null
@@ -83,6 +84,11 @@ export interface GlobalConfiguration {
    * Region Codes: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
    */
   locale: ValidLocale
+  /**
+   * Feature toggle configuration
+   * Tüm yeni özelliklerin açma/kapama ayarları
+   */
+  features: FeatureConfig
 }
 
 export interface QuartzConfig {

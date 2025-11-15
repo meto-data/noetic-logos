@@ -5,7 +5,9 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.ScrollRestore(), // Scroll pozisyonu geri yükleme
+  ],
   footer: Component.Footer({
     links: {
       Instagram: "https://www.instagram.com/metophysica",
@@ -21,6 +23,7 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) => page.fileData.slug !== "index",
     }),
     Component.ArticleTitle(),
+    Component.PrerequisiteBanner(), // Önkoşul uyarı banner'ı
     Component.ContentMeta(),
     Component.TagList(),
   ],
@@ -54,6 +57,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Explorer(),
   ],
   right: [
+    Component.ProgressDashboard(), // İlerleme dashboard'u
     Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),

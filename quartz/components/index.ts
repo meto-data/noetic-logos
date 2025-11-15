@@ -24,6 +24,9 @@ import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import Settings from "./Settings"
+import ScrollRestore from "./ScrollRestore"
+import PrerequisiteBanner from "./PrerequisiteBanner"
+import ProgressDashboard from "./ProgressDashboard"
 
 export {
   ArticleTitle,
@@ -52,4 +55,7 @@ export {
   Flex,
   ConditionalRender,
   Settings,
+  ScrollRestore,
+  PrerequisiteBanner,
+  ProgressDashboard,
 }

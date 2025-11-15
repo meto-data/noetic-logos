@@ -1,5 +1,6 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+import { defaultFeatures, type FeatureConfig } from "./quartz/config/features"
 
 const folderSortCollator = new Intl.Collator("tr", {
   numeric: true,
@@ -187,6 +188,12 @@ const config: QuartzConfig = {
     baseUrl: "https://noetic-logos.pages.dev",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
+    features: {
+      ...defaultFeatures,
+      // Kullanıcı buradan override edebilir:
+      // scrollPositionRestore: false,
+      // progressTracking: false,
+    },
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
