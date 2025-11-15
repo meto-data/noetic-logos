@@ -4,6 +4,7 @@ import { ValidLocale } from "./i18n"
 import { PluginTypes } from "./plugins/types"
 import { Theme } from "./util/theme"
 import type { FeatureConfig } from "./config/features"
+import type { StudyChatConfig } from "./config/studyChat"
 
 export type Analytics =
   | null
@@ -89,6 +90,10 @@ export interface GlobalConfiguration {
    * Tüm yeni özelliklerin açma/kapama ayarları
    */
   features: FeatureConfig
+  /**
+   * Study chat ayarları (opsiyonel)
+   */
+  studyChat?: StudyChatConfig
 }
 
 export interface QuartzConfig {
