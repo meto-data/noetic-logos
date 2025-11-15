@@ -177,15 +177,15 @@ $$
 - **Kârlılığı göstermez! Sadece hızı ölçer!**
 - Üretim dersinde görmüştük aslında. Bkz. [[Stok Yönetiminde Temel Performans Göstergeleri]]
 
-> [!note] Not
-> - Burada *Net Satışlar* değil, *Satışların Maliyeti* kullanılması gerekiyor. **Çünkü stoklar bilançoda maliyet bedeliyle durur, satış fiyatıyla değil**. Ancak *Satışların Maliyeti* yoksa mecburen *Net Satışlar* kullanıyoruz.
+
 
 
 #### 2.2.0. **Stok Devir Formülü (SDH) Formülü** 
 
 $$
-\frac{\text{\Large Satışların Maliyeti \large (yoksa Net Satışlar)}} {\text{\Large Ortalama Stok}}
+\frac{\text{\Large Net Satışlar}} {\text{\Large Ortalama Stok}}
 $$
+
 
 ##### 2.2.0.1 **Ortalama Stok** (Average Inventory)
 
@@ -209,15 +209,12 @@ $$
 - Satılan malın parasını (veresiyeler) ne kadar hızlı tahsil ettiğimiz ölçer. Alacaklarımızın 1 yılda kaç kez nakde dönüştüğünü gösterir.
 - Çok satış yapıp yapmadığımızı değil, **veresiye (kredili) satışları iyi yönetip yönetmediğimizi gösterir.**
 
-> [!note] Not
-> - Aslında **Kredili Net Satışlar** kullanılır. Peşin sattığımızın alacağı olmaz zira. Ama *Kredili Net Satışlar* yoksa mecburen *Net Satışlar* kullanılır. **İşletmenin kredili (veresiye) net satışlarının, ortalama ticarî alacaklarına oranıdır**.
-
 
 #### 2.3.0. **Alacak Devir Hızı Formülü**
 
 $$
 \Large
-\frac{\text{Kredili Mal Satışları (yoksa Net Satışlar)}}{\text{Ortalama Ticarî alacaklar}}
+\frac{\text{Net Satışlar}}{\text{Ortalama Ticarî alacaklar}}
 $$
 
 

@@ -181,8 +181,8 @@ const moduleQuestions = [
   },
   {
     number: 16,
-    text: `
-      <p>Bir işletmenin "Kasa" hesabına ait veriler aşağıdaki gibidir. Yatay analize göre bu hesaptaki mutlak ve yüzdesel değişim nedir?</p>
+    text: "Bir işletmenin \"Kasa\" hesabına ait veriler aşağıdaki referans panelinde verilmiştir. Yatay analize göre bu hesaptaki mutlak ve yüzdesel değişim nedir?",
+    contextHtml: `
       <table class="financial-table">
         <thead>
           <tr>
@@ -212,8 +212,8 @@ const moduleQuestions = [
   },
   {
     number: 17,
-    text: `
-      <p>XYZ A.Ş.'nin "Ticari Borçlar"ı aşağıdaki gibidir. Yatay analize göre bu kalemdeki değişim yüzdesi kaçtır?</p>
+    text: "XYZ A.Ş.'nin \"Ticari Borçlar\"ı aşağıdaki referans panelinde verilmiştir. Yatay analize göre bu kalemdeki değişim yüzdesi kaçtır?",
+    contextHtml: `
       <table class="financial-table">
         <thead>
           <tr>
@@ -243,8 +243,8 @@ const moduleQuestions = [
   },
   {
     number: 18,
-    text: `
-      <p>Aşağıdaki bilanço verilerine göre 2023 yılında "Dönen Varlıklar"ın "Aktif Toplamı" içindeki payı (dikey analiz) yüzde kaçtır?</p>
+    text: "Aşağıdaki bilanço verilerine göre 2023 yılında \"Dönen Varlıklar\"ın \"Aktif Toplamı\" içindeki payı (dikey analiz) yüzde kaçtır?",
+    contextHtml: `
       <table class="financial-table">
         <thead>
           <tr>
@@ -280,8 +280,8 @@ const moduleQuestions = [
   },
   {
     number: 19,
-    text: `
-      <p>Aşağıdaki gelir tablosu verilerine göre "Faaliyet Kârı"nın "Net Satışlar" içindeki payı (dikey analiz) yüzde kaçtır?</p>
+    text: "Aşağıdaki gelir tablosu verilerine göre \"Faaliyet Kârı\"nın \"Net Satışlar\" içindeki payı (dikey analiz) yüzde kaçtır?",
+    contextHtml: `
       <table class="financial-table">
         <thead>
           <tr>
@@ -321,8 +321,8 @@ const moduleQuestions = [
   },
   {
     number: 20,
-    text: `
-      <p>Bir işletmenin "Ticari Alacaklar" kalemine ait veriler aşağıdaki gibidir. 2021 yılı baz alınarak yapılan trend analizine göre 2022 yılının eğilim yüzdesi kaçtır?</p>
+    text: "Bir işletmenin \"Ticari Alacaklar\" kalemine ait veriler referans panelinde verilmiştir. 2021 yılı baz alınarak yapılan trend analizine göre 2022 yılının eğilim yüzdesi kaçtır?",
+    contextHtml: `
       <table class="financial-table">
         <thead>
           <tr>
@@ -358,31 +358,8 @@ const moduleQuestions = [
   },
   {
     number: 21,
-    text: `
-      <p>Yukarıdaki tabloya göre, 2021 yılı baz alındığında 2023 yılının trend yüzdesi kaçtır ve bu yüzde nasıl yorumlanır?</p>
-      <table class="financial-table">
-        <thead>
-          <tr>
-            <th>Yıl</th>
-            <th>Ticari Alacaklar (TL)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>2021 (Baz Yıl)</td>
-            <td class="numeric">400.000</td>
-          </tr>
-          <tr>
-            <td>2022</td>
-            <td class="numeric">500.000</td>
-          </tr>
-          <tr>
-            <td>2023</td>
-            <td class="numeric">480.000</td>
-          </tr>
-        </tbody>
-      </table>
-    `.trim(),
+    text: "Yukarıdaki tabloya göre, 2021 yılı baz alındığında 2023 yılının trend yüzdesi kaçtır ve bu yüzde nasıl yorumlanır?",
+    getContextForQuestion: 20,
     options: [
       { label: 'A', text: "100 / Baz yıla göre değişim yoktur." },
       { label: 'B', text: "110 / Baz yıla göre %10 artış göstermiştir." },
@@ -395,8 +372,8 @@ const moduleQuestions = [
   },
   {
     number: 22,
-    text: `
-      <p>Aşağıdaki karşılaştırmalı bilanço verilerine göre "Binalar" hesabındaki yüzdesel değişim (yatay analiz) yaklaşık olarak kaçtır?</p>
+    text: "Aşağıdaki karşılaştırmalı bilanço verilerine göre \"Binalar\" hesabındaki yüzdesel değişim (yatay analiz) yaklaşık olarak kaçtır?",
+    contextHtml: `
       <table class="financial-table">
         <thead>
           <tr>
@@ -426,8 +403,8 @@ const moduleQuestions = [
   },
   {
     number: 23,
-    text: `
-      <p>Aşağıdaki bilanço verilerine göre cari dönemde (Y2) "Sermaye" hesabının "Pasif Toplamı" içindeki payı (dikey analiz) yüzde kaçtır?</p>
+    text: "Aşağıdaki bilanço verilerine göre cari dönemde (Y2) \"Sermaye\" hesabının \"Pasif Toplamı\" içindeki payı (dikey analiz) yüzde kaçtır?",
+    contextHtml: `
       <table class="financial-table">
         <thead>
           <tr>
@@ -471,8 +448,8 @@ const moduleQuestions = [
   },
   {
     number: 24,
-    text: `
-      <p>Aşağıdaki bilanço verilerine göre "Stoklar" hesabının "Dönen Varlıklar Toplamı" içindeki grup payı (dikey analiz) yüzde kaçtır?</p>
+    text: "Aşağıdaki bilanço verilerine göre \"Stoklar\" hesabının \"Dönen Varlıklar Toplamı\" içindeki grup payı (dikey analiz) yüzde kaçtır?",
+    contextHtml: `
       <table class="financial-table">
         <thead>
           <tr>
@@ -512,8 +489,8 @@ const moduleQuestions = [
   },
   {
     number: 25,
-    text: `
-      <p>Aşağıdaki gelir tablosu verilerine göre "Dönem Net Kârı"nın "Net Satışlar"a oranı (dikey analiz) yaklaşık yüzde kaçtır?</p>
+    text: "Aşağıdaki gelir tablosu verilerine göre \"Dönem Net Kârı\"nın \"Net Satışlar\"a oranı (dikey analiz) yaklaşık yüzde kaçtır?",
+    contextHtml: `
       <table class="financial-table">
         <thead>
           <tr>
@@ -545,8 +522,8 @@ const moduleQuestions = [
   },
   {
     number: 26,
-    text: `
-      <p>Aşağıdaki karşılaştırmalı gelir tablosu verilerine göre "Brüt Satış Kârı" kalemindeki yüzdesel artış (yatay analiz) kaçtır?</p>
+    text: "Aşağıdaki karşılaştırmalı gelir tablosu verilerine göre \"Brüt Satış Kârı\" kalemindeki yüzdesel artış (yatay analiz) kaçtır?",
+    contextHtml: `
       <table class="financial-table">
         <thead>
           <tr>
@@ -589,8 +566,8 @@ const moduleQuestions = [
   },
   {
     number: 28,
-    text: `
-      <p>Aşağıdaki bilanço verilerine göre "Özkaynaklar Toplamı"nın "Pasif Toplamı" içindeki payı (dikey analiz) yaklaşık yüzde kaçtır?</p>
+    text: "Aşağıdaki bilanço verilerine göre \"Özkaynaklar Toplamı\"nın \"Pasif Toplamı\" içindeki payı (dikey analiz) yaklaşık yüzde kaçtır?",
+    contextHtml: `
       <table class="financial-table">
         <thead>
           <tr>
@@ -630,8 +607,8 @@ const moduleQuestions = [
   },
   {
     number: 29,
-    text: `
-      <p>Aşağıdaki gelir tablosu verilerine göre "Satış İndirimleri"nin "Brüt Satışlar"a oranı yaklaşık yüzde kaçtır?</p>
+    text: "Aşağıdaki gelir tablosu verilerine göre \"Satış İndirimleri\"nin \"Brüt Satışlar\"a oranı yaklaşık yüzde kaçtır?",
+    contextHtml: `
       <table class="financial-table">
         <thead>
           <tr>
@@ -680,8 +657,8 @@ const moduleQuestions = [
   },
   {
     number: 31,
-    text: `
-      <p>Bir işletmenin Net Satışları 200.000 TL, Satışların Maliyeti ise 140.000 TL'dir. Dikey analize göre Satışların Maliyetinin Net Satışlar içindeki payı yüzde kaçtır?</p>
+    text: "Bir işletmenin Net Satışları 200.000 TL, Satışların Maliyeti ise 140.000 TL'dir. Dikey analize göre Satışların Maliyetinin Net Satışlar içindeki payı yüzde kaçtır?",
+    contextHtml: `
       <table class="financial-table">
         <thead>
           <tr>
@@ -892,4 +869,3 @@ window.moduleConfig = {
   moduleQuestions,
   excludeQuantitativeFromAnalysis: true
 };
-

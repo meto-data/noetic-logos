@@ -39,13 +39,13 @@ const moduleQuestions = [
   },
   {
     number: 4,
-    text: "Duran varlıkları 9000 TL, aktif toplamı 15.000 TL, ve ticari malları 3000 TL olan işletmenin, ticari mallar hesabının grup içindeki ve genel toplam içindeki dikey yüzdesi aşağıdakilerden hangisidir?\n\n<br>\n<table class=\"question-table\">\n  <thead>\n    <tr>\n      <th></th>\n      <th>Grup Toplamına Oranı(%)</th>\n      <th>Genel Toplama Oranı(%)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>A)</td>\n      <td>33</td>\n      <td>25</td>\n    </tr>\n    <tr>\n      <td>B)</td>\n      <td>20</td>\n      <td>25</td>\n    </tr>\n    <tr>\n      <td>C)</td>\n      <td>33</td>\n      <td>20</td>\n    </tr>\n    <tr>\n      <td>D)</td>\n      <td>50</td>\n      <td>20</td>\n    </tr>\n    <tr>\n      <td>E)</td>\n      <td>25</td>\n      <td>20</td>\n    </tr>\n  </tbody>\n</table>\n<br>",
+    text: "Duran varlıkları 9.000 TL, aktif toplamı 15.000 TL, ve ticari malları 3.000 TL olan işletmenin, ticari mallar hesabının grup içindeki ve genel toplam içindeki dikey yüzdesi sırasıyla kaçtır?",
     options: [
-      { label: 'A', text: "33 | 25" },
-      { label: 'B', text: "20 | 25" },
-      { label: 'C', text: "33 | 20" },
-      { label: 'D', text: "50 | 20" },
-      { label: 'E', text: "25 | 20" }
+      { label: 'A', text: "Grup Toplamına Oranı: %33 | Genel Toplama Oranı: %25" },
+      { label: 'B', text: "Grup Toplamına Oranı: %20 | Genel Toplama Oranı: %25" },
+      { label: 'C', text: "Grup Toplamına Oranı: %33 | Genel Toplama Oranı: %20" },
+      { label: 'D', text: "Grup Toplamına Oranı: %50 | Genel Toplama Oranı: %20" },
+      { label: 'E', text: "Grup Toplamına Oranı: %25 | Genel Toplama Oranı: %20" }
     ],
     correctLabel: 'D',
     isQuantitative: true
@@ -103,7 +103,50 @@ const moduleQuestions = [
   },
   {
     number: 9,
-    text: "Yandaki bilgilere göre, işletmenin bilançosuna uygulanan analiz tekniği aşağıdakilerden hangisidir?\n\n<pre class=\"question-pre\">\n2014 %\nMali Borçlar 4.500 32\nTicari Borçlar 2.600 19\nAlınan Avanslar 1.300 9\nBorç ve Gider Karşılıkları 600 4\n…… xxx xxx\nPasif Toplamı 14.000 100\n</pre>",
+    text: "Aşağıdaki bilanço verilerine uygulanan analiz tekniği hangisidir?",
+    contextHtml: `
+      <table class="financial-table">
+        <thead>
+          <tr>
+            <th>Hesap Adı</th>
+            <th>2014 (TL)</th>
+            <th>Dikey Yüzde (%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mali Borçlar</td>
+            <td class="numeric">4.500</td>
+            <td class="numeric">32</td>
+          </tr>
+          <tr>
+            <td>Ticari Borçlar</td>
+            <td class="numeric">2.600</td>
+            <td class="numeric">19</td>
+          </tr>
+          <tr>
+            <td>Alınan Avanslar</td>
+            <td class="numeric">1.300</td>
+            <td class="numeric">9</td>
+          </tr>
+          <tr>
+            <td>Borç ve Gider Karşılıkları</td>
+            <td class="numeric">600</td>
+            <td class="numeric">4</td>
+          </tr>
+          <tr>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+          </tr>
+          <tr>
+            <td><strong>Pasif Toplamı</strong></td>
+            <td class="numeric"><strong>14.000</strong></td>
+            <td class="numeric"><strong>100</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    `.trim(),
     options: [
       { label: 'A', text: "Trend Analiz" },
       { label: 'B', text: "Yüzde Yöntemi ile Analiz" },

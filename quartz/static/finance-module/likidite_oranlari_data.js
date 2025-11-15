@@ -87,13 +87,13 @@ const moduleQuestions = [
   },
   {
     number: 8,
-    text: "Cari oranı 1,875 kısa vadeli yabancı kaynakları 800.000 TL olan işletmenin, çalışma sermayesi ve net çalışma sermayesi aşağıdakilerden hangisidir?\n\n<table class=\"question-table\">\n  <thead>\n    <tr>\n      <th></th>\n      <th>Çalışma Sermayesi</th>\n      <th>Net İşletme Sermayesi</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>A)</td>\n      <td>1.600.000 TL</td>\n      <td>800.000 TL</td>\n    </tr>\n    <tr>\n      <td>B)</td>\n      <td>1.000.000 TL</td>\n      <td>200.000 TL</td>\n    </tr>\n    <tr>\n      <td>C)</td>\n      <td>1.500.000 TL</td>\n      <td>700.000 TL</td>\n    </tr>\n    <tr>\n      <td>D)</td>\n      <td>1.500.000 TL</td>\n      <td>800.000 TL</td>\n    </tr>\n    <tr>\n      <td>E)</td>\n      <td>2.000.000 TL</td>\n      <td>1.200.000 TL</td>\n    </tr>\n  </tbody>\n</table>\n<br>",
+    text: "Cari oranı 1,875 kısa vadeli yabancı kaynakları 800.000 TL olan işletmenin, çalışma sermayesi ve net çalışma sermayesi kaç TL'dir?",
     options: [
-      { label: 'A', text: "1.600.000 TL | 800.000 TL" },
-      { label: 'B', text: "1.000.000 TL | 200.000 TL" },
-      { label: 'C', text: "1.500.000 TL | 700.000 TL" },
-      { label: 'D', text: "1.500.000 TL | 800.000 TL" },
-      { label: 'E', text: "2.000.000 TL | 1.200.000 TL" }
+      { label: 'A', text: "Çalışma Sermayesi: 1.600.000 TL | Net İşletme Sermayesi: 800.000 TL" },
+      { label: 'B', text: "Çalışma Sermayesi: 1.000.000 TL | Net İşletme Sermayesi: 200.000 TL" },
+      { label: 'C', text: "Çalışma Sermayesi: 1.500.000 TL | Net İşletme Sermayesi: 700.000 TL" },
+      { label: 'D', text: "Çalışma Sermayesi: 1.500.000 TL | Net İşletme Sermayesi: 800.000 TL" },
+      { label: 'E', text: "Çalışma Sermayesi: 2.000.000 TL | Net İşletme Sermayesi: 1.200.000 TL" }
     ],
     correctLabel: 'C',
     isQuantitative: true
@@ -124,7 +124,35 @@ const moduleQuestions = [
   },
   {
     number: 11,
-    text: "Dönen varlıkları 900.000 TL, stokları 300.000 TL ve kısa vadeli alacakları 300.000 TL olan işletmenin, kısa vadeli yabancı kaynakları 500.000 TL ise asit test oranı aşağıdakilerden hangisidir?",
+    text: "Aşağıdaki verilere sahip işletmenin asit test oranı kaçtır?",
+    contextHtml: `
+      <table class="financial-table">
+        <thead>
+          <tr>
+            <th>Kalem</th>
+            <th>Tutar (TL)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dönen Varlıklar</td>
+            <td class="numeric">900.000</td>
+          </tr>
+          <tr>
+            <td>Stoklar</td>
+            <td class="numeric">300.000</td>
+          </tr>
+          <tr>
+            <td>Kısa Vadeli Alacaklar</td>
+            <td class="numeric">300.000</td>
+          </tr>
+          <tr>
+            <td>Kısa Vadeli Yabancı Kaynaklar</td>
+            <td class="numeric">500.000</td>
+          </tr>
+        </tbody>
+      </table>
+    `.trim(),
     options: [
       { label: 'A', text: "1" },
       { label: 'B', text: "0,6" },
@@ -137,13 +165,14 @@ const moduleQuestions = [
   },
   {
     number: 12,
-    text: "Yukarıdaki işletmenin cari oranı ve nakit oranı aşağıdakilerden hangisidir?\n\n<table class=\"question-table\">\n  <thead>\n    <tr>\n      <th></th>\n      <th>Cari Oran</th>\n      <th>Nakit Oran</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>A)</td>\n      <td>1,2</td>\n      <td>0,9</td>\n    </tr>\n    <tr>\n      <td>B)</td>\n      <td>1,8</td>\n      <td>0,6</td>\n    </tr>\n    <tr>\n      <td>C)</td>\n      <td>1,2</td>\n      <td>0,8</td>\n    </tr>\n    <tr>\n      <td>D)</td>\n      <td>2</td>\n      <td>1,2</td>\n    </tr>\n    <tr>\n      <td>E)</td>\n      <td>1,4</td>\n      <td>0,6</td>\n    </tr>\n  </tbody>\n</table>\n<br>",
+    text: "Yukarıdaki işletmenin cari oranı ve nakit oranı sırasıyla kaçtır?",
+    getContextForQuestion: 11,
     options: [
-      { label: 'A', text: "1,2 | 0,9" },
-      { label: 'B', text: "1,8 | 0,6" },
-      { label: 'C', text: "1,2 | 0,8" },
-      { label: 'D', text: "2 | 1,2" },
-      { label: 'E', text: "1,4 | 0,6" }
+      { label: 'A', text: "Cari Oran: 1,2 | Nakit Oran: 0,9" },
+      { label: 'B', text: "Cari Oran: 1,8 | Nakit Oran: 0,6" },
+      { label: 'C', text: "Cari Oran: 1,2 | Nakit Oran: 0,8" },
+      { label: 'D', text: "Cari Oran: 2 | Nakit Oran: 1,2" },
+      { label: 'E', text: "Cari Oran: 1,4 | Nakit Oran: 0,6" }
     ],
     correctLabel: 'B',
     isQuantitative: true
@@ -198,7 +227,58 @@ const moduleQuestions = [
   },
   {
     number: 17,
-    text: "Nakit oranın genel olarak kaç olması yeterli kabul edilir?\n\nŞİRİN A.Ş. nin 31.12.2018 tarihli bilanço verilerinden bazıları aşağıdaki gibidir. (18-26. Soruları bu verilere göre cevaplayınız.)\n<pre class=\"question-pre\">\nDönen Varlıklar                 Kısa Vadeli Borçlar\n-----------------------------   ---------------------------------\nHazır değerler: 150.000         Mali borçlar: 150.000\nMenkul kıymetler: 50.000        Ticari borçlar: 300.000\nAlacaklar: 300.000              Ödenecek vergi ve fonlar: 70.000\nStoklar: 300.000                Borç ve gider karşılıkları : 80.000\n</pre>",
+    text: "Nakit oranın genel olarak kaç olması yeterli kabul edilir?\n\n(ŞİRİN A.Ş. nin 31.12.2018 tarihli bilanço verilerini kullanarak 18-21. soruları cevaplayınız.)",
+    contextHtml: `
+      <h4>ŞİRİN A.Ş. Bilanço Verileri (31.12.2018)</h4>
+      <table class="financial-table">
+        <thead>
+          <tr>
+            <th>Dönen Varlıklar</th>
+            <th>Tutar (TL)</th>
+            <th style="width: 20px;"></th>
+            <th>Kısa Vadeli Borçlar</th>
+            <th>Tutar (TL)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Hazır Değerler</td>
+            <td class="numeric">150.000</td>
+            <td></td>
+            <td>Mali Borçlar</td>
+            <td class="numeric">150.000</td>
+          </tr>
+          <tr>
+            <td>Menkul Kıymetler</td>
+            <td class="numeric">50.000</td>
+            <td></td>
+            <td>Ticari Borçlar</td>
+            <td class="numeric">300.000</td>
+          </tr>
+          <tr>
+            <td>Alacaklar</td>
+            <td class="numeric">300.000</td>
+            <td></td>
+            <td>Ödenecek Vergi ve Fonlar</td>
+            <td class="numeric">70.000</td>
+          </tr>
+          <tr>
+            <td>Stoklar</td>
+            <td class="numeric">300.000</td>
+            <td></td>
+            <td>Borç ve Gider Karşılıkları</td>
+            <td class="numeric">80.000</td>
+          </tr>
+          <tr>
+            <td><strong>Toplam</strong></td>
+            <td class="numeric"><strong>800.000</strong></td>
+            <td></td>
+            <td><strong>Toplam</strong></td>
+            <td class="numeric"><strong>600.000</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    `.trim(),
     options: [
       { label: 'A', text: "1" },
       { label: 'B', text: "1,5-2" },
@@ -212,6 +292,7 @@ const moduleQuestions = [
   {
     number: 18,
     text: "ŞİRİN A.Ş. nin cari oranı aşağıdakilerden hangisidir?",
+    getContextForQuestion: 17,
     options: [
       { label: 'A', text: "1" },
       { label: 'B', text: "1,75" },
@@ -224,6 +305,7 @@ const moduleQuestions = [
   {
     number: 19,
     text: "ŞİRİN A.Ş. nin likidite oranı aşağıdakilerden hangisidir?",
+    getContextForQuestion: 17,
     options: [
       { label: 'A', text: "1" },
       { label: 'B', text: "0,83" },
@@ -236,6 +318,7 @@ const moduleQuestions = [
   {
     number: 20,
     text: "ŞİRİN A.Ş. nin nakit oranı aşağıdakilerden hangisidir?",
+    getContextForQuestion: 17,
     options: [
       { label: 'A', text: "1,5" },
       { label: 'B', text: "1" },
@@ -248,6 +331,7 @@ const moduleQuestions = [
   {
     number: 21,
     text: "ŞİRİN A.Ş. nin stok bağımlılık oranı aşağıdakilerden hangisidir?",
+    getContextForQuestion: 17,
     options: [
       { label: 'A', text: "1" },
       { label: 'B', text: "0,75" },
@@ -319,13 +403,57 @@ const moduleQuestions = [
   },
   {
     number: 27,
-    text: "Aşağıdaki bilanço kalemleri verilmiş olan işletmenin likidite oranları aşağıdakilerden hangisinde doğru olarak verilmiştir?\n\n<pre class=\"question-pre\">\nDönen Varlıklar   : 5000\nKVYK              : 4000\nStoklar           : 2000\nHazır Değerler    : 400\nMenkul Kıymetler  : 600\nAlacaklar         : 2000\nDuran Varlıklar   : 3000\nÖzkaynaklar       : 3000\n</pre>\n<table class=\"question-table\">\n  <thead>\n    <tr>\n      <th></th>\n      <th>Nakit Oran</th>\n      <th>Likidite Oranı</th>\n      <th>Cari Oran</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>A)</td>\n      <td>0,20</td>\n      <td>1,00</td>\n      <td>1,50</td>\n    </tr>\n    <tr>\n      <td>B)</td>\n      <td>0,25</td>\n      <td>0,90</td>\n      <td>2,00</td>\n    </tr>\n    <tr>\n      <td>C)</td>\n      <td>0,25</td>\n      <td>0,75</td>\n      <td>1,25</td>\n    </tr>\n    <tr>\n      <td>D)</td>\n      <td>0,40</td>\n      <td>0,75</td>\n      <td>1,75</td>\n    </tr>\n    <tr>\n      <td>E)</td>\n      <td>0,20</td>\n      <td>1,00</td>\n      <td>1,25</td>\n    </tr>\n  </tbody>\n</table>\n<br>",
+    text: "Aşağıdaki bilanço kalemleri verilmiş olan işletmenin likidite oranları (nakit oran, likidite oranı, cari oran) sırasıyla kaçtır?",
+    contextHtml: `
+      <table class="financial-table">
+        <thead>
+          <tr>
+            <th>Bilanço Kalemi</th>
+            <th>Tutar (TL)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dönen Varlıklar</td>
+            <td class="numeric">5.000</td>
+          </tr>
+          <tr>
+            <td>Kısa Vadeli Yabancı Kaynaklar (KVYK)</td>
+            <td class="numeric">4.000</td>
+          </tr>
+          <tr>
+            <td>Stoklar</td>
+            <td class="numeric">2.000</td>
+          </tr>
+          <tr>
+            <td>Hazır Değerler</td>
+            <td class="numeric">400</td>
+          </tr>
+          <tr>
+            <td>Menkul Kıymetler</td>
+            <td class="numeric">600</td>
+          </tr>
+          <tr>
+            <td>Alacaklar</td>
+            <td class="numeric">2.000</td>
+          </tr>
+          <tr>
+            <td>Duran Varlıklar</td>
+            <td class="numeric">3.000</td>
+          </tr>
+          <tr>
+            <td>Özkaynaklar</td>
+            <td class="numeric">3.000</td>
+          </tr>
+        </tbody>
+      </table>
+    `.trim(),
     options: [
-      { label: 'A', text: "0,20 | 1,00 | 1,50" },
-      { label: 'B', text: "0,25 | 0,90 | 2,00" },
-      { label: 'C', text: "0,25 | 0,75 | 1,25" },
-      { label: 'D', text: "0,40 | 0,75 | 1,75" },
-      { label: 'E', text: "0,20 | 1,00 | 1,25" }
+      { label: 'A', text: "Nakit Oran: 0,20 | Likidite Oranı: 1,00 | Cari Oran: 1,50" },
+      { label: 'B', text: "Nakit Oran: 0,25 | Likidite Oranı: 0,90 | Cari Oran: 2,00" },
+      { label: 'C', text: "Nakit Oran: 0,25 | Likidite Oranı: 0,75 | Cari Oran: 1,25" },
+      { label: 'D', text: "Nakit Oran: 0,40 | Likidite Oranı: 0,75 | Cari Oran: 1,75" },
+      { label: 'E', text: "Nakit Oran: 0,20 | Likidite Oranı: 1,00 | Cari Oran: 1,25" }
     ],
     correctLabel: 'C',
     isQuantitative: true

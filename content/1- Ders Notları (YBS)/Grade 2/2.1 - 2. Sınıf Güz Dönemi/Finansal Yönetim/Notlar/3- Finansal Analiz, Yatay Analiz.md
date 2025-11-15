@@ -151,8 +151,6 @@ created: 15.10.2025
 
 ## **1.3.** Ek Finansal Tablolar
 - Nakit Akım Tablosu, Fon Akım Tablosu, Kâr Dağıtım Tablosu gibi tablolar. Temel tabloları detaylandırır. Bizim için teferruat, boş vereceğiz bunları.
-	- <<Boş vermeyeceğiz anlaşılan, yüzeysel de olsa değinmek lazım buraya.>>
-		- Yüzeysel değil, yarı-yüzeysel.
 ## 2. [[Finansal Analiz]]
 - Firmalarda tutarlı kararların alınabilmesi açısından ilk basamağı oluşturur. Finansal analiz yapılarak işletmelerin mevcut durumları saptanır ve geçmişe yönelik durumu tespit edilip değerlendirilerek geleceğe ilişkin kararlar alınır. Öngörü yapılır ve hedef sayısallaştırılabiliyorsa mutlaka sayısal hâle getirilir.
 	- Bkz. **[[Muhasebenin Beş İşlevi]]**

@@ -171,6 +171,7 @@ $$
 	2. Matrisler çarpılırken **"satır $\times$ sütun, yaz satıra"** mantığı kullanılmalı.
 
 ### **Örnek 5**:
+
 $$
 \Large
 A= \begin{bmatrix} -2 & 4 \\ \space 3 & 5 \end{bmatrix}_{2 \times 2} \space \space \space \space B= \begin{bmatrix} -2 & 4 & \space 3 \\ \space 1 & 5 & -1 \end{bmatrix}_{2\times 3} \implies A \times B=?

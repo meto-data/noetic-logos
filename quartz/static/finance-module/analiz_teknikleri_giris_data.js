@@ -25,13 +25,57 @@ const moduleQuestions = [
   },
   {
     number: 3,
-    text: "Aşağıda yüzdelik olarak değişimi verilen ilgili kalemlerin hangisinin hesaplaması doğru değildir?\n\n<br>\n<table class=\"question-table\">\n<thead>\n  <tr>\n    <th></th>\n    <th>Kalem</th>\n    <th>Önceki Yıl</th>\n    <th>Cari Yıl</th>\n    <th>Artış veya Azalış (%)</th>\n  </tr>\n</thead>\n<tbody>\n  <tr>\n    <td>A)</td>\n    <td>Hazır Değerler</td>\n    <td>250</td>\n    <td>750</td>\n    <td>200</td>\n  </tr>\n  <tr>\n    <td>B)</td>\n    <td>Menkul Kıymetler</td>\n    <td>200</td>\n    <td>0</td>\n    <td>hesaplanamaz</td>\n  </tr>\n  <tr>\n    <td>C)</td>\n    <td>Ticari Alacaklar</td>\n    <td>1000</td>\n    <td>1500</td>\n    <td>50</td>\n  </tr>\n  <tr>\n    <td>D)</td>\n    <td>Stoklar</td>\n    <td>1200</td>\n    <td>1800</td>\n    <td>50</td>\n  </tr>\n    <tr>\n    <td>E)</td>\n    <td>Gelir Tahakkukları</td>\n    <td>0</td>\n    <td>150</td>\n    <td>hesaplanamaz</td>\n  </tr>\n</tbody>\n</table>\n<br>",
+    text: "Referans panelinde yüzdelik olarak değişimi verilen ilgili kalemlerin hangisinin hesaplaması doğru değildir?",
+    contextHtml: `
+      <table class="financial-table">
+        <thead>
+          <tr>
+            <th>Kalem</th>
+            <th>Önceki Yıl</th>
+            <th>Cari Yıl</th>
+            <th>Artış veya Azalış (%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Hazır Değerler</td>
+            <td class="numeric">250</td>
+            <td class="numeric">750</td>
+            <td class="numeric">200</td>
+          </tr>
+          <tr>
+            <td>Menkul Kıymetler</td>
+            <td class="numeric">200</td>
+            <td class="numeric">0</td>
+            <td>hesaplanamaz</td>
+          </tr>
+          <tr>
+            <td>Ticari Alacaklar</td>
+            <td class="numeric">1.000</td>
+            <td class="numeric">1.500</td>
+            <td class="numeric">50</td>
+          </tr>
+          <tr>
+            <td>Stoklar</td>
+            <td class="numeric">1.200</td>
+            <td class="numeric">1.800</td>
+            <td class="numeric">50</td>
+          </tr>
+          <tr>
+            <td>Gelir Tahakkukları</td>
+            <td class="numeric">0</td>
+            <td class="numeric">150</td>
+            <td>hesaplanamaz</td>
+          </tr>
+        </tbody>
+      </table>
+    `.trim(),
     options: [
-      { label: 'A', text: "Hazır Değerler | 250 | 750 | 200" },
-      { label: 'B', text: "Menkul Kıymetler | 200 | 0 | hesaplanamaz" },
-      { label: 'C', text: "Ticari Alacaklar | 1000 | 1500 | 50" },
-      { label: 'D', text: "Stoklar | 1200 | 1800 | 50" },
-      { label: 'E', text: "Gelir Tahakkukları | 0 | 150 | hesaplanamaz" }
+      { label: 'A', text: "Hazır Değerler" },
+      { label: 'B', text: "Menkul Kıymetler" },
+      { label: 'C', text: "Ticari Alacaklar" },
+      { label: 'D', text: "Stoklar" },
+      { label: 'E', text: "Gelir Tahakkukları" }
     ],
     correctLabel: 'B',
     isQuantitative: true
@@ -39,6 +83,7 @@ const moduleQuestions = [
   {
     number: 4,
     text: "Yukarıdaki soruda hangi analiz tekniği uygulanmıştır?",
+    getContextForQuestion: 3,
     options: [
       { label: 'A', text: "Mukayeseli analiz" },
       { label: 'B', text: "Eğilim yüzdeleri analizi" },
@@ -63,39 +108,154 @@ const moduleQuestions = [
   },
   {
     number: 6,
-    text: "Aşağıdaki finansal verileri verilen işletmenin ilgili kalemlerindeki yüzdelik (oransal) değişimler aşağıdakilerden hangisinde doğru verilmiştir?\n\n<pre class=\"question-pre\">\n                    Önceki Yıl    Cari Yıl\nMali Borçlar        400           800\nTicari Borçlar      1.200         1.800\nMenkul Kıymetler    0             200\nTicari Alacaklar    800           1.000\nNet Satışlar        15.000        22.500\n</pre>\n<table class=\"question-table\">\n<thead>\n  <tr>\n    <th></th>\n    <th>Mali Borçlar</th>\n    <th>Ticari Borçlar</th>\n    <th>Menkul Kıymetler</th>\n    <th>Ticari Alacaklar</th>\n    <th>Net Satışlar</th>\n  </tr>\n</thead>\n<tbody>\n  <tr>\n    <td>A)</td>\n    <td>200</td>\n    <td>50</td>\n    <td>-</td>\n    <td>50</td>\n    <td>50</td>\n  </tr>\n  <tr>\n    <td>B)</td>\n    <td>100</td>\n    <td>40</td>\n    <td>100</td>\n    <td>25</td>\n    <td>25</td>\n  </tr>\n  <tr>\n    <td>C)</td>\n    <td>100</td>\n    <td>50</td>\n    <td>-</td>\n    <td>25</td>\n    <td>50</td>\n  </tr>\n  <tr>\n    <td>D)</td>\n    <td>200</td>\n    <td>33</td>\n    <td>100</td>\n    <td>50</td>\n    <td>25</td>\n  </tr>\n    <tr>\n    <td>E)</td>\n    <td>100</td>\n    <td>100</td>\n    <td>-</td>\n    <td>25</td>\n    <td>50</td>\n  </tr>\n</tbody>\n</table>\n<br>",
+    text: "Aşağıdaki finansal verileri verilen işletmenin ilgili kalemlerindeki yüzdelik (oransal) değişimler hangisinde doğru verilmiştir?",
+    contextHtml: `
+      <table class="financial-table">
+        <thead>
+          <tr>
+            <th>Kalem</th>
+            <th>Önceki Yıl</th>
+            <th>Cari Yıl</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mali Borçlar</td>
+            <td class="numeric">400</td>
+            <td class="numeric">800</td>
+          </tr>
+          <tr>
+            <td>Ticari Borçlar</td>
+            <td class="numeric">1.200</td>
+            <td class="numeric">1.800</td>
+          </tr>
+          <tr>
+            <td>Menkul Kıymetler</td>
+            <td class="numeric">0</td>
+            <td class="numeric">200</td>
+          </tr>
+          <tr>
+            <td>Ticari Alacaklar</td>
+            <td class="numeric">800</td>
+            <td class="numeric">1.000</td>
+          </tr>
+          <tr>
+            <td>Net Satışlar</td>
+            <td class="numeric">15.000</td>
+            <td class="numeric">22.500</td>
+          </tr>
+        </tbody>
+      </table>
+    `.trim(),
     options: [
-      { label: 'A', text: "200 | 50 | - | 50 | 50" },
-      { label: 'B', text: "100 | 40 | 100 | 25 | 25" },
-      { label: 'C', text: "100 | 50 | - | 25 | 50" },
-      { label: 'D', text: "200 | 33 | 100 | 50 | 25" },
-      { label: 'E', text: "100 | 100 | - | 25 | 50" }
+      { label: 'A', text: "Mali Borçlar: 200 | Ticari Borçlar: 50 | Menkul Kıymetler: - | Ticari Alacaklar: 50 | Net Satışlar: 50" },
+      { label: 'B', text: "Mali Borçlar: 100 | Ticari Borçlar: 40 | Menkul Kıymetler: 100 | Ticari Alacaklar: 25 | Net Satışlar: 25" },
+      { label: 'C', text: "Mali Borçlar: 100 | Ticari Borçlar: 50 | Menkul Kıymetler: - | Ticari Alacaklar: 25 | Net Satışlar: 50" },
+      { label: 'D', text: "Mali Borçlar: 200 | Ticari Borçlar: 33 | Menkul Kıymetler: 100 | Ticari Alacaklar: 50 | Net Satışlar: 25" },
+      { label: 'E', text: "Mali Borçlar: 100 | Ticari Borçlar: 100 | Menkul Kıymetler: - | Ticari Alacaklar: 25 | Net Satışlar: 50" }
     ],
     correctLabel: 'C',
     isQuantitative: true
   },
   {
     number: 7,
-    text: "Aşağıdaki finansal verileri verilen işletmenin ilgili kalemlerindeki yüzdelik (oransal) değişimler aşağıdakilerden hangisinde doğru verilmiştir?\n\n<pre class=\"question-pre\">\n                    Önceki yıl    Cari yıl\nKasa                600           400\nTicari mallar       2500          3000\nBanka kredileri     1600          1200\nİştirakler          4000          4000\nÖzel fonlar         2.000         0\n</pre>\n<table class=\"question-table\">\n<thead>\n  <tr>\n    <th></th>\n    <th>Kasa</th>\n    <th>Ticari Mallar</th>\n    <th>Banka Kredileri</th>\n    <th>İştirakler</th>\n    <th>Özel Fonlar</th>\n  </tr>\n</thead>\n<tbody>\n  <tr>\n    <td>A)</td>\n    <td>33</td>\n    <td>20</td>\n    <td>25</td>\n    <td>0</td>\n    <td>100</td>\n  </tr>\n  <tr>\n    <td>B)</td>\n    <td>-66</td>\n    <td>20</td>\n    <td>-20</td>\n    <td>0</td>\n    <td>Tanımsız</td>\n  </tr>\n  <tr>\n    <td>C)</td>\n    <td>-33</td>\n    <td>25</td>\n    <td>20</td>\n    <td>-</td>\n    <td>Tanımsız</td>\n  </tr>\n  <tr>\n    <td>D)</td>\n    <td>-33</td>\n    <td>20</td>\n    <td>-25</td>\n    <td>0</td>\n    <td>-100</td>\n  </tr>\n    <tr>\n    <td>E)</td>\n    <td>-25</td>\n    <td>20</td>\n    <td>-20</td>\n    <td>-</td>\n    <td>100</td>\n  </tr>\n</tbody>\n</table>\n<br>",
+    text: "Aşağıdaki finansal verileri verilen işletmenin ilgili kalemlerindeki yüzdelik (oransal) değişimler hangisinde doğru verilmiştir?",
+    contextHtml: `
+      <table class="financial-table">
+        <thead>
+          <tr>
+            <th>Kalem</th>
+            <th>Önceki Yıl</th>
+            <th>Cari Yıl</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Kasa</td>
+            <td class="numeric">600</td>
+            <td class="numeric">400</td>
+          </tr>
+          <tr>
+            <td>Ticari Mallar</td>
+            <td class="numeric">2.500</td>
+            <td class="numeric">3.000</td>
+          </tr>
+          <tr>
+            <td>Banka Kredileri</td>
+            <td class="numeric">1.600</td>
+            <td class="numeric">1.200</td>
+          </tr>
+          <tr>
+            <td>İştirakler</td>
+            <td class="numeric">4.000</td>
+            <td class="numeric">4.000</td>
+          </tr>
+          <tr>
+            <td>Özel Fonlar</td>
+            <td class="numeric">2.000</td>
+            <td class="numeric">0</td>
+          </tr>
+        </tbody>
+      </table>
+    `.trim(),
     options: [
-      { label: 'A', text: "33 | 20 | 25 | 0 | 100" },
-      { label: 'B', text: "-66 | 20 | -20 | 0 | Tanımsız" },
-      { label: 'C', text: "-33 | 25 | 20 | - | Tanımsız" },
-      { label: 'D', text: "-33 | 20 | -25 | 0 | -100" },
-      { label: 'E', text: "-25 | 20 | -20 | - | 100" }
+      { label: 'A', text: "Kasa: 33 | Ticari Mallar: 20 | Banka Kredileri: 25 | İştirakler: 0 | Özel Fonlar: 100" },
+      { label: 'B', text: "Kasa: -66 | Ticari Mallar: 20 | Banka Kredileri: -20 | İştirakler: 0 | Özel Fonlar: Tanımsız" },
+      { label: 'C', text: "Kasa: -33 | Ticari Mallar: 25 | Banka Kredileri: 20 | İştirakler: - | Özel Fonlar: Tanımsız" },
+      { label: 'D', text: "Kasa: -33 | Ticari Mallar: 20 | Banka Kredileri: -25 | İştirakler: 0 | Özel Fonlar: -100" },
+      { label: 'E', text: "Kasa: -25 | Ticari Mallar: 20 | Banka Kredileri: -20 | İştirakler: - | Özel Fonlar: 100" }
     ],
     correctLabel: 'D',
     isQuantitative: true
   },
   {
     number: 8,
-    text: "Aşağıdaki finansal verileri verilen işletmenin ilgili kalemlerindeki yüzdelik (oransal) değişimler aşağıdakilerden hangisinde doğru verilmiştir?\n\n<pre class=\"question-pre\">\n                    Önceki Yıl    Cari Yıl\nDönen Varlıklar     5.000         6000\nDuran Varlıklar     8.000         10.000\nK.V.Y.K.            4.000         5.000\nU.V.Y.K             4.000         3.000\nÖzkaynaklar         ?             ?\n</pre>\n<table class=\"question-table\">\n<thead>\n  <tr>\n    <th></th>\n    <th>Dönen Varlıklar</th>\n    <th>Duran Varlıklar</th>\n    <th>KVYK</th>\n    <th>UVYK</th>\n    <th>Özkaynaklar</th>\n  </tr>\n</thead>\n<tbody>\n  <tr>\n    <td>A)</td>\n    <td>20</td>\n    <td>20</td>\n    <td>25</td>\n    <td>25</td>\n    <td>50</td>\n  </tr>\n  <tr>\n    <td>B)</td>\n    <td>20</td>\n    <td>25</td>\n    <td>25</td>\n    <td>-25</td>\n    <td>60</td>\n  </tr>\n  <tr>\n    <td>C)</td>\n    <td>25</td>\n    <td>20</td>\n    <td>20</td>\n    <td>-20</td>\n    <td>40</td>\n  </tr>\n  <tr>\n    <td>D)</td>\n    <td>25</td>\n    <td>25</td>\n    <td>20</td>\n    <td>25</td>\n    <td>50</td>\n  </tr>\n    <tr>\n    <td>E)</td>\n    <td>25</td>\n    <td>25</td>\n    <td>20</td>\n    <td>-25</td>\n    <td>60</td>\n  </tr>\n</tbody>\n</table>\n<br>",
+    text: "Aşağıdaki finansal verileri verilen işletmenin ilgili kalemlerindeki yüzdelik (oransal) değişimler hangisinde doğru verilmiştir?",
+    contextHtml: `
+      <table class="financial-table">
+        <thead>
+          <tr>
+            <th>Kalem</th>
+            <th>Önceki Yıl</th>
+            <th>Cari Yıl</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dönen Varlıklar</td>
+            <td class="numeric">5.000</td>
+            <td class="numeric">6.000</td>
+          </tr>
+          <tr>
+            <td>Duran Varlıklar</td>
+            <td class="numeric">8.000</td>
+            <td class="numeric">10.000</td>
+          </tr>
+          <tr>
+            <td>Kısa Vadeli Yabancı Kaynaklar (KVYK)</td>
+            <td class="numeric">4.000</td>
+            <td class="numeric">5.000</td>
+          </tr>
+          <tr>
+            <td>Uzun Vadeli Yabancı Kaynaklar (UVYK)</td>
+            <td class="numeric">4.000</td>
+            <td class="numeric">3.000</td>
+          </tr>
+          <tr>
+            <td>Özkaynaklar</td>
+            <td class="numeric">?</td>
+            <td class="numeric">?</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top: 10px; font-style: italic; font-size: 0.9em;">Not: Özkaynaklar bilanço eşitliğinden hesaplanabilir.</p>
+    `.trim(),
     options: [
-      { label: 'A', text: "20 | 20 | 25 | 25 | 50" },
-      { label: 'B', text: "20 | 25 | 25 | -25 | 60" },
-      { label: 'C', text: "25 | 20 | 20 | -20 | 40" },
-      { label: 'D', text: "25 | 25 | 20 | 25 | 50" },
-      { label: 'E', text: "25 | 25 | 20 | -25 | 60" }
+      { label: 'A', text: "Dönen Varlıklar: 20 | Duran Varlıklar: 20 | KVYK: 25 | UVYK: 25 | Özkaynaklar: 50" },
+      { label: 'B', text: "Dönen Varlıklar: 20 | Duran Varlıklar: 25 | KVYK: 25 | UVYK: -25 | Özkaynaklar: 60" },
+      { label: 'C', text: "Dönen Varlıklar: 25 | Duran Varlıklar: 20 | KVYK: 20 | UVYK: -20 | Özkaynaklar: 40" },
+      { label: 'D', text: "Dönen Varlıklar: 25 | Duran Varlıklar: 25 | KVYK: 20 | UVYK: 25 | Özkaynaklar: 50" },
+      { label: 'E', text: "Dönen Varlıklar: 25 | Duran Varlıklar: 25 | KVYK: 20 | UVYK: -25 | Özkaynaklar: 60" }
     ],
     correctLabel: 'B',
     isQuantitative: true
@@ -153,7 +313,7 @@ const moduleMeta = {
     "Verilen tablolardan doğru analiz türünü çıkarmak",
     "Analiz sonuçlarını yüzdesel olarak yorumlamak"
   ],
-  additionalNotes: "Tablo ve hesaplamaya dayalı sorularda ilgili veriler soru içinde HTML tablo olarak sunulur.",
+  additionalNotes: "Tablo ve hesaplamaya dayalı sorularda ilgili veriler referans panelinde sunulur.",
   testDetails: {
     questionCount: moduleQuestions.length,
     format: "Çoktan seçmeli, tek doğru şık",
