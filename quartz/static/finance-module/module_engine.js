@@ -14,6 +14,12 @@
   const moduleMeta = buildModuleMeta(config.moduleMeta, moduleQuestions.length);
   const STORAGE_KEY = config.storageKey || `moduleState_${moduleMeta.id || "module"}_v1`;
   const excludeQuantitative = config.excludeQuantitativeFromAnalysis !== false;
+  const KATEX_RESOURCES = {
+    css: "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
+    js: "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js",
+    autoRender: "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  };
+  let katexReadyPromise = null;
 
   let quiz = defaultQuizState();
   const keyboardState = {
@@ -406,7 +412,8 @@
 
     if (selectedLabel) showAnswerFeedback(questionIndex, selectedLabel);
     else updateQuizFeedback(null);
-    
+
+    applyLatexRendering(container);
     applyOptionStyling(questionIndex);
     startActiveQuestionTimer(true, questionIndex, orderIndex);
   }
@@ -435,6 +442,106 @@
 
     // Hiç context yoksa boş döndür
     return { html: "", ownerIndex: null };
+  }
+
+  function ensureKatexResources() {
+    if (typeof window.renderMathInElement === "function") {
+      return Promise.resolve();
+    }
+    if (katexReadyPromise) {
+      return katexReadyPromise;
+    }
+    katexReadyPromise = new Promise((resolve, reject) => {
+      injectKatexAssets()
+        .then(() => {
+          if (typeof window.renderMathInElement === "function") {
+            resolve();
+          } else {
+            reject(new Error("renderMathInElement bulunamadı"));
+          }
+        })
+        .catch(error => {
+          katexReadyPromise = null;
+          reject(error);
+        });
+    });
+    return katexReadyPromise;
+  }
+
+  function injectKatexAssets() {
+    const tasks = [];
+    if (!document.querySelector('link[data-katex="css"]')) {
+      tasks.push(
+        new Promise((resolve, reject) => {
+          const link = document.createElement("link");
+          link.rel = "stylesheet";
+          link.href = KATEX_RESOURCES.css;
+          link.dataset.katex = "css";
+          link.onload = () => resolve(true);
+          link.onerror = () => reject(new Error("KaTeX CSS yüklenemedi"));
+          document.head.appendChild(link);
+        })
+      );
+    }
+    const loadMain = () =>
+      new Promise((resolve, reject) => {
+        if (window.katex) {
+          resolve(true);
+          return;
+        }
+        const script = document.createElement("script");
+        script.src = KATEX_RESOURCES.js;
+        script.defer = true;
+        script.onload = () => resolve(true);
+        script.onerror = () => reject(new Error("KaTeX çekirdeği yüklenemedi"));
+        document.head.appendChild(script);
+      });
+
+    const loadAutoRender = () =>
+      new Promise((resolve, reject) => {
+        if (typeof window.renderMathInElement === "function") {
+          resolve(true);
+          return;
+        }
+        const script = document.createElement("script");
+        script.src = KATEX_RESOURCES.autoRender;
+        script.defer = true;
+        script.onload = () => resolve(true);
+        script.onerror = () => reject(new Error("KaTeX auto-render yüklenemedi"));
+        document.head.appendChild(script);
+      });
+
+    return Promise.all(tasks)
+      .catch(error => {
+        console.warn("KaTeX stil dosyası yüklenirken hata oluştu:", error);
+      })
+      .then(() => loadMain())
+      .then(() => loadAutoRender());
+  }
+
+  function applyLatexRendering(rootElement) {
+    if (!rootElement) return;
+    ensureKatexResources()
+      .then(() => {
+        if (typeof window.renderMathInElement !== "function") return;
+        try {
+          window.renderMathInElement(rootElement, {
+            delimiters: [
+              { left: "$$", right: "$$", display: true },
+              { left: "\\[", right: "\\]", display: true },
+              { left: "$", right: "$", display: false },
+              { left: "\\(", right: "\\)", display: false }
+            ],
+            throwOnError: false,
+            trust: true
+          });
+        } catch (error) {
+          console.warn("KaTeX render hatası:", error);
+        }
+      })
+      .catch(error => {
+        console.warn("KaTeX yüklenemedi:", error);
+      });
   }
 
   function handleAnswerSelection(questionIndex, orderIndex, selectedLabel) {

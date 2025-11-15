@@ -27,7 +27,6 @@ import Settings from "./Settings"
 import ScrollRestore from "./ScrollRestore"
 import PrerequisiteBanner from "./PrerequisiteBanner"
 import ProgressDashboard from "./ProgressDashboard"
-import ReadingProgress from "./ReadingProgress"
 
 export {
   ArticleTitle,
@@ -59,5 +58,4 @@ export {
   ScrollRestore,
   PrerequisiteBanner,
   ProgressDashboard,
-  ReadingProgress,
 }
