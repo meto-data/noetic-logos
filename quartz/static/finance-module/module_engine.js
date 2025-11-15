@@ -33,7 +33,8 @@
         : [],
       correctLabel: question.correctLabel ? String(question.correctLabel).trim() : null,
       isQuantitative: Boolean(question.isQuantitative),
-      contextHtml: (question.contextHtml && question.contextHtml.trim()) || ""
+      contextHtml: (question.contextHtml && question.contextHtml.trim()) || "",
+      getContextForQuestion: question.getContextForQuestion != null ? question.getContextForQuestion : null
     };
 
     // contextHtml yoksa text'ten extract et
@@ -414,10 +415,25 @@
     if (questionIndex == null || questionIndex < 0 || questionIndex >= moduleQuestions.length) {
       return { html: "", ownerIndex: null };
     }
-    for (let idx = questionIndex; idx >= 0; idx -= 1) {
-      const html = questionContexts[idx];
-      if (html) return { html, ownerIndex: idx };
+
+    const question = moduleQuestions[questionIndex];
+
+    // Eğer soru başka bir soruya referans veriyorsa (getContextForQuestion: 3 gibi)
+    if (question.getContextForQuestion != null) {
+      const refQuestionNumber = question.getContextForQuestion;
+      // Soru numarasını index'e çevir (soru numarası 1-indexed)
+      const refIndex = moduleQuestions.findIndex(q => q.number === refQuestionNumber);
+      if (refIndex >= 0 && refIndex < questionContexts.length) {
+        const html = questionContexts[refIndex];
+        if (html) return { html, ownerIndex: refIndex };
+      }
     }
+
+    // Referans yoksa kendi context'ini kullan
+    const html = questionContexts[questionIndex];
+    if (html) return { html, ownerIndex: questionIndex };
+
+    // Hiç context yoksa boş döndür
     return { html: "", ownerIndex: null };
   }
 
