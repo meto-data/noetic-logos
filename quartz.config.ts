@@ -181,7 +181,7 @@ const config: QuartzConfig = {
   configuration: {
     pageTitle: "Noetic Logos",
     pageTitleSuffix: "",
-    enableSPA: true,
+    enableSPA: false,
     enablePopovers: true,
     analytics: analyticsConfig,
     locale: "tr-TR",
@@ -190,8 +190,6 @@ const config: QuartzConfig = {
     defaultDateType: "created",
     features: {
       ...defaultFeatures,
-      // Faz 2: gizli okuma ilerleme barı (scroll pozisyonunu kalıcı tutar)
-      readingProgressBar: true,
       // Kullanıcı buradan override edebilir:
       // scrollPositionRestore: false,
       // progressTracking: false,
