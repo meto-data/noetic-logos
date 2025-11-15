@@ -16,7 +16,7 @@ export const defaultStudyChatConfig: StudyChatConfig = {
   defaultNickname: "İsimsiz",
   nicknameMaxLength: 24,
   idleTimeoutMs: 10 * 60 * 1000,
-  panelCollapsed: true,
+  panelCollapsed: false,
   maxHistory: 120,
   autoJoin: true,
   iceServers: [
