@@ -33,12 +33,7 @@ function populateProgressDashboard() {
   const moduleEntries = Object.entries(allProgress)
 
   if (moduleEntries.length === 0) {
-    dashboardContent.innerHTML = `
-      <div class="progress-empty">
-        <p>Henüz hiç test tamamlamadınız.</p>
-        <p class="progress-empty-hint">Testlere başladığınızda ilerlemeniz burada görünecek.</p>
-      </div>
-    `
+    dashboardContent.innerHTML = ""
     return
   }
 
