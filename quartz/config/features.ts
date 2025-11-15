@@ -97,7 +97,7 @@ export const defaultFeatures: FeatureConfig = {
   // Faz 1: Core Features
   scrollPositionRestore: true,
   prerequisiteSystem: true,
-  progressTracking: true,
+  progressTracking: false,
   moduleGenerator: true,
   moduleAnalytics: true,
 
