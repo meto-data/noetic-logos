@@ -521,6 +521,7 @@
 
   function applyLatexRendering(rootElement) {
     if (!rootElement) return;
+    convertAsciiFractions(rootElement);
     ensureKatexResources()
       .then(() => {
         if (typeof window.renderMathInElement !== "function") return;
@@ -542,6 +543,54 @@
       .catch(error => {
         console.warn("KaTeX yüklenemedi:", error);
       });
+  }
+
+  function convertAsciiFractions(rootElement) {
+    const blocks = rootElement.querySelectorAll("pre.question-pre");
+    blocks.forEach(pre => {
+      if (pre.dataset && pre.dataset.converted === "true") return;
+      const lines = pre.textContent
+        .split(/\r?\n/)
+        .map(line => line.trim())
+        .filter(Boolean);
+      if (lines.length < 3) {
+        pre.dataset.converted = "true";
+        return;
+      }
+      const dividerIndex = lines.findIndex(line => /^[-=‒–—_]+$/.test(line.replace(/\s+/g, "")));
+      if (dividerIndex <= 0 || dividerIndex >= lines.length - 1) {
+        pre.dataset.converted = "true";
+        return;
+      }
+      const numerator = lines.slice(0, dividerIndex).join(" ");
+      const denominator = lines.slice(dividerIndex + 1).join(" ");
+      if (!numerator || !denominator) {
+        pre.dataset.converted = "true";
+        return;
+      }
+      const latex = `$$\\frac{${latexifyText(numerator)}}{${latexifyText(denominator)}}$$`;
+      const wrapper = document.createElement("div");
+      wrapper.className = "converted-formula";
+      wrapper.innerHTML = latex;
+      pre.replaceWith(wrapper);
+    });
+  }
+
+  function latexifyText(text) {
+    const cleaned = String(text || "").trim();
+    if (!cleaned) return "";
+    const escaped = cleaned
+      .replace(/\\/g, "\\textbackslash ")
+      .replace(/([%$#&_{}])/g, "\\$1")
+      .replace(/\^/g, "\\^{}")
+      .replace(/~/g, "\\textasciitilde ")
+      .replace(/\|/g, "\\mid ")
+      .replace(/</g, "\\langle ")
+      .replace(/>/g, "\\rangle ")
+      .replace(/"/g, "\\textquotedbl ")
+      .replace(/'/g, "\\textquotesingle ")
+      .replace(/:/g, "\\colon ");
+    return `\\text{${escaped}}`;
   }
 
   function handleAnswerSelection(questionIndex, orderIndex, selectedLabel) {
