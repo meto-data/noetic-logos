@@ -16,13 +16,13 @@ const STORAGE_PREFIX = "reading_progress_"
 const ENTRY_EXPIRY = 30 * 24 * 60 * 60 * 1000 // 30 gün
 const MAX_ENTRIES = 80
 const SAVE_THROTTLE = 400
-const MIN_PROGRESS_TO_RESTORE = 0.02
 const RESTORE_ATTEMPTS = 6
 const RESTORE_DELAY = 120
 
 let indicatorEl: HTMLElement | null = null
 let scrollSaveTimer: ReturnType<typeof setTimeout> | null = null
 let restoreTimers: Set<ReturnType<typeof setTimeout>> = new Set()
+let lastInteractionSave = 0
 const canUseStorage = (() => {
   try {
     const testKey = "__reading_progress_test__"
@@ -110,6 +110,12 @@ function persistProgress(scrollTop: number, percent: number, path: string) {
   }
 }
 
+function immediatePersistCurrentPosition() {
+  const path = window.location.pathname
+  const { scrollTop, percent } = calculateProgress()
+  persistProgress(scrollTop, percent, path)
+}
+
 function scheduleSave(scrollTop: number, percent: number, path: string) {
   if (!canUseStorage) return
   if (scrollSaveTimer) {
@@ -164,13 +170,12 @@ function restoreProgressFromStorage() {
   if (!entry) return
 
   if (window.location.hash) return
-  if (entry.percent < MIN_PROGRESS_TO_RESTORE && entry.scrollY < 80) return
 
   clearRestoreTimers()
 
   let attempt = 0
   const tryRestore = () => {
-    if (window.scrollY > 6 || attempt >= RESTORE_ATTEMPTS) {
+    if (attempt >= RESTORE_ATTEMPTS) {
       return
     }
 
@@ -186,17 +191,12 @@ function restoreProgressFromStorage() {
       Math.min(entry.scrollY, scrollable),
     )
 
-    if (candidate < 8) {
-      attempt++
-      queueRestoreAttempt(tryRestore, RESTORE_DELAY * (attempt + 1))
-      return
-    }
-
     window.scrollTo({
       top: Math.min(candidate, scrollable),
       left: 0,
-      behavior: "instant" as ScrollBehavior,
+      behavior: "auto",
     })
+    attempt = RESTORE_ATTEMPTS // stop further attempts once applied
   }
 
   queueRestoreAttempt(tryRestore, RESTORE_DELAY)
@@ -241,6 +241,20 @@ function handleBeforeUnload() {
   persistProgress(scrollTop, percent, window.location.pathname)
 }
 
+function isInternalLink(anchor: HTMLAnchorElement | null): boolean {
+  if (!anchor) return false
+  const href = anchor.getAttribute("href")
+  if (!href || href.startsWith("#")) return false
+  if (anchor.target === "_blank") return false
+  if ("routerIgnore" in anchor.dataset) return false
+  try {
+    const url = new URL(href, window.location.href)
+    return url.origin === window.location.origin
+  } catch {
+    return false
+  }
+}
+
 function initReadingProgress() {
   if (typeof window === "undefined" || typeof document === "undefined") {
     return
@@ -250,6 +264,16 @@ function initReadingProgress() {
   const onResize = () => handleResize()
   const onNav = () => setTimeout(handlePageReady, 10)
 
+  const onInteraction = (event: MouseEvent) => {
+    const anchor = (event.target as Element | null)?.closest("a")
+    if (!isInternalLink(anchor)) return
+    // Çok sık yazmamak için 150ms throttle
+    const now = Date.now()
+    if (now - lastInteractionSave < 150) return
+    lastInteractionSave = now
+    immediatePersistCurrentPosition()
+  }
+
   window.addEventListener("scroll", onScroll, { passive: true })
   window.addEventListener("resize", onResize)
   window.addEventListener("beforeunload", handleBeforeUnload)
@@ -257,6 +281,7 @@ function initReadingProgress() {
   document.addEventListener("visibilitychange", handleVisibilityChange)
   document.addEventListener("nav", onNav)
   document.addEventListener("prenav", handleBeforeUnload)
+  document.addEventListener("click", onInteraction, true)
 
   const readyFn = () => {
     handlePageReady()
@@ -282,6 +307,7 @@ function initReadingProgress() {
     document.removeEventListener("visibilitychange", handleVisibilityChange)
     document.removeEventListener("nav", onNav)
     document.removeEventListener("prenav", handleBeforeUnload)
+    document.removeEventListener("click", onInteraction, true)
   })
 }
 
