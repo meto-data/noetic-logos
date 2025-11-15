@@ -1,3 +1,11 @@
 name = "study-chat-signal"
 main = "study-chat-signal.js"
 compatibility_date = "2024-05-23"
+
+[observability]
+enabled = true
+head_sampling_rate = 1 # optional. default = 1.
+
+[env.staging.observability]
+enabled = true
+head_sampling_rate = 1 # optional
