@@ -7,9 +7,7 @@ cssclasses:
   - ders-notu
 created: 12.11.2025
 ---
- **İşletmenin kredili (veresiye) net satışlarının, ortalama ticarî alacaklarına oranıdır**.
- 
-## Kısa Anımsatma
+ ## Kısa Anımsatma
 - **Dönen varlıklar (cari aktif)** genel olarak **kısa vadeli borçlarla (cari pasif)** finanse edilir. 
 	- **[[Cari Aktif]]** = [[Dönen Varlıklar]] = [[Çalışma Sermayesi (İşletme Sermayesi)]]
 	- **Cari Pasif** = **Kısa Vadeli Borçlar** 
@@ -42,8 +40,8 @@ created: 12.11.2025
 
 ### 1.1. **Cari Oran** (Genel Likidite Oranı | Current Ratio)
 - En kaba ve en genel likidite ölçümüdür.
-	- "1 yıl içinde paraya dönecek neyim var (**dönen varlıklar**)?", 
-	- "1 yıl içinde ödeyecek ne kadar borcum var (**Kısa Vadeli Borçlar**)?" 
+	- "1 yıl içinde paraya dönecek neyim var (**Dönen Varlıklar**)", 
+	- "1 yıl içinde ödeyecek ne kadar borcum var (**Kısa Vadeli Borçlar**)" 
 	  Bu ikisi birbirini karşılıyor mu?
 - **İşletmenin dönen varlıklarının, kısa vadeli yabancı kaynaklarının kaç katı olduğunu gösteren oran**.
 
