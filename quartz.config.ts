@@ -190,6 +190,8 @@ const config: QuartzConfig = {
     defaultDateType: "created",
     features: {
       ...defaultFeatures,
+      // Faz 2: gizli okuma ilerleme barı (scroll pozisyonunu kalıcı tutar)
+      readingProgressBar: true,
       // Kullanıcı buradan override edebilir:
       // scrollPositionRestore: false,
       // progressTracking: false,
