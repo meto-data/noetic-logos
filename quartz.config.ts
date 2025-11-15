@@ -191,7 +191,7 @@ const config: QuartzConfig = {
     defaultDateType: "created",
     features: {
       ...defaultFeatures,
-      pageBasedChat: true,
+      pageBasedChat: false,
       // Kullanıcı buradan override edebilir:
       // scrollPositionRestore: false,
       // progressTracking: false,
