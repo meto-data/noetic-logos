@@ -64,8 +64,9 @@ class StudyChatWidget {
     widget: HTMLDivElement
     toggleButton: HTMLButtonElement
     panel: HTMLDivElement
-    headerStatus: HTMLSpanElement
+    headerStatus: HTMLDivElement
     connectionBadge: HTMLSpanElement
+    statusLabel: HTMLSpanElement
     messageContainer: HTMLDivElement
     emptyState: HTMLDivElement
     nicknameInput: HTMLInputElement
@@ -126,7 +127,7 @@ class StudyChatWidget {
     title.textContent = `${this.dataset.pageTitle} · Chat`
     const statusLine = document.createElement("div")
     statusLine.className = "study-chat-status"
-    statusLine.innerHTML = `<span class="study-chat-connection offline">Bağlantı yok</span>`
+    statusLine.innerHTML = `<span class="study-chat-connection offline">Bağlantı yok</span><span class="study-chat-status-label"></span>`
     header.appendChild(title)
     header.appendChild(statusLine)
     header.appendChild(closeBtn)
@@ -185,6 +186,7 @@ class StudyChatWidget {
       panel,
       headerStatus: statusLine,
       connectionBadge: statusLine.querySelector(".study-chat-connection") as HTMLSpanElement,
+      statusLabel: statusLine.querySelector(".study-chat-status-label") as HTMLSpanElement,
       messageContainer: messages,
       emptyState,
       nicknameInput: nickInput,
@@ -305,7 +307,7 @@ class StudyChatWidget {
 
   private connectNetwork() {
     if (!this.dataset.signalUrl) {
-      this.setStatus("error", "Sinyal sunucusu yapılandırılmadı")
+      this.setStatus("error", "Sinyal adresi ayarlı değil")
       return
     }
     if (this.network && this.status === "connected") {
@@ -376,8 +378,8 @@ class StudyChatWidget {
       badge.classList.remove("online")
       badge.classList.add("offline")
     }
-    if (label) {
-      this.ui.headerStatus.dataset.statusText = label
+    if (this.ui.statusLabel) {
+      this.ui.statusLabel.textContent = label ?? ""
     }
   }
 
