@@ -87,6 +87,7 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
               <label>
                 Yazı boyutu
                 <select class="font-size-select">
+                  <option value="0.8rem">Minik</option>
                   <option value="0.9rem">Çok küçük</option>
                   <option value="1.0rem">Küçük</option>
                   <option value="1.1rem" selected>Orta (Varsayılan)</option>
