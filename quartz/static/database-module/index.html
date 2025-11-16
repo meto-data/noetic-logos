@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Komutları İnteraktif Öğretim Sistemi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- CodeMirror CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/eclipse.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>SQL Komutları İnteraktif Öğretim Sistemi</h1>
+                    <p class="subtitle">Yapılandırılmış Sorgu Dili Uygulama Platformu</p>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" title="Tema Degistir">
+                    <span class="theme-icon" id="theme-icon">&#9790;</span>
+                    <span id="theme-text">Koyu Tema</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="#giris" class="nav-link active" data-section="giris">Giriş</a></li>
+                <li><a href="#kategoriler" class="nav-link" data-section="kategoriler">Kategoriler</a></li>
+                <li><a href="#uygulama" class="nav-link" data-section="uygulama">Uygulama</a></li>
+                <li><a href="#atolyeler" class="nav-link" data-section="atolyeler">Atölyeler</a></li>
+                <li><a href="er-diagram.html" class="nav-link">ER Testi</a></li>
+                <li><a href="er-builder.html" class="nav-link">ER Oluşturucu</a></li>
+                <li><a href="normalization-lab.html" class="nav-link">Normalizasyon Lab</a></li>
+                <li><a href="constraint-lab.html" class="nav-link">Kısıt Tasarımcı</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Giriş Bölümü -->
+        <section id="giris" class="content-section active">
+            <article class="academic-article">
+                <h2>1. SQL Nedir?</h2>
+                <p>
+                    <strong>SQL (Structured Query Language - Yapılandırılmış Sorgu Dili)</strong>, ilişkisel veritabanı
+                    yönetim sistemlerinde (RDBMS) veri tanımlamak, manipüle etmek ve sorgulamak için kullanılan
+                    standart bir programlama dilidir.
+                </p>
+
+                <h3>1.1. Neden "Yapılandırılmış"?</h3>
+                <p>
+                    SQL'in "yapılandırılmış" olarak adlandırılmasının temel nedeni, dilin belirli bir
+                    <em>sözdizimsel yapı</em> ve <em>semantik kurallara</em> dayalı olması ve verilerin
+                    <em>yapılandırılmış tablolar</em> halinde organize edilmesidir. Bu yapılanma şu unsurları kapsar:
+                </p>
+                <ul>
+                    <li><strong>Tablo Yapısı:</strong> Veriler satır ve sütunlardan oluşan tablolarda saklanır.</li>
+                    <li><strong>Şema Tanımı:</strong> Her tablonun önceden tanımlanmış bir şeması (veri tipleri, kısıtlamalar) vardır.</li>
+                    <li><strong>İlişkisel Model:</strong> Tablolar arasında mantıksal ilişkiler kurulabilir.</li>
+                    <li><strong>Deklaratif Sorgulama:</strong> "Ne" istendiğini belirtirsiniz, "nasıl" yapılacağını sistem belirler.</li>
+                </ul>
+
+                <h3>1.2. SQL'in Temel Kategorileri</h3>
+                <p>SQL komutları işlevlerine göre iki ana kategoriye ayrılır:</p>
+
+                <div class="definition-box">
+                    <h4>DDL (Data Definition Language - Veri Tanımlama Dili)</h4>
+                    <p>
+                        Veritabanı yapısını tanımlamak ve değiştirmek için kullanılır. Tabloların, indekslerin
+                        ve diğer veritabanı nesnelerinin oluşturulması, değiştirilmesi ve silinmesi işlemlerini kapsar.
+                    </p>
+                    <p><strong>Temel Komutlar:</strong> CREATE, ALTER, DROP</p>
+                </div>
+
+                <div class="definition-box">
+                    <h4>DML (Data Manipulation Language - Veri Düzenleme Dili)</h4>
+                    <p>
+                        Veritabanındaki verileri yönetmek için kullanılır. Veri ekleme, güncelleme, silme ve
+                        sorgulama işlemlerini kapsar.
+                    </p>
+                    <p><strong>Temel Komutlar:</strong> INSERT, UPDATE, DELETE, SELECT</p>
+                </div>
+
+                <h3>1.3. Uygulama Metodolojisi</h3>
+                <p>
+                    Bu platform, SQL komutlarını interaktif bir şekilde öğrenmenizi sağlar. Her soru için:
+                </p>
+                <ol>
+                    <li>Mevcut veritabanı durumu (Referans Veri) gösterilir.</li>
+                    <li>Gerçekleştirilmesi istenen işlem açıklanır.</li>
+                    <li>Siz uygun SQL komutunu yazarsınız.</li>
+                    <li>Sistem cevabınızı değerlendirir ve geri bildirim sağlar.</li>
+                </ol>
+
+                <div class="note-box">
+                    <p><strong>Not:</strong> Bu sistemde SQL komutlarınız tarayıcınızda çalışan SQLite motoru
+                    üzerinde gerçek zamanlı olarak çalıştırılır. Böylece teorik bilginizi pratikte test edebilirsiniz.</p>
+                </div>
+
+                <div class="action-box">
+                    <button id="btn-start" class="btn-primary">Kategorilere Git</button>
+                </div>
+            </article>
+        </section>
+
+        <!-- Kategori Seçimi -->
+        <section id="kategoriler" class="content-section">
+            <h2>Soru Kategorileri</h2>
+            <p class="section-intro">
+                Çalışma yapmak istediğiniz kategoriyi seçin. Her kategori, belirli SQL komutları ve
+                kavramları üzerine yoğunlaşmaktadır.
+            </p>
+
+            <div class="category-list" id="category-list">
+                <!-- JavaScript ile doldurulacak -->
+            </div>
+        </section>
+
+        <!-- Uygulama Alanı -->
+        <section id="uygulama" class="content-section">
+            <div class="exercise-header">
+                <h2 id="exercise-title">Uygulama</h2>
+                <div class="exercise-nav">
+                    <button id="btn-prev" class="btn-nav" disabled>Önceki</button>
+                    <span id="exercise-counter">1 / 1</span>
+                    <button id="btn-next" class="btn-nav" disabled>Sonraki</button>
+                </div>
+            </div>
+
+            <div class="exercise-content">
+                <div class="reference-data">
+                    <h3>Referans Veri</h3>
+                    <div id="reference-content" class="code-block">
+                        <!-- Referans veri burada gösterilecek -->
+                    </div>
+                </div>
+
+                <div class="task-description">
+                    <h3>İstek</h3>
+                    <div id="task-content" class="task-box">
+                        <!-- Görev açıklaması burada gösterilecek -->
+                    </div>
+                </div>
+
+                <div class="sql-editor">
+                    <h3>SQL Komutunuz</h3>
+                    <div class="editor-toolbar">
+                        <span class="toolbar-label">SQL Editor</span>
+                        <div class="toolbar-right">
+                            <button id="editor-theme-toggle" class="editor-theme-btn" title="Editör Teması">
+                                <span id="editor-theme-icon">&#9788;</span>
+                            </button>
+                            <span class="toolbar-info">Ctrl+Enter: Çalıştır | Tab: Girinti</span>
+                        </div>
+                    </div>
+                    <div class="editor-container" id="editor-container">
+                        <textarea id="sql-input"></textarea>
+                    </div>
+                    <div class="editor-actions">
+                        <button id="btn-run" class="btn-primary">Çalıştır</button>
+                        <button id="btn-check" class="btn-secondary">Kontrol Et</button>
+                        <button id="btn-hint" class="btn-tertiary">İpucu</button>
+                        <button id="btn-solution" class="btn-tertiary">Çözümü Gör</button>
+                        <button id="btn-clear" class="btn-tertiary">Temizle</button>
+                    </div>
+                </div>
+
+                <div class="output-area">
+                    <h3>Çıktı</h3>
+                    <div id="output-content" class="output-box">
+                        <p class="placeholder-text">SQL komutunuzu çalıştırdığınızda sonuçlar burada görünecektir.</p>
+                    </div>
+                </div>
+
+                <div class="feedback-area" id="feedback-area" style="display: none;">
+                    <h3>Değerlendirme</h3>
+                    <div id="feedback-content" class="feedback-box">
+                        <!-- Geri bildirim burada gösterilecek -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="atolyeler" class="content-section">
+            <article class="academic-article">
+                <h2>Atölye Portalı</h2>
+                <p>ER diyagramı testlerinden normalizasyon laboratuvarına kadar tüm uygulamalı atölyelere ana modülden ayrılmadan erişebilirsiniz.</p>
+                <div class="atolye-grid">
+                    <div class="module-card">
+                        <h3>ER Diyagram Testi</h3>
+                        <p>Sembolleri tanıma, test çözme ve sonuç raporlarını inceleme.</p>
+                        <button class="btn-secondary module-open-btn" data-title="ER Diyagram Testi" data-src="er-diagram.html">Atölyeyi Aç</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>ER Oluşturucu</h3>
+                        <p>Sürükle-bırak ile varlık-ilişki diyagramları çizip senaryoları doğrulayın.</p>
+                        <button class="btn-secondary module-open-btn" data-title="ER Oluşturucu" data-src="er-builder.html">Atölyeyi Aç</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>Normalizasyon Lab</h3>
+                        <p>0NF’den 3NF’ye tablo dönüşümlerini adım adım inceleyin.</p>
+                        <button class="btn-secondary module-open-btn" data-title="Normalizasyon Laboratuvarı" data-src="normalization-lab.html">Atölyeyi Aç</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>Kısıt Tasarımcı</h3>
+                        <p>Primary/Foreign key ve diğer kısıtları tablo üzerinde pekiştirin.</p>
+                        <button class="btn-secondary module-open-btn" data-title="Kısıt Tasarımcı" data-src="constraint-lab.html">Atölyeyi Aç</button>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <div id="module-overlay" class="module-overlay" aria-hidden="true">
+        <div class="module-dialog" role="dialog" aria-modal="true" aria-labelledby="module-dialog-title">
+            <div class="module-dialog-header">
+                <h3 id="module-dialog-title">Atölye</h3>
+                <button id="module-close" class="module-close" aria-label="Kapat">&times;</button>
+            </div>
+            <iframe id="module-frame" title="Atölye içeriği" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>SQL Öğretim Sistemi - Akademik Amaçlı Kullanım</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
+    <!-- CodeMirror JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/sql-hint.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

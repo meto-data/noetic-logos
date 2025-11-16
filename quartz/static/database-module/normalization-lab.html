@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normalizasyon Laboratuvarı</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normalization.css">
+    <style>
+        :root {
+            --bg-primary: #fafafa;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f5f5f5;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --border-color: #d0d0d0;
+            --accent-color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>Normalizasyon Laboratuvarı</h1>
+                    <p class="subtitle">0NF’den 3NF’ye adım adım normalizasyon inceleme alanı</p>
+                </div>
+                <button id="theme-toggle" class="theme-toggle">
+                    <span class="theme-icon" id="theme-icon">&#9790;</span>
+                    <span id="theme-text">Koyu Tema</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html" class="nav-link">SQL Modülü</a></li>
+                <li><a href="er-diagram.html" class="nav-link">ER Testi</a></li>
+                <li><a href="er-builder.html" class="nav-link">ER Oluşturucu</a></li>
+                <li><a href="constraint-lab.html" class="nav-link">Kısıt Tasarımcı</a></li>
+                <li><a href="#" class="nav-link active">Normalizasyon Lab</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="lab-full lab-grid">
+        <section class="lab-stage">
+            <div class="stage-header">
+                <div>
+                    <p class="stage-label" id="stage-label">0NF</p>
+                    <h2 id="stage-title">Düz Tablo</h2>
+                </div>
+                <div class="stage-actions">
+                    <button id="btn-previous-step" class="btn-tertiary" disabled>Önceki Adım</button>
+                    <button id="btn-next-step" class="btn-primary">Sıradaki Adım</button>
+                </div>
+            </div>
+            <p id="stage-description" class="stage-description"></p>
+
+            <div id="table-wrapper" class="table-wrapper">
+                <!-- Dinamik tablolar -->
+            </div>
+        </section>
+
+        <aside class="timeline-panel">
+            <h3>Normalizasyon Aşamaları</h3>
+            <ul id="step-list" class="step-list">
+                <!-- JS dolduracak -->
+            </ul>
+            <div class="legend">
+                <p><span class="badge badge-issue"></span> Tespit edilen anomaliler</p>
+                <p><span class="badge badge-resolved"></span> Çözülen anomaliler</p>
+            </div>
+        </aside>
+
+        <aside class="insight-panel">
+            <div class="insight-card">
+                <h3>Normalizasyon Günlüğü</h3>
+                <div id="anomaly-panel">
+                    <!-- JS -->
+                </div>
+            </div>
+            <div class="insight-card">
+                <h3>Notlar</h3>
+                <p>Normalizasyon adımları <strong>Normalizasyon Örnek</strong> dokümanındaki örnek tablo üzerinden modellenmiştir. Her aşamada tablo yapısı ve anomaliler birlikte incelenebilir.</p>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Normalizasyon Laboratuvarı - Akademik Amaçlı Kullanım</p>
+        </div>
+    </footer>
+
+    <script src="js/normalization.js"></script>
+</body>
+</html>

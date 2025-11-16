@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ER Diyagramı Test Sistemi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/er-style.css">
+    <style>
+        /* Fallback değerler */
+        :root {
+            --bg-primary: #fafafa;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f5f5f5;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --border-color: #d0d0d0;
+            --accent-color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>ER Diyagramı Test Sistemi</h1>
+                    <p class="subtitle">Varlık-İlişki Modeli Sembol Tanıma</p>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" title="Tema Degistir">
+                    <span class="theme-icon" id="theme-icon">&#9790;</span>
+                    <span id="theme-text">Koyu Tema</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html" class="nav-link">SQL Modülü</a></li>
+                <li><a href="#bilgi" class="nav-link active" data-section="bilgi">Bilgi</a></li>
+                <li><a href="#test" class="nav-link" data-section="test">Test</a></li>
+                <li><a href="#sonuc" class="nav-link" data-section="sonuc">Sonuçlar</a></li>
+                <li><a href="er-builder.html" class="nav-link">ER Oluşturucu</a></li>
+                <li><a href="normalization-lab.html" class="nav-link">Normalizasyon Lab</a></li>
+                <li><a href="constraint-lab.html" class="nav-link">Kısıt Tasarımcı</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Bilgi Bölümü -->
+        <section id="bilgi" class="content-section active">
+            <article class="academic-article">
+                <h2>ER Diyagramı Nedir?</h2>
+                <p>
+                    <strong>ER (Entity-Relationship) Diyagramı</strong>, veritabanı tasarımında kullanılan
+                    kavramsal bir modelleme tekniğidir. Peter Chen tarafından 1976'da önerilmiştir.
+                </p>
+
+                <h3>Temel Semboller</h3>
+
+                <div class="symbol-grid">
+                    <div class="symbol-card">
+                        <div class="symbol-image">
+                            <svg width="120" height="60" viewBox="0 0 120 60">
+                                <rect x="10" y="10" width="100" height="40" fill="none" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="symbol-name">Dikdörtgen</div>
+                        <div class="symbol-meaning">Varlık (Entity)</div>
+                    </div>
+
+                    <div class="symbol-card">
+                        <div class="symbol-image">
+                            <svg width="120" height="60" viewBox="0 0 120 60">
+                                <rect x="10" y="10" width="100" height="40" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <rect x="14" y="14" width="92" height="32" fill="none" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="symbol-name">Çift Çizgili Dikdörtgen</div>
+                        <div class="symbol-meaning">Zayıf Varlık (Weak Entity)</div>
+                    </div>
+
+                    <div class="symbol-card">
+                        <div class="symbol-image">
+                            <svg width="120" height="60" viewBox="0 0 120 60">
+                                <ellipse cx="60" cy="30" rx="50" ry="25" fill="none" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="symbol-name">Elips</div>
+                        <div class="symbol-meaning">Nitelik (Attribute)</div>
+                    </div>
+
+                    <div class="symbol-card">
+                        <div class="symbol-image">
+                            <svg width="120" height="60" viewBox="0 0 120 60">
+                                <ellipse cx="60" cy="30" rx="50" ry="25" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <line x1="20" y1="35" x2="100" y2="35" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="symbol-name">Altı Çizili Elips</div>
+                        <div class="symbol-meaning">Birincil Anahtar (Primary Key)</div>
+                    </div>
+
+                    <div class="symbol-card">
+                        <div class="symbol-image">
+                            <svg width="120" height="60" viewBox="0 0 120 60">
+                                <ellipse cx="60" cy="30" rx="50" ry="25" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <ellipse cx="60" cy="30" rx="46" ry="21" fill="none" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="symbol-name">Çift Çizgili Elips</div>
+                        <div class="symbol-meaning">Çok Değerli Nitelik (Multivalued)</div>
+                    </div>
+
+                    <div class="symbol-card">
+                        <div class="symbol-image">
+                            <svg width="120" height="60" viewBox="0 0 120 60">
+                                <ellipse cx="60" cy="30" rx="50" ry="25" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="5,3"/>
+                            </svg>
+                        </div>
+                        <div class="symbol-name">Kesikli Elips</div>
+                        <div class="symbol-meaning">Türetilmiş Nitelik (Derived)</div>
+                    </div>
+
+                    <div class="symbol-card">
+                        <div class="symbol-image">
+                            <svg width="120" height="60" viewBox="0 0 120 60">
+                                <polygon points="60,5 115,30 60,55 5,30" fill="none" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="symbol-name">Baklava (Eşkenar Dörtgen)</div>
+                        <div class="symbol-meaning">İlişki (Relationship)</div>
+                    </div>
+
+                    <div class="symbol-card">
+                        <div class="symbol-image">
+                            <svg width="120" height="60" viewBox="0 0 120 60">
+                                <polygon points="60,5 115,30 60,55 5,30" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <polygon points="60,10 108,30 60,50 12,30" fill="none" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="symbol-name">Çift Çizgili Baklava</div>
+                        <div class="symbol-meaning">Tanımlayıcı İlişki (Identifying)</div>
+                    </div>
+
+                    <div class="symbol-card">
+                        <div class="symbol-image">
+                            <svg width="120" height="60" viewBox="0 0 120 60">
+                                <polygon points="60,10 100,50 20,50" fill="none" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="symbol-name">Üçgen</div>
+                        <div class="symbol-meaning">Genelleştirme/Özelleştirme (ISA)</div>
+                    </div>
+
+                    <div class="symbol-card">
+                        <div class="symbol-image">
+                            <svg width="120" height="60" viewBox="0 0 120 60">
+                                <ellipse cx="60" cy="30" rx="50" ry="25" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <ellipse cx="85" cy="35" rx="20" ry="12" fill="none" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="symbol-name">İç İçe Elips</div>
+                        <div class="symbol-meaning">Bileşik Nitelik (Composite)</div>
+                    </div>
+
+                    <div class="symbol-card">
+                        <div class="symbol-image">
+                            <svg width="120" height="60" viewBox="0 0 120 60">
+                                <line x1="10" y1="30" x2="110" y2="30" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="symbol-name">Tek Çizgi</div>
+                        <div class="symbol-meaning">Kısmi Katılım (Partial)</div>
+                    </div>
+
+                    <div class="symbol-card">
+                        <div class="symbol-image">
+                            <svg width="120" height="60" viewBox="0 0 120 60">
+                                <line x1="10" y1="28" x2="110" y2="28" stroke="currentColor" stroke-width="2"/>
+                                <line x1="10" y1="32" x2="110" y2="32" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="symbol-name">Çift Çizgi</div>
+                        <div class="symbol-meaning">Tam Katılım (Total)</div>
+                    </div>
+                </div>
+
+                <h3>Kardinalite Gösterimleri</h3>
+                <div class="definition-box">
+                    <p><strong>1 (Bir):</strong> Bir varlık, ilişkide en fazla bir kez katılır.</p>
+                    <p><strong>N veya M (Çok):</strong> Bir varlık, ilişkide birden fazla kez katılabilir.</p>
+                    <p><strong>1:1 (Bire-Bir):</strong> Her iki varlık da en fazla bir kez eşleşir.</p>
+                    <p><strong>1:N (Bire-Çok):</strong> Bir varlık birden fazla varlıkla eşleşebilir.</p>
+                    <p><strong>M:N (Çoka-Çok):</strong> Her iki taraf da birden fazla eşleşme yapabilir.</p>
+                </div>
+
+                <div class="action-box">
+                    <button id="btn-start-test" class="btn-primary">Teste Başla</button>
+                </div>
+            </article>
+        </section>
+
+        <!-- Test Bölümü -->
+        <section id="test" class="content-section">
+            <div class="test-container">
+                <div class="test-header">
+                    <h2>ER Diyagramı Testi</h2>
+                    <div class="test-progress">
+                        <span id="question-counter">Soru 1 / 30</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-symbol" id="question-symbol">
+                        <!-- SVG sembol burada gösterilecek -->
+                    </div>
+                    <div class="question-text" id="question-text">
+                        Bu sembol neyi ifade eder?
+                    </div>
+                    <div class="answer-options" id="answer-options">
+                        <!-- Seçenekler burada gösterilecek -->
+                    </div>
+                </div>
+
+                <div class="test-feedback" id="test-feedback" style="display: none;">
+                    <!-- Geri bildirim burada gösterilecek -->
+                </div>
+
+                <div class="test-actions">
+                    <button id="btn-next-question" class="btn-primary" disabled>Sonraki Soru</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sonuç Bölümü -->
+        <section id="sonuc" class="content-section">
+            <div class="result-container">
+                <h2>Test Sonuçları</h2>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span class="score-number" id="final-score">0</span>
+                        <span class="score-total">/ 30</span>
+                    </div>
+                    <div class="score-percentage" id="score-percentage">%0</div>
+                </div>
+
+                <div class="result-message" id="result-message">
+                    <!-- Sonuç mesajı burada gösterilecek -->
+                </div>
+
+                <div class="wrong-answers" id="wrong-answers">
+                    <!-- Yanlış cevaplar burada listelenecek -->
+                </div>
+
+                <div class="action-box">
+                    <button id="btn-retry" class="btn-primary">Testi Tekrarla</button>
+                    <button id="btn-back-info" class="btn-tertiary">Bilgiye Dön</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>ER Diyagramı Test Sistemi - Akademik Amaçlı Kullanım</p>
+        </div>
+    </footer>
+
+    <script src="js/er-data.js"></script>
+    <script src="js/er-app.js"></script>
+</body>
+</html>

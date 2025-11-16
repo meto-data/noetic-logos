@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kısıt Tasarımcı</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/constraint-lab.css">
+    <style>
+        :root {
+            --bg-primary: #fafafa;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f5f5f5;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --border-color: #d0d0d0;
+            --accent-color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>Kısıt Tasarımcı</h1>
+                    <p class="subtitle">Primary/Foreign key rozetlerini sürükle-bırak ile yerleştirin, anomalileri yok edin.</p>
+                </div>
+                <button id="theme-toggle" class="theme-toggle">
+                    <span class="theme-icon" id="theme-icon">&#9790;</span>
+                    <span id="theme-text">Koyu Tema</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html" class="nav-link">SQL Modülü</a></li>
+                <li><a href="er-diagram.html" class="nav-link">ER Testi</a></li>
+                <li><a href="er-builder.html" class="nav-link">ER Oluşturucu</a></li>
+                <li><a href="normalization-lab.html" class="nav-link">Normalizasyon Lab</a></li>
+                <li><a href="#" class="nav-link active">Kısıt Tasarımcı</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="constraint-full constraint-grid">
+        <section class="table-panel">
+            <div class="panel-header">
+                <div>
+                    <p class="panel-tag">Tablolar</p>
+                    <h2>Kısıtları Yerleştir</h2>
+                </div>
+                <div class="progress-badge" id="progress-badge">0 / 0 kısıt</div>
+            </div>
+            <div class="table-tabs" id="table-tabs">
+                <!-- tablar -->
+            </div>
+            <div class="table-layout">
+                <div class="table-view" id="table-view">
+                    <!-- JS dolduracak -->
+                </div>
+                <aside class="palette-panel">
+                    <h3>Kısıt Paleti</h3>
+                    <div class="constraint-palette" id="constraint-palette">
+                        <!-- JS -->
+                    </div>
+                    <p class="palette-hint">Rozetleri sürükleyip tabloda ilgili kolona bırakın. Zorunlu kısıtları tamamlayarak ilerlemeyi takip edin.</p>
+                    <button id="btn-reset" class="btn-tertiary">Kısıtları Sıfırla</button>
+                    <div class="anomaly-panel" id="anomaly-panel">
+                        <!-- JS -->
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="reference-panel">
+            <div class="reference-card">
+                <h3>Anlamlı Bağlantılar</h3>
+                <p>Bu atölye <strong>Veri Tabanı - 2. Hafta</strong> notlarındaki primary key, foreign key ve normalizasyon kavramlarını pratiğe döker.</p>
+            </div>
+            <div class="reference-card">
+                <h3>SQL Soru Kategorileri</h3>
+                <div id="question-tabs">
+                    <!-- JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="toast" id="constraint-toast"></div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Kısıt Tasarımcı - Akademik Amaçlı Kullanım</p>
+        </div>
+    </footer>
+
+    <script src="js/constraint-lab.js"></script>
+</body>
+</html>
