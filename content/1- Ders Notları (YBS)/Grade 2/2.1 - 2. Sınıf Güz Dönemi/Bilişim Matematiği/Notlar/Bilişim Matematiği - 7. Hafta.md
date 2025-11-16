@@ -215,7 +215,7 @@ $$
 \begin{array}{l}
 \space \to \space 
 (-8 +1 -1) -(-2 -2  +2) \\  
-\space \space = -8 +2 = 6
+\space \space = -8 +2 = -6
 \end{array}
 $$
 

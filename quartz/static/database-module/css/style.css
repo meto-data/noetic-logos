@@ -1,0 +1,1110 @@
+/* SQL Ogretim Sistemi - Akademik Tasarim */
+
+/* Tema Degiskenleri */
+:root {
+    /* Acik Tema (Varsayilan) */
+    --bg-primary: #fafafa;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f5f5f5;
+    --bg-code: #f5f5f5;
+    --text-primary: #1a1a1a;
+    --text-secondary: #555555;
+    --text-muted: #666666;
+    --border-color: #d0d0d0;
+    --border-light: #dee2e6;
+    --header-bg: #2c3e50;
+    --header-text: #ffffff;
+    --nav-bg: #34495e;
+    --accent-color: #2c3e50;
+    --accent-dark: #1a252f;
+    --note-bg: #fff9e6;
+    --note-border: #e6d9a3;
+    --success-bg: #d4edda;
+    --success-text: #155724;
+    --success-border: #28a745;
+    --error-bg: #f8d7da;
+    --error-text: #721c24;
+    --error-border: #dc3545;
+    --warning-bg: #fff3cd;
+    --warning-text: #856404;
+    --warning-border: #ffc107;
+    --info-bg: #d1ecf1;
+    --info-text: #0c5460;
+    --info-border: #17a2b8;
+    --table-header-bg: #34495e;
+    --table-even-bg: #ecf0f1;
+    --table-hover-bg: #d5dbdb;
+    --editor-bg: #1e1e1e;
+    --editor-text: #d4d4d4;
+    --editor-line-bg: #2d2d2d;
+    --editor-line-text: #858585;
+    --editor-border: #404040;
+}
+
+[data-theme="dark"] {
+    /* Koyu Tema */
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #3d3d3d;
+    --bg-code: #2d2d2d;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-muted: #a0a0a0;
+    --border-color: #4d4d4d;
+    --border-light: #5d5d5d;
+    --header-bg: #1e2a35;
+    --header-text: #ffffff;
+    --nav-bg: #2a3a4a;
+    --accent-color: #3d5a80;
+    --accent-dark: #1a252f;
+    --note-bg: #3d3520;
+    --note-border: #6d5a30;
+    --success-bg: #1e3a1e;
+    --success-text: #a0d0a0;
+    --success-border: #2e7d32;
+    --error-bg: #3a1e1e;
+    --error-text: #f0a0a0;
+    --error-border: #c62828;
+    --warning-bg: #3a3a1e;
+    --warning-text: #f0d090;
+    --warning-border: #f9a825;
+    --info-bg: #1e3a3a;
+    --info-text: #90d0e0;
+    --info-border: #0277bd;
+    --table-header-bg: #2a3a4a;
+    --table-even-bg: #3d3d3d;
+    --table-hover-bg: #4d4d4d;
+    --editor-bg: #0d0d0d;
+    --editor-text: #d4d4d4;
+    --editor-line-bg: #1d1d1d;
+    --editor-line-text: #707070;
+    --editor-border: #2d2d2d;
+}
+
+/* Reset ve Temel Ayarlar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.8;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Baslik */
+.site-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 32px 0;
+    border-bottom: 4px solid var(--accent-dark);
+    transition: background-color 0.3s;
+}
+
+.site-header h1 {
+    font-size: 28px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.site-header .subtitle {
+    font-size: 14px;
+    font-style: italic;
+    color: #bdc3c7;
+    margin: 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-text {
+    flex: 1;
+}
+
+/* Tema Degistirici */
+.theme-toggle {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: var(--header-text);
+    padding: 8px 16px;
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.theme-toggle .theme-icon {
+    font-size: 16px;
+}
+
+/* Navigasyon */
+.main-nav {
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--accent-color);
+    transition: background-color 0.3s;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 0;
+}
+
+.main-nav .nav-link {
+    display: block;
+    padding: 12px 24px;
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 14px;
+    border-right: 1px solid var(--accent-color);
+    transition: background-color 0.2s;
+}
+
+.main-nav .nav-link:hover {
+    background-color: var(--accent-color);
+}
+
+.main-nav .nav-link.active {
+    background-color: var(--accent-dark);
+    font-weight: bold;
+}
+
+/* Ana Icerik */
+main {
+    padding: 40px 0;
+    min-height: calc(100vh - 250px);
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Akademik Makale Stili */
+.academic-article {
+    background-color: var(--bg-secondary);
+    padding: 40px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.academic-article h2 {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.academic-article h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+.academic-article p {
+    margin-bottom: 16px;
+    text-align: justify;
+}
+
+.academic-article ul,
+.academic-article ol {
+    margin-left: 32px;
+    margin-bottom: 16px;
+}
+
+.academic-article li {
+    margin-bottom: 8px;
+}
+
+/* Tanimlama Kutusu */
+.definition-box {
+    background-color: var(--bg-tertiary);
+    border-left: 4px solid var(--accent-color);
+    padding: 20px;
+    margin: 24px 0;
+    transition: background-color 0.3s;
+}
+
+.definition-box h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: var(--accent-color);
+}
+
+.definition-box p {
+    margin-bottom: 8px;
+}
+
+.definition-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* Not Kutusu */
+.note-box {
+    background-color: var(--note-bg);
+    border: 1px solid var(--note-border);
+    padding: 16px;
+    margin: 24px 0;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.note-box p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Aksiyon Kutusu */
+.action-box {
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* Butonlar */
+.btn-primary {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    padding: 12px 32px;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-dark);
+}
+
+.btn-secondary {
+    background-color: #7f8c8d;
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: #5d6d7e;
+}
+
+.btn-tertiary {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 10px 24px;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-tertiary:hover {
+    background-color: var(--accent-color);
+    color: #ffffff;
+}
+
+.btn-nav {
+    background-color: var(--table-even-bg);
+    color: var(--accent-color);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-nav:hover:not(:disabled) {
+    background-color: var(--table-hover-bg);
+}
+
+.btn-nav:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-nav.locked {
+    background-color: var(--error-bg);
+    border-color: var(--error-border);
+    color: var(--error-text);
+}
+
+.btn-nav.locked::after {
+    content: ' (Kilitli)';
+    font-size: 11px;
+}
+
+/* Kategori Listesi */
+.section-intro {
+    margin-bottom: 32px;
+    font-size: 15px;
+    color: var(--text-secondary);
+}
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.category-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 24px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.category-card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: var(--accent-color);
+}
+
+.category-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.subcategory-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.subcategory-btn {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-light);
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text-primary);
+}
+
+.subcategory-btn:hover {
+    background-color: var(--table-hover-bg);
+    border-color: var(--border-color);
+}
+
+.exercise-count {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+/* Alistirma Alani */
+.exercise-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.exercise-header h2 {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.exercise-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#exercise-counter {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.exercise-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Referans Veri */
+.reference-data,
+.task-description,
+.sql-editor,
+.output-area,
+.feedback-area {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.reference-data h3,
+.task-description h3,
+.sql-editor h3,
+.output-area h3,
+.feedback-area h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: var(--accent-color);
+}
+
+.code-block {
+    background-color: var(--bg-code);
+    padding: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-x: auto;
+    color: var(--text-primary);
+    transition: background-color 0.3s;
+}
+
+.code-block pre {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.no-data {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 14px;
+}
+
+.task-box {
+    background-color: var(--note-bg);
+    border-left: 4px solid #f39c12;
+    padding: 16px;
+    transition: background-color 0.3s;
+}
+
+.task-box p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* SQL Editor */
+.editor-toolbar {
+    background-color: var(--accent-color);
+    color: #ecf0f1;
+    padding: 8px 12px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--accent-color);
+    border-bottom: none;
+    transition: background-color 0.3s;
+}
+
+.toolbar-label {
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.editor-theme-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ecf0f1;
+    padding: 4px 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 3px;
+}
+
+.editor-theme-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.toolbar-info {
+    color: #95a5a6;
+    font-size: 11px;
+}
+
+.editor-container {
+    border: 1px solid var(--accent-color);
+    border-radius: 0 0 4px 4px;
+    overflow: hidden;
+}
+
+/* CodeMirror Özelleştirmeleri */
+.editor-container .CodeMirror {
+    height: 180px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.editor-container .CodeMirror-gutters {
+    border-right: 1px solid var(--editor-border);
+}
+
+.editor-container .CodeMirror-placeholder {
+    color: #6a6a6a;
+}
+
+/* CodeMirror Autocomplete */
+.CodeMirror-hints {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    z-index: 1000;
+}
+
+.editor-actions {
+    margin-top: 16px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Cikti Alani */
+.output-box {
+    background-color: var(--bg-code);
+    padding: 16px;
+    min-height: 100px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    color: var(--text-primary);
+    transition: background-color 0.3s;
+}
+
+.placeholder-text {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.output-success {
+    color: var(--success-text);
+    background-color: var(--success-bg);
+    padding: 12px;
+    border-left: 4px solid var(--success-border);
+}
+
+.output-error {
+    color: var(--error-text);
+    background-color: var(--error-bg);
+    padding: 12px;
+    border-left: 4px solid var(--error-border);
+}
+
+.output-warning {
+    color: var(--warning-text);
+    background-color: var(--warning-bg);
+    padding: 12px;
+    border-left: 4px solid var(--warning-border);
+}
+
+.output-info {
+    color: var(--info-text);
+    background-color: var(--info-bg);
+    padding: 12px;
+    border-left: 4px solid var(--info-border);
+}
+
+/* Sonuc Tablosu */
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    font-size: 13px;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.result-table th,
+.result-table td {
+    border: 1px solid var(--border-color);
+    padding: 10px 14px;
+    text-align: left;
+}
+
+.result-table th {
+    background-color: var(--table-header-bg);
+    color: #ecf0f1;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+.result-table tbody tr:nth-child(even) {
+    background-color: var(--table-even-bg);
+}
+
+.result-table tbody tr:hover {
+    background-color: var(--table-hover-bg);
+}
+
+.result-table td {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    transition: background-color 0.3s;
+}
+
+.result-table tbody tr:nth-child(even) td {
+    background-color: var(--table-even-bg);
+}
+
+.result-count {
+    font-size: 12px;
+    color: var(--success-text);
+    font-weight: bold;
+    margin: 8px 0 0 0;
+    padding: 8px;
+    background-color: var(--success-bg);
+    border-left: 4px solid var(--success-border);
+}
+
+.result-separator {
+    border: none;
+    border-top: 2px solid var(--accent-color);
+    margin: 20px 0;
+}
+
+.result-header {
+    background-color: var(--accent-color);
+    color: #ecf0f1;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+/* Geri Bildirim */
+.feedback-box {
+    padding: 16px;
+}
+
+.atolye-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.module-card {
+    border: 1px solid var(--border-color);
+    padding: 16px;
+    border-radius: 8px;
+    background-color: var(--bg-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.module-card h3 {
+    margin: 0;
+}
+
+.module-card p {
+    flex: 1;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.module-card .btn-secondary {
+    align-self: flex-start;
+}
+
+.module-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    z-index: 1000;
+}
+
+.module-overlay.active {
+    display: flex;
+}
+
+.module-dialog {
+    width: min(1100px, 95vw);
+    height: min(90vh, 720px);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+}
+
+.module-dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.module-dialog-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.module-close {
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.module-dialog iframe {
+    flex: 1;
+    border: none;
+    background-color: #fff;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+.feedback-success {
+    color: var(--success-text);
+    background-color: var(--success-bg);
+    padding: 12px;
+    border-left: 4px solid var(--success-border);
+}
+
+.feedback-partial {
+    color: var(--warning-text);
+    background-color: var(--warning-bg);
+    padding: 12px;
+    border-left: 4px solid var(--warning-border);
+}
+
+.feedback-incorrect {
+    color: var(--error-text);
+    background-color: var(--error-bg);
+    padding: 12px;
+    border-left: 4px solid var(--error-border);
+}
+
+.feedback-warning {
+    color: var(--warning-text);
+    background-color: var(--warning-bg);
+    padding: 12px;
+    border-left: 4px solid var(--warning-border);
+}
+
+.feedback-info {
+    color: var(--info-text);
+    background-color: var(--info-bg);
+    padding: 12px;
+    border-left: 4px solid var(--info-border);
+}
+
+.solution-box {
+    background-color: var(--bg-tertiary);
+    padding: 16px;
+    transition: background-color 0.3s;
+}
+
+.solution-box h4 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: var(--accent-color);
+}
+
+.solution-code {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    padding: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    margin: 0;
+    color: var(--text-primary);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Alt Bilgi */
+.site-footer {
+    background-color: var(--header-bg);
+    color: #bdc3c7;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 13px;
+    border-top: 4px solid var(--accent-dark);
+    transition: background-color 0.3s;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+/* Duyarlı Tasarım */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .site-header {
+        padding: 20px 0;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .theme-toggle {
+        align-self: flex-end;
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .site-header h1 {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .site-header .subtitle {
+        font-size: 12px;
+    }
+
+    .academic-article {
+        padding: 20px;
+    }
+
+    .academic-article h2 {
+        font-size: 20px;
+    }
+
+    .academic-article h3 {
+        font-size: 16px;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+    }
+
+    .main-nav .nav-link {
+        border-right: none;
+        border-bottom: 1px solid var(--accent-color);
+        padding: 10px 16px;
+    }
+
+    .definition-box {
+        padding: 16px;
+    }
+
+    .definition-box h4 {
+        font-size: 14px;
+    }
+
+    .category-card {
+        padding: 16px;
+    }
+
+    .category-card h3 {
+        font-size: 16px;
+    }
+
+    .subcategory-btn {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .exercise-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .exercise-header h2 {
+        font-size: 16px;
+    }
+
+    .exercise-nav {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .reference-data,
+    .task-description,
+    .sql-editor,
+    .output-area,
+    .feedback-area {
+        padding: 16px;
+    }
+
+    .reference-data h3,
+    .task-description h3,
+    .sql-editor h3,
+    .output-area h3,
+    .feedback-area h3 {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .code-block {
+        padding: 12px;
+        font-size: 12px;
+    }
+
+    .task-box {
+        padding: 12px;
+    }
+
+    .task-box p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .editor-toolbar {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .toolbar-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .toolbar-info {
+        font-size: 10px;
+    }
+
+    .editor-container .CodeMirror {
+        height: 120px;
+        font-size: 13px;
+    }
+
+    .editor-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .editor-actions button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .output-box {
+        padding: 12px;
+        font-size: 12px;
+    }
+
+    .result-table {
+        font-size: 11px;
+    }
+
+    .result-table th,
+    .result-table td {
+        padding: 6px 8px;
+    }
+
+    .solution-code {
+        font-size: 12px;
+        padding: 12px;
+    }
+
+    .btn-nav {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .btn-nav.locked::after {
+        content: '';
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header h1 {
+        font-size: 16px;
+    }
+
+    .theme-toggle {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+
+    .theme-toggle .theme-icon {
+        font-size: 14px;
+    }
+
+    .academic-article {
+        padding: 16px;
+    }
+
+    .academic-article h2 {
+        font-size: 18px;
+    }
+
+    .academic-article ul,
+    .academic-article ol {
+        margin-left: 20px;
+    }
+
+    .exercise-nav {
+        gap: 8px;
+    }
+
+    #exercise-counter {
+        font-size: 12px;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-tertiary {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+}
