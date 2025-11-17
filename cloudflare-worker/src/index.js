@@ -4,11 +4,25 @@
  */
 
 const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
+  'Access-Control-Allow-Origin': 'https://noetic-logos.pages.dev',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
   'Access-Control-Max-Age': '86400',
 };
+
+// Rate limiting: track last message time per session
+const rateLimitMap = new Map();
+const RATE_LIMIT_MS = 1000; // 1 second between messages
+
+// Clean old rate limit entries (called on each request)
+function cleanRateLimitMap() {
+  const now = Date.now();
+  for (const [key, time] of rateLimitMap.entries()) {
+    if (now - time > 60000) {
+      rateLimitMap.delete(key);
+    }
+  }
+}
 
 // Helper: Parse User-Agent
 function parseUserAgent(ua) {
@@ -228,17 +242,54 @@ async function handleGetHistory(request, env) {
 
 // ========== CHAT HANDLERS ==========
 
+// XSS Protection: Sanitize input
+function sanitizeInput(text) {
+  if (typeof text !== 'string') return '';
+  return text
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+    .replace(/`/g, '&#96;')
+    .replace(/\\/g, '&#92;');
+}
+
 async function handleChatJoin(request, env) {
   try {
-    const { sessionId, nickname } = await request.json();
+    const body = await request.json();
 
-    if (!sessionId || !nickname) {
+    // Validate input types
+    if (typeof body !== 'object' || body === null) {
+      return jsonResponse({ error: 'Invalid request' }, 400);
+    }
+
+    const { sessionId, nickname } = body;
+
+    if (!sessionId || !nickname || typeof sessionId !== 'string' || typeof nickname !== 'string') {
       return jsonResponse({ error: 'Missing sessionId or nickname' }, 400);
     }
 
-    const cleanNickname = nickname.trim().substring(0, 20);
-    if (cleanNickname.length < 1) {
-      return jsonResponse({ error: 'Invalid nickname' }, 400);
+    // Validate session ID format
+    if (!/^chat_[a-z0-9]{10,30}$/i.test(sessionId)) {
+      return jsonResponse({ error: 'Invalid session format' }, 400);
+    }
+
+    // Sanitize and validate nickname
+    const trimmedNick = nickname.trim().substring(0, 20);
+
+    // Block dangerous patterns BEFORE sanitization
+    if (/[<>'"\\`\x00-\x1f]/.test(trimmedNick)) {
+      return jsonResponse({ error: 'Geçersiz karakterler' }, 400);
+    }
+
+    // Only allow alphanumeric, Turkish chars, spaces, underscores
+    if (!/^[\w\sığüşöçİĞÜŞÖÇ]+$/u.test(trimmedNick)) {
+      return jsonResponse({ error: 'Sadece harf, rakam ve alt çizgi kullanın' }, 400);
+    }
+
+    const cleanNickname = sanitizeInput(trimmedNick);
+    if (cleanNickname.length < 1 || cleanNickname.length > 20) {
+      return jsonResponse({ error: 'Takma ad 1-20 karakter olmalı' }, 400);
     }
 
     // Check if nickname taken
@@ -252,17 +303,19 @@ async function handleChatJoin(request, env) {
 
     const now = Date.now();
 
+    // Check if user already in chat (page refresh case)
+    const existingUser = await env.DB.prepare(
+      'SELECT nickname FROM chat_users WHERE session_id = ?'
+    ).bind(sessionId).first();
+
+    const isReconnect = existingUser !== null;
+
     // Upsert user
     await env.DB.prepare(`
       INSERT INTO chat_users (session_id, nickname, joined_at, last_seen)
       VALUES (?, ?, ?, ?)
       ON CONFLICT(session_id) DO UPDATE SET nickname = excluded.nickname, last_seen = excluded.last_seen
     `).bind(sessionId, cleanNickname, now, now).run();
-
-    // Add system message
-    await env.DB.prepare(
-      'INSERT INTO chat_messages (type, nickname, message, timestamp) VALUES (?, ?, ?, ?)'
-    ).bind('system', 'Sistem', `${cleanNickname} sohbete katıldı`, now).run();
 
     return jsonResponse({ success: true, nickname: cleanNickname });
   } catch (e) {
@@ -275,10 +328,30 @@ async function handleChatJoin(request, env) {
 
 async function handleChatSend(request, env) {
   try {
-    const { sessionId, message } = await request.json();
+    const body = await request.json();
 
-    if (!sessionId || !message) {
-      return jsonResponse({ error: 'Missing sessionId or message' }, 400);
+    // Validate input types (prevent prototype pollution)
+    if (typeof body !== 'object' || body === null) {
+      return jsonResponse({ error: 'Invalid request body' }, 400);
+    }
+
+    const { sessionId, message } = body;
+
+    if (!sessionId || !message || typeof sessionId !== 'string' || typeof message !== 'string') {
+      return jsonResponse({ error: 'Missing or invalid sessionId/message' }, 400);
+    }
+
+    // Validate session ID format (prevent injection)
+    if (!/^chat_[a-z0-9]{10,30}$/i.test(sessionId)) {
+      return jsonResponse({ error: 'Invalid session format' }, 400);
+    }
+
+    // RATE LIMITING: 1 message per second
+    const lastMessageTime = rateLimitMap.get(sessionId) || 0;
+    const now = Date.now();
+    if (now - lastMessageTime < RATE_LIMIT_MS) {
+      const waitTime = Math.ceil((RATE_LIMIT_MS - (now - lastMessageTime)) / 1000);
+      return jsonResponse({ error: `Çok hızlı! ${waitTime} saniye bekleyin.` }, 429);
     }
 
     // Check if user online
@@ -290,14 +363,15 @@ async function handleChatSend(request, env) {
       return jsonResponse({ error: 'Not in chat room' }, 403);
     }
 
-    const cleanMessage = message.trim().substring(0, 500);
+    const cleanMessage = sanitizeInput(message.trim().substring(0, 500));
     if (cleanMessage.length < 1) {
       return jsonResponse({ error: 'Empty message' }, 400);
     }
 
-    const now = Date.now();
+    // Update rate limit
+    rateLimitMap.set(sessionId, now);
 
-    // Insert message
+    // Insert message (sanitized) - SQL Injection safe via prepared statement
     await env.DB.prepare(
       'INSERT INTO chat_messages (type, nickname, message, timestamp) VALUES (?, ?, ?, ?)'
     ).bind('user', user.nickname, cleanMessage, now).run();
@@ -309,7 +383,7 @@ async function handleChatSend(request, env) {
 
     return jsonResponse({ success: true });
   } catch (e) {
-    return jsonResponse({ error: e.message }, 500);
+    return jsonResponse({ error: 'Server error' }, 500);
   }
 }
 
@@ -355,10 +429,21 @@ async function handleChatOnline(request, env) {
 
 async function handleChatHeartbeat(request, env) {
   try {
-    const { sessionId } = await request.json();
+    const body = await request.json();
 
-    if (!sessionId) {
+    if (typeof body !== 'object' || body === null) {
+      return jsonResponse({ error: 'Invalid request' }, 400);
+    }
+
+    const { sessionId } = body;
+
+    if (!sessionId || typeof sessionId !== 'string') {
       return jsonResponse({ error: 'Missing sessionId' }, 400);
+    }
+
+    // Validate session ID format
+    if (!/^chat_[a-z0-9]{10,30}$/i.test(sessionId)) {
+      return jsonResponse({ error: 'Invalid session format' }, 400);
     }
 
     const result = await env.DB.prepare(
@@ -371,16 +456,77 @@ async function handleChatHeartbeat(request, env) {
 
     return jsonResponse({ success: true });
   } catch (e) {
-    return jsonResponse({ error: e.message }, 500);
+    return jsonResponse({ error: 'Server error' }, 500);
+  }
+}
+
+async function handleChatDelete(request, env) {
+  try {
+    const body = await request.json();
+
+    if (typeof body !== 'object' || body === null) {
+      return jsonResponse({ error: 'Invalid request' }, 400);
+    }
+
+    const { sessionId, messageId } = body;
+
+    if (!sessionId || !messageId || typeof sessionId !== 'string' || typeof messageId !== 'number') {
+      return jsonResponse({ error: 'Missing sessionId or messageId' }, 400);
+    }
+
+    // Validate session ID format
+    if (!/^chat_[a-z0-9]{10,30}$/i.test(sessionId)) {
+      return jsonResponse({ error: 'Invalid session format' }, 400);
+    }
+
+    // Get user's nickname
+    const user = await env.DB.prepare(
+      'SELECT nickname FROM chat_users WHERE session_id = ?'
+    ).bind(sessionId).first();
+
+    if (!user) {
+      return jsonResponse({ error: 'Not in chat room' }, 403);
+    }
+
+    // Check if message belongs to user (IDOR protection)
+    const message = await env.DB.prepare(
+      'SELECT nickname FROM chat_messages WHERE id = ? AND type = ?'
+    ).bind(messageId, 'user').first();
+
+    if (!message) {
+      return jsonResponse({ error: 'Mesaj bulunamadı' }, 404);
+    }
+
+    if (message.nickname !== user.nickname) {
+      return jsonResponse({ error: 'Sadece kendi mesajlarınızı silebilirsiniz' }, 403);
+    }
+
+    // Delete the message
+    await env.DB.prepare('DELETE FROM chat_messages WHERE id = ?').bind(messageId).run();
+
+    return jsonResponse({ success: true });
+  } catch (e) {
+    return jsonResponse({ error: 'Server error' }, 500);
   }
 }
 
 async function handleChatLeave(request, env) {
   try {
-    const { sessionId } = await request.json();
+    const body = await request.json();
 
-    if (!sessionId) {
+    if (typeof body !== 'object' || body === null) {
+      return jsonResponse({ error: 'Invalid request' }, 400);
+    }
+
+    const { sessionId } = body;
+
+    if (!sessionId || typeof sessionId !== 'string') {
       return jsonResponse({ error: 'Missing sessionId' }, 400);
+    }
+
+    // Validate session ID format
+    if (!/^chat_[a-z0-9]{10,30}$/i.test(sessionId)) {
+      return jsonResponse({ error: 'Invalid session format' }, 400);
     }
 
     const user = await env.DB.prepare(
@@ -388,16 +534,15 @@ async function handleChatLeave(request, env) {
     ).bind(sessionId).first();
 
     if (user) {
-      await env.DB.prepare(
-        'INSERT INTO chat_messages (type, nickname, message, timestamp) VALUES (?, ?, ?, ?)'
-      ).bind('system', 'Sistem', `${user.nickname} sohbetten ayrıldı`, Date.now()).run();
-
       await env.DB.prepare('DELETE FROM chat_users WHERE session_id = ?').bind(sessionId).run();
+
+      // Clean rate limit for this session
+      rateLimitMap.delete(sessionId);
     }
 
     return jsonResponse({ success: true });
   } catch (e) {
-    return jsonResponse({ error: e.message }, 500);
+    return jsonResponse({ error: 'Server error' }, 500);
   }
 }
 
@@ -412,6 +557,9 @@ function jsonResponse(data, status = 200) {
 // Main router
 export default {
   async fetch(request, env, ctx) {
+    // Clean rate limit map periodically
+    cleanRateLimitMap();
+
     if (request.method === 'OPTIONS') {
       return new Response(null, { headers: CORS_HEADERS });
     }
@@ -451,6 +599,9 @@ export default {
     }
     if (path === '/chat/leave' && request.method === 'POST') {
       return handleChatLeave(request, env);
+    }
+    if (path === '/chat/delete' && request.method === 'POST') {
+      return handleChatDelete(request, env);
     }
 
     // Health check
