@@ -3,7 +3,8 @@
 
 const WORKER_URL = "https://noetic-presence.mselayet.workers.dev"
 const HEARTBEAT_INTERVAL = 45000 // 45 seconds
-const POLL_INTERVAL = 1000 // 1 second - fast updates
+const POLL_INTERVAL_ACTIVE = 2000 // 2 seconds when panel open
+const POLL_INTERVAL_BACKGROUND = 10000 // 10 seconds when panel closed
 const MESSAGE_DEBOUNCE = 500 // 500ms debounce
 
 interface ChatMessage {
@@ -46,6 +47,29 @@ class NoeticChat {
     }
 
     window.addEventListener("noetic-chat-activate", () => this.activate())
+    window.addEventListener("noetic-chat-deactivate", () => this.deactivate())
+  }
+
+  deactivate() {
+    localStorage.setItem("noetic_chat_active", "false")
+    this.cleanup()
+
+    // Remove chat UI
+    if (this.container) {
+      this.container.remove()
+      this.container = null
+      this.bubble = null
+      this.panel = null
+      this.messagesEl = null
+      this.inputEl = null
+      this.onlineCountEl = null
+      this.statusEl = null
+      this.joinModal = null
+      this.sendBtn = null
+    }
+
+    this.isJoined = false
+    this.isOpen = false
   }
 
   activate() {
@@ -127,21 +151,25 @@ class NoeticChat {
         bottom: 64px;
         right: 0;
         width: 340px;
+        min-width: 280px;
         max-width: calc(100vw - 40px);
         height: 450px;
+        min-height: 300px;
         max-height: calc(100vh - 100px);
         background: var(--light);
-        border-radius: 12px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
         display: none;
         flex-direction: column;
         overflow: hidden;
         border: 1px solid var(--lightgray);
+        resize: both;
+        overflow: auto;
       }
 
       #noetic-chat-panel.open {
         display: flex;
-        animation: chatSlideUp 0.2s ease-out;
+        animation: chatSlideUp 0.15s ease-out;
       }
 
       @keyframes chatSlideUp {
@@ -151,17 +179,46 @@ class NoeticChat {
 
       .nch-header {
         background: var(--lightgray);
-        padding: 10px 14px;
+        padding: 8px 12px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid var(--gray);
       }
 
-      .nch-header h3 {
-        margin: 0;
-        font-size: 13px;
-        color: var(--secondary);
+      .nch-header-left {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .nch-header .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ef4444;
+        flex-shrink: 0;
+      }
+
+      .nch-header.connected .status-dot {
+        background: #22c55e;
+      }
+
+      .nch-header .nick {
+        font-size: 12px;
+        color: var(--dark);
+        font-weight: 500;
+      }
+
+      .nch-header .online-count {
+        font-size: 10px;
+        color: var(--gray);
+        margin-left: auto;
+        margin-right: 8px;
+      }
+
+      .nch-header .online-count span {
+        color: var(--tertiary);
         font-weight: 600;
       }
 
@@ -170,48 +227,15 @@ class NoeticChat {
         border: none;
         color: var(--gray);
         cursor: pointer;
-        font-size: 18px;
-        padding: 0 4px;
+        font-size: 16px;
+        padding: 2px 6px;
         line-height: 1;
+        border-radius: 4px;
       }
 
       .nch-header .close-btn:hover {
         color: var(--dark);
-      }
-
-      .nch-status {
-        font-size: 11px;
-        color: var(--darkgray);
-        padding: 6px 14px;
-        background: var(--lightgray);
-        border-bottom: 1px solid var(--gray);
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .nch-status .status-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: #ef4444;
-      }
-
-      .nch-status.connected .status-dot {
-        background: #22c55e;
-      }
-
-      .nch-online {
-        padding: 6px 14px;
-        background: var(--lightgray);
-        border-bottom: 1px solid var(--gray);
-        font-size: 10px;
-        color: var(--darkgray);
-      }
-
-      .nch-online span {
-        color: var(--tertiary);
-        font-weight: 600;
+        background: var(--gray);
       }
 
       .nch-messages {
@@ -226,8 +250,8 @@ class NoeticChat {
 
       .nch-msg {
         max-width: 82%;
-        padding: 7px 10px;
-        border-radius: 10px;
+        padding: 6px 10px;
+        border-radius: 8px;
         font-size: 12px;
         line-height: 1.4;
         word-wrap: break-word;
@@ -237,14 +261,14 @@ class NoeticChat {
         background: var(--secondary);
         color: var(--light);
         align-self: flex-start;
-        border-bottom-left-radius: 3px;
+        border-bottom-left-radius: 2px;
       }
 
       .nch-msg.own {
         background: var(--tertiary);
         color: var(--light);
         align-self: flex-end;
-        border-bottom-right-radius: 3px;
+        border-bottom-right-radius: 2px;
       }
 
       .nch-msg.system {
@@ -254,6 +278,7 @@ class NoeticChat {
         font-size: 10px;
         font-style: italic;
         padding: 3px 10px;
+        border-radius: 6px;
       }
 
       .nch-msg .nick {
@@ -314,7 +339,7 @@ class NoeticChat {
         border: 1px solid var(--gray);
         color: var(--dark);
         padding: 7px 10px;
-        border-radius: 16px;
+        border-radius: 6px;
         font-size: 12px;
         outline: none;
         font-family: var(--bodyFont);
@@ -332,17 +357,17 @@ class NoeticChat {
         background: var(--secondary);
         color: var(--light);
         border: none;
-        padding: 7px 14px;
-        border-radius: 16px;
+        padding: 7px 12px;
+        border-radius: 6px;
         cursor: pointer;
         font-size: 12px;
         font-weight: 500;
         font-family: var(--bodyFont);
-        transition: background 0.15s;
+        transition: opacity 0.15s;
       }
 
       .nch-input button:hover:not(:disabled) {
-        filter: brightness(1.1);
+        opacity: 0.9;
       }
 
       .nch-input button:disabled {
@@ -438,11 +463,13 @@ class NoeticChat {
       </div>
       <div id="noetic-chat-panel">
         <div class="nch-header">
-          <h3>Sohbet</h3>
+          <div class="nch-header-left">
+            <span class="status-dot"></span>
+            <span class="nick">-</span>
+          </div>
+          <div class="online-count"><span>0</span> çevrim içi</div>
           <button class="close-btn">&times;</button>
         </div>
-        <div class="nch-status"><span class="status-dot"></span><span class="status-nick">Bağlanıyor...</span></div>
-        <div class="nch-online">Çevrim içi: <span>0</span></div>
         <div class="nch-messages"></div>
         <div class="nch-input">
           <input type="text" placeholder="Mesaj..." maxlength="500" disabled>
@@ -466,8 +493,8 @@ class NoeticChat {
     this.messagesEl = this.container.querySelector(".nch-messages")
     this.inputEl = this.container.querySelector(".nch-input input")
     this.sendBtn = this.container.querySelector(".nch-input button")
-    this.onlineCountEl = this.container.querySelector(".nch-online span")
-    this.statusEl = this.container.querySelector(".nch-status")
+    this.onlineCountEl = this.container.querySelector(".online-count span")
+    this.statusEl = this.container.querySelector(".nch-header")
     this.joinModal = this.container.querySelector(".nch-join")
   }
 
@@ -523,12 +550,21 @@ class NoeticChat {
     this.panel?.classList.toggle("open", this.isOpen)
     if (this.isOpen && this.isJoined) {
       this.inputEl?.focus()
+      // Switch to fast polling when open
+      this.startPolling(POLL_INTERVAL_ACTIVE)
+    } else if (this.isJoined) {
+      // Switch to slow polling when closed
+      this.startPolling(POLL_INTERVAL_BACKGROUND)
     }
   }
 
   private close() {
     this.isOpen = false
     this.panel?.classList.remove("open")
+    // Switch to slow polling when closed
+    if (this.isJoined) {
+      this.startPolling(POLL_INTERVAL_BACKGROUND)
+    }
   }
 
   private async handleJoin(input: HTMLInputElement) {
@@ -582,12 +618,12 @@ class NoeticChat {
     if (this.sendBtn) this.sendBtn.disabled = false
 
     if (this.statusEl) {
-      const nickSpan = this.statusEl.querySelector(".status-nick")
+      const nickSpan = this.statusEl.querySelector(".nick")
       if (nickSpan) nickSpan.textContent = this.nickname
       this.statusEl.classList.add("connected")
     }
 
-    this.startPolling()
+    this.startPolling(this.isOpen ? POLL_INTERVAL_ACTIVE : POLL_INTERVAL_BACKGROUND)
     this.startHeartbeat()
 
     await this.fetchMessages()
@@ -743,8 +779,7 @@ class NoeticChat {
   }
 
   private async deleteMessage(messageId: number, element: HTMLElement) {
-    if (!confirm("Mesajı silmek istediğinize emin misiniz?")) return
-
+    // No confirmation - direct delete
     try {
       const res = await fetch(`${WORKER_URL}/chat/delete`, {
         method: "POST",
@@ -754,9 +789,6 @@ class NoeticChat {
 
       if (res.ok) {
         element.remove()
-      } else {
-        const data = await res.json()
-        alert(data.error || "Silme başarısız")
       }
     } catch (err) {
       console.error("Delete error:", err)
@@ -773,12 +805,12 @@ class NoeticChat {
       .replace(/'/g, "&#039;")
   }
 
-  private startPolling() {
+  private startPolling(interval: number = POLL_INTERVAL_BACKGROUND) {
     if (this.pollTimer) clearInterval(this.pollTimer)
     this.pollTimer = window.setInterval(async () => {
       await this.fetchMessages()
       await this.fetchOnlineUsers()
-    }, POLL_INTERVAL)
+    }, interval)
   }
 
   private startHeartbeat() {
