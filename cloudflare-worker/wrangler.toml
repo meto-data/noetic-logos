@@ -1,10 +1,15 @@
 name = "noetic-presence"
 main = "src/index.js"
 compatibility_date = "2024-01-01"
+type = "pages"
+project_name = "noetic-logos"
+account_id = "6ce4c259d192f683050f244a5d0b1e67"
+
 
 kv_namespaces = [
   { binding = "VISITOR_PRESENCE", id = "d4ffb481623c4cc3be9b9ab27ab049c9" },
-  { binding = "VISITOR_HISTORY", id = "a659c9eb816e45769261ac88b2d3f505" }
+  { binding = "VISITOR_HISTORY", id = "a659c9eb816e45769261ac88b2d3f505" },
+  { binding = "CHAT_MESSAGES", id = "647f644daa2243008bde8756807a64d7" }
 ]
 
 [vars]
