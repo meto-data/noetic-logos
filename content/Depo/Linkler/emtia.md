@@ -1,6 +1,3 @@
----
-created: '2025-10-08'
----
 ### Emtia (Commodity)
 
 - Ticarete konu olan standartlaştırılmış temel ürünler veya ham maddeler. Kimin ürettiğine bakılmaksızın kalitesinin ve özelliklerinin hemen hemen aynı olması önemli ve ayırt edici özelliğidir.

@@ -1,1 +1,0 @@
-Tekâmül, olgunlaşma ve terakki zamanları.

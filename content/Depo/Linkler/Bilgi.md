@@ -1,6 +1,3 @@
----
-created: '2025-10-05'
----
 - Öznenin nesneyle temas etmesi ve akabinde onu ayırt edebilmesi. 
 - Enformasyonun uygulanmış hâlidir.
 - **Bir amaca yönelik kullanılan, organiza edilmiş enformasyondur.**

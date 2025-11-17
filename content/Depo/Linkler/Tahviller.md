@@ -1,6 +1,3 @@
----
-created: '2025-10-04'
----
 - Devlet veya firma tarafından ihraç edilir.
 - Yatırımcıya belirli aralıklarla faiz (kupon) ödemesi yapılır ve vade sonunda [[ana para]] geri ödenir
 ##### [[Eurobond]]

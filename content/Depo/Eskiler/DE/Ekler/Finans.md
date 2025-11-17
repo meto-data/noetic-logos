@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - Aysel Göndoğdu'nun Herkese Göre Finans adlı kitabında Finans "Bir bireyin ya da işletmenin fon kaynağı bulması, bulduğu kaynağı verimli bir şekilde kullanması ve bunun için araştırma yapması" olarak tanımlanır. 
 
 

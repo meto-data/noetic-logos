@@ -1,4 +1,1 @@
----
-created: '2025-10-23'
----
 - Muhasebe tablosunu aç önüne: Bilanço, gelir tablosu. Orada ne görüyorsun? "Kasa", "Alacaklar", "Stoklar", "Ticarî Borçlar", "Net Satışlar", "Satışların Maliyeti"... İşte bunların her birine "kalem" deniyor. O tablodaki her bir satır ve her bir hesap, muhasebe kaydındaki her bir kategori.

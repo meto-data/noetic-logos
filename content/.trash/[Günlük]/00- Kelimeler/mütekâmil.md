@@ -1,1 +1,0 @@
-Kemâlli, olgun, tekâmül etmiş olan.

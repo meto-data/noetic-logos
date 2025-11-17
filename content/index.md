@@ -1,6 +1,5 @@
 ---
 title: Ana Sayfa
-created: '2021-07-18'
 ---
 # Noetic Logos
 
