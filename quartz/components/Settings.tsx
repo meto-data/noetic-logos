@@ -29,14 +29,6 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
           </div>
           <div class="settings-body">
             <div class="setting-row">
-              <h3>Sohbet</h3>
-              <label class="toggle-label">
-                <input type="checkbox" class="chat-toggle" />
-                <span class="toggle-text">Sohbet özelliğini etkinleştir</span>
-              </label>
-            </div>
-
-            <div class="setting-row">
               <h3>Görünüm</h3>
               <label>
                 Aydınlık tema
@@ -105,12 +97,21 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
                 </select>
               </label>
             </div>
+
+            <div class="setting-row">
+              <h3>Özellikler</h3>
+              <label class="toggle-label">
+                <input type="checkbox" class="chat-toggle" />
+                <span class="toggle-text">Sohbet</span>
+              </label>
+            </div>
           </div>
         </div>
       </div>
     </div>
   )
 }
+
 
 Settings.afterDOMLoaded = concatenateResources([settingsScript, darkmodeScript])
 Settings.css = concatenateResources([styles, darkmodeStyles])
