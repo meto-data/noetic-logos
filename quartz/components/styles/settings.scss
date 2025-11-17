@@ -130,6 +130,7 @@
   cursor: pointer;
   transition: background-color 0.2s ease;
   flex-shrink: 0;
+  margin-left: 1vw;
 }
 
 .settings-body .toggle-label input[type="checkbox"]::after {
