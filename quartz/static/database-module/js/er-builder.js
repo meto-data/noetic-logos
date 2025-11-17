@@ -50,6 +50,11 @@ const state = {
         return shape.type === 'relationship' || shape.type === 'identifying-rel';
     }
 
+    function isEntityShape(shape) {
+        if (!shape) return false;
+        return shape.type === 'entity' || shape.type === 'weak-entity';
+    }
+
     function getShapeById(id) {
         return state.shapes.find(shape => shape.id === id);
     }
@@ -329,9 +334,11 @@ const state = {
                 const toShape = shape;
                 const fromRel = isRelationshipShape(fromShape);
                 const toRel = isRelationshipShape(toShape);
+                const fromEntity = isEntityShape(fromShape);
+                const toEntity = isEntityShape(toShape);
 
-                // İki entity birbirine bağlanıyorsa, ortaya otomatik diamond koy
-                if (!fromRel && !toRel) {
+                // Sadece iki entity birbirine bağlanıyorsa, ortaya otomatik diamond koy
+                if (fromEntity && toEntity) {
                     // Ortadaki koordinatları hesapla
                     const midX = (fromShape.x + fromShape.width / 2 + toShape.x + toShape.width / 2) / 2 - 60;
                     const midY = (fromShape.y + fromShape.height / 2 + toShape.y + toShape.height / 2) / 2 - 30;
@@ -350,7 +357,7 @@ const state = {
                     // Tek modal ile tüm ilişki bilgilerini sor
                     openRelationshipSetupModal(fromShape, toShape, relationshipShape, conn1, conn2);
                 } else {
-                    // Normal bağlantı (en az bir taraf relationship ise)
+                    // Normal bağlantı (ilişki/nitelik bağlantıları için)
                     const newConnection = createConnection(fromShape, toShape);
                     openConnectionModal(newConnection, true);
                 }

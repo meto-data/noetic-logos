@@ -165,7 +165,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
   if (!searchLayout) return
 
   const secretCommands: Record<string, string> = {
-    logos: "/static/logos-module/index.html",
+    türkdili: "/static/logos-module/index.html",
     finance: "/static/finance-module/index.html",
     oop1: "/static/oop1-module/index.html",
     database: "/static/database-module/index.html",
