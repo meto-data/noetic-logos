@@ -1,6 +1,7 @@
 /**
  * Visitor Presence Tracking Worker v2.0
  * Comprehensive analytics with advanced metrics
+ * + Chat System v1.0
  */
 
 const CORS_HEADERS = {
@@ -9,6 +10,13 @@ const CORS_HEADERS = {
   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
   'Access-Control-Max-Age': '86400',
 };
+
+// Chat config
+const CHAT_MAX_MESSAGE_LENGTH = 500;
+const CHAT_MAX_NICKNAME_LENGTH = 20;
+const CHAT_USER_TTL = 60; // seconds
+const CHAT_MESSAGES_TTL = 24 * 3600; // 24 hours
+const CHAT_MAX_MESSAGES = 100;
 
 // Helper: Parse User-Agent
 function parseUserAgent(ua) {
@@ -718,6 +726,295 @@ async function handleLeave(request, env) {
   }
 }
 
+// ========== CHAT SYSTEM ==========
+
+// Helper: Escape HTML to prevent XSS
+function escapeHtml(text) {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return text.replace(/[&<>"']/g, m => map[m]);
+}
+
+// Helper: Generate simple ID
+function generateId() {
+  return Date.now().toString(36) + Math.random().toString(36).substr(2);
+}
+
+// Chat: Join room with nickname
+async function handleChatJoin(request, env) {
+  try {
+    const body = await request.json();
+    const { sessionId, nickname } = body;
+
+    if (!sessionId || !nickname) {
+      return new Response(JSON.stringify({ error: 'Missing sessionId or nickname' }), {
+        status: 400,
+        headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+      });
+    }
+
+    // Validate nickname
+    const cleanNickname = nickname.trim().substring(0, CHAT_MAX_NICKNAME_LENGTH);
+    if (cleanNickname.length < 1) {
+      return new Response(JSON.stringify({ error: 'Invalid nickname' }), {
+        status: 400,
+        headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+      });
+    }
+
+    // Check if nickname is taken by another session
+    const onlineList = await env.CHAT_MESSAGES.list({ prefix: 'chat_user_' });
+    for (const key of onlineList.keys) {
+      const userData = await env.CHAT_MESSAGES.get(key.name, 'json');
+      if (userData && userData.nickname === cleanNickname && userData.sessionId !== sessionId) {
+        return new Response(JSON.stringify({ error: 'Nickname already taken' }), {
+          status: 409,
+          headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+        });
+      }
+    }
+
+    const userData = {
+      sessionId,
+      nickname: escapeHtml(cleanNickname),
+      joinedAt: Date.now(),
+      lastSeen: Date.now()
+    };
+
+    await env.CHAT_MESSAGES.put(
+      `chat_user_${sessionId}`,
+      JSON.stringify(userData),
+      { expirationTtl: CHAT_USER_TTL }
+    );
+
+    // Add system message
+    await addChatMessage(env, {
+      type: 'system',
+      nickname: 'Sistem',
+      message: `${escapeHtml(cleanNickname)} sohbete katıldı`,
+      timestamp: Date.now()
+    });
+
+    return new Response(JSON.stringify({ success: true, nickname: cleanNickname }), {
+      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+    });
+  } catch (e) {
+    return new Response(JSON.stringify({ error: e.message }), {
+      status: 500,
+      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+    });
+  }
+}
+
+// Helper: Add message to chat
+async function addChatMessage(env, messageData) {
+  let messages = await env.CHAT_MESSAGES.get('chat_history', 'json') || [];
+
+  messages.push({
+    id: generateId(),
+    ...messageData
+  });
+
+  // Keep only last N messages
+  if (messages.length > CHAT_MAX_MESSAGES) {
+    messages = messages.slice(-CHAT_MAX_MESSAGES);
+  }
+
+  await env.CHAT_MESSAGES.put('chat_history', JSON.stringify(messages), {
+    expirationTtl: CHAT_MESSAGES_TTL
+  });
+}
+
+// Chat: Send message
+async function handleChatSend(request, env) {
+  try {
+    const body = await request.json();
+    const { sessionId, message } = body;
+
+    if (!sessionId || !message) {
+      return new Response(JSON.stringify({ error: 'Missing sessionId or message' }), {
+        status: 400,
+        headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+      });
+    }
+
+    // Check if user is online
+    const userData = await env.CHAT_MESSAGES.get(`chat_user_${sessionId}`, 'json');
+    if (!userData) {
+      return new Response(JSON.stringify({ error: 'Not in chat room. Please join first.' }), {
+        status: 403,
+        headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+      });
+    }
+
+    // Validate message
+    const cleanMessage = message.trim().substring(0, CHAT_MAX_MESSAGE_LENGTH);
+    if (cleanMessage.length < 1) {
+      return new Response(JSON.stringify({ error: 'Empty message' }), {
+        status: 400,
+        headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+      });
+    }
+
+    // Add message
+    await addChatMessage(env, {
+      type: 'user',
+      nickname: userData.nickname,
+      message: escapeHtml(cleanMessage),
+      timestamp: Date.now()
+    });
+
+    // Update user's lastSeen
+    userData.lastSeen = Date.now();
+    await env.CHAT_MESSAGES.put(
+      `chat_user_${sessionId}`,
+      JSON.stringify(userData),
+      { expirationTtl: CHAT_USER_TTL }
+    );
+
+    return new Response(JSON.stringify({ success: true }), {
+      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+    });
+  } catch (e) {
+    return new Response(JSON.stringify({ error: e.message }), {
+      status: 500,
+      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+    });
+  }
+}
+
+// Chat: Get messages
+async function handleChatMessages(request, env) {
+  try {
+    const url = new URL(request.url);
+    const since = parseInt(url.searchParams.get('since') || '0');
+
+    const messages = await env.CHAT_MESSAGES.get('chat_history', 'json') || [];
+
+    // Filter messages after 'since' timestamp
+    const newMessages = messages.filter(m => m.timestamp > since);
+
+    return new Response(JSON.stringify({ messages: newMessages }), {
+      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+    });
+  } catch (e) {
+    return new Response(JSON.stringify({ error: e.message }), {
+      status: 500,
+      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+    });
+  }
+}
+
+// Chat: Get online users
+async function handleChatOnline(request, env) {
+  try {
+    const list = await env.CHAT_MESSAGES.list({ prefix: 'chat_user_' });
+    const users = [];
+
+    for (const key of list.keys) {
+      const userData = await env.CHAT_MESSAGES.get(key.name, 'json');
+      if (userData) {
+        users.push({
+          nickname: userData.nickname,
+          joinedAt: userData.joinedAt,
+          idleTime: Math.round((Date.now() - userData.lastSeen) / 1000)
+        });
+      }
+    }
+
+    return new Response(JSON.stringify({ users, count: users.length }), {
+      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+    });
+  } catch (e) {
+    return new Response(JSON.stringify({ error: e.message }), {
+      status: 500,
+      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+    });
+  }
+}
+
+// Chat: Heartbeat (keep user online)
+async function handleChatHeartbeat(request, env) {
+  try {
+    const body = await request.json();
+    const { sessionId } = body;
+
+    if (!sessionId) {
+      return new Response(JSON.stringify({ error: 'Missing sessionId' }), {
+        status: 400,
+        headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+      });
+    }
+
+    const userData = await env.CHAT_MESSAGES.get(`chat_user_${sessionId}`, 'json');
+    if (!userData) {
+      return new Response(JSON.stringify({ error: 'Not in chat room' }), {
+        status: 404,
+        headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+      });
+    }
+
+    // Refresh TTL
+    userData.lastSeen = Date.now();
+    await env.CHAT_MESSAGES.put(
+      `chat_user_${sessionId}`,
+      JSON.stringify(userData),
+      { expirationTtl: CHAT_USER_TTL }
+    );
+
+    return new Response(JSON.stringify({ success: true }), {
+      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+    });
+  } catch (e) {
+    return new Response(JSON.stringify({ error: e.message }), {
+      status: 500,
+      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+    });
+  }
+}
+
+// Chat: Leave room
+async function handleChatLeave(request, env) {
+  try {
+    const body = await request.json();
+    const { sessionId } = body;
+
+    if (!sessionId) {
+      return new Response(JSON.stringify({ error: 'Missing sessionId' }), {
+        status: 400,
+        headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+      });
+    }
+
+    const userData = await env.CHAT_MESSAGES.get(`chat_user_${sessionId}`, 'json');
+    if (userData) {
+      // Add leave message
+      await addChatMessage(env, {
+        type: 'system',
+        nickname: 'Sistem',
+        message: `${userData.nickname} sohbetten ayrıldı`,
+        timestamp: Date.now()
+      });
+
+      await env.CHAT_MESSAGES.delete(`chat_user_${sessionId}`);
+    }
+
+    return new Response(JSON.stringify({ success: true }), {
+      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+    });
+  } catch (e) {
+    return new Response(JSON.stringify({ error: e.message }), {
+      status: 500,
+      headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
+    });
+  }
+}
+
 export default {
   async fetch(request, env, ctx) {
     if (request.method === 'OPTIONS') {
@@ -750,6 +1047,26 @@ export default {
       return new Response(JSON.stringify({ status: 'ok', timestamp: Date.now() }), {
         headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
       });
+    }
+
+    // Chat routes
+    if (path === '/chat/join' && request.method === 'POST') {
+      return handleChatJoin(request, env);
+    }
+    if (path === '/chat/send' && request.method === 'POST') {
+      return handleChatSend(request, env);
+    }
+    if (path === '/chat/messages' && request.method === 'GET') {
+      return handleChatMessages(request, env);
+    }
+    if (path === '/chat/online' && request.method === 'GET') {
+      return handleChatOnline(request, env);
+    }
+    if (path === '/chat/heartbeat' && request.method === 'POST') {
+      return handleChatHeartbeat(request, env);
+    }
+    if (path === '/chat/leave' && request.method === 'POST') {
+      return handleChatLeave(request, env);
     }
 
     return new Response('Not Found', { status: 404, headers: CORS_HEADERS });
