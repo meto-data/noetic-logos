@@ -439,6 +439,16 @@ class NoeticChat {
         display: none;
       }
 
+      .nch-disclaimer {
+        background: color-mix(in srgb, var(--tertiary) 15%, transparent);
+        color: var(--darkgray);
+        font-size: 10px;
+        padding: 8px 12px;
+        text-align: center;
+        border-top: 1px solid var(--lightgray);
+        line-height: 1.4;
+      }
+
       @media (max-width: 480px) {
         #noetic-chat-container {
           bottom: 12px;
@@ -492,6 +502,9 @@ class NoeticChat {
         <div class="nch-input">
           <input type="text" placeholder="Mesaj..." maxlength="500" disabled>
           <button disabled>Gönder</button>
+        </div>
+        <div class="nch-disclaimer">
+          🧪 Deneysel özellik! Test aşamasındadır, hatalar olabilir. Sorumluluk kabul edilmez :)
         </div>
         <div class="nch-join">
           <div class="nch-join-inner">
@@ -652,7 +665,8 @@ class NoeticChat {
     if (msg.toLowerCase() === "/sayfa") {
       const currentPath = window.location.pathname
       const pageTitle = document.title.replace(" | Noetic Logos", "").trim()
-      msg = `📄 ${pageTitle}\n${window.location.origin}${currentPath}`
+      const fullUrl = `${window.location.origin}${currentPath}`
+      msg = `📄 [${pageTitle}](${fullUrl})`
     }
 
     this.isSending = true
@@ -762,7 +776,8 @@ class NoeticChat {
       nickDiv.textContent = msg.nickname // Safe
 
       const msgDiv = document.createElement("div")
-      msgDiv.textContent = msg.message // Safe - no HTML parsing
+      // Parse markdown links [text](url) and plain URLs
+      msgDiv.innerHTML = this.parseMessageContent(msg.message)
 
       const timeDiv = document.createElement("div")
       timeDiv.className = "time"
@@ -815,6 +830,22 @@ class NoeticChat {
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#039;")
+  }
+
+  private parseMessageContent(text: string): string {
+    // First escape HTML to prevent XSS
+    let safe = this.escapeHtml(text)
+
+    // Parse markdown links [text](url) - only allow noetic-logos.pages.dev URLs
+    safe = safe.replace(
+      /\[([^\]]+)\]\((https:\/\/noetic-logos\.pages\.dev[^)]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener" style="color: var(--secondary); text-decoration: underline;">$1</a>'
+    )
+
+    // Convert newlines to <br>
+    safe = safe.replace(/\n/g, "<br>")
+
+    return safe
   }
 
   private startPolling() {
