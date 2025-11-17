@@ -5,6 +5,7 @@
     // Uygulama Durumu
     const state = {
         db: null,
+        sqlModule: null,
         currentSection: 'giris',
         currentCategory: null,
         currentSubcategory: null,
@@ -163,6 +164,10 @@
             const SQL = await initSqlJs({
                 locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/${file}`
             });
+            state.sqlModule = SQL;
+            if (state.db) {
+                state.db.close();
+            }
             state.db = new SQL.Database();
             console.log('SQLite veritabanı başarıyla başlatıldı.');
         } catch (error) {
@@ -257,14 +262,14 @@
 
     // Veritabanını Sıfırla
     function resetDatabase() {
+        if (!state.sqlModule) {
+            console.warn('SQL modülü henüz hazır değil. Veritabanı sıfırlanamadı.');
+            return;
+        }
         if (state.db) {
             state.db.close();
         }
-        initSqlJs({
-            locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/${file}`
-        }).then(SQL => {
-            state.db = new SQL.Database();
-        });
+        state.db = new state.sqlModule.Database();
     }
 
     // Mevcut Alıştırmayı Göster
@@ -338,6 +343,58 @@
         }
     }
 
+    function quoteIdentifier(name) {
+        if (typeof name !== 'string') return '';
+        return `"${name.replace(/"/g, '""')}"`;
+    }
+
+    function handleSpRename(sql) {
+        const match = sql.match(/^exec\s+sp_rename\s+'([^']+)'\s*,\s*'([^']+)'\s*(?:,\s*'([^']+)')?\s*;?$/i);
+        if (!match) return false;
+
+        if (!state.db) {
+            showOutput('Veritabanı henüz hazır değil. Lütfen bekleyin.', 'error');
+            return true;
+        }
+
+        const target = match[1].trim();
+        const newName = match[2].trim();
+        const objectType = (match[3] || '').trim().toUpperCase();
+
+        const isColumnRename = target.includes('.') || objectType === 'COLUMN';
+
+        try {
+            if (isColumnRename) {
+                const parts = target.split('.');
+                if (parts.length !== 2) {
+                    showOutput("sp_rename için kolon formatı 'tablo.kolon' şeklinde olmalıdır.", 'error');
+                    return true;
+                }
+                const tableName = parts[0].trim();
+                const columnName = parts[1].trim();
+                if (!tableName || !columnName || !newName) {
+                    showOutput('Geçerli tablo, kolon ve yeni isim değerleri girilmelidir.', 'error');
+                    return true;
+                }
+                const renameSql = `ALTER TABLE ${quoteIdentifier(tableName)} RENAME COLUMN ${quoteIdentifier(columnName)} TO ${quoteIdentifier(newName)};`;
+                state.db.exec(renameSql);
+                showOutput(`Kolon adı başarıyla değiştirildi: ${tableName}.${columnName} → ${newName}`, 'success');
+            } else {
+                if (!target || !newName) {
+                    showOutput('Geçerli tablo ve yeni isim değerleri girilmelidir.', 'error');
+                    return true;
+                }
+                const renameSql = `ALTER TABLE ${quoteIdentifier(target)} RENAME TO ${quoteIdentifier(newName)};`;
+                state.db.exec(renameSql);
+                showOutput(`Tablo adı başarıyla değiştirildi: ${target} → ${newName}`, 'success');
+            }
+        } catch (error) {
+            showOutput(`SQL Hatası: ${error.message}`, 'error');
+        }
+
+        return true;
+    }
+
     // SQL Komutunu Çalıştır
     function runSQL() {
         const sql = state.codeMirror ? state.codeMirror.getValue().trim() : '';
@@ -349,6 +406,10 @@
 
         if (!state.db) {
             showOutput('Veritabanı henüz hazır değil. Lütfen bekleyin.', 'error');
+            return;
+        }
+
+        if (handleSpRename(sql)) {
             return;
         }
 
@@ -466,6 +527,7 @@
     function normalizeSQL(sql) {
         return sql
             .toLowerCase()
+            .replace(/\s*(<=|>=|<>|!=|=|<|>)\s*/g, ' $1 ')
             .replace(/\s+/g, ' ')
             .replace(/\s*,\s*/g, ',')
             .replace(/\s*\(\s*/g, '(')

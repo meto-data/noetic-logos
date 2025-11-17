@@ -57,8 +57,8 @@ const SQL_DATA = {
                             reference: "TABLE: ogrenciler (Mevcut kolon: dogum_tarihi)",
                             setup: "CREATE TABLE ogrenciler (ogrenci_id INT PRIMARY KEY, isim VARCHAR(50), dogum_tarihi DATE);",
                             task: "\"ogrenciler\" tablosundaki \"dogum_tarihi\" kolonunun adını \"dogum_gunu\" olarak değiştirin.",
-                            solution: "ALTER TABLE ogrenciler\nRENAME COLUMN dogum_tarihi TO dogum_gunu;",
-                            hint: "ALTER TABLE ... RENAME COLUMN komutunu kullanın.",
+                            solution: "EXEC sp_rename 'ogrenciler.dogum_tarihi', 'dogum_gunu';",
+                            hint: "SQL Server için EXEC sp_rename 'tableName.columnName', 'newName' formatını kullanın.",
                             variables: {}
                         },
                         {
@@ -66,8 +66,8 @@ const SQL_DATA = {
                             reference: "TABLE: tbl_ogrenciler",
                             setup: "CREATE TABLE tbl_ogrenciler (id INT PRIMARY KEY, ad VARCHAR(50));",
                             task: "\"tbl_ogrenciler\" adındaki tablonun adını \"ogrenciler\" olarak değiştirin.",
-                            solution: "ALTER TABLE tbl_ogrenciler\nRENAME TO ogrenciler;",
-                            hint: "ALTER TABLE ... RENAME TO komutunu kullanın.",
+                            solution: "EXEC sp_rename 'tbl_ogrenciler', 'ogrenciler';",
+                            hint: "SQL Server için EXEC sp_rename 'tableName', 'newName' formatını kullanın.",
                             variables: {}
                         }
                     ]
