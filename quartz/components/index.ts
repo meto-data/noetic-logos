@@ -28,6 +28,7 @@ import ScrollRestore from "./ScrollRestore"
 import PrerequisiteBanner from "./PrerequisiteBanner"
 import ProgressDashboard from "./ProgressDashboard"
 import StudyChat from "./StudyChat"
+import Chat from "./Chat"
 
 export {
   ArticleTitle,
@@ -60,4 +61,5 @@ export {
   PrerequisiteBanner,
   ProgressDashboard,
   StudyChat,
+  Chat,
 }

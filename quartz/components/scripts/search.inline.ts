@@ -170,7 +170,11 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     oop1: "/static/oop1-module/index.html",
     database: "/static/database-module/index.html",
     nlp: "/static/nlp/index.html",
-    chat: "/static/chat/index.html",
+  }
+
+  // Special commands that trigger events instead of redirects
+  const eventCommands: Record<string, string> = {
+    chat: "noetic-chat-activate",
   }
 
   const idDataMap = Object.keys(data) as FullSlug[]
@@ -416,6 +420,15 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     if (!searchLayout || !index) return
     currentSearchTerm = (e.target as HTMLInputElement).value
     const normalizedTerm = currentSearchTerm.trim().toLowerCase()
+
+    // Check for event commands first
+    const eventName = eventCommands[normalizedTerm]
+    if (eventName) {
+      hideSearch()
+      window.dispatchEvent(new CustomEvent(eventName))
+      return
+    }
+
     const targetPath = secretCommands[normalizedTerm]
     if (targetPath) {
       redirectToSecretModule(targetPath)
