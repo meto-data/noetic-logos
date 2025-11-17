@@ -8,6 +8,7 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [
     Component.StudyChat(),
     Component.ScrollRestore(), // Scroll pozisyonu geri yükleme
+    Component.Chat(), // Floating chat widget
   ],
   footer: Component.Footer({
     links: {
