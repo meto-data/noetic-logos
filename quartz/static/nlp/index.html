@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NLP Console</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #3b82f6;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .login-screen {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .login-box {
+      background: var(--surface);
+      padding: 40px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      max-width: 400px;
+      width: 100%;
+    }
+    .login-box h1 {
+      font-size: 24px;
+      margin-bottom: 24px;
+      color: var(--accent);
+    }
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      background: var(--accent);
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .login-box button:hover { opacity: 0.9; }
+    .login-box button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .error { color: var(--danger); font-size: 14px; margin-top: 8px; }
+
+    .dashboard {
+      display: none;
+      padding: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .header h1 { font-size: 28px; }
+    .header .live {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--success);
+    }
+    .header .live::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--surface);
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .stat-card .label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .stat-card .value {
+      font-size: 32px;
+      font-weight: 700;
+    }
+    .stat-card .subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .panels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 1024px) {
+      .panels { grid-template-columns: 1fr; }
+    }
+    .panel {
+      background: var(--surface);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .panel-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+    }
+    .panel-body {
+      padding: 20px;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .list-item:last-child { border-bottom: none; }
+    .list-item .name {
+      color: var(--text);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 70%;
+    }
+    .list-item .count {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .visitor-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .visitor-table th, .visitor-table td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .visitor-table th {
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+    .visitor-table tbody tr:hover {
+      background: rgba(59, 130, 246, 0.1);
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+    .badge-desktop { background: #3b82f6; color: white; }
+    .badge-mobile { background: #10b981; color: white; }
+    .badge-tablet { background: #f59e0b; color: white; }
+    .tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 24px;
+      background: var(--surface);
+      padding: 4px;
+      border-radius: 8px;
+      width: fit-content;
+    }
+    .tab {
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .tab:hover { background: var(--border); }
+    .tab.active { background: var(--accent); color: white; }
+    .history-chart {
+      height: 200px;
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      padding: 20px 0;
+    }
+    .chart-bar {
+      flex: 1;
+      background: var(--accent);
+      border-radius: 4px 4px 0 0;
+      min-height: 4px;
+      position: relative;
+      transition: height 0.3s;
+    }
+    .chart-bar:hover { opacity: 0.8; }
+    .chart-bar::after {
+      content: attr(data-value);
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .chart-label {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+    .refresh-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .refresh-btn:disabled { opacity: 0.5; }
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div id="loginScreen" class="login-screen">
+    <div class="login-box">
+      <h1>NLP Console</h1>
+      <input type="password" id="password" placeholder="Şifre" autocomplete="off">
+      <button id="loginBtn">Giriş</button>
+      <div id="loginError" class="error"></div>
+    </div>
+  </div>
+
+  <div id="dashboard" class="dashboard">
+    <div class="header">
+      <h1>Visitor Analytics</h1>
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <div class="live">CANLI</div>
+        <button class="refresh-btn" onclick="refreshData()">Yenile</button>
+      </div>
+    </div>
+
+    <div class="stats-grid" id="statsGrid">
+      <div class="stat-card">
+        <div class="label">Aktif Ziyaretçi</div>
+        <div class="value" id="activeCount">-</div>
+        <div class="subtitle">Son 2 dakika</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Bugün Toplam</div>
+        <div class="value" id="todayCount">-</div>
+        <div class="subtitle">Unique ziyaretçi</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Sayfa Görüntüleme</div>
+        <div class="value" id="pageViews">-</div>
+        <div class="subtitle">Bugün</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Ort. Oturum Süresi</div>
+        <div class="value" id="avgSession">-</div>
+        <div class="subtitle">dakika</div>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab('realtime')">Anlık</div>
+      <div class="tab" onclick="switchTab('history')">Geçmiş</div>
+    </div>
+
+    <div id="realtimeTab">
+      <div class="panels">
+        <div class="panel">
+          <div class="panel-header">Cihaz Dağılımı</div>
+          <div class="panel-body" id="deviceStats"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">Tarayıcı Dağılımı</div>
+          <div class="panel-body" id="browserStats"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">Ülke Dağılımı</div>
+          <div class="panel-body" id="countryStats"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">Aktif Sayfalar</div>
+          <div class="panel-body" id="pageStats"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">Aktif Ziyaretçiler</div>
+        <div class="panel-body">
+          <table class="visitor-table">
+            <thead>
+              <tr>
+                <th>Oturum</th>
+                <th>Sayfa</th>
+                <th>Cihaz</th>
+                <th>Tarayıcı</th>
+                <th>Konum</th>
+                <th>İdle</th>
+              </tr>
+            </thead>
+            <tbody id="visitorTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="historyTab" style="display: none;">
+      <div class="panel" style="margin-bottom: 24px;">
+        <div class="panel-header">Son 7 Gün - Unique Ziyaretçiler</div>
+        <div class="panel-body">
+          <div class="history-chart" id="historyChart"></div>
+        </div>
+      </div>
+
+      <div class="panels">
+        <div class="panel">
+          <div class="panel-header">Günlük İstatistikler</div>
+          <div class="panel-body" id="dailyStats"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">En Popüler Sayfalar (7 Gün)</div>
+          <div class="panel-body" id="topPages"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_BASE = 'https://noetic-presence.mselayet.workers.dev';
+    let authToken = '';
+
+    // Login
+    document.getElementById('loginBtn').addEventListener('click', async () => {
+      const pwd = document.getElementById('password').value;
+      const btn = document.getElementById('loginBtn');
+      const error = document.getElementById('loginError');
+
+      btn.disabled = true;
+      error.textContent = '';
+
+      try {
+        const res = await fetch(`${API_BASE}/presence/active`, {
+          headers: { 'Authorization': `Bearer ${pwd}` }
+        });
+
+        if (res.status === 401) {
+          error.textContent = 'Yanlış şifre';
+          btn.disabled = false;
+          return;
+        }
+
+        if (!res.ok) throw new Error('API error');
+
+        authToken = pwd;
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+        refreshData();
+
+        // Auto refresh every 30s
+        setInterval(refreshData, 30000);
+      } catch (e) {
+        error.textContent = 'Bağlantı hatası';
+        btn.disabled = false;
+      }
+    });
+
+    document.getElementById('password').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') document.getElementById('loginBtn').click();
+    });
+
+    // Data fetching
+    async function fetchActive() {
+      const res = await fetch(`${API_BASE}/presence/active`, {
+        headers: { 'Authorization': `Bearer ${authToken}` }
+      });
+      return res.json();
+    }
+
+    async function fetchHistory(days = 7) {
+      const res = await fetch(`${API_BASE}/presence/history?days=${days}`, {
+        headers: { 'Authorization': `Bearer ${authToken}` }
+      });
+      return res.json();
+    }
+
+    async function refreshData() {
+      try {
+        const [active, history] = await Promise.all([
+          fetchActive(),
+          fetchHistory(7)
+        ]);
+
+        updateActiveStats(active);
+        updateHistoryStats(history);
+      } catch (e) {
+        console.error('Refresh error:', e);
+      }
+    }
+
+    function updateActiveStats(data) {
+      document.getElementById('activeCount').textContent = data.total;
+
+      // Device stats
+      const deviceHtml = Object.entries(data.devices)
+        .filter(([_, v]) => v > 0)
+        .sort((a, b) => b[1] - a[1])
+        .map(([name, count]) => `
+          <div class="list-item">
+            <span class="name">${name}</span>
+            <span class="count">${count}</span>
+          </div>
+        `).join('') || '<div class="loading">Veri yok</div>';
+      document.getElementById('deviceStats').innerHTML = deviceHtml;
+
+      // Browser stats
+      const browserHtml = Object.entries(data.browsers)
+        .sort((a, b) => b[1] - a[1])
+        .map(([name, count]) => `
+          <div class="list-item">
+            <span class="name">${name}</span>
+            <span class="count">${count}</span>
+          </div>
+        `).join('') || '<div class="loading">Veri yok</div>';
+      document.getElementById('browserStats').innerHTML = browserHtml;
+
+      // Country stats
+      const countryHtml = Object.entries(data.countries)
+        .sort((a, b) => b[1] - a[1])
+        .map(([name, count]) => `
+          <div class="list-item">
+            <span class="name">${name}</span>
+            <span class="count">${count}</span>
+          </div>
+        `).join('') || '<div class="loading">Veri yok</div>';
+      document.getElementById('countryStats').innerHTML = countryHtml;
+
+      // Page stats
+      const pageHtml = Object.entries(data.pages)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 10)
+        .map(([page, count]) => `
+          <div class="list-item">
+            <span class="name" title="${page}">${page}</span>
+            <span class="count">${count}</span>
+          </div>
+        `).join('') || '<div class="loading">Veri yok</div>';
+      document.getElementById('pageStats').innerHTML = pageHtml;
+
+      // Visitor table
+      const visitorHtml = data.visitors.map(v => `
+        <tr>
+          <td>${v.sessionId}</td>
+          <td title="${v.page}">${v.page.length > 30 ? v.page.substring(0, 30) + '...' : v.page}</td>
+          <td><span class="badge badge-${v.device.toLowerCase()}">${v.device}</span></td>
+          <td>${v.browser}</td>
+          <td>${v.city}, ${v.country}</td>
+          <td>${v.idleTime}s</td>
+        </tr>
+      `).join('') || '<tr><td colspan="6" style="text-align:center">Aktif ziyaretçi yok</td></tr>';
+      document.getElementById('visitorTable').innerHTML = visitorHtml;
+    }
+
+    function updateHistoryStats(data) {
+      if (!data.history || data.history.length === 0) {
+        document.getElementById('todayCount').textContent = '0';
+        document.getElementById('pageViews').textContent = '0';
+        return;
+      }
+
+      const today = data.history[0];
+      document.getElementById('todayCount').textContent = today?.uniqueVisitors || 0;
+      document.getElementById('pageViews').textContent = today?.totalPageViews || 0;
+
+      // Calculate average session (simplified)
+      const avgMinutes = today ? Math.round((today.totalPageViews / Math.max(today.uniqueVisitors, 1)) * 2) : 0;
+      document.getElementById('avgSession').textContent = avgMinutes;
+
+      // History chart
+      const maxVisitors = Math.max(...data.history.map(d => d.uniqueVisitors), 1);
+      const chartHtml = data.history.reverse().map(day => {
+        const height = (day.uniqueVisitors / maxVisitors) * 180;
+        const dateLabel = day.date.split('-').slice(1).join('/');
+        return `
+          <div class="chart-bar" style="height: ${height}px" data-value="${day.uniqueVisitors}">
+            <div class="chart-label">${dateLabel}</div>
+          </div>
+        `;
+      }).join('');
+      document.getElementById('historyChart').innerHTML = chartHtml;
+
+      // Daily stats list
+      const dailyHtml = data.history.reverse().map(day => `
+        <div class="list-item">
+          <span class="name">${day.date}</span>
+          <span class="count">${day.uniqueVisitors} ziyaretçi / ${day.totalPageViews} görüntüleme</span>
+        </div>
+      `).join('');
+      document.getElementById('dailyStats').innerHTML = dailyHtml;
+
+      // Top pages (aggregate)
+      const pageAggregate = {};
+      data.history.forEach(day => {
+        day.topPages.forEach(p => {
+          pageAggregate[p.page] = (pageAggregate[p.page] || 0) + p.views;
+        });
+      });
+      const topPagesHtml = Object.entries(pageAggregate)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 15)
+        .map(([page, views]) => `
+          <div class="list-item">
+            <span class="name" title="${page}">${page}</span>
+            <span class="count">${views}</span>
+          </div>
+        `).join('');
+      document.getElementById('topPages').innerHTML = topPagesHtml;
+    }
+
+    function switchTab(tab) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+
+      if (tab === 'realtime') {
+        document.getElementById('realtimeTab').style.display = 'block';
+        document.getElementById('historyTab').style.display = 'none';
+      } else {
+        document.getElementById('realtimeTab').style.display = 'none';
+        document.getElementById('historyTab').style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
