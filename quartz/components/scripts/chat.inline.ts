@@ -1,56 +1,50 @@
 // Floating Chat Widget - Noetic Logos
+// Uses Quartz CSS variables for theme compatibility
+
 const WORKER_URL = "https://noetic-presence.mselayet.workers.dev"
-const HEARTBEAT_INTERVAL = 30000
-const POLL_INTERVAL = 3000
+const HEARTBEAT_INTERVAL = 45000 // 45 seconds
+const POLL_INTERVAL = 1000 // 1 second - fast updates
+const MESSAGE_DEBOUNCE = 500 // 500ms debounce
 
 interface ChatMessage {
-  id: string
+  id: number
   type: "user" | "system"
   nickname: string
   message: string
   timestamp: number
 }
 
-interface ChatUser {
-  nickname: string
-  joinedAt: number
-  idleTime: number
-}
-
 class NoeticChat {
   private sessionId: string
   private nickname: string = ""
   private lastMessageTimestamp: number = 0
+  private lastMessageId: number = 0
   private heartbeatTimer: number | null = null
   private pollTimer: number | null = null
   private isJoined: boolean = false
   private isOpen: boolean = false
-  private isVisible: boolean = false
-
+  private isSending: boolean = false
   private container: HTMLElement | null = null
   private bubble: HTMLElement | null = null
   private panel: HTMLElement | null = null
   private messagesEl: HTMLElement | null = null
   private inputEl: HTMLInputElement | null = null
   private onlineCountEl: HTMLElement | null = null
-  private onlineListEl: HTMLElement | null = null
   private statusEl: HTMLElement | null = null
   private joinModal: HTMLElement | null = null
+  private sendBtn: HTMLButtonElement | null = null
 
   constructor() {
     this.sessionId =
       localStorage.getItem("noetic_chat_session") ||
       "chat_" + Date.now().toString(36) + Math.random().toString(36).substr(2)
     localStorage.setItem("noetic_chat_session", this.sessionId)
-
     this.nickname = localStorage.getItem("noetic_chat_nickname") || ""
 
-    // Check if chat was activated
     if (localStorage.getItem("noetic_chat_active") === "true") {
       this.init()
     }
 
-    // Listen for activation from search
     window.addEventListener("noetic-chat-activate", () => this.activate())
   }
 
@@ -66,9 +60,7 @@ class NoeticChat {
     this.createStyles()
     this.createDOM()
     this.attachEvents()
-    this.isVisible = true
 
-    // Auto-join if nickname exists
     if (this.nickname && !this.isJoined) {
       this.joinChat(this.nickname)
     }
@@ -85,293 +77,350 @@ class NoeticChat {
         bottom: 20px;
         right: 20px;
         z-index: 10000;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-family: var(--bodyFont);
       }
 
       #noetic-chat-bubble {
-        width: 56px;
-        height: 56px;
-        background: #4a9eff;
+        width: 52px;
+        height: 52px;
+        background: var(--secondary);
         border-radius: 50%;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 12px rgba(74, 158, 255, 0.4);
+        box-shadow: 0 4px 12px color-mix(in srgb, var(--secondary) 40%, transparent);
         transition: transform 0.2s, box-shadow 0.2s;
+        position: relative;
       }
 
       #noetic-chat-bubble:hover {
-        transform: scale(1.1);
-        box-shadow: 0 6px 16px rgba(74, 158, 255, 0.5);
+        transform: scale(1.08);
+        box-shadow: 0 6px 16px color-mix(in srgb, var(--secondary) 50%, transparent);
       }
 
       #noetic-chat-bubble svg {
-        width: 28px;
-        height: 28px;
-        fill: white;
+        width: 26px;
+        height: 26px;
+        fill: var(--light);
       }
 
       #noetic-chat-bubble .badge {
         position: absolute;
-        top: -4px;
-        right: -4px;
+        top: -2px;
+        right: -2px;
         background: #ef4444;
         color: white;
-        font-size: 11px;
-        font-weight: bold;
-        padding: 2px 6px;
-        border-radius: 10px;
+        font-size: 10px;
+        font-weight: 600;
+        min-width: 18px;
+        height: 18px;
+        padding: 0 4px;
+        border-radius: 9px;
         display: none;
+        align-items: center;
+        justify-content: center;
       }
 
       #noetic-chat-panel {
         position: absolute;
-        bottom: 70px;
+        bottom: 64px;
         right: 0;
-        width: 360px;
+        width: 340px;
         max-width: calc(100vw - 40px);
-        height: 480px;
+        height: 450px;
         max-height: calc(100vh - 100px);
-        background: #1a1a1a;
+        background: var(--light);
         border-radius: 12px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         display: none;
         flex-direction: column;
         overflow: hidden;
-        border: 1px solid #333;
+        border: 1px solid var(--lightgray);
       }
 
       #noetic-chat-panel.open {
         display: flex;
+        animation: chatSlideUp 0.2s ease-out;
       }
 
-      .noetic-chat-header {
-        background: #252525;
-        padding: 12px 16px;
+      @keyframes chatSlideUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .nch-header {
+        background: var(--lightgray);
+        padding: 10px 14px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid #333;
+        border-bottom: 1px solid var(--gray);
       }
 
-      .noetic-chat-header h3 {
+      .nch-header h3 {
         margin: 0;
-        font-size: 14px;
-        color: #4a9eff;
+        font-size: 13px;
+        color: var(--secondary);
         font-weight: 600;
       }
 
-      .noetic-chat-header .close-btn {
+      .nch-header .close-btn {
         background: none;
         border: none;
-        color: #888;
+        color: var(--gray);
         cursor: pointer;
-        font-size: 20px;
-        padding: 0;
+        font-size: 18px;
+        padding: 0 4px;
         line-height: 1;
       }
 
-      .noetic-chat-header .close-btn:hover {
-        color: #fff;
+      .nch-header .close-btn:hover {
+        color: var(--dark);
       }
 
-      .noetic-chat-status {
+      .nch-status {
         font-size: 11px;
-        color: #888;
-        padding: 6px 16px;
-        background: #1f1f1f;
-        border-bottom: 1px solid #333;
+        color: var(--darkgray);
+        padding: 6px 14px;
+        background: var(--lightgray);
+        border-bottom: 1px solid var(--gray);
+        display: flex;
+        align-items: center;
+        gap: 6px;
       }
 
-      .noetic-chat-status.connected {
-        color: #4ade80;
+      .nch-status .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ef4444;
       }
 
-      .noetic-chat-online {
-        padding: 8px 16px;
-        background: #1f1f1f;
-        border-bottom: 1px solid #333;
-        font-size: 11px;
-        color: #888;
+      .nch-status.connected .status-dot {
+        background: #22c55e;
       }
 
-      .noetic-chat-online span {
-        color: #4ade80;
+      .nch-online {
+        padding: 6px 14px;
+        background: var(--lightgray);
+        border-bottom: 1px solid var(--gray);
+        font-size: 10px;
+        color: var(--darkgray);
+      }
+
+      .nch-online span {
+        color: var(--tertiary);
         font-weight: 600;
       }
 
-      .noetic-chat-messages {
+      .nch-messages {
         flex: 1;
         overflow-y: auto;
-        padding: 12px;
+        padding: 10px;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 6px;
+        background: var(--light);
       }
 
-      .noetic-chat-msg {
-        max-width: 85%;
-        padding: 8px 12px;
-        border-radius: 12px;
-        font-size: 13px;
+      .nch-msg {
+        max-width: 82%;
+        padding: 7px 10px;
+        border-radius: 10px;
+        font-size: 12px;
         line-height: 1.4;
         word-wrap: break-word;
       }
 
-      .noetic-chat-msg.user {
-        background: #2563eb;
-        color: white;
+      .nch-msg.user {
+        background: var(--secondary);
+        color: var(--light);
         align-self: flex-start;
-        border-bottom-left-radius: 4px;
+        border-bottom-left-radius: 3px;
       }
 
-      .noetic-chat-msg.own {
-        background: #059669;
-        color: white;
+      .nch-msg.own {
+        background: var(--tertiary);
+        color: var(--light);
         align-self: flex-end;
-        border-bottom-right-radius: 4px;
+        border-bottom-right-radius: 3px;
       }
 
-      .noetic-chat-msg.system {
-        background: #333;
-        color: #888;
+      .nch-msg.system {
+        background: var(--lightgray);
+        color: var(--gray);
         align-self: center;
-        font-size: 11px;
+        font-size: 10px;
         font-style: italic;
-        padding: 4px 12px;
+        padding: 3px 10px;
       }
 
-      .noetic-chat-msg .nick {
-        font-size: 10px;
+      .nch-msg .nick {
+        font-size: 9px;
         font-weight: 600;
-        opacity: 0.8;
+        opacity: 0.85;
         margin-bottom: 2px;
       }
 
-      .noetic-chat-msg .time {
-        font-size: 9px;
-        opacity: 0.6;
-        margin-top: 4px;
+      .nch-msg .time {
+        font-size: 8px;
+        opacity: 0.7;
+        margin-top: 3px;
         text-align: right;
       }
 
-      .noetic-chat-input {
-        padding: 12px;
-        background: #252525;
-        border-top: 1px solid #333;
+      .nch-msg .delete-btn {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        background: rgba(239, 68, 68, 0.8);
+        color: white;
+        border: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        font-size: 10px;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+      }
+
+      .nch-msg.own {
+        position: relative;
+      }
+
+      .nch-msg.own:hover .delete-btn {
         display: flex;
-        gap: 8px;
       }
 
-      .noetic-chat-input input {
+      .nch-msg .delete-btn:hover {
+        background: #dc2626;
+      }
+
+      .nch-input {
+        padding: 10px;
+        background: var(--lightgray);
+        border-top: 1px solid var(--gray);
+        display: flex;
+        gap: 6px;
+      }
+
+      .nch-input input {
         flex: 1;
-        background: #333;
-        border: 1px solid #444;
-        color: #e0e0e0;
-        padding: 8px 12px;
-        border-radius: 20px;
-        font-size: 13px;
+        background: var(--light);
+        border: 1px solid var(--gray);
+        color: var(--dark);
+        padding: 7px 10px;
+        border-radius: 16px;
+        font-size: 12px;
         outline: none;
+        font-family: var(--bodyFont);
       }
 
-      .noetic-chat-input input:focus {
-        border-color: #4a9eff;
+      .nch-input input:focus {
+        border-color: var(--secondary);
       }
 
-      .noetic-chat-input input:disabled {
+      .nch-input input:disabled {
         opacity: 0.5;
       }
 
-      .noetic-chat-input button {
-        background: #4a9eff;
-        color: white;
+      .nch-input button {
+        background: var(--secondary);
+        color: var(--light);
         border: none;
-        padding: 8px 16px;
-        border-radius: 20px;
+        padding: 7px 14px;
+        border-radius: 16px;
         cursor: pointer;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 500;
+        font-family: var(--bodyFont);
+        transition: background 0.15s;
       }
 
-      .noetic-chat-input button:hover {
-        background: #3b82f6;
+      .nch-input button:hover:not(:disabled) {
+        filter: brightness(1.1);
       }
 
-      .noetic-chat-input button:disabled {
-        background: #555;
+      .nch-input button:disabled {
+        opacity: 0.5;
         cursor: not-allowed;
       }
 
-      .noetic-chat-join {
+      .nch-join {
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.9);
+        background: color-mix(in srgb, var(--light) 95%, transparent);
+        backdrop-filter: blur(4px);
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 20px;
       }
 
-      .noetic-chat-join-inner {
+      .nch-join-inner {
         text-align: center;
         width: 100%;
       }
 
-      .noetic-chat-join h4 {
-        color: #4a9eff;
-        margin: 0 0 12px 0;
-        font-size: 16px;
+      .nch-join h4 {
+        color: var(--secondary);
+        margin: 0 0 10px 0;
+        font-size: 14px;
       }
 
-      .noetic-chat-join input {
+      .nch-join input {
         width: 100%;
-        background: #333;
-        border: 1px solid #444;
-        color: #e0e0e0;
-        padding: 10px;
+        background: var(--light);
+        border: 1px solid var(--gray);
+        color: var(--dark);
+        padding: 9px;
         border-radius: 6px;
-        font-size: 14px;
-        margin-bottom: 8px;
+        font-size: 13px;
+        margin-bottom: 6px;
         outline: none;
         text-align: center;
+        font-family: var(--bodyFont);
       }
 
-      .noetic-chat-join input:focus {
-        border-color: #4a9eff;
+      .nch-join input:focus {
+        border-color: var(--secondary);
       }
 
-      .noetic-chat-join button {
+      .nch-join button {
         width: 100%;
-        background: #4a9eff;
-        color: white;
+        background: var(--secondary);
+        color: var(--light);
         border: none;
-        padding: 10px;
+        padding: 9px;
         border-radius: 6px;
         cursor: pointer;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 500;
+        font-family: var(--bodyFont);
       }
 
-      .noetic-chat-join button:hover {
-        background: #3b82f6;
+      .nch-join button:hover {
+        filter: brightness(1.1);
       }
 
-      .noetic-chat-join .error {
+      .nch-join .error {
         color: #ef4444;
-        font-size: 12px;
-        margin-bottom: 8px;
+        font-size: 11px;
+        margin-bottom: 6px;
         display: none;
       }
 
       @media (max-width: 480px) {
         #noetic-chat-panel {
           width: calc(100vw - 40px);
-          height: calc(100vh - 100px);
-          bottom: 70px;
+          height: calc(100vh - 120px);
         }
       }
     `
@@ -388,22 +437,22 @@ class NoeticChat {
         <span class="badge">0</span>
       </div>
       <div id="noetic-chat-panel">
-        <div class="noetic-chat-header">
-          <h3>Noetic Chat</h3>
+        <div class="nch-header">
+          <h3>Sohbet</h3>
           <button class="close-btn">&times;</button>
         </div>
-        <div class="noetic-chat-status">Bağlanıyor...</div>
-        <div class="noetic-chat-online">Çevrimiçi: <span>0</span></div>
-        <div class="noetic-chat-messages"></div>
-        <div class="noetic-chat-input">
-          <input type="text" placeholder="Mesajınızı yazın..." maxlength="500" disabled>
+        <div class="nch-status"><span class="status-dot"></span><span class="status-nick">Bağlanıyor...</span></div>
+        <div class="nch-online">Çevrim içi: <span>0</span></div>
+        <div class="nch-messages"></div>
+        <div class="nch-input">
+          <input type="text" placeholder="Mesaj..." maxlength="500" disabled>
           <button disabled>Gönder</button>
         </div>
-        <div class="noetic-chat-join">
-          <div class="noetic-chat-join-inner">
+        <div class="nch-join">
+          <div class="nch-join-inner">
             <h4>Sohbete Katıl</h4>
             <div class="error"></div>
-            <input type="text" placeholder="Takma adınız..." maxlength="20">
+            <input type="text" placeholder="Takma ad..." maxlength="20">
             <button>Katıl</button>
           </div>
         </div>
@@ -414,26 +463,25 @@ class NoeticChat {
 
     this.bubble = this.container.querySelector("#noetic-chat-bubble")
     this.panel = this.container.querySelector("#noetic-chat-panel")
-    this.messagesEl = this.container.querySelector(".noetic-chat-messages")
-    this.inputEl = this.container.querySelector(".noetic-chat-input input")
-    this.onlineCountEl = this.container.querySelector(".noetic-chat-online span")
-    this.statusEl = this.container.querySelector(".noetic-chat-status")
-    this.joinModal = this.container.querySelector(".noetic-chat-join")
+    this.messagesEl = this.container.querySelector(".nch-messages")
+    this.inputEl = this.container.querySelector(".nch-input input")
+    this.sendBtn = this.container.querySelector(".nch-input button")
+    this.onlineCountEl = this.container.querySelector(".nch-online span")
+    this.statusEl = this.container.querySelector(".nch-status")
+    this.joinModal = this.container.querySelector(".nch-join")
   }
 
   private attachEvents() {
-    // Bubble click
     this.bubble?.addEventListener("click", () => this.toggle())
-
-    // Close button
     this.panel?.querySelector(".close-btn")?.addEventListener("click", () => this.close())
 
-    // Send message
-    const sendBtn = this.panel?.querySelector(".noetic-chat-input button")
-    sendBtn?.addEventListener("click", () => this.handleSend())
-
+    // Send with debounce
+    this.sendBtn?.addEventListener("click", () => this.handleSend())
     this.inputEl?.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") this.handleSend()
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault()
+        this.handleSend()
+      }
     })
 
     // Join
@@ -444,12 +492,10 @@ class NoeticChat {
       if (e.key === "Enter") this.handleJoin(joinInput)
     })
 
-    // Pre-fill nickname
     if (this.nickname && joinInput) {
       joinInput.value = this.nickname
     }
 
-    // Check connection
     this.checkConnection()
   }
 
@@ -457,12 +503,11 @@ class NoeticChat {
     try {
       const res = await fetch(`${WORKER_URL}/health`)
       if (res.ok && this.statusEl) {
-        this.statusEl.textContent = "Bağlantı hazır"
+        this.statusEl.textContent = "Hazır"
       }
     } catch {
       if (this.statusEl) {
         this.statusEl.textContent = "Bağlantı hatası"
-        this.statusEl.classList.add("error")
       }
     }
   }
@@ -471,13 +516,11 @@ class NoeticChat {
     if (this.container) {
       this.container.style.display = "block"
     }
-    this.isVisible = true
   }
 
   private toggle() {
     this.isOpen = !this.isOpen
     this.panel?.classList.toggle("open", this.isOpen)
-
     if (this.isOpen && this.isJoined) {
       this.inputEl?.focus()
     }
@@ -495,10 +538,10 @@ class NoeticChat {
       return
     }
 
-    const btn = this.joinModal?.querySelector("button")
+    const btn = this.joinModal?.querySelector("button") as HTMLButtonElement
     if (btn) {
-      btn.textContent = "Katılınıyor..."
-      ;(btn as HTMLButtonElement).disabled = true
+      btn.textContent = "Bağlanıyor..."
+      btn.disabled = true
     }
 
     try {
@@ -507,7 +550,7 @@ class NoeticChat {
       this.showJoinError(err.message)
       if (btn) {
         btn.textContent = "Katıl"
-        ;(btn as HTMLButtonElement).disabled = false
+        btn.disabled = false
       }
     }
   }
@@ -528,51 +571,44 @@ class NoeticChat {
     })
 
     const data = await res.json()
-    if (!res.ok) {
-      throw new Error(data.error || "Katılım başarısız")
-    }
+    if (!res.ok) throw new Error(data.error || "Bağlantı başarısız")
 
     this.nickname = data.nickname
     localStorage.setItem("noetic_chat_nickname", this.nickname)
     this.isJoined = true
 
-    // Hide join modal
-    if (this.joinModal) {
-      this.joinModal.style.display = "none"
-    }
+    if (this.joinModal) this.joinModal.style.display = "none"
+    if (this.inputEl) this.inputEl.disabled = false
+    if (this.sendBtn) this.sendBtn.disabled = false
 
-    // Enable input
-    if (this.inputEl) {
-      this.inputEl.disabled = false
-    }
-    const sendBtn = this.panel?.querySelector(".noetic-chat-input button") as HTMLButtonElement
-    if (sendBtn) {
-      sendBtn.disabled = false
-    }
-
-    // Update status
     if (this.statusEl) {
-      this.statusEl.textContent = `Bağlı - ${this.nickname}`
+      const nickSpan = this.statusEl.querySelector(".status-nick")
+      if (nickSpan) nickSpan.textContent = this.nickname
       this.statusEl.classList.add("connected")
     }
 
-    // Start polling
     this.startPolling()
     this.startHeartbeat()
 
-    // Fetch initial data
     await this.fetchMessages()
     await this.fetchOnlineUsers()
   }
 
   private async handleSend() {
-    if (!this.inputEl || !this.isJoined) return
+    if (!this.inputEl || !this.isJoined || this.isSending) return
 
-    const msg = this.inputEl.value.trim()
+    let msg = this.inputEl.value.trim()
     if (!msg) return
 
-    const sendBtn = this.panel?.querySelector(".noetic-chat-input button") as HTMLButtonElement
-    if (sendBtn) sendBtn.disabled = true
+    // Handle /sayfa command
+    if (msg.toLowerCase() === "/sayfa") {
+      const currentPath = window.location.pathname
+      const pageTitle = document.title.replace(" | Noetic Logos", "").trim()
+      msg = `📄 ${pageTitle}\n${window.location.origin}${currentPath}`
+    }
+
+    this.isSending = true
+    if (this.sendBtn) this.sendBtn.disabled = true
 
     try {
       const res = await fetch(`${WORKER_URL}/chat/send`, {
@@ -583,14 +619,24 @@ class NoeticChat {
 
       if (res.ok) {
         this.inputEl.value = ""
-        await this.fetchMessages()
+        // Fetch immediately after send
+        setTimeout(() => this.fetchMessages(), 100)
+      } else {
+        const data = await res.json()
+        if (data.error) {
+          alert(data.error)
+        }
       }
     } catch (err) {
       console.error("Send error:", err)
+    } finally {
+      // Debounce to prevent double send
+      setTimeout(() => {
+        this.isSending = false
+        if (this.sendBtn) this.sendBtn.disabled = false
+        this.inputEl?.focus()
+      }, MESSAGE_DEBOUNCE)
     }
-
-    if (sendBtn) sendBtn.disabled = false
-    this.inputEl.focus()
   }
 
   private async fetchMessages() {
@@ -599,15 +645,26 @@ class NoeticChat {
       const data = await res.json()
 
       if (data.messages && data.messages.length > 0) {
+        let hasNew = false
         data.messages.forEach((msg: ChatMessage) => {
-          this.addMessageToUI(msg)
+          // Prevent duplicates by checking message ID
+          if (msg.id > this.lastMessageId) {
+            this.addMessageToUI(msg)
+            this.lastMessageId = msg.id
+            hasNew = true
+          }
           if (msg.timestamp > this.lastMessageTimestamp) {
             this.lastMessageTimestamp = msg.timestamp
           }
         })
+
+        // Scroll only if new messages
+        if (hasNew && this.messagesEl) {
+          this.messagesEl.scrollTop = this.messagesEl.scrollHeight
+        }
       }
     } catch (err) {
-      console.error("Fetch messages error:", err)
+      console.error("Fetch error:", err)
     }
   }
 
@@ -615,18 +672,16 @@ class NoeticChat {
     try {
       const res = await fetch(`${WORKER_URL}/chat/online`)
       const data = await res.json()
-
       if (this.onlineCountEl) {
         this.onlineCountEl.textContent = data.count
       }
     } catch (err) {
-      console.error("Fetch online error:", err)
+      console.error("Online error:", err)
     }
   }
 
   private async sendHeartbeat() {
     if (!this.isJoined) return
-
     try {
       await fetch(`${WORKER_URL}/chat/heartbeat`, {
         method: "POST",
@@ -642,32 +697,84 @@ class NoeticChat {
     if (!this.messagesEl) return
 
     const div = document.createElement("div")
-    div.className = "noetic-chat-msg"
+    div.className = "nch-msg"
+    div.dataset.id = msg.id.toString()
 
     if (msg.type === "system") {
       div.classList.add("system")
+      // Safe: textContent prevents XSS
       div.textContent = msg.message
     } else {
       const isOwn = msg.nickname === this.nickname
       div.classList.add(isOwn ? "own" : "user")
 
+      // Build DOM safely without innerHTML (XSS protection)
+      const nickDiv = document.createElement("div")
+      nickDiv.className = "nick"
+      nickDiv.textContent = msg.nickname // Safe
+
+      const msgDiv = document.createElement("div")
+      msgDiv.textContent = msg.message // Safe - no HTML parsing
+
+      const timeDiv = document.createElement("div")
+      timeDiv.className = "time"
       const time = new Date(msg.timestamp).toLocaleTimeString("tr-TR", {
         hour: "2-digit",
         minute: "2-digit",
       })
+      timeDiv.textContent = time
 
-      div.innerHTML = `
-        <div class="nick">${msg.nickname}</div>
-        <div>${msg.message}</div>
-        <div class="time">${time}</div>
-      `
+      div.appendChild(nickDiv)
+      div.appendChild(msgDiv)
+      div.appendChild(timeDiv)
+
+      // Add delete button for own messages
+      if (isOwn) {
+        const deleteBtn = document.createElement("button")
+        deleteBtn.className = "delete-btn"
+        deleteBtn.textContent = "×"
+        deleteBtn.title = "Mesajı sil"
+        deleteBtn.addEventListener("click", () => this.deleteMessage(msg.id, div))
+        div.appendChild(deleteBtn)
+      }
     }
 
     this.messagesEl.appendChild(div)
-    this.messagesEl.scrollTop = this.messagesEl.scrollHeight
+  }
+
+  private async deleteMessage(messageId: number, element: HTMLElement) {
+    if (!confirm("Mesajı silmek istediğinize emin misiniz?")) return
+
+    try {
+      const res = await fetch(`${WORKER_URL}/chat/delete`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sessionId: this.sessionId, messageId }),
+      })
+
+      if (res.ok) {
+        element.remove()
+      } else {
+        const data = await res.json()
+        alert(data.error || "Silme başarısız")
+      }
+    } catch (err) {
+      console.error("Delete error:", err)
+    }
+  }
+
+  private escapeHtml(text: string): string {
+    // Defense in depth - escape HTML entities
+    return text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;")
   }
 
   private startPolling() {
+    if (this.pollTimer) clearInterval(this.pollTimer)
     this.pollTimer = window.setInterval(async () => {
       await this.fetchMessages()
       await this.fetchOnlineUsers()
@@ -675,34 +782,31 @@ class NoeticChat {
   }
 
   private startHeartbeat() {
+    if (this.heartbeatTimer) clearInterval(this.heartbeatTimer)
+    // Send initial heartbeat
+    this.sendHeartbeat()
     this.heartbeatTimer = window.setInterval(() => this.sendHeartbeat(), HEARTBEAT_INTERVAL)
   }
 
-  private stopTimers() {
+  cleanup() {
     if (this.pollTimer) clearInterval(this.pollTimer)
     if (this.heartbeatTimer) clearInterval(this.heartbeatTimer)
-  }
-
-  cleanup() {
-    this.stopTimers()
     if (this.isJoined) {
-      fetch(`${WORKER_URL}/chat/leave`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sessionId: this.sessionId }),
-      }).catch(() => {})
+      navigator.sendBeacon(
+        `${WORKER_URL}/chat/leave`,
+        JSON.stringify({ sessionId: this.sessionId }),
+      )
     }
   }
 }
 
-// Initialize chat
+// Initialize
 let chatInstance: NoeticChat | null = null
 
 document.addEventListener("DOMContentLoaded", () => {
   chatInstance = new NoeticChat()
 })
 
-// Cleanup on page unload
 window.addEventListener("beforeunload", () => {
   chatInstance?.cleanup()
 })
