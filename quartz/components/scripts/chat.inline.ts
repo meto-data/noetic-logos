@@ -540,21 +540,6 @@ class NoeticChat {
     if (this.nickname && joinInput) {
       joinInput.value = this.nickname
     }
-
-    this.checkConnection()
-  }
-
-  private async checkConnection() {
-    try {
-      const res = await fetch(`${WORKER_URL}/health`)
-      if (res.ok && this.statusEl) {
-        this.statusEl.textContent = "Hazır"
-      }
-    } catch {
-      if (this.statusEl) {
-        this.statusEl.textContent = "Bağlantı hatası"
-      }
-    }
   }
 
   private show() {

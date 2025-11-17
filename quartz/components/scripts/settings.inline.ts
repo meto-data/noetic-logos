@@ -6,7 +6,7 @@ const CHAT_ACTIVE_KEY = "noetic_chat_active";
 const light = localStorage.getItem(SETTINGS_LIGHT_KEY) ?? "default";
 const dark = localStorage.getItem(SETTINGS_DARK_KEY) ?? "default";
 const savedFont = localStorage.getItem("font-family") || "";
-const savedSize = localStorage.getItem("font-size") || "1.1rem";
+const savedSize = localStorage.getItem("font-size") || "0.9rem";
 
 // Apply palettes immediately
 document.documentElement.setAttribute("data-palette-light", light);

@@ -216,14 +216,38 @@ $$
 
 ### Borsa Oranları (Derste işlemeyeceğiz.
 
+- Sınav 25 soru test olacak.
+- Faaliyet rasyosundan ve likidite rasyosundan sorumluyuz, kârlılık rasyosu ve maliyet rasyosu vizeye dâhil değil.
+	- Rasyolarla ilintili slaytın 14. sayfasına kadar sorumluyuz.
+- Kitaptaki sorulara bakmanız iyi olabilir dedi hoca.
 
-FAALİYET RASYOSU VE LİKİDİTEDEN SORUMLUYUZ, KÂRLILIK YAHUT MALİ'DEN DEĞİL.
--  10. slayta kadar sorumluyuz rasyolardan li
-Faaliyet rasyosundan ilk örneği pas geç.
-	14. slayta kadar.
-Finalde ADG AŞ Bilançosu benzeri bir şey gelecek.
-Finans kitabından da çöz rasyodur yatay analizdir falan.
-25 soru test.
+- Finans tanımı, finansal yönetimin fonksiyonları ve amacı.
+- Finansal analiz nedir? Finansal analizi kim yapar? Finasnal analizin amacı nedir?
+- Finans yöneticisi kimdir? Finans yöneticisinin görevleri nelerdir?
+- Enflasyonun işletme finansına etkileri nelerdir?
+- Basit faiz ve bileşik faizden soru gelecek.
+	- Bileşik faizin ödeme sıklığından sorumlu değiliz.
+- Anüitenin gelecek değerinden sorumluyuz (sayısal olarak). 
+	- İlave olarak tanım olarak da soru gelebilir.
+- Gelir tablosu ve bilanço nedir? Temel mâlî tablolar (bilanço-gelir) ve ek mâlî tablolar nelerdir?
+- Finansal analiz türleri nelerdir? Finansal analiz teknikleri nelerdir?
+- Yatay Analiz ve Dikey Analiz
+	- Grup toplamı kavramı nedir? Genel toplam nedir? 
+	- Aktif toplam nedir pasif toplam nedir?
+	- Yatay analizden soru gelecek.
+	- Bütün formüllerin bilinmesi gerekiyor.
+- Trend Analizi Hesaplama
+	- Sınavda 3 yıl için hesaplayacağız. Grafik çizmeyeceğiz, sadece hesaplama yapacağız.
+	- Formüllerin bilinmesi gerekiyor.
+- Rasyolar
+	- Tüm formüllerin bilinmesi gerekiyor. Buradan epey soru gelebilir.
+
+---
+
+
+- Final sınavında ADG AŞ Bilançosu benzeri bir bilanço gelebilir(miş) .
+
+
 
 - Finans tanımı
 - Fİnansal yönetimin fonksiyonları
