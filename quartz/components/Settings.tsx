@@ -101,8 +101,8 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
             <div class="setting-row">
               <h3>Özellikler</h3>
               <label class="toggle-label">
-                <input type="checkbox" class="chat-toggle" />
                 <span class="toggle-text">Sohbet</span>
+                <input type="checkbox" class="chat-toggle" />
               </label>
             </div>
           </div>
