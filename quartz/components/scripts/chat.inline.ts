@@ -3,8 +3,7 @@
 
 const WORKER_URL = "https://noetic-presence.mselayet.workers.dev"
 const HEARTBEAT_INTERVAL = 45000 // 45 seconds
-const POLL_INTERVAL_ACTIVE = 2000 // 2 seconds when panel open
-const POLL_INTERVAL_BACKGROUND = 10000 // 10 seconds when panel closed
+const POLL_INTERVAL = 2000 // 2 seconds when panel open (no polling when closed)
 const MESSAGE_DEBOUNCE = 500 // 500ms debounce
 
 interface ChatMessage {
@@ -550,20 +549,25 @@ class NoeticChat {
     this.panel?.classList.toggle("open", this.isOpen)
     if (this.isOpen && this.isJoined) {
       this.inputEl?.focus()
-      // Switch to fast polling when open
-      this.startPolling(POLL_INTERVAL_ACTIVE)
+      // Load everything when panel opens (like Reddit)
+      this.fetchMessages()
+      this.fetchOnlineUsers()
+      this.startPolling()
+      this.startHeartbeat()
     } else if (this.isJoined) {
-      // Switch to slow polling when closed
-      this.startPolling(POLL_INTERVAL_BACKGROUND)
+      // Stop everything when closed - zero requests!
+      this.stopPolling()
+      this.stopHeartbeat()
     }
   }
 
   private close() {
     this.isOpen = false
     this.panel?.classList.remove("open")
-    // Switch to slow polling when closed
+    // Stop everything when closed
     if (this.isJoined) {
-      this.startPolling(POLL_INTERVAL_BACKGROUND)
+      this.stopPolling()
+      this.stopHeartbeat()
     }
   }
 
@@ -623,11 +627,15 @@ class NoeticChat {
       this.statusEl.classList.add("connected")
     }
 
-    this.startPolling(this.isOpen ? POLL_INTERVAL_ACTIVE : POLL_INTERVAL_BACKGROUND)
-    this.startHeartbeat()
-
+    // Load messages immediately on join
     await this.fetchMessages()
     await this.fetchOnlineUsers()
+
+    // Only start polling/heartbeat if panel is open
+    if (this.isOpen) {
+      this.startPolling()
+      this.startHeartbeat()
+    }
   }
 
   private async handleSend() {
@@ -805,12 +813,26 @@ class NoeticChat {
       .replace(/'/g, "&#039;")
   }
 
-  private startPolling(interval: number = POLL_INTERVAL_BACKGROUND) {
+  private startPolling() {
     if (this.pollTimer) clearInterval(this.pollTimer)
     this.pollTimer = window.setInterval(async () => {
       await this.fetchMessages()
       await this.fetchOnlineUsers()
-    }, interval)
+    }, POLL_INTERVAL)
+  }
+
+  private stopPolling() {
+    if (this.pollTimer) {
+      clearInterval(this.pollTimer)
+      this.pollTimer = null
+    }
+  }
+
+  private stopHeartbeat() {
+    if (this.heartbeatTimer) {
+      clearInterval(this.heartbeatTimer)
+      this.heartbeatTimer = null
+    }
   }
 
   private startHeartbeat() {
