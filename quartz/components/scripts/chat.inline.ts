@@ -149,12 +149,8 @@ class NoeticChat {
         position: absolute;
         bottom: 64px;
         right: 0;
-        width: 340px;
-        min-width: 280px;
-        max-width: calc(100vw - 40px);
-        height: 450px;
-        min-height: 300px;
-        max-height: calc(100vh - 100px);
+        width: 430px;
+        height: 520px;
         background: var(--light);
         border-radius: 10px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
@@ -162,8 +158,6 @@ class NoeticChat {
         flex-direction: column;
         overflow: hidden;
         border: 1px solid var(--lightgray);
-        resize: both;
-        overflow: auto;
       }
 
       #noetic-chat-panel.open {
@@ -385,18 +379,20 @@ class NoeticChat {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px;
+        padding: 40px;
       }
 
       .nch-join-inner {
         text-align: center;
         width: 100%;
+        max-width: 280px;
       }
 
       .nch-join h4 {
         color: var(--secondary);
-        margin: 0 0 10px 0;
-        font-size: 14px;
+        margin: 0 0 16px 0;
+        font-size: 16px;
+        font-weight: 600;
       }
 
       .nch-join input {
@@ -404,17 +400,19 @@ class NoeticChat {
         background: var(--light);
         border: 1px solid var(--gray);
         color: var(--dark);
-        padding: 9px;
-        border-radius: 6px;
-        font-size: 13px;
-        margin-bottom: 6px;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 14px;
+        margin-bottom: 12px;
         outline: none;
         text-align: center;
         font-family: var(--bodyFont);
+        box-sizing: border-box;
       }
 
       .nch-join input:focus {
         border-color: var(--secondary);
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--secondary) 15%, transparent);
       }
 
       .nch-join button {
@@ -422,10 +420,10 @@ class NoeticChat {
         background: var(--secondary);
         color: var(--light);
         border: none;
-        padding: 9px;
-        border-radius: 6px;
+        padding: 12px;
+        border-radius: 8px;
         cursor: pointer;
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 500;
         font-family: var(--bodyFont);
       }
@@ -436,15 +434,36 @@ class NoeticChat {
 
       .nch-join .error {
         color: #ef4444;
-        font-size: 11px;
-        margin-bottom: 6px;
+        font-size: 12px;
+        margin-bottom: 12px;
         display: none;
       }
 
       @media (max-width: 480px) {
+        #noetic-chat-container {
+          bottom: 12px;
+          right: 12px;
+        }
+
+        #noetic-chat-bubble {
+          width: 48px;
+          height: 48px;
+        }
+
         #noetic-chat-panel {
-          width: calc(100vw - 40px);
-          height: calc(100vh - 120px);
+          bottom: 60px;
+          right: 0;
+          width: calc(100vw - 24px);
+          height: calc(100vh - 100px);
+          max-height: 600px;
+        }
+
+        .nch-join {
+          padding: 30px;
+        }
+
+        .nch-join-inner {
+          max-width: 100%;
         }
       }
     `
