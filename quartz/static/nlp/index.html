@@ -693,6 +693,27 @@
     let activeData = {};
     let historyData = {};
 
+    // Helper: Decode and format URL
+    function formatPage(url) {
+      try {
+        let decoded = decodeURIComponent(url);
+        // Remove leading slash for display
+        if (decoded.startsWith('/')) decoded = decoded.substring(1);
+        // Replace dashes with spaces for readability
+        decoded = decoded.replace(/-/g, ' ').replace(/\//g, ' / ');
+        return decoded || '/';
+      } catch (e) {
+        return url;
+      }
+    }
+
+    // Helper: Format time
+    function formatDuration(seconds) {
+      if (seconds < 60) return `${seconds}s`;
+      if (seconds < 3600) return `${Math.floor(seconds/60)}m ${seconds%60}s`;
+      return `${Math.floor(seconds/3600)}h ${Math.floor((seconds%3600)/60)}m`;
+    }
+
     // Login
     document.getElementById('loginBtn').addEventListener('click', login);
     document.getElementById('password').addEventListener('keydown', (e) => {
@@ -775,6 +796,18 @@
 
     function updateMainStats(active, history) {
       const today = history.history?.[0] || {};
+
+      // Calculate additional metrics
+      const pagesPerSession = today.totalSessions > 0
+        ? (today.totalPageViews / today.totalSessions).toFixed(1)
+        : '0';
+      const mobilePercent = active.total > 0
+        ? Math.round((active.mobileVsDesktop?.mobile || 0) / active.total * 100)
+        : 0;
+      const engagementRate = active.total > 0
+        ? Math.round((active.visitors?.filter(v => v.scrollDepth > 50).length || 0) / active.total * 100)
+        : 0;
+
       const html = `
         <div class="stat-card blue">
           <div class="stat-label">Anlık Aktif</div>
@@ -789,22 +822,22 @@
         <div class="stat-card yellow">
           <div class="stat-label">Sayfa Görüntüleme</div>
           <div class="stat-value">${today.totalPageViews || 0}</div>
-          <div class="stat-subtitle">Bugün toplam</div>
+          <div class="stat-subtitle">${pagesPerSession} sayfa/oturum</div>
         </div>
         <div class="stat-card purple">
-          <div class="stat-label">Ort. Scroll Derinliği</div>
-          <div class="stat-value">${active.avgScrollDepth || 0}%</div>
-          <div class="stat-subtitle">Aktif kullanıcılar</div>
+          <div class="stat-label">Engagement Rate</div>
+          <div class="stat-value">${engagementRate}%</div>
+          <div class="stat-subtitle">%50+ scroll yapanlar</div>
         </div>
         <div class="stat-card pink">
           <div class="stat-label">Bounce Rate</div>
           <div class="stat-value">${today.bounceRate || 0}%</div>
-          <div class="stat-subtitle">Bugün</div>
+          <div class="stat-subtitle">Tek sayfa ziyaret</div>
         </div>
         <div class="stat-card cyan">
-          <div class="stat-label">Yeni Ziyaretçi</div>
-          <div class="stat-value">${today.newVsReturning?.new || 0}</div>
-          <div class="stat-subtitle">${today.newVsReturning?.returning || 0} geri dönen</div>
+          <div class="stat-label">Mobil Oran</div>
+          <div class="stat-value">${mobilePercent}%</div>
+          <div class="stat-subtitle">${active.mobileVsDesktop?.mobile || 0} mobil / ${active.mobileVsDesktop?.desktop || 0} desktop</div>
         </div>
       `;
       document.getElementById('mainStats').innerHTML = html;
@@ -817,13 +850,15 @@
       document.getElementById('activePages').innerHTML = Object.entries(data.pages || {})
         .sort((a, b) => b[1] - a[1])
         .slice(0, 15)
-        .map(([page, count]) => `
+        .map(([page, count]) => {
+          const formatted = formatPage(page);
+          return `
           <div class="list-item">
-            <span class="name" title="${page}">${page}</span>
+            <span class="name" title="${formatted}">${formatted.length > 50 ? formatted.substring(0, 50) + '...' : formatted}</span>
             <div class="bar"><div class="bar-fill" style="width: ${(count/maxPageViews)*100}%"></div></div>
             <span class="count">${count}</span>
           </div>
-        `).join('') || '<div class="empty-state">Veri yok</div>';
+        `}).join('') || '<div class="empty-state">Veri yok</div>';
 
       // Active sources
       document.getElementById('activeSourcesCount').textContent = Object.keys(data.sources || {}).length;
@@ -837,20 +872,22 @@
         `).join('') || '<div class="empty-state">Veri yok</div>';
 
       // Visitor table
-      document.getElementById('visitorTable').innerHTML = data.visitors?.map(v => `
+      document.getElementById('visitorTable').innerHTML = data.visitors?.map(v => {
+        const formattedPage = formatPage(v.page);
+        return `
         <tr>
           <td><code>${v.sessionId}</code></td>
           <td><code>${v.deviceId}</code></td>
-          <td title="${v.page}">${v.page.length > 25 ? v.page.substring(0, 25) + '...' : v.page}</td>
+          <td title="${formattedPage}">${formattedPage.length > 30 ? formattedPage.substring(0, 30) + '...' : formattedPage}</td>
           <td><span class="badge badge-${v.device.toLowerCase()}">${v.device}</span></td>
           <td>${v.browser}</td>
           <td>${v.city}, ${v.country}</td>
           <td>${v.source}</td>
           <td>${v.scrollDepth}%</td>
-          <td>${v.timeOnPage}s</td>
+          <td>${formatDuration(v.timeOnPage)}</td>
           <td>${v.idleTime}s</td>
         </tr>
-      `).join('') || '<tr><td colspan="10" class="empty-state">Aktif ziyaretçi yok</td></tr>';
+      `}).join('') || '<tr><td colspan="10" class="empty-state">Aktif ziyaretçi yok</td></tr>';
     }
 
     function updateTrafficTab(data) {
@@ -926,24 +963,28 @@
       // Top pages
       const maxViews = Math.max(...(today.topPages || []).map(p => p.views), 1);
       document.getElementById('topPagesList').innerHTML = (today.topPages || [])
-        .map(p => `
+        .map(p => {
+          const formatted = formatPage(p.page);
+          return `
           <div class="list-item">
-            <span class="name" title="${p.page}">${p.page}</span>
+            <span class="name" title="${formatted}">${formatted.length > 45 ? formatted.substring(0, 45) + '...' : formatted}</span>
             <div class="bar"><div class="bar-fill" style="width: ${(p.views/maxViews)*100}%"></div></div>
             <span class="count">${p.views}</span>
           </div>
-        `).join('') || '<div class="empty-state">Veri yok</div>';
+        `}).join('') || '<div class="empty-state">Veri yok</div>';
 
       // Avg time on pages
       document.getElementById('avgTimeOnPages').innerHTML = Object.entries(today.avgTimeOnPage || {})
         .sort((a, b) => b[1] - a[1])
         .slice(0, 15)
-        .map(([page, seconds]) => `
+        .map(([page, seconds]) => {
+          const formatted = formatPage(page);
+          return `
           <div class="list-item">
-            <span class="name" title="${page}">${page}</span>
-            <span class="count">${seconds}s</span>
+            <span class="name" title="${formatted}">${formatted.length > 40 ? formatted.substring(0, 40) + '...' : formatted}</span>
+            <span class="count">${formatDuration(seconds)}</span>
           </div>
-        `).join('') || '<div class="empty-state">Veri yok</div>';
+        `}).join('') || '<div class="empty-state">Veri yok</div>';
     }
 
     function updateDevicesTab(active, history, deviceData) {
@@ -1031,7 +1072,10 @@
             </div>
             <div style="margin-top: 8px; font-size: 11px;">
               <strong>En Çok Ziyaret:</strong>
-              ${d.topPages.slice(0, 3).map(p => `<span style="color: var(--accent);">${p.page}</span> (${p.count})`).join(', ')}
+              ${d.topPages.slice(0, 3).map(p => {
+                const fp = formatPage(p.page);
+                return `<span style="color: var(--accent);">${fp.length > 25 ? fp.substring(0,25) + '...' : fp}</span> (${p.count})`;
+              }).join(', ')}
             </div>
           </div>
         `).join('') || '<div class="empty-state">Cihaz verisi yok</div>';
@@ -1073,13 +1117,15 @@
         .map(j => `
           <div class="journey-item">
             <div class="journey-meta">
-              <strong>Kaynak:</strong> ${j.source} | <strong>Ülke:</strong> ${j.country}
+              <strong>Kaynak:</strong> ${j.source} | <strong>Ülke:</strong> ${j.country} | <strong>${j.pages.length} sayfa</strong>
             </div>
             <div class="journey-path">
-              ${j.pages.map((p, i) => `
+              ${j.pages.map((p, i) => {
+                const fp = formatPage(p);
+                return `
                 ${i > 0 ? '<span class="journey-arrow">→</span>' : ''}
-                <span class="journey-page" title="${p}">${p}</span>
-              `).join('')}
+                <span class="journey-page" title="${fp}">${fp.length > 20 ? fp.substring(0,20) + '...' : fp}</span>
+              `}).join('')}
             </div>
           </div>
         `).join('') || '<div class="empty-state">Yolculuk verisi yok</div>';
