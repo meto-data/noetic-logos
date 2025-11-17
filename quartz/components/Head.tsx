@@ -97,6 +97,7 @@ export default (() => {
             return resource
           }
         })}
+        <script src={joinSegments(baseDir, "static/scripts/core.min.js")} defer></script>
       </head>
     )
   }
