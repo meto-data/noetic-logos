@@ -1,1 +1,0 @@
-Erişilmek istenen en büyük emel, [[ülkü]], [[mefkûre]], [[ideal]].

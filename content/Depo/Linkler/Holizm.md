@@ -1,6 +1,3 @@
----
-created: '2025-10-04'
----
 - Holizm (bütünsellik); **bütünün, meydana geldiği parçaların toplamından daha anlamlı, önemli ve değerli** olduğunu savunan felsefi bir görüştür. 
 - Kelimenin sıfat hâli olan holistik (bütünsel veya bütünselliğe ait) ise, **bir şeyin veya bir kimsenin parça olarak değil de bir bütün olarak konu edilmesi**ni ifade etmektedir.
 

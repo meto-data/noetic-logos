@@ -1,6 +1,3 @@
----
-created: '2025-10-04'
----
 Tahvilin üzerinde bulunan ve belirli dönemlerde yatırımcıya yapılacak olan **faiz ödeme yükümlülüğünü** gösteren belgelerdir.
 
 

@@ -1,4 +1,1 @@
----
-created: '2025-10-04'
----
 - Bir mal veya hizmetin satış fiyatından yapılan indirimi ifade eder. Genellikle erken ödeme, toplu alım veya kampanyalar gibi durumlarda uygulanır. Satış fiyatını düşürerek alıcıya avantaj sağlar ve satıcı için de satışları artırma fırsatı sunar.

@@ -1,1 +1,0 @@
-**Yolculuk**, **manevî yürüyüş**.

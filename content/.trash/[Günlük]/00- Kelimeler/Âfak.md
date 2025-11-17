@@ -1,1 +1,0 @@
-**Ufuklar**, **dış dünya**, **hâriç âlem**.

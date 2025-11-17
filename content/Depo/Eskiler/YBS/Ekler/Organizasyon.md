@@ -1,6 +1,3 @@
----
-created: '2025-08-31'
----
 - Organizasyon, çevreden gerekli kaynakları alıp işleyerek çıktı hâline dönüştüren, kendi kuralları olan sosyal ve yasal bir yapıdır.
 - Teknik bakış açısıyla organizasyonlar; yeni teknolojiler kullanıldığında girdilerin nasıl çıktılar hâline geleceğine odaklanır.
 
