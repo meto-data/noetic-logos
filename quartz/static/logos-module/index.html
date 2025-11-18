@@ -3,62 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Türk Dili I – Web Modülü</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Türk Dili I - İnteraktif Sınav Modülü</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      /* Custom scrollbar for better aesthetics */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #e2e8f0; /* slate-200 */
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #1e293b; /* slate-800 */
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #94a3b8; /* slate-400 */
+        border-radius: 4px;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #475569; /* slate-600 */
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #64748b; /* slate-500 */
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8; /* slate-400 */
+      }
+      
+      /* Enhanced Prose styles for Note Modal */
+      .prose h2 {
+        font-size: 1.5rem; /* text-2xl */
+        font-weight: 800; /* font-extrabold */
+        color: #1e293b; /* slate-800 */
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #e2e8f0; /* slate-200 */
+      }
+      .dark .prose h2 {
+        color: #f1f5f9; /* slate-100 */
+        border-bottom-color: #334155; /* slate-700 */
+      }
+      .prose h3 {
+        font-size: 1.25rem; /* text-xl */
+        font-weight: 700; /* font-bold */
+        color: #1e293b; /* slate-800 */
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      .dark .prose h3 {
+        color: #e2e8f0; /* slate-200 */
+      }
+       .prose h4 {
+        font-size: 1.125rem; /* text-lg */
+        font-weight: 600; /* font-semibold */
+        color: #334155; /* slate-700 */
+        margin-top: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
+      .dark .prose h4 {
+        color: #cbd5e1; /* slate-300 */
+      }
+      .prose h5 {
+        font-weight: 600;
+        color: #475569; /* slate-600 */
+        margin-top: 1rem;
+      }
+      .dark .prose h5 {
+        color: #94a3b8; /* slate-400 */
+      }
+      .prose p, .prose ul, .prose ol {
+        color: #334155; /* slate-700 */
+        line-height: 1.75;
+        margin-bottom: 1rem;
+      }
+      .dark .prose p, .dark .prose ul, .dark .prose ol {
+        color: #cbd5e1; /* slate-300 */
+      }
+      .prose ul, .prose ol {
+        padding-left: 1.5em;
+      }
+      .prose li {
+        margin-bottom: 0.5em;
+      }
+      .prose ul > li::marker {
+        color: #0ea5e9; /* sky-500 */
+      }
+      .prose strong, .prose b {
+        color: #0f172a; /* slate-900 */
+      }
+      .dark .prose strong, .dark .prose b {
+        color: #f8fafc; /* slate-50 */
+      }
+
+      /* Sidebar transition */
+      .sidebar {
+        transition: transform 0.3s ease-in-out;
+      }
+
+      /* Highlight effect for scrolled-to element */
+      @keyframes highlight-scroll {
+        from {
+          background-color: rgba(14, 165, 233, 0.3); /* sky-500 with opacity */
+          box-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
+        }
+        to {
+          background-color: transparent;
+          box-shadow: none;
+        }
+      }
+      .highlight-scroll {
+        animation: highlight-scroll 2s ease-out;
+        scroll-margin-top: 10px; /* Add some space above the scrolled-to element */
+      }
+    </style>
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      try {
+        if (localStorage.appSettings && JSON.parse(localStorage.appSettings).darkMode) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch(e) {
+        console.error("Could not parse appSettings from localStorage", e);
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  <script type="module" crossorigin src="./assets/index-BShGXWWS.js"></script>
 </head>
-<body>
-    <header>
-        <h1>Türk Dili I – Web Modülü</h1>
-        <p>Ders notları ve çoktan seçmeli testler için birleşik platform</p>
-    </header>
-
-    <nav class="top-nav">
-        <ul>
-            <li class="dropdown">
-                <button class="nav-link-dropdown">Testler</button>
-                <ul class="submenu">
-                    <li><a href="#module2" class="nav-link module2-test-link" data-section="module2" data-module2-test="DIL_TANIMI">1 - Dilin Tanımı, Nitelikleri, Kökeni</a></li>
-                    <li><a href="#module2" class="nav-link module2-test-link" data-section="module2" data-module2-test="SOSYAL">2 - Dilin Sosyal Yönü</a></li>
-                    <li><a href="#module2" class="nav-link module2-test-link" data-section="module2" data-module2-test="TURLERI">3 - Dil Türleri</a></li>
-                    <li><a href="#module2" class="nav-link module2-test-link" data-section="module2" data-module2-test="SINIF">3 - Dilin Sınıflandırılması</a></li>
-                    <li><a href="#module2" class="nav-link module2-test-link" data-section="module2" data-module2-test="DONEMLER">5 - Türkçenin Tarihi Dönemleri</a></li>
-                    <li><a href="#module2" class="nav-link module2-test-link" data-section="module2" data-module2-test="ORTA">6 - Orta Türkçe Dönemi</a></li>
-                    <li><a href="#module2" class="nav-link module2-test-link" data-section="module2" data-module2-test="YENI">7 - Yeni Türkçe Dönemi</a></li>
-                    <li><a href="#module2" class="nav-link module2-test-link" data-section="module2" data-module2-test="WRONG">Yanlış Yapılanlar</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-
-    <main>
-        <section id="module2" class="module-block">
-            <div class="container">
-                <section class="module2-section active">
-                    <div class="card quiz-card" aria-live="polite">
-                        <h3>Türk Dili I Test Modülü</h3>
-                        <div id="module2-questionCounter" class="question-counter">Soru 1 / 25</div>
-                        <p id="module2-questionText" class="question-text"></p>
-                        <div id="module2-optionsContainer" class="quiz-options"></div>
-                        <div id="module2-questionFeedback" class="feedback" role="status"></div>
-                        <div class="quiz-actions">
-                            <button id="module2-prevBtn" class="btn secondary" onclick="module2PrevQuestion();">Önceki Soru</button>
-                            <button id="module2-nextBtn" class="btn" onclick="module2NextQuestion();">Sonraki Soru</button>
-                            <button id="module2-submitBtn" class="btn" onclick="module2SubmitQuiz();">Testi Bitir</button>
-                            <button id="module2-retryBtn" class="btn secondary" style="display:none" onclick="module2RetryQuiz();">Testi Tekrar Çöz</button>
-                        </div>
-                        <div id="module2-resultsBox" class="results" style="display:none"></div>
-                    </div>
-                </section>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <small>© 2025 Türk Dili I Web Modülü</small>
-    </footer>
-
-    <script src="app.js" defer></script>
+<body class="bg-slate-100 dark:bg-slate-900 font-sans antialiased text-slate-800 dark:text-slate-200">
+    <div id="root"></div>
 </body>
 </html>
-
-
