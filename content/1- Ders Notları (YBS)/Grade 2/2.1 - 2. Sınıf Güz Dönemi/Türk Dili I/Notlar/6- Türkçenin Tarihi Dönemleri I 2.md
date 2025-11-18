@@ -1,59 +1,12 @@
-KARAHANLI VE ESKİ ANADOLU TÜRKÇESİ EPEY ÖNEMLİ!!!
-DEDE KORKUT NEREDE ÖNEMLİ STİLİ ÖNEMLİ ÖZELLİKLERİ ÖNEMLİ
-
-Türklerin en uzun kullandığı alfabe = Arap alfabesi
-Hakaniye'nin Kuran tercümeleri yaptığı önemli. Üç KUran önemli : İstanbul, Özbekistan ve İngiltere'de saklananlar. Satır altı kuran tercümelerinin var olduğunu bilmek yeterli dedi hoca.
-
-Bu dönemde telif edilen, yazılan edebî eserler de var 4 adet önemli olan: Kutadgu Bilig, Divan-ı Lügati't Türk, Atabetu'l Hayakıy, Divan-ı Hikmet.
-
-## Kutadgu
-İlk siyasetname
-İdeal insanı anlatır, sosyolojik/didaktirk
-Alegorik eserdir
-Kimin neyi temsil ettiği sınavda gelecek!!! onları bil
-Üç tane mushafı bulunmakta
-Viyana mushafı uygur
-Diğerleri Arap
-
-İlk hitabetname nedir (köktürk)  ilk siyasetname nedir (kutadgu) bunların nedenini bil alegorik neden dieal insanı anlatır,n eden? 
-
-
-## divanı lügatit türk
-modern türkolojinin babası sayılır
-kime sundu?
-kaşgarlı mahmut
-ilk Türk grramercisi
-Bir Türk'ün çizdiği ilk dünya haritası
-
-
-## divan-ı hikmet
-ilk tarikat lideri ahmet yesevi
-
-
----
-
-harezm türkçesi sadece batı türkistan aklında kalsın kitabul enbiya kalsın oradaki eserler kalsın yeterli
-
-
-
-### Türkiye Türkçesi (bu kısım aşırı önemli)
-
-
-
----
----
----
-
-
 # Orta Türkçe
 ## 1. Karahanlı (Hakaniye) Türkçesi
 - Satuk Buğra Han 945'te Müslüman olup 'Abdülkerim' adını alıyor. Yeni din ve yeni medeniyet söz konusu artık.
 - **Alfabe**: Uygur Alfabesi kullanılmaya devam ediyor ancak yanına **Arap Alfabesi** de geliyor. 
 	- **11-20. Yüzyıla kadar kullanıyoruz: En uzun süre kullanılan alfabe**.
 ### 1.1. Karahanlı eserleri
-- Çeviriler ve telif eserler olmak üzere ik igrup var.
+- Çeviriler ve telif eserler olmak üzere iki grup var.
 #### a) Kur'an Tercümeleri
-- "Satır Altı Kur'an Tercümeleri" Arapça metnin hemen altına kelime kelime Türkçesi yazıldığından.
+- "Satır Altı Kur'an Tercümeleri" Arapça metnin hemen altına kelime kelime Türkçesi yazıldığından bu ismi almış.
 ##### Nüshalar (3)
 - **İstanbul Nüshası**: Türk ve İslam eserleri Müzesi. **En eskisi**.
 - **Taşkent Nüshası**: Özbekistan İlimler Akademisi.
