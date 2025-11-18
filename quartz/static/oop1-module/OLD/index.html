@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nesne Tabanlı Programlama - Test Modülü</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Nesne Tabanlı Programlama</h1>
+        <p>Etkileşimli Test ve Alıştırma Modülü</p>
+    </header>
+
+    <nav class="top-nav">
+        <ul>
+            <li><a href="#" id="homeBtn" class="nav-link">Ana Sayfa</a></li>
+            <!-- Test links will be dynamically inserted here by JS -->
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Home Section -->
+        <section id="home" class="section">
+            <h2>Test Modülleri</h2>
+            <p>Aşağıdan çalışmak istediğiniz test modülünü seçin. İlerlemeniz otomatik olarak kaydedilecektir.</p>
+            <div id="testGrid" class="test-grid">
+                <!-- Test cards will be dynamically inserted here by JS -->
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="module-quiz" class="section" style="display: none;">
+            <h2 id="quizTitle">Modül Testi</h2>
+            <div id="quizQuestionContainer" class="quiz-container"></div>
+            <div id="quizFeedback" class="feedback"></div>
+            <div class="quiz-navigation">
+                <button id="prevQuestionBtn" class="btn secondary">Önceki Soru</button>
+                <button id="nextQuestionBtn" class="btn">Sonraki Soru</button>
+            </div>
+            <div class="quiz-actions">
+                <button id="submitQuizBtn" class="btn">Testi Bitir</button>
+                <button id="resetQuizBtn" class="btn reset">Testi Sıfırla</button>
+            </div>
+            <div id="quizSummary" class="results"></div>
+        </section>
+    </main>
+
+    <footer>
+        <small>© 2025 OOP Web Modülü</small>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
