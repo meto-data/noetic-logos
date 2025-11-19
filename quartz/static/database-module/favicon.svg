@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="#3b82f6"/>
+  
+  <!-- Database Icon (3 stacked cylinders) -->
+  <!-- Top ellipse -->
+  <ellipse cx="32" cy="18" rx="16" ry="6" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Middle cylinder -->
+  <rect x="16" y="18" width="32" height="12" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="32" cy="30" rx="16" ry="6" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Bottom cylinder -->
+  <rect x="16" y="30" width="32" height="12" fill="#ffffff" opacity="0.7"/>
+  <ellipse cx="32" cy="42" rx="16" ry="6" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Shadow lines for depth -->
+  <path d="M 16 18 Q 16 24 32 24 Q 48 24 48 18" stroke="#1e3a8a" stroke-width="1.5" fill="none" opacity="0.3"/>
+  <path d="M 16 30 Q 16 36 32 36 Q 48 36 48 30" stroke="#1e3a8a" stroke-width="1.5" fill="none" opacity="0.3"/>
+  <path d="M 16 42 Q 16 48 32 48 Q 48 48 48 42" stroke="#1e3a8a" stroke-width="1.5" fill="none" opacity="0.3"/>
+</svg>
