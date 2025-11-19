@@ -7,7 +7,7 @@ cssclasses:
   - ders-notu
 created: 15.10.2025
 ---
-- 3**Not**: Finans dersinden nispeten bıktığım için bazı notlar akademik düzeyden sapıyor. İdare ediverin.
+- **Not**: Finans dersinden nispeten bıktığım için bazı notlar akademik düzeyden sapıyor. İdare ediverin.
 	- Notlar henüz yarımdır. Haftaya göre değil konuya göre alınmaktadır notlar.
 
 ---

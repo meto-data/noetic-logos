@@ -7,7 +7,8 @@ cssclasses:
   - ders-notu
 created: 12.11.2025
 ---
- ## Kısa Anımsatma
+## Kısa Anımsatma
+
 - **Dönen varlıklar (cari aktif)** genel olarak **kısa vadeli borçlarla (cari pasif)** finanse edilir. 
 	- **[[Cari Aktif]]** = [[Dönen Varlıklar]] = [[Çalışma Sermayesi (İşletme Sermayesi)]]
 	- **Cari Pasif** = **Kısa Vadeli Borçlar** 
