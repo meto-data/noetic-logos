@@ -73,7 +73,7 @@ title: Veri Tabanı Yönetim Sistemleri - 2. Ders
 
 ### **Fonksiyonel Bağımlılık** (Functional Dependency)
 - Bir kolonun (veya kolon grubunun) değerinin, başka bir kolonun değerini benzersiz olarak belirleyebilmesi durumudur.
-	- Daha anlaşılır ifadeyle, bir kolonun (attribute) diğer kolonları tanımlayabiliyor olması. O kolonun bilgisine bakarak diğer kolonlara erişebilmek.
+	- Daha anlaşılır ifadeyle, bir kolonun (satır) diğer kolonları tanımlayabiliyor olması. O kolonun bilgisine bakarak diğer kolonlara erişebilmek.
 		- Daha da anlaşılır ifadeyle "bir niteliğin (sütunun) değerini bilirsem, başka bir niteliğin değerini de kesin olarak bilebilirim" diyebilme durumu.
 		- Örneğin `TcNo` $\to$ `Ad`, `Soyad`. `TcNo` değerini bildiğimizde, `Ad` ve `Soyad`'ı da kesin olarak bilebiliriz. Ancak tersi doğru değildir. 
 	- Fonksiyonel bağımlılık kompozit de olabilir: (OrderID, ProductID) -> OrderQuantity. Yani bir siparişteki bir ürünün miktarını bilmek için hem sipariş ID'sine hem de ürün ID'sine ihtiyaç duyarız.c

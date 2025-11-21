@@ -73,7 +73,7 @@ $$
 
 ### f) **Köşegen Matris**
 
-- Bir <u>kare matriste</u> *asal köşegen dışında kalan tüm elemanlar* **0** İSE, bu matise köşegen matris denir.
+- Bir <u>kare matriste</u> *asal köşegen dışında kalan tüm elemanlar* **0** İSE, bu matrise köşegen matris denir.
 $$
 \Large
 F = \begin{bmatrix} 3 & 0 \\ 0 & 4 \end{bmatrix} \space\space\space\space K= \begin{bmatrix} -5 & 0 & 0 \\ 0 & 4 & 0 \\ 0 & 0 & 3\end{bmatrix}

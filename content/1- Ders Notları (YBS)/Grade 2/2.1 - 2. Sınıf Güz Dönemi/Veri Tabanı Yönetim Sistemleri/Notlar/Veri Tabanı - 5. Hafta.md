@@ -14,7 +14,7 @@ VALUES
 
 ### DELETE
 
- - 5Ders kapsamındaki uygumalar ekseriyetle sınava yönelik olacak
+ - Ders kapsamındaki uygumalar ekseriyetle sınava yönelik olacak
 
 ```sql
 DELETE FROM <table>

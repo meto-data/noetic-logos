@@ -209,7 +209,7 @@ created: 15.10.2025
 	-  Sonra bu farkın yüzdesini hesaplıyoruz. $\boxed{\text{ Değişim Yüzdesi } = \text{ (Değişim Değeri / Baz Dönemdeki Değer)} \times 100}$
 
 
-> [!important] Baz Dönem Olma Koşulları
+> [!important] Baz Dönem Olma Koşulları (**Yatay Analiz İçin Geçerli Değil!**)
 > - Kuruluş, tasfiye/iflas/konkordato dönemi olmayacak.
 > - Yatırım yapılan bir yıl olmayacak.
 > - Maliyet yılı olmayacak.

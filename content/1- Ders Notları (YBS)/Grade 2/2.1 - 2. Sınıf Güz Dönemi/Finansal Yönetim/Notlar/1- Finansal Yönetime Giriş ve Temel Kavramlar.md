@@ -4,6 +4,7 @@ date: 2025-10-01
 ---
 
 ---
+
 - **Not**: Ders anlatımı epey karmaşık ilerlediği için kategorizasyonda sorunlar olabilir. Derste anlatılanlar, paylaşılan notlar, geçmiş dersler ve kavram tanımlamalarında finans ile ilintili web kaynaklarına bakarak bu notlar oluşturulmuştur. Dolayısıyla ders anlatımından daha fazla notlar barındıracaktır, ancak derste anlatılanları içermesine, onlarla bağlantılı olmasına önem verildi daha ziyade.
 
 
@@ -18,7 +19,7 @@ date: 2025-10-01
 	1. **Söz Hakkı**: Şirketin genel kuruluna katılıp oy kullanma hakkı.
 	2. **Kârdan Pay Alma Hakkı)**: Şirket kâr elde ettiğinde, o kârdan kendi payına düşeni ([[temettü]]) alma hakkı.
 	3. **Devir Hakkı**: Hisse senedini başkasına satma hakkı (borsada yapılan alım-satım işleri).
-	- Anonim şirketler bu hisse senetlerini satarak (ihraç ederek) para toplar (finansman sağlar).
+	- Anonim şirketler bu hisse senetlerini satarak (ihraç ederek) para toplar (finansman sağlar).         
 
 
 ---
