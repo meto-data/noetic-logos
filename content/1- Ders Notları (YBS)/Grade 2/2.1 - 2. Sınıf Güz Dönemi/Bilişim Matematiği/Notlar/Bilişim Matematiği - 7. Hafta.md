@@ -7,6 +7,7 @@ date: 2024-11-07
 cssclasses:
   - ders-notu
 ---
+
 <h1 style="text-align:center"><span style="color:lightblue; text-align:center">Ünite 4: Lineer Cebir (Matrisler ve Determinantlar)</span> | <span style="color:lightorange">07.11.2025</span></h2>
 
 ## Bir Kare Matrisin Tersi

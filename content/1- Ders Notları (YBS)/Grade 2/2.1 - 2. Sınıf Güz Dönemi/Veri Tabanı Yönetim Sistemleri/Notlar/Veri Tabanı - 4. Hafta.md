@@ -26,7 +26,6 @@ CREATE TABLE
 - Mevcut bir tablo üzerinde değişiklik yapmak için kullanılır. Tabloya kolon ekleyebilir, var olan bir kolonu değiştirilebilir veya silebiliriz.
 
 ```SQL
-USE Okul
 ALTER TABLE Ogrenciler
 ADD Bolum varchar(50)
 ```

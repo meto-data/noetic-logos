@@ -3,6 +3,7 @@ title: Veri Tabanı Yönetim Sistemleri - 1. Ders
 date:
 ---
 ## DIKW Pyramid (Data - Information - Knowledge - Wisdom)
+
 - Daha ayrıntılı bilgi için bkz. [[2- Zekâ, DIKW]]
 
 ![[dikw1.png|500]]
@@ -41,7 +42,7 @@ date:
 - Bir veri tabanını oluşturmak, saklamak, çoğaltmak, güncellemek ve yönetmek için kullanılan programlar.
 ### VTYS'nin Sağladığı Yararlar
 #### [[Veri Tutarlılığı]] (Data Consistency)
-- Aynı verinin birden fazla yerde farklı kopyalarının bulunması durumunda bir yerde yapılan değişikliğin diğer kopyalara da yansıtılması durumu. 
+- Aynı verinin birden fazla yerde farklı kopyalarının bulunması durumunda bir yerde yapılan değişikliğin diğer kopyalara da yansıtılması durumu.  [[Consistency]]
 #### [[Veri Bütünlüğü]] (Data Integrity)
 - Bir verinin sistem genelinde tutarlılığının ve doğruluğunun korunması. (bkz. [[integrity]])
 	- Bir tablodan silinen kayıt diğer ilgili tablolardan da silinmelidir.
@@ -50,7 +51,7 @@ date:
 	- Aynı anda birçok kullanıcının banka müşteri verilerine erişebilmesi.
 #### [[Veri Güvenliği]] (Data Security)
 - Verilere erişim yetkilerinin kullanıcı bazında kontrol edilmesi.
-	- Bazı kullanıcılar sadece veriyi okuyabilir bazılarıysa ekleme/silme yetkisine sahiptir. 
+	- Bazı kullanıcılar sadece veriyi okuyabilir bazılarıysa ekleme/silme yetkisine sahiptir.  [[Confidentiality]]
 ### [[Veri Tabanı Yöneticisi]] (DBA - Database Administrator)
 - Veri tabanının tasarımı, oluşturulması ve işletiminden sorumlu kişi.
 - **Görevleri**:
@@ -103,6 +104,7 @@ date:
 	- Veri tekrarını en aza indirir ve [[Veri bütünlüğü|veri bütünlüğünü]] güçlendirir.
 	- Günümüzdeki modern veri tabanı sistemlerinin (Oracle, MySQL, SQL Server vb.) neredeyse tamamı bu yapıdadır.
 - **Örnek**: Bir kütüphane sisteminde "Kitaplar" tablosu ile "Yazarlar" tablosu, her ikisinde de bulunan "yazar_id" alanı üzerinden birbirine bağlanır. Bu sayede hangi kitabın hangi yazara ait olduğu bilgisi tutulur.
+
 ## [[Veri Türleri]] (Data Types)
 - Bir alanda (sütunda) ne türde veri saklanacağını önceden tanımlamak için kullanılır. Bu sayede;
 	1. [[Veri bütünlüğü]] sağlanır.
