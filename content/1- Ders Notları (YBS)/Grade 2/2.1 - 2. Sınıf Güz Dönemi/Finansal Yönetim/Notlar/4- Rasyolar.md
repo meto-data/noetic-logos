@@ -15,7 +15,7 @@ created: 12.11.2025
 - *Duran varlıklar* ise genel olarak "*devamlı sermaye*" ile finanse edilir.
 	- *[[Devamlı Sermaye|Devamlı (Sürekli) Sermaye]]*: `Uzun Vadeli Yabancı Kaynaklar` $+$ `Öz Sermaye`
 
-> [!tip] Kısa Anımsatma
+> [!tip] Kısa Anımsatma (**Dönen Varlıklar**)
 > - **Hazır Değerler**: Kasadaki ve bankadaki nakit para.
 > - **Menkul Kıymetler**: Atıl parayı geçici olarak değerlendirmek için alınan hisse senedi, fon gibi kolayca paraya çevrilebilen varlıklardır.
 > - **Ticarî Alacaklar**: Mal ve hizmet satışından doğan, vadesi gelmememiş **[[Senetli Alacaklar|senetli]]** veya **senetsiz** alacaklar.
@@ -27,7 +27,7 @@ created: 12.11.2025
 
 > 	`Batı'nın secde ettiği kavramdır âmiyâne tabiriyle.`
 
-- *Latince 'ratio'.*
+- *Latince 'ratio'.*"3
 - **İlişkili hesapları birbirleriyle oranlayarak yaptığımız analiz türü**. 
 
 
@@ -136,7 +136,7 @@ $$
 
 
 
-#### 2.0. **Ortalama Hesap** (Average Balance)
+#### 2.0. **Ortalama Aktif (Hesap)** (Average Balance)
 - Bu oranların çoğunda ortalama hesap kullanılır zira **"Net Satışlar"** 1 yıllık bir *akım* kalemidir **(Gelir Tablosu)**, 1 yıl boyunca akar. **Stoklar** ise anlık bir kalemdir **(Bilanço)**. Elmayla armudu karıştıramayız buradan da anlaşılacağı üzere. 1 yıllık satış hacmini 1 günlük stok fotoğrafına bölemeyiz. Bu yüzden bilanço kaleminin *ortalamasını* alırız.
 <br>
 
@@ -167,7 +167,7 @@ $$
 
 $$
 \Large
-\text{Aktif Devir Hızı } = \frac{\text{Net Satışlar}}{\text{Ortalama Hesap}}
+\text{Aktif Devir Hızı } = \frac{\text{Net Satışlar}}{\text{Ortalama Aktif}}
 $$
 
 
@@ -179,7 +179,7 @@ $$
 
 
 
-#### 2.2.0. **Stok Devir Formülü (SDH) Formülü** 
+#### 2.2.0. **Stok Devir Hızı (SDH) Formülü** 
 
 $$
 \frac{\text{\Large Net Satışlar}} {\text{\Large Ortalama Stok}}
@@ -194,7 +194,7 @@ $$
 \frac{\text{Dönem Başı Stoklar + Dönem Sonu Stoklar}}{2}}
 $$
 
-##### 2.2.0.2. **Stokta Kalma Süresi** (Days in Inventory)
+#### 2.2.0.2. **Ortalama Stokta Kalma Süresi** (Days in Inventory)
 - Stok Devir Hızı (SDH) ile ilişkili olarak, 
 - "*Bir mal depoya girdiği andan satılana kadar ortalama kaç gün geçiyor?*" sorusunu yanıtlar.
 
@@ -217,7 +217,8 @@ $$
 $$
 
 
-##### 2.3.0.1. **Ortalama Tahsil Süresi** (Days Sales Outstanding -DSO)
+#### 2.3.0.1. **Ortalama Tahsil Süresi** (Days Sales Outstanding -DSO)
+
 - Alacak Devir Hızı ile ilişkili olarak, 
 - "Faturayı kestikten sonra paranın kasaya girmesi ortalama kaç gün sürüyor?" sorusuna yanıt verir.
 
