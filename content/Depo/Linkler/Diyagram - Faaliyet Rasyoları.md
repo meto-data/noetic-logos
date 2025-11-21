@@ -1,5 +1,5 @@
 ```mermaid
-flowchart LR
+flowchart 
 
 A["Faaliyet Oranları<br/><b>Hız ve Verim Analizi</b><br/><small>İşletme varlıklarını ne kadar hızlı döndürüyor?</small>"] --> B["Ortalama Hesap<br/>= (Dönem Başı + Dönem Sonu) / 2<br/><small>Bilanço kalemi = anlık; satış = yıllık akım.<br/>Bu yüzden ortalama alınır.</small>"]
 
