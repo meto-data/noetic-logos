@@ -229,3 +229,12 @@ $$
 
 
 - **Yorum**: Alacak devir hızı arttıkça tahsil süresi kısalır, iyidir bu iyi.
+
+
+---
+
+![[Diyagram - Likidite Rasyoları]]
+
+
+
+![[Diyagram - Faaliyet Rasyoları]]

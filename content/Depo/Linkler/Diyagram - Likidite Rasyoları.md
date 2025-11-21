@@ -1,7 +1,7 @@
 
 ```mermaid
 
-flowchart LR
+flowchart 
 
 A["Başlangıç: Likidite Analizi
 Kısa vadeli borçları ödeme gücünü ölçmeye başla"] --> B["Cari Oran = Dönen Varlıklar / KVB
@@ -54,3 +54,4 @@ I -->|Hayır| I2["Kasa zayıf
 Alacak veya stoklara bağımlılık var"]
 
 ```
+
