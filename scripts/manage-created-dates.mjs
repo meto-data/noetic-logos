@@ -85,6 +85,13 @@ function collectContentFilesFromGit(scopeMode) {
       .split("\n")
       .map((line) => line.trim())
       .filter(Boolean)
+      .filter((line) => {
+        // Skip deleted files (porcelain format: "D " or " D" at start)
+        if (scopeMode !== "staged" && line.match(/^[DR]D?\s/)) {
+          return false
+        }
+        return true
+      })
       .map((line) => {
         if (scopeMode === "staged") {
           return line
