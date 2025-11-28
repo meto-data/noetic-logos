@@ -1,9 +1,9 @@
 ---
-title: Bilişim Matematiği - 7. Hafta
+title: Bilişim Matematiği - 8. Ders
 type: learning
 ders: "[[Bilişim Matematiği]]"
 created: "[[2025-11-7]]"
-date: 2024-11-14
+date: 2024-11-28
 cssclasses:
   - ders-notu
 draft: false

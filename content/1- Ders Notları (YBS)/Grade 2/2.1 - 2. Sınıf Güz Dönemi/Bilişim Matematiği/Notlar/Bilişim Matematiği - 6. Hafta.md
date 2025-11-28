@@ -1,5 +1,5 @@
 ---
-title: Bilişim Matematiği - 6. Hafta
+title: Bilişim Matematiği - 6. Ders
 type: learning
 ders: "[[Bilişim Matematiği]]"
 created: "[[2025-10-31]]"

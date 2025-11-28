@@ -1,5 +1,5 @@
 ---
-title: Bilişim Matematiği - 7. Hafta
+title: Bilişim Matematiği - 7. Ders
 type: learning
 ders: "[[Bilişim Matematiği]]"
 created: "[[2025-11-7]]"
