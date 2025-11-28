@@ -1,5 +1,5 @@
 ---
-title: Bilişim Matematiği - 3. Hafta
+title: Bilişim Matematiği - 3. Ders
 type: learning
 ders: Bilişim Matematiği
 created: "[[2025-10-10]]"

@@ -1,5 +1,5 @@
 ---
-title: Bilişim Matematiği - 2. Hafta
+title: Bilişim Matematiği - 2. Ders
 type: learning
 ders: Bilişim Matematiği
 konu: Mantık
