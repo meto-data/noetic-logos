@@ -15,7 +15,7 @@ date: 2025-10-01
 - **[[Finans]]**: Aysel Göndoğdu'nun Herkese Göre Finans adlı kitabında finans *"Bir bireyin ya da işletmenin fon kaynağı bulması, bulduğu kaynağı verimli bir şekilde kullanması ve bunun için araştırma yapması"* olarak tanımlanır.
 - **[[Finansman]]**: Bir girişimin gerçekleşmesi, bir kuruluşun gelişip işleyebilmesi için gerekli mâlî imkânları sağlama.
 - **Finansal Yönetim**: Firmanın ihtiyaç duyduğu fonları temin edip bunları **firma değerini maksimize edecek yatırımlara yönlendirme faaliyetlerinin tümüdür.**
-- **[[Hisse Senedi]]**: Anonim şirketin sermayesinin esas sözleşme ile belirlenmiş eşit parçalarından birine sahip olduğunu kanıtlayan kıymetli bir kâğıttır. Bsitçe **ortaklık tapusu**dur. Üç temel hak verir:
+- **[[Hisse Senedi]]**: Anonim şirketin sermayesinin esas sözleşme ile belirlenmiş eşit parçalarından birine sahip olduğunu kanıtlayan kıymetli bir kâğıttır. Basitçe **ortaklık tapusu**dur. Üç temel hak verir:
 	1. **Söz Hakkı**: Şirketin genel kuruluna katılıp oy kullanma hakkı.
 	2. **Kârdan Pay Alma Hakkı)**: Şirket kâr elde ettiğinde, o kârdan kendi payına düşeni ([[temettü]]) alma hakkı.
 	3. **Devir Hakkı**: Hisse senedini başkasına satma hakkı (borsada yapılan alım-satım işleri).

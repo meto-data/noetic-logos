@@ -27,7 +27,7 @@ created: 12.11.2025
 
 > 	`Batı'nın secde ettiği kavramdır âmiyâne tabiriyle.`
 
-- *Latince 'ratio'.*"3
+- *Latince '**ratio**'.*"
 - **İlişkili hesapları birbirleriyle oranlayarak yaptığımız analiz türü**. 
 
 
@@ -137,7 +137,7 @@ $$
 
 
 #### 2.0. **Ortalama Aktif (Hesap)** (Average Balance)
-- Bu oranların çoğunda ortalama hesap kullanılır zira **"Net Satışlar"** 1 yıllık bir *akım* kalemidir **(Gelir Tablosu)**, 1 yıl boyunca akar. **Stoklar** ise anlık bir kalemdir **(Bilanço)**. Elmayla armudu karıştıramayız buradan da anlaşılacağı üzere. 1 yıllık satış hacmini 1 günlük stok fotoğrafına bölemeyiz. Bu yüzden bilanço kaleminin *ortalamasını* alırız.
+- Bu oranların çoğunda ortalama hesap (ortalama aktif) kullanılır zira **"Net Satışlar"** 1 yıllık bir *akım* kalemidir **(Gelir Tablosu)**, 1 yıl boyunca akar. **Stoklar** ise anlık bir kalemdir **(Bilanço)**. Elmayla armudu karıştıramayız buradan da anlaşılacağı üzere. 1 yıllık satış hacmini 1 günlük stok fotoğrafına bölemeyiz. Bu yüzden bilanço kaleminin *ortalamasını* alırız.
 <br>
 
 $$
@@ -167,7 +167,7 @@ $$
 
 $$
 \Large
-\text{Aktif Devir Hızı } = \frac{\text{Net Satışlar}}{\text{Ortalama Aktif}}
+\text{Aktif Devir Hızı } = \frac{\text{Net Satışlar}}{\text{Ortalama Aktif (Aktif Toplamı)}}
 $$
 
 
@@ -234,6 +234,12 @@ $$
 ---
 
 ![[Diyagram - Likidite Rasyoları]]
+
+
+<br>
+
+
+
 
 
 
