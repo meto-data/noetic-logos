@@ -1,5 +1,5 @@
 ---
-title: 4- Rasyolar
+title: 4- Rasyolar I
 type: learning
 ders: "[[Finansal Yönetim]]"
 date: 2025-11-12

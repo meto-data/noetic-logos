@@ -18,3 +18,8 @@ Amortisman = nakit
 net kâr marşı + brüt kâr marşından sorumluyuz. (dönem net kârı?
 	en geneli ve en darı isteniyor yani.) 
 
+
+adiye (ADG?) aş bilançosu? rasyolar bitti btw.
+
+
+
