@@ -1,11 +1,47 @@
+# === Sistem Dosyaları ===
 .DS_Store
-.gitignore
-node_modules
-public
-prof
+Thumbs.db
+
+# === Node.js ===
+node_modules/
 tsconfig.tsbuildinfo
-.obsidian
-.quartz-cache
-private/
+
+# === Quartz Build ===
+public/
+.quartz-cache/
+
+# === Cloudflare/Wrangler ===
+cloudflare-worker/
+workers/
+.xdg/
+.wrangler/
+
+# === AI/Editor Ayarları ===
+.claude/
+.obsidian/
 .replit
 replit.nix
+
+# === Proje Notları (Kişisel) ===
+Yapılanlar/
+YEDEK/
+yaptiklarim.md
+baglam.md
+PRD.md
+CLAUDE.md
+2025-*.md
+
+# === Yedek/Test Dosyaları ===
+*.backup-*.ts
+quartz.config copy.ts
+OOP/
+ReadyForWeb/
+
+# === Yapılandırma (Hassas) ===
+analytics/
+private/
+dates.config.json
+vercel.json
+
+# === Diğer ===
+prof/
