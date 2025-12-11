@@ -77,7 +77,7 @@ $$
 
 $$
 \large
-\text{Net Kâr Marjı } = \frac{\text{Dönem Net Kârı}}{Net Satışlar}
+\text{Net Kâr Marjı } = \frac{\text{Dönem Net Kârı}}{\text{Net Satışlar}}
 $$
 
 ## 4.2. Yatırımlar Üzerinden Kârlılık (Bilanço Bazlı)
@@ -102,7 +102,7 @@ $$
 - İşletme ortaklarının koyduğu sermayenin, dönem sonunda ne kadar net kâr getirdiğini gösteren orandır. 
 - Sermayenin birim başına getirisidir.
 - Yatırımcı (ortak), parasını riske atmanın değip değmediğini anlar bu bu kârlılık ile. Alternatif yatırım araçlarıyla (faiz, döviz, borsa vb.) kıyaslama yapılmasına da olanak tanır.
-	- Yatırımcının tatmin düzeyini ve [[fırsat maliyeti|fırsat maliyetini]] ölçer. "Bu işletmeye yatırdığım para, bamka faizinden daha fazla gelir getirdi mi?" sorusunun yanıtıdır.
+	- Yatırımcının tatmin düzeyini ve [[fırsat maliyeti|fırsat maliyetini]] ölçer. "Bu işletmeye yatırdığım para, banka faizinden daha fazla gelir getirdi mi?" sorusunun yanıtıdır.
 
 $$
 \large

@@ -1,5 +1,6 @@
 ---
-created: '2025-12-04'
+created: 2025-12-04
 ---
+
 - **Kantite.** 
 - Fransızca *quantité* (nicelik) sözcüğünden alıntıdır.

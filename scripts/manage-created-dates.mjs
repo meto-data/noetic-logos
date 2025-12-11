@@ -14,8 +14,6 @@
 import fs from "fs/promises"
 import path from "path"
 import { fileURLToPath } from "url"
-import { globby } from "globby"
-import matter from "gray-matter"
 import { execSync } from "child_process"
 
 const __filename = fileURLToPath(import.meta.url)
@@ -107,12 +105,60 @@ function collectContentFilesFromGit(scopeMode) {
   }
 }
 
+async function getMarkdownFilesRecursive(currentDir, baseDir) {
+  let filesFound = []
+  const entries = await fs.readdir(currentDir, { withFileTypes: true })
+
+  for (const entry of entries) {
+    const fullPath = path.join(currentDir, entry.name)
+    const relativePath = path.relative(baseDir, fullPath)
+
+    if (entry.isDirectory()) {
+      filesFound = filesFound.concat(await getMarkdownFilesRecursive(fullPath, baseDir))
+    } else if (entry.isFile() && entry.name.endsWith(".md")) {
+      filesFound.push(relativePath)
+    }
+  }
+  return filesFound
+}
+
+function splitFrontmatter(raw) {
+  const match = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n?/)
+  if (!match) {
+    return { frontmatter: null, content: raw }
+  }
+  const frontmatter = match[1]
+  const content = raw.slice(match[0].length)
+  return { frontmatter, content }
+}
+
+function extractCreated(frontmatter) {
+  if (!frontmatter) return null
+  const match = frontmatter.match(/^\s*created\s*:\s*(.*)$/m)
+  return match ? match[1].trim() : null
+}
+
+function writeCreated(raw, newDate) {
+  const match = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n?/)
+  if (!match) {
+    return `---\ncreated: ${newDate}\n---\n\n${raw}`
+  }
+
+  let frontmatter = match[1]
+  if (/^\s*created\s*:/m.test(frontmatter)) {
+    frontmatter = frontmatter.replace(/(^|\n)(\s*created\s*:\s*).*(?=\n|$)/, `$1$2${newDate}`)
+  } else {
+    frontmatter = `${frontmatter}\ncreated: ${newDate}`
+  }
+
+  const rebuilt = `---\n${frontmatter}\n---\n`
+  const content = raw.slice(match[0].length)
+  return rebuilt + content
+}
+
 let files
 if (scope === "all") {
-  files = await globby("**/*.md", {
-    cwd: contentDir,
-    gitignore: true,
-  })
+  files = await getMarkdownFilesRecursive(contentDir, contentDir)
 } else {
   const scoped = collectContentFilesFromGit(scope)
   const unique = Array.from(new Set(scoped))
@@ -196,9 +242,9 @@ const unresolved = []
 for (const relativePath of files) {
   const fullPath = path.join(contentDir, relativePath)
   const raw = await fs.readFile(fullPath, "utf8")
-  const parsed = matter(raw)
+  const { frontmatter } = splitFrontmatter(raw)
 
-  const existing = parsed.data?.created
+  const existing = extractCreated(frontmatter)
   const normalisedExisting = normaliseFrontmatterDate(existing)
 
   let chosenDate = normalisedExisting
@@ -231,12 +277,7 @@ for (const relativePath of files) {
     continue
   }
 
-  parsed.data = parsed.data ?? {}
-  parsed.data.created = chosenDate
-
-  const newContent = matter.stringify(parsed.content, parsed.data, {
-    lineWidth: 120,
-  })
+  const newContent = writeCreated(raw, chosenDate)
 
   if (shouldWrite) {
     await fs.writeFile(fullPath, newContent, "utf8")
