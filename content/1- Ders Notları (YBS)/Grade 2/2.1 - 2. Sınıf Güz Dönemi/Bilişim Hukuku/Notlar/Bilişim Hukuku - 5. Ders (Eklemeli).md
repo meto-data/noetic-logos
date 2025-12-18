@@ -17,7 +17,7 @@ date: 2025-12-04
 
 - CMK, Türk Ceza Kanunu'nda (TCK) yer alan hükümlerin nasıl uygulanacağını ve yargılama usulünü belirler. Bilhassa hukuka aykırı fiillerin yargılanması hususunda belirleyici bir niteliğe sahiptir.
 
-#### A. Teknik Araçlarla İzleme (Surveillance)
+#### Teknik Araçlarla İzleme (Surveillance)
 - Şüphelilerin kamuya açık alanlardaki faaliyetlerinin veya iş yerinin teknik cihazlarla kayda alınması.
 
 ##### Hukukî Nitelik ve Şartlar
@@ -27,7 +27,7 @@ date: 2025-12-04
 
 ##### İletişimin Denetlenmesi ve Teknik Araçlarla İncelenmesi Usulleri
 - Yukarıdaki şartları özetlersek;
-	- Suça ilişkin yürütülen soruşturma ve kavuşturmalarda; kuvvetli şüphe sebepleri var ise ve başka sûretle delil elde imkânı yoksa, hâkim kararı (veya gecikmesinde sakınca bulunan hâllerde savcı kararı) ile şüpheli veya sanığın telekomünikasyon yoluyla iletişimi şu üç şekilde denetlenebilir:
+	- Suça ilişkin yürütülen soruşturma ve kovuşturmalarda; **kuvvetli şüphe sebepleri** var ise ve **başka sûretle delil elde imkânı yoksa**, **hâkim kararı (veya gecikmesinde sakınca bulunan hâllerde savcı kararı)** ile şüpheli veya sanığın telekomünikasyon yoluyla iletişimi şu **üç şekilde denetlenebilir**:
 		1. Dinlenebilir.
 		2. Kaydı alanabilir.
 		3. Sinyal bilgileri değerlendirilebilir.
@@ -39,7 +39,7 @@ date: 2025-12-04
 	3. Elde edilen kanıtlar, soruşturulan suç ile ilgili değil ise derhâl **yok edilir.**
 	4. Teknik araçlarla izleme, kişinin **konutunda** (evinde) asla uygulanamaz.
 
-#### D. SEGBİS (Ses ve Görüntü Bilişim Sistemi)
+#### SEGBİS (Ses ve Görüntü Bilişim Sistemi)
 - Soruşturma ve kovuşturma evresinde savcı, hâkim veya mahkeme tarafından dinlenmesi gereken kişilerin (sanık, tanık vs.) fiziksel olarak orada bulunmadan teknoloji yoluyla ifade vermesidir. Bu sistem şu dört unsuru kapsar:
 	1. **Dinlenilmesi**.
 	2. **Kayda alınması**.
@@ -55,7 +55,7 @@ date: 2025-12-04
 
 ### 2. Adli Bilişim (Digital Forensics)
 - Forensic, Latince *forensis* (meydana, foruma ait) kelimesinden gelir; yani kamusal alanda, mahkemede tartışılabilir delil demektir. Dijital bir veriyi, mahkemede hükme esas alınabilecek bir delil (evidence) niteliğine kavuşturmaktır.
-- **Adli Bilişim**: Sanal alanda bulunan verilerin hukuka uygun şekilde toplanması, bütünlüğünün bozulmadan saklanması, analiz edilmesi ve mahkemeye sunulabilir bir rapor hâline getirilmesi sürecidir. İşbu süreçde şüphelinin sanığa dönüşüp dönüşmemesinde de önemli yer tutar.
+- **Adli Bilişim**:  Enformasyon teknolojilerine değgin veya aşkın (siber alan) alanlardaki verilerin hukuka uygun şekilde toplanması, bütünlüğünün bozulmadan saklanması, analiz edilmesi ve mahkemeye sunulabilir bir rapor hâline getirilmesi sürecidir. Adli bilişim işbu süreçte şüphelinin sanığa dönüşüp dönüşmemesi hususunda da önemli yer tutar.
 
 #### Adli Bilişimin Aşamaları
 ###### 1. **Tanımlama (Identification)**:
