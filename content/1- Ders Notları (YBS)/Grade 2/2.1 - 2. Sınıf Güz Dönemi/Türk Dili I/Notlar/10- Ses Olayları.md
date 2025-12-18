@@ -11,7 +11,7 @@
 
 #### Ses Olaylarını Tetikleyen Başlıca Faktörler
 - **Vurgu (Stress)**: Türkçede son heceler güçlü, orta heceler zayıftır; bu durum orta hecelerde düşmelere yer açar.
-- **Dilin Ses Hususiyetleri**: Türkçe kelime sonunda b, c, d, g bulunmaz; bu kural alıntıları (kitab > kitap) dönüştürür.
+- **Dilin Ses Hususiyetleri**: Türkçe kelime sonunda b, c, d, g bulunmaz; bu kural alıntıları (kitab > kitap) dönüştürür. (Zırva bu arada bu. Bu iddiayı kim ortaya atıyorsa gitsin Clauson okusun biraz.)
 - **Zayıf Sesler**: n, l, r, y, ğ, h gibi ünsüzler fonetik açıdan zayıftır ve düşmeye meyillidir.
 - **Asimilasyon (Benzeşme)**: Seslerin çıkış noktaları veya nitelikleri (kalınlık, yuvarlaklık) bakımından birbirini etkilemesidir.
 
@@ -50,7 +50,7 @@
 
 
 ### 2.1. Yardımcı Ses Türemesi (Buffer Sound)
-- TÜrkçede iki ünlü yan yana gelemediği için, eklenme sırasında araya giren (y, n, s, ş) sesleridir (anla-ış > anlayış, masa-a > masaya).
+- Türkçede iki ünlü yan yana gelemediği için, eklenme sırasında araya giren (y, n, s, ş) sesleridir (anla-ış > anlayış, masa-a > masaya).
 
 
 ## 3. Ünlü Düşmesi (Syncope)
@@ -66,7 +66,7 @@
 ### 3.3. İç Ses Düşmesi
 - Isıtma > sıtma örneğinde olduğu gibi kelime başında veya "fikir-i > fikri" örneğinde olduğu gibi alıntı kelimelerde aslına rücu etme şeklinde görülür.
 
-## 4. Aşınma (Coalescence / Contraction)
+## 4. Aşınma (Birleşme | Coalescence / Contraction)
 - Birleşme esnasında iki kelimenin sınırındaki seslerin eriyerek tek bir yapıya dönüşmesidir. Burada sadece bir ses değil, bazen bir hece yapısı aşınır. 
 	- Kahve altı > kahvaltı (e-a çarpışması)
 	- ne için > niçin
@@ -88,7 +88,7 @@
 ## 6. Hece Düşmesi (Haplology)
 - Benzer sesleri içeren ardışık hecelerden birinin tamamen yutulmasıdır. Aşınmadan farkı, benzer ses diziliminin (hecenin) teke indirilmesidir.
 - Pazar-ertesi > pazartesi
-- Hasta hane > hastahane
+- Hasta hane > hastane
 - Postahane > postane
 
 ## 7. Ünlü Daralması (Vowel Narrowing)

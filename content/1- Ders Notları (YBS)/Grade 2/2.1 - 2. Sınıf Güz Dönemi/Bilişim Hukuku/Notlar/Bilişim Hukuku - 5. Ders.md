@@ -18,7 +18,7 @@ date: 2025-12-04
 
 ---
 
-- Suça iliçkin yürütülen soruşturma ve kovuşturmada, suça dair somut kanıtlara dayanan kuvvetli şüphenin varlığı ile başka şekilde kanıt elde edilememesi nedeniyle; hâkim ya da hecikmesinde sakınca bulunan hâllerde; savcı kararı ile şüpheli ya da sanığın telekomünikasyon yoluyla iletişiminin
+- Suça ilişkin yürütülen soruşturma ve kovuşturmada, suça değgin somut kanıtlara dayanan kuvvetli şüphenin varlığı ile başka şekilde kanıt elde edilememesi nedeniyle; hâkim ya da gecikmesinde sakınca bulunan hâllerde; savcı kararı ile şüpheli ya da sanığın telekomünikasyon yoluyla iletişiminin
 	1. Dinlenebilir
 	2. Kaydı alınabilir
 	3. Sinyal bilgileri değerlendirilebilir.
@@ -48,7 +48,7 @@ date: 2025-12-04
 ---
 
 
-**ADLİ BİLİŞİM**: Çok çeşitli alanlarda kullanılmakla birlikte, bilişim suçlarının işlenmesinde şüphelinin sanığa dönüşüp dönüşmemesinde önemli bir yer tutar. Ayrıca dijital yahut elekteornik veri ve bilgilerin kanıt olarak mahkemeye sunulmasında kilit bir yer tutar. 
+**ADLİ BİLİŞİM**: Çok çeşitli alanlarda kullanılmakla birlikte, bilişim suçlarının işlenmesinde şüphelinin sanığa dönüşüp dönüşmemesinde önemli bir yer tutar. Ayrıca dijital yahut elektronik veri ve bilgilerin kanıt olarak mahkemeye sunulmasında kilit bir yer tutar. 
 
 Adli bilişim, 4 aşamada tamamlanır. Bu bakımdan, dijital kanıtın elde edilmesi amacıyla bilgi teknolojileri unsurlarının sistemli bir şekilde analizini içerir. 
 

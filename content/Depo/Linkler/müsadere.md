@@ -1,0 +1,1 @@
+- Müsadere kelimesi Arapça *muṣādara* kökünden gelir; kökü *ṣadr* yani **"göğüs, ön, çıkmak"** fiiline dayanır. Bir şeyin başkasına geçmesi, el konulması demektir. Devlet burada şunu der: **"O para senin mülkiyetinde kalamaz, çünkü kaynağı zehirli."**
