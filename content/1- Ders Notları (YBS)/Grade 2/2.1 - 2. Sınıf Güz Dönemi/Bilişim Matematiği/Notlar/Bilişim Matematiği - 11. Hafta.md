@@ -149,5 +149,199 @@ $$
 ---
 
 
-## Aritmetik Dizi
+## **Aritmetik Dizi**
+
+- Bir  dizide ardışık terimler arasındaki fark eşit ve sabit ise, böyle dizilere **aritmetik dizi** denir.
+
+$$
+\large
+\begin{aligned}{}
+&(a_n) = (a_1, a_2, a_3, \dots, a_n, \dots)  \\ \\
+&(a_2 - a_1) = (a_3-a_2) = \dots = (a_{n+1} - a_n) = \dots = \underbrace{r}_{\text{Ortak fark}}
+\end{aligned}
+$$
+
+<br>
+$$
+\LARGE \boxed{a_n = a_1 + (n-1).r}
+$$
+
+---
+
+### Özellik 1:
+- Bir aritmetik dizide, baştan ve sondan eşit uzaklıktaki terimlerin toplamı eşittir.
+
+$$
+\large
+\begin{array}{}
+\Large (a_n) = a_1 + a_2 + a_3 + a_4 + a_5 \\ \\
+a_1 + a_5 = a_2+ a_4
+\end{array}
+$$
+
+### Özellik 2:
+- Bir aritmetik dizide, herhangi bir terim, kendinden eşit uzaklıktaki terimlerin aritmetik ortalamasıdır.
+
+$$
+\Large
+a_3 = \frac{a_2+a_4}{2} = \frac{a_1+a_5}{2} =\frac{a_3 + a_3}{2}
+$$
+
+### Özellik 3:
+- Bir aritmetik dizide ilk n terim toplamı
+
+$$
+\Large
+\begin{aligned}{}
+&S_n =  \frac{n}{2}\left[a_1+a_n\right]\\
+&S_n= \frac{n}{2}\left[2a_1+(n-1)\cdot r\right]
+\end{aligned}
+$$
+
+
+### Özellik 4:
+
+$$
+\Large
+\begin{aligned}{}
+&n>p \large\text{ olmak üzere,} \\  \\
+&a_n  = a_p + (n-p)\cdot r
+\end{aligned}
+$$
+
+### Özellik 5:
+
+$$
+\Large
+\begin{aligned}{}
+&\text{Terim Sayısı (TS) }= \frac{\text{Son Terim}- \text{İlk Terim}}{\text{Artış Miktarı}}+1 \\ \\
+&\text{Terimler Toplamı }= \frac{\text{(Son Terim + İlk Terim)} \cdot \text{TS}}{2}
+\end{aligned}
+$$
+
+---
+
+### **Örnek 11**:
+
+$$
+\Large
+\begin{aligned}{}
+\boxed{(8, 11, 14, 17, 20, \dots)} \large \text{ aritmetik dizidir.} \\
+a_n, S_8 \large{\text{ ve }} \Large a_{20} \large \text{ değerlerini bulunuz.}
+\end{aligned}
+$$
+
+#### Çözüm:
+
+$$
+\large
+\begin{aligned}{}
+&a_n = a_1 + (n-1) \cdot 3 = 8 + (n-1) \cdot 3 = 5 + 3n \\
+&S_8 = 4 \cdot [16 + (8-1) \cdot 3] = 148 \\ 
+&a_{20} = a_1 + 19\cdot 3 = 65
+\end{aligned}
+$$
+
+---
+
+### **Örnek 12**: Bir aritmetik dizide;
+
+$$
+\Large
+\begin{aligned}{}
+a_9 = 52, \quad a_{16} = 87 \implies r,\quad S_{20} = \space ?
+\end{aligned}
+$$
+
+
+#### Çözüm:
+
+$$
+\large
+\begin{aligned}
+&a_1 + 8r = 52 \\
+&a_1 + 15r = 87 \\
+&7r = 35 \implies \boxed{r = 5}, \space a_1 = 12 \\ \\
+
+&S_{20} = 10 \cdot [24 + (20-1)\cdot5] = 10.119 = \boxed{1190}
+\end{aligned}
+$$
+
+
+---
+
+
+### **Örnek 13**: Bir aritmetik dizide;
+
+$$
+\Large a_{10} = 26, \quad a_{15} = 41 \implies  a_{24}, \quad S_{40} = \space ?
+$$
+
+
+#### Çözüm:
+
+$$
+\large
+\begin{aligned}{}
+&a_1 + 9r = 26 \\
+&a_1 + 14r = 41 \\
+& 5r = 15 \implies \boxed{r=3} \space , a_1=-1 \\ \\
+&a_{24} = a_1 + 23r = -1 + 69 \implies \boxed{a_{24} = 68} \\ \\
+&S_{40} = 20 \cdot [-2 + (39)\cdot 3] = 2300
+
+\end{aligned}
+$$
+
+
+---
+
+### **Örnek 14**: Bir aritmetik dizide;
+
+$$
+\Large
+a_9 = 11, \quad a_6-a_{12} = 10 \implies a_6 = ?
+$$
+
+#### Çözüm:
+
+$$
+\large
+\begin{aligned}{}
+&\text{I. Yol (Amele Yolu)} \\\\
+&a_1 + 8r = 11 \\
+&(a_1+5r) - (a_1 + 11r) = 10 \to -6r = 10 \implies r= -\frac{5}{3} \\
+&a_1 = 11-8r = \frac{33}{3}+\frac{40}{3} = \frac{73}{3}  \\
+&a_6 = a_1 + 5r \implies \frac{73-25}{3} = \frac{48}{3} =16 \\ \\
+
+&\text{II. Yol (Özellik 2) } \\ \\
+&a_9 = \frac{a_6+a_{12}}{2}  \implies 2a_9 = a_6 + a_{12}  \\
+&22 = a_6 + a_{12} \\
+&10 = a_6 - a_{12} \\ + \\
+
+&\hline \\
+&32 = 2a_6 \implies a_6 = 16,\quad a_{12} = 6 \\
+\end{aligned}
+$$
+
+---
+
+### **Örnek 15**: Bir aritmetik dizide; 
+
+$$
+\Large S_8 = 120, \space S_{12} =420 \implies S_{20} = \space ?
+$$
+
+#### Çözüm:
+
+$$
+\large
+\begin{aligned}{}
+&120 = 4 \cdot [2a_1 + 7r]  \implies 30 = 2a_1 + 7r \\
+&420 = 6 \cdot [2a_1 + 11r] \implies 70 = 2a_1 + 11r \\ \hline \\
+&40 = 4r \implies \boxed{r = 10}  , \quad 2a_1 = -40 \implies \boxed{a_1 = -20} \\ \\
+&S_{20} = 10 \cdot [2a_1 + 19r] = -400 + 1900 = \mathbb{1500}
+
+\end{aligned}
+$$
+
 
