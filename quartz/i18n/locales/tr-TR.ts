@@ -54,7 +54,7 @@ export default {
       searchBarPlaceholder: "Bir şey arayın",
     },
     tableOfContents: {
-      title: "İçindekiler",
+      title: "İÇİNDEKİLER",
     },
     contentMeta: {
       readingTime: ({ minutes }) => `${minutes} dakika okuma süresi`,

@@ -15,10 +15,10 @@ const cloudflareBeaconToken = process.env.CLOUDFLARE_BEACON_TOKEN?.trim()
 const analyticsConfig =
   cloudflareBeaconToken && cloudflareBeaconToken.length > 0
     ? ({
-        provider: "cloudflare",
-        beaconToken: cloudflareBeaconToken,
-        spaMode: true,
-      } as const)
+      provider: "cloudflare",
+      beaconToken: cloudflareBeaconToken,
+      spaMode: true,
+    } as const)
     : null
 
 /**
