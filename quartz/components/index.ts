@@ -29,6 +29,9 @@ import PrerequisiteBanner from "./PrerequisiteBanner"
 import ProgressDashboard from "./ProgressDashboard"
 import StudyChat from "./StudyChat"
 import Chat from "./Chat"
+import Resize from "./Resize"
+import Hamburger from "./Hamburger"
+import ThemeCanvas from "./ThemeCanvas"
 
 export {
   ArticleTitle,
@@ -62,4 +65,7 @@ export {
   ProgressDashboard,
   StudyChat,
   Chat,
+  Resize,
+  Hamburger,
+  ThemeCanvas,
 }

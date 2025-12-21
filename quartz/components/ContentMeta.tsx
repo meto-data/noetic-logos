@@ -29,17 +29,28 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
     if (text) {
       const segments: (string | JSX.Element)[] = []
 
+      // Tarih - Material Icon ile
       if (fileData.dates) {
-        segments.push(<Date date={getDate(cfg, fileData)!} locale={cfg.locale} />)
+        segments.push(
+          <span class="meta-item">
+            <span class="material-icons-outlined meta-icon">calendar_today</span>
+            <Date date={getDate(cfg, fileData)!} locale={cfg.locale} />
+          </span>
+        )
       }
 
-      // Display reading time if enabled
+      // Okuma süresi - Material Icon ile
       if (options.showReadingTime) {
         const { minutes, words: _words } = readingTime(text)
         const displayedTime = i18n(cfg.locale).components.contentMeta.readingTime({
           minutes: Math.ceil(minutes),
         })
-        segments.push(<span>{displayedTime}</span>)
+        segments.push(
+          <span class="meta-item">
+            <span class="material-icons-outlined meta-icon">schedule</span>
+            <span>{displayedTime}</span>
+          </span>
+        )
       }
 
       return (
