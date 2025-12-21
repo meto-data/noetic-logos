@@ -17,18 +17,18 @@ type Theme = (typeof themes)[number]
 const themeNames: Record<Theme, string> = {
     light: "Açık",
     dark: "Koyu",
-    "stone-dark": "Stone Koyu",
-    "olive-light": "Olive Açık",
-    "olive-dark": "Olive Koyu",
-    "library-light": "Library",
-    "nord-light": "Nord Açık",
-    "deep-sea": "Derin Deniz",
-    "void": "Void",
-    "deep-void": "Deep Void"
+    "stone-dark": "Taş",
+    "olive-light": "Fıstık",
+    "olive-dark": "Koyu Fıstık",
+    "library-light": "Kütüphane",
+    "nord-light": "Nord",
+    "deep-sea": "Okyanus",
+    "void": "Boşluk",
+    "deep-void": "Uzay"
 }
 
 const themeColors: Record<Theme, string> = {
-    light: "#3b82f6",
+    light: "#5993f0ff",
     dark: "#1f2937",
     "stone-dark": "#1c1917",
     "olive-light": "#82A370",
@@ -36,8 +36,8 @@ const themeColors: Record<Theme, string> = {
     "library-light": "#8B7355",
     "nord-light": "#88C0D0",
     "deep-sea": "#0F172A",
-    "void": "#000000",
-    "deep-void": "#FFFFFF"
+    "void": "#0d0101eb",
+    "deep-void": "rgba(5, 0, 7, 1)"
 }
 
 // Mevcut temayı al ve uygula

@@ -1,222 +1,368 @@
 .settings {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
-.settings-button {
-  background: none;
+// ===== FONT DROPDOWN =====
+.font-dropdown {
+  position: relative;
+}
+
+.dropdown-button {
+  background: var(--light);
   border: 1px solid var(--lightgray);
-  color: var(--dark);
-  border-radius: 6px;
-  width: 32px;
-  height: 32px;
+  color: var(--darkgray);
+  cursor: pointer;
+  padding: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  cursor: pointer;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none;
-  user-select: none;
-  transition: background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
-  position: relative;
-  z-index: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--dark);
+    border-color: var(--secondary);
+    background: color-mix(in srgb, var(--secondary) 10%, transparent);
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: rgb(249, 250, 251) !important;
+    transition: fill 0.2s ease;
+  }
+
+  // Hover'da ikon rengi değişmiyor
 }
 
-.settings-button:hover {
-  background: color-mix(in srgb, var(--secondary) 10%, transparent);
-  border-color: var(--secondary);
-  box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+.dropdown-content {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  padding: 0.5rem;
 }
 
-.settings-modal-outer {
-  position: fixed;
-  inset: 0;
-  background: color-mix(in srgb, var(--dark) 20%, transparent);
+.font-dropdown.open .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+// ===== BAŞLIKLAR =====
+.section-header {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--dark);
+  padding: 0.5rem 0.75rem 0.25rem;
+  border-bottom: 1px solid var(--lightgray);
+  margin-bottom: 0.5rem;
+}
+
+.size-header {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--lightgray);
+}
+
+// ===== FONT SEÇENEKLERİ =====
+.font-options {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.font-hidden {
   display: none;
+
+  &.expanded {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+// Diğer Fontlar - Tema seçici gibi
+.font-show-more {
+  display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10000;
-  -webkit-overflow-scrolling: touch;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 1px dashed var(--lightgray);
+  border-radius: 6px;
+  color: var(--gray);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    transition: transform 0.2s ease;
+  }
+
+  &.expanded {
+    svg {
+      transform: rotate(45deg);
+    }
+  }
 }
 
-.settings-modal-outer.active {
-  display: flex !important;
-}
-
-.settings-modal {
-  background: var(--light);
-  color: var(--darkgray);
-  border: 1px solid var(--lightgray);
-  border-radius: 16px;
-  width: min(640px, 94vw);
-  box-shadow: 0 20px 40px rgba(0,0,0,.15), 0 4px 8px rgba(0,0,0,.05);
-  backdrop-filter: blur(8px);
-}
-
-.settings-header {
+.font-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: .75rem 1rem;
-  border-bottom: 1px solid var(--lightgray);
-  color: var(--dark);
-}
-
-.settings-close {
-  border: none;
-  background: none;
-  font-size: 1.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
   cursor: pointer;
-  color: var(--darkgray);
+  transition: background-color 0.15s ease;
+  margin: 0 !important;
+
+  &:hover {
+    background: color-mix(in srgb, var(--secondary) 10%, transparent);
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  span {
+    font-size: 0.9rem;
+    color: var(--darkgray);
+  }
+
+  &:has(input:checked) {
+    background: color-mix(in srgb, var(--secondary) 15%, transparent);
+
+    span {
+      color: var(--secondary);
+      font-weight: 600;
+    }
+  }
 }
 
-.settings-body {
-  display: grid;
-  gap: 1.5rem;
-  padding: 0.5rem 1rem 1rem;
+// Her font kendi stilinde
+.font-item[data-font="Inter"] span {
+  font-family: 'Inter', system-ui, sans-serif !important;
 }
 
-.settings-body label {
-  display: grid;
-  gap: .5rem;
-  margin-top: 0.75rem;
+.font-item[data-font="Poppins"] span {
+  font-family: 'Poppins', sans-serif !important;
 }
 
-.settings-body label:first-child {
-  margin-top: 0;
+.font-item[data-font="Lato"] span {
+  font-family: 'Lato', sans-serif !important;
 }
 
-.settings-body select {
-  border: 1px solid var(--lightgray);
-  background: var(--light);
-  color: var(--darkgray);
-  padding: .8rem 1rem;
-  border-radius: 8px;
-  font-size: 1.05rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
+.font-item[data-font="Roboto"] span {
+  font-family: 'Roboto', sans-serif !important;
 }
 
-.settings-body select:hover {
-  border-color: var(--secondary);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--secondary) 15%, transparent);
+.font-item[data-font="Open Sans"] span {
+  font-family: 'Open Sans', sans-serif !important;
 }
 
-.settings-body select:focus {
-  outline: none;
-  border-color: var(--secondary);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--secondary) 20%, transparent);
+.font-item[data-font="Quicksand"] span {
+  font-family: 'Quicksand', sans-serif !important;
 }
 
-.settings-body .toggle-label {
+.font-item[data-font="Montserrat"] span {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.font-item[data-font="Merriweather"] span {
+  font-family: 'Merriweather', serif !important;
+}
+
+.font-item[data-font="Source Sans Pro"] span {
+  font-family: 'Source Sans Pro', sans-serif !important;
+}
+
+// ===== BOYUT SEÇENEKLERİ =====
+.size-options {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0 0.5rem 0.5rem;
+}
+
+.size-item {
+  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
+  justify-content: center;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 4px;
   cursor: pointer;
-  margin-top: 0;
-  padding: 0.5rem 0;
+  transition: all 0.15s ease;
+  margin: 0 !important;
+
+  span {
+    font-size: 0.8rem;
+    color: var(--darkgray);
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  &:hover {
+    border-color: var(--secondary);
+  }
+
+  &:has(input:checked) {
+    border-color: var(--secondary);
+    background: color-mix(in srgb, var(--secondary) 15%, transparent);
+
+    span {
+      color: var(--secondary);
+      font-weight: 600;
+    }
+  }
 }
 
-.settings-body .toggle-label input[type="checkbox"] {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 44px;
-  height: 24px;
-  background: var(--lightgray);
-  border-radius: 12px;
-  position: relative;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  flex-shrink: 0;
-  margin-left: 1vw;
-}
-
-.settings-body .toggle-label input[type="checkbox"]::after {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 20px;
-  height: 20px;
-  background: var(--light);
-  border-radius: 50%;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease;
-}
-
-.settings-body .toggle-label input[type="checkbox"]:checked {
-  background: var(--secondary);
-}
-
-.settings-body .toggle-label input[type="checkbox"]:checked::after {
-  transform: translateX(20px);
-}
-
-.settings-body .toggle-label input[type="checkbox"]:hover {
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--secondary) 15%, transparent);
-}
-
-.settings-body .toggle-text {
-  font-size: 1rem;
-  color: var(--darkgray);
-}
-
-
+// ===== MOBİL =====
 @media all and (max-width: 800px) {
-  .settings-button {
+  .dropdown-button {
     min-width: 44px;
     min-height: 44px;
-    width: 44px;
-    height: 44px;
   }
-  
-  .settings-modal { 
-    width: 96vw; 
-    max-height: 90vh;
-    overflow-y: auto;
-  }
-  
-  .settings-body {
-    padding: 0.75rem;
-    gap: 1.25rem;
-  }
-  
-  .settings-body label {
-    margin-top: 0.5rem;
-  }
-  
-  .settings-body select {
-    padding: 0.6rem 0.75rem;
-    font-size: 1rem;
-  }
-  
-  .settings-header {
-    padding: 0.6rem 0.75rem;
+
+  .dropdown-content {
+    min-width: 280px;
+    right: -50px;
+    max-height: 70vh;
   }
 }
 
-@media all and (max-width: 480px) {
-  .settings-modal { 
-    width: 98vw; 
-    max-height: 95vh;
+// Mobil Font Wrapper - Body'e eklenen dropdown
+.mobile-font-wrapper {
+  position: fixed;
+  top: 60px;
+  left: 10px;
+  right: 10px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-height: 70vh;
+  overflow-y: auto;
+  z-index: 9999;
+  padding: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
-  
-  .settings-body {
+
+  .section-header {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--dark);
+    padding: 0.5rem 0.75rem 0.25rem;
+    border-bottom: 1px solid var(--lightgray);
+    margin-bottom: 0.5rem;
+  }
+
+  .font-options {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .font-hidden {
+    display: none;
+
+    &.expanded {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+  }
+
+  .font-show-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     padding: 0.5rem;
-    gap: 1rem;
+    margin: 0.5rem 0;
+    border: 1px dashed var(--lightgray);
+    border-radius: 6px;
+    color: var(--gray);
+    font-size: 0.8rem;
+    cursor: pointer;
+
+    &.expanded svg {
+      transform: rotate(45deg);
+    }
   }
-  
-  .settings-body label {
-    font-size: 0.9rem;
-    margin-top: 0.4rem;
+
+  .font-item,
+  .size-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    span {
+      font-size: 0.9rem;
+      color: var(--darkgray);
+    }
+
+    &:has(input:checked) span {
+      color: var(--secondary);
+      font-weight: 600;
+    }
   }
-  
-  .settings-body select {
-    padding: 0.5rem 0.6rem;
-    font-size: 0.95rem;
+
+  .size-options {
+    display: flex;
+    gap: 0.25rem;
+    padding: 0 0.5rem 0.5rem;
+  }
+
+  .size-item {
+    flex: 1;
+    justify-content: center;
+    border: 1px solid var(--lightgray);
+
+    &:has(input:checked) {
+      border-color: var(--secondary);
+      background: color-mix(in srgb, var(--secondary) 15%, transparent);
+    }
   }
 }
-
-

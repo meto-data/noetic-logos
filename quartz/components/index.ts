@@ -27,7 +27,7 @@ import Settings from "./Settings"
 import ScrollRestore from "./ScrollRestore"
 import PrerequisiteBanner from "./PrerequisiteBanner"
 import ProgressDashboard from "./ProgressDashboard"
-import StudyChat from "./StudyChat"
+
 import Chat from "./Chat"
 import Resize from "./Resize"
 import Hamburger from "./Hamburger"
@@ -63,7 +63,7 @@ export {
   ScrollRestore,
   PrerequisiteBanner,
   ProgressDashboard,
-  StudyChat,
+
   Chat,
   Resize,
   Hamburger,
