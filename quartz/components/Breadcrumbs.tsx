@@ -35,9 +35,18 @@ const defaultOptions: BreadcrumbOptions = {
   showCurrentPage: true,
 }
 
+function cleanDisplayName(name: string): string {
+  // Sayı prefix'lerini kaldır: "2-", "2.1-", "(2.1)", vb.
+  return name
+    .replace(/^\d+[\.\d]*[\-\s]+/, '')    // 2- veya 2.1- başlangıcı
+    .replace(/^\(\d+[\.\d]*\)\s*/, '')    // (2.1) formatı
+    .replace(/^--+\s*/, '')               // Çift tire temizle
+    .trim()
+}
+
 function formatCrumb(displayName: string, baseSlug: FullSlug, currentSlug: SimpleSlug): CrumbData {
   return {
-    displayName: displayName.replaceAll("-", " "),
+    displayName: cleanDisplayName(displayName.replaceAll("-", " ")),
     path: resolveRelative(baseSlug, currentSlug),
   }
 }
