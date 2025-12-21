@@ -2,21 +2,35 @@
   cursor: pointer;
   padding: 0;
   position: relative;
-  background: none;
-  border: none;
-  width: 20px;
-  height: 20px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  width: 40px;
+  height: 40px;
   margin: 0;
-  text-align: inherit;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--secondary);
+    background: color-mix(in srgb, var(--secondary) 10%, transparent);
+  }
 
   & svg {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: calc(50% - 10px);
-    fill: var(--darkgray);
-    transition: opacity 0.1s ease;
+    width: 18px;
+    height: 18px;
+    fill: rgb(249, 250, 251) !important;
+    transition: fill 0.2s ease;
+  }
+
+  // Hover'da ikon rengi değişmiyor, sadece border vurgusu yeterli
+
+  // Palette ikonu için
+  & .palette-icon {
+    position: static;
   }
 }
 
@@ -26,22 +40,4 @@
 
 :root[saved-theme="light"] {
   color-scheme: light;
-}
-
-:root[saved-theme="dark"] .darkmode {
-  & > .dayIcon {
-    display: none;
-  }
-  & > .nightIcon {
-    display: inline;
-  }
-}
-
-:root .darkmode {
-  & > .dayIcon {
-    display: inline;
-  }
-  & > .nightIcon {
-    display: none;
-  }
 }

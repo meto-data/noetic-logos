@@ -5,6 +5,32 @@
 // NOETIC LOGOS THEME v19 - TEMA UYUMLU MOBİL
 // ==========================================
 
+// Material Icons Fix - @font-face ile doğrudan font yükleme
+@font-face {
+    font-family: 'Material Icons Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v109/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2) format('woff2');
+}
+
+.material-icons-outlined {
+    font-family: 'Material Icons Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}
+
 // ----- RENK PALETİ -----
 :root {
     --light: #f8fafc !important;
@@ -22,7 +48,105 @@
     --border-color: #e5e7eb;
     --muted: #64748b;
     --text: #334155;
+
+    // Font Variables (Default)
+    --base-font-family: 'Inter', sans-serif;
+    --base-font-size: 1rem; // Normal
 }
+
+// ===== TEMA GEÇİŞ EFEKTİ - SENKRONİZE =====
+// Tüm renkler aynı anda değişmeli, flash olmamalı
+// cubic-bezier: smooth başlangıç ve bitiş
+$theme-transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Ana renk geçişleri için mixin
+@mixin theme-transition {
+    transition:
+        background-color $theme-transition,
+        color $theme-transition,
+        border-color $theme-transition,
+        fill $theme-transition,
+        stroke $theme-transition,
+        box-shadow $theme-transition !important;
+}
+
+// Root seviyesinde CSS değişkenlerinin geçişi
+:root {
+    transition: all $theme-transition;
+}
+
+// Tüm ana elemanlar
+html,
+body,
+.page,
+.sidebar,
+.sidebar.left,
+.sidebar.right,
+.center,
+.right-sidebar,
+article,
+header,
+footer,
+nav,
+main,
+section,
+div,
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+button,
+input,
+select,
+textarea,
+ul,
+ol,
+li,
+.explorer,
+.explorer-content,
+.folder-container,
+.graph,
+.graph-outer,
+.toc,
+.backlinks,
+.search,
+.search-button,
+.darkmode,
+.settings,
+.settings-button,
+.settings-modal,
+.content-meta,
+.meta-item,
+.breadcrumb-container {
+    @include theme-transition;
+}
+
+// SVG elemanları için
+svg,
+svg path,
+svg circle,
+svg line,
+svg rect {
+    transition: fill $theme-transition, stroke $theme-transition, color $theme-transition;
+}
+
+// Performans için animasyonlu öğeleri hariç tut
+#theme-canvas,
+canvas,
+.katex,
+code,
+pre,
+.mermaid,
+video,
+img {
+    transition: none !important;
+}
+
 
 [saved-theme="dark"] {
     --light: #111827 !important;
@@ -138,6 +262,65 @@
     --panel-bg: #121214;
 
     // Bulanıklık/noise YOK - Düz renk
+
+    // Tarih/Meta Rengi Düzeltmesi - GÜÇLENDİRİLMİŞ
+    .content-meta,
+    .content-meta *,
+    .meta-item,
+    .meta-item *,
+    .meta,
+    .meta *,
+    span.meta,
+    time,
+    time[datetime],
+    .content-meta time,
+    .meta time {
+        color: #e4e4e7 !important; // Zinc-200 (daha açık)
+    }
+
+    // Font Dropdown Stilleri - Daha Okunabilir
+    .dropdown-content {
+        background: #0a0a0c !important;
+        border-color: #232326 !important;
+    }
+
+    .section-header {
+        color: #e5e5e7 !important;
+        border-bottom-color: #232326 !important;
+    }
+
+    .font-item span,
+    .size-item span {
+        color: #d4d4d8 !important;
+    }
+
+    .font-item:has(input:checked) span,
+    .size-item:has(input:checked) span {
+        color: #c0c0c5 !important;
+    }
+
+    .font-show-more {
+        color: #9a9a9f !important;
+        border-color: #3a3a3e !important;
+
+        &:hover {
+            color: #e5e5e7 !important;
+            border-color: #c0c0c5 !important;
+        }
+    }
+
+    .dropdown-button {
+        background: #0a0a0c !important;
+        border-color: #232326 !important;
+
+        svg {
+            fill: #e5e5e7 !important;
+        }
+
+        &:hover {
+            border-color: #c0c0c5 !important;
+        }
+    }
 }
 
 // NORD LIGHT TEMA
@@ -165,8 +348,8 @@
     --light: #010C15 !important;
     --lightgray: #000810 !important;
     --gray: #1E293B !important;
-    --darkgray: #4E6E8E !important;
-    --dark: #8AB4D6 !important;
+    --darkgray: #7dd3fc !important; // Sky-300 (Çok daha açık)
+    --dark: #bae6fd !important; // Sky-200 (Ana metin rengi - Açık mavi)
     --secondary: #00D2FF !important;
     --tertiary: #0EA5E9 !important;
     --highlight: rgba(0, 210, 255, 0.1) !important;
@@ -175,14 +358,42 @@
     --greek-blue: rgba(5, 26, 44, 0.5);
     --greek-blue-border: #051A2C;
     --border-color: #051A2C;
-    --muted: #4E6E8E;
-    --text: #8AB4D6;
+    --muted: #7dd3fc; // Sky-300
+    --text: #e0f2fe; // Sky-50 (En açık)
     --panel-bg: #000810;
+
+    // Metin Seçimi (Selection) - Düzeltilmiş kontrast
+    ::selection {
+        background: #0ea5e9 !important; // Sky-500
+        color: #f0f9ff !important; // Sky-50 (Çok açık)
+    }
+
+    // Listeler ve paragraflar için ÇOK AÇIK renk
+    p,
+    li,
+    span:not(.material-icons-outlined) {
+        color: #bae6fd !important; // Sky-200
+    }
 
     // Bold metinler beyaz
     strong,
     b {
-        color: #FFFFFF !important;
+        color: #cee7ea !important;
+    }
+
+    // Tarih/Meta Rengi Düzeltmesi - GÜÇLENDİRİLMİŞ
+    .content-meta,
+    .content-meta *,
+    .meta-item,
+    .meta-item *,
+    .meta,
+    .meta *,
+    span.meta,
+    time,
+    time[datetime],
+    .content-meta time,
+    .meta time {
+        color: #7dd3fc !important; // Sky-300 (daha açık, daha okunur)
     }
 }
 
@@ -429,7 +640,83 @@
     }
 
     // Noise efekti (şeffaf pikseller)
+    // Noise efekti (şeffaf pikseller)
     @include noise(0.08);
+
+    // Tarih/Meta Rengi Düzeltmesi - GÜÇLENDİRİLMİŞ
+    .content-meta,
+    .content-meta *,
+    .meta-item,
+    .meta-item *,
+    .meta,
+    .meta *,
+    span.meta,
+    time,
+    time[datetime],
+    .content-meta time,
+    .meta time {
+        color: #e4e4e7 !important; // Zinc-200 (daha açık)
+    }
+
+    // Font Dropdown Stilleri - Daha Okunabilir
+    .dropdown-content {
+        background: #0a0a0a !important;
+        border-color: #27272A !important;
+    }
+
+    .section-header {
+        color: #e4e4e7 !important;
+        border-bottom-color: #27272A !important;
+    }
+
+    .font-item span,
+    .size-item span {
+        color: #d4d4d8 !important;
+    }
+
+    .font-item:has(input:checked) span,
+    .size-item:has(input:checked) span {
+        color: #71717A !important;
+    }
+
+    .font-show-more {
+        color: #a1a1aa !important;
+        border-color: #3f3f46 !important;
+
+        &:hover {
+            color: #e4e4e7 !important;
+            border-color: #71717A !important;
+        }
+    }
+
+    .dropdown-button {
+        background: #0a0a0a !important;
+        border-color: #27272A !important;
+
+        svg {
+            fill: #d4d4d8 !important; // Biraz karartıldı
+        }
+
+        &:hover {
+            border-color: #52525b !important;
+            background: rgba(82, 82, 91, 0.2) !important;
+        }
+    }
+
+    // Tema butonu da aynı stil
+    .darkmode {
+        background: #0a0a0a !important;
+        border-color: #27272A !important;
+
+        svg {
+            fill: #d4d4d8 !important; // Biraz karartıldı
+        }
+
+        &:hover {
+            border-color: #52525b !important;
+            background: rgba(82, 82, 91, 0.2) !important;
+        }
+    }
 }
 
 // ===== CANVAS TEMA EFEKTLERİ =====
@@ -455,7 +742,6 @@ body {
 }
 
 * {
-    scrollbar-width: thin;
     scrollbar-color: var(--lightgray) var(--light);
     box-sizing: border-box !important;
 }
@@ -597,6 +883,41 @@ body {
 }
 
 // ==========================================
+// TABLET + MOBILE (max-width: 1199px) - SAĞ PANEL İÇERİĞİN ALTINDA
+// ==========================================
+@media all and (max-width: 1199px) {
+    .sidebar.right {
+        display: flex !important;
+        flex-direction: column !important;
+        position: static !important;
+        width: 100% !important;
+        order: 3 !important;
+        padding: 1rem !important;
+        margin-top: 2rem !important;
+        border-left: none !important;
+        background-color: transparent !important;
+
+        // TOC gizli
+        .toc {
+            display: none !important;
+        }
+
+        // Graph görünür
+        .graph,
+        .graph-outer {
+            display: block !important;
+            width: 100% !important;
+        }
+
+        // Backlinks görünür
+        .backlinks {
+            display: block !important;
+            width: 100% !important;
+        }
+    }
+}
+
+// ==========================================
 // MOBILE (max-width: 799px)
 // ==========================================
 @media all and (max-width: 799px) {
@@ -706,9 +1027,31 @@ body {
         order: 2 !important; // Center ortada
     }
 
-    // Sağ panel mobilde gizli
+    // ===== SAĞ PANEL - İÇERİĞİN ALTINDA =====
     .sidebar.right {
-        display: none !important;
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        order: 3 !important; // Center'dan sonra
+        padding: 1rem !important;
+        border-left: none !important;
+        margin-top: 2rem !important;
+        background-color: transparent !important;
+
+        // TOC mobilde gizli
+        .toc {
+            display: none !important;
+        }
+
+        // Graph görünür
+        .graph {
+            display: block !important;
+        }
+
+        // Backlinks görünür
+        .backlinks {
+            display: block !important;
+        }
     }
 
     .page>#quartz-body .page-header {
@@ -794,6 +1137,13 @@ body {
         }
     }
 
+    .mobile-buttons {
+        display: flex;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+
+    .mobile-font-btn,
     .mobile-darkmode {
         width: 36px;
         height: 36px;
@@ -806,11 +1156,13 @@ body {
         justify-content: center;
         cursor: pointer;
         flex-shrink: 0;
+        transition: all 0.2s ease;
 
         svg {
             width: 18px;
             height: 18px;
-            fill: var(--muted);
+            fill: rgb(249, 250, 251) !important;
+            transition: fill 0.2s ease;
         }
 
         &:hover {
@@ -955,15 +1307,12 @@ body {
         position: static !important;
         width: 18px !important;
         height: 18px !important;
-        fill: var(--muted) !important;
+        fill: rgb(249, 250, 251) !important;
     }
 
     &:hover {
         border-color: var(--secondary) !important;
-
-        svg {
-            fill: var(--secondary) !important;
-        }
+        // İkon rengi değişmiyor
     }
 }
 
@@ -1580,20 +1929,50 @@ a.internal {
     h4,
     h5,
     h6,
-    strong,
-    b,
     a,
     .page-title,
     .page-title a {
         color: #ffffff !important;
     }
 
-    // Metin zinc-200
+    // Bold Yazılar (Mavimsi)
+    strong,
+    b {
+        color: #60a5fa !important; // Blue-400
+    }
+
+    // Bold Yazılar (Mavimsi)
+    strong,
+    b {
+        color: #60a5fa !important; // Blue-400
+    }
+
+    // Metin zinc-200 -> Daha Açık Yapıldı (#f8fafc / Slate-50)
+    // Sadece p ve li hedeflendi, span kaldırıldı (ikonları bozmamak için)
     p,
-    li,
-    span,
-    .content-meta {
-        color: #e5e5e7 !important;
+    li {
+        color: #f8fafc !important;
+    }
+
+    // Metin Seçimi (Selection) - Açık Mor (Partiküllerle uyumlu)
+    ::selection {
+        background: #a78bfa !important; // Violet-400
+        color: #1e1b4b !important; // Indigo-950 (Koyu arka plan için)
+    }
+
+    // Tarih/meta - GÜÇLENDİRİLMİŞ
+    .content-meta,
+    .content-meta *,
+    .meta-item,
+    .meta-item *,
+    .meta,
+    .meta *,
+    span.meta,
+    time,
+    time[datetime],
+    .content-meta time,
+    .meta time {
+        color: #cbd5e1 !important; // Slate-300 (daha açık, daha okunur)
     }
 
     // Link hover
@@ -1631,6 +2010,102 @@ a.internal {
 
         &:hover {
             border-color: rgba(255, 255, 255, 0.3) !important;
+        }
+    }
+
+    // Font Dropdown Stilleri - Daha Okunabilir
+    .dropdown-content {
+        background: #0a0a0a !important;
+        border-color: #2a2a2a !important;
+    }
+
+    .section-header {
+        color: #e5e5e7 !important;
+        border-bottom-color: #2a2a2a !important;
+    }
+
+    .font-item span,
+    .size-item span {
+        color: #d4d4d8 !important;
+    }
+
+    .font-item:has(input:checked) span,
+    .size-item:has(input:checked) span {
+        color: #a78bfa !important;
+    }
+
+    .font-show-more {
+        color: #a1a1aa !important;
+        border-color: #3a3a3a !important;
+
+        &:hover {
+            color: #a78bfa !important;
+            border-color: #a78bfa !important;
+        }
+    }
+
+    .dropdown-button {
+        background: #0a0a0a !important;
+        border-color: #2a2a2a !important;
+
+        svg {
+            fill: #e5e5e7 !important;
+        }
+
+        &:hover {
+            border-color: #a78bfa !important;
+            background: rgba(167, 139, 250, 0.15) !important;
+        }
+    }
+
+    // Tema butonu da mor hover efekti
+    .darkmode {
+        background: #0a0a0a !important;
+        border-color: #2a2a2a !important;
+
+        svg {
+            fill: #e5e5e7 !important;
+        }
+
+        &:hover {
+            border-color: #a78bfa !important;
+            background: rgba(167, 139, 250, 0.15) !important;
+        }
+    }
+}
+
+// ==========================================
+// AYDINLIK TEMALAR - İKON VE BUTON STİLLERİ
+// ==========================================
+[saved-theme="light"],
+[saved-theme="olive-light"],
+[saved-theme="nord-light"],
+[saved-theme="library-light"] {
+    .dropdown-button {
+        background: var(--light) !important;
+        border-color: var(--lightgray) !important;
+
+        svg {
+            fill: #374151 !important; // Koyu gri - okunabilir
+        }
+
+        &:hover {
+            border-color: var(--secondary) !important;
+            background: color-mix(in srgb, var(--secondary) 10%, transparent) !important;
+        }
+    }
+
+    .darkmode {
+        background: var(--light) !important;
+        border-color: var(--lightgray) !important;
+
+        svg {
+            fill: #374151 !important; // Koyu gri - okunabilir
+        }
+
+        &:hover {
+            border-color: var(--secondary) !important;
+            background: color-mix(in srgb, var(--secondary) 10%, transparent) !important;
         }
     }
 }

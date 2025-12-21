@@ -6,7 +6,6 @@ export const sharedPageComponents: SharedLayout = {
     head: Component.Head(),
     header: [],
     afterBody: [
-        Component.StudyChat(),
         Component.ScrollRestore(),
         Component.Chat(),
         Component.Hamburger(), // Mobil menü
@@ -34,10 +33,11 @@ export const defaultContentPageLayout: PageLayout = {
     left: [
         Component.PageTitle(),
         Component.MobileOnly(Component.Spacer()),
-        // Arama + Darkmode (Settings kaldırıldı)
+        // Arama + Darkmode + Settings
         Component.Flex({
             components: [
                 { Component: Component.Search(), grow: true },
+                { Component: Component.Settings() },
                 { Component: Component.Darkmode() },
             ],
         }),
@@ -59,6 +59,7 @@ export const defaultListPageLayout: PageLayout = {
         Component.Flex({
             components: [
                 { Component: Component.Search(), grow: true },
+                { Component: Component.Settings() },
                 { Component: Component.Darkmode() },
             ],
         }),

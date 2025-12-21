@@ -26,20 +26,37 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
   function ContentMetadata({ cfg, fileData, displayClass }: QuartzComponentProps) {
     const text = fileData.text
 
+    // SVG İkonlar (Material Icons yerine)
+    const CalendarIcon = () => (
+      <svg class="meta-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
+    )
+
+    const ClockIcon = () => (
+      <svg class="meta-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+      </svg>
+    )
+
     if (text) {
       const segments: (string | JSX.Element)[] = []
 
-      // Tarih - Material Icon ile
+      // Tarih - SVG Icon ile
       if (fileData.dates) {
         segments.push(
           <span class="meta-item">
-            <span class="material-icons-outlined meta-icon">calendar_today</span>
+            <CalendarIcon />
             <Date date={getDate(cfg, fileData)!} locale={cfg.locale} />
           </span>
         )
       }
 
-      // Okuma süresi - Material Icon ile
+      // Okuma süresi - SVG Icon ile
       if (options.showReadingTime) {
         const { minutes, words: _words } = readingTime(text)
         const displayedTime = i18n(cfg.locale).components.contentMeta.readingTime({
@@ -47,7 +64,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
         })
         segments.push(
           <span class="meta-item">
-            <span class="material-icons-outlined meta-icon">schedule</span>
+            <ClockIcon />
             <span>{displayedTime}</span>
           </span>
         )

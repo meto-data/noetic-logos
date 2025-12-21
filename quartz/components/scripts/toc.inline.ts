@@ -36,20 +36,20 @@ function handleTocClick(e: Event) {
     const slug = link.getAttribute('data-for')
     const href = link.getAttribute('href')
 
-    console.log('[TOC Debug] Link clicked:', { slug, href })
+
 
     if (slug) {
       const targetElement = document.getElementById(slug)
-      console.log('[TOC Debug] Target element:', targetElement)
+
 
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        console.log('[TOC Debug] Scrolled to:', slug)
+
 
         // URL hash'i güncelle
         history.pushState(null, '', `#${slug}`)
       } else {
-        console.warn('[TOC Debug] Target element not found for slug:', slug)
+
       }
     }
   }
@@ -69,7 +69,7 @@ function setupToc() {
     content.addEventListener("click", handleTocClick)
     window.addCleanup(() => content.removeEventListener("click", handleTocClick))
 
-    console.log('[TOC Debug] TOC setup complete, links found:', content.querySelectorAll('a[data-for]').length)
+
   }
 }
 
@@ -79,7 +79,7 @@ document.addEventListener("nav", () => {
   // update toc entry highlighting
   observer.disconnect()
   const headers = document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]")
-  console.log('[TOC Debug] Headers found:', headers.length)
+
   headers.forEach((header) => observer.observe(header))
 })
 
