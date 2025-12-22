@@ -147,6 +147,17 @@ img {
     transition: none !important;
 }
 
+// ===== MOBİLDE TEMA GEÇİŞ EFEKTİNİ KAPAT =====
+// Mobilde performans için anında geçiş
+@media all and (max-width: 799px) {
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
+
 
 [saved-theme="dark"] {
     --light: #111827 !important;
@@ -1161,7 +1172,7 @@ body {
         svg {
             width: 18px;
             height: 18px;
-            fill: rgb(249, 250, 251) !important;
+            fill: var(--text) !important;
             transition: fill 0.2s ease;
         }
 
@@ -1169,7 +1180,7 @@ body {
             border-color: var(--secondary);
 
             svg {
-                fill: var(--secondary);
+                fill: var(--secondary) !important;
             }
         }
     }
@@ -1307,12 +1318,15 @@ body {
         position: static !important;
         width: 18px !important;
         height: 18px !important;
-        fill: rgb(249, 250, 251) !important;
+        fill: var(--text) !important;
     }
 
     &:hover {
         border-color: var(--secondary) !important;
-        // İkon rengi değişmiyor
+
+        svg {
+            fill: var(--secondary) !important;
+        }
     }
 }
 
