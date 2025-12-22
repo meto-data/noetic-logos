@@ -1,3 +1,8 @@
+---
+title: İstatistik - 11. Hafta
+---
+
+
 <h1 style="text-align:center"><span style="color:darkblue; text-align:center">Ünite 6: Temel Olasılık Teorisi</span> | <span style="color:#bf3f36">24.04.2025</span></h1>
 
 <h2 style="text-align:center"><span style="color:2a475e; text-align:center">Kombinasyon (Gruplama)</span></h1>
