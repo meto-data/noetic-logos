@@ -1,0 +1,4 @@
+- Bu yapı bir anlaşma ve inançlı mülkiyet esasına dayalı bir havuzdur. **Tüzel kişiliği yoktur.**
+	- Bir banka veya portföy yönetim şirketi tarafından hazırlanan bir iç tüzük/anlaşma çerçevesinde kurulur.
+- Profesyonel portföy yöneticileri, yatırımcıdan topladıkları parayı bu havuzda (portföyde) işletirler. 
+- **Yatırımcı buraya ortak olmaz, sadece havuzdan bir pay (katılma belgesi) alır.**

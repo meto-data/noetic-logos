@@ -1,0 +1,1 @@
+Kârın ortaklara verilmeyip işletme bünyesinde tutulması.
