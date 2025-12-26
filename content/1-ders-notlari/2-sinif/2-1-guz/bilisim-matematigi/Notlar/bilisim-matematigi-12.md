@@ -194,7 +194,7 @@ $$
 &4a-4 = \sqrt{(a^2+b^2) \cdot ac} \\ \\
 & k = a^2+b^2 \\ \\
 &\sqrt{kac} = \frac{k +ac}{2} \implies kac = \frac{k^2 + 2kac +  a^2c^2}{4} \\ \\
-& 4kac = k^2 + 2kac +a^2c^2 \to \underbrace{k^2}_{\substack{k& \\k}} -2kac + \underbrace{a^2c^2}_{\substack{-ac \\ -ac}} \\ 
+& 4kac = k^2 + 2kac +a^2c^2 \to \underbrace{k^2}_{\substack{k \\k}} -2kac + \underbrace{a^2c^2}_{\substack{-ac \\ -ac}} \\ 
 & (k-ac)^2 = 0 \implies k=ac = \boxed{a^2+b^2 = ac} \\ \\
 \end{aligned}
 $$
