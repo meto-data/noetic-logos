@@ -161,10 +161,8 @@ $$
 \end{aligned}
 $$
 
-<br>
-$$
-\LARGE \boxed{a_n = a_1 + (n-1).r}
-$$
+
+$$\LARGE \boxed{a_n = a_1 + (n-1).r}$$
 
 ---
 
@@ -317,7 +315,7 @@ $$
 &a_9 = \frac{a_6+a_{12}}{2}  \implies 2a_9 = a_6 + a_{12}  \\
 &22 = a_6 + a_{12} \\
 &10 = a_6 - a_{12} \\ + \\
-&\hline \\
+\hline
 &32 = 2a_6 \implies a_6 = 16,\quad a_{12} = 6 \\
 \end{aligned}
 $$
