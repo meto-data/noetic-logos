@@ -2,7 +2,7 @@
 title: Bilişim Matematiği - 11. Ders
 type: learning
 ders: "[[Bilişim Matematiği]]"
-created: "[[2025-12-12]]"
+created: 2025-12-18
 date: 2024-12-12
 cssclasses:
   - ders-notu
@@ -304,10 +304,11 @@ $$
 
 #### Çözüm:
 
+
 $$
 \large
 \begin{aligned}{}
-&\text{I. Yol (Amele Yolu)} \\\\
+&\text{I. Yol (Amele Yolu)} \\ \\
 &a_1 + 8r = 11 \\
 &(a_1+5r) - (a_1 + 11r) = 10 \to -6r = 10 \implies r= -\frac{5}{3} \\
 &a_1 = 11-8r = \frac{33}{3}+\frac{40}{3} = \frac{73}{3}  \\
@@ -322,6 +323,7 @@ $$
 &32 = 2a_6 \implies a_6 = 16,\quad a_{12} = 6 \\
 \end{aligned}
 $$
+
 
 ---
 
