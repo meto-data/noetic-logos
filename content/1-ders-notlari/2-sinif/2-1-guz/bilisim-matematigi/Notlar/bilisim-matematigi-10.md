@@ -2,13 +2,12 @@
 title: Bilişim Matematiği - 10. Ders
 type: learning
 ders: "[[Bilişim Matematiği]]"
-created: "[[2025-12-05]]"
+created: 2025-12-18
 date: 2024-12-05
 cssclasses:
   - ders-notu
 draft: false
 ---
-
 <h1 style="text-align:center"><span style="color:lightblue; text-align:center">Ünite 5: Logaritma</span> <span>| 05.12.2025</span></h1>
 
 
@@ -257,8 +256,6 @@ $$
 \begin{aligned}{}
 &(a_n) = \frac{(2n+2) -10}{n+1} \\
 &(a_n) = 2 - \frac{10}{\underbrace{n+1}_{\substack{\LARGE &10 \\ \LARGE &5 \\  \LARGE &2 \\ \Large &1 \\ \large -&1 \\ -&2 \\ -&5 \\ -&10 }}} \\ \\
-
-
 &a_n \in \mathbb{N}^+ \text{ olduğundan, }\\ 
 &\text{n'in alabileceği değerler: } 9, 4, 1. \\
 \end{aligned}

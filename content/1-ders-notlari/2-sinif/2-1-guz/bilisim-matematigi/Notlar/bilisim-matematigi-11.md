@@ -313,12 +313,10 @@ $$
 &(a_1+5r) - (a_1 + 11r) = 10 \to -6r = 10 \implies r= -\frac{5}{3} \\
 &a_1 = 11-8r = \frac{33}{3}+\frac{40}{3} = \frac{73}{3}  \\
 &a_6 = a_1 + 5r \implies \frac{73-25}{3} = \frac{48}{3} =16 \\ \\
-
 &\text{II. Yol (Özellik 2) } \\ \\
 &a_9 = \frac{a_6+a_{12}}{2}  \implies 2a_9 = a_6 + a_{12}  \\
 &22 = a_6 + a_{12} \\
 &10 = a_6 - a_{12} \\ + \\
-
 &\hline \\
 &32 = 2a_6 \implies a_6 = 16,\quad a_{12} = 6 \\
 \end{aligned}
