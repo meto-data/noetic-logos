@@ -113,7 +113,7 @@ $$
 - Adından da anlaşılacağı üzere, kefil gösterilerek alınan krediye denir. 
 - Kredinin verilmesi için borçlunun yanı sıra, borcu ödeyeceğini taahhüt eden üçüncü bir kişinin imzasının alındığı kredidir.
 	- Burada borç sadece bizim değil, kefilin de borcudur.
-- Hoca ders şöyle demişti:
+- Hoca derste şöyle söylemişti:
 
 > 	"Babanıza bile kefil olmayın."
 
@@ -252,7 +252,7 @@ $$
 | **Vade**              | **Kısa** (Genelde 1 yıla kadar)                                  | **Orta** (Genelde 1-5 yıl),                               | **Orta/Uzun** (6 ay - 10 yıl)                                     |
 | **Temel İşlev**       | Faturayı kırdırıp nakit almak                                    | Malı satın almadan kiralamak                              | İhracat senedini satıp kurtulmak                                  |
 | **Kullanım Alanı**    | İç ve Dış Ticaret                                                | Yatırım / Üretim                                          | **Sadece İhracat**                                                |
-| **Mülkiyet Durumu**   | Alacak hakkı devredilir                                          | Mülkiyet şirkette, kullanım sende kalır                   | Alacak hakkı **satılır**                                          |
+| **Mülkiyet Durumu**   | Alacak hakkı devredilir                                          | Mülkiyet şirkette, kullanım bizde kalır                   | Alacak hakkı **satılır**                                          |
 | **Ödeme Zamanı**      | Faturanın temlikinden hemen sonra ön ödeme yapılır               | Malın kullanımı boyunca kira taksitleri şeklinde ödenir   | Alacak senedi devredildiğinde tutar iskontolu olarak peşin ödenir |
 | **Risk Devri (Rücu)** | Anlaşmaya bağlıdır (Kabili rücu veya gayri kabili rücu olabilir) | Finansal kiralama türünde tüm risk ve menfaat Kiracıdadır | Kesinlikle yoktur, satıcı riski tamamen devreder                  |
 
