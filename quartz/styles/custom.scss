@@ -148,13 +148,20 @@ img {
 }
 
 // ===== MOBİLDE TEMA GEÇİŞ EFEKTİNİ KAPAT =====
-// Mobilde performans için anında geçiş
+// Mobilde performans için anında geçiş - EN YÜKSEK ÖNCELİK
 @media all and (max-width: 799px) {
 
+    // Root ve tüm elementler için geçişi kapat
+    :root,
+    html,
+    body,
     *,
     *::before,
     *::after {
         transition: none !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+        animation-duration: 0s !important;
     }
 }
 

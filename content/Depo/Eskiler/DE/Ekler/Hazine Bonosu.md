@@ -1,1 +1,3 @@
-Vadesi 1 yıldan kısa olan borçlanma senetleridir.
+- Vadesi 1 yıldan kısa olan borçlanma senetleridir.
+
+- Devletin bir yıldan kısa vadeli borçlanma ihtiyaçları için çıkardığı borçlanma aracı.

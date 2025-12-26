@@ -1,0 +1,4 @@
+- İşletme sahiplerinin veya ortaklarının işletme varlıkları üzerindeki haklarını ifade eden, geri ödeme zorunluluğu bulunmayan "mülkiyet" sermayesidir.
+- Dışarıdan sağlanan borçların aksine, işletmenin kendi mülkiyet gücünü ve risk karşısındaki dayanıklılığını gösterir.
+- İşletmenin sürekliliğini ve yatırımın güvencesini sağlar; yatırım analizi yapanlar için en kritik göstergedir.
+- Bkz. [[Öz Kaynaklar (Equity)]]

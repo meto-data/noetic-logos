@@ -6,7 +6,7 @@
 > [!industry] Bilgi
 > Bankalar kredi limitini belirlerken doğrudan "kredi notu kadar" borç vermezler. Kredi notu borçlanma sürecindeki **kıstaslardan** sadece biridir. Yüksek bir not daha uygun faiz oranları ve daha yüksek limitlerle borçlanma imkânı tanır.
 
-## B. Banka Dışı Finansal Kuruluşlar
+## B. [[Banka Dışı Finansal Kuruluşlar]]
 - Bankaların yanı sıra özel finansman teknikleri sunan kuruluşlar da önemli bir fon kaynağıdır.
 ### 1. [[Faktoring Şirketleri]]
 - Firmaların **kısa vadeli, senetsiz (*faturalı*) yurt içi ve yurt dışı alacakların** devralarak karşılığında anında nakit sağlayan kurumlardır.
@@ -19,4 +19,4 @@
 ### 2. [[Forfaiting Kuruluşları]]
 - Faktoringe benzer ancak temel farkları vardır. Forfaiting genellikle *orta ve uzun vadeli, senet veya poliçe gibi kıymetli evraka bağlanmış ve özellikle ihracattan doğan alacakların* finansmanında kullanılır.
 - 6 ay ila 10 yıl vadelidir.
-- **Temel Özellik**: En önemli özelliği **[[rücusuz]] (without recourse)** olmasıdır. Yani fortfaiting kuruluşu, alacağı satın aldığında borçlunun ödememe riskini (*hem ticarî hem politik riski*) tamamen üstlenir. Alacak tahsil edilemezse, malı satan ihracatçı firmaya geri dönemez. Bu özellik ihracatçı için büyük bir güvence sağlar.
+- **Temel Özellik**: En önemli özelliği **[[rücusuz]] (without recourse)** olmasıdır. Yani forfaiting kuruluşu, alacağı satın aldığında borçlunun ödememe riskini (*hem ticarî hem politik riski*) tamamen üstlenir. Alacak tahsil edilemezse, malı satan ihracatçı firmaya geri dönemez. Bu özellik ihracatçı için büyük bir güvence sağlar.

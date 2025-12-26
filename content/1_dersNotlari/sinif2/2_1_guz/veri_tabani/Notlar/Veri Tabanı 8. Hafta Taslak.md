@@ -1,2 +1,0 @@
-- Çıktı sorusu gelecek.
-- 

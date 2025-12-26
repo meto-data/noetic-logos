@@ -1,0 +1,3 @@
+- Ortakların gelir getirdiği sermaye esastır. 
+- Ortakların sorumluluğu şirkete getirmeyi taahhüt ettikleri **sermaye payı ile sınırlıdır**.
+- Şirketin borçlarından dolayı kişisel mal varlıklarına (kural olarak) gidilemez. Güvence şirketin sermayesidir.
