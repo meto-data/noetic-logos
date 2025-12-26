@@ -2,7 +2,7 @@
 title: Bilişim Matematiği - 12. Ders
 type: learning
 ders: "[[Bilişim Matematiği]]"
-created: "[[2025-12-19]]"
+created: 2025-12-21
 date: 2025-12-19
 cssclasses:
   - ders-notu
@@ -193,11 +193,12 @@ $$
 &4a-4 = \frac{a^2+b^2 + a\cdot c}{2} \\
 &4a-4 = \sqrt{(a^2+b^2) \cdot ac} \\ \\
 & k = a^2+b^2 \\ \\
-&\sqrt{kac} = \frac{k +ac}{2} \implies kac = \frac{k^2 + 2kac +  a^2c^2}{4} \\\\
+&\sqrt{kac} = \frac{k +ac}{2} \implies kac = \frac{k^2 + 2kac +  a^2c^2}{4} \\ \\
 & 4kac = k^2 + 2kac +a^2c^2 \to \underbrace{k^2}_{\substack{k& \\k}} -2kac + \underbrace{a^2c^2}_{\substack{-ac \\ -ac}} \\ 
 & (k-ac)^2 = 0 \implies k=ac = \boxed{a^2+b^2 = ac} \\ \\
 \end{aligned}
 $$
+
 
 - $1$. terim ile $3$. terim aynı çıktığından, hem aritmetik hem de geometrik dizi <u>oluşturmaz.</u> Bu hâliyle, $\boxed{a^2+b^2+c^2} = \text{ tanımsızdır.}$
 
