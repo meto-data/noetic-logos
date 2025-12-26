@@ -255,11 +255,12 @@ $$
 \large
 \begin{aligned}{}
 &(a_n) = \frac{(2n+2) -10}{n+1} \\
-&(a_n) = 2 - \frac{10}{\underbrace{n+1}_{\substack{\LARGE &10 \\ \LARGE &5 \\  \LARGE &2 \\ \Large &1 \\ \large -&1 \\ -&2 \\ -&5 \\ -&10 }}} \\ \\
+&(a_n) = 2 - \frac{10}{\underbrace{n+1}_{\substack{\LARGE 10 \\ \LARGE 5 \\  \LARGE 2 \\ \Large 1 \\ \large -1 \\ -2 \\ -5 \\ -10 }}} \\ \\
 &a_n \in \mathbb{N}^+ \text{ olduğundan, }\\ 
 &\text{n'in alabileceği değerler: } 9, 4, 1. \\
 \end{aligned}
 $$
+
 
 
 ---
