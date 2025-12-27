@@ -1,8 +1,8 @@
 ---
 title: vizesonrasitaslak
-type: learning
+type: ogrenis
 ders: "[[Notlar]]"
-created: '[[2025-11-26]]'
+created: 2025-11-26
 tags:
   - ders/notlar
   - ders/notlar/vizesonrasitaslak

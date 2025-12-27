@@ -1,8 +1,12 @@
+---
+title: Bilişim Mat. - 1. Ders
+created: 2025-09-29
+---
 <h2 style="text-align:center"><span style="color:darkblue; text-align:center">Ünite 1: Temel Kavramlar</span> | <span style="color:#bf3f36">26.09.2025</span></h2>
 
 
 - **[[Bilişim]]**: Bilgisayar biliminin temelini oluşturan birçok kavram doğrudan matematiksel prensiplere dayanır. Problem çözme süreçleri ve modellemeler bunun en açık örneğidir. (Bilişim hakkında daha düzgün bir tanım için bkz. *[[bilişim, bilgi teknolojisi ve bilgi sistemleri]], [[Bilişim]]*) <br>
-- **[[Bilişim Matematiği]]**: Bilgisayarın yazılım temelinde ikili sayma sistemi esas alınır (binary system, binary digit). Buna **[[boole cebri]]** denir. Doğru (T-True) ya da yanlış (F-False) mantıksal temelli işlemleri esas alır (dijital şebekeler, bellekler, işlemciler vb.).
+- **[[Bilişim Matematiği]]**: Bilgisayarın yazılım temelinde ikili sayma sistemi esas alınır (binar[[bilisim-matematigi-2]]y system, binary digit). Buna **[[boole cebri]]** denir. Doğru (T-True) ya da yanlış (F-False) mantıksal temelli işlemleri esas alır (dijital şebekeler, bellekler, işlemciler vb.).
 
 <br>
 

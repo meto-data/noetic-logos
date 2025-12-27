@@ -1,11 +1,11 @@
 ---
 title: 3- Finansal Analiz, Yatay Analiz
-type: learning
+type: ogrenis
 ders: "[[Finansal Yönetim]]"
-date: "[[2025-10-15]]"
+date: 2025-10-15
 cssclasses:
   - ders-notu
-created: 15.10.2025
+created: 2025-10-15
 ---
 - **Not**: Finans dersinden nispeten bıktığım için bazı notlar akademik düzeyden sapıyor. İdare ediverin.
 	- Notlar henüz yarımdır. Haftaya göre değil konuya göre alınmaktadır notlar.

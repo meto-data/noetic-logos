@@ -1,11 +1,11 @@
 ---
 title: 7- Nakit Bütçesi ve Fon Kaynakları
-type: learning
+type: ogrenis
 ders: "[[Finansal Yönetim]]"
 date: 2025-12-17
 cssclasses:
   - ders-notu
-created: 17.12.2025
+created: 2025-12-17
 ---
 # 1. Nakit Bütçesi
 - İşletmenin nakit giriş ve çıkışlarının miktar ve zaman bakımından uyumlaştırılmasını sağlayan kısa vadeli planlara **nakit bütçesi** denir. 

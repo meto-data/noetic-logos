@@ -1,13 +1,12 @@
 ---
 title: Taslak_Ders_6
-type: learning
+type: ogrenis
 ders: "[[Notlar]]"
-created: "[[2025-11-05]]"
+created: 2025-11-05
 HUB:
 cssclasses:
   - ders-notu
 ---
-
 - Rasyo Analizi
 - Formülleri de ekle testlere.
 	- Trend analizi: "<br>

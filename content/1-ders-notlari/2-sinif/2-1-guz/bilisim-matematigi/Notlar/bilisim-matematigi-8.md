@@ -1,9 +1,9 @@
 ---
-title: Bilişim Matematiği - 8. Ders
-type: learning
+title: Bilişim Mat. - 8. Ders
+type: ogrenis
 ders: "[[Bilişim Matematiği]]"
-created: "[[2025-11-7]]"
-date: 2024-11-28
+created: 2025-11-7
+date: 2025-11-28
 cssclasses:
   - ders-notu
 draft: false

@@ -1,14 +1,12 @@
 ---
 title: Taslak_Ders_6
-type: learning
+type: ogrenis
 ders: "[[Notlar]]"
-created: "[[2025-11-05]]"
+created: 2025-11-05
 HUB:
 cssclasses:
   - ders-notu
 ---
-
-
 - Bilanço ve gelir tablosu önemli: Finansal analiz yaparken verileri ilgili tablodan çektiğimiz için oradna sorumluyuz, mali tabloları verecek ve birtakım bilgiler verecek, bilgiler tablonun neresinde bulunuyor vesaire epey önemli, daha ziyade bu bağlamda bir önem söz konusu denilebilir.
 	- Hangi hesap hangisinde yer alıyor bilmek gerekiyor, analizde yararlanacağız ilgili tablodan.
 - Tablolar 2 yıllık hazırlanır: Bu sene çıkarıldığında önceki sene de vardır yani.

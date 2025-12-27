@@ -1,14 +1,13 @@
 ---
-title: Bilişim Matematiği - 9. Ders
-type: learning
+title: Bilişim Mat. - 9. Ders
+type: ogrenis
 ders: "[[Bilişim Matematiği]]"
-created: "[[2025-11-28]]"
-date: 2024-11-28
+created: 2025-11-28
+date: 2025-11-28
 cssclasses:
   - ders-notu
 draft: false
 ---
-
 <h1 style="text-align:center"><span style="color:lightblue; text-align:center">Ünite 5: Logaritma</span> <span>| 28.11.2025</span></h1>
 
 

@@ -1,9 +1,9 @@
 ---
 title: Bilişim Matematiği - 7. Hafta
-type: learning
+type: ogrenis
 ders: "[[Bilişim Matematiği]]"
-created: "[[2025-11-7]]"
-date: 2024-11-14
+created: 2025-11-7
+date: 2025-11-14
 cssclasses:
   - ders-notu
 draft: true

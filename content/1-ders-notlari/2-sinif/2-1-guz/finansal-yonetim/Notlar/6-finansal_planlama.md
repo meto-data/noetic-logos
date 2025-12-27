@@ -1,11 +1,11 @@
 ---
 title: 6- Finansal Planlama
-type: learning
+type: ogrenis
 ders: "[[Finansal Yönetim]]"
 date: 2025-12-03
 cssclasses:
   - ders-notu
-created: 3.12.2025
+created: 2025-12-03
 ---
 ### Kavramlar, Tanımlamalar, Ön Hazırlık vs.
 

@@ -1,13 +1,12 @@
 ---
 title: 5- Rasyolar II
-type: learning
+type: ogrenis
 ders: "[[Finansal Yönetim]]"
 date: 2025-11-12
 cssclasses:
   - ders-notu
-created: 12.11.2025
+created: 2025-11-12
 ---
-
 # 3. **Mâlî Yapı Oranları** (Kaldıraç Oranları)
 - Şirketin parasının ne kadarının borç ne kadarının kendi öz malı olduğunu ölçer.
 - "Kaldıraç" denilmesinin sebebi az kuvvetle çok yük kaldırmayı sağladığından, ne de olsa finansta da öz sermaye ile çok varlık kontrol etmeye çalışıyoruz borçlanarak. Ancak ipin ucunu kaçırırsak o kaldıraç kafamıza inebilir. Bundan dolayı kaldıraç.

@@ -1,8 +1,8 @@
 ---
-title: Bilişim Matematiği - 3. Ders
-type: learning
+title: Bilişim Mat. - 3. Ders
+type: ogrenis
 ders: Bilişim Matematiği
-created: "[[2025-10-10]]"
+created: 2025-10-10
 cssclasses:
   - ders-notu
 ---

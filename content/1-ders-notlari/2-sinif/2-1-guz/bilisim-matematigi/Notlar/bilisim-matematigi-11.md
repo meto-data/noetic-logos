@@ -1,9 +1,9 @@
 ---
-title: Bilişim Matematiği - 11. Ders
-type: learning
+title: Bilişim Mat. - 11. Ders
+type: ogrenis
 ders: "[[Bilişim Matematiği]]"
-created: 2025-12-18
-date: 2024-12-12
+created: 2025-12-12
+date: 2025-12-12
 cssclasses:
   - ders-notu
 draft: false
