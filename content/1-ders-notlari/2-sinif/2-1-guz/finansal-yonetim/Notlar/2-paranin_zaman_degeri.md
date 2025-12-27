@@ -1,14 +1,12 @@
 ---
 title: 2- Paranın Zaman Değeri
-type: learning
+type: ogrenis
 ders: "[[Finansal Yönetim]]"
-created: "[[2025-10-08]]"
+created: 2025-10-08
 cssclasses:
   - ders-notu
 date: 2025-10-08
 ---
-
-
 > [!tip] Sınav Kapsamı
 > - **Sayısal Sorumluluk:**
 >   1.  Basit Faiz Hesaplaması

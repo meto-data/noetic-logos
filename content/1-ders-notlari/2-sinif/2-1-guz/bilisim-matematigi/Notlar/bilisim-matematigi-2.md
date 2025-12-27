@@ -1,14 +1,14 @@
 ---
-title: Bilişim Matematiği - 2. Ders
-type: learning
+title: Bilişim Mat. - 2. Ders
+type: ogrenis
 ders: Bilişim Matematiği
 konu: Mantık
-created: "[[2025-10-03]]"
+created: 2025-10-03
 cssclasses:
   - ders-notu
 ---
 - **Not**: Ders hârici bir anlatım için [[1- Buders Önermeler]] ve [[1- Temeller (Mantık)]] notlarına bakılması tavsiye edilir. <br>
-- **Not 2**: Notlar ders anlatımına bire-bir sadık değildir. Derste anlatılanların hepsini kapsar ancak ilave eklemeler de vardır.
+- **Not 2**: Sadece bu dosya için, bu dosya ders anlatımına bire-bir sadık değildir. Derste anlatılanların hepsini kapsar ancak ilave eklemeler de vardır.
 
 ---
 <br>

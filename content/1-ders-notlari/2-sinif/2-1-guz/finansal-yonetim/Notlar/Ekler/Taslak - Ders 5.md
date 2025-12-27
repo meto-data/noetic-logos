@@ -1,12 +1,11 @@
 ---
 title: f
-type: learning
+type: ogrenis
 ders: "[[Notlar]]"
-created: "[[2025-10-22]]"
+created: 2025-10-22
 cssclasses:
   - ders-notu
 ---
-
 - 5 fonksiyona değinildiyse hem içerikleri hem de isimleri çıkacaktır.
 - Ödeme vasıtaları da önemli denilebilir. [[Ödeme Vasıtası]]
 - Aşamalardan da soru gelecek işte, muhasebe vardı ya aşaması.

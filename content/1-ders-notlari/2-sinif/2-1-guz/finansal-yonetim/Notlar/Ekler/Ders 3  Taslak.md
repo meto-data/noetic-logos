@@ -1,14 +1,11 @@
 ---
 title: Ders 3  Taslak
-type: learning
+type: ogrenis
 ders: "[[Finansal Yönetim]]"
-created: "[[2025-10-15]]"
+created: 2025-10-15
 cssclasses:
   - ders-notu
 ---
-
-
-
 - döngü grafiği hakkında;
 	-  Ana paradan gelecek değere gider g rafik
 		- Ana para + faiz vardır içerisinde?

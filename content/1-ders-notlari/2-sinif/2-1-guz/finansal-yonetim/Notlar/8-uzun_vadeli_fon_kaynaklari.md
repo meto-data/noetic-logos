@@ -1,11 +1,11 @@
 ---
 title: 8- Uzun Vadeli Fon Kaynakları
-type: learning
+type: ogrenis
 ders: "[[Finansal Yönetim]]"
 date: 2025-12-24
 cssclasses:
   - ders-notu
-created: 24.12.2025
+created: 2025-12-24
 ---
 # İlgili bağlam için anımsatıcılar
 ### [[Kısa Vadeli Yabancı Kaynaklar]]

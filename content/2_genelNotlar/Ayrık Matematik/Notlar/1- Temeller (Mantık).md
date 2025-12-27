@@ -1,4 +1,4 @@
-2## Mantık ve Matematiksel İspat
+## Mantık ve Matematiksel İspat
 
 ### Temel Kavramlar ve Önemi
 

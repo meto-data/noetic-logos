@@ -359,6 +359,34 @@ img {
     --muted: #4C566A;
     --text: #2E3440;
     --panel-bg: #ECEFF4;
+
+    // Meta/Tarih bilgisi - Koyu ve Okunabilir
+    .meta,
+    .meta *,
+    span.meta,
+    time,
+    time[datetime],
+    .content-meta,
+    .content-meta *,
+    .meta-item,
+    .meta-item * {
+        color: #4C566A !important; // Nord Polar Night (koyu gri)
+    }
+
+    // Diğer Fontlar butonu - Koyu ve Okunabilir
+    .font-show-more {
+        color: #4C566A !important; // Nord Polar Night
+        border-color: #D8DEE9 !important;
+
+        &:hover {
+            color: #2E3440 !important;
+            border-color: #5E81AC !important;
+        }
+
+        svg {
+            stroke: #4C566A !important;
+        }
+    }
 }
 
 // DEEP SEA TEMA - Okyanus Derinliği
@@ -1928,12 +1956,42 @@ a.internal {
         border-right: 1px solid #333333 !important; // Daha belirgin border
     }
 
-    // Sağ sidebar - Belirgin Ayrım
+    // Sağ sidebar - Belirgin Ayrım + AÇIK YAZILAR
     .sidebar.right,
     .right.sidebar,
     .right-sidebar {
         background-color: #030303 !important; // Çok hafif fark
         border-left: 1px solid #333333 !important; // Belirgin border
+
+        // Sağ panel yazıları daha açık
+        color: #e5e5e7 !important;
+
+        // TOC, Backlinks, Graph başlıkları
+        h3,
+        .toc-header,
+        .backlinks h3 {
+            color: #f4f4f5 !important; // Zinc-100
+        }
+
+        // TOC linkleri - NEREDEYSE BEYAZ (Sadece Deep Void için)
+        a {
+            color: #f4f4f5 !important; // Zinc-100 (neredeyse beyaz)
+
+            &:hover {
+                color: #ffffff !important;
+            }
+
+            &.in-view {
+                color: #a78bfa !important; // Mor vurgu
+            }
+        }
+
+        // Tüm metinler
+        span,
+        p,
+        li {
+            color: #d4d4d8 !important; // Zinc-300
+        }
     }
 
     // Ana içerik alanı - Transparan (Partiküller görünsün)
@@ -2128,5 +2186,87 @@ a.internal {
             border-color: var(--secondary) !important;
             background: color-mix(in srgb, var(--secondary) 10%, transparent) !important;
         }
+    }
+}
+
+// ==========================================
+// FONT BOYUTU KONTROLLERİ - KaTeX & BAŞLIKLAR
+// ==========================================
+// KaTeX formüllerinin --baseFontSize ile orantılı olması
+// Böylece Küçük/Normal/Büyük ayarı formülleri de etkiler
+// Başlıklar her zaman formüllerden büyük kalır (base.scss'de h1=1.6x, h2=1.3x, h3=1.05x)
+
+// KaTeX inline formüller (paragraf içi)
+.katex {
+    font-size: calc(var(--baseFontSize, 1rem) * 1.0) !important;
+}
+
+// KaTeX display formüller (merkezi blok formüller)  
+.katex-display {
+    font-size: calc(var(--baseFontSize, 1rem) * 1.05) !important;
+
+    .katex {
+        font-size: inherit !important;
+    }
+}
+
+// Article title (makale başlığı) - dinamik boyut
+.article-title {
+    font-size: calc(var(--baseFontSize, 1rem) * 2) !important;
+}
+
+// İçerik başlıkları için hiyerarşi garantisi
+// (base.scss'deki değerler zaten --baseFontSize kullanıyor)
+article h1 {
+    font-size: calc(var(--baseFontSize, 1rem) * 1.75) !important;
+}
+
+article h2 {
+    font-size: calc(var(--baseFontSize, 1rem) * 1.4) !important;
+}
+
+article h3 {
+    font-size: calc(var(--baseFontSize, 1rem) * 1.15) !important;
+}
+
+// ==========================================
+// DEEP-VOID TEMASI - KaTeX BEYAZ RENK
+// ==========================================
+[saved-theme="deep-void"] {
+
+    // KaTeX formülleri beyaz olmalı
+    .katex,
+    .katex * {
+        color: #ffffff !important;
+    }
+
+    // KaTeX içindeki özel renkler korunsun (eğer varsa)
+    .katex .mord.text {
+        color: #e5e5e7 !important;
+    }
+}
+
+// ==========================================
+// VOID TEMASI - KaTeX RENK DÜZELTMESİ  
+// ==========================================
+[saved-theme="void"] {
+
+    .katex,
+    .katex * {
+        color: #E4E4E7 !important;
+    }
+}
+
+// ==========================================
+// KOYU TEMALAR - KaTeX GENEL RENK
+// ==========================================
+[saved-theme="dark"],
+[saved-theme="stone-dark"],
+[saved-theme="olive-dark"],
+[saved-theme="deep-sea"] {
+
+    .katex,
+    .katex * {
+        color: var(--dark) !important;
     }
 }
