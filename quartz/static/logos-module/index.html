@@ -4,259 +4,259 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Türk Dili Test Modülü</title>
-    <!-- Preconnect for faster DNS/TLS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Fonts with display=swap and latin-ext support for Turkish characters -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:wght@400;700&display=swap&subset=latin,latin-ext"
-      rel="stylesheet">
-    <!-- Material Symbols removed - using inline SVG icons instead (~2MB saved) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              retro: {
-                dark: "#2D333A",
-                teal: "#75B7B2",
-                grey: "#737C7F",
-                beige: "#C2BCA4",
-                green: "#88A47C",
-                greenLight: "#9AB58E",
-                greenDark: "#7FA075",
-                paper: "#F0EFE9",
-                bg: "#E8E6D9",
-                red: "#D84B4B",
-              }
-            },
-            fontFamily: {
-              retro: ['VT323', 'monospace'],
-              mono: ['Space Mono', 'monospace'],
-            },
-            boxShadow: {
-              'retro': '4px 4px 0px 0px #2D333A',
-              'retro-sm': '2px 2px 0px 0px #2D333A',
-            },
-            animation: {
-              'blink': 'blink 1s step-end infinite',
-              'load-bar': 'load 2s ease-out forwards',
-            },
-            keyframes: {
-              blink: {
-                '0%, 100%': { opacity: '1' },
-                '50%': { opacity: '0' },
-              },
-              load: {
-                '0%': { width: '0%' },
-                '10%': { width: '15%' },
-                '30%': { width: '30%' },
-                '60%': { width: '75%' },
-                '100%': { width: '100%' },
-              },
+  <title>Türk Dili Test Modülü - Retro V1</title>
+  <!-- Preconnect for faster DNS/TLS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fonts with display=swap and latin-ext support for Turkish characters -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:wght@400;700&display=swap&subset=latin,latin-ext"
+    rel="stylesheet">
+  <!-- Material Symbols removed - using inline SVG icons instead (~2MB saved) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            retro: {
+              dark: "#2D333A",
+              teal: "#75B7B2",
+              grey: "#737C7F",
+              beige: "#C2BCA4",
+              green: "#88A47C",
+              greenLight: "#9AB58E",
+              greenDark: "#7FA075",
+              paper: "#F0EFE9",
+              bg: "#E8E6D9",
+              red: "#D84B4B",
             }
           },
+          fontFamily: {
+            retro: ['VT323', 'monospace'],
+            mono: ['Space Mono', 'monospace'],
+          },
+          boxShadow: {
+            'retro': '4px 4px 0px 0px #2D333A',
+            'retro-sm': '2px 2px 0px 0px #2D333A',
+          },
+          animation: {
+            'blink': 'blink 1s step-end infinite',
+            'load-bar': 'load 2s ease-out forwards',
+          },
+          keyframes: {
+            blink: {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0' },
+            },
+            load: {
+              '0%': { width: '0%' },
+              '10%': { width: '15%' },
+              '30%': { width: '30%' },
+              '60%': { width: '75%' },
+              '100%': { width: '100%' },
+            },
+          }
         },
-      };
-    </script>
-    <style>
-      body {
-        background-color: #E8E6D9;
-        background-image: linear-gradient(rgba(115, 124, 127, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(115, 124, 127, 0.05) 1px, transparent 1px);
-        background-size: 20px 20px;
-      }
+      },
+    };
+  </script>
+  <style>
+    body {
+      background-color: #E8E6D9;
+      background-image: linear-gradient(rgba(115, 124, 127, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(115, 124, 127, 0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
 
-      ::-webkit-scrollbar {
-        width: 12px;
-        background: #C2BCA4;
-        border-left: 2px solid #2D333A;
-      }
+    ::-webkit-scrollbar {
+      width: 12px;
+      background: #C2BCA4;
+      border-left: 2px solid #2D333A;
+    }
 
-      ::-webkit-scrollbar-thumb {
-        background: #737C7F;
-        border: 2px solid #2D333A;
-      }
+    ::-webkit-scrollbar-thumb {
+      background: #737C7F;
+      border: 2px solid #2D333A;
+    }
 
-      ::-webkit-scrollbar-thumb:hover {
-        background: #2D333A;
-      }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2D333A;
+    }
 
-      .crt-overlay {
-        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-        background-size: 100% 4px, 6px 100%;
-        pointer-events: none;
-      }
+    .crt-overlay {
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      background-size: 100% 4px, 6px 100%;
+      pointer-events: none;
+    }
 
-      /* Note content styles */
+    /* Note content styles */
+    .note-content h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 1.5rem 0 0.25rem;
+      border-bottom: 3px solid #2D333A;
+      padding-bottom: 0.5rem;
+    }
+
+    .note-content h2 {
+      font-size: 1.75rem;
+      font-weight: bold;
+      margin: 1.25rem 0 0.25rem;
+      border-bottom: 2px dashed #737C7F;
+      padding-bottom: 0.5rem;
+    }
+
+    .note-content h3 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 1rem 0 0.25rem;
+      color: #2D333A;
+    }
+
+    .note-content h4 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin: 0.75rem 0 0.15rem;
+      color: #75B7B2;
+    }
+
+    .note-content h5 {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin: 0.5rem 0 0.1rem;
+      color: #88A47C;
+    }
+
+    .note-content p {
+      margin: 0.5rem 0;
+      line-height: 1.8;
+    }
+
+    .note-content ul {
+      margin: 0.25rem 0 0.75rem 1.25rem;
+      list-style-type: disc;
+      padding-left: 0;
+    }
+
+    .note-content li {
+      margin: 0.15rem 0;
+      line-height: 1.6;
+      list-style-position: outside;
+    }
+
+    .note-content li.ml-4,
+    .note-content li[style*="margin-left"] {
+      list-style-type: circle;
+    }
+
+    .note-content h1+ul,
+    .note-content h2+ul,
+    .note-content h3+ul,
+    .note-content h4+ul,
+    .note-content h5+ul {
+      margin-top: 0.25rem;
+    }
+
+    .note-content strong {
+      color: #2D333A;
+      background: rgba(117, 183, 178, 0.2);
+      padding: 0 0.25rem;
+    }
+
+    .note-content em {
+      color: #737C7F;
+      font-style: italic;
+    }
+
+    .note-content blockquote {
+      border-left: 4px solid #75B7B2;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      background: rgba(117, 183, 178, 0.1);
+    }
+
+    .note-content .note-quote {
+      border-left: 4px solid #88A47C;
+      background: rgba(136, 164, 124, 0.1);
+    }
+
+    .note-content .note-link {
+      color: #75B7B2;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .note-content code {
+      background: #2D333A;
+      color: #C2BCA4;
+      padding: 0.1rem 0.3rem;
+      font-size: 0.9em;
+    }
+
+    .note-content hr {
+      border: none;
+      border-top: 2px dashed #C2BCA4;
+      margin: 1.5rem 0;
+    }
+
+    .note-content .note-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    .note-content .note-table th,
+    .note-content .note-table td {
+      border: 2px solid #2D333A;
+      padding: 0.5rem;
+      text-align: left;
+    }
+
+    .note-content .note-table th {
+      background: #2D333A;
+      color: #C2BCA4;
+    }
+
+    .note-content .note-table tr:nth-child(even) {
+      background: rgba(194, 188, 164, 0.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
       .note-content h1 {
-        font-size: 2rem;
-        font-weight: bold;
-        margin: 1.5rem 0 0.25rem;
-        border-bottom: 3px solid #2D333A;
-        padding-bottom: 0.5rem;
+        font-size: 1.5rem;
       }
 
       .note-content h2 {
-        font-size: 1.75rem;
-        font-weight: bold;
-        margin: 1.25rem 0 0.25rem;
-        border-bottom: 2px dashed #737C7F;
-        padding-bottom: 0.5rem;
+        font-size: 1.35rem;
       }
 
       .note-content h3 {
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin: 1rem 0 0.25rem;
-        color: #2D333A;
+        font-size: 1.2rem;
       }
 
       .note-content h4 {
-        font-size: 1.25rem;
-        font-weight: bold;
-        margin: 0.75rem 0 0.15rem;
-        color: #75B7B2;
+        font-size: 1.1rem;
       }
 
       .note-content h5 {
-        font-size: 1.1rem;
-        font-weight: bold;
-        margin: 0.5rem 0 0.1rem;
-        color: #88A47C;
+        font-size: 1rem;
       }
+    }
+  </style>
 
-      .note-content p {
-        margin: 0.5rem 0;
-        line-height: 1.8;
-      }
-
-      .note-content ul {
-        margin: 0.25rem 0 0.75rem 1.25rem;
-        list-style-type: disc;
-        padding-left: 0;
-      }
-
-      .note-content li {
-        margin: 0.15rem 0;
-        line-height: 1.6;
-        list-style-position: outside;
-      }
-
-      .note-content li.ml-4,
-      .note-content li[style*="margin-left"] {
-        list-style-type: circle;
-      }
-
-      .note-content h1+ul,
-      .note-content h2+ul,
-      .note-content h3+ul,
-      .note-content h4+ul,
-      .note-content h5+ul {
-        margin-top: 0.25rem;
-      }
-
-      .note-content strong {
-        color: #2D333A;
-        background: rgba(117, 183, 178, 0.2);
-        padding: 0 0.25rem;
-      }
-
-      .note-content em {
-        color: #737C7F;
-        font-style: italic;
-      }
-
-      .note-content blockquote {
-        border-left: 4px solid #75B7B2;
-        padding: 0.5rem 1rem;
-        margin: 1rem 0;
-        background: rgba(117, 183, 178, 0.1);
-      }
-
-      .note-content .note-quote {
-        border-left: 4px solid #88A47C;
-        background: rgba(136, 164, 124, 0.1);
-      }
-
-      .note-content .note-link {
-        color: #75B7B2;
-        text-decoration: underline;
-        cursor: pointer;
-      }
-
-      .note-content code {
-        background: #2D333A;
-        color: #C2BCA4;
-        padding: 0.1rem 0.3rem;
-        font-size: 0.9em;
-      }
-
-      .note-content hr {
-        border: none;
-        border-top: 2px dashed #C2BCA4;
-        margin: 1.5rem 0;
-      }
-
-      .note-content .note-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 1rem 0;
-        font-size: 0.9rem;
-      }
-
-      .note-content .note-table th,
-      .note-content .note-table td {
-        border: 2px solid #2D333A;
-        padding: 0.5rem;
-        text-align: left;
-      }
-
-      .note-content .note-table th {
-        background: #2D333A;
-        color: #C2BCA4;
-      }
-
-      .note-content .note-table tr:nth-child(even) {
-        background: rgba(194, 188, 164, 0.2);
-      }
-
-      /* Responsive */
-      @media (max-width: 1024px) {
-        .note-content h1 {
-          font-size: 1.5rem;
-        }
-
-        .note-content h2 {
-          font-size: 1.35rem;
-        }
-
-        .note-content h3 {
-          font-size: 1.2rem;
-        }
-
-        .note-content h4 {
-          font-size: 1.1rem;
-        }
-
-        .note-content h5 {
-          font-size: 1rem;
-        }
-      }
-    </style>
-
-    <script type="importmap">
+  <script type="importmap">
 {
   "imports": {
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+    "react": "https://esm.sh/react@19.0.0",
+    "react/jsx-runtime": "https://esm.sh/react@19.0.0/jsx-runtime",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client"
   }
 }
 </script>
-    <script type="module" crossorigin src="./assets/index-DF1cxFMO.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-UcJm7UaK.css">
+  <script type="module" crossorigin src="./assets/index-DF1cxFMO.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-UcJm7UaK.css">
 </head>
 
 <body class="text-retro-dark h-screen overflow-auto font-retro text-xl selection:bg-retro-teal selection:text-white">

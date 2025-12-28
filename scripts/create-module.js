@@ -111,10 +111,10 @@ tags:
   </div>
 </div>
 
-<script type="module" src="/static/finance-module/module_engine.js"></script>
-<script src="/static/finance-module/${moduleName}_data.js"></script>
-<link rel="stylesheet" href="/static/finance-module/style.css" />
-${CSS_FILE.split("/").pop() !== `${moduleName}.css` ? "" : `<link rel="stylesheet" href="/static/finance-module/${moduleName}.css" />`}
+<script type="module" src="../../static/finance-module/module_engine.js"></script>
+<script src="../../static/finance-module/${moduleName}_data.js"></script>
+<link rel="stylesheet" href="../../static/finance-module/style.css" />
+${CSS_FILE.split("/").pop() !== `${moduleName}.css` ? "" : `<link rel="stylesheet" href="../../static/finance-module/${moduleName}.css" />`}
 `
 
 const cssTemplate = `/* ${moduleTitle} - Özel Stiller */

@@ -3,38 +3,71 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Noetic SQL</title>
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>NoeticSQL</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=PT+Sans:wght@400;700&family=Ubuntu:wght@400;500;700&family=Fira+Sans:wght@400;500;700&family=Mulish:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Rubik:wght@400;500;700&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <script>
         tailwind.config = {
-            darkMode: 'class',
+            darkMode: "class",
             theme: {
                 extend: {
+                    colors: {
+                        'primary': '#10B981',
+                        'primary-hover': '#059669',
+                        'primary-dark': '#047857',
+                        'background-light': '#F8FAF9',
+                        'background-dark': '#022C22',
+                        'surface-light': '#FFFFFF',
+                        'surface-dark': '#064E3B',
+                        'border-light': '#E2E8F0',
+                        'border-dark': '#065F46',
+                        'text-light': '#1E293B',
+                        'text-dark': '#ECFDF5',
+                        'error': '#EF4444',
+                        'error-light': '#FEF2F2',
+                        'success': '#10B981',
+                        'success-light': '#ECFDF5',
+                    },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
+                        display: ["JetBrains Mono", "monospace"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.75rem",
+                        'xl': "1rem",
+                        '2xl': "1.5rem",
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(16, 185, 129, 0.05)',
+                        'card': '0 0 0 1px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.04)',
                     }
-                }
-            }
-        }
+                },
+            },
+        };
     </script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
 
-        /* Custom scrollbar */
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
         ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
+            width: 8px;
+            height: 8px;
         }
 
         ::-webkit-scrollbar-track {
@@ -42,66 +75,25 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 3px;
+            background: #10B981;
+            border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
+            background: #059669;
         }
 
-        /* Dark mode scrollbar */
-        .dark ::-webkit-scrollbar-thumb {
-            background: #475569;
-        }
-
-        .dark ::-webkit-scrollbar-thumb:hover {
-            background: #64748b;
-        }
-
-        pre:not(.CodeMirror-line) {
-            border-radius: 0.5rem !important;
-            margin: 1rem 0 !important;
-        }
-
-        code {
-            font-family: 'JetBrains Mono', monospace !important;
-            font-size: 0.9em;
-        }
-
-        .prose code:not(pre code) {
-            background-color: #e2e8f0;
-            color: #0f172a;
-            padding: 0.2em 0.4em;
-            border-radius: 0.25rem;
-            font-weight: 500;
-        }
-
-        .dark .prose code:not(pre code) {
-            background-color: #334155;
-            color: #f1f5f9;
+        .grid-pattern {
+            background-image: linear-gradient(#10B981 1px, transparent 1px), linear-gradient(90deg, #10B981 1px, transparent 1px);
+            background-size: 40px 40px;
         }
     </style>
-
-    <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@19.0.0",
-    "react/jsx-runtime": "https://esm.sh/react@19.0.0/jsx-runtime",
-    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client"
-  }
-}
-</script>
-  <script type="module" crossorigin src="./assets/index-DPII-1Kb.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-A8asDg0e.css">
+  <script type="module" crossorigin src="./assets/index-vqO7Yotk.js"></script>
 </head>
 
-<body class="text-slate-800 dark:text-white antialiased bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-    <div id="root"></div>
-    <!-- Prism Core for syntax highlighting -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark min-h-screen h-screen w-screen overflow-hidden flex selection:bg-primary selection:text-white">
+    <div id="root" class="flex w-full h-full"></div>
 </body>
 
 </html>

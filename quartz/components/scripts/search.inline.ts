@@ -103,9 +103,8 @@ function highlight(searchTerm: string, text: string, trim?: boolean) {
     })
     .join(" ")
 
-  return `${startIndex === 0 ? "" : "..."}${slice}${
-    endIndex === tokenizedText.length - 1 ? "" : "..."
-  }`
+  return `${startIndex === 0 ? "" : "..."}${slice}${endIndex === tokenizedText.length - 1 ? "" : "..."
+    }`
 }
 
 function highlightHTML(searchTerm: string, el: HTMLElement) {
@@ -164,17 +163,52 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
   const searchLayout = searchElement.querySelector(".search-layout") as HTMLElement
   if (!searchLayout) return
 
+  // Relative module paths (without leading slash)
   const secretCommands: Record<string, string> = {
-    türkdili: "/static/logos-module/index.html",
-    finance: "/static/finance-module/index.html",
-    oop1: "/static/oop1-module/index.html",
-    database: "/static/database-module/index.html",
-    nlp: "/static/nlp/index.html",
+    türkdili: "static/logos-module/index.html",
+    finance: "static/finance-module/index.html",
+    oop1: "static/oop1-module/index.html",
+    database: "static/database-module/index.html",
+    nlp: "static/nlp/index.html",
   }
 
   // Special commands that trigger events instead of redirects
   const eventCommands: Record<string, string> = {
     chat: "noetic-chat-activate",
+  }
+
+  // Get base path from the current page (works for both root and subdirectory deployments)
+  function getBasePath(): string {
+    // Try to get base from <base> tag first
+    const baseElement = document.querySelector("base")
+    if (baseElement?.href) {
+      return baseElement.href.endsWith("/") ? baseElement.href : baseElement.href + "/"
+    }
+
+    // Fallback: detect from current URL
+    // For GitHub Pages like /noetic-logos/, we need to find the base path
+    const pathname = window.location.pathname
+
+    // If we're at a content page, we need to go back to root
+    // Find the first path segment that could be a repo name
+    // We check if /static/ exists under that path
+
+    // Simple heuristic: if pathname starts with a segment that looks like a repo name
+    // (i.e., not a typical content path), use it as base
+    const segments = pathname.split("/").filter(Boolean)
+
+    // For paths like /noetic-logos/some/page, check if first segment could be repo name
+    // This works because content pages are usually deeper
+    if (segments.length > 0) {
+      // Check if we're on GitHub Pages (github.io domain)
+      if (window.location.hostname.endsWith(".github.io")) {
+        // First segment is likely the repo name
+        return `${window.location.origin}/${segments[0]}/`
+      }
+    }
+
+    // For root deployments (like Cloudflare Pages), just use origin
+    return window.location.origin + "/"
   }
 
   const idDataMap = Object.keys(data) as FullSlug[]
@@ -217,7 +251,8 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
 
   function redirectToSecretModule(targetPath: string) {
     hideSearch()
-    const targetUrl = new URL(targetPath, window.location.origin)
+    const basePath = getBasePath()
+    const targetUrl = new URL(targetPath, basePath)
     window.location.assign(targetUrl.toString())
   }
 
