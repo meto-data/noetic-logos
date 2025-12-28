@@ -68,6 +68,6 @@ export {
   Chat,
   Resize,
   Hamburger,
-  ThemeCanvas,
   TestNotification,
+  ThemeCanvas,
 }
