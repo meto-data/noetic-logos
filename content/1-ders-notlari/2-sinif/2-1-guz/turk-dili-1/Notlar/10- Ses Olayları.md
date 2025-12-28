@@ -22,6 +22,10 @@ title: 10- Ses Olayları
 # A. Başlıca Ses Olayları
 
 ### 1. Ünlü Türemesi (Vowel Epenthesis)
+
+> 📢: Hoca örnekler üzerinden gideceğini belirtti. Bir kelime verildiğinde (mesela 'daracık') bunun "ünlü türemesi" olduğunu şak diye bilmek gerekiyor.
+
+
 - Kelimenin yapısına, fonotaktik kurallara uymayan durumlarda sesin sisteme ilave edilmesidir.
 
 #### 1.1. Yapısal Uyumsuzluk
@@ -38,6 +42,7 @@ title: 10- Ses Olayları
 	- bir-cik > biricik
 
 ### 2. Ünsüz Türemesi (Consonant Epenthesis)
+> 📢 Tıpkı ünlü türemesinde olduğu gibi, burada da örnek verildiğinde olayı tanımak ve ismini koymak şart.
 #### 2.1.1. Orijinal Yapının Korunması (İkizleşme / Gemination)
 - Arapçadan giren "hak, his, zan" gibi kelimeler esasında şeddelidir (çift ünsüzdür: hakk, hiss, zann). Türkçede tek ünsüzle kullanılırlar (yalın hâlde). Ancak ünlüyle başlayan bir ek aldıklarında veya yardımcı fiille birleştirdiklerinde, o düşen aslî ünsüz tekrar ortaya çıkar (hak > hakkı, his> hissetmek).
 
@@ -45,13 +50,14 @@ title: 10- Ses Olayları
 - Kelime başındaki zayıf ünlünün ünsüzle desteklenmesidir.
 - urmak > vurmak
 - ılan > yılan
-- ıldız > yıldız
+- ıldız > yıldız (📢 Hoca bu örneği (Ildız > Yıldız) özellikle vurguladı. Bu tarz bir ses olayı sorusu gelebilir muhtemelen.)
 
 #### 2.1.3. İki Ünlü Çatışması (Hiatus) Engelleme
 - İki ünlü yan yana gelemeyeceği için araya ünsüz girer (mâi > mavi, laboratuar > laboratuvar).
 	- su + un > suyun
 	- masa + a > masaya
 
+> 📢 YAZI DİLİ/KONUŞMA DİLİ AYRIMI: Hoca bu ayrıma epey vurgu yaptı. "Limon > İlimon", "Lazım > İlazım" gibi örnekler konuşma dilinde türemedir ama yazı dilinde gösterilmez. Sınavda yazı dilinde olup olmayanları karıştırmamak lazım
 
 ### 2.1. Yardımcı Ses Türemesi (Buffer Sound)
 - Türkçede iki ünlü yan yana gelemediği için, eklenme sırasında araya giren (y, n, s, ş) sesleridir (anla-ış > anlayış, masa-a > masaya).
@@ -95,7 +101,7 @@ title: 10- Ses Olayları
 - Hasta hane > hastane
 - Postahane > postane
 
-## 7. Ünlü Daralması (Vowel Narrowing)
+## 7. Ünlü Daralması (Vowel Narrowing) 📢📢
 - Geniş ünlülerin (a, e), kendisinden sonra gelen eklerin etkisiyle ünlülere (ı, i, u, ü) dönüşmesidir.
 - a,e > ı, i, u, ü
 #### **-yor** Eki Etkisi
