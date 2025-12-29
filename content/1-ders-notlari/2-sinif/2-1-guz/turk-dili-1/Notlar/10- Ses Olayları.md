@@ -3,11 +3,6 @@ title: 10- Ses Olayları
 ---
 
 - Sınavda buradan 3-4 soru gelecek.
-- Ünlü türemesi diyebilmen gerekiyor örnek verilince.
-- Ünsüz türemesi diyebilmen gerekiyor örnek verilince.
-- Ildız>yıldız gibi, ses olaylarından soru gelecek kesinlikle. 
-- Ünsüz türemesi olmayan kelimeleri de bil. Yazı dilinde olup olmayan yazı dili-konuşma dili ayrımına vurgu yaptı baya hoca.
-- Ünlü daralması önemli. Yıldız koy.
 
 ## Neden değişiyor bu sesler?
 - Dil durağan bir yapı değil; bilakis canlı ve dinamik bir organizmadır. Dildeki en temel değişimler ses düzeyinde gerçekleşir, zira dil ses (phoneme) üzerine serimlidir. Sesin olmadığı yerde dilden bahsedilemez. 
