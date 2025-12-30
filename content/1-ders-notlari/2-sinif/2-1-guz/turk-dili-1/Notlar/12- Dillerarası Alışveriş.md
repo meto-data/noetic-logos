@@ -8,7 +8,7 @@ Toplumların karşılaşma biçimine göre dil etkilenmeleri beş ana kategoride
 - Üst katman etkisi
 - Egemen kültür etkisi
 - İki dillilik
-## II. Etiyoloji: Dile neden yabancı öge girer?
+## II. Etiyoloji: Dile neden yabancı öge girer? 📢
 
 ### A. Zorunlu (Legitimate) Sebepler
 Dilin doğal evrimi ve ihtiyaçtan doğan durumlardır. <br>
@@ -126,5 +126,5 @@ Türkçe tarih boyunca pek çok dille etkileşeme girse de sınav bağlamında i
 	- *Fran*. ***Tenez*** > *İng.* ***Tennis*** > *Fran*. ***Tennis***.
 	- *Tr.* ***Kan/Kağan*** > *Far.* ***Han/Hakan*** > *Tr.* ***Han/Hakan***.
 
-
+2
 

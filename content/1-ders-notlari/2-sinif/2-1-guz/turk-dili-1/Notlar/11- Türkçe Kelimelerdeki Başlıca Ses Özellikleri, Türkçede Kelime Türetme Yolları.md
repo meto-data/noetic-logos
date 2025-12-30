@@ -6,7 +6,7 @@ title: 11- Türkçe Kelimelerdeki Başlıca Ses Özellikleri, Türkçede Kelime 
 
 
 ### 1- Uzun Ünlü Bulunmaması (Şapkalı a)
-- Türkçede sesles kısadır; sündürülmez veya uzatılmaz.
+- Türkçede sesler kısadır; sündürülmez veya uzatılmaz.
 - **Kökeni Türkçe olan kelimelerde uzun ünlü (â, û, î) yoktur**. Uzun ünlüler Arapça ve Farsçadan geçen kelimelerde olur. Bazen şapka ile gösterilmez ama uzun okunur.
 	- *Yâr, âlem, kâğıt, kâmil, hâsılat, adalet, kâide, numune, sade, şair*: Arapça.
 
@@ -17,7 +17,7 @@ title: 11- Türkçe Kelimelerdeki Başlıca Ses Özellikleri, Türkçede Kelime 
 		- Ho-r**o**z, Dok-t**o**r, Mo-t**o**r, Ki-l**o** 
 
 ### 3- Yasaklı Harfler: J, F, H
-- Bu harfler eski Türkeçnin gırtlak yapısında yoktu, dile sonradan girdiler.
+- Bu harfler Eski Türkçe'nin gırtlak yapısında yoktu, dile sonradan girdiler.
 - **J Sesi**: Türkçede asla yoktur. *Jandarma, Japon, Garaj, Ruj*: Hepsi yabancı.
 - **F Sesi**: Esasen yoktur (Fasülye, fayda yabancıdır).
 	- **İSTİSNALAR**:

@@ -54,9 +54,8 @@ title: 10- Ses Olayları
 
 > 📢 YAZI DİLİ/KONUŞMA DİLİ AYRIMI: Hoca bu ayrıma epey vurgu yaptı. "Limon > İlimon", "Lazım > İlazım" gibi örnekler konuşma dilinde türemedir ama yazı dilinde gösterilmez. Sınavda yazı dilinde olup olmayanları karıştırmamak lazım
 
-### 2.1. Yardımcı Ses Türemesi (Buffer Sound)
-- Türkçede iki ünlü yan yana gelemediği için, eklenme sırasında araya giren (y, n, s, ş) sesleridir (anla-ış > anlayış, masa-a > masaya).
-
+### 2.4. Kaynaştırma Ünsüzleri (Yardımcı Ses Türemesi / Buffer Consonants)
+- Türkçede iki ünlü yan yana gelemediği için, eklenme sırasında araya giren (*YaŞaSıN* -  y, n, s, ş) sesleridir (anla-ış > anlayış, masa-a > masaya, araba - ı > arabası, iki - er > ikişer).
 
 ## 3. Ünlü Düşmesi (Syncope)
 #### 3.1. Vurgusuz Orta Hece Düşmesi
@@ -131,7 +130,7 @@ title: 10- Ses Olayları
 	- çık-dı > çıktı (görülen geçmiş zaman eki)
 	- türk-ce > türkçe
 	- tesbit > tespit (Arapçadan geçen kelimede b>p dönüşümü)
-	- 1985-de > 1985'te (sayıların okunuşu sert bittiğinden ek sertleşir)
+	- 1985-de > 1985-te (sayıların okunuşu sert bittiğinden ek sertleşir)
 	- yurt-daş > yurttaş
 - **Mantık**: Güçlü olan ses (sert ünsüz), zayıf olan sesi (yumuşak ünsüz) domine eder ve kendine benzetir. "Gerileyici benzeşme" dediğimiz olaydır.
 
