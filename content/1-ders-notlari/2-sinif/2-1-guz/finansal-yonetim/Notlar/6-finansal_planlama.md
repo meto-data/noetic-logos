@@ -10,7 +10,7 @@ created: 2025-12-03
 ### Kavramlar, Tanımlamalar, Ön Hazırlık vs.
 
 - **[[Finansal Planlama ve Denetim|Finansal Planlama]]**: İşletmenin gelecekteki faaliyetlerin içkin fon giriş ve çıkışlarının önceden tahmin edilerek miktar ve zaman açısından uyumlaştırılma süreci. **Gelecekteki belirsizlikleri minimize etmeyi ve hedefleri [[kantitatif]] (sayısal) hâle getirmeyi amaçlar.**
-- **[[Bütçe]]**: İşletmenin belirli bir dönemine (genellikle bir yıl) ait finansal faaliyetlerinin ve hedeflerinin rakamlarla ifade edilmiş, özetlenmiş ve onaylanmış planıdır. Bir **sonuç** belgesidir.
+- **[[Bütçe]]**: İşletmenin belirli bir dönemine (genellikle bir yıl) ait finansal faaliyetlerinin ve hedeflerinin rakamlarla ifade edilmiş, özetlenmiş ve onaylanmış planıdır. Bir **sonuç** belgeidir.
 - **[[Bütçeleme]]**: **[[İşletmenin Fonksiyonları|İşletme fonksiyonlarının]]** ve dış değişkenlerin (ekonomi, vergi, rekabet vs.) verileri ışığında finansal tabloların **tahmini olarak oluşturulma süreci**.
 
 ---
@@ -121,6 +121,7 @@ $$
 ### 2.1. **[[Otofinansman Unsurları]]**
 #### 2.1.1. **[[Yedek Akçe|Yedek Akçeler]]**
 - Şirket kârının dağıtılmayıp kanunî zorunluluklar veya şirket ana sözleşmesi gereği ya da genel kurul kararıyla şirket bünyesinde bırakılan kısmıdır. Bu fonlar şirketin malî yapısını güçlendirir ve gelecekteki yatırımlar için kaynak oluşturur.
+
 
 ##### a) [[Yasal Akçe]]
 - Türk Ticaret Kanunu gereğince ayrılması zorunlu olan akçedir.

@@ -9,9 +9,9 @@ created: 2025-11-12
 ---
 ## Kısa Anımsatma
 
-- **Dönen varlıklar (cari aktif)** genel olarak **kısa vadeli borçlarla (cari pasif)** finanse edilir. 
+- **Dönen varlıklar ([[Cari Aktif|cari aktif]])** genel olarak **kısa vadeli borçlarla ([[Cari Pasif|cari pasif]])** finanse edilir. 
 	- **[[Cari Aktif]]** = [[Dönen Varlıklar]] = [[Çalışma Sermayesi (İşletme Sermayesi)]]
-	- **Cari Pasif** = **Kısa Vadeli Borçlar** 
+	- **[[Cari Pasif]]** = **Kısa Vadeli Borçlar** 
 - *Duran varlıklar* ise genel olarak "*devamlı sermaye*" ile finanse edilir.
 	- *[[Devamlı Sermaye|Devamlı (Sürekli) Sermaye]]*: `Uzun Vadeli Yabancı Kaynaklar` $+$ `Öz Sermaye`
 
@@ -64,14 +64,16 @@ $$
 - **Eğer $\ge 1.5$ ise**: İyiyiz. 1 liralık kısa vadeli borca karşılık $1.5$ liralık dönen varlığımız var. Borçları ödeyebilme gücümüzün olduğunu gösterir bu.
 - **Eğer $< 1.5$ ise**: Tehlikedeyiz. Kısa vadeli borçlarımız kısa sürede paraya dönebilecek varlıklardan daha fazla. *Net Çalışma Sermayesi*'nin noksan olduğunu gösterir bu.
 
-##### 1.1.0. **Net Çalışma/İşletme Sermayesi (NİS)**  (Net Working Capital)
+##### 1.1.0. **[[Net Çalışma Sermayesi|Net Çalışma/İşletme Sermayesi]] (NİS)**  (Net Working Capital)
 
 $$
 \large
 \boxed{\text{NİS} = \text{Dönen Varlıklar - Kısa Vadeli Borçlar}}
 $$
 
-- **İlişki**: Cari oran $>1$ ise, net işletme sermayemiz pozitiftir. Cari oran $< 1$ ise, net işletme sermayesi noksanımız (negatif) vardır.
+- **İlişki**: 
+	- Cari oran $>1$ ise, net işletme sermayemiz **pozitiftir**. 
+	- Cari oran $< 1$ ise, net işletme sermayesi **noksanımız (negatif)** vardır.
 
 
 ### 1.2. **Asit-Test Oranı** (Çabuk Likidite Oranı | Quick Ratio/Acid-Test Ratio)
@@ -126,7 +128,7 @@ $$
 
 ---
 
-## 2. **Faaliyet Oranları** (İşlerlik/Verim Oranları | Activity/Efficieny Ratios)
+## 2. **Faaliyet (Verimlilik) Rasyoları** (İşlerlik/Verim Oranları | Activity/Efficieny Ratios)
 - Hızımızı, verimliliğimizi ölçer. Elimizdeki **varlıklara (aktif) ne kadar para bağladığımızla** ve bu bağladığımız parayla **ne kadar hızlı satış (ciro) yarattığımızla** ilgilenir. Finansta hız önemlidir, **elimizdeki malı (stok)** veya **parayı (aktif)** ne kadar hızlı çevirirsek o kadar iyi.
 - Faaliyet oranı düşükse hantalız demektir, "[[Atıl (Boş) Kapasite|atıl kapasite]]" vardır.
 
@@ -205,7 +207,7 @@ $$
 
 
 ### 2.3. **Alacak Devir Hızı** (Receivables Turnover)
-- Satılan malın parasını (veresiyeler) ne kadar hızlı tahsil ettiğimiz ölçer. Alacaklarımızın 1 yılda kaç kez nakde dönüştüğünü gösterir.
+- Satılan malın parasını (veresiyeler) ne kadar hızlı tahsil ettiğimizi ölçer. Alacaklarımızın 1 yılda kaç kez nakde dönüştüğünü gösterir.
 - Çok satış yapıp yapmadığımızı değil, **veresiye (kredili) satışları iyi yönetip yönetmediğimizi gösterir.**
 
 
@@ -219,8 +221,8 @@ $$
 
 #### 2.3.0.1. **Ortalama Tahsil Süresi** (Days Sales Outstanding -DSO)
 
-- Alacak Devir Hızı ile ilişkili olarak, 
-- "Faturayı kestikten sonra paranın kasaya girmesi ortalama kaç gün sürüyor?" sorusuna yanıt verir.
+- Alacak Devir Hızı ile ilişkili olarak;
+	- "Faturayı kestikten sonra paranın kasaya girmesi ortalama kaç gün sürüyor?" sorusuna yanıt verir.
 
 $$
 \large

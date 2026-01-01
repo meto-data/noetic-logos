@@ -1,0 +1,1 @@
+Kısa Vadeli Borçlar

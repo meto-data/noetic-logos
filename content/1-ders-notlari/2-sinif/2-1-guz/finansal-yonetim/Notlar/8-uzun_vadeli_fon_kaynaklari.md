@@ -90,8 +90,11 @@ created: 2025-12-24
 
 ### 2.1. [[Açık Otofinansman]]
 - Kârın, yasalara veya ana sözleşmeye dayanarak resmen işletmede yedek akçe olarak tutulmasıdır.
-- [[Karşılıklar]] ([[Amortismanlar]], şüpheli alacaklar karşılığı, stok değer kaybı karşılığı), **dağıtılmamış kârlar** ve **yedek akçeler** *açık otofinansman kapsamına giren kalemlerdendir*.
+- [[Karşılıklar]] (şüpheli alacaklar karşılığı, stok değer kaybı karşılığı), **dağıtılmamış kârlar**, **[[Amortismanlar]]** ve **yedek akçeler** *açık otofinansman kapsamına giren kalemlerdendir*.
 
+
+>[!important] ÖNEMLİ
+>Amortisman ve Karşılıklar = NAKİT ÇIKIŞI GEREKTİRMEYEN GİDERLER.
 #### 2.1.1. [[Yedek Akçeler]] (Buffer)
 ##### a) [[Yasal Akçe]] (Kanunî Yedekler):
 - **Zorunluluk Kaynağı**: Türk Ticaret Kanunu (TTK).
@@ -110,7 +113,7 @@ created: 2025-12-24
 - **1. Temettü (Birinci Tertip)**: Ortaklara dağıtılması zorunlu olan asgari kâr payıdır. (Genellikle SPK veya TTK oranlarına göre belirlenir).
 - **2. Temettü (İkinci Tertip)**: Birinci temettü ve yedekler ayrıldıktan sonra kalan kârın, genel kurul kararıyla ortaklara dağıtılan fazladan kısmıdır.
 
-> **Neden tertip tertip?**: Nakit çıkışını kontrol etmek ve öncelikleri (önce yasal zorunluluk, sonra keyfî dağıtım) belirlemek için.
+> **Neden tertip tertip?** Nakit çıkışını kontrol etmek ve öncelikleri (önce yasal zorunluluk, sonra keyfî dağıtım) belirlemek için.
 
 ### 2.2. [[Gizli Otofinansman]]
 - Bilançoda açıkça "Yedek Akçe" diye yazmaz. Aktiflerin (varlıkların) değerinin düşük gösterilmesi veya pasifteki borçların/karşılıkların şişirilmesiyle yaratılır.
@@ -210,7 +213,7 @@ created: 2025-12-24
 
 
 ## **[[Borsa İstanbul]] (BİST)** ve **[[Takasbank]]**
-- [[İkincil Piyasa|İkincil piyasanın]] Türkiye'deki tek organize temsilcisidir. Türkiye’de hisse senetleri, tahviller, bonolar, türev ürünler ve emtia benzeri finansal araçların alınıp satıldığı tek resmî piyasa.
+- [[İkincil Piyasa|İkincil piyasanın]] Türkiye'deki tek organize temsilcisidir. **Hem birincil hem ikincil piyasayı kapsar Borsa İstanbul**. Türkiye’de hisse senetleri, tahviller, bonolar, türev ürünler ve emtia benzeri finansal araçların alınıp satıldığı tek resmî piyasa.
 - **BİST'in İşlevleri**: Likidite sağlamak, [[tek fiyat oluşumu|tek fiyat oluşumunu]] (arz-talep dengesiyle) sağlamak, [[ekonomiye kaynak yaratmak]] ve **[[mülkiyetin tabana yayılması|mülkiyetin tabana yayılmasını]]** sağlamak.
 	- Şirketler burada hisse satarak fon bulur.
 	- Yatırımcılar burada al-sat yaparak kazanç kovalar.

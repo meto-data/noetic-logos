@@ -1,9 +1,10 @@
 ---
 title: Bilişim Hukuku - 5. Ders
 date: 2025-12-04
+created: 2025-12-11
 ---
 #### Sorular
-1. Ceza muhakemesi kanunda yer alan 'teknik araçla inceleme' hangi usul ve esaslara tâbidir? KIsaca anlatınız. Bu bağlamda "soruşturma" ve "kavuşturma" evresinde faydalanılan SEGBİS'in kullanım alanları nelerdir, yazınız.
+1. Ceza muhakemesi kanunda yer alan 'teknik araçla inceleme' hangi usul ve esaslara tâbidir? Kısaca anlatınız. Bu bağlamda "soruşturma" ve "kavuşturma" evresinde faydalanılan SEGBİS'in kullanım alanları nelerdir, yazınız.
 2. Adli bilişim nedir? Adli bilişimin aşamaları nelerdir? Adli bilişim yöntemleri ile elde edilen kanıtların geçerliliği ile ilgili detaylı bilgi veriniz.
 
 
