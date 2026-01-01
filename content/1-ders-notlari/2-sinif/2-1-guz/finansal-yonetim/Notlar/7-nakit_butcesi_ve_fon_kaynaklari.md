@@ -59,13 +59,13 @@ created: 2025-12-17
 - Girişleri ($I$) ve çıkışları ($II$) hesapladıktan sonra şu formülü çalıştırıyoruz:
 
 $$
-\text{Net Nakit Akışı = Toplam Girişler (I) - Toplam Çıkışlar (II)}
+\text{\bf{Net Nakit Akışı = Toplam Girişler (I) - Toplam Çıkışlar (II)}}
 $$
 
 - Ancak burada bitirmiyoruz. Bir de **kümülatif nakit** (birikimli denge) var.
 
 $$
-\text{Dönem B. Nakit + Net Nakit Akışı = D. S. Kümülatif Bakiye}
+\text{\bf{Dönem B. Nakit + Net Nakit Akışı = D. S. Kümülatif Bakiye}}
 $$
 
 - Eğer dönem sonu kümülatif bakiye işletmenin belirlediği **minimum nakit gereksinimi**in altına düşerse **nakit açığı** veriyor demektir.
@@ -177,8 +177,8 @@ $$
 
 #### [[VDMK]]: Alacakları Paketleyip Satmak
 - Menkulleştirmenin Türkiye'deki hâlidir. İhraççıların kendi ticarî işlemlerinden doğan alacakları karşısında ihraç ettikleri kıymetli evraklardır.
-	- "**Bankaların veya büyük şirketlerin elindeki "tahsil edilecek paraları" bir havuzda toplayıp, bunları bir yatırım aracına dönüştürmesi.**"
-	- Doğrudan ihraç edilebileceği gibi, alacakların devralınması suretiyle dolaylı da ihraç edilebilir
+	- "**Bankaların veya büyük şirketlerin elindeki 'tahsil edilecek paraları' bir havuzda toplayıp, bunları bir yatırım aracına dönüştürmesi.**"
+	- Doğrudan ihraç edilebileceği gibi, alacakların devralınması sûretiyle dolaylı olarak da ihraç edilebilir
 - Mantığı şöyledir: Bankanın elinde binlerce kişinin ödeyeceği konut kredisi veya kredi kartı borcu vardır. Banka bu parayı 10 yıl beklemek istemez, bu borçları bir paket yapar (**Varlığa Dayalı Menkul Kıymet - VDMK**), yatırımcılara "Bu paketi alın, krediler ödendikçe parası size aksın" der.
 - VDMK'ye Konu Olan Alacak Türleri:
 	- Tüketici kredileri, konut kredileri, finansal kiralama (leasing) alacakları, ihracat alacakları, taksitli satış alacakları.

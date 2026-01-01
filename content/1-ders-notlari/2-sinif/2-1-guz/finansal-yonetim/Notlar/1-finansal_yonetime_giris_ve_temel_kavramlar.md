@@ -290,7 +290,7 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 #### 3.4.2. [[Dönen Varlıkların Yönetimi]] (Kısa Vadeli Varlıklar)
 - Firmanın günlük faaliyetlerini sürdürebilmesi için gerekli olan ve bir yıl içinde nakde dönüşmesi beklenen varlıkların yönetimi. 
 - **[[Cari Aktif]]** veya **[[Çalışma Sermayesi (İşletme Sermayesi)]]** olarak da bilinir.
-- Bu yönetimin temel amacı firmanın likiditesini (*kısa vadeli borç ödeme gücü*) korumak ve kârlılığı artırmak arasında bir denge kurmaktır. Bu dengenin en önemli göstergesi **Net İşletme Sermayesi**'dir.
+- Bu yönetimin temel amacı firmanın likiditesini (*kısa vadeli borç ödeme gücü*) korumak ve kârlılığı artırmak arasında bir denge kurmaktır. Bu dengenin en önemli göstergesi **[[Net İşletme Sermayesi]]**'dir.
 
 
 > [!important] **Net İşletme Sermayesi (Net Çalışma Sermayesi)**  
