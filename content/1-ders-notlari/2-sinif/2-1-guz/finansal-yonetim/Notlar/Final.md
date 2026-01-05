@@ -17,7 +17,6 @@ cssclasses:
 **(Hocanın "İstiyorum", "Sorumlusunuz", "Bilin", "Hesaplayacaksınız" ifadeleriyle sabitlediği alanlar)**
 
 ### A. Rasyo (Oran) Analizi ve Formül Değişiklikleri
-Hoca, literatürdeki bazı formülleri bu sınav özelinde değiştirmiş veya kısıtlamıştır. Öğrencinin bu spesifik talimatlara uymaması puan kaybına neden olabilir.
 
 #### 1. Likidite Rasyoları (Formüller ve Beklenen Değerler)
 *   **Cari Rasyo:** Formül: *Dönen Varlıklar / Kısa Vadeli (KV) Borçlar*. Beklenen Değer: **1.5 ve üzeri**.
@@ -102,7 +101,7 @@ Hoca, verimlilik rasyolarında payda kısmındaki (Aktif, Stok, Alacak) hesaplam
 *   **Nasıl Çıkacak?**
     *   Sayısal bir tablo sorusu olacak.
     *   Hoca sınav kağıdında **boş tabloları hazır verecek** ("Nakit girişi diyeceğim, nakit çıkışı diyeceğim, gerisini siz yerleştireceksiniz" diyor).
-    *   **Tek Tablo vs. Ayrı Tablolar:** Hoca, "Tüm tablolar hazır olacak" dediği için taksitli satışlar ve taksitli alışlar için yardımcı tabloların da kağıtta olması muhtemel.
+    *   **Tek Tablo vs. Ayrı Tablolar:** Hoca, "Tüm tablolar hazır olacak" dediği için taksitli satışlar ve taksitli alışlar için yardımcı tabloların da kâğıtta olması muhtemel.
     *   **Soru Formatı:** Tek bir büyük tabloyu doldurduktan sonra buna bağlı **4 tane şıklı soru** gelecek:
         1.  X Ayının toplam nakit girişi nedir?
         2.  X Ayının toplam nakit çıkışı nedir?
