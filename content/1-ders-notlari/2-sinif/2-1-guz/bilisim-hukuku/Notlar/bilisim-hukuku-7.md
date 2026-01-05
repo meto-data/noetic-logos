@@ -27,3 +27,4 @@ created: 2025-12-26
 - Borçlar Kanunu iki kümülatif şartla koruma sağlar: Düzenleyenin karşı tarafa koşulların varlığını bildirip içeriği öğrenme imkânı sunması ve karşı tarafın bu koşulları kabul etmesi.
 
 - Yukarıdaki iki şarttan biri eksikse, müşteri aleyhine olan hükümler sözleşmenin kapsamına girmemiş sayılır. Bu durumda sözleşmenin diğer hükümleri geçerliliğini korurken, hukuka aykırı şekilde dayatılan hükümler **yazılmamış sayılır.**
+- 

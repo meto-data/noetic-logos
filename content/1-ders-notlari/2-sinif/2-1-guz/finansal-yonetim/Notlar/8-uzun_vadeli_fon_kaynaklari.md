@@ -227,3 +227,61 @@ created: 2025-12-24
 - İşletmenin zarar etmemesi için yapması gereken minimum satış hacmini gösterir. Bu nokta aşılmadan elde edilen her gelir, değişken maliyetleri karşılasa da sabit maliyetlerin (kira, maaş vb.) altında kalır ve zarar doğurur.
 
 ![[Başa-Baş Noktası]]
+
+
+
+
+> [!summary] **Yararları**
+> - İşletmenin zarar etmemesi için ulaşması gereken asgari iş hacmini (üretim/satış düzeyi) saptar.
+> - Hedeflenen maksimum kâr için ne kadar üretilmesi gerektiğini gösterir.
+> - Maliyet ve fiyat değişikliklerinin kârlılık üzerindeki etkisini ölçer.
+> 
+> 
+
+### Giderlerin Ayrımı
+
+- Analizin yapılabilmesi için giderlerin karakterinin bilinmesi gerekir:
+	1. **[[TFC (Total Fixed Cost)|Sabit Giderler]]**: Üretim miktarından bağımsızdır. Dönem içinde üretim dursa bile değişmezler.
+		- *Örnekler*: Kira, Amortisman, Yönetici Maaşları, Sigorta.
+	2. **[[TVC (Total Variable Cost)|Değişken Giderler]]**: Üretim miktarına paralel olarak artıp azalan giderlerdir.
+		- *Örnekler*: Hammadde, İşçilik, Enerji.
+
+
+
+
+
+---
+
+### [[Doğrusallık Varsayımları]] 
+
+- Başa-baş analizi "en basit ama en çok kullanılan" yöntemdir ancak şu **varsayımlara** dayanır:
+	1. **Birim Değişken Gider Sabittir**: Üretim artsa da birim başına düşen değişken gider değişmez.
+	2. **Birim Satış Fiyatı Sabittir**: Satış hacmi artsa da fiyat değişmez (iskonto yok).
+	3. **Tam Satış**: Üretilen her malın hemen satıldığı (stok kalmadığı) varsayılır.
+	4. **Tek Ürün**: İşletmenin tek tip ürün ürettiği kabul edilir.
+	5. **İstikrar**: Genel fiyat düzeyi ve verimlilik sabit kalmaktadır.
+
+
+
+---
+
+## Hesaplama Formülleri 
+
+Başa-baş noktası (BBN) iki farklı şekilde hesaplanır:
+
+### A. Üretim Miktarına Göre (Adet Bazında)
+- İşletmenin kâr/zarar eşitliğine ulaştığı üretim adedidir.
+$$
+\frac{\text{Toplam Sabit Gider}}{\text{Birim Satış Fiyatı - Birim Değişken Gider}}
+$$
+
+- Buradaki payda (`Fiyat - Değişken Gider`) aslında «Katkı Payı» dediğimiz şeydir. Yani her bir ürünün, o koca sabit gider dağını eritmek için yaptığı minik fedakarlık.
+
+### B. Satış Tutarına Göre (TL Bazında)
+- Kasamda kaç parayı görürsem «break-even» olurum?
+- İşletmenin kâr/zarar eşitliğine ulaştığı ciro (TL) değeridir.
+$$
+\Large 
+\frac{\text{Toplam Sabit Gider}}{1- \left(\frac{(\text{Toplam Değişken Gider}}{\text{Toplam Satışlar}}\right)}
+$$
+- Burada parantez içi, gelirin ne kadarının değişken gidere gittiğini gösteren bir orandır (Variable Cost Ratio). Kalanı ise kâra giden yoldur.

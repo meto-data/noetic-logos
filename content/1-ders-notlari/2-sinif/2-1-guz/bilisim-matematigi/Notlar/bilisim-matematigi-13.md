@@ -21,7 +21,11 @@ $$
 
 ### Geometrik Seri 
 
-$$\large S_n = a_1 \cdot \frac{1-r^n}{1-r}$$
+
+$$
+\large 
+S_n = a_1 \cdot \frac{1-r^n}{1-r}
+$$
 
 ---
 
