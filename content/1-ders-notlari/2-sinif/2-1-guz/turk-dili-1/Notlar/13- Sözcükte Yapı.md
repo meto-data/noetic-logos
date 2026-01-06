@@ -107,7 +107,7 @@ cssclasses:
 
 ### C. Hem İsme Hem Fiile Gelen Çekim Ekleri
 #### C.1. Ek Fiil 📢
-- Eski Türkçedeki **er-mek** (olmak/bulunmak) fiilidir bu.
+- Eski Türkçedeki **er-mek** (olmak/bulunmak) fi3ilidir bu.
 - Zamanla baştaki "e" sesi incelmiş "i" olmuş, sonra o da düşmüştür.
 	- *Güzel idi* > *Güzeldi*. (İsmi yüklem yaptı)
 	- *Geliyor idi* > *Geliyordu*. (Fiili birleşik zamanlı yaptı: hikâye).
