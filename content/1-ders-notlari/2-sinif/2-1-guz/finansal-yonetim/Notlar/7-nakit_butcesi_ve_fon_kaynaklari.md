@@ -238,7 +238,7 @@ $$
 
 #### Sistemin İşleyişi
 - **Konu**: [[Senetsiz Alacaklar|Senetsiz]] alacaklar forfaiting konusu olabilir ancak uygulamada genellikle [[Bonolar|bono]] ve [[Poliçe|poliçe]] gibi [[Senetli Alacaklar]] tercih edilir.
-- **Vade**: Faktoring işleminden en kesinkin farklı vadesidir. Faktoring kısa vadeli iken, forfaiting'de vade **6 ay ile 10 yıl** arasında değişmektedir.
+- **Vade**: Faktoring işleminden en kesin farklı vadesidir. Faktoring kısa vadeli iken, forfaiting'de vade **6 ay ile 10 yıl** arasında değişmektedir.
 - ***Amaçlanan***, ihracatçı işletmenin uzun vadeli alacaklarını anından nakdeç evirerek likidite sağlaması ve kur/faiz/tahsilat riskinden kurtulmasıdır.
 
 
