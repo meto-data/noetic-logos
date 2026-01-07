@@ -32,7 +32,6 @@ import Chat from "./Chat"
 import Resize from "./Resize"
 import Hamburger from "./Hamburger"
 import ThemeCanvas from "./ThemeCanvas"
-import TestNotification from "./TestNotification"
 
 export {
   ArticleTitle,
