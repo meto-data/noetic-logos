@@ -22,7 +22,7 @@ created: 2025-12-26
 - *Esas leasing budur.*
 - **Orta ve uzun vadelidir.**
 - Malın bütün risk ve menfaatleri, kiralayan (leasing şirketi) tarafından, aynen mal sahibiymişçesine **kiracıya devredilir**. Bakım ve onarım sorumluluğu teknik olarak **kiracıdadır**.
-- Cayma hakkı yoktur, sözleşme önceden feshedilemez.
+- Cayma hakkı yoktur, sözleşme süresinden önce feshedilemez.
 - ***Amaç***, kiracının dönem sonunda malın mülkiyetine sahip olmasıdır (Genellikle sembolik bir bedelle devralınır).
 
 ##### Satış ve Geri Kiralama (Sale and Lease Back)
