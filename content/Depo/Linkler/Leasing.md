@@ -15,7 +15,7 @@ created: 2025-12-26
 - Genellikle tüketim mallarına yöneliktir.
 - **Kısa vadelidir**. 
 - Bakım ve onarım sorumluluğu **kiralayana** (Leasing Şirketi) aittir.
-- **Kiracı** (İşletme) tarafından önceden haver verilmek sûretiyle feshedilebilir.
+- **Kiracı** (İşletme) tarafından önceden haber verilmek sûretiyle feshedilebilir.
 - ***Amaç***, kullanıp iade etmektir.
 ##### Finansman Kiralaması (Financial Leasing)
 **Burada ekonomik mülkiyet ve riskler kiracıya (işletme) geçer**.
