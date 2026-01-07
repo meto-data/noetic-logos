@@ -68,5 +68,4 @@ export {
   Resize,
   Hamburger,
   ThemeCanvas,
-  TestNotification,
 }
