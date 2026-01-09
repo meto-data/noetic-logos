@@ -1,0 +1,103 @@
+// ModuleBanner Stilleri - Tema Uyumlu
+
+.module-banner {
+    margin-bottom: 1.5rem;
+
+    .module-banner-content {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.25rem;
+        background: linear-gradient(135deg,
+                color-mix(in srgb, var(--secondary) 10%, var(--light)),
+                color-mix(in srgb, var(--secondary) 5%, var(--light)));
+        border: 1px solid color-mix(in srgb, var(--secondary) 30%, transparent);
+        border-radius: 12px;
+        box-shadow: 0 2px 8px color-mix(in srgb, var(--secondary) 10%, transparent);
+        transition: all 0.2s ease;
+
+        &:hover {
+            box-shadow: 0 4px 16px color-mix(in srgb, var(--secondary) 15%, transparent);
+            border-color: color-mix(in srgb, var(--secondary) 50%, transparent);
+        }
+    }
+
+    .module-banner-icon {
+        font-size: 2rem;
+        line-height: 1;
+        flex-shrink: 0;
+    }
+
+    .module-banner-text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .module-banner-title {
+        font-weight: 600;
+        font-size: 1rem;
+        color: var(--text);
+    }
+
+    .module-banner-subtitle {
+        font-size: 0.875rem;
+        color: var(--muted);
+    }
+
+    .module-banner-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.625rem 1.25rem;
+        background: var(--secondary);
+        color: white !important;
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 0.875rem;
+        text-decoration: none !important;
+        white-space: nowrap;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+
+        svg {
+            transition: transform 0.2s ease;
+        }
+
+        &:hover {
+            background: var(--tertiary);
+            transform: translateY(-1px);
+
+            svg {
+                transform: translateX(3px);
+            }
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
+}
+
+// Mobil responsive
+@media (max-width: 600px) {
+    .module-banner {
+        .module-banner-content {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1rem;
+        }
+
+        .module-banner-icon {
+            font-size: 1.5rem;
+        }
+
+        .module-banner-button {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+}
