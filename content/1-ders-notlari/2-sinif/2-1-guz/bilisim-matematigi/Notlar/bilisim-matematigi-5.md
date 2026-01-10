@@ -39,19 +39,12 @@ $$
 
 $$
 \Large
-\textbf{A}=
+\textbf{K}=
 \begin{bmatrix}
-a_{11} & a_{12} & a_{13} & \dots & a_{1n} \\
-a_{21} & a_{22} & a_{23} & \dots & a_{2n} \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-a_{m1} & a_{m2} & a_{m3} & \dots & a_{mn}
+-2 &  0 & 3 \\
+5 & 12 & -8 \\
+\frac{1}{3} & \frac{5}{4}&  \sqrt{2}
 \end{bmatrix}
-_{m\times n}
-\\[10pt]
-\begin{aligned}[t]
-&\textbf{\large m} = \text{Satır sayısı} \\
-&\textbf{\large n}\space = \text{Sütun sayısı}
-\end{aligned}
 $$
 
 
