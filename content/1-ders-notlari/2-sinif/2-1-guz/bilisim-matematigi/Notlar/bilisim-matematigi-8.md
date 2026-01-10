@@ -173,7 +173,18 @@ $$
 
 #### Çözüm:
 
-- İkinci dereceden bir ifadenin $(ax2+bx+c)$ baş katsayısı pozitifken $(a=1>0)$, ifadenin daima pozitif olması için kökünün olmaması -yani diskriminantın $(\Delta)$ sıfırdan küçük olması- gerekir.
+ 1. Logaritmanın içi **asla negatif veya sıfır olamaz**. Yani ($x^2+4x+2m-1)>0$ olmak zorundadır.
+2. **Sorunun Şartı ("R'de Tanımlı"):** Soru bize diyor ki; *"X yerine ne koyarsan koy, bu ifade hep pozitif kalsın, hiç sıfıra düşmesin, hiç eksiye inmesin."*
+3. Bu ifade aynı zamanda bir **Parabol**dür ($x^2$'li ifade). Başındaki sayı pozitif ($+x^2$) olduğu için kolları yukarı bakan ("Gülen Surat") bir grafiktir.
+4. Gülen bir suratın **DAİMA POZİTİF** olması (hep $x$ ekseninin üzerinde uçması) için ne gerekir?
+	* Yere (x eksenine) **hiç değmemesi** gerekir.
+	* (Değerse sıfır olur, altına inerse negatif olur. Biz bunları istemiyoruz.)
+5. **Diskriminant ($\Delta$) İlişkisi:**
+	* Grafiğin yere değdiği noktalara **"Kök"** denir.
+	* Biz yere değmesini **İSTEMİYORUZ**.
+	* O hâlde **"KÖK YOK"** demeliyiz.
+	* Matematikte "Kök Yok" demenin formülü: $\mathbf{\Delta <0}$ (Diskriminant Negatif).
+
 - **Katsayılar**: $b=4, \quad a=1, \quad c = 2m-1$
 
 $$

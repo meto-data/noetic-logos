@@ -13,6 +13,8 @@ cssclasses:
 
 ### Temel Formül
 
+- Mantık şudur: Ben elimdeki matrisi ($A$) öyle bir matrisle ($A^{-1}$) çarpayım ki, sonuç Birim Matris ($I$) çıksın.
+
 $$
 \LARGE 
 \displaystyle 

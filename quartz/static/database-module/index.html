@@ -22,13 +22,13 @@
                         'primary-hover': '#059669',
                         'primary-dark': '#047857',
                         'background-light': '#F8FAF9',
-                        'background-dark': '#022C22',
+                        'background-dark': '#0F0F0F',
                         'surface-light': '#FFFFFF',
-                        'surface-dark': '#064E3B',
+                        'surface-dark': '#1A1A1A',
                         'border-light': '#E2E8F0',
-                        'border-dark': '#065F46',
+                        'border-dark': '#2A2A2A',
                         'text-light': '#1E293B',
-                        'text-dark': '#ECFDF5',
+                        'text-dark': '#E5E5E5',
                         'error': '#EF4444',
                         'error-light': '#FEF2F2',
                         'success': '#10B981',
@@ -75,20 +75,38 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #10B981;
+            background: #6B7280;
             border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #059669;
+            background: #9CA3AF;
+        }
+
+        /* Dark mode form elemanları */
+        .dark select,
+        .dark input,
+        .dark textarea {
+            background-color: #1A1A1A !important;
+            color: #E5E5E5 !important;
+            border-color: #2A2A2A !important;
+        }
+
+        .dark select option {
+            background-color: #1A1A1A;
+            color: #E5E5E5;
         }
 
         .grid-pattern {
-            background-image: linear-gradient(#10B981 1px, transparent 1px), linear-gradient(90deg, #10B981 1px, transparent 1px);
+            background-image: linear-gradient(#374151 1px, transparent 1px), linear-gradient(90deg, #374151 1px, transparent 1px);
             background-size: 40px 40px;
         }
+
+        .dark .grid-pattern {
+            background-image: linear-gradient(#2A2A2A 1px, transparent 1px), linear-gradient(90deg, #2A2A2A 1px, transparent 1px);
+        }
     </style>
-  <script type="module" crossorigin src="./assets/index-vqO7Yotk.js"></script>
+  <script type="module" crossorigin src="./assets/index-C5OM3jol.js"></script>
 </head>
 
 <body
