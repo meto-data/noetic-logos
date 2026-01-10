@@ -81,8 +81,8 @@
     }
 }
 
-// Mobil responsive
-@media (max-width: 600px) {
+// Mobil responsive - site geneli ile tutarlı breakpoint
+@media (max-width: 799px) {
     .module-banner {
         .module-banner-content {
             flex-direction: column;
