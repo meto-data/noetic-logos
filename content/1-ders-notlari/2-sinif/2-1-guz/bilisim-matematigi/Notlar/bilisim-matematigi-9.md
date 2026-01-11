@@ -297,7 +297,7 @@ $$
 
 >[!important] Ufak detay.
 >Bulunan kökler ($8$ ve $\frac{1}{2}$)  için çözüm geçerlidir. Eğer köklerden biri 1 çıksaydı onu elimizin tersiyle itmemiz gerekecekti. Zira ilk başta $\log_x8$ ifadesi vardı, ancak biz tabanın 0 veya 1 olmayacağını bildiğimizden, taban bu değeri alamazdı.  <br>
->Ayriyeten, "$\Pi$" işareti "bütün x değerlerinin çarpımı" anlamına gelir.
+>Ayriyeten, "$\Pi (x)$", "bütün x değerlerinin çarpımı" anlamına gelir.
 >
 
 
