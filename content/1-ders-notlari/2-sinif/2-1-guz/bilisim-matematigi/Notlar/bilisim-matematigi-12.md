@@ -9,6 +9,7 @@ cssclasses:
 draft: false
 ---
 <h1 style="text-align:center"><span style="color:lightblue; text-align:center">Ünite 6: Diziler ve Seriler</span> <span>| 19.12.2025</span></h1>
+
 # Geometrik Dizi		
 - Dizinin terimleri arasında geometrik bir artış söz konusu ve genel terimi aşağıdaki gibi olan dizilere **geometrik dizi** denir.
 
@@ -34,7 +35,7 @@ $$
 > Baştan 1. ve sondan 1. $\to 3 \cdot 96 = 288$ <br>
 > Baştan 2. ve sondan 2. $\to 6 \cdot 48 = 288$ <br>
 > Baştan 3. ve sondan 3. $\to 12 \cdot 24 = 288$ <br><br>
-> Velhasıl, $1+6 \space (a_1 + a_7) = \quad 2+5 = \quad 3+3 = 7$ olduğu müddet bu çarpımlar asla değişmez.
+> Velhasıl, $1+6 \space (a_1 + a_7) = \quad 2+5 = \quad 3+4 = 7$ olduğu müddet bu çarpımlar asla değişmez.
 
 
 ### Özellik 2:
