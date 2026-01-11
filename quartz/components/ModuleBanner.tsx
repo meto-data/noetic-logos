@@ -11,48 +11,70 @@ import script from "./scripts/moduleBanner.inline"
  */
 
 interface ModuleConfig {
-    slugPattern: string // RegExp string olarak (JSON uyumlu)
+    slugPattern: string
     title: string
     buttonText: string
-    moduleUrl: string // Relative path (static/xxx/index.html)
-    icon: string
+    moduleUrl: string
+    iconType: "oop" | "database" | "language"
 }
 
-// Modül konfigürasyonları - yeni modüller buraya eklenebilir
+// Modül konfigürasyonları
 const MODULE_CONFIGS: ModuleConfig[] = [
     {
         slugPattern: "nesne-tabanli-programlama|object-oriented-programming",
         title: "Nesne Tabanlı Programlama",
         buttonText: "OOP Modülüne Git",
         moduleUrl: "static/oop1-module/index.html",
-        icon: "🎯"
+        iconType: "oop"
     },
     {
         slugPattern: "veri-tabani|veritabani|database",
         title: "Veri Tabanı Yönetimi",
         buttonText: "Database Modülüne Git",
         moduleUrl: "static/database-module/index.html",
-        icon: "🗄️"
+        iconType: "database"
     },
     {
         slugPattern: "turk-dili|türk-dili|turk-dili-1",
         title: "Türk Dili",
         buttonText: "Türk Dili Modülüne Git",
         moduleUrl: "static/logos-module/index.html",
-        icon: "📚"
+        iconType: "language"
     }
 ]
+
+// Tema uyumlu SVG ikonlar
+const ICONS = {
+    oop: (
+        <svg class="module-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2" />
+            <polyline points="2 17 12 22 22 17" />
+            <polyline points="2 12 12 17 22 12" />
+        </svg>
+    ),
+    database: (
+        <svg class="module-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="5" rx="9" ry="3" />
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+        </svg>
+    ),
+    language: (
+        <svg class="module-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+        </svg>
+    )
+}
 
 const ModuleBanner: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
     const slug = fileData.slug ?? ""
 
-    // Slug'a uyan modül var mı kontrol et
     const matchingModule = MODULE_CONFIGS.find(config => {
         const regex = new RegExp(config.slugPattern, "i")
         return regex.test(slug)
     })
 
-    // Eşleşen modül yoksa hiçbir şey gösterme
     if (!matchingModule) {
         return null
     }
@@ -63,7 +85,7 @@ const ModuleBanner: QuartzComponent = ({ fileData, displayClass }: QuartzCompone
             data-module-url={matchingModule.moduleUrl}
         >
             <div class="module-banner-content">
-                <span class="module-banner-icon">{matchingModule.icon}</span>
+                <span class="module-banner-icon">{ICONS[matchingModule.iconType]}</span>
                 <div class="module-banner-text">
                     <span class="module-banner-title">{matchingModule.title}</span>
                     <span class="module-banner-subtitle">Test ve pratik modülü hazır!</span>
