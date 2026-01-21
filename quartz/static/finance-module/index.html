@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Finans Soru Görüntüleyici</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script>
         tailwind.config = {
             darkMode: "class",
@@ -51,40 +47,28 @@
         };
     </script>
     <style>
-        ::-webkit-scrollbar {
-            width: 6px
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0B0E14
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #4c1d95, #06b6d4);
-            border-radius: 20px
-        }
-
+        ::-webkit-scrollbar { width: 6px }
+        ::-webkit-scrollbar-track { background: #0B0E14 }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #4c1d95, #06b6d4); border-radius: 20px }
+        
         /* KOYU TEMA */
         body.dark {
             background-color: #05050A;
             background-image: radial-gradient(circle at 15% 50%, rgba(76, 29, 149, 0.08) 0%, transparent 25%), radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08) 0%, transparent 25%), url(https://lh3.googleusercontent.com/aida-public/AB6AXuD04RZnmmp70zbzaU8nmUfa6zqZ-QkmGvaAfuye5v_bbaD-DLWMa7ay5agI5iq-fQwUQ386n-LOw-cXoRlu_DG0inH1AsNjQK3JagBbjrJL9vvHXwbuJ3mSDisNbr_GfqTdlO5uUpG0H6GwKFa2tkMk-qXZwBSQGUsETkpCg0yrgwCUkdfe69W78xpbY3RDFFIwXtOx0znJRsn3RsVCMoe1CTR3nOuoo2OInQMM-4RjQMTOshx60aEmSD3SWAPgqQHHyF5zLM0649A);
             background-attachment: fixed;
         }
-
         body.dark .glass-panel {
             background: rgba(11, 14, 20, 0.6);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
-
         body.dark .glass-panel-heavy {
             background: rgba(11, 14, 20, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-right: 1px solid rgba(255, 255, 255, 0.05);
         }
-
         body.dark .nav-item-active {
             background: linear-gradient(90deg, rgba(124, 58, 237, 0.15) 0%, transparent 100%);
             border-left: 3px solid #a855f7;
@@ -97,21 +81,18 @@
             background-image: radial-gradient(circle at 15% 50%, rgba(76, 29, 149, 0.08) 0%, transparent 25%), radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08) 0%, transparent 25%), url(https://lh3.googleusercontent.com/aida-public/AB6AXuD04RZnmmp70zbzaU8nmUfa6zqZ-QkmGvaAfuye5v_bbaD-DLWMa7ay5agI5iq-fQwUQ386n-LOw-cXoRlu_DG0inH1AsNjQK3JagBbjrJL9vvHXwbuJ3mSDisNbr_GfqTdlO5uUpG0H6GwKFa2tkMk-qXZwBSQGUsETkpCg0yrgwCUkdfe69W78xpbY3RDFFIwXtOx0znJRsn3RsVCMoe1CTR3nOuoo2OInQMM-4RjQMTOshx60aEmSD3SWAPgqQHHyF5zLM0649A);
             background-attachment: fixed;
         }
-
         body.light .glass-panel {
             background: rgba(11, 14, 20, 0.6);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
-
         body.light .glass-panel-heavy {
             background: rgba(11, 14, 20, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-right: 1px solid rgba(255, 255, 255, 0.05);
         }
-
         body.light .nav-item-active {
             background: linear-gradient(90deg, rgba(124, 58, 237, 0.15) 0%, transparent 100%);
             border-left: 3px solid #a855f7;
@@ -123,33 +104,23 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .text-gradient-green {
             background: linear-gradient(to right, #34d399, #22d3ee);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         @keyframes shimmer {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            100% {
-                transform: translateX(100%);
-            }
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
-
         .bg-grid-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%236366f1' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
         }
     </style>
-    <script type="module" crossorigin src="./assets/index-Cv1HigL6.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-D5mWdoE1.css">
+  <script type="module" crossorigin src="/assets/index-DE5866Fc.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-D5mWdoE1.css">
 </head>
-
 <body class="light">
     <div id="root"></div>
 </body>
-
 </html>

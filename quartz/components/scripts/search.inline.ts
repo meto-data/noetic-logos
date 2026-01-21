@@ -170,7 +170,9 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     oop1: "static/oop1-module/index.html",
     database: "static/database-module/index.html",
     nlp: "static/nlp/index.html",
+    "ybs-module": "static/ybs-module/index.html",
     ybsmodule: "static/ybs-module/index.html",
+    ybs: "static/ybs-module/index.html",
   }
 
   // Special commands that trigger events instead of redirects

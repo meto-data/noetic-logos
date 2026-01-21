@@ -15,10 +15,9 @@ interface ModuleConfig {
     title: string
     buttonText: string
     moduleUrl: string
-    iconType: "oop" | "database" | "language" | "ybs"
+    iconType: "oop" | "language" | "ybs" | "finance"
 }
 
-// Modül konfigürasyonları
 const MODULE_CONFIGS: ModuleConfig[] = [
     {
         slugPattern: "nesne-tabanli-programlama|object-oriented-programming",
@@ -28,13 +27,6 @@ const MODULE_CONFIGS: ModuleConfig[] = [
         iconType: "oop"
     },
     {
-        slugPattern: "veri-tabani|veritabani|database",
-        title: "Veri Tabanı Yönetimi",
-        buttonText: "Database Modülüne Git",
-        moduleUrl: "static/database-module/index.html",
-        iconType: "database"
-    },
-    {
         slugPattern: "turk-dili|türk-dili|turk-dili-1",
         title: "Türk Dili",
         buttonText: "Türk Dili Modülüne Git",
@@ -42,28 +34,27 @@ const MODULE_CONFIGS: ModuleConfig[] = [
         iconType: "language"
     },
     {
-        slugPattern: "yonetim-bilisim-sistemleri|ybs|management-information-systems",
+        slugPattern: "yonetim-bilisim-sistemleri|ybs|management-information-systems|yönetim-bilişim-sistemleri",
         title: "Yönetim Bilişim Sistemleri",
         buttonText: "YBS Modülüne Git",
         moduleUrl: "static/ybs-module/index.html",
         iconType: "ybs"
+    },
+    {
+        slugPattern: "finansal-yonetim|finans|finance|finansal-yönetim",
+        title: "Finansal Yönetim",
+        buttonText: "Finans Modülüne Git",
+        moduleUrl: "static/finance-module/index.html",
+        iconType: "finance"
     }
 ]
 
-// Tema uyumlu SVG ikonlar
 const ICONS = {
     oop: (
         <svg class="module-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="12 2 2 7 12 12 22 7 12 2" />
             <polyline points="2 17 12 22 22 17" />
             <polyline points="2 12 12 17 22 12" />
-        </svg>
-    ),
-    database: (
-        <svg class="module-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <ellipse cx="12" cy="5" rx="9" ry="3" />
-            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
-            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
         </svg>
     ),
     language: (
@@ -77,6 +68,12 @@ const ICONS = {
             <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
             <line x1="8" y1="21" x2="16" y2="21" />
             <line x1="12" y1="17" x2="12" y2="21" />
+        </svg>
+    ),
+    finance: (
+        <svg class="module-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="1" x2="12" y2="23" />
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
         </svg>
     )
 }
