@@ -34,7 +34,7 @@ const MODULE_CONFIGS: ModuleConfig[] = [
         iconType: "language"
     },
     {
-        slugPattern: "yonetim-bilisim-sistemleri|ybs|management-information-systems|yönetim-bilişim-sistemleri",
+        slugPattern: "yonetim-bilisim-sistemleri|1-2-bahar/ybs|/ybs/|/ybs$|management-information-systems",
         title: "Yönetim Bilişim Sistemleri",
         buttonText: "YBS Modülüne Git",
         moduleUrl: "static/ybs-module/index.html",
