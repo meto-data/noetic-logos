@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yönetim Bilişim Sistemleri Öğrenme Platformu</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #1a5276;
+            color: #eaf2f8;
+            padding: 1.8rem 0;
+            text-align: center;
+            border-bottom: #2980b9 5px solid;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.4em;
+            font-weight: 600;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.1em;
+            color: #bdc3c7;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            flex-grow: 1;
+        }
+
+        .welcome-section {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .welcome-section h2 {
+            color: #1a5276;
+            border-bottom: 3px solid #2980b9;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+
+        .modules-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .module-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            flex: 1 1 300px;
+            max-width: 380px;
+            min-width: 280px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .module-header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid #3498db;
+        }
+
+        .module-header h3 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        .module-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .module-description {
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .module-topics {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .module-topics h4 {
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .module-topics ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .module-topics li {
+            margin-bottom: 5px;
+            color: #34495e;
+        }
+
+        .module-button {
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 25px;
+            border-radius: 8px;
+            display: inline-block;
+            text-align: center;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            align-self: center;
+        }
+
+        .module-button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.8rem;
+            background: #1a5276;
+            color: #eaf2f8;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                margin: 20px auto;
+            }
+
+            .module-card {
+                flex: 1 1 100%;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .module-header h3 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Yönetim Bilişim Sistemleri Öğrenme Platformu</h1>
+    </header>
+
+    <div class="container">
+        <section class="welcome-section">
+            <h2>Hoş Geldiniz</h2>
+            <p>Bu platform, Yönetim Bilişim Sistemleri derslerine yönelik interaktif öğrenme materyalleri sunar.
+                Aşağıdaki modüllerden birini seçerek çalışmaya başlayabilirsiniz.</p>
+        </section>
+
+        <div class="modules-container">
+            <div class="module-card">
+                <div class="module-header">
+                    <h3>Kurumsal Bilişim Sistemleri ve Süreç Yönetimi</h3>
+                </div>
+                <div class="module-content">
+                    <div class="module-description">
+                        <p>Bu modül, işletmelerde kullanılan ana bilişim sistemlerini, organizasyon ve iş süreçleri
+                            arasındaki ilişkileri inceler. Kurumsal uygulamaların iş süreçlerini nasıl entegre ettiğini
+                            ve performansı nasıl iyileştirdiğini öğreneceksiniz.</p>
+                    </div>
+                    <div class="module-topics">
+                        <h4>Öne Çıkan Konular:</h4>
+                        <ul>
+                            <li>Organizasyonel Düzeylere Göre Bilişim Sistemleri (TPS, MIS, DSS, ESS)</li>
+                            <li>Fonksiyonel Bilişim Sistemleri</li>
+                            <li>İş Süreçleri ve Bilişim Sistemleri İlişkisi</li>
+                            <li>İnteraktif Alıştırmalar ve Testler</li>
+                        </ul>
+                    </div>
+                    <a href="kurumsal.html" class="module-button">Modüle Git</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-header">
+                    <h3>Bilişim Sistemleri, Organizasyon ve Strateji</h3>
+                </div>
+                <div class="module-content">
+                    <div class="module-description">
+                        <p>Bu modül, bilişim sistemlerinin organizasyonel yapılar ve stratejik yönetim üzerindeki
+                            etkilerini ele alır. Yıkıcı teknolojilerin işletmeleri nasıl dönüştürdüğünü ve
+                            organizasyonel değişim süreçlerini inceleyeceksiniz.</p>
+                    </div>
+                    <div class="module-topics">
+                        <h4>Öne Çıkan Konular:</h4>
+                        <ul>
+                            <li>Organizasyon Teorileri ve Bilişim Sistemleri</li>
+                            <li>Stratejik Analiz Çerçeveleri</li>
+                            <li>Yıkıcı Teknolojiler ve Değişim Yönetimi</li>
+                            <li>İnternet, İntranet, Ekstranet ve VPN Teknolojileri</li>
+                        </ul>
+                    </div>
+                    <a href="strateji_organizasyon_bs.html" class="module-button">Modüle Git</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-header">
+                    <h3>Bilişim Sistemleri Etik, Girişimcilik ve Sosyal Konular</h3>
+                </div>
+                <div class="module-content">
+                    <div class="module-description">
+                        <p>Bu modül, bilişim sistemlerinin kullanımıyla ortaya çıkan etik ikilemleri, sosyal
+                            sorumlulukları ve girişimcilik fırsatlarını inceler. Bilgi toplumunda etik değerlerin ve
+                            yasal düzenlemelerin önemini kavrayacaksınız.</p>
+                    </div>
+                    <div class="module-topics">
+                        <h4>Öne Çıkan Konular:</h4>
+                        <ul>
+                            <li>Etik Kavramlar ve İlkeler</li>
+                            <li>Bilgi Mahremiyeti ve Gizlilik</li>
+                            <li>Fikri Mülkiyet Hakları</li>
+                            <li>Bilişim Suçları ve Güvenlik</li>
+                        </ul>
+                    </div>
+                    <a href="etik.html" class="module-button">Modüle Git</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-header">
+                    <h3>Bilgisayar Ağları ve Telekomünikasyon</h3>
+                </div>
+                <div class="module-content">
+                    <div class="module-description">
+                        <p>Bu modül, bilgisayar ağlarının temellerini, ağ topolojilerini, iletişim protokollerini ve
+                            internet servislerini kapsar. İnteraktif alıştırmalar ve testlerle ağ kavramlarını
+                            pekiştireceksiniz.</p>
+                    </div>
+                    <div class="module-topics">
+                        <h4>Öne Çıkan Konular:</h4>
+                        <ul>
+                            <li>Ağ Temelleri ve Mimarisi</li>
+                            <li>Ağ Topolojileri (Yıldız, Halka, Bus, Mesh)</li>
+                            <li>TCP/IP Protokol Takımı</li>
+                            <li>İnternet, DNS, VoIP, Intranet/Extranet</li>
+                            <li>İnteraktif Eşleştirme Oyunları ve Testler</li>
+                        </ul>
+                    </div>
+                    <a href="ağlar.html" class="module-button">Modüle Git</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-header">
+                    <h3>BT Altyapıları ve Gelişen Teknolojiler</h3>
+                </div>
+                <div class="module-content">
+                    <div class="module-description">
+                        <p>Bu modül, modern işletmelerin temelini oluşturan bilişim teknolojileri altyapısını ve güncel
+                            teknolojik gelişmeleri ele alır. Donanım, yazılım, ağlar ve veri yönetimi gibi konuları
+                            kapsar.</p>
+                    </div>
+                    <div class="module-topics">
+                        <h4>Öne Çıkan Konular:</h4>
+                        <ul>
+                            <li>Donanım ve Yazılım Teknolojileri</li>
+                            <li>Veri Depolama ve Yönetimi</li>
+                            <li>Bilgisayar Ağları ve Telekomünikasyon</li>
+                            <li>İnternet ve Web Teknolojileri</li>
+                        </ul>
+                    </div>
+                    <a href="btaltyapi.html" class="module-button">Modüle Git</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-header">
+                    <h3>Veri Tabanları ve Veri Yönetimi</h3>
+                </div>
+                <div class="module-content">
+                    <div class="module-description">
+                        <p>Bu modül, veri tabanı sistemlerinin temellerini ve veri modelleme tekniklerini kapsar.
+                            Verinin nasıl organize edildiğini, sorgulandığını ve karar verme süreçlerinde nasıl
+                            kullanıldığını öğreneceksiniz.</p>
+                    </div>
+                    <div class="module-topics">
+                        <h4>Öne Çıkan Konular:</h4>
+                        <ul>
+                            <li>Veri Tabanı Kavramları ve Mimarileri</li>
+                            <li>İlişkisel Veri Modeli ve SQL</li>
+                            <li>Veri Ambarı ve Veri Madenciliği</li>
+                        </ul>
+                    </div>
+                    <a href="veritabani.html" class="module-button">Modüle Git</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Yönetim Bilişim Sistemleri Öğrenme Platformu</p>
+    </footer>
+</body>
+
+</html>

@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 
         
 4. **HALKÇILIK:**

@@ -1,0 +1,4 @@
+- **Müşteriye yakınlık kritik önemdedir.**   
+- **Belirleyici olan ve en önemli olan faktör müşteri trafiği, yani bölgenin popülerliğidir.**
+- Yer değiştirmek veya yeni şube açmak mümkündür.
+	- **Örneğin**: Kafetarya.

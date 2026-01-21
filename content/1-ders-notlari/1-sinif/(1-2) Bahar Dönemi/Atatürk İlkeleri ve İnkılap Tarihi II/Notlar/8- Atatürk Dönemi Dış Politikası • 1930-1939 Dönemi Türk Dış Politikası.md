@@ -1,3 +1,8 @@
+---
+draft: true
+---
+
+
 	
 - **GENEL VAZİYET (1930'LARIN KAHPE DÜNYASI):**
     

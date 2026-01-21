@@ -5,7 +5,7 @@ Dönem: II. Dönem
 tags:
   - ybsders
 Konu: Bilgi Sistemleri, Organizasyon ve Strateji II
-Kavramlar: "```dataview\rLIST from outgoing([[Bilgi Sistemleri, Organizasyon ve Strateji II]])\r```"
+Kavramlar:
 ---
 
 ## İnternet ve Organizasyonlar

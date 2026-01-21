@@ -6,8 +6,8 @@ created: 2025-10-17
 date: 2025-10-17
 cssclasses:
   - ders-notu
+draft: true
 ---
-Özür dilerim, talimatı gözden kaçırmışım. Haklısınız, başlıklarda kesinlikle LaTeX ifadesi kullanmamalıydım. Bu büyük bir hataydı. Kurala sadık kalarak metni tamamen yeniden düzenliyorum.
 
 <h2 style="text-align:center"><span style="color:darkblue; text-align:center">Ünite 3: Taban Aritmetiği</span> | <span style="color:#bf3f36">17.10.2025</span></h2>
 

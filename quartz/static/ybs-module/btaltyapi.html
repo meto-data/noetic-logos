@@ -1,0 +1,2061 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilgi Teknolojileri Altyapısı Öğrenme Uygulaması</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 20px auto;
+            overflow: hidden;
+            padding: 25px;
+            background-color: #fff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            flex-grow: 1;
+        }
+
+        header {
+            background: #1a5276;
+            color: #eaf2f8;
+            padding: 1.5rem 0;
+            text-align: center;
+            border-bottom: #2980b9 5px solid;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.4em;
+            font-weight: 600;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.1em;
+            color: #bdc3c7;
+        }
+
+        /* NEW NAVIGATION CSS */
+        nav {
+            background: #2c3e50;
+            color: #fff;
+            padding: 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 0 0 10px 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        nav ul li.dropdown {
+            position: relative;
+        }
+
+        nav ul li.dropdown>a.nav-link-dropdown::after {
+            content: ' ▾';
+            font-size: 0.8em;
+        }
+
+        nav ul ul.submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #34495e;
+            padding: 0;
+            min-width: 280px;
+            /* Adjusted min-width for longer BD titles */
+            z-index: 1000;
+            border-radius: 0 0 6px 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul li.dropdown:hover>ul.submenu {
+            /* Restored hover to open */
+            display: block;
+        }
+
+        nav ul ul.submenu li {
+            width: 100%;
+        }
+
+        nav ul ul.submenu li a {
+            padding: 0.7rem 1rem;
+            white-space: nowrap;
+            text-align: left;
+            /* Ensure submenu items are left-aligned */
+        }
+
+        nav ul ul.submenu li a:hover,
+        nav ul ul.submenu li a.active {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 900px) {
+            nav ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            nav ul li a {
+                text-align: left;
+                padding-left: 1rem;
+            }
+
+            nav ul ul.submenu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+                background-color: #465a6e;
+            }
+
+            nav ul ul.submenu li a {
+                padding-left: 2rem;
+            }
+
+            nav ul li.dropdown>a.nav-link-dropdown::after {
+                float: right;
+                margin-right: 1rem;
+            }
+        }
+
+        .section {
+            display: none;
+            padding: 25px;
+            border: 1px solid #dfe6e9;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            background-color: #fdfefe;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #1a5276;
+            border-bottom: 3px solid #2980b9;
+            padding-bottom: 15px;
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-top: 25px;
+        }
+
+        h4 {
+            color: #566573;
+            font-size: 1.2em;
+        }
+
+        .info-box {
+            background-color: #e8f6f3;
+            border-left: 6px solid #1abc9c;
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .info-box ul {
+            padding-left: 20px;
+        }
+
+        .info-box li {
+            margin-bottom: 8px;
+        }
+
+        /* Add other styles as needed from kurumsal.html and Porter deger zincir.html */
+        .game-container,
+        .interactive-area {
+            margin-bottom: 25px;
+        }
+
+        .quiz-question {
+            background-color: #f8f9fa;
+            padding: 18px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #e5e7e9;
+        }
+
+        .quiz-options label {
+            display: block;
+            background-color: #e9ecef;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s, border-left 0.2s;
+            border-left: 4px solid transparent;
+            font-weight: 500;
+            text-align: center;
+            font-size: 1.05em;
+        }
+
+        .quiz-options label:hover {
+            background-color: #d1d9e0;
+            border-left: 4px solid #2980b9;
+        }
+
+        .quiz-options input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.1);
+        }
+
+        .quiz-button {
+            background-color: #27ae60;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.05em;
+            margin-right: 12px;
+            transition: background-color 0.3s, box-shadow 0.2s;
+        }
+
+        .quiz-button:hover {
+            opacity: 0.9;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feedback {
+            padding: 15px;
+            margin-top: 18px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-align: center;
+            font-size: 1.05em;
+        }
+
+        .feedback.correct {
+            background-color: #d1f2eb;
+            color: #0e6251;
+            border: 1px solid #a3e4d7;
+        }
+
+        .feedback.incorrect {
+            background-color: #fdedec;
+            color: #943126;
+            border: 1px solid #fadbd8;
+        }
+
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .quiz-navigation button {
+            background-color: #566573;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.95em;
+        }
+
+        .quiz-navigation button:hover {
+            background-color: #2c3e50;
+        }
+
+        .quiz-navigation button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        #scoreBoard {
+            background-color: #eaf2f8;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 25px;
+        }
+
+        #scoreBoard h3 {
+            margin-top: 0;
+            color: #1a5276;
+        }
+
+        #scoreBoard p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        #scoreBoard strong {
+            color: #2980b9;
+        }
+
+        .game-button.reset,
+        .quiz-button.reset {
+            background-color: #c0392b;
+        }
+
+        /* Styles for drag and drop game */
+        .game-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+        }
+
+        .drag-source,
+        .drop-target {
+            padding: 15px;
+            border: 2px dashed #3498db;
+            border-radius: 8px;
+            background-color: #eaf2f8;
+            min-height: 150px;
+            width: 45%;
+            /* Adjust as needed */
+            box-sizing: border-box;
+        }
+
+        .drag-source h3,
+        .drop-target h3 {
+            color: #1a5276;
+            margin-top: 0;
+            border-bottom: 1px solid #3498db;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .draggable-item {
+            background-color: #aed6f1;
+            color: #154360;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            cursor: grab;
+            border: 1px solid #85c1e9;
+            text-align: center;
+        }
+
+        .drop-target .draggable-item {
+            background-color: #d6eaf8;
+            /* Different color when dropped */
+        }
+
+        .drag-over {
+            background-color: #d0e8ff;
+        }
+
+        .correct-match {
+            background-color: #d1f2eb !important;
+            border-color: #1abc9c !important;
+            color: #0e6251 !important;
+        }
+
+        .incorrect-match {
+            background-color: #fdedec !important;
+            border-color: #e74c3c !important;
+            color: #943126 !important;
+        }
+
+        .definition-slot-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .definition-text {
+            flex-grow: 1;
+            margin-right: 10px;
+            font-size: 0.95em;
+        }
+
+        .drop-slot {
+            min-width: 200px;
+            /* Adjust as needed */
+            max-width: 250px;
+            min-height: 40px;
+            /* Adjust as needed */
+            padding: 5px;
+            border: 2px dashed #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            display: flex;
+            /* To center item if dropped */
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .drop-slot .draggable-item {
+            /* Style for item inside slot */
+            margin-bottom: 0;
+            font-size: 0.9em;
+        }
+
+        .drop-slot.drag-over {
+            /* Highlight for drop-slot when dragging over it */
+            background-color: #e0eaf1;
+            border-color: #3498db;
+        }
+
+        .drop-slot.correct-match {
+            border-color: #1abc9c !important;
+            background-color: #d1f2eb !important;
+        }
+
+        .drop-slot.incorrect-match {
+            border-color: #e74c3c !important;
+            background-color: #fdedec !important;
+        }
+
+        .game-button {
+            background-color: #3498db;
+            /* Primary button color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 15px;
+            /* Add some space above the buttons */
+            margin-right: 10px;
+            /* Space between buttons if they are inline */
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-button:hover {
+            background-color: #2980b9;
+            /* Darker shade on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .game-button.reset {
+            background-color: #e74c3c;
+            /* Distinct color for reset */
+        }
+
+        .game-button.reset:hover {
+            background-color: #c0392b;
+            /* Darker reset on hover */
+        }
+
+        /* Style for the source container when an item is dragged over it */
+        .drag-source.drag-over-source {
+            background-color: #d0e8ff;
+            /* Similar to .drag-over for drop targets */
+            border-style: solid;
+            /* Make border more prominent */
+        }
+
+        /* Style for the item being dragged */
+        .draggable-item.dragging {
+            opacity: 0.5;
+            border: 2px dashed #000;
+        }
+
+        /* Audio Player Stilleri */
+        .audio-player-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* Space between elements */
+            padding: 10px;
+            background-color: #eaf2f8;
+            /* Light blue background */
+            border-radius: 8px;
+            margin: 15px 0;
+            /* Margin above and below */
+            flex-wrap: wrap;
+            /* Allow wrapping on smaller screens */
+        }
+
+        .play-button-style {
+            background-color: #27ae60;
+            /* Green play button */
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: background-color 0.3s;
+        }
+
+        .play-button-style:hover {
+            background-color: #229954;
+            /* Darker green on hover */
+        }
+
+        .playback-speed-controls label {
+            margin-right: 5px;
+            font-weight: 500;
+        }
+
+        .playback-speed-controls select {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        /* BT Altyapısı Diyagram Stilleri - BU BLOK KALDIRILACAK */
+
+        /* Fill in the Blanks Styles (Copied for consistency) */
+        .fill-blanks-container {
+            margin-bottom: 20px;
+        }
+
+        .fill-blanks-question {
+            margin-bottom: 18px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #5dade2;
+            /* Theme color */
+            border-radius: 5px;
+            font-size: 1.05em;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .fill-blanks-question p .sentence-part {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .fill-blanks-question input[type="text"] {
+            padding: 10px 12px;
+            border: 1px solid #bdc3c7;
+            border-radius: 6px;
+            font-size: 0.95em;
+            min-width: 150px;
+            flex-grow: 1;
+            max-width: 300px;
+            margin: 5px 10px;
+            /* Adjusted margin for paragraph context */
+            background-color: #fdfefe;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .fill-blanks-question input[type="text"]:focus {
+            border-color: #2980b9;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 0 3px rgba(41, 128, 185, 0.2);
+            outline: none;
+        }
+
+        .fill-blanks-question .feedback-icon {
+            margin-left: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .feedback-icon.correct {
+            color: #27ae60;
+        }
+
+        .feedback-icon.incorrect {
+            color: #c0392b;
+        }
+
+        .correct-answer-text {
+            color: #2980b9;
+            margin-left: 8px;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        .fill-blanks-controls button {
+            margin-right: 10px;
+        }
+
+        .fill-blanks-score {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #eaf2f8;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .fill-blanks-score h4 {
+            margin-top: 0;
+            color: #1a5276;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Bilgi Teknolojileri Altyapısı</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home" class="nav-link">Ana Sayfa</a></li>
+            <li><a href="index.html">Ana Menü</a></li>
+            <li><a href="#introduction" class="nav-link">Temel Kavramlar</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Bileşenler ve Mimariler</a>
+                <ul class="submenu">
+                    <li><a href="#hardware" class="nav-link">Donanım Bileşenleri</a></li>
+                    <li><a href="#components" class="nav-link">Altyapı Bileşenleri</a></li>
+                    <li><a href="#operations" class="nav-link">İşlemler ve Performans</a></li>
+                    <li><a href="#architectures" class="nav-link">Mimariler</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Eşleştirme Soruları</a>
+                <ul class="submenu">
+                    <li><a href="#generalMatchingGame" class="nav-link">Genel Eşleştirme</a></li>
+                    <li><a href="#softHardMatchingGame" class="nav-link">Soft/Hard Copy Eşleştirme</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Boşluk Doldurma Soruları</a>
+                <ul class="submenu">
+                    <li><a href="#fillBlanksBTBolum1" class="nav-link">BD: Temel Kavramlar ve Veri Birimleri</a></li>
+                    <li><a href="#fillBlanksBTBolum2" class="nav-link">BD: Donanım Bileşenleri</a></li>
+                    <li><a href="#fillBlanksBTBolum3" class="nav-link">BD: İşlemler ve Performans</a></li>
+                    <li><a href="#fillBlanksBTBolum4" class="nav-link">BD: Altyapı Bileşenleri (Kategorik)</a></li>
+                    <li><a href="#fillBlanksBTBolum5" class="nav-link">BD: Mimariler</a></li>
+                </ul>
+            </li>
+            <li><a href="#quiz" class="nav-link">Test</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Ana Sayfa Bölümü -->
+        <div id="home" class="section active">
+            <h2>Hoş Geldiniz!</h2>
+            <p>Bu uygulama, Bilgi Teknolojileri Altyapısı (BT Altyapısı) konularını anlamanıza ve pekiştirmenize
+                yardımcı olmak için tasarlanmıştır.</p>
+            <p>BT Altyapısı, bir işletmenin bilgi sistemlerini destekleyen temel donanım, yazılım ve hizmetler
+                bütünüdür. Bu bölümde, BT Altyapısının ne olduğunu, temel kavramları, donanım bileşenlerini, bilgisayar
+                işlemlerini, altyapının temel bileşenlerini ve önemli mimarilerini öğreneceksiniz.</p>
+            <h3>Nasıl Kullanılır?</h3>
+            <p>Yukarıdaki navigasyon menüsünü kullanarak uygulamanın farklı bölümlerine geçiş yapabilirsiniz:</p>
+            <ul>
+                <li><strong>Genel:</strong> Giriş ve Ana Menüye Dönüş seçenekleri bulunur.</li>
+                <li><strong>Temel Kavramlar:</strong> BT Altyapısının çeşitli yönlerini detaylı olarak
+                    inceleyebilirsiniz.</li>
+                <li><strong>Oyunlar & Testler:</strong> Bilginizi pekiştirmek için etkileşimli oyunlar ve bir test
+                    bulunur.</li>
+            </ul>
+            <p>Başarılar dileriz!</p>
+        </div>
+
+        <!-- I. BT ALTYAPISINA GİRİŞ VE TEMEL KAVRAMLAR -->
+        <div id="introduction" class="section">
+            <h2>I. BT ALTYAPISINA GİRİŞ VE TEMEL KAVRAMLAR</h2>
+            <!-- Content from btaltyapi.md will be placed here -->
+        </div>
+
+        <!-- II. BİLGİSAYAR DONANIMININ TEMEL BİLEŞENLERİ -->
+        <div id="hardware" class="section">
+            <h2>II. BİLGİSAYAR DONANIMININ TEMEL BİLEŞENLERİ</h2>
+            <!-- Content from btaltyapi.md will be placed here -->
+        </div>
+
+        <!-- III. BİLGİSAYARDA İŞLEMLER VE PERFORMANS ÖLÇÜTLERİ -->
+        <div id="operations" class="section">
+            <h2>III. BİLGİSAYARDA İŞLEMLER VE PERFORMANS ÖLÇÜTLERİ</h2>
+            <!-- Content from btaltyapi.md will be placed here -->
+        </div>
+
+        <!-- IV. BT ALTYAPISININ TEMEL BİLEŞENLERİ (KATEGORİK BAKIŞ) -->
+        <div id="components" class="section">
+            <h2>IV. BT ALTYAPISININ TEMEL BİLEŞENLERİ (KATEGORİK BAKIŞ)</h2>
+            <!-- Content from btaltyapi.md will be placed here -->
+        </div>
+
+        <!-- V. BT ALTYAPISININ GELİŞİMİNDE ÖNEMLİ MİMARİLER -->
+        <div id="architectures" class="section">
+            <h2>V. BT ALTYAPISININ GELİŞİMİNDE ÖNEMLİ MİMARİLER</h2>
+            <!-- Content from btaltyapi.md will be placed here -->
+        </div>
+
+        <!-- Genel Eşleştirme Oyunu Bölümü -->
+        <div id="generalMatchingGame" class="section">
+            <h2>Genel Eşleştirme Oyunu</h2>
+            <p>BT Altyapısı ile ilgili kavramları sürükleyerek doğru açıklamaların yanındaki kutucuklara bırakın.</p>
+            <div id="generalMatchingGameContainer" class="game-container" style="flex-direction: column;">
+                <div id="generalTerms" class="drag-source"
+                    style="margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; padding:10px; border: 1px solid #eee; border-radius:5px;">
+                    <h3 style="width:100%; text-align:center; margin-top:0; margin-bottom:10px;">Kavramlar (Sürükleyin)
+                    </h3>
+                    {/* Draggable terms will be here */}
+                </div>
+                <div id="generalDefinitions" class="drop-target-area">
+                    <h3 style="width:100%; text-align:center; margin-top:0; margin-bottom:10px;">Açıklamalar (Kavramları
+                        buraya bırakın)</h3>
+                    {/* Definition text + drop slot pairs will be here */}
+                </div>
+            </div>
+            <button class="game-button" onclick="checkGeneralMatchingAnswers()">Cevapları Kontrol Et</button>
+            <button class="game-button reset" onclick="resetGeneralMatchingGame()">Oyunu Sıfırla</button>
+            <div id="generalMatchingFeedback" class="feedback" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- Soft/Hard Copy Eşleştirme Oyunu Bölümü -->
+        <div id="softHardMatchingGame" class="section">
+            <h2>Soft/Hard Copy Eşleştirme Oyunu</h2>
+            <p>Çıktı aygıtlarını 'Soft Copy' veya 'Hard Copy' kategorileriyle eşleştirin.</p>
+            <div id="softHardMatchingGameContainer" class="game-container">
+                <div id="devicesSource" class="drag-source">
+                    <h3>Aygıtlar</h3>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; width: 45%;">
+                    <div id="softCopyTarget" class="drop-target" style="width: 100%; min-height: 100px;">
+                        <h3>Soft Copy (Elle tutulamayan)</h3>
+                    </div>
+                    <div id="hardCopyTarget" class="drop-target" style="width: 100%; min-height: 100px;">
+                        <h3>Hard Copy (Fiziksel)</h3>
+                    </div>
+                </div>
+            </div>
+            <button class="game-button" onclick="checkSoftHardMatchingAnswers()">Cevapları Kontrol Et</button>
+            <button class="game-button reset" onclick="resetSoftHardMatchingGame()">Oyunu Sıfırla</button>
+            <div id="softHardMatchingFeedback" class="feedback" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- Kısa Test Bölümü -->
+        <div id="quiz" class="section">
+            <h2>Test: Bilgi Teknolojileri Altyapısı</h2>
+            <div id="quizContainer" class="quiz-container">
+                <!-- Question will be loaded here by JavaScript -->
+            </div>
+            <div id="questionFeedback" class="feedback" style="display:none; margin-bottom:15px;"></div>
+            <div id="learnMoreContainer" style="margin-top:10px; text-align:center;"></div>
+
+            <div class="quiz-navigation">
+                <button id="prevQuestionBtn" onclick="prevQuestion()">Önceki Soru</button>
+                <button id="nextQuestionBtn" onclick="nextQuestion()">Sonraki Soru</button>
+            </div>
+            <button id="submitQuizBtn" class="quiz-button" onclick="submitQuiz()"
+                style="display:none; margin-top: 20px;">Testi Bitir ve Sonuçları Gör</button>
+            <div id="quizScore" class="quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- Fill in the Blanks Sections -->
+        <div id="fillBlanksBTBolum1" class="section">
+            <h2>Boşluk Doldurma: BT Altyapısı Temel Kavramları ve Veri Birimleri</h2>
+            <div class="fill-blanks-container">
+                <!-- Questions will be loaded here by JavaScript -->
+            </div>
+            <div class="fill-blanks-controls">
+                <button class="quiz-button game-button">Cevapları Kontrol Et</button>
+                <button class="quiz-button game-button reset">Yeniden Başla</button>
+            </div>
+            <div class="fill-blanks-score quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+        <div id="fillBlanksBTBolum2" class="section">
+            <h2>Boşluk Doldurma: Bilgisayar Donanımının Temel Bileşenleri</h2>
+            <div class="fill-blanks-container">
+                <!-- Questions will be loaded here by JavaScript -->
+            </div>
+            <div class="fill-blanks-controls">
+                <button class="quiz-button game-button">Cevapları Kontrol Et</button>
+                <button class="quiz-button game-button reset">Yeniden Başla</button>
+            </div>
+            <div class="fill-blanks-score quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+        <div id="fillBlanksBTBolum3" class="section">
+            <h2>Boşluk Doldurma: Bilgisayarda İşlemler ve Performans Ölçütleri</h2>
+            <div class="fill-blanks-container">
+                <!-- Questions will be loaded here by JavaScript -->
+            </div>
+            <div class="fill-blanks-controls">
+                <button class="quiz-button game-button">Cevapları Kontrol Et</button>
+                <button class="quiz-button game-button reset">Yeniden Başla</button>
+            </div>
+            <div class="fill-blanks-score quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+        <div id="fillBlanksBTBolum4" class="section">
+            <h2>Boşluk Doldurma: BT Altyapısının Temel Bileşenleri (Kategorik Bakış)</h2>
+            <div class="fill-blanks-container">
+                <!-- Questions will be loaded here by JavaScript -->
+            </div>
+            <div class="fill-blanks-controls">
+                <button class="quiz-button game-button">Cevapları Kontrol Et</button>
+                <button class="quiz-button game-button reset">Yeniden Başla</button>
+            </div>
+            <div class="fill-blanks-score quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+        <div id="fillBlanksBTBolum5" class="section">
+            <h2>Boşluk Doldurma: BT Altyapısının Önemli Mimarileri</h2>
+            <div class="fill-blanks-container">
+                <!-- Questions will be loaded here by JavaScript -->
+            </div>
+            <div class="fill-blanks-controls">
+                <button class="quiz-button game-button">Cevapları Kontrol Et</button>
+                <button class="quiz-button game-button reset">Yeniden Başla</button>
+            </div>
+            <div class="fill-blanks-score quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+    </div>
+
+    <!-- ADDED Score/Progress Section -->
+    <div id="progressSection" class="section">
+        <h2>İlerleme Durumu ve Skorlar</h2>
+        <div id="scoreBoard">
+            <h3>Mevcut Skor Durumu:</h3>
+            <p>Genel Eşleştirme: <strong><span id="generalMatchingScore">0</span> / <span
+                        id="generalMatchingTotal">0</span></strong> doğru</p>
+            <p>Soft/Hard Copy Eşleştirme: <strong><span id="softHardMatchingScore">0</span> / <span
+                        id="softHardMatchingTotal">0</span></strong> doğru</p>
+            <p>Test: <strong><span id="quizTotalScore">0</span> / <span id="quizTotalQuestions">0</span></strong> doğru
+            </p>
+            <h4>Genel Başarı Oranı: <strong><span id="overallScore">0</span>%</strong></h4>
+            <button class="game-button reset" onclick="resetProgress()">İlerlemeyi Sıfırla</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Bilgi Teknolojileri Altyapısı Öğrenme Uygulaması</p>
+    </footer>
+
+    <script>
+        // --- Global Veriler (Yer Tutucular) ---
+        // Bu kısımlar btaltyapi.md ve SORULAR.md dosyalarından alınacak verilerle doldurulacak
+        const btContent = {
+            introduction: `
+                <h3>A. Tanım ve Önem:</h3>
+                <div class="audio-player-container">
+                    <button id="playBtnIntroduction" class="play-button-style" onclick="toggleAudio('audioPlayerIntroduction', 'playBtnIntroduction')">Sesi Oynat</button>
+                    <audio id="audioPlayerIntroduction" src="SESLER/btaltyapi.wav" onloadedmetadata="updateAudioDuration('audioPlayerIntroduction', 'durationIntroduction')" ontimeupdate="updateAudioTime('audioPlayerIntroduction', 'currentTimeIntroduction')"></audio>
+                    <span id="currentTimeIntroduction">0:00</span> / <span id="durationIntroduction">0:00</span>
+                    <div class="playback-speed-controls">
+                        <label for="speedIntroduction">Hız:</label>
+                        <select id="speedIntroduction" onchange="changePlaybackSpeed('audioPlayerIntroduction', 'speedIntroduction')">
+                            <option value="0.5">0.5x</option>
+                            <option value="1" selected>1x</option>
+                            <option value="1.5">1.5x</option>
+                            <option value="2">2x</option>
+                        </select>
+                    </div>
+                </div>
+                <ul>
+                    <li><strong>BT Altyapısı:</strong> Bir işletmenin bilgi sistemlerini çalıştırmak için kullandığı temel teknolojik <strong>kaynaklar, platformlar ve paylaşılan hizmetlerin bütünüdür.</strong></li>
+                    <li><strong>Yazılım, donanım ve hizmetleri kapsar!!!</strong></li>
+                    <li>Bu kaynaklar donanım, yazılım, danışmanlık, eğitim ve uygulama gibi işletmenin geneli tarafından paylaşılan hizmetleri kapsar.</li>
+                    <li>BT altyapısı, müşterilere hizmet sunmak, tedarikçilerle çalışmak ve iç süreçleri yönetmek için bir temel platform sağlar.</li>
+                    <li><strong>Önemi:</strong> Kurumsal bilişim sistemlerinin temelini oluşturur; iş stratejisiyle doğrudan ilişkilidir.</li>
+                </ul>
+                <img src="görseller/bt_alt.png" alt="Şekil 43: Bilgi Teknolojileri Altyapısı, İşletme Özellikleri ve İşletme Arasındaki İlişki" style="max-width: 80%; height: auto; display: block; margin: 20px auto; border: 1px solid #ccc; padding: 5px; border-radius: 5px;">
+                <p style="text-align: center; font-style: italic; color: #555; margin-top: 15px;">Şekil 43: Bilgi Teknolojileri Altyapısı, İşletme Özellikleri ve İşletme Arasındaki İlişki</p>
+                <ul>
+                    <li><strong>İkili Sayı Sistemi (Binary):</strong> Bilgisayarların dili; <strong>0 ve 1</strong>.</li>
+                    <li><strong>Bit:</strong> En küçük veri birimi (0 veya 1).</li>
+                    <li><strong>Byte:</strong> Genellikle <strong>8 bit</strong>; bir karakteri temsil eder.</li>
+                    <li><strong>Depolama Birimleri (Çevrimlere Dikkat!):</strong>
+                        <ul>
+                            <li>1 Kilobyte (KB) = <strong>1024 Byte</strong></li>
+                            <li>1 Megabyte (MB) = <strong>1024 KB</strong></li>
+                            <li>1 Gigabyte (GB) = <strong>1024 MB</strong></li>
+                            <li>1 Terabyte (TB) = <strong>1024 GB</strong></li>
+                        </ul>
+                    </li>
+                </ul>
+            `,
+            hardware: `
+                <h3>A. Genel Bilgisayar Mimarisi:</h3>
+                <ul>
+                    <li><strong>Girdi Aygıtları (Input):</strong> Klavye, Fare, Mikrofon, Tarayıcı, Dokunmatik Ekran.</li>
+                    <li><strong>Merkezi İşlem Birimi (CPU):</strong> Bilgisayarın beyni.</li>
+                    <li><strong>Dahili Bellek (Internal Memory):</strong> RAM (geçici), ROM (kalıcı).</li>
+                    <li><strong>Harici Depolama (External Storage):</strong> HDD, SSD, USB Bellek (kalıcı).</li>
+                    <li><strong>Çıktı Aygıtları (Output):</strong>
+                        <ul>
+                            <li><strong>Soft-Copy (Elle tutulamayan)</strong>: Monitör (Ekran), Projeksiyon Cihazı, Hoparlör.</li>
+                            <li><strong>Hard-Copy (Fiziksel):</strong> Yazıcı, Çizici.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>B. Merkezi İşlem Birimi (CPU) Detayları:</h3>
+                <ul>
+                    <li><strong>Görevi:</strong> Veri ve komutları alır, kodlar, işler.</li>
+                    <li><strong>Ana Birimleri:</strong>
+                        <ul>
+                            <li><strong>Kontrol Ünitesi (CU):</strong> Yönetir, koordine eder.</li>
+                            <li><strong>Aritmetik Mantık Ünitesi (ALU):</strong> Matematiksel ve mantıksal işlemleri yapar.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Yapısı:</strong> Transistör içeren silikon <strong>yonga (chip)</strong>. Transistör sayısı işlem gücünü etkiler.</li>
+                </ul>
+                <h3>C. Hafıza (Bellek) Türleri ve Özellikleri:</h3>
+                <ul>
+                    <li><strong>RAM (Random Access Memory):</strong> Aktif program ve verilerin tutulduğu <strong>geçici</strong>, <strong>uçucu</strong> ana bellek. Performansı etkiler.</li>
+                    <li><strong>ROM (Read Only Memory):</strong> Temel başlatma bilgilerini içeren, genellikle <strong>değiştirilemeyen kalıcı</strong> bellek.</li>
+                    <li><strong>Cache (Önbellek):</strong> CPU ile RAM arasında, sık kullanılan verilere hızlı erişim sağlayan küçük, hızlı bellek.</li>
+                    <li><strong>Harici Depolama:</strong> Verilerin <strong>uzun süreli, kalıcı</strong> saklandığı birimler.</li>
+                </ul>
+            `,
+            operations: `
+                <h3>A. Makine Çevrimi (Machine Cycle):</h3> <p>CPU\'nun tek komutu işleme adımları:</p>
+                <ol>
+                    <li><strong>Fetch (Getir):</strong><br>CPU, RAM\'den komutun adresini alır. Bu adresteki komut geçici belleğe çekilir.</li>
+                    <li><strong>Decode (Kod Çöz):</strong><br>Getirilen komutun ne yaptığı analiz edilir. CPU, hangi işlem biriminin çalışacağını belirler.</li>
+                    <li><strong>Execute (İşle):</strong><br>Komutun gerektirdiği işlem yapılır. Aritmetik, mantık veya veri taşıma olabilir.</li>
+                    <li><strong>Store (Depola):</strong><br>İşlem sonucu belleğe veya kaydediciye yazılır. Sonraki işlemler için saklanır.</li>
+                </ol>
+                <h3>B. İşlem Gücünü Etkileyen Faktörler:</h3>
+                <ul>
+                    <li><strong>Saat Frekansı (Clock Rate / Speed):</strong> CPU'nun saniyedeki çevrim sayısı; <strong>Hertz (Hz)</strong> ile ölçülür (Genellikle GHz).</li>
+                    <li><strong>Veriyolu (Bus):</strong> Bileşenler arası veri taşıyan yollar. Genişliği ve hızı önemlidir.</li>
+                    <li><strong>Veri İşleme Yeteneği (Throughput):</strong> Sistemin genel iş yapabilme kapasitesi.</li>
+                </ul>
+            `,
+            components: `
+                <ol>
+                    <li><strong>Bilgisayar Donanım Platformları:</strong> İstemciler, sunucular, mainframe.</li>
+                    <li><strong>İşletim Sistemi Platformları:</strong> Windows, macOS, Linux, UNIX.</li>
+                    <li><strong>Kurumsal Yazılım Sistemleri:</strong> ERP (SAP, Oracle), CRM vb.</li>
+                    <li><strong>Veri Yönetimi ve Depolama:</strong> Veritabanları (Oracle, SQL Server, MySQL) ve depolama çözümleri.</li>
+                    <li><strong>Ağ/İletişim Altyapısı:</strong> LAN, WAN, ağ donanımları (Cisco).</li>
+                    <li><strong>İnternet Platformları:</strong> Web sunucuları (Apache, IIS), Java.</li>
+                    <li><strong>Danışmanlık ve Sistem Entegrasyon Hizmetleri:</strong> Uzmanlık desteği (IBM Global Services).</li>
+                </ol>
+            `,
+            architectures: `
+                <h3>İstemci-Sunucu Mimarisi:</h3>
+                <ul>
+                    <li>Hesaplama görevleri <strong>istemciler</strong> (kullanıcı arayüzü) ve <strong>sunucular</strong> (işlem, veri) arasında paylaştırılır.</li>
+                    <li><strong>Çok Katmanlı (N-Tier) Mimari:</strong> İşlevsellik farklı sunucu katmanlarına (Web, Uygulama, Veri) dağıtılır. Bu, ölçeklenebilirlik ve esneklik sağlar.</li>
+                </ul>
+                <img src="görseller/istemci-sunucu.png" alt="İstemci Sunucu Mimarisi" style="max-width: 70%; height: auto; display: block; margin: 20px auto; border: 1px solid #ccc; padding: 5px; border-radius: 5px;">
+            `
+        };
+
+        const generalMatchingGameData = [
+            { id: "gen_item_0", text: "BT Altyapısı", correctMatchText: "Bir işletmenin bilgi sistemlerini çalıştırmak için kullandığı temel teknolojik kaynaklar, platformlar ve paylaşılan hizmetlerin bütünüdür." },
+            { id: "gen_item_1", text: "İkili Sayı Sistemi (Binary)", correctMatchText: "Bilgisayarların dili; 0 ve 1." },
+            { id: "gen_item_2", text: "Bit", correctMatchText: "En küçük veri birimi (0 veya 1)." },
+            { id: "gen_item_3", text: "Byte", correctMatchText: "Genellikle 8 bit; bir karakteri temsil eder." },
+            { id: "gen_item_4", text: "CPU", correctMatchText: "Bilgisayarın beyni." },
+            { id: "gen_item_5", text: "RAM", correctMatchText: "Aktif program ve verilerin tutulduğu geçici, uçucu ana bellek." },
+            { id: "gen_item_6", text: "Makine Çevrimi", correctMatchText: "CPU'nun tek komutu işleme adımları: Fetch, Decode, Execute, Store." },
+            { id: "gen_item_7", text: "Saat Frekansı (Clock Rate)", correctMatchText: "CPU'nun saniyedeki çevrim sayısı; Hertz (Hz) ile ölçülür." },
+            { id: "gen_item_8", text: "Veriyolu (Bus)", correctMatchText: "Bileşenler arası veri taşıyan yollar." },
+            { id: "gen_item_9", text: "İstemci-Sunucu Mimarisi", correctMatchText: "Hesaplama görevleri istemciler ve sunucular arasında paylaştırılır." }
+        ];
+        const softHardMatchingGameData = [
+            { id: "sh_item_0", text: "Monitör (Ekran)", correctCategory: "soft" },
+            { id: "sh_item_1", text: "Yazıcı", correctCategory: "hard" },
+            { id: "sh_item_2", text: "Projeksiyon Cihazı", correctCategory: "soft" },
+            { id: "sh_item_3", text: "Hoparlör", correctCategory: "soft" },
+            { id: "sh_item_4", text: "Çizici", correctCategory: "hard" }
+        ];
+
+        const quizQuestions = [
+
+            {
+                question: "Veri ve komutların bilgisayara girilmesini sağlayan klavye, fare ve tarayıcı gibi aygıtlar genel olarak hangi kategoriye girer?",
+                options: ["Çıktı Aygıtları", "Depolama Birimleri", "Merkezi İşlem Birimleri", "Girdi Aygıtları", "Ağ Bileşenleri"],
+                answer: "Girdi Aygıtları"
+            },
+            {
+                question: "Bilgisayarın \"beyni\" olarak kabul edilen, veri ve iş emirlerini alıp işleyen temel donanım bileşeni aşağıdakilerden hangisidir?",
+                options: ["RAM Bellek", "Sabit Disk", "Anakart", "Güç Kaynağı", "Merkezi İşlem Birimi (CPU)"],
+                answer: "Merkezi İşlem Birimi (CPU)"
+            },
+            {
+                question: "CPU içerisinde matematiksel (toplama, çıkarma vb.) ve mantıksal (VE, VEYA vb.) işlemleri gerçekleştiren birime ne ad verilir?",
+                options: ["Kontrol Ünitesi (CU)", "Önbellek (Cache)", "Aritmetik Mantık Ünitesi (ALU)", "Kayıtçılar (Registers)", "Veriyolu (Bus)"],
+                answer: "Aritmetik Mantık Ünitesi (ALU)"
+            },
+            {
+                question: "CPU'nun aktif olarak üzerinde çalıştığı programların ve verilerin geçici olarak saklandığı, bilgisayar kapatıldığında içeriği silinen uçucu bellek türü hangisidir?",
+                options: ["ROM (Read Only Memory)", "SSD (Solid State Drive)", "RAM (Random Access Memory)", "Hard Disk Drive (HDD)", "CMOS"],
+                answer: "RAM (Random Access Memory)"
+            },
+            {
+                question: "CPU'nun tek bir komutu işlemek için gerçekleştirdiği \"Getir (Fetch), Kod Çöz (Decode), İşle (Execute), Depola (Store)\" adımlarından oluşan temel döngüye ne denir?",
+                options: ["Veri Akışı Döngüsü", "Sistem Saati Periyodu", "Makine Çevrimi (Machine Cycle)", "Giriş-Çıkış Operasyonu", "Derleme Süreci"],
+                answer: "Makine Çevrimi (Machine Cycle)"
+            },
+            {
+                question: "CPU'nun saniyede gerçekleştirebildiği makine çevrimi sayısını ifade eden ve genellikle Gigahertz (GHz) ile ölçülen performans ölçütü aşağıdakilerden hangisidir?",
+                options: ["Veriyolu Hızı", "Saat Frekansı (Clock Rate)", "Depolama Kapasitesi", "Çözünürlük", "Gecikme Süresi (Latency)"],
+                answer: "Saat Frekansı (Clock Rate)"
+            },
+            {
+                question: "Bilgisayarın farklı bileşenleri (CPU, RAM, depolama vb.) arasında veri ve kontrol sinyallerini taşıyan elektronik yollara genel olarak ne ad verilir?",
+                options: ["Güç Kabloları", "Soğutma Fanları", "Genişletme Yuvaları", "Veriyolu (Bus)", "Arayüz Portları"],
+                answer: "Veriyolu (Bus)"
+            },
+            {
+                question: "Aşağıdakilerden hangisi BT Altyapısının yedi temel bileşeninden biri olan \"İşletim Sistemi Platformları\"na bir örnek **değildir**?",
+                options: ["Microsoft Windows", "Linux", "macOS", "SAP (ERP Yazılımı)", "UNIX"],
+                answer: "SAP (ERP Yazılımı)"
+            },
+            {
+                question: "Oracle, Microsoft SQL Server ve MySQL gibi yazılımlar, BT Altyapısının hangi temel bileşeni altında sınıflandırılır?",
+                options: ["Bilgisayar Donanım Platformları", "İnternet Platformları", "Ağ/İletişim Altyapısı", "Veri Yönetimi ve Depolama", "Kurumsal Yazılım Sistemleri"],
+                answer: "Veri Yönetimi ve Depolama"
+            },
+            {
+                question: "Hesaplama görevlerinin, kullanıcı arayüzünü sunan istemciler ile merkezi kaynakları yöneten sunucular arasında paylaştırıldığı ağ mimarisine ne denir?",
+                options: ["Eşten Eşe (Peer-to-Peer) Mimari", "Merkezi (Mainframe) Mimari", "İstemci-Sunucu Mimarisi", "Dağıtık Defter Teknolojisi", "Tek Katmanlı Mimari"],
+                answer: "İstemci-Sunucu Mimarisi"
+            },
+            {
+                question: "İstemci-Sunucu mimarisinin gelişmiş bir formu olan ve işlevselliğin Web Sunucusu, Uygulama Sunucusu ve Veri Sunucusu gibi farklı katmanlara dağıtıldığı yapıya ne ad verilir?",
+                options: ["Sanallaştırma Mimarisi", "Bulut Bilişim Mimarisi", "Monolitik Mimari", "Çok Katmanlı (N-Tier) Mimari", "Mikroservis Mimarisi"],
+                answer: "Çok Katmanlı (N-Tier) Mimari"
+            }
+        ];
+
+        let scores = {
+            generalMatching: { correct: 0, total: 0, played: false },
+            softHardMatching: { correct: 0, total: 0, played: false },
+            quiz: { correct: 0, total: 0, answered: [] }
+        };
+
+        let currentQuestionIndex = 0;
+        let draggedItem = null; // For drag and drop games
+
+        // --- Sayfa Yönlendirme ---
+        function showSection(sectionId, elementId = null) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+
+                // Initialize games/quiz when their section becomes active
+                if (sectionId === 'generalMatchingGame') initGeneralMatchingGame();
+                if (sectionId === 'softHardMatchingGame') initSoftHardMatchingGame();
+                if (sectionId === 'quiz') initQuiz();
+                if (sectionId === 'fillBlanksBTBolum1') initFillInTheBlanks('bolum1_temelKavramlarVeriBirimleri', 'fillBlanksBTBolum1', 'bt');
+                if (sectionId === 'fillBlanksBTBolum2') initFillInTheBlanks('bolum2_donanimBilesenleri', 'fillBlanksBTBolum2', 'bt');
+                if (sectionId === 'fillBlanksBTBolum3') initFillInTheBlanks('bolum3_islemlerPerformans', 'fillBlanksBTBolum3', 'bt');
+                if (sectionId === 'fillBlanksBTBolum4') initFillInTheBlanks('bolum4_altyapiBilesenleriKategorik', 'fillBlanksBTBolum4', 'bt');
+                if (sectionId === 'fillBlanksBTBolum5') initFillInTheBlanks('bolum5_mimariler', 'fillBlanksBTBolum5', 'bt');
+            }
+
+            // Active button/link styling is now handled by updateActiveLink
+
+            if (elementId) {
+                setTimeout(() => { // Allow section to become visible first
+                    const el = document.getElementById(elementId);
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            }
+        }
+
+        // --- İçerik Yükleme (Placeholder) ---
+        // Bu fonksiyon btaltyapi.md içeriğini HTML'e dönüştüp ilgili divlere yerleştirecek
+        function loadContent() {
+            // Placeholder: In a real scenario, you would fetch/read btaltyapi.md
+            // and parse its markdown to generate HTML content for each section.
+            // For now, let's use simple placeholders or manually add content.
+            document.getElementById('introduction').innerHTML += btContent.introduction;
+            document.getElementById('hardware').innerHTML += btContent.hardware;
+            document.getElementById('operations').innerHTML += btContent.operations;
+            document.getElementById('components').innerHTML += btContent.components;
+            document.getElementById('architectures').innerHTML += btContent.architectures;
+        }
+
+
+        // --- Genel Eşleştirme Oyunu (Placeholder) ---
+        function initGeneralMatchingGame() {
+            const termsContainer = document.getElementById('generalTerms');
+            const definitionsContainer = document.getElementById('generalDefinitions');
+            // Clear existing items before re-initializing
+            termsContainer.innerHTML = '<h3 style="width:100%; text-align:center; margin-top:0; margin-bottom:10px;">Kavramlar (Sürükleyin)</h3>';
+            definitionsContainer.innerHTML = '<h3 style="width:100%; text-align:center; margin-top:0; margin-bottom:10px;">Açıklamalar (Kavramları buraya bırakın)</h3>';
+            document.getElementById('generalMatchingFeedback').innerHTML = '';
+            scores.generalMatching.correct = 0;
+            scores.generalMatching.played = true; // Assume played once initialized
+            scores.generalMatching.total = generalMatchingGameData.length;
+
+            // Shuffle terms for display
+            const shuffledTerms = [...generalMatchingGameData].sort(() => Math.random() - 0.5);
+            shuffledTerms.forEach(item => {
+                const termEl = document.createElement('div');
+                termEl.classList.add('draggable-item');
+                termEl.textContent = item.text;
+                termEl.id = item.id;
+                termEl.draggable = true;
+                termEl.addEventListener('dragstart', dragStart);
+                termEl.addEventListener('dragend', dragEnd); // Add dragend listener
+                termsContainer.appendChild(termEl);
+            });
+
+            // Shuffle definitions for display consistency with terms
+            const shuffledDefinitions = [...generalMatchingGameData].sort(() => Math.random() - 0.5);
+            shuffledDefinitions.forEach(item => {
+                const definitionSlotContainer = document.createElement('div');
+                definitionSlotContainer.classList.add('definition-slot-container');
+
+                const definitionTextEl = document.createElement('p');
+                definitionTextEl.classList.add('definition-text');
+                definitionTextEl.textContent = item.correctMatchText;
+
+                const dropSlotEl = document.createElement('div');
+                dropSlotEl.classList.add('drop-slot');
+                dropSlotEl.dataset.acceptsId = item.id; // This slot expects the term with this original ID
+
+                dropSlotEl.addEventListener('dragover', dragOver);
+                dropSlotEl.addEventListener('dragenter', dragEnterGeneralSlot);
+                dropSlotEl.addEventListener('dragleave', dragLeaveGeneralSlot);
+                dropSlotEl.addEventListener('drop', dropGeneral);
+
+                definitionSlotContainer.appendChild(definitionTextEl); // Definition text first
+                definitionSlotContainer.appendChild(dropSlotEl);   // Then the drop slot
+                definitionsContainer.appendChild(definitionSlotContainer);
+            });
+
+            updateScoreBoard(); // Update total count
+
+            // Make the terms container a drop target as well
+            termsContainer.addEventListener('dragover', dragOver);
+            termsContainer.addEventListener('dragenter', dragEnterGeneralSource);
+            termsContainer.addEventListener('dragleave', dragLeaveGeneralSource);
+            termsContainer.addEventListener('drop', dropToGeneralSource);
+        }
+
+        function dropGeneral(e) {
+            e.preventDefault();
+            const dropSlot = e.target.closest('.drop-slot');
+            if (!dropSlot) return;
+
+            const draggedItemId = e.dataTransfer.getData('text/plain');
+            const draggedElement = document.getElementById(draggedItemId);
+
+            if (draggedElement) {
+                // If slot is empty or item is being moved from another slot
+                if (dropSlot.children.length === 0 || draggedElement.parentElement !== dropSlot) {
+                    // If item is from another slot, put that slot's original item back (if any) or clear it
+                    if (draggedElement.parentElement.classList.contains('drop-slot')) {
+                        // No need to put back to source, just clear old slot if necessary
+                    }
+                    dropSlot.innerHTML = ''; // Clear slot before appending new item
+                    dropSlot.appendChild(draggedElement);
+                    draggedElement.style.cursor = 'default';
+                }
+            }
+            dropSlot.classList.remove('drag-over'); // Ensure class is removed on drop
+        }
+
+        function checkGeneralMatchingAnswers() {
+            let correctCount = 0;
+            const feedback = document.getElementById('generalMatchingFeedback');
+            const definitionSlots = document.querySelectorAll('#generalDefinitions .drop-slot');
+
+            definitionSlots.forEach(slot => {
+                const droppedItem = slot.querySelector('.draggable-item');
+                slot.classList.remove('correct-match', 'incorrect-match');
+                if (droppedItem) {
+                    droppedItem.classList.remove('correct-match', 'incorrect-match');
+                    if (droppedItem.id === slot.dataset.acceptsId) {
+                        correctCount++;
+                        slot.classList.add('correct-match');
+                    } else {
+                        slot.classList.add('incorrect-match');
+                    }
+                }
+            });
+
+            scores.generalMatching.correct = correctCount;
+            const totalToMatch = generalMatchingGameData.length;
+            feedback.textContent = `Genel Eşleştirme: ${correctCount}/${totalToMatch} doğru.`;
+            feedback.className = correctCount === totalToMatch ? 'feedback correct' : 'feedback incorrect';
+            updateScoreBoard();
+        }
+
+        function resetGeneralMatchingGame() {
+            initGeneralMatchingGame();
+            scores.generalMatching.correct = 0;
+            scores.generalMatching.played = false;
+            document.getElementById('generalMatchingFeedback').innerHTML = '';
+            updateScoreBoard();
+        }
+
+        // --- Soft/Hard Copy Eşleştirme Oyunu (Placeholder) ---
+        function initSoftHardMatchingGame() {
+            const sourceContainer = document.getElementById('devicesSource');
+            const softTarget = document.getElementById('softCopyTarget');
+            const hardTarget = document.getElementById('hardCopyTarget');
+            sourceContainer.innerHTML = '<h3>Aygıtlar</h3>';
+            softTarget.innerHTML = '<h3>Soft Copy (Elle tutulamayan)</h3>';
+            hardTarget.innerHTML = '<h3>Hard Copy (Fiziksel)</h3>';
+            document.getElementById('softHardMatchingFeedback').innerHTML = '';
+            scores.softHardMatching.correct = 0;
+            scores.softHardMatching.played = true;
+
+            // Placeholder: Populate sourceContainer with draggable items
+            const shuffledDevices = [...softHardMatchingGameData].sort(() => Math.random() - 0.5);
+            shuffledDevices.forEach((item, index) => {
+                const itemEl = document.createElement('div');
+                itemEl.classList.add('draggable-item');
+                itemEl.textContent = item.text;
+                itemEl.id = item.id;
+                itemEl.draggable = true;
+                itemEl.addEventListener('dragstart', dragStart);
+                itemEl.addEventListener('dragend', dragEnd); // Add dragend listener
+                sourceContainer.appendChild(itemEl);
+            });
+            scores.softHardMatching.total = softHardMatchingGameData.length;
+
+            // Placeholder: Add event listeners to target containers
+            softTarget.addEventListener('dragover', dragOver);
+            softTarget.addEventListener('dragenter', dragEnter);
+            softTarget.addEventListener('dragleave', dragLeave);
+            softTarget.addEventListener('drop', dropSoftHard);
+
+            hardTarget.addEventListener('dragover', dragOver);
+            hardTarget.addEventListener('dragenter', dragEnter);
+            hardTarget.addEventListener('dragleave', dragLeave);
+            hardTarget.addEventListener('drop', dropSoftHard);
+
+            updateScoreBoard(); // Update total count
+        }
+
+        function dropSoftHard(e) {
+            e.preventDefault();
+            const dropTarget = e.target.closest('.drop-target'); // Corrected to .drop-target
+            if (!dropTarget) return;
+
+            const draggedItemId = e.dataTransfer.getData('text/plain');
+            const draggedElement = document.getElementById(draggedItemId);
+
+            if (draggedElement) {
+                // If slot is empty or item is being moved from another slot
+                if (dropTarget.children.length === 0 || draggedElement.parentElement !== dropTarget) {
+                    // If item is from another slot, put that slot's original item back (if any) or clear it
+                    if (draggedElement.parentElement.classList.contains('drop-target')) { // Check if from another drop-target
+                        // No need to put back to source, just clear old slot if necessary
+                    }
+                    // Ensure we don't append if the target is the source container itself by mistake
+                    if (dropTarget.id === 'softCopyTarget' || dropTarget.id === 'hardCopyTarget') {
+                        // Check if the target already contains this specific item, if so, do nothing to prevent duplication
+                        let alreadyContains = false;
+                        for (let i = 0; i < dropTarget.children.length; i++) {
+                            if (dropTarget.children[i].id === draggedElement.id) {
+                                alreadyContains = true;
+                                break;
+                            }
+                        }
+                        if (!alreadyContains) {
+                            // If item is coming from a different target, remove it from the old one first
+                            if (draggedElement.parentElement && (draggedElement.parentElement.id === 'softCopyTarget' || draggedElement.parentElement.id === 'hardCopyTarget') && draggedElement.parentElement !== dropTarget) {
+                                draggedElement.parentElement.removeChild(draggedElement);
+                            }
+                            dropTarget.appendChild(draggedElement);
+                        }
+                    }
+                    draggedElement.style.cursor = 'default';
+                }
+            }
+            dropTarget.classList.remove('drag-over'); // Ensure class is removed on drop
+        }
+
+        function checkSoftHardMatchingAnswers() {
+            let correctCount = 0;
+            const feedback = document.getElementById('softHardMatchingFeedback');
+            const softTarget = document.getElementById('softCopyTarget');
+            const hardTarget = document.getElementById('hardCopyTarget');
+
+            // Clear previous feedback classes from items
+            softTarget.querySelectorAll('.draggable-item').forEach(item => item.classList.remove('correct-match', 'incorrect-match'));
+            hardTarget.querySelectorAll('.draggable-item').forEach(item => item.classList.remove('correct-match', 'incorrect-match'));
+
+            // Check items in Soft Copy target
+            softTarget.querySelectorAll('.draggable-item').forEach(itemEl => {
+                const itemData = softHardMatchingGameData.find(data => data.text === itemEl.textContent);
+                if (itemData && itemData.correctCategory === 'soft') {
+                    itemEl.classList.add('correct-match');
+                    correctCount++;
+                } else {
+                    itemEl.classList.add('incorrect-match');
+                }
+            });
+
+            // Check items in Hard Copy target
+            hardTarget.querySelectorAll('.draggable-item').forEach(itemEl => {
+                const itemData = softHardMatchingGameData.find(data => data.text === itemEl.textContent);
+                if (itemData && itemData.correctCategory === 'hard') {
+                    itemEl.classList.add('correct-match');
+                    correctCount++;
+                } else {
+                    itemEl.classList.add('incorrect-match');
+                }
+            });
+
+            // Check if all items are placed
+            const sourceContainer = document.getElementById('devicesSource');
+            const remainingItems = sourceContainer.querySelectorAll('.draggable-item').length;
+
+            if (remainingItems > 0) {
+                const allSlots = softTarget.querySelectorAll('.draggable-item').length + hardTarget.querySelectorAll('.draggable-item').length;
+                if (allSlots < softHardMatchingGameData.length) {
+                    feedback.textContent = `Lütfen tüm aygıtları kategorilere bırakın. ${remainingItems} aygıt sürüklenmeyi bekliyor.`;
+                } else {
+                    feedback.textContent = `Soft/Hard Copy Eşleştirme oyununda ${correctCount}/${softHardMatchingGameData.length} doğru yaptınız.`;
+                }
+                feedback.className = 'feedback incorrect';
+            } else {
+                feedback.textContent = `Soft/Hard Copy Eşleştirme oyununda ${correctCount}/${softHardMatchingGameData.length} doğru yaptınız.`;
+                feedback.className = correctCount === softHardMatchingGameData.length ? 'feedback correct' : 'feedback incorrect';
+                scores.softHardMatching.correct = correctCount;
+                updateScoreBoard();
+            }
+        }
+
+        function resetSoftHardMatchingGame() {
+            initSoftHardMatchingGame();
+            scores.softHardMatching.correct = 0;
+            scores.softHardMatching.played = false;
+            document.getElementById('softHardMatchingFeedback').innerHTML = '';
+            updateScoreBoard();
+        }
+
+        // --- Kısa Test ---
+        function initQuiz() {
+            currentQuestionIndex = 0;
+            scores.quiz.correct = 0;
+            scores.quiz.answered = new Array(quizQuestions.length).fill(null); // Initialize answered array
+            scores.quiz.played = true;
+            scores.quiz.total = quizQuestions.length;
+
+            document.getElementById('quizScore').innerHTML = ''; // Clear previous score
+            document.getElementById('submitQuizBtn').style.display = 'none'; // Hide submit button initially
+            document.getElementById('questionFeedback').style.display = 'none';
+            document.getElementById('learnMoreContainer').innerHTML = '';
+
+            displayQuestion(currentQuestionIndex);
+            updateQuizNavigation();
+            updateScoreBoard(); // Update total questions count on scoreboard
+        }
+
+        function displayQuestion(index) {
+            const qc = document.getElementById('quizContainer');
+            const qFeedback = document.getElementById('questionFeedback');
+            const learnMoreContainer = document.getElementById('learnMoreContainer');
+            qc.innerHTML = ''; // Clear previous question
+            qFeedback.style.display = 'none';
+            learnMoreContainer.innerHTML = '';
+
+            if (index < 0 || index >= quizQuestions.length) return;
+
+            const qData = quizQuestions[index];
+            const qDiv = document.createElement('div');
+            qDiv.className = 'quiz-question';
+
+            let optsHtml = qData.options.map((opt, i) =>
+                `<label><input type="radio" name="q${index}" value="${opt}" data-option-index="${i}"> ${opt}</label>`
+            ).join('');
+
+            qDiv.innerHTML = `<p><strong>Soru ${index + 1}/${quizQuestions.length}:</strong> ${qData.question}</p><div class="quiz-options">${optsHtml}</div>`;
+            qc.appendChild(qDiv);
+
+            const radioButtons = qc.querySelectorAll(`input[name="q${index}"]`);
+            radioButtons.forEach(radio => {
+                // If question was already answered, re-select and show feedback
+                if (scores.quiz.answered[index] !== null) {
+                    if (scores.quiz.answered[index].selectedOptionValue === radio.value) {
+                        radio.checked = true;
+                    }
+                    // Show feedback if answer exists
+                    const answeredData = scores.quiz.answered[index];
+                    const selectedLabel = Array.from(radioButtons).find(rb => rb.value === answeredData.selectedOptionValue).parentElement;
+                    showAnswerFeedback(qData, answeredData.selectedOptionValue, selectedLabel);
+                    disableOptions(radioButtons, null); // Disable all options after review
+                } else {
+                    // Only add listener if not already answered
+                    radio.addEventListener('change', handleAnswerSelection);
+                }
+            });
+
+            // If all questions answered, show submit button
+            if (scores.quiz.answered.every(ans => ans !== null && ans !== undefined)) {
+                document.getElementById('submitQuizBtn').style.display = 'block';
+            } else {
+                document.getElementById('submitQuizBtn').style.display = 'none';
+            }
+            updateScoreBoard(); // Update current score display
+        }
+
+        function handleAnswerSelection(event) {
+            const selectedRadio = event.target;
+            const questionIndex = currentQuestionIndex;
+            const qData = quizQuestions[questionIndex];
+            const selectedValue = selectedRadio.value;
+            const selectedLabel = selectedRadio.parentElement;
+
+            const isCorrect = selectedValue === qData.answer;
+            scores.quiz.answered[questionIndex] = { selectedOptionValue: selectedValue, isCorrect: isCorrect };
+
+            showAnswerFeedback(qData, selectedValue, selectedLabel);
+            disableOptions(document.querySelectorAll(`input[name="q${questionIndex}"]`), selectedRadio);
+
+            // Recalculate correct count from answered array
+            scores.quiz.correct = scores.quiz.answered.filter(a => a && a.isCorrect).length;
+
+            updateScoreBoard(); // Update score as answers are given
+
+            // If all questions answered, show submit button
+            if (scores.quiz.answered.every(ans => ans !== null && ans !== undefined)) {
+                document.getElementById('submitQuizBtn').style.display = 'block';
+            }
+        }
+
+        function showAnswerFeedback(qData, selectedValue, selectedLabel) {
+            const qFeedback = document.getElementById('questionFeedback');
+            const learnMoreContainer = document.getElementById('learnMoreContainer');
+            const isCorrect = selectedValue === qData.answer;
+
+            qFeedback.style.display = 'block';
+            learnMoreContainer.innerHTML = ''; // Clear previous link
+
+            // Remove previous highlights
+            Array.from(selectedLabel.parentElement.children).forEach(label => {
+                label.classList.remove('correct-choice', 'incorrect-choice', 'correct-answer-highlight');
+            });
+
+
+            if (isCorrect) {
+                qFeedback.textContent = `Doğru! 🎉`;
+                qFeedback.className = 'feedback correct';
+                selectedLabel.classList.add('correct-choice');
+            } else {
+                qFeedback.textContent = `Yanlış. Doğru cevap: ${qData.answer}.`;
+                qFeedback.className = 'feedback incorrect';
+                selectedLabel.classList.add('incorrect-choice');
+
+                // Highlight the correct answer
+                const correctOptionLabel = Array.from(selectedLabel.parentElement.children).find(label =>
+                    label.querySelector('input') && label.querySelector('input').value === qData.answer
+                );
+                if (correctOptionLabel) correctOptionLabel.classList.add('correct-answer-highlight');
+            }
+        }
+
+
+        function disableOptions(radioButtons, selectedRadio) {
+            radioButtons.forEach(rb => {
+                // Disable all radio buttons for this question
+                rb.disabled = true;
+                rb.parentElement.style.cursor = 'not-allowed';
+                rb.parentElement.style.opacity = '0.7';
+                rb.removeEventListener('change', handleAnswerSelection); // Remove listener
+            });
+        }
+
+
+        function updateQuizNavigation() {
+            document.getElementById('prevQuestionBtn').disabled = currentQuestionIndex === 0;
+            document.getElementById('nextQuestionBtn').disabled = currentQuestionIndex === quizQuestions.length - 1;
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < quizQuestions.length - 1) {
+                currentQuestionIndex++;
+                displayQuestion(currentQuestionIndex);
+                updateQuizNavigation();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                displayQuestion(currentQuestionIndex);
+                updateQuizNavigation();
+            }
+        }
+
+        function submitQuiz() {
+            scores.quiz.correct = scores.quiz.answered.filter(a => a && a.isCorrect).length; // Recalculate just in case
+
+            const feedback = document.getElementById('questionFeedback'); // Use general feedback div
+            const scoreDiv = document.getElementById('quizScore');
+
+            const allAttempted = scores.quiz.answered.every(ans => ans !== null && ans !== undefined);
+
+            if (!allAttempted && !confirm("Tüm soruları cevaplamadınız. Yine de testi bitirmek istiyor musunuz?")) {
+                return;
+            }
+
+            scoreDiv.innerHTML = `<h3>Test Sonucu: ${scores.quiz.correct}/${quizQuestions.length} doğru.</h3>`;
+            if (allAttempted) {
+                feedback.textContent = scores.quiz.correct === quizQuestions.length ? "Mükemmel! Testteki tüm soruları doğru yanıtladınız!" : "Test tamamlandı. Sonuçlarınızı yukarıda görebilirsiniz.";
+            }
+            else {
+                feedback.textContent = "Test tamamlandı (bazı sorular cevaplanmadı). Sonuçlarınızı yukarıda görebilirsiniz.";
+            }
+            feedback.className = scores.quiz.correct === quizQuestions.length && allAttempted ? 'feedback correct' : 'feedback'; // General feedback class, not incorrect
+            feedback.style.display = 'block';
+
+            // Hide navigation and submit buttons, maybe show a reset quiz button or similar
+            document.getElementById('quizContainer').innerHTML = "<p style='text-align:center;'>Testi yeniden başlatmak için lütfen 'İlerleme' sekmesinden ilerlemeyi sıfırlayın veya Test sekmesine yeniden tıklayın.</p>";
+            document.querySelector('.quiz-navigation').style.display = 'none';
+            document.getElementById('submitQuizBtn').style.display = 'none';
+            document.getElementById('learnMoreContainer').innerHTML = ''; // Clear any learn more link
+
+            updateScoreBoard();
+        }
+
+
+        // --- Skorlama ---
+        function updateScoreBoard() {
+            document.getElementById('generalMatchingScore').textContent = scores.generalMatching.correct;
+            document.getElementById('generalMatchingTotal').textContent = generalMatchingGameData.length; // Use data length for total
+            document.getElementById('softHardMatchingScore').textContent = scores.softHardMatching.correct;
+            document.getElementById('softHardMatchingTotal').textContent = softHardMatchingGameData.length; // Use data length for total
+            document.getElementById('quizTotalScore').textContent = scores.quiz.correct;
+            document.getElementById('quizTotalQuestions').textContent = quizQuestions.length; // Use data length for total
+
+            let totalCorrect = scores.generalMatching.correct + scores.softHardMatching.correct + scores.quiz.correct;
+            let totalPossible = generalMatchingGameData.length + softHardMatchingGameData.length + quizQuestions.length;
+
+            document.getElementById('overallScore').textContent = totalPossible > 0 ? ((totalCorrect / totalPossible) * 100).toFixed(0) : 0;
+            localStorage.setItem('btAltyapiAppScores', JSON.stringify(scores));
+        }
+
+        function loadScores() {
+            const saved = localStorage.getItem('btAltyapiAppScores');
+            if (saved) {
+                scores = JSON.parse(saved);
+                // Ensure answered array is initialized if not present (e.g., from old saves)
+                if (!scores.quiz.answered) {
+                    scores.quiz.answered = new Array(quizQuestions.length).fill(null);
+                } else {
+                    // Pad answered array if new questions were added
+                    while (scores.quiz.answered.length < quizQuestions.length) {
+                        scores.quiz.answered.push(null);
+                    }
+                }
+
+            } else {
+                // Initialize scores and answered array if no save found
+                scores = {
+                    generalMatching: { correct: 0, total: generalMatchingGameData.length, played: false },
+                    softHardMatching: { correct: 0, total: softHardMatchingGameData.length, played: false },
+                    quiz: { correct: 0, total: quizQuestions.length, answered: new Array(quizQuestions.length).fill(null) }
+                };
+            }
+            // Update total counts based on current data lengths
+            scores.generalMatching.total = generalMatchingGameData.length;
+            scores.softHardMatching.total = softHardMatchingGameData.length;
+            scores.quiz.total = quizQuestions.length;
+
+        }
+
+        function resetProgress() {
+            if (confirm("Tüm ilerlemenizi ve skorlarınızı sıfırlamak istediğinizden emin misiniz?")) {
+                scores = {
+                    generalMatching: { correct: 0, total: generalMatchingGameData.length, played: false },
+                    softHardMatching: { correct: 0, total: softHardMatchingGameData.length, played: false },
+                    quiz: { correct: 0, total: quizQuestions.length, answered: new Array(quizQuestions.length).fill(null) } // Reset answered array
+                };
+                localStorage.removeItem('btAltyapiAppScores');
+                updateScoreBoard();
+                // Aktif bölümleri de sıfırla
+                ['generalMatchingGame', 'softHardMatchingGame', 'quiz'].forEach(id => {
+                    if (document.getElementById(id).classList.contains('active')) {
+                        if (id === 'generalMatchingGame') initGeneralMatchingGame();
+                        if (id === 'softHardMatchingGame') initSoftHardMatchingGame();
+                        if (id === 'quiz') initQuiz();
+                    }
+                });
+                alert("İlerlemeniz sıfırlandı.");
+            }
+        }
+
+
+        // --- Drag and Drop Helpers ---
+        function dragStart(e) {
+            draggedItem = e.target;
+            e.dataTransfer.setData('text/plain', e.target.id);
+            // Add a class to the dragged item for visual feedback
+            setTimeout(() => {
+                e.target.classList.add('dragging');
+            }, 0);
+        }
+
+        function dragOver(e) {
+            e.preventDefault(); // Necessary to allow dropping
+            const dropTarget = e.target.closest('.drop-target');
+            if (dropTarget) {
+                e.dataTransfer.dropEffect = 'move'; // Visual feedback
+            } else if (e.target.closest('.drop-slot')) { // Also allow for individual slots in general matching
+                e.dataTransfer.dropEffect = 'move';
+            }
+            else {
+                e.dataTransfer.dropEffect = 'none';
+            }
+        }
+
+        function dragEnter(e) {
+            const dropTarget = e.target.closest('.drop-target');
+            if (dropTarget) {
+                if (!dropTarget.classList.contains('drop-target-area')) { // Avoid adding to main container if it's just a simple drop-target
+                    dropTarget.classList.add('drag-over');
+                }
+            }
+        }
+
+        function dragLeave(e) {
+            const dropTarget = e.target.closest('.drop-target');
+            // Check if the mouse is leaving the drop target area itself, not just a child element within it
+            if (dropTarget && !dropTarget.contains(e.relatedTarget) && !dropTarget.classList.contains('drop-target-area')) {
+                dropTarget.classList.remove('drag-over');
+            }
+        }
+
+        function dragEnterGeneralSlot(e) { // Specific for general matching drop slots
+            const dropSlot = e.target.closest('.drop-slot');
+            if (dropSlot) dropSlot.classList.add('drag-over');
+        }
+        function dragLeaveGeneralSlot(e) { // Specific for general matching drop slots
+            const dropSlot = e.target.closest('.drop-slot');
+            if (dropSlot && !dropSlot.contains(e.relatedTarget)) dropSlot.classList.remove('drag-over');
+        }
+
+        // New functions for handling drag over source container in General Matching Game
+        function dragEnterGeneralSource(e) {
+            const sourceContainer = e.currentTarget;
+            // Check if the event target is the container itself or a direct child (draggable item)
+            if (sourceContainer.id === 'generalTerms' && e.target.id === 'generalTerms') {
+                sourceContainer.classList.add('drag-over-source');
+            }
+        }
+        function dragLeaveGeneralSource(e) {
+            const sourceContainer = e.currentTarget;
+            if (sourceContainer.id === 'generalTerms' && e.target.id === 'generalTerms') {
+                // Check relatedTarget to prevent flickering when moving over child elements
+                if (!sourceContainer.contains(e.relatedTarget) || e.relatedTarget === null) {
+                    sourceContainer.classList.remove('drag-over-source');
+                }
+            }
+        }
+        function dropToGeneralSource(e) {
+            e.preventDefault();
+            const sourceContainer = e.currentTarget; // Should be generalTerms
+            const draggedItemId = e.dataTransfer.getData('text/plain');
+            const draggedElement = document.getElementById(draggedItemId);
+
+            if (draggedElement && sourceContainer.id === 'generalTerms') {
+                sourceContainer.appendChild(draggedElement);
+                draggedElement.style.cursor = 'grab'; // Reset cursor
+                // Remove any match-specific styling if it was previously in a slot
+                draggedElement.classList.remove('correct-match', 'incorrect-match');
+            }
+            sourceContainer.classList.remove('drag-over-source');
+        }
+
+        function dragEnd(e) { // Generic drag end handler
+            e.target.classList.remove('dragging');
+        }
+
+        // --- Audio Player Functions (Generic) ---
+        function toggleAudio(playerId, buttonId) {
+            const player = document.getElementById(playerId);
+            const button = document.getElementById(buttonId);
+            if (player.paused) {
+                player.play();
+                button.textContent = 'Sesi Durdur';
+            } else {
+                player.pause();
+                button.textContent = 'Sesi Oynat';
+            }
+        }
+
+        function updateAudioDuration(playerId, durationDisplayId) {
+            const player = document.getElementById(playerId);
+            const durationDisplay = document.getElementById(durationDisplayId);
+            if (player && durationDisplay && player.duration) {
+                durationDisplay.textContent = formatTime(player.duration);
+            }
+        }
+
+        function updateAudioTime(playerId, currentTimeDisplayId) {
+            const player = document.getElementById(playerId);
+            const currentTimeDisplay = document.getElementById(currentTimeDisplayId);
+            if (player && currentTimeDisplay) {
+                currentTimeDisplay.textContent = formatTime(player.currentTime);
+            }
+        }
+
+        function changePlaybackSpeed(playerId, speedControlId) {
+            const player = document.getElementById(playerId);
+            const speedControl = document.getElementById(speedControlId);
+            if (player && speedControl) {
+                player.playbackRate = parseFloat(speedControl.value);
+            }
+        }
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        // --- NEW NAVIGATION JS FUNCTIONS ---
+        function initializeNavigation() {
+            console.log('initializeNavigation called'); // Log 1
+            const navLinks = document.querySelectorAll('nav ul a.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const href = this.getAttribute('href');
+                    console.log('nav-link clicked:', href); // Log 2
+                    if (href && href.startsWith('#')) {
+                        const sectionId = href.substring(1);
+                        console.log('Section ID extracted:', sectionId); // Log 3
+                        showSection(sectionId);
+                        updateActiveLink(sectionId);
+
+                        // Close all dropdowns when a section link is clicked
+                        document.querySelectorAll('nav ul li.dropdown ul.submenu.open').forEach(submenu => {
+                            submenu.classList.remove('open');
+                            console.log('Closed submenu:', submenu.parentElement.querySelector('a').textContent); // Log 4
+                        });
+                    }
+                });
+            });
+
+            document.querySelectorAll('nav ul li.dropdown > a.nav-link-dropdown').forEach(ddLink => {
+                ddLink.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    console.log('nav-link-dropdown clicked:', this.textContent); // Log 5
+                    const parentLi = this.parentElement;
+                    const submenu = parentLi.querySelector('ul.submenu');
+
+                    if (submenu) {
+                        console.log('Found submenu for dropdown:', submenu); // Log 6
+                        // Close other open submenus before toggling the current one
+                        document.querySelectorAll('nav ul li.dropdown ul.submenu.open').forEach(otherSubmenu => {
+                            if (otherSubmenu !== submenu) {
+                                otherSubmenu.classList.remove('open');
+                                console.log('Closed other submenu:', otherSubmenu.parentElement.querySelector('a').textContent); // Log 7
+                            }
+                        });
+                        submenu.classList.toggle('open');
+                        console.log('Submenu toggled. New state:', submenu.classList.contains('open') ? 'open' : 'closed'); // Log 8
+                    }
+                });
+            });
+        }
+
+        function showSection(sectionId) {
+            // console.log('showSection called with ID:', sectionId); // Log 9
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                console.log('showSection: Target section found:', sectionId); // Log added
+                targetSection.classList.add('active');
+
+                if (sectionId === 'generalMatchingGame') initGeneralMatchingGame();
+                if (sectionId === 'softHardMatchingGame') initSoftHardMatchingGame();
+                if (sectionId === 'quiz') initQuiz();
+                if (sectionId.startsWith('fillBlanksBTBolum')) { // Generic check for BD sections
+                    let dataKey;
+                    if (sectionId === 'fillBlanksBTBolum1') dataKey = 'bolum1_temelKavramlarVeriBirimleri';
+                    else if (sectionId === 'fillBlanksBTBolum2') dataKey = 'bolum2_donanimBilesenleri';
+                    else if (sectionId === 'fillBlanksBTBolum3') dataKey = 'bolum3_islemlerPerformans';
+                    else if (sectionId === 'fillBlanksBTBolum4') dataKey = 'bolum4_altyapiBilesenleriKategorik';
+                    else if (sectionId === 'fillBlanksBTBolum5') dataKey = 'bolum5_mimariler';
+
+                    if (dataKey) {
+                        console.log('showSection: Initializing fill-in-the-blanks for dataKey:', dataKey, 'in section:', sectionId);
+                        initFillInTheBlanks(dataKey, sectionId, 'bt'); // Pass the correct dataKey
+                    } else {
+                        console.error('showSection: No matching dataKey found for fill-in-the-blanks section:', sectionId);
+                    }
+                }
+            }
+            else {
+                console.log('showSection: Target section NOT found:', sectionId); // Log added
+            }
+        }
+
+        function updateActiveLink(targetOrSectionId) {
+            console.log('updateActiveLink called with:', targetOrSectionId); // Log 10
+            const allNavLinksAndToggles = document.querySelectorAll('nav ul a');
+            allNavLinksAndToggles.forEach(link => link.classList.remove('active'));
+
+            let activeLinkElement = null;
+            let sectionIdToMatch = '';
+
+            if (typeof targetOrSectionId === 'string') {
+                sectionIdToMatch = targetOrSectionId;
+                activeLinkElement = document.querySelector(`nav ul a.nav-link[href="#${sectionIdToMatch}"]`);
+            } else if (targetOrSectionId && targetOrSectionId.nodeName === 'A') {
+                activeLinkElement = targetOrSectionId;
+                const href = activeLinkElement.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    sectionIdToMatch = href.substring(1);
+                }
+            }
+
+            if (activeLinkElement) {
+                activeLinkElement.classList.add('active');
+                const parentSubmenu = activeLinkElement.closest('ul.submenu');
+                if (parentSubmenu) {
+                    const dropdownLi = parentSubmenu.closest('li.dropdown');
+                    if (dropdownLi) {
+                        const parentToggle = dropdownLi.querySelector('a.nav-link-dropdown');
+                        if (parentToggle) {
+                            parentToggle.classList.add('active');
+                        }
+                    }
+                }
+            } else if (sectionIdToMatch) {
+                const linkForSection = document.querySelector(`nav ul a.nav-link[href="#${sectionIdToMatch}"]`);
+                if (linkForSection) {
+                    linkForSection.classList.add('active');
+                    const parentSubmenu = linkForSection.closest('ul.submenu');
+                    if (parentSubmenu) {
+                        const dropdownLi = parentSubmenu.closest('li.dropdown');
+                        if (dropdownLi) {
+                            const parentToggle = dropdownLi.querySelector('a.nav-link-dropdown');
+                            if (parentToggle) {
+                                parentToggle.classList.add('active');
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // --- Başlangıç ---
+        window.onload = () => {
+            loadContent();
+            loadScores();
+            updateScoreBoard();
+
+            const initialSectionId = window.location.hash ? window.location.hash.substring(1) : 'home';
+
+            initializeNavigation();
+            showSection(initialSectionId);
+            updateActiveLink(initialSectionId);
+        };
+
+        const fillInTheBlanksDataBT = {
+            'bolum1_temelKavramlarVeriBirimleri': [
+                { sentenceParts: ["Bir işletmenin bilgi sistemlerini çalıştırmak için kullandığı temel teknolojik kaynaklar, platformlar ve paylaşılan hizmetlerin bütününe ", " denir."], answer: "BT Altyapısı", alternatives: ["Bilgi Teknolojileri Altyapısı", "bt altyapısı", "BT altyapısı"], placeholder: "Kısaltma veya Tam Ad" },
+                { sentenceParts: ["BT Altyapısı; yazılım, ", " ve hizmetleri kapsar."], answer: "donanım", alternatives: ["hardware"], placeholder: "1 kelime" },
+                { sentenceParts: ["Bilgisayarların anladığı temel dil olan ve sadece 0 ile 1 rakamlarından oluşan sayı sistemine ", " denir."], answer: "İkili Sayı Sistemi", alternatives: ["Binary Sistem", "Binary", "binary", "ikili sayı sistemi", "ikili sistem"], placeholder: "1-3 kelime" },
+                { sentenceParts: ["En küçük veri birimi olan ve 0 ya da 1 değerini alabilen yapıya ", " denir."], answer: "Bit", alternatives: ["bit"], placeholder: "1 kelime" },
+                { sentenceParts: ["Genellikle 8 bitten oluşan ve bir karakteri temsil edebilen veri birimine ", " denir."], answer: "Byte", alternatives: ["Bayt", "byte", "bayt"], placeholder: "1 kelime" },
+                { sentenceParts: ["1024 Byte'a eşit olan depolama birimine ", " denir."], answer: "Kilobyte", alternatives: ["KB", "KİLOBAYT", "kb", "kilobyte"], placeholder: "Kısaltma veya Tam Ad" }
+            ],
+            'bolum2_donanimBilesenleri': [
+                { sentenceParts: ["Klavye, fare, mikrofon gibi verilerin bilgisayara girilmesini sağlayan aygıtlara genel olarak ", " denir."], answer: "Girdi Aygıtları", alternatives: ["Input Devices", "girdi aygıtları", "giriş aygıtları"], placeholder: "2 kelime" },
+                { sentenceParts: ["Bilgisayarın beyni olarak kabul edilen, veri ve iş emirlerini alıp işleyen ana donanım parçasına ", " (Merkezi İşlem Birimi) denir."], answer: "CPU", alternatives: ["Merkezi İşlem Birimi", "Mikroişlemci", "cpu", "merkezi işlem birimi", "CPU", "mikro işlemci", "mikroişlemci"], placeholder: "Kısaltma veya Tam Ad" },
+                { sentenceParts: ["CPU içerisinde, bilgisayar sisteminin tüm faaliyetlerini yöneten ve koordine eden birime ", " (Kontrol Ünitesi) denir."], answer: "CU", alternatives: ["Kontrol Ünitesi", "control unit"], placeholder: "Kısaltma veya Tam Ad" },
+                { sentenceParts: ["CPU içerisinde, matematiksel ve mantıksal işlemleri gerçekleştiren birime ", " (Aritmetik Mantık Ünitesi) denir."], answer: "ALU", alternatives: ["Aritmetik Mantık Ünitesi", "ALU", "arithmetic logic unity"], placeholder: "Kısaltma veya Tam Ad" },
+                { sentenceParts: ["Monitör, projeksiyon cihazı gibi elle tutulamayan, geçici çıktılar üreten aygıtlara ", " çıktı aygıtları denir."], answer: "Soft-Copy", alternatives: ["Soft Copy", "Elle tutulamayan", "soft-copy", "soft copy"], placeholder: "1-2 kelime" },
+                { sentenceParts: ["Yazıcı, çizici gibi fiziksel, kalıcı çıktılar üreten aygıtlara ", " çıktı aygıtları denir."], answer: "Hard-Copy", alternatives: ["Hard Copy", "Fiziksel", "hard copy", "hard-copy"], placeholder: "1-2 kelime" },
+                { sentenceParts: ["Aktif program ve verilerin tutulduğu geçici, uçucu ana belleğe ", " (Rastgele Erişimli Bellek) denir."], answer: "RAM", alternatives: ["Rastgele Erişimli Bellek"], placeholder: "Kısaltma" },
+                { sentenceParts: ["Bilgisayarın temel başlatma bilgilerini (BIOS gibi) içeren, genellikle kullanıcı tarafından değiştirilemeyen kalıcı belleğe ", " (Sadece Okunur Bellek) denir."], answer: "ROM", alternatives: [], placeholder: "Kısaltma" },
+                { sentenceParts: ["CPU ile RAM arasında bulunan, sık kullanılan verilere çok hızlı erişim sağlamak için kullanılan küçük ve hızlı belleğe ", " (Önbellek) denir."], answer: "Cache", alternatives: ["Önbellek", "ön bellek", "önbellek"], placeholder: "1 kelime / Kısaltma" },
+                { sentenceParts: ["Verilerin uzun süreli ve kalıcı olarak saklandığı HDD, SSD gibi birimlere genel olarak ", " denir."], answer: "Harici Depolama", alternatives: ["External Storage", "harici depolama"], placeholder: "2 kelime" }
+            ],
+            'bolum3_islemlerPerformans': [
+                { sentenceParts: ["CPU'nun tek bir komutu işlemek için gerçekleştirdiği; komutu bellekten getirme (Fetch), kodunu çözme (Decode), işleme (Execute) ve sonucu depolama (Store) adımlarından oluşan temel döngüye ", " denir."], answer: "Makine Çevrimi", alternatives: ["Machine Cycle", "makine çevrimi"], placeholder: "2 kelime" },
+                { sentenceParts: ["CPU'nun saniyede gerçekleştirebildiği makine çevrimi sayısını ifade eden ve genellikle Hertz (Hz) veya Gigahertz (GHz) ile ölçülen performans kriterine ", " denir."], answer: "Saat Frekansı", alternatives: ["Clock Rate", "Sistem Saati", "saat frekansı", "clock rate"], placeholder: "1-2 kelime" },
+                { sentenceParts: ["Bilgisayarın farklı donanım bileşenleri (CPU, RAM, G/Ç aygıtları vb.) arasında veri ve kontrol sinyallerini taşıyan elektronik yollara ", " denir."], answer: "Veriyolu", alternatives: ["Bus", "veri yolu", "bus"], placeholder: "1 kelime" },
+                { sentenceParts: ["Bir sistemin belirli bir zaman diliminde ne kadar iş yapabildiğini ifade eden genel iş yapabilme kapasitesine ", " denir."], answer: "Veri İşleme Yeteneği", alternatives: ["Throughput", "veri işleme yeteneği"], placeholder: "2-3 kelime" }
+            ],
+            'bolum4_altyapiBilesenleriKategorik': [
+                { sentenceParts: ["İstemciler (client), sunucular (server) ve ana bilgisayarlar (mainframe) BT Altyapısının ", " Platformları bileşenine örnektir."], answer: "Bilgisayar Donanım", alternatives: ["Donanım", "donanım", "bilgisayar donanım"], placeholder: "1-2 kelime" },
+                { sentenceParts: ["Microsoft Windows, Linux ve macOS gibi yazılımlar, BT Altyapısının ", " Platformları bileşenine örnektir."], answer: "İşletim Sistemi", alternatives: ["OS", "işletim sistemi", "OS", "İşletim Sitemi"], placeholder: "1-2 kelime / Kısaltma" },
+                { sentenceParts: ["SAP ve Oracle gibi Kurumsal Kaynak Planlaması (ERP) yazılımları, BT Altyapısının ", " Sistemleri bileşenine örnektir."], answer: "Kurumsal Yazılım", alternatives: ["Enterprise Software", "Kurumsal Kurumsal", "Kurumsal Yazılım", "kurumsal ysazılım"], placeholder: "2 kelime" }
+            ],
+            'bolum5_mimariler': [
+                { sentenceParts: ["Hesaplama görevlerinin, kullanıcı arayüzünü sunan istemciler ile merkezi kaynakları yöneten sunucular arasında paylaştırıldığı mimariye ", " Mimarisi denir."], answer: "İstemci-Sunucu", alternatives: ["Client-Server", "Client/Server", "istemci/sunucu", "istemci-sunucu"], placeholder: "1-2 kelime (X-Y)" },
+                { sentenceParts: ["İstemci-Sunucu mimarisinin, işlevselliği Web Sunucusu, Uygulama Sunucusu ve Veri Sunucusu gibi farklı katmanlara dağıtan gelişmiş formuna ", " (N-Tier) Mimari denir."], answer: "Çok Katmanlı", alternatives: ["N-Tier", "N Tier", "Cok Katmanli", "çok katmanlı", "n tier", "n-tier", "N-tier"], placeholder: "1-2 kelime / Kısaltma" }
+            ]
+        };
+
+        // --- Fill in the Blanks Functions (Adapted for BT Altyapı) ---
+        function initFillInTheBlanks(categoryKey, sectionId, idPrefix = 'bt') {
+            console.log('initFillInTheBlanks called for category:', categoryKey, 'section:', sectionId); // Log added
+            const gameData = fillInTheBlanksDataBT[categoryKey]; // Use BT specific data
+            const sectionElement = document.getElementById(sectionId);
+
+            if (!gameData || !sectionElement) {
+                console.error("Fill in the blanks data or section not found for:", categoryKey, sectionId);
+                return;
+            }
+
+            const container = sectionElement.querySelector('.fill-blanks-container');
+            const controls = sectionElement.querySelector('.fill-blanks-controls');
+            const scoreEl = sectionElement.querySelector('.fill-blanks-score');
+            // Ensure correct button selection based on your HTML structure for these new sections
+            const checkBtn = controls.querySelector('.game-button:not(.reset)');
+            const restartBtn = controls.querySelector('.game-button.reset');
+
+            container.innerHTML = '';
+            console.log('initFillInTheBlanks: Container cleared.', container); // Log added
+            scoreEl.innerHTML = '';
+            if (checkBtn) {
+                checkBtn.disabled = false;
+                checkBtn.textContent = 'Cevapları Kontrol Et';
+            }
+
+            console.log('initFillInTheBlanks: Processing gameData for category:', categoryKey, gameData); // Log added
+            gameData.forEach((q, index) => {
+                console.log('initFillInTheBlanks: Processing question index:', index, q); // Log added
+                const qDiv = document.createElement('div');
+                qDiv.className = 'fill-blanks-question';
+                qDiv.dataset.questionIndex = index;
+
+                const p = document.createElement('p');
+
+                const part1 = document.createElement('span');
+                part1.className = 'sentence-part';
+                part1.textContent = q.sentenceParts[0];
+                p.appendChild(part1);
+
+                const inputElement = document.createElement('input');
+                inputElement.type = 'text';
+                inputElement.id = `blank_${idPrefix}_${categoryKey}_${index}`;
+                inputElement.placeholder = q.placeholder || '...';
+                inputElement.setAttribute('aria-label', `Soru ${index + 1} için boşluğu doldurun`);
+                p.appendChild(inputElement);
+
+                if (q.sentenceParts.length > 1 && q.sentenceParts[1]) {
+                    const part2 = document.createElement('span');
+                    part2.className = 'sentence-part';
+                    part2.textContent = q.sentenceParts[1];
+                    p.appendChild(part2);
+                }
+
+                const feedbackIcon = document.createElement('span');
+                feedbackIcon.className = 'feedback-icon';
+                feedbackIcon.id = `feedback_${idPrefix}_${categoryKey}_${index}`;
+                p.appendChild(feedbackIcon);
+
+                qDiv.appendChild(p);
+                container.appendChild(qDiv);
+            });
+
+            if (checkBtn) checkBtn.onclick = () => checkFillInTheBlanks(categoryKey, sectionId, idPrefix);
+            if (restartBtn) restartBtn.onclick = () => initFillInTheBlanks(categoryKey, sectionId, idPrefix);
+        }
+
+        function checkFillInTheBlanks(categoryKey, sectionId, idPrefix = 'bt') {
+            const gameData = fillInTheBlanksDataBT[categoryKey]; // Use BT specific data
+            const sectionElement = document.getElementById(sectionId);
+            const scoreEl = sectionElement.querySelector('.fill-blanks-score');
+            const checkBtn = sectionElement.querySelector('.fill-blanks-controls .game-button:not(.reset)');
+            let correctAnswers = 0;
+
+            gameData.forEach((q, index) => {
+                const inputElement = document.getElementById(`blank_${idPrefix}_${categoryKey}_${index}`);
+                const feedbackIcon = document.getElementById(`feedback_${idPrefix}_${categoryKey}_${index}`);
+
+                const oldCorrectAnswerText = inputElement.parentNode.querySelector('.correct-answer-text');
+                if (oldCorrectAnswerText) {
+                    oldCorrectAnswerText.remove();
+                }
+
+                const userAnswer = inputElement.value.trim().toLowerCase();
+                const correctAnswer = q.answer.toLowerCase();
+                const alternativeAnswers = (q.alternatives || []).map(a => a.toLowerCase().trim());
+
+                feedbackIcon.textContent = '';
+                feedbackIcon.className = 'feedback-icon';
+
+                if (userAnswer === correctAnswer || (alternativeAnswers.length > 0 && alternativeAnswers.includes(userAnswer))) {
+                    correctAnswers++;
+                    feedbackIcon.textContent = '✔';
+                    feedbackIcon.classList.add('correct');
+                    inputElement.style.borderColor = '#27ae60';
+                } else {
+                    feedbackIcon.textContent = '✖';
+                    feedbackIcon.classList.add('incorrect');
+                    inputElement.style.borderColor = '#c0392b';
+
+                    const correctAnswerSpan = document.createElement('span');
+                    correctAnswerSpan.className = 'correct-answer-text';
+                    correctAnswerSpan.textContent = `(Doğru: ${q.answer})`;
+                    feedbackIcon.parentNode.insertBefore(correctAnswerSpan, feedbackIcon.nextSibling);
+                }
+                inputElement.disabled = true;
+            });
+
+            scoreEl.innerHTML = `<h4>Skor: ${correctAnswers} / ${gameData.length}</h4>`;
+            if (checkBtn) {
+                checkBtn.disabled = true;
+                checkBtn.textContent = 'Kontrol Edildi';
+            }
+        }
+
+        // --- Skorlama --- 
+    </script>
+</body>
+
+</html>

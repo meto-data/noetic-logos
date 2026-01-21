@@ -24,10 +24,10 @@ Kavramlar: "```dataview\rLIST from outgoing([[5- Tesis İçi Yerleşimi ve Kapas
 3. **Konfor**: Personelin fiziksel çalışma koşullarının uygunluğu.
 	- Gürültü, sıcaklık, aydınlatma gibi **[[ergonomik]]** faktörler çalışanların verimliliğini doğrudan etkilemektedir.
 4. **Alan Kullanımı**: Bir imalat tesisinde maliyetin azaltılması için boş alanların en aza indirilmesi hedeflenirken lüks bir otelin tasarımında alanların geniş ve ferah olması hedeflenebilir.
-5. **[[Darboğazlar]]:** Tesisin yerleşim planlaması yapılırken ileride oluşabilecek [[Darboğaz]]lar dikkate alınmalıdır. 
+5. **[[Darboğazlar]]:** Tesisin yerleşim planlaması yapılırken ileride oluşabilecek [[Darboğaz|darboğazlar]] dikkate alınmalıdır. 
 6. **Koordinasyon**: Tesis içerisinde iş süreçlerinin aksamadan yürütülmesi için iletişimi sağlayan telefon, sesli ya da görsel bilgi aktarma araçlarının konumlandırılması gerekir.
 7. **Esneklik**: Çevreye adapte olabilme, değişimlere uyum sağlayabilme denilebilir. Söz gelişi, bir şirketin yerleşiminde bir masanın konumu kolayca değiştirilebilir bir yerdeyse, bu onun esnek olduğunu anlamına gelir. 
-### Tesis İçi Yerleşim Türleri
+### [[Tesis İçi Yerleşim Türleri]]
 #### 1- Sabit Konumlu Yerleşim
 
 > [!cite]  
@@ -90,28 +90,18 @@ Bkz. **[[Fordizm ve Seri Üretim]]**
 | **Malzeme Taşıma Maliyeti** | Yüksek                   | Düşük                   |
 | **Stok Alanı (Yarı Mamul)** | Yüksek                   | Düşük                   |
 
-<br>
 
-````col
-```col-md
-flexGrow=1
-===
+
 #### **Sürece Göre Yerleşim (Fonksiyonel Yerleşim):**
 
 - **Avantajı:** Çok **farklı ürünler** üretebilme **esnekliğine** sahiptir. Genellikle daha çok **insan gücüne** dayalıdır ve makineler daha **genel amaçlıdır** (birçok farklı işi yapabilir). <br> <br>
 - **Dezavantajı:** Ürünler farklı işlem merkezleri arasında dolaştığı için **üretim hızı düşüktür**, **malzeme taşıma maliyetleri yüksektir** ve işlemler arasında **yüksek miktarda yarı mamul stok** birikebilir.
 
-```
-```col-md
-flexGrow=1
-===
+
 #### **Ürüne Göre Yerleşim (Hat Tipi Yerleşim):**
 
 - **Avantajı:** Standart ürünlerin **yüksek hızda** ve büyük hacimde üretimi için idealdir. Akış doğrusal olduğu için **malzeme taşıma maliyetleri düşüktür** ve **yarı mamul stokları azdır**. Genellikle **özel amaçlı makinelere** ve **teknolojiye** (otomasyon) dayanır. <br> <br>
 - **Dezavantajı:** **Ürün çeşitliliği çok düşüktür** ve sistem **esnek değildir**. Farklı bir ürün üretmek veya işlem sırasını değiştirmek zordur ve maliyetlidir.
-
-```
-````
 
 #### 4- Karma Yerleşim
 -  Karma yerleşim, hem sürece göre yerleşim (fonksiyonel gruplama, atölye tipi) hem de ürüne göre yerleşim (üretim hattı, seri üretim) türlerinin özelliklerini birleştiren bir tesis düzenleme biçimidir. Üretimin bazı kısımlarının seri ve standart, bazı kısımlarının ise daha esnek ve çeşitli (parti üretimi gibi) olduğu fabrikalarda kullanılır.

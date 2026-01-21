@@ -6,9 +6,9 @@ created: 2025-12-26
 date: 2025-12-26
 cssclasses:
   - ders-notu
-draft: false
+draft: true
 ---
-<h1 style="text-align:center"><span style="color:lightblue; text-align:center">Ünite 6: Diziler ve Seriler</span> <span>| 25.12.2025</span2></h1>
+d<h1 style="text-align:center"><span style="color:lightblue; text-align:center">Ünite 6: Diziler ve Seriler</span> <span>| 25.12.2025</span2></h1>
 
 <h2 style=" text-align:center">Seriler</h2>
 

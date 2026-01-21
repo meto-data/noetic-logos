@@ -1,0 +1,3391 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilişim Sistemleri, Organizasyon ve Strateji</title>
+    <style>
+        :root {
+            --border-radius: 8px; /* Porter modülünün kullandığı border-radius için genel bir değer */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 20px auto;
+            overflow: hidden;
+            padding: 25px;
+            background-color: #fff;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            flex-grow: 1;
+        }
+
+        header {
+            background: #1a5276;
+            color: #eaf2f8;
+            padding: 1.5rem 0;
+            text-align: center;
+            border-bottom: #2980b9 5px solid;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.4em;
+            font-weight: 600;
+        }
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.1em;
+            color: #bdc3c7;
+        }
+
+        /* NEW NAVIGATION CSS (from btaltyapi.html) */
+        nav {
+            background: #2c3e50; 
+            color: #fff;
+            padding: 0; 
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 0 0 10px 10px; 
+            display: flex; 
+            justify-content: center; 
+        }
+        nav ul { 
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;
+        }
+        nav ul li { 
+            margin: 0;
+        }
+        nav ul li a { 
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.8rem 1rem; 
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1em; 
+            font-weight: 500; 
+        }
+        nav ul li a:hover,
+        nav ul li a.active { 
+            background: #2980b9;
+            transform: translateY(-2px); 
+        }
+        nav ul li.dropdown {
+            position: relative; 
+        }
+        nav ul li.dropdown > a.nav-link-dropdown::after {
+            content: ' ▾'; 
+            font-size: 0.8em;
+        }
+        nav ul ul.submenu {
+            display: none; 
+            position: absolute;
+            top: 100%; 
+            left: 0;
+            background-color: #34495e; 
+            padding: 0;
+            min-width: 280px; /* Adjusted min-width for longer BD titles */
+            z-index: 1000;
+            border-radius: 0 0 6px 6px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        nav ul li.dropdown:hover > ul.submenu { /* Restored hover to open */
+            display: block;
+        }
+        nav ul ul.submenu li {
+            width: 100%;
+        }
+        nav ul ul.submenu li a {
+            padding: 0.7rem 1rem;
+            white-space: nowrap; 
+            text-align: left; /* Ensure submenu items are left-aligned */
+        }
+        nav ul ul.submenu li a:hover,
+        nav ul ul.submenu li a.active { 
+            background-color: #2980b9;
+        }
+        
+        /* Mobil Uyum */
+        @media (max-width: 900px) {
+            nav ul { flex-direction: column; align-items: stretch; }
+            nav ul li a { text-align: left; padding-left: 1rem; }
+            nav ul ul.submenu {
+                position: static; 
+                width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+                background-color: #465a6e; 
+            }
+            nav ul ul.submenu li a {
+                padding-left: 2rem; 
+            }
+            nav ul li.dropdown > a.nav-link-dropdown::after {
+                float: right; 
+                margin-right: 1rem;
+            }
+        }
+
+        .section {
+            display: none;
+            padding: 25px;
+            border: 1px solid #dfe6e9;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            background-color: #fdfefe;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #1a5276;
+            border-bottom: 3px solid #2980b9;
+            padding-bottom: 15px;
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+        h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-top: 25px;
+        }
+        h4 {
+            color: #566573;
+            font-size: 1.2em;
+        }
+
+        .info-box {
+            background-color: #e8f6f3;
+            border-left: 6px solid #1abc9c;
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .info-box ul {
+            padding-left: 20px;
+        }
+         .info-box li {
+            margin-bottom: 8px;
+        }
+        .important-note {
+            background-color: #fef5e7;
+            border-left: 6px solid #e67e22;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .important-note h4 {
+            color: #e67e22;
+            margin-top: 0;
+        }
+
+        /* Genel oyun ve test stilleri, gerekirse daha sonra eklenecek */
+        
+        footer {
+            text-align: center;
+            padding: 1.8rem;
+            background: #1a5276;
+            color: #eaf2f8;
+            margin-top: auto;
+        }
+
+        /* İntranet/Ekstranet Görselleştirme Stilleri */
+        #intExt_gorsellestirme-diyagrami {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px; 
+            position: relative;
+            text-align: center;
+            background-color: #f8f9fa; 
+            padding: 20px;
+            border-radius: 8px; 
+            margin: 20px auto; 
+            max-width: 400px; 
+        }
+
+        .intExt-circle {
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            color: white; 
+            font-weight: bold;
+            padding: 10px; /* İçerik ve kenar arasında boşluk */
+            box-sizing: border-box; /* Padding'in boyuta dahil olması için */
+        }
+
+        .intExt-internet-circle {
+            width: 280px; 
+            height: 280px;
+            background-color: rgba(53, 152, 219, 0.7); /* Blue */
+            z-index: 1;
+        }
+
+        .intExt-extranet-circle {
+            width: 180px; 
+            height: 180px;
+            background-color: rgba(46, 204, 113, 0.7); /* Green */
+            z-index: 2;
+        }
+
+        .intExt-intranet-circle {
+            width: 90px; 
+            height: 90px;
+            background-color: rgba(230, 126, 34, 0.8); /* Orange */
+            z-index: 3;
+        }
+        .intExt-circle span { 
+            padding: 5px;
+        }
+
+        /* İntranet/Ekstranet Alıştırma Stilleri */
+        #intranetExtranet #intExt_alistirma-soru { /* ID özgünlüğü için section ID ile kapsandı */
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        #intranetExtranet .intExt-options button {
+            display: block;
+            width: 100%;
+            padding: 12px; 
+            margin-bottom: 10px;
+            background-color: #566573; 
+            color: white;
+            border: none;
+            border-radius: 6px; 
+            cursor: pointer;
+            font-size: 1em; 
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        #intranetExtranet .intExt-options button:hover {
+            background-color: #2980b9; 
+             transform: translateY(-2px);
+        }
+        #intranetExtranet .intExt-feedback-styling { 
+            padding: 15px;
+            margin-top: 18px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-align: center;
+            font-size: 1.05em;
+        }
+        #intranetExtranet .intExt-feedback-styling.dogru {
+            background-color: #d1f2eb;
+            color: #0e6251;
+            border: 1px solid #a3e4d7;
+        }
+        #intranetExtranet .intExt-feedback-styling.yanlis { 
+            background-color: #fdedec;
+            color: #943126;
+            border: 1px solid #fadbd8;
+        }
+        
+        #intranetExtranet #intExt_yanlis-cevaplar-listesi li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fdfefe; 
+            border-left: 4px solid #c0392b; 
+            border-radius: 4px;
+        }
+
+        /* VPN & DNS Bölümü Stilleri */
+        #vpnDns .sub-nav {
+            background: #34495e; /* Daha koyu bir arka plan, ana nav'dan farklı */
+            padding: 0.7rem 0.5rem;
+            text-align: center;
+            margin-bottom: 22px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        #vpnDns .sub-nav button {
+            background: #5dade2; /* Daha canlı mavi */
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 500;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            transition: background 0.25s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+            outline: none;
+            letter-spacing: 0.01em;
+        }
+        #vpnDns .sub-nav button:hover {
+            background: #2980b9;
+            color: #fff;
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 4px 12px rgba(41,128,185,0.13);
+        }
+        #vpnDns .sub-nav button.active {
+            background: #154360;
+            color: #f9e79f;
+            font-weight: bold;
+            border: 2px solid #f9e79f;
+            box-shadow: 0 2px 10px rgba(41,128,185,0.18);
+            transform: scale(1.07);
+        }
+
+        .vpnDns-subsection {
+            display: none; /* Başlangıçta tüm alt bölümler gizli */
+            padding: 15px;
+            /* border: 1px solid #e2e8f0; */ /* Ana section zaten borderlı */
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background-color: #fff; 
+        }
+        .vpnDns-subsection.active {
+            display: block;
+        }
+        #vpnDns h3 {
+            color: #2c5282; /* Koyu mavi, ana başlıklarla uyumlu */
+            border-bottom: 1px solid #cbd5e0;
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+        #vpnDns h4 {
+            color: #2d3748; /* Daha koyu gri */
+            margin-top: 15px;
+        }
+
+        /* VPN/DNS Sözlük Stilleri */
+        #vpnDns_glossarySearch {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #vpnDns .vpnDns-glossary-item {
+            background-color: #e6f0fA; /* Açık mavi tonu */
+            padding: 10px;
+            margin-bottom: 10px;
+            border-left: 5px solid #2c5282; /* Koyu mavi */
+            border-radius: 4px;
+        }
+        #vpnDns .vpnDns-glossary-item strong {
+            color: #1a365d; /* Daha da koyu mavi */
+        }
+
+        /* VPN/DNS Bileşen Tanıma Oyunu Stilleri */
+        #vpnDns .vpnDns-component-game-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+            margin-bottom: 15px;
+        }
+        #vpnDns .vpnDns-drag-area, #vpnDns .vpnDns-drop-area {
+            border: 2px dashed #a0aec0; /* Orta gri */
+            padding: 15px;
+            min-height: 100px;
+            border-radius: 5px;
+            flex: 1;
+            min-width: 200px; /* Minimum genişlik */
+        }
+        #vpnDns .vpnDns-drag-area h4, #vpnDns .vpnDns-drop-area h4 {
+            margin-top: 0;
+            text-align: center;
+            color: #4a5568;
+        }
+        #vpnDns .vpnDns-draggable {
+            background-color: #4299e1; /* Orta mavi */
+            color: white;
+            padding: 8px 12px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: grab;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .quiz-button {
+            background-color: #3498db; /* Açık mavi */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.05em;
+            margin-right: 12px;
+            margin-top: 15px;
+            transition: background-color 0.3s, box-shadow 0.2s, transform 0.2s;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            font-weight: 500;
+        }
+        .quiz-button:hover {
+            background-color: #2980b9; /* Biraz daha koyu mavi */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+        .quiz-button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .quiz-button.reset {
+            background-color: #e74c3c; /* Kırmızı */
+        }
+        .quiz-button.reset:hover {
+            background-color: #c0392b; /* Daha koyu kırmızı */
+        }
+
+        /* Porter'ın 5 Güç Modeli Alt Bölüm Stilleri */
+        #porter5guc .sub-nav {
+            background: #2c3e50; /* Koyu tema için ana nav ile uyumlu */
+            padding: 0.7rem 0.5rem;
+            text-align: center;
+            margin-bottom: 22px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        #porter5guc .sub-nav button {
+            background: #3498db; /* Ana tema mavi */
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 500;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            transition: background 0.25s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+            outline: none;
+            letter-spacing: 0.01em;
+        }
+        #porter5guc .sub-nav button:hover {
+            background: #2980b9; /* Hover için daha koyu mavi */
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 4px 12px rgba(41,128,185,0.13);
+        }
+        #porter5guc .sub-nav button.active {
+            background: #1f618d; /* Aktif için daha da koyu mavi */
+            color: #f1c40f; /* Aktif için sarımsı renk */
+            font-weight: bold;
+            border: 2px solid #f1c40f;
+            box-shadow: 0 2px 10px rgba(41,128,185,0.18);
+            transform: scale(1.07);
+        }
+        .porter5guc-subsection {
+            display: none; /* Başlangıçta tüm alt bölümler gizli */
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background-color: #fff; 
+        }
+        .porter5guc-subsection.active {
+            display: block !important; /* !important eklendi */
+        }
+        #porter5guc h3 {
+            color: #1a5276; /* Ana başlık rengiyle uyumlu */
+            border-bottom: 1px solid #aed6f1;
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+        #porter5guc h4 {
+            color: #212f3d; /* Daha koyu gri */
+            margin-top: 15px;
+        }
+
+        /* Porter 5 Güç Kavramlar Sözlüğü */
+        #porter5guc_glossary-search {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: var(--border-radius);
+        }
+        .porter5guc-glossary-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #eaf2f8; /* Açık mavi-gri */
+            border: 1px solid #d4e6f1;
+            border-left: 5px solid #2980b9; /* Mavi vurgu */
+            border-radius: var(--border-radius);
+        }
+        .porter5guc-glossary-item strong {
+            color: #1f618d; /* Koyu mavi */
+        }
+
+        
+
+        /* Porter 5 Güç Bileşen Tanıma Oyunu */
+        #porter5guc .game-container {
+            display: flex;
+            flex-direction: row;
+            gap: 32px;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        #porter5guc .porter5guc-game-flex {
+            display: flex;
+            flex-direction: row;
+            gap: 32px;
+            width: 100%;
+        }
+        #porter5guc .factors-list {
+            width: 260px;
+            min-width: 200px;
+            max-width: 300px;
+            padding: 10px 8px;
+            border: 1px dashed var(--secondary-color);
+            border-radius: var(--border-radius);
+            min-height: 480px;
+            background-color: #fdfefe;
+            box-sizing: border-box;
+        }
+        #porter5guc .factors-list h4 {
+            text-align: center;
+            font-size: 1.1em;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+        #porter5guc .factor-item {
+            background-color: #f9e79f;
+            color: #5d6d7e;
+            padding: 10px 8px;
+            margin-bottom: 8px;
+            border-radius: var(--border-radius);
+            cursor: grab;
+            text-align: center;
+            border: 1px solid #f7dc6f;
+            font-size: 1em;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            transition: box-shadow 0.2s, background 0.2s;
+        }
+        #porter5guc .factor-item:active {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+        }
+        #porter5guc .force-dropzone {
+            flex-grow: 1;
+            min-width: 220px;
+            min-height: 90px;
+            padding: 12px 8px 32px 8px;
+            border: 2px dashed #3498db;
+            border-radius: var(--border-radius);
+            background-color: #eaf2f8;
+            margin-bottom: 18px;
+            margin-right: 0;
+            margin-left: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        #porter5guc .force-dropzone h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.08rem;
+            text-align: center;
+            color: #2980b9;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+        }
+        #porter5guc .force-dropzone.drag-over {
+            background-color: #d4e6f1;
+            border-style: solid;
+            border-color: #1f618d;
+        }
+        #porter5guc .correct-match {
+            background-color: #2ecc71 !important;
+            color: white !important;
+            border-color: #27ae60 !important;
+        }
+        #porter5guc .incorrect-match {
+            background-color: #e74c3c !important;
+            color: white !important;
+            border-color: #c0392b !important;
+        }
+        #porter5guc .porter5guc-dropzones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            width: 100%;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        #porter5guc .game-feedback { margin-top: 15px; font-weight: bold; }
+        @media (max-width: 900px) {
+            #porter5guc .game-container, #porter5guc .porter5guc-game-flex {
+                flex-direction: column;
+                gap: 18px;
+            }
+            #porter5guc .factors-list {
+                width: 100%;
+                max-width: 100%;
+                min-width: 0;
+                min-height: 0;
+            }
+            #porter5guc .porter5guc-dropzones {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+        /* Porter 5 Güç Senaryo Bazlı Analiz */
+        #porter5guc .scenario {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: var(--border-radius);
+            background-color: #fdfefe;
+        }
+        #porter5guc .scenario-force-evaluation label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        #porter5guc .scenario-force-evaluation select, 
+        #porter5guc .scenario-force-evaluation div { /* Radyo butonlarını içeren div için */
+            margin-bottom: 10px;
+        }
+        #porter5guc .scenario-force-evaluation input[type="radio"] {
+            margin-right: 5px;
+        }
+        #porter5guc .scenario-force-evaluation label.radio-label {
+            margin-right: 15px;
+            font-weight: normal;
+        }
+        #porter5guc .scenario-result {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #3498db; /* Mavi */
+            border-radius: var(--border-radius);
+            background-color: #eaf2f8; /* Açık mavi */
+        }
+
+        /* Porter 5 Güç Kısa Test */
+        #porter5guc .quiz-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: var(--border-radius);
+            background-color: #fdfefe;
+        }
+        #porter5guc .quiz-question p { font-weight: bold; }
+        #porter5guc .quiz-options label {
+            display: block;
+            margin-bottom: 5px;
+            padding: 5px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+        }
+        #porter5guc .quiz-options label:hover {
+            background-color: #e5e7e9; /* Açık gri hover */
+        }
+        #porter5guc .quiz-options input[type="radio"] {
+            margin-right: 10px;
+        }
+        #porter5guc .quiz-feedback {
+            margin-top: 5px;
+            padding: 5px;
+            border-radius: var(--border-radius);
+        }
+        #porter5guc .quiz-feedback.correct {
+            color: #27ae60; /* Yeşil */
+            font-weight: bold;
+        }
+        #porter5guc .quiz-feedback.incorrect {
+            color: #c0392b; /* Kırmızı */
+            font-weight: bold;
+        }
+        #porter5guc .quiz-explanation {
+            font-size: 0.9em;
+            color: #566573; /* Koyu gri */
+            margin-top: 5px;
+        }
+        #porter5guc_quiz-score, #porter5guc_game-score-display {
+             margin-top: 15px; font-weight: bold; font-size: 1.1rem;
+        }
+
+        /* Porter 5 Güç İlerleme Takibi */
+        #porter5guc_progress-summary p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        #porter5guc_overall-progress {
+            font-weight: bold;
+            color: #2980b9; /* Mavi */
+        }
+
+        /* Test Stilleri */
+        .quiz-question {
+            background-color: #fdfefe;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #e5e7e9;
+        }
+        .quiz-options label {
+            display: block;
+            background-color: #e9ecef;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .quiz-options label:hover {
+            background-color: #d4dae0;
+        }
+        .quiz-options input[type="radio"] {
+            margin-right: 10px;
+        }
+        .quiz-navigation {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .quiz-navigation button {
+            margin: 0 10px;
+        }
+        .feedback {
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .quiz-explanation {
+            font-size: 0.9em;
+            color: #566573;
+            margin-top: 5px;
+        }
+        #quiz-score {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        /* Oyun ve Test Buton Stilleri */
+        .game-button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.05em;
+            margin-right: 12px;
+            margin-top: 15px;
+            transition: background-color 0.3s, box-shadow 0.2s, transform 0.2s;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            font-weight: 500;
+        }
+        .game-button:hover {
+            background-color: #2980b9;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+        .game-button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .game-button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .game-button.reset {
+            background-color: #e74c3c;
+        }
+        .game-button.reset:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bilişim Sistemleri, Organizasyon ve Strateji</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Ana Menü</a></li>
+            <li><a href="#home" class="nav-link">Modül Ana Sayfa</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Temel Kavramlar</a>
+                <ul class="submenu">
+                    <li><a href="#organizasyonTemelleri" class="nav-link">Organizasyon Temelleri</a></li>
+                    <li><a href="#bsEtkileri" class="nav-link">BS Etkileri</a></li>
+                    <li><a href="#ekonomikTeoriler" class="nav-link">Ekonomik Teoriler</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Stratejik Analizler</a>
+                <ul class="submenu">
+                    <li><a href="#porter5guc" class="nav-link">Porter'ın 5 Güç Modeli</a></li>
+                    <li><a href="#yikiciTeknolojiler" class="nav-link">Yıkıcı Teknolojiler</a></li>
+                    <li><a href="#organizasyonelYapilar" class="nav-link">Organizasyonel Yapılar</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Örgütsel Dinamikler</a>
+                <ul class="submenu">
+                    <li><a href="#davranissalEtkiler" class="nav-link">Davranışsal Etkiler</a></li>
+                    <li><a href="#postSektoryelOrg" class="nav-link">Post-Sektöryel Org.</a></li>
+                    <li><a href="#degisimDirenci" class="nav-link">Değişim Direnci</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Teknoloji & Ağlar</a>
+                <ul class="submenu">
+                    <li><a href="#intranetExtranet" class="nav-link">İntranet & Ekstranet</a></li>
+                    <li><a href="#vpnDns" class="nav-link">VPN & DNS</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Oyunlar & Testler</a>
+                <ul class="submenu">
+                    <li><a href="#quiz" class="nav-link">Test</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div id="home" class="section active">
+            <h2>Bilişim Sistemleri, Organizasyon ve Strateji Öğrenme Modülü</h2>
+            <p>Bu modül, bilişim sistemlerinin organizasyonlar ve stratejik karar alma süreçleri üzerindeki etkilerini kapsamlı bir şekilde ele almaktadır. Lütfen yukarıdaki menüden ilgili konuları seçerek öğrenmeye başlayın.</p>
+            <div class="info-box">
+                <h4>Bu Modülde Neler Öğreneceksiniz?</h4>
+                <ul>
+                    <li>Organizasyonların temel yapı taşları ve özellikleri.</li>
+                    <li>Yıkıcı teknolojilerin pazar dinamiklerine etkileri.</li>
+                    <li>Farklı organizasyonel yapılar ve bu yapıların BT ile ilişkisi.</li>
+                    <li>Bilgi sistemlerinin organizasyonlar üzerindeki ekonomik ve davranışsal etkileri.</li>
+                    <li>İşlem maliyetleri ve vekalet teorisi gibi temel ekonomik teorilerin BT bağlamında incelenmesi.</li>
+                    <li>Değişime karşı organizasyonel direnç ve başa çıkma yöntemleri.</li>
+                    <li>İnternetin organizasyonlar üzerindeki dönüştürücü rolü.</li>
+                    <li>Porter'ın Rekabetçi Güçler Modeli ve Değer Zinciri Analizi gibi stratejik yönetim araçları.</li>
+                    <li>Ağ tabanlı stratejiler ve sürdürülebilir rekabet avantajı.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="organizasyonTemelleri" class="section">
+            <h2>Organizasyon Temelleri</h2>
+            <h3>Organizasyon Nedir?</h3>
+            <p>Çevreden gerekli kaynakları alıp işleyerek çıktı hâline dönüştüren, kendi kuralları olan sosyal ve yasal bir yapıdır.</p>
+            <div class="info-box">
+                <p><strong>Bağlam:</strong> Kaynaklar tabii ki çevreden alınacak. Yeni bir şey üretmek esas olduğundan işleyecek ve çıktıya dönüştürecek. Açık sistem olarak çalıştığından sosyal bir yapı olacak ve devlet sınırları içerisinde olduğundan da yasal bir yapı olacak.</p>
+            </div>
+            <p>Teknik bakış açısıyla organizasyonlar; yeni teknolojiler kullanıldığında girdilerin nasıl çıktılar hâline geleceğine odaklanır.</p>
+
+            <h4>Davranışsal Yaklaşıma Göre Organizasyon</h4>
+            <p>Davranışsal yaklaşıma göre organizasyon; makine veya teknik düzenlemelerden ziyade <strong>haklar, ayrıcalıklar, yükümlülükler ve sorumluluklar</strong> içeren bir sistemin kurulmasına veya mevcut sistemin yeniden yapılandırılmasına odaklanır. <strong>Grup ilişkileri, değerler ve yapılar</strong> bu yaklaşımda önemlidir.</p>
+            <!-- Görsel: mis_davranis.png -->
+            <img src="görseller/mis_davranis.png" alt="Davranışsal Yaklaşım Şeması" style="display:block; margin:15px auto; max-width:80%;">
+
+            <h4>Organizasyonun Üç Temel Unsuru</h4>
+            <ol>
+                <li>Sermaye</li>
+                <li>Emek</li>
+                <li>Çevresel Kaynaklar (Doğal Kaynak)</li>
+            </ol>
+            <!-- Görsel: mis_organizasyon.png -->
+            <img src="görseller/mis_organizasyon.png" alt="Organizasyon Unsurları" style="display:block; margin:15px auto; max-width:35%; height:auto;">
+
+
+            <h3>Organizasyonların Özellikleri</h3>
+            <p>Aşağıdaki tüm özellikler organizasyonda kullanılan bilgi sistemlerini tür ve içerik olarak yakından etkiler.</p>
+            <ul>
+                <li>Hiyerarşik yapı / Otorite</li>
+                <li>İş birimleri ve iş gücünün sorumluluk ve verimlilik odaklı dağılımı.</li>
+                <li>Rutinler ve iş süreçleri</li>
+                <li>Organizasyon kültürü ve politikaları</li>
+                <li>Çevre</li>
+            </ul>
+
+            <h4>Rutinler (Standart Faaliyet Prosedürleri)</h4>
+            <p>Bütün organizasyonların üretim ve hizmet süreçlerini <strong>özgün</strong> olarak geliştirilmiş standart faaliyetlerle yürütmek ister.</p>
+            <p>Rutinler, bilinen durumlarla başa çıkabilmek için geliştirilen kesin kural, yöntem ve uygulamalardır.</p>
+
+            <h4>İş Süreçleri</h4>
+            <p>Rutinlerin toplamıdır.</p>
+            <p>Çalışanlar alışılagelmiş süreçleri bildikleri için oldukça verimli ve etkili olabilmektedir. Bu sayede işletme, etkinliğini artırarak maliyetleri azaltır ve gelirlerini yükseltir.</p>
+            <!-- Görsel: mis_issurec.png -->
+            <img src="görseller/mis_issurec.png" alt="İş Süreçleri" style="display:block; margin:15px auto; max-width:50%; max-height:35vh; height:auto;">
+            <div class="important-note">
+                <h4>Önemli Not</h4>
+                <p>Rutinler iş süreçlerini ve iş süreçleri de işletmeyi oluşturur.</p>
+            </div>
+
+            <h3>Organizasyon Kültürü</h3>
+            <p>Organizasyonun amaçlarını ve ürünlerini tanımlayan, organizasyonun hangi ürünleri kim için, nerede ve nasıl üretmesi gerektiği gibi bir dizi varsayımı kapsar.</p>
+            <p>İnsanlar doğası gereği değişimden ve yenilikten kaçınırlar. Bu, işletmelerde de geçerlidir. Bu yüzden organizasyon kültürü birleştirici bir güç olabileceği gibi değişimi -özellikle teknolojik- kısıtlayan bir engel de olabilir.</p>
+            <p>Bundan ötürü, radikal teknolojik değişimler büyük bir dirençle karşılaşır. Ancak kararlı bir biçimde dayatıldığında yavaş da olsa değişim gerçekleşir ve işletme kültürü zamanla buna uyum sağlar.</p>
+
+            <h3>Organizasyonel Politikalar</h3>
+            <h4>Organizasyonel Politika Nedir?</h4>
+            <p>Organizasyon içinde farklı (otorite, amaç, kişilik vb. açılardan) ancak başarı için birbirine bağımlı kişi veya grupların bir süreçtir. Bu süreçte, kişi veya gruplar karar alma mekanizmasında etkili olmak amacıyla sahip oldukları gücü kullanır ve birbirlerini etkilerler.</p>
+            <h4>Politik Direnç:</h4>
+            <p>Politik direnç, örgütsel değişimin önündeki ciddi bir engeldir. Özellikle organizasyon çapında büyük değişiklikler (örneğin, yeni bir bilgi sistemi kurulumu) söz konusu olduğunda büyük bir zorluk yaratır.</p>
+            <p><strong>Neden Direnç Oluşur?</strong> Büyük bilgi teknolojisi yatırımları gibi değişiklikler, genellikle organizasyonun stratejilerinde ve iş yapış şekillerinde önemli değişikliklere yol açar, bu da mevcut güç dengelerini ve alışkanlıkları tehdit edebilir.</p>
+            
+            <h3>Organizasyonel Çevre</h3>
+            <h4>Organizasyon ve Çevre İlişkisi</h4>
+            <p>Organizasyonlar, çevreleriyle (kaynaklar, mal ve hizmetler açısından) sürekli bir etkileşim ve ilişki içindedir. Organizasyon çevrelerini etkileyebildikleri gibi, çevrelerinden de etkilenirler.</p>
+            <h4>Çevreye Bağımlılık</h4>
+            <p>Organizasyonlar, var olabilmek için sosyal (insan gücü) ve fiziksel (finansal kaynaklar) çevreye bağımlıdır. Tüketiciler, rakipler ve yasal düzenlemeler gibi çevresel unsurlara uymak zorundadır.</p>
+            <h4>Çevresel Değişim Hızı</h4>
+            <p>Çevre, genellikle organizasyonlardan daha hızlı bir değişim gösterir. Yeni teknolojiler, ürünler ve yasal düzenlemeler çevresel değişimin temel etkenleridir.</p>
+            <h4>Adaptasyon Sorunu ve Başarısızlık</h4>
+            <p>Organizasyonların başarısız olmasının temel nedeni, hızla değişen çevreye uyum sağlayamamalarıdır. Birçok işletme büyük çaplı çevresel değişimlerle başa çıkmada zorlanır.</p>
+            <h4>Değişime Direnç</h4>
+            <p>Organizasyonların standart işleyiş prosedürleri genellikle durağan bir yapıya sahiptir. Çalışanların mevcut düzene karşı gösterdiği direnç, organizasyonun gerekli değişiklikleri yapmasını engeller.</p>
+            <p style="color:darkred; font-weight:bolder; text-align:center; align-items:center; font-size:0.9em; border: 1px solid darkred; padding: 5px; border-radius: 4px;">Bilgi sistemleri bir mercek gibi hareket ederek çevreyle etkileşimde önemli rol oynayabilir.</p>
+            <!-- Görsel: mis_mercek.jpeg -->
+            <img src="görseller/mis_mercek.jpeg" alt="Bilgi Sistemleri ve Çevre Etkileşimi" style="display:block; margin:15px auto; max-width:60%;">
+        </div>
+        <div id="yikiciTeknolojiler" class="section">
+            <h2>Yıkıcı Teknolojiler ve Pazar Dinamikleri</h2>
+            <p><strong>Yıkıcı Teknolojinin Tanımı:</strong> İşletmeleri, sektörleri ve mevcut pazar düzenini kökten değiştiren teknolojilerdir. (Örnekler: PC, İnternet, Kelime İşlemciler).</p>
+            <p><strong>Piyasaya İlk Giren Olmak Yeterli Değil:</strong> Bir yıkıcı teknolojiyi ilk geliştiren firma olmak, pazarda başarıyı garantilemez. Bu çok önemli bir nokta, genellikle tersi düşünülür.</p>
+            <p><strong>Hızlı Takipçilerin Avantajı:</strong> Genellikle piyasaya ilk girenlerden ziyade, teknolojiyi görüp hızla adapte eden, daha iyi uygulayan ve yeterli kaynağa sahip olan <strong>"hızlı takipçiler"</strong> pazarın kazananı olur.</p>
+            <p><strong>Kaynakların Kritik Rolü:</strong> Teknolojiyi geliştirmek kadar, onu ticarileştirmek, yaygınlaştırmak ve bundan fayda sağlamak için yeterli <strong>büyüklük ve kaynağa</strong> sahip olmak gerekir. Başarının anahtarı genellikle buradadır.</p>
+            <h4>Örneklerden Çıkarılacak Dersler:</h4>
+            <div class="info-box">
+                <ul>
+                    <li><strong>PC Pazarı (MITS vs. IBM/Microsoft):</strong> İlk PC'yi (Altair 8800) üreten MITS değil, pazara daha sonra giren ancak kaynakları ve stratejileri daha güçlü olan IBM ve Microsoft başarılı olmuştur. Bu, ilk olmanın değil, kaynakların ve doğru stratejinin önemini gösterir.</li>
+                    <li><strong>ATM (Citibank):</strong> Teknolojinin kopyalanabilir olması, ilk geliştirenin avantajını zamanla ortadan kaldırabilir. Citibank devrim yapsa da teknoloji başkalarından yaygınlaşmıştır.</li>
+                    <li><strong>Arama Motorları (Google):</strong> Google ilk arama motoru olmamasına rağmen, <strong>üstün bir algoritma (PageRank)</strong> gibi inovatif bir yaklaşımla pazara girip lider olmuş, diğerlerini silmiştir. Bu, takipçi olsanız bile inovasyonla lider olabileceğinizi gösterir.</li>
+                </ul>
+            </div>
+            <p><strong>Tüketiciye Fayda:</strong> Her durumda, yıkıcı teknolojilerin <strong>sonuçta tüketicilere fayda sağlayan yenilikler</strong> olduğu unutulmamalıdır.</p>
+        </div>
+        <div id="organizasyonelYapilar" class="section">
+            <h2>Organizasyonel Yapılar</h2>
+            <h4>Girişimci Yapılar</h4>
+            <p>Küçük, genç, esnek, hızlı adapte olur (Örn: Yeni kurulan şirketler).</p>
+            
+            <h4>Makine Bürokrasisi (Mekanik Bürokrasi)</h4>
+            <p>Merkeziyetçi, yavaş adapte olur, standart işler (Örn: Orta ölçekli üretim firmaları).</p>
+            
+            <h4>Bölümlere Ayrılmış Bürokrasi</h4>
+            <p>Çoklu iş birimleri (bölümler) tek merkezden yönetilir, her bölüm kendi içinde bürokratik olabilir (Örn: Büyük holdingler, General Motors, Fortune 500 şirketleri gibi).</p>
+            
+            <h4>Profesyonel Bürokrasi</h4>
+            <p>Bilgi ve uzmanlık temelli, uzmanların gücü yüksek, merkezi otorite zayıf (Örn: Okullar, hastaneler, hukuk firmaları).</p>
+            
+            <h4>Adhokrasi (Görev Gücü):</h4>
+            <p>Göreve özel ekipler, esnek, proje bazlı, hızlı değişen çevreye uygun (Örn: Danışmanlık firmaları, Ar-Ge ekipleri).</p>
+            
+            <div class="info-box">
+                <p><strong>Yapı Seçimi ve Çevre:</strong> Her yapının farklı çevre koşullarına (hızlı değişen, durağan vb.) uygun olduğunu anlamak önemlidir. Adhokrasi hızlı değişime, makine bürokrasisi durağanlığa daha yatkındır.</p>
+            </div>
+
+            <h3>Organizasyonel Yapıların Diğer Özellikleri</h3>
+            <ul>
+                <li><strong>Amaç Farklılığı:</strong> Tüm organizasyonların hedefi vardır ama bu hedefler (kâr, kamu yararı vb.) ve ulaşma yöntemleri farklılık gösterir.</li>
+                <li><strong>Liderlik Çeşitliliği:</strong> Yönetim ve liderlik stilleri (demokratik, otokratik/oligarşik) organizasyondan organizasyona değişir.</li>
+                <li><strong>Teknoloji ve Süreç Farklılığı:</strong> Kullandıkları teknoloji ve iş yapış biçimleri de organizasyonları birbirinden ayırır.</li>
+            </ul>
+        </div>
+        <div id="bsEtkileri" class="section">
+            <h2>Bilgi Sistemlerinin Organizasyonel Etkileri</h2>
+            <p>Bilgi Sistemleri (BS), organizasyonların işleyiş biçimlerini, yapılarını ve ekonomik dinamiklerini derinden etkiler.</p>
+            
+            <h3>Karar Vermeyi Kolaylaştırma</h3>
+            <div class="info-box">
+                <p>BT, özellikle büyük firmalarda, rutin işlemlerin <strong>anlık takibini</strong> sağlayarak <strong>karar vermeyi hızlandırır ve kolaylaştırır.</strong> Bu, BT'nin temel faydalarından biridir.</p>
+            </div>
+            
+            <h4>Ekonomik Etkiler</h4>
+            <ul>
+                <li><strong>Maliyet Değişimi:</strong> BT, <strong>sermaye ve bilgi maliyetlerini</strong> değiştirerek organizasyonun ekonomik yapısını etkiler.</li>
+                <li><strong>Üretim Faktörü Olarak BT:</strong> Bilgi Sistemleri/Teknolojileri, geleneksel emek ve sermayenin yerine geçen (ikame edilen) yeni bir üretim faktörüdür.</li>
+                <li><strong>İş Gücü Üzerindeki Etki ve Küçülme:</strong> Düşen BT maliyetleri, özellikle rutin işleri yapan orta kademe yöneticiler ve ofis çalışanlarının (sekreter vb.) iş gücü yerine BT ile ikame edilmesine yol açar. Bu durum, organizasyonların daha "yatay" hâle gelmesine ve küçülmesine neden olur.</li>
+            </ul>
+        </div>
+        <div id="ekonomikTeoriler" class="section">
+            <h2>Ekonomik Teoriler ve BT</h2>
+            <h3>İşlem Maliyetleri Teorisi</h3>
+            <p>İşletmeler, <strong>pazara katılım maliyeti</strong> olarak da bilinen <strong>işlem maliyetlerini</strong> en aza indirmeye çalışır.</p>
+            <p><strong>İşlem Maliyeti Nedir?</strong> Pazarda faaliyet göstermenin getirdiği maliyetlerdir. Bunlar şunları içerir:</p>
+            <div class="info-box">
+                <ul>
+                    <li>Tedarikçilerle iletişim kurma maliyeti</li>
+                    <li>Pazar araştırma maliyeti</li>
+                    <li>Sözleşme hazırlama ve müzakere maliyeti</li>
+                    <li>Performans izleme maliyeti</li>
+                    <li>Yasal prosedür maliyetleri</li>
+                    <li>Fırsat maliyetleri</li>
+                </ul>
+            </div>
+            <p><strong>Yüksek İşlem Maliyetlerinin Sonucu (Geleneksel Yaklaşım):</strong> Pazara katılım maliyetleri yüksek olduğunda, işletmeler ihtiyaç duydukları mal veya hizmetleri dışarıdan almak yerine <strong>kendi bünyelerinde üretmeyi (büyümeyi)</strong> tercih ederler. Çünkü dışarıdan almak daha pahalıya gelir.</p>
+            
+            <h4>Bilgi Teknolojilerinin (BT) Etkisi:</h4>
+            <div class="important-note">
+                <p>BT (özellikle İnternet), firmaların birbirleriyle iletişim kurmasını ve iş yapmasını kolaylaştırarak <strong>işlem maliyetlerini önemli ölçüde düşürür.</strong> Bu düşüş, işletmelerin artık her şeyi kendi bünyesinde yapma zorunluluğunu ortadan kaldırır.</p>
+            </div>
+
+            <h4>Düşük İşlem Maliyetlerinin Sonuçları:</h4>
+            <ul>
+                <li>İşletmeler, düşük maliyetler sayesinde <strong>dış tedarikçilere ve yüklenicilere daha fazla güvenir.</strong></li>
+                <li><strong>Dış kaynak kullanımı (outsourcing)</strong> yaygınlaşır.</li>
+                <li>İşletmeler, daha az çalışanla (çekirdek kadroyla) <strong>gelirlerini artırmaya devam edebilir.</strong></li>
+                <li><strong>Sektörel Ağların Rolü:</strong> Özellikle sektörel ağlar (örneğin, tedarik zinciri platformları), pazara giriş ve işlem maliyetlerini azaltmada firmalara yardımcı olur.</li>
+            </ul>
+
+            <h3>Vekalet (Acente) Teorisi</h3>
+            <p>Vekalet teorisine göre, organizasyondaki <strong>yöneticiler</strong>, firmanın asıl sahipleri olan <strong>hissedarların bir vekili (acentesi)</strong> olarak kabul edilir.</p>
+            <p><strong>Vekil Kimdir?</strong> Başkası (hissedar) adına, onun verdiği yetkiyle hareket eden kişidir (yönetici). Yönetici, kendi çıkarları yerine hissedarların çıkarlarını gözetmekle yükümlüdür (teorik olarak).</p>
+            <p><strong>Vekalet Maliyetleri (Agency Costs):</strong> İşletmeler büyüdükçe, yöneticilerin gerçekten hissedarlar adına mı yoksa kendi çıkarları için mi çalıştığını <strong>izleme ve denetleme maliyetleri</strong> artar. Bu maliyetlere "vekalet maliyeti" denir.</p>
+            
+            <h4>Düşük Vekalet Maliyetlerinin Sonuçları (BT Etkisiyle):</h4>
+            <div class="info-box">
+                <p>BT, yöneticilerin ve çalışanların performansını <strong>daha kolay ve düşük maliyetle izlemeyi ve denetlemeyi</strong> mümkün kılar. Bu sayede, işletmeler <strong>vekalet maliyetlerini düşürerek</strong> büyüyebilirler. Sonuç olarak, daha az sayıda yönetici daha çok kişiyi etkin bir şekilde yönetebilir, bu da <strong>genel maliyetleri azaltır ve verimliliği (dolayısıyla geliri) artırır.</strong></p>
+            </div>
+        </div>
+        <div id="davranissalEtkiler" class="section">
+            <h2>Organizasyonel ve Davranışsal Etkiler</h2>
+            <h3>Hiyerarşinin Yataylaşması (Flattening)</h3>
+            <div class="important-note">
+                <p>Bu, BT'nin en temel etkilerinden biridir. BT, bilginin alt kademelere kolayca dağıtılmasını ve paylaşılmasını sağlar. Bu, yöneticilerin daha fazla kişiyi denetlemesine (kontrol alanının genişlemesi) olanak tanır. <strong>Sonuç:</strong> Daha az yönetim kademesine ihtiyaç duyulur, organizasyon "düzleşir".</p>
+            </div>
+            <!-- Görsel: mis_hiyerarsi.png -->
+            <img src="görseller/mis_hiyerarsi.png" alt="Hiyerarşinin Yataylaşması" style="display:block; margin:15px auto; max-width:85%;">
+
+            <h4>Karar Vermenin Desantralizasyonu (Aşağıya Yayılması)</h4>
+            <ul>
+                <li><strong>Neden?</strong> Alt düzey çalışanlar, BT sayesinde ihtiyaç duydukları bilgiye aracısız ve zamanında ulaşabilirler.</li>
+                <li><strong>Etkisi:</strong> Karar verme yetkisi ve sorumluluğu daha alt seviyelere kayar, çalışanlar daha fazla inisiyatif alır. Bu, güçlenmeyi (empowerment) sağlar.</li>
+            </ul>
+
+            <h4>Yönetim Rolündeki Değişim</h4>
+            <ul>
+                <li><strong>Daha Hızlı Kararlar:</strong> Yöneticiler, BT ile daha doğru ve zamanlı bilgiye ulaştıkları için daha hızlı karar alırlar.</li>
+                <li><strong>Daha Az Yönetici İhtiyacı:</strong> Karar almanın hızlanması, kontrol alanının genişlemesi ve bazı yönetsel görevlerin otomasyonu nedeniyle daha az sayıda yöneticiye ihtiyaç duyulur.</li>
+                <li><strong>Maliyet Azalışı:</strong> Yönetici sayısının azalması, yönetim maliyetlerini düşürür.</li>
+            </ul>
+            
+            <div class="info-box">
+                 <p><strong>Otoritenin Kaynağındaki Değişim:</strong> Geleneksel hiyerarşik pozisyondan ziyade, <strong>bilgi ve yeteneğe dayalı otorite</strong> ön plana çıkar.</p>
+            </div>
+        </div>
+        <div id="postSektoryelOrg" class="section">
+            <h2>Sektör Ötesi (Post-Sektöryel) Organizasyonlar</h2>
+            <p>(Bilgi Toplumunun Yapıları)</p>
+            <!-- İçerik buraya eklenecek -->
+            <div class="important-note">
+                <h4>Yetkinin Temeli: Bilgi ve Yetenek</h4>
+                <p style="text-align:justify;">Bu yapıların en ayırt edici özelliği, yetkinin kişinin hiyerarşideki yerinden çok, sahip olduğu <u><strong>bilgi ve uzmanlığa</strong></u> dayanmasıdır. (Örn: Projedeki uzman bir danışmanın hiyerarşik olarak üstte olan bir yöneticiden daha etkili olması).</p>
+            </div>
+            <div class="info-box">
+                <h4>BT'nin Teşvik Ettiği Yapı: Görev Gücü (Task Force) / Proje Ekipleri</h4>
+                <p>BT, farklı uzmanların belirli bir görev için, coğrafi konumdan bağımsız (yüz yüze veya sanal ortamda) <strong>kısa süreliğine bir araya gelerek</strong> çalışmasını kolaylaştırır ve teşvik eder.</p>
+            </div>
+            
+            <h4 style="color:#0d8e45; font-weight:bold; text-align:center;">Temel Özellikleri</h4>    
+            <ul>
+                <li>Genellikle <strong>belirli bir merkez ofisleri yoktur</strong>.</li>
+                <li>Katı <strong>hiyerarşik bölünmeler ve departmanlar yoktur</strong>.</li>
+                <li>Çalışanların işlerini yapmak için <strong>fiziksel olarak aynı yerde olmaları gerekmeyebilir</strong> (Sanal ekipler, uzaktan çalışma). (Örn: Küresel bir danışmanlık firma).</li>
+            </ul>
+        </div>
+        <div id="degisimDirenci" class="section">
+            <h2>Organizasyonların Değişime Karşı Direnci</h2>
+            <!-- İçerik buraya eklenecek -->
+            <p>Bilgi sistemleri organizasyonlarda köklü değişikliklere yol açabilir, bu da genellikle direnişle karşılaşır. Değişime direnç, organizasyonel başarısızlığın en büyük nedenlerinden biridir.</p>
+            
+            <h4>Nedenleri (McKinsey Çalışması Işığında):</h4>
+            <div class="info-box">
+                <ul>
+                    <li><strong>Bireysel Direnç:</strong> Kişisel alışkanlıklar, iş güvenliği korkusu, belirsizlikten kaçınma.</li>
+                    <li><strong>Organizasyonel Direnç:</strong> Mevcut güç yapılarının tehdit edilmesi, yapısal atalet, kaynakların sınırlı olması, grup normları, sabit yatırım tehdidi, geçmiş sözleşmeler.</li>
+                </ul>
+            </div>
+            
+            <h4>Direnç Türleri:</h4>
+            <ul>
+                <li><strong>BT'nin Kendisine Direnç:</strong> Kullanıcı dostu olmaması, karmaşıklığı.</li>
+                <li><strong>BT'nin Sonuçlarına (Etkilerine) Direnç:</strong> En yaygın olanıdır. İş tanımlarının değişmesi, yetki ve güç kayıpları gibi.</li>
+            </ul>
+
+            <h4>Yönetim Stratejileri:</h4>
+            <p>Direnci yönetmek için "Rol Tabanlı Yaklaşım" (örneğin, kullanıcıları değişim sürecine dahil etmek, eğitim vermek) ve "Siyasi Yaklaşım" (örneğin, kilit paydaşların desteğini almak) gibi stratejiler kullanılabilir.</p>
+        </div>
+        <div id="internetVeOrganizasyonlar" class="section">
+            <h2>İnternet ve Organizasyonlar</h2>
+            <!-- İçerik buraya eklenecek -->
+            <p>İnternet, organizasyonların iletişim kurma, bilgi paylaşma ve iş yapma biçimlerini kökten değiştirmiştir.</p>
+            <ul>
+                <li><strong>Erişilebilirlik:</strong> Küresel bilgiye ve pazarlara erişimi kolaylaştırır.</li>
+                <li><strong>İletişim Maliyetlerini Düşürme:</strong> E-posta, anlık mesajlaşma gibi araçlarla iletişimi ucuzlatır.</li>
+                <li><strong>İş Süreçlerinde Dönüşüm:</strong> Tedarik zinciri yönetimi, müşteri ilişkileri yönetimi (CRM), e-ticaret gibi alanlarda devrim yaratmıştır.</li>
+                <li><strong>Yeni İş Modelleri:</strong> Amazon, Google, Netflix gibi internet tabanlı şirketlerin doğuşuna olanak tanımıştır.</li>
+            </ul>
+
+            <h4>İş Süreçlerinin Yeniden Tasarımı (BPR - Business Process Reengineering)</h4>
+            <div class="important-note">
+                <p>BT, özellikle internet ve ilgili teknolojiler, <strong>radikal iş süreci yeniden tasarımını (BPR)</strong> mümkün kılar. BPR, maliyetleri düşürmek, kaliteyi artırmak ve hizmeti iyileştirmek için iş akışlarının ve süreçlerinin temelden yeniden düşünülmesini ve tasarlanmasını içerir.</p>
+            </div>
+        </div>
+        <div id="stratejikAnaliz" class="section">
+            <h2>Stratejik Çerçeveler ve Analiz</h2>
+            <!-- İçerik buraya eklenecek -->
+            <p>İşletmelerin rekabet avantajı elde etmelerine ve sürdürmelerine yardımcı olan çeşitli stratejik analiz araçları ve çerçeveleri vardır.</p>
+
+            <h3>Porter'ın Rekabetçi Güçler Modeli</h3>
+            <p>Bir sektördeki rekabetin yoğunluğunu ve karlılığını belirleyen beş temel gücü analiz eder:</p>
+            <div class="info-box">
+                <ol>
+                    <li><strong>Sektör İçi Rekabet:</strong> Mevcut rakiplerin sayısı ve gücü.</li>
+                    <li><strong>Yeni Girenlerin Tehdidi:</strong> Sektöre yeni oyuncuların girme kolaylığı veya zorluğu.</li>
+                    <li><strong>İkame Ürün veya Hizmetlerin Tehdidi:</strong> Müşterilerin farklı bir ürün veya hizmete geçme olasılığı.</li>
+                    <li><strong>Tedarikçilerin Pazarlık Gücü:</strong> Tedarikçilerin fiyatları veya şartları belirleme yeteneği.</li>
+                    <li><strong>Alıcıların (Müşterilerin) Pazarlık Gücü:</strong> Müşterilerin fiyatları veya şartları etkileme yeteneği.</li>
+                </ol>
+            </div>
+            <p><strong>BT'nin Rolü:</strong> BT, bu güçlerin her birini etkileyebilir. Örneğin, internet müşteri pazarlık gücünü artırabilirken (fiyat karşılaştırma siteleri), tedarik zinciri sistemleri tedarikçi ilişkilerini güçlendirebilir.</p>
+            <!-- Görsel: mis_porter_5_forces.png -->
+            <img src="görseller/porter.png" alt="Porter Modeli" style="display:block; margin:15px auto; max-width:90%;">
+
+            <h3>Porter'ın Değer Zinciri Modeli</h3>
+            <p>Bir şirketin değer yaratan temel ve destekleyici faaliyetlerini analiz eder. Amaç, maliyetleri düşürmek ve farklılaşma sağlamak için fırsatları belirlemektir.</p>
+            <ul>
+                <li><strong>Temel Faaliyetler:</strong> Gelen lojistik, operasyonlar, giden lojistik, pazarlama ve satış, hizmet.</li>
+                <li><strong>Destekleyici Faaliyetler:</strong> Firma altyapısı, insan kaynakları yönetimi, teknoloji geliştirme, tedarik.</li>
+            </ul>
+            <p><strong>BT'nin Rolü:</strong> BT, değer zincirinin her aşamasında verimliliği artırabilir, koordinasyonu iyileştirebilir ve yeni hizmetler sunabilir.</p>
+            <p><a href="porter_deger_zinciri.html" class="button-link">Porter'ın Değer Zinciri Detayları İçin Tıklayınız</a></p>
+            <!-- Görsel: mis_porter_value_chain.png -->
+            <img src="görseller/porter.png" alt="Porter Modeli" style="display:block; margin:15px auto; max-width:90%;">
+
+
+
+            <div class="important-note">
+                <p>Bu stratejik araçlar, işletmelerin BT'yi stratejik bir varlık olarak nasıl kullanabileceklerini anlamalarına ve rekabetçi stratejiler geliştirmelerine yardımcı olur.</p>
+            </div>
+        </div>
+        <div id="intranetExtranet" class="section">
+            <h2>İnternet, İntranet ve Ekstranet Kavramları</h2>
+            
+            <div id="intExt_tanimlar">
+                <h3>Temel Kavramlar ve Kullanım Alanları</h3>
+                <div class="concept">
+                    <article>
+                        <h4>İnternet</h4>
+                        <p><strong>Tanım:</strong> Dünya çapında milyonlarca bilgisayar ağını birbirine bağlayan, küresel ve halka açık bir ağ sistemidir.</p>
+                        <p><strong>Amaç:</strong> Bilgi paylaşımı, iletişim, eğlence, ticaret ve çok çeşitli hizmetlere genel erişim sağlamak.</p>
+                        <p><strong>Erişilebilirlik:</strong> Herkese açıktır. İnternet bağlantısı olan herkes erişebilir.</p>
+                        <p><strong>Güvenlik:</strong> Genellikle düşüktür ve ek güvenlik önlemleri (SSL/TLS, VPN, güvenlik duvarları) gerektirir. Halka açık yapısı nedeniyle siber tehditlere açıktır.</p>
+                        <h5>Tipik Kullanım Durumları:</h5>
+                        <ul>
+                            <li>Müşteriler bir şirketin web sitesine erişiyor.</li>
+                            <li>Genel e-posta iletişimi.</li>
+                            <li>Araştırma ve bilgi toplama.</li>
+                            <li>Sosyal medya kullanımı.</li>
+                            <li>Online alışveriş.</li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h4>İntranet</h4>
+                        <p><strong>Tanım:</strong> Bir kuruluşun kendi içindeki özel bilgisayar ağıdır. İnternet teknolojilerini (web sunucuları, tarayıcılar) kullanır ancak dışarıya kapalıdır.</p>
+                        <p><strong>Amaç:</strong> Kuruluş içi bilgi paylaşımını, iletişimi ve iş süreçlerini kolaylaştırmak. Çalışanların kaynaklara ve bilgilere güvenli bir şekilde erişmesini sağlamak.</p>
+                        <p><strong>Erişilebilirlik:</strong> Yalnızca kuruluş çalışanları veya yetkili kullanıcılar tarafından erişilebilir. Genellikle kuruluşun fiziksel ağı içinden veya VPN gibi güvenli bağlantılarla erişilir.</p>
+                        <p><strong>Güvenlik:</strong> İnternet'e göre daha yüksektir çünkü erişim kontrollüdür. Güvenlik duvarları ve kullanıcı kimlik doğrulaması ile korunur.</p>
+                        <h5>Tipik Kullanım Durumları:</h5>
+                        <ul>
+                            <li>Çalışanlar şirket politikalarına ve prosedürlerine erişiyor.</li>
+                            <li>Departmanlar arası belge paylaşımı.</li>
+                            <li>İnsan kaynakları portalı (izin talepleri, bordro bilgileri).</li>
+                            <li>Şirket içi duyurular ve haberler.</li>
+                            <li>Proje yönetim araçları (şirket içi).</li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3>Ekstranet</h3>
+                        <p><strong>Tanım:</strong> Bir kuruluşun İntranet'inin kontrollü bir şekilde dış paydaşlara (tedarikçiler, müşteriler, iş ortakları) açılan kısmıdır. İnternet teknolojilerini kullanır.</p>
+                        <p><strong>Amaç:</strong> Kuruluşun belirli dış paydaşlarla güvenli bir şekilde bilgi paylaşmasını ve işbirliği yapmasını sağlamak.</p>
+                        <p><strong>Erişilebilirlik:</strong> Yalnızca yetkilendirilmiş dış kullanıcılar tarafından erişilebilir. Genellikle kullanıcı adı ve şifre ile güvenli bir giriş gerektirir.</p>
+                        <p><strong>Güvenlik:</strong> İntranet'ten daha az, İnternet'ten daha fazla güvenlidir. Erişim sıkı bir şekilde kontrol edilir ve veriler genellikle şifrelenir.</p>
+                        <h5>Tipik Kullanım Durumları:</h5>
+                        <ul>
+                            <li>Tedarikçiler envanter verilerine erişiyor veya siparişleri güncelliyor.</li>
+                            <li>Müşteriler sipariş durumlarını takip ediyor veya özel destek alıyor.</li>
+                            <li>İş ortakları ortak projeler üzerinde işbirliği yapıyor.</li>
+                            <li>Distribütörler ürün bilgilerine ve pazarlama materyallerine erişiyor.</li>
+                            <li>Franchise sahipleri operasyonel kılavuzlara erişiyor.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+
+            <div id="intExt_bilgi-kartlari" style="margin-top: 20px;">
+                <h3>Bilgi Kartları</h3>
+                <div class="info-box"> 
+                    <h4>İnternet</h4>
+                    <p><strong>Temel Özellikler:</strong> Küresel, halka açık, merkezi olmayan, geniş bilgi kaynağı, çeşitli protokoller (HTTP, FTP, SMTP).</p>
+                    <p><strong>Faydaları:</strong> Geniş kitlelere erişim, sınırsız bilgi kaynağı, düşük maliyetli iletişim, e-ticaret imkanı, küresel işbirliği.</p>
+                    <p><strong>Sınırlamaları:</strong> Güvenlik açıkları, bilgi kirliliği, yavaş bağlantı sorunları olabilir, içerik denetimi zorluğu, bağımlılık riski.</p>
+                </div>
+                <div class="info-box">
+                    <h4>İntranet</h4>
+                    <p><strong>Temel Özellikler:</strong> Özel, güvenli, kuruluş içi, merkezi bilgi yönetimi, iş akışlarını destekler.</p>
+                    <p><strong>Faydaları:</strong> Gelişmiş iç iletişim ve işbirliği, artan verimlilik, bilgiye hızlı erişim, maliyet tasarrufu (kağıt, dağıtım), kurumsal kültürün güçlenmesi.</p>
+                    <p><strong>Sınırlamaları:</strong> Kurulum ve bakım maliyeti, çalışanların benimsemesi zaman alabilir, dış paydaşlarla iletişim için uygun değil, güncel tutulmazsa etkinliği azalır.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Ekstranet</h4>
+                    <p><strong>Temel Özellikler:</strong> Yarı özel, kontrollü dış erişim, iş ortaklarıyla entegrasyon, güvenli veri alışverişi.</p>
+                    <p><strong>Faydaları:</strong> İş ortaklarıyla daha iyi ilişkiler, tedarik zinciri optimizasyonu, müşteri sadakatinin artması, daha hızlı karar alma, operasyonel verimlilik.</p>
+                    <p><strong>Sınırlamaları:</strong> Güvenlik riskleri (İntranet'e göre daha fazla), kurulum ve yönetim karmaşıklığı, farklı sistemlerin entegrasyon zorlukları, ortaklar arasında teknolojik uyum gerekliliği.</p>
+                </div>
+            </div>
+
+            <div id="intExt_gorsellestirme" style="margin-top: 20px;">
+                <h3>Kavramların İlişkisi</h3>
+                <div id="intExt_gorsellestirme-diyagrami">
+                    <div class="intExt-circle intExt-internet-circle">
+                        <span>İNTERNET<br>(Herkese Açık Ağ)</span>
+                        <div class="intExt-circle intExt-extranet-circle">
+                            <span>EKSTRANET<br>(Kontrollü Dış Erişim)</span>
+                             <div class="intExt-circle intExt-intranet-circle">
+                                <span>İNTRANET<br>(Özel Şirket Ağı)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align:center; margin-top:10px;">Bu diyagram, İntranet'in bir kuruluşun en özel ağı olduğunu, Ekstranet'in bu özel ağın bir kısmını kontrollü olarak dış paydaşlara açtığını ve her ikisinin de daha geniş olan İnternet teknolojilerini kullandığını ve İnternet üzerinde çalışabildiğini göstermektedir.</p>
+            </div>
+
+            <div id="intExt_alistirma" style="margin-top: 20px;">
+                <h3>Etkileşimli Alıştırma: Senaryo Tanıma</h3>
+                <div id="intExt_alistirma-icerik">
+                    <p id="intExt_alistirma-soru"></p>
+                    <div id="intExt_secenekler" class="intExt-options">
+                        <!-- Options will be dynamically inserted here -->
+                    </div>
+                    <div id="intExt_geri-bildirim" class="intExt-feedback-styling"></div>
+                    <button id="intExt_sonraki-soru-btn" class="quiz-button" style="display:none;">Sonraki Soru</button>
+                    <button id="intExt_sonuclari-goster-btn" class="quiz-button" style="display:none;">Sonuçları Gör</button>
+                </div>
+                <div id="intExt_alistirma-puan" style="margin-top: 15px; font-weight: bold;"></div>
+            </div>
+
+            <div id="intExt_sonuc-ozeti" style="display:none; margin-top: 20px;">
+                <h3>Alıştırma Sonucu</h3>
+                <p id="intExt_puan-gosterimi"></p>
+                <h4>Yanlış Cevaplanan Senaryolar ve Doğruları:</h4>
+                <ul id="intExt_yanlis-cevaplar-listesi">
+                    <!-- Incorrect answers will be listed here -->
+                </ul>
+                <p id="intExt_dogru-sayisi-mesaji"></p>
+            </div>
+
+            <div id="intExt_ornek-sorular" style="margin-top: 20px;">
+                <h3>Örnek Sınav Soruları</h3>
+                <div class="info-box"> 
+                    <p><strong>Soru 1:</strong> Bir şirket, çalışanlarının şirket politikalarına, eğitim materyallerine ve iç duyurulara erişebileceği güvenli bir platform oluşturmak istemektedir. Bu amaç için en uygun teknoloji aşağıdakilerden hangisidir?</p>
+                    <ul>
+                        <li>a) İnternet</li>
+                        <li>b) İntranet</li>
+                        <li>c) Ekstranet</li>
+                        <li>d) VPN</li>
+                    </ul>
+                    <p><em>Doğru Cevap: b) İntranet</em></p>
+                </div>
+                <div class="info-box">
+                    <p><strong>Soru 2:</strong> Bir perakende şirketi, tedarikçilerinin stok seviyelerini anlık olarak takip edebilmeleri ve yeni siparişleri elektronik ortamda alabilmeleri için bir sistem kurmayı planlamaktadır. Bu sistem hangi ağ türüne örnektir?</p>
+                    <ul>
+                        <li>a) Yerel Alan Ağı (LAN)</li>
+                        <li>b) İntranet</li>
+                        <li>c) Ekstranet</li>
+                        <li>d) Genel Alan Ağı (WAN)</li>
+                    </ul>
+                    <p><em>Doğru Cevap: c) Ekstranet</em></p>
+                </div>
+                 <div class="info-box">
+                    <p><strong>Soru 3:</strong> Aşağıdakilerden hangisi İnternet'in temel özelliklerinden biri <u>değildir</u>?</p>
+                    <ul>
+                        <li>a) Küresel erişim</li>
+                        <li>b) Yüksek düzeyde merkezi kontrol</li>
+                        <li>c) Çeşitli bilgi kaynaklarına erişim</li>
+                        <li>d) Halka açık olması</li>
+                    </ul>
+                    <p><em>Doğru Cevap: b) Yüksek düzeyde merkezi kontrol</em></p>
+                </div>
+                 <div class="info-box">
+                    <p><strong>Soru 4:</strong> "Bir kuruluşun, müşterilerine özel indirimler ve kişiselleştirilmiş ürün önerileri sunmak için kullandığı, müşterilerin kullanıcı adı ve şifre ile giriş yaptığı bir portal" hangi kavrama daha yakındır?</p>
+                    <ul>
+                        <li>a) Genel Web Sitesi (İnternet)</li>
+                        <li>b) Şirket İçi Blog (İntranet)</li>
+                        <li>c) Müşteri Portalı (Ekstranet)</li>
+                        <li>d) Sosyal Medya Sayfası (İnternet)</li>
+                    </ul>
+                    <p><em>Doğru Cevap: c) Müşteri Portalı (Ekstranet)</em></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="vpnDns" class="section">
+            <h2>VPN ve DNS Kavramları ve Karşılaştırması</h2>
+            
+            <!-- vpn-dns.html nav bölümü buraya uyarlanacak -->
+            <nav id="vpnDns_nav" class="sub-nav">
+                <button onclick="vpnDns_showSection('vpnDns_home')">Ana Sayfa</button>
+                <button onclick="vpnDns_showSection('vpnDns_glossary')">Kavramlar Sözlüğü</button>
+                <button onclick="vpnDns_showSection('vpnDns_componentGame')">Bileşen Tanıma Oyunu</button>
+                <button onclick="vpnDns_showSection('vpnDns_scenarioComparison')">Senaryo Karşılaştırma</button>
+                <button onclick="vpnDns_showSection('vpnDns_quiz')">Kısa Test</button>
+                <button onclick="vpnDns_showSection('vpnDns_protocolsInfo')">Protokoller & Türler</button>
+                <button onclick="vpnDns_showSection('vpnDns_resources')">Ek Kaynaklar</button>
+                <button onclick="vpnDns_showSection('vpnDns_progress')">İlerleme</button>
+            </nav>
+
+            <div id="vpnDns_home" class="vpnDns-subsection active">
+                <h3>Hoş Geldiniz!</h3>
+                <p>Bu bölüm, Yönetim Bilişim Sistemleri (YBS) sınavlarına hazırlanan öğrencilerin VPN (Virtual Private Network) ve DNS (Domain Name System) teknolojileri konusundaki bilgilerini pekiştirmelerine yardımcı olmak için tasarlanmıştır.</p>
+                <p>Yukarıdaki alt menüden istediğiniz alt bölüme geçiş yapabilirsiniz. İyi öğrenmeler!</p>
+            </div>
+    
+            <div id="vpnDns_glossary" class="vpnDns-subsection">
+                <h3>VPN ve DNS Temel Kavramlar Sözlüğü</h3>
+                <input type="text" id="vpnDns_glossarySearch" onkeyup="vpnDns_filterGlossary()" placeholder="Terim ara...">
+                <div id="vpnDns_glossaryContent"></div>
+            </div>
+    
+            <div id="vpnDns_componentGame" class="vpnDns-subsection">
+                <h3>VPN ve DNS Bileşenlerini Tanıma Oyunu</h3>
+                <p>Aşağıdaki bileşenleri ait oldukları teknolojiye (VPN veya DNS) sürükleyip bırakın veya doğru kutucuklara eşleştirin.</p>
+                <div class="vpnDns-component-game-container">
+                    <div class="vpnDns-drag-area">
+                        <h4>Sürüklenecek Bileşenler</h4>
+                        <div id="vpnDns_draggableComponents">
+                            <!-- Draggable bileşenler JS ile eklenecek -->
+                        </div>
+                    </div>
+                    <div class="vpnDns-drop-area">
+                        <h4>VPN Bileşenleri</h4>
+                        <div id="vpnDns_vpnDropZone" class="vpnDns-drop-zone" data-type="vpn">
+                            Eşleşenleri buraya sürükleyin
+                        </div>
+                        <h4>DNS Bileşenleri</h4>
+                        <div id="vpnDns_dnsDropZone" class="vpnDns-drop-zone" data-type="dns">
+                            Eşleşenleri buraya sürükleyin
+                        </div>
+                    </div>
+                </div>
+                <button class="quiz-button" onclick="vpnDns_checkComponentGameAnswers()">Cevapları Kontrol Et</button>
+                <button class="quiz-button reset" onclick="vpnDns_resetComponentGame()">Oyunu Sıfırla</button>
+                <div id="vpnDns_componentGameFeedback" class="feedback"></div>
+            </div>
+    
+            <div id="vpnDns_scenarioComparison" class="vpnDns-subsection">
+                <h3>Senaryo Bazlı Karşılaştırma</h3>
+                <div id="vpnDns_scenarioContainer">
+                    <!-- Senaryolar JS ile yüklenecek -->
+                </div>
+                <div id="vpnDns_scenarioFeedback" class="feedback"></div>
+                <button class="quiz-button" onclick="vpnDns_nextScenario()" style="display:none;" id="vpnDns_nextScenarioButton">Sonraki Senaryo</button>
+            </div>
+    
+            <div id="vpnDns_quiz" class="vpnDns-subsection">
+                <h3>Kısa Test: VPN ve DNS Farkları</h3>
+                <div id="vpnDns_quizContainer">
+                    <!-- Sorular JS ile yüklenecek -->
+                </div>
+                <button class="quiz-button" onclick="vpnDns_submitQuiz()">Testi Bitir</button>
+                <div id="vpnDns_quizFeedback" class="feedback"></div>
+                <div id="vpnDns_quizScore"></div>
+            </div>
+    
+            <div id="vpnDns_protocolsInfo" class="vpnDns-subsection">
+                <h3>VPN Protokolleri ve DNS Türleri</h3>
+                <div class="info-box vpnDns-info-section">
+                    <h4>VPN Protokolleri</h4>
+                    <ul>
+                        <li><strong>OpenVPN:</strong> Açık kaynaklı, yüksek derecede yapılandırılabilir ve güvenli bir protokoldür. TCP veya UDP üzerinden çalışabilir.</li>
+                        <li><strong>WireGuard:</strong> Modern, hızlı ve basit bir VPN protokolüdür. Daha az kod satırına sahip olmasıyla güvenlik ve performans avantajları sunar.</li>
+                        <li><strong>IKEv2/IPsec:</strong> Genellikle mobil cihazlarda tercih edilen, kararlı ve hızlı bir protokoldür. Bağlantı kesintilerinden sonra hızlıca yeniden bağlanabilir.</li>
+                        <li><strong>L2TP/IPsec:</strong> IPsec ile birlikte kullanıldığında güvenlik sağlayan bir tünelleme protokolüdür. OpenVPN'e göre daha yavaş olabilir.</li>
+                        <li><strong>PPTP:</strong> Eski ve güvensiz kabul edilen bir protokoldür. Kullanımı önerilmez.</li>
+                    </ul>
+                </div>
+                <div class="info-box vpnDns-info-section">
+                    <h4>DNS Türleri</h4>
+                    <ul>
+                        <li><strong>Recursive DNS Resolver (Çözümleyici):</strong> Kullanıcıdan gelen alan adı sorgusunu alır ve bu sorguyu çözmek için diğer DNS sunucularıyla iletişim kurar. Sonuç olarak IP adresini kullanıcıya döndürür. Genellikle İSS'ler tarafından sağlanır.</li>
+                        <li><strong>Authoritative DNS Server (Yetkili Sunucu):</strong> Belirli bir alan adı (domain) için kesin DNS kayıtlarını tutan sunucudur. Bir alan adının IP adresini veya diğer DNS bilgilerini sağlar.</li>
+                        <li><strong>Root DNS Server (Kök Sunucu):</strong> DNS hiyerarşisinin en tepesinde yer alır. TLD (Top-Level Domain - .com, .org, .net gibi) sunucularının adreslerini bilir ve çözümleyicileri bu sunuculara yönlendirir.</li>
+                        <li><strong>TLD DNS Server (Üst Düzey Alan Adı Sunucusu):</strong> .com, .org, .net gibi üst düzey alan adlarından sorumludur. Örneğin, "example.com" için ".com" TLD sunucusu, "example.com"un yetkili sunucusunun adresini bilir.</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div id="vpnDns_resources" class="vpnDns-subsection">
+                <h3>Güncel Gizlilik ve Sansürle Mücadele Trendleri</h3>
+                <p>Aşağıdaki bağlantılar, dijital gizlilik, güvenlik ve sansürle mücadele konularında daha fazla bilgi edinmenize yardımcı olabilir:</p>
+                <ul>
+                    <li><a href="https://www.eff.org/" target="_blank">Electronic Frontier Foundation (EFF)</a> - Dijital haklar savunucusu.</li>
+                    <li><a href="https://www.torproject.org/" target="_blank">The Tor Project</a> - Anonim iletişim sağlayan yazılımlar.</li>
+                    <li><a href="https://www.privacytools.io/" target="_blank">PrivacyTools</a> - Gizlilik odaklı araçlar ve hizmetler önerileri.</li>
+                    <li><a href="https://www.internethaber.com/internet-yasaklari" target="_blank">Türkiye'de İnternet Sansürü ile İlgili Haberler (Örnek Bağlantı)</a></li>
+                </ul>
+                <p><em>Not: Bu bağlantılar bilgilendirme amaçlıdır ve içeriklerinden uygulama sorumlu değildir.</em></p>
+            </div>
+            
+            <div id="vpnDns_progress" class="vpnDns-subsection">
+                <h3>Skorlama ve İlerleme Takibi (VPN & DNS Modülü)</h3>
+                <div id="vpnDns_scoreBoard" class="module-score-board"> <!-- Genel skor tahtası stilini kullanabilir -->
+                    <h4>Alt Bölüm Başarıları</h4>
+                    <p>Bileşen Oyunu Skoru: <span id="vpnDns_componentGameScore">0</span>/<span id="vpnDns_componentGameTotal">0</span></p>
+                    <p>Senaryo Karşılaştırma Skoru: <span id="vpnDns_scenarioScore">0</span>/<span id="vpnDns_scenarioTotal">0</span></p>
+                    <p>Kısa Test Skoru: <span id="vpnDns_quizTotalScore">0</span>/<span id="vpnDns_quizTotalQuestions">0</span></p>
+                    <hr>
+                    <p><strong>VPN & DNS Modül Toplam Başarı: <span id="vpnDns_overallScore">0</span>%</strong></p>
+                </div>
+                <button class="quiz-button reset" onclick="vpnDns_resetProgress()">VPN & DNS İlerlemesini Sıfırla</button>
+            </div>
+
+        </div>
+        
+        <div id="moduleProgress" class="section">
+            <h2>İlerleme Takibi</h2>
+            <div id="scoreBoard">
+                 <h3>Genel Başarı Durumu</h3>
+                 <p>Bu modül için oyun/test skorları eklenecektir.</p>
+                 <p><strong>Genel Modül Başarısı: <span id="moduleOverallScore">0</span>%</strong></p>
+            </div>
+             <button class="game-button reset" onclick="resetModuleProgress()">Modül İlerlemesini Sıfırla</button>
+        </div>
+        
+        <div id="porter5guc" class="section">
+            <h2>Porter'ın 5 Güç Modeli</h2>
+            
+            <nav id="porter5guc_nav" class="sub-nav">
+                <button onclick="porter5guc_showSection('porter5guc_home')" class="active">Ana Sayfa</button>
+                <button onclick="porter5guc_showSection('porter5guc_glossary')">Kavramlar Sözlüğü</button>
+                <button onclick="porter5guc_showSection('porter5guc_game')">Bileşen Tanıma Oyunu</button>
+                <button onclick="porter5guc_showSection('porter5guc_scenarios')">Senaryo Bazlı Analiz</button>
+                <button onclick="porter5guc_showSection('porter5guc_quiz')">Kısa Test</button>
+                <button onclick="porter5guc_showSection('porter5guc_extra')">Ek Bilgiler</button>
+                <button onclick="porter5guc_showSection('porter5guc_progress')">İlerleme Takibi</button>
+            </nav>
+            
+            <!-- Ana Sayfa / Giriş Bölümü -->
+            <div id="porter5guc_home" class="porter5guc-subsection active">
+                <h3>Porter'ın 5 Güç Modeli - Hoş Geldiniz!</h3>
+                <p>Bu uygulama, Yönetim Bilişim Sistemleri (YBS) öğrencilerinin Michael Porter'ın Beş Güç Modeli'ni anlamalarına ve bu konuda sınavlara hazırlanmalarına yardımcı olmak için tasarlanmıştır.</p>
+                <p>Porter'ın Beş Güç Modeli, bir endüstrinin rekabet yoğunluğunu ve karlılık potansiyelini analiz etmek için kullanılan güçlü bir stratejik araçtır. Bu modeli anlamak, pazar dinamiklerini kavramak ve stratejik kararlar almak için kritik öneme sahiptir.</p>
+                <h4>Nasıl Kullanılır?</h4>
+                <p>Yukarıdaki navigasyon menüsünü kullanarak uygulamanın farklı bölümlerine geçiş yapabilirsiniz:</p>
+                <ul>
+                    <li><strong>Kavramlar Sözlüğü:</strong> Modelin temel kavramlarını ve ilgili terimleri öğrenin.</li>
+                    <li><strong>Bileşen Tanıma Oyunu:</strong> Beş gücü ve onları etkileyen faktörleri eşleştirerek bilginizi test edin.</li>
+                    <li><strong>Senaryo Bazlı Analiz:</strong> Farklı endüstri senaryolarına modeli uygulayarak pratik yapın.</li>
+                    <li><strong>Kısa Test:</strong> Model hakkındaki anlayışınızı çoktan seçmeli sorularla pekiştirin.</li>
+                    <li><strong>Ek Bilgiler:</strong> Modelin stratejik kullanımı ve örnek analizler hakkında daha fazla bilgi edinin.</li>
+                    <li><strong>İlerleme Takibi:</strong> Oyun ve testlerdeki başarılarınızı görün.</li>
+                </ul>
+                <p>Başarılar dileriz!</p>
+            </div>
+            
+            <!-- Kavramlar Sözlüğü Bölümü -->
+            <div id="porter5guc_glossary" class="porter5guc-subsection">
+                <h3>Kavramlar Sözlüğü</h3>
+                <input type="text" id="porter5guc_glossary-search" placeholder="Terim ara..." class="form-control">
+                <div id="porter5guc_glossary-content" class="mt-3"></div>
+            </div>
+            
+            <!-- Bileşen Tanıma Oyunu Bölümü -->
+            <div id="porter5guc_game" class="porter5guc-subsection">
+                <h3>Bileşen Tanıma Oyunu</h3>
+                <p>Aşağıdaki faktörleri sürükleyerek ait oldukları Porter'ın Beş Gücü başlığının altına bırakın.</p>
+                <div class="porter5guc-game-flex">
+                    <div id="porter5guc_factors-source" class="factors-list">
+                        <h4>Faktörler (Sürükleyin)</h4>
+                        <!-- Faktörler JS ile eklenecek -->
+                    </div>
+                    <div class="porter5guc-dropzones">
+                        <div id="porter5guc_forces-target" style="display: flex; flex-wrap: wrap; gap: 18px; width: 100%; align-items: flex-start; justify-content: flex-start;">
+                            <!-- Güçler (Bırakma Alanları) JS ile eklenecek -->
+                        </div>
+                    </div>
+                </div>
+                <button onclick="porter5guc_checkGameAnswers()" class="quiz-button">Cevapları Kontrol Et</button>
+                <button onclick="porter5guc_resetGame()" class="quiz-button reset">Oyunu Sıfırla</button>
+                <div id="porter5guc_game-score-display" class="game-feedback"></div>
+            </div>
+            
+            <!-- Senaryo Bazlı Analiz Bölümü -->
+            <div id="porter5guc_scenarios" class="porter5guc-subsection">
+                <h3>Senaryo Bazlı Analiz</h3>
+                <p>Farklı endüstri senaryoları için Porter'ın Beş Gücünü değerlendirin ve endüstrinin genel karlılık potansiyelini yorumlayın.</p>
+                <div id="porter5guc_scenarios-content">
+                    <!-- Senaryolar JS ile eklenecek -->
+                </div>
+                <div id="porter5guc_scenario-navigation" style="margin-top:15px;">
+                     <button onclick="porter5guc_prevScenario()" id="porter5guc_prevScenarioBtn" class="quiz-button reset" style="display:none;">Önceki Senaryo</button>
+                     <button onclick="porter5guc_nextScenario()" id="porter5guc_nextScenarioBtn" class="quiz-button">Sonraki Senaryo</button>
+                </div>
+            </div>
+            
+            <!-- Kısa Test Bölümü -->
+            <div id="porter5guc_quiz" class="porter5guc-subsection">
+                <h3>Kısa Test</h3>
+                <p>Porter'ın Beş Güç Modeli hakkındaki bilginizi test edin.</p>
+                <div id="porter5guc_quiz-content">
+                    <!-- Sorular JS ile eklenecek -->
+                </div>
+                <button onclick="porter5guc_submitQuiz()" class="quiz-button">Testi Bitir</button>
+                <div id="porter5guc_quiz-score"></div>
+            </div>
+            
+            <!-- Ek Bilgiler Bölümü -->
+            <div id="porter5guc_extra" class="porter5guc-subsection">
+                <h3>Ek Bilgiler</h3>
+                <h4>Modelin Stratejik Kullanımı</h4>
+                <p>Porter'ın Beş Güç Modeli, işletmelerin stratejik kararlar almasına yardımcı olur. Model kullanılarak:</p>
+                <ul>
+                    <li>Bir endüstrinin genel çekiciliği (karlılık potansiyeli) değerlendirilebilir.</li>
+                    <li>Rekabet avantajı elde etmek için stratejiler geliştirilebilir (örneğin, giriş engellerini yükseltmek, alıcı veya tedarikçi gücünü azaltmak).</li>
+                    <li>Yeni bir pazara girme veya mevcut pazardan çıkma kararları desteklenebilir.</li>
+                    <li>Endüstrideki değişikliklerin (örneğin, yeni teknolojiler, düzenlemeler) rekabet üzerindeki potansiyel etkileri analiz edilebilir.</li>
+                    <li>Şirketler, kendilerini rekabetçi güçlere karşı daha iyi konumlandırabilirler. Örneğin, bir şirket, alıcıların gücünü azaltmak için ürünlerini farklılaştırabilir veya tedarikçilerin gücünü kırmak için alternatif kaynaklar bulabilir.</li>
+                </ul>
+
+                <h4>Örnek Analiz: Akıllı Telefon Endüstrisi (Basitleştirilmiş)</h4>
+                <p>Aşağıda akıllı telefon endüstrisi için basitleştirilmiş bir Beş Güç analizi bulunmaktadır:</p>
+                <ul>
+                    <li><strong>Rekabet Ortamındaki Rekabet: Yüksek.</strong> Çok sayıda güçlü oyuncu (Apple, Samsung, Xiaomi vb.), hızlı teknolojik değişim, yoğun pazarlama faaliyetleri.</li>
+                    <li><strong>Yeni Gireceklerin Tehdidi: Orta.</strong> Yüksek Ar-Ge ve pazarlama maliyetleri, marka sadakati, patentler ve dağıtım kanallarına erişim zorlukları giriş engeli oluşturur. Ancak, bazı niş oyuncular veya mevcut teknoloji devleri (örn: Google) pazara girebilir.</li>
+                    <li><strong>İkame Ürünlerin Tehdidi: Düşük-Orta.</strong> Akıllı telefonların yerini tam olarak alabilecek doğrudan bir ikame şu an için sınırlıdır. Tabletler, dizüstü bilgisayarlar kısmi ikame olabilir ancak tam fonksiyonellik sunmazlar. Giyilebilir teknolojiler gelecekte bir tehdit oluşturabilir.</li>
+                    <li><strong>Tedarikçilerin Pazarlık Gücü: Orta-Yüksek.</strong> Bazı kritik bileşenler (örn: gelişmiş işlemciler, özel ekranlar) az sayıda tedarikçiden gelir (örn: Qualcomm, Samsung Display). Bu durum tedarikçilere güç verir. Ancak büyük telefon üreticileri de büyük alım hacimleriyle bu gücü dengeleyebilir.</li>
+                    <li><strong>Alıcıların Pazarlık Gücü: Orta-Yüksek.</strong> Bireysel alıcıların gücü sınırlı olsa da, seçeneklerin çokluğu, bilgiye kolay erişim ve bazı pazarlarda düşük operatör değiştirme maliyetleri alıcı gücünü artırır. Kurumsal alıcılar daha fazla güce sahip olabilir.</li>
+                </ul>
+                <p><strong>Genel Değerlendirme:</strong> Akıllı telefon endüstrisi, yüksek rekabet ve güçlü tedarikçiler nedeniyle zorlu bir pazardır. Ancak marka, inovasyon ve ekosistem oluşturma yoluyla yüksek karlılık elde etmek mümkündür. Giriş engelleri göreceli olarak yüksektir, bu da mevcut büyük oyuncuları korur.</p>
+            </div>
+            
+            <!-- İlerleme Takibi / Skorlar Bölümü -->
+            <div id="porter5guc_progress" class="porter5guc-subsection">
+                <h3>İlerleme Takibi / Skorlar</h3>
+                <div id="porter5guc_progress-summary">
+                    <p>Bileşen Tanıma Oyunu Skoru: <span id="porter5guc_game-progress-score">Henüz oynanmadı.</span></p>
+                    <p>Kısa Test Skoru: <span id="porter5guc_quiz-progress-score">Henüz çözülmedi.</span></p>
+                    <hr>
+                    <p>Genel Başarı: <span id="porter5guc_overall-progress">N/A</span></p>
+                </div>
+                <button onclick="porter5guc_resetAllProgress()" class="quiz-button reset">Tüm İlerlemeyi Sıfırla</button>
+            </div>
+        </div>
+        <!-- Kısa Test Bölümü -->
+        <div id="quiz" class="section">
+            <h2>Kısa Test: Organizasyon ve Strateji</h2>
+            <div id="quizContainer"></div>
+            <div class="quiz-navigation">
+                <button class="game-button" onclick="prevQuestion()" id="prevQuestionBtn">Önceki Soru</button>
+                <button class="game-button" onclick="nextQuestion()" id="nextQuestionBtn">Sonraki Soru</button>
+            </div>
+            <button class="game-button" onclick="submitQuiz()" id="submitQuizBtn" style="display:none;">Testi Bitir</button>
+            <div id="questionFeedback" class="feedback" style="display:none;"></div>
+            <div id="quizScore"></div>
+            <div id="learnMoreContainer"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Strateji ve Organizasyon Öğrenme Uygulaması</p>
+    </footer>
+
+    <script>
+        // Temel sayfa yönlendirme ve skorlama scriptleri
+        // kurumsal....html'den alınan temel script yapısı buraya gelecek
+        // Şimdilik basit bir showSection fonksiyonu
+        let currentSectionId = 'home';
+
+        // --- Ana showSection Fonksiyonu (TAMAMEN YENİDEN YAZILDI) ---
+        function showSection(sectionId, elementId = null) {
+            // Tüm ana bölümleri gizle
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                currentSectionId = sectionId; // currentSectionId is already global
+            }
+            
+            // Active link highlighting will be handled by updateActiveLink
+            // updateActiveLink(sectionId); // This will be called by the nav link click handler
+
+            // Alt modüller için başlatıcı fonksiyonlar
+            if (sectionId === 'intranetExtranet' && typeof intExt_initAlistirma === 'function') {
+                intExt_initAlistirma();
+            }
+            if (sectionId === 'vpnDns' && typeof vpnDns_showSection === 'function') {
+                vpnDns_showSection('vpnDns_home'); // Always show home of sub-module first
+                if(typeof vpnDns_loadScores === 'function') vpnDns_loadScores(); 
+            }
+            if (sectionId === 'porter5guc' && typeof porter5guc_showSection === 'function') {
+                porter5guc_showSection('porter5guc_home'); // Always show home of sub-module first
+                 if(typeof porter5guc_updateProgressDisplay === 'function') porter5guc_updateProgressDisplay();
+            }
+            if (sectionId === 'quiz' && typeof initQuiz === 'function') { // Ensure quiz is initialized when shown
+                initQuiz();
+            }
+            if (sectionId === 'moduleProgress' && typeof updateModuleScoreBoard === 'function') { // Renamed from 'progress' to 'moduleProgress'
+                updateModuleScoreBoard();
+            }
+            
+            if (elementId) {
+                setTimeout(() => {
+                    const el = document.getElementById(elementId);
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            }
+        }
+
+        // Örnek skorlama (ileride detaylanacak)
+        let moduleScores = {
+            // quiz: { correct: 0, total: 0, answered: [] }
+        };
+
+        function updateModuleScoreBoard() {
+            // document.getElementById('moduleQuizScore').textContent = moduleScores.quiz.correct;
+            // document.getElementById('moduleQuizTotal').textContent = moduleScores.quiz.total;
+            // let overallPercentage = moduleScores.quiz.total > 0 ? ((moduleScores.quiz.correct / moduleScores.quiz.total) * 100).toFixed(0) : 0;
+            // document.getElementById('moduleOverallScore').textContent = overallPercentage;
+            // localStorage.setItem('stratejiAppScores', JSON.stringify(moduleScores));
+            console.log("İlerleme tablosu güncellenecek.");
+        }
+
+        function resetModuleProgress() {
+            // moduleScores = { quiz: { correct: 0, total: 0, answered: [] } };
+            // localStorage.removeItem('stratejiAppScores');
+            // updateModuleScoreBoard();
+            // if (currentSectionId === 'quiz') initModuleQuiz();
+            alert("Modül ilerlemesi sıfırlandı (fonksiyonellik eklenecek).");
+        }
+        
+        window.onload = () => {
+            // const savedScores = localStorage.getItem('stratejiAppScores');
+            // if (savedScores) moduleScores = JSON.parse(savedScores);
+            showSection('home');
+             // Ana sayfa butonunu aktif yap (main navigation)
+            const mainHomeButton = document.querySelector('.nav-categories button[onclick="showSection(\'home\')"]');
+            if (mainHomeButton) mainHomeButton.classList.add('active');
+
+            // VPN DNS skorlarını ve gerekirse Porter skorlarını yükle/güncelle.
+            // porter5guc_updateProgressDisplay is called within porter5guc_showSection or by specific interactions.
+            // vpnDns_loadScores can be called if needed, or rely on vpnDns_showSection.
+            if (typeof vpnDns_loadScores === 'function') {
+                // vpnDns_loadScores(); // Example: if you have a separate load scores from storage function
+            }
+
+            initializeNavigation(); // Initialize new navigation
+            updateActiveLink(currentSectionId); // Set initial active link
+        };
+
+        // --- İntranet/Ekstranet Alıştırması için Veri ve Fonksiyonlar ---
+        const intExt_sorular = [
+            {
+                soru: "Bir şirket, tüm çalışanlarının şirket politikalarına, iç duyurulara ve eğitim materyallerine erişebileceği özel bir web portalı oluşturmak istiyor. Bu senaryo için en uygun çözüm hangisidir?",
+                secenekler: ["İnternet", "İntranet", "Ekstranet"],
+                dogruCevap: "İntranet",
+                aciklama: "İntranet, bir kuruluşun kendi çalışanları için özel olarak oluşturduğu, dışarıya kapalı bir ağdır ve şirket içi kaynaklara erişim için idealdir."
+            },
+            {
+                soru: "Bir üniversite, potansiyel öğrencilere, genel kamuoyuna ve mezunlarına yönelik olarak ders programları, kabul koşulları ve kampüs haberleri gibi bilgileri yayınlamak istiyor. Hangi ağ türü kullanılmalıdır?",
+                secenekler: ["İnternet", "İntranet", "Ekstranet"],
+                dogruCevap: "İnternet",
+                aciklama: "İnternet, genel kamuoyuna açık bilgi paylaşımı için kullanılan küresel ağdır. Üniversitenin geniş kitlelere ulaşması için en uygun platformdur."
+            },
+            {
+                soru: "Bir otomotiv üreticisi, yetkili servislerinin yedek parça siparişlerini online olarak vermelerini, garanti taleplerini iletmelerini ve teknik bültenlere erişmelerini sağlamak istiyor. Bu işbirliği için hangi sistem uygundur?",
+                secenekler: ["İnternet", "İntranet", "Ekstranet"],
+                dogruCevap: "Ekstranet",
+                aciklama: "Ekstranet, bir kuruluşun İntranet'inin belirli kısımlarını iş ortakları (bu durumda yetkili servisler) gibi dış paydaşlarla güvenli bir şekilde paylaşmasını sağlar."
+            },
+            {
+                soru: "Bir e-ticaret firması, ürünlerini sergilediği ve müşterilerin online alışveriş yapabildiği bir web sitesi işletiyor. Bu web sitesi hangi ağ üzerinde çalışır?",
+                secenekler: ["İnternet", "İntranet", "Ekstranet"],
+                dogruCevap: "İntranet",
+                aciklama: "Halka açık e-ticaret siteleri, geniş müşteri kitlesine ulaşmak için İnternet'i kullanır."
+            },
+            {
+                soru: "Bir danışmanlık firması, büyük bir müşterisiyle ortak bir proje yürütüyor. Proje dosyalarını, ilerleme raporlarını ve toplantı notlarını güvenli bir şekilde paylaşmak için özel bir alan oluşturmak istiyorlar. Bu alan sadece danışmanlık firması çalışanları ve müşteri temsilcileri tarafından erişilebilir olmalı. Bu senaryo hangi kavrama örnektir?",
+                secenekler: ["İnternet", "İntranet", "Ekstranet"],
+                dogruCevap: "Ekstranet",
+                aciklama: "Ekstranet, bir şirket ve belirli dış paydaşları (örneğin müşteriler, tedarikçiler) arasında güvenli bilgi paylaşımı ve işbirliği için kullanılır."
+            },
+            {
+                soru: "Bir şirketin insan kaynakları departmanı, çalışanların yıllık izin taleplerini online olarak girmeleri ve onay süreçlerini takip etmeleri için bir sistem geliştirdi. Bu sistem sadece şirket çalışanları tarafından kullanılabiliyor. Bu hangi ağ türüne bir örnektir?",
+                secenekler: ["İnternet", "İntranet", "Ekstranet"],
+                dogruCevap: "İntranet",
+                aciklama: "İntranet, şirket içi süreçlerin (İK işlemleri gibi) yürütüldüğü ve sadece çalışanların erişebildiği özel bir ağdır."
+            }
+        ];
+
+        let intExt_mevcutSoruIndex = 0;
+        let intExt_skor = 0;
+        let intExt_yanlisCevaplar = [];
+
+        function intExt_initAlistirma() {
+            intExt_mevcutSoruIndex = 0;
+            intExt_skor = 0;
+            intExt_yanlisCevaplar = [];
+            document.getElementById('intExt_alistirma-icerik').style.display = 'block';
+            document.getElementById('intExt_sonuc-ozeti').style.display = 'none';
+            document.getElementById('intExt_alistirma-puan').innerText = '';
+            document.getElementById('intExt_alistirma-puan').style.display = 'block'; // Puanı görünür yap
+            intExt_soruyuYukle();
+        }
+
+        function intExt_soruyuYukle() {
+            const geriBildirimElementi = document.getElementById('intExt_geri-bildirim');
+            const sonrakiSoruBtn = document.getElementById('intExt_sonraki-soru-btn');
+            
+            geriBildirimElementi.innerHTML = '';
+            geriBildirimElementi.className = 'intExt-feedback-styling'; 
+            sonrakiSoruBtn.style.display = 'none';
+            document.getElementById('intExt_sonuclari-goster-btn').style.display = 'none';
+            
+            const mevcutSoru = intExt_sorular[intExt_mevcutSoruIndex];
+            document.getElementById('intExt_alistirma-soru').innerText = `Soru ${intExt_mevcutSoruIndex + 1}/${intExt_sorular.length}: ${mevcutSoru.soru}`;
+            
+            const seceneklerElementi = document.getElementById('intExt_secenekler');
+            seceneklerElementi.innerHTML = '';
+            mevcutSoru.secenekler.forEach(secenek => {
+                const button = document.createElement('button');
+                button.innerText = secenek;
+                button.onclick = () => intExt_cevabiKontrolEt(secenek);
+                seceneklerElementi.appendChild(button);
+            });
+            document.getElementById('intExt_alistirma-puan').innerText = `Mevcut Puan: ${intExt_skor}/${intExt_mevcutSoruIndex}`;
+        }
+
+        function intExt_cevabiKontrolEt(secilenCevap) {
+            const mevcutSoru = intExt_sorular[intExt_mevcutSoruIndex];
+            const dogruMu = secilenCevap === mevcutSoru.dogruCevap;
+            const geriBildirimElementi = document.getElementById('intExt_geri-bildirim');
+            const seceneklerElementi = document.getElementById('intExt_secenekler');
+
+            Array.from(seceneklerElementi.children).forEach(button => {
+                button.disabled = true;
+                if (button.innerText === mevcutSoru.dogruCevap) {
+                    button.style.backgroundColor = '#27ae60'; 
+                } else if (button.innerText === secilenCevap && !dogruMu) {
+                     button.style.backgroundColor = '#c0392b';
+                }
+            });
+
+            if (dogruMu) {
+                intExt_skor++;
+                geriBildirimElementi.innerText = `Doğru! ${mevcutSoru.dogruCevap}: ${mevcutSoru.aciklama}`;
+                geriBildirimElementi.classList.add('dogru');
+            } else {
+                geriBildirimElementi.innerHTML = `Yanlış! Doğru cevap: <strong>${mevcutSoru.dogruCevap}</strong>. <br/>Açıklama: ${mevcutSoru.aciklama}`;
+                geriBildirimElementi.classList.add('yanlis');
+                intExt_yanlisCevaplar.push({
+                    soru: mevcutSoru.soru,
+                    seninCevabin: secilenCevap,
+                    dogruCevap: mevcutSoru.dogruCevap,
+                    aciklama: mevcutSoru.aciklama
+                });
+            }
+            
+            document.getElementById('intExt_alistirma-puan').innerText = `Mevcut Puan: ${intExt_skor}/${intExt_mevcutSoruIndex + 1}`;
+
+            if (intExt_mevcutSoruIndex < intExt_sorular.length - 1) {
+                document.getElementById('intExt_sonraki-soru-btn').style.display = 'inline-block';
+            } else {
+                document.getElementById('intExt_sonuclari-goster-btn').style.display = 'inline-block';
+            }
+        }
+
+        document.getElementById('intExt_sonraki-soru-btn')?.addEventListener('click', () => {
+            intExt_mevcutSoruIndex++;
+            intExt_soruyuYukle();
+            const seceneklerElementi = document.getElementById('intExt_secenekler');
+            Array.from(seceneklerElementi.children).forEach(button => {
+                button.disabled = false;
+                button.style.backgroundColor = ''; 
+            });
+        });
+
+        document.getElementById('intExt_sonuclari-goster-btn')?.addEventListener('click', () => {
+            document.getElementById('intExt_alistirma-icerik').style.display = 'none';
+            document.getElementById('intExt_alistirma-puan').style.display = 'none';
+            
+            const sonucOzetiBolumu = document.getElementById('intExt_sonuc-ozeti');
+            sonucOzetiBolumu.style.display = 'block';
+
+            document.getElementById('intExt_puan-gosterimi').innerText = `Toplam Puanınız: ${intExt_skor} / ${intExt_sorular.length}`;
+
+            const yanlisListesi = document.getElementById('intExt_yanlis-cevaplar-listesi');
+            yanlisListesi.innerHTML = ''; 
+
+            if (intExt_yanlisCevaplar.length === 0) {
+                document.getElementById('intExt_dogru-sayisi-mesaji').innerText = 'Tebrikler! Tüm soruları doğru cevapladınız.';
+                yanlisListesi.style.display = 'none';
+                sonucOzetiBolumu.querySelector('h4').style.display = 'none';
+            } else {
+                sonucOzetiBolumu.querySelector('h4').style.display = 'block';
+                document.getElementById('intExt_dogru-sayisi-mesaji').innerText = '';
+                yanlisListesi.style.display = 'block';
+                intExt_yanlisCevaplar.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                        <strong>Senaryo:</strong> ${item.soru}<br>
+                        <strong>Sizin Cevabınız:</strong> <span style="color: #c0392b;">${item.seninCevabin}</span><br>
+                        <strong>Doğru Cevap:</strong> <span style="color: #27ae60;">${item.dogruCevap}</span> - ${item.aciklama}
+                    `;
+                    yanlisListesi.appendChild(listItem);
+                });
+            }
+            // Puanı moduleScores'a ekle ve ilerleme çubuğunu güncelle
+            moduleScores.intranetExtranet = { score: intExt_skor, total: intExt_sorular.length, maxScore: 100 }; // Max score eklendi
+            updateModuleScoreBoard(); 
+        });
+
+        // --- VPN & DNS Modülü için Global Veriler ---
+        const vpnDns_glossaryData = [
+            { term: "IP Adresi", definition: "İnternete bağlı her cihazın sahip olduğu, noktalarla ayrılmış sayısal bir kimliktir (örn: 192.168.1.1)." },
+            { term: "VPN (Virtual Private Network)", definition: "Sanal Özel Ağ. İnternet bağlantınızı şifreleyerek ve IP adresinizi gizleyerek güvenli ve özel bir bağlantı oluşturur." },
+            { term: "DNS (Domain Name System)", definition: "Alan Adı Sistemi. İnsanların okuyabildiği alan adlarını (örn: google.com) bilgisayarların anlayabildiği IP adreslerine çevirir." },
+            { term: "IP Tünelleme", definition: "VPN'lerin kullandığı bir tekniktir. Veri paketlerini başka bir paket içine sararak (kapsülleyerek) güvenli bir kanal üzerinden iletilmesini sağlar." },
+            { term: "Şifreleme (Encryption)", definition: "Veriyi yetkisiz erişime karşı okunamaz hale getirme işlemidir. VPN'ler trafikini şifreler." },
+            { term: "DNS Sunucusu", definition: "Alan adı çözümleme isteklerini işleyen sunucudur. Recursive veya Authoritative olabilir." },
+            { term: "Protokol", definition: "İki veya daha fazla cihazın iletişim kurmasını sağlayan kurallar ve standartlar bütünüdür (örn: TCP/IP, HTTP, OpenVPN)." }
+            // ... (diğer sözlük terimleri eklenecek)
+        ];
+
+        const vpnDns_componentData = [
+            { name: "VPN İstemcisi", type: "vpn", matched: false },
+            { name: "Şifreli Tünel", type: "vpn", matched: false },
+            { name: "VPN Sunucusu", type: "vpn", matched: false },
+            { name: "DNS Çözümleyici", type: "dns", matched: false },
+            { name: "Kök Sunucu", type: "dns", matched: false },
+            { name: "Yetkili DNS Sunucusu", type: "dns", matched: false },
+            { name: "IP Adresi Sorgulama", type: "dns", matched: false },
+            { name: "Veri Şifreleme", type: "vpn", matched: false }
+        ];
+
+        const vpnDns_scenarios = [
+            {
+                id: 1,
+                text: "Halka açık bir Wi-Fi ağında (kafe, havaalanı) bankacılık işlemleri yapmak istiyorsunuz. Verilerinizin güvende olması çok önemli.",
+                correct: "VPN",
+                explanation: "Halka açık Wi-Fi ağları genellikle güvensizdir. VPN, tüm internet trafiğinizi şifreleyerek bu ağlardaki potansiyel dinleyicilere karşı koruma sağlar. DNS tek başına trafiğinizi şifrelemez, sadece alan adı çözümlemesi yapar."
+            },
+            {
+                id: 2,
+                text: "Belirli bir web sitesine erişmeye çalışıyorsunuz ancak sitenin alan adı bir türlü IP adresine çözülemiyor veya çok yavaş çözülüyor.",
+                correct: "DNS",
+                explanation: "Bu sorun genellikle mevcut DNS sunucunuzla ilgilidir. Farklı bir DNS sunucusu (örn: Google DNS, Cloudflare DNS) kullanmak, alan adı çözümleme hızını ve güvenilirliğini artırabilir. VPN bu durumda doğrudan bir çözüm sunmaz, ancak bazı VPN'ler kendi DNS sunucularını kullanır."
+            }
+            // ... (diğer senaryolar eklenecek)
+        ];
+
+        const vpnDns_quizQuestions = [
+            {
+                question: "Aşağıdakilerden hangisi öncelikli olarak internet trafiğini şifrelemek için kullanılır?",
+                options: ["DNS", "VPN", "IP Yönlendirme", "Port"],
+                answer: "VPN",
+                explanation: "VPN'in temel işlevlerinden biri, kullanıcı ile VPN sunucusu arasındaki tüm internet trafiğini şifrelemektir."
+            },
+            {
+                question: "Bir web sitesinin alan adını (örn: www.example.com) IP adresine (örn: 93.184.216.34) çeviren sistem hangisidir?",
+                options: ["VPN", "Şifreleme Protokolü", "DNS", "IP Tünelleme"],
+                answer: "DNS",
+                explanation: "DNS (Domain Name System), alan adlarını IP adreslerine ve tersini çevirmekle görevlidir."
+            }
+            // ... (diğer quiz soruları eklenecek)
+        ];
+
+        // moduleScores objesini VPN/DNS modülü için genişlet
+        if (typeof moduleScores !== 'undefined') {
+            if (!moduleScores.vpnDnsComponentGame) moduleScores.vpnDnsComponentGame = { score: 0, total: vpnDns_componentData.length, maxScore: vpnDns_componentData.length * 10 }; 
+            if (!moduleScores.vpnDnsScenarioComparison) moduleScores.vpnDnsScenarioComparison = { score: 0, total: vpnDns_scenarios.length, maxScore: vpnDns_scenarios.length * 10 }; 
+            if (!moduleScores.vpnDnsQuiz) moduleScores.vpnDnsQuiz = { score: 0, total: vpnDns_quizQuestions.length, maxScore: vpnDns_quizQuestions.length * 10 };
+        }
+        // else bloğu linter hatasına neden olduğu için kaldırıldı.
+
+        let vpnDns_currentDraggable = null;
+        let vpnDns_currentScenarioIndex = 0;
+
+        // --- VPN/DNS Alt Bölüm Yönlendirme ---
+        function vpnDns_showSection(subsectionId) {
+            const subsections = document.querySelectorAll('#vpnDns .vpnDns-subsection');
+            subsections.forEach(section => {
+                section.classList.remove('active');
+            });
+            const activeSubsection = document.getElementById(subsectionId);
+            if (activeSubsection) activeSubsection.classList.add('active');
+
+            const navButtons = document.querySelectorAll('#vpnDns_nav button');
+            navButtons.forEach(button => {
+                button.classList.remove('active');
+                // Butonun onclick içeriğini daha esnek bir şekilde kontrol et, sadece subsectionId'yi içermesi yeterli
+                if (button.getAttribute('onclick') && button.getAttribute('onclick').includes(subsectionId)) {
+                    button.classList.add('active');
+                }
+            });
+
+            // İlgili alt bölüm için başlatma fonksiyonlarını çağır
+            if (subsectionId === 'vpnDns_glossary') vpnDns_initGlossary();
+            if (subsectionId === 'vpnDns_componentGame') vpnDns_initComponentGame(); // Bu fonksiyonlar daha sonra eklenecek
+            if (subsectionId === 'vpnDns_scenarioComparison') vpnDns_initScenarios(); // Bu fonksiyonlar daha sonra eklenecek
+            if (subsectionId === 'vpnDns_quiz') vpnDns_initQuiz(); // Bu fonksiyonlar daha sonra eklenecek
+            if (subsectionId === 'vpnDns_progress') vpnDns_updateScoreBoard(); // Bu fonksiyon daha sonra eklenecek
+        }
+
+        // --- VPN/DNS Sözlük Fonksiyonları ---
+        function vpnDns_initGlossary() {
+            vpnDns_renderGlossary(vpnDns_glossaryData);
+            const searchInput = document.getElementById('vpnDns_glossarySearch');
+            if(searchInput) searchInput.value = '';
+        }
+        function vpnDns_renderGlossary(data) {
+            const glossaryContent = document.getElementById('vpnDns_glossaryContent');
+            if(!glossaryContent) {
+                console.error("vpnDns_glossaryContent elementi bulunamadı.");
+                return;
+            }
+            glossaryContent.innerHTML = '';
+            data.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'vpnDns-glossary-item info-box'; 
+                div.innerHTML = `<strong>${item.term}:</strong> ${item.definition}`;
+                glossaryContent.appendChild(div);
+            });
+        }
+        function vpnDns_filterGlossary() {
+            const searchInput = document.getElementById('vpnDns_glossarySearch');
+            if(!searchInput) return;
+            const searchTerm = searchInput.value.toLowerCase();
+            const filteredData = vpnDns_glossaryData.filter(item => 
+                item.term.toLowerCase().includes(searchTerm) || 
+                item.definition.toLowerCase().includes(searchTerm)
+            );
+            vpnDns_renderGlossary(filteredData);
+        }
+
+        // --- VPN/DNS Bileşen Tanıma Oyunu Fonksiyonları ---
+        function vpnDns_initComponentGame() {
+            const draggableContainer = document.getElementById('vpnDns_draggableComponents');
+            if(!draggableContainer) {
+                console.error("vpnDns_draggableComponents elementi bulunamadı."); 
+                return;
+            }
+            draggableContainer.innerHTML = ''; 
+            vpnDns_componentData.forEach(item => item.matched = false); 
+            const shuffledComponents = [...vpnDns_componentData].sort(() => Math.random() - 0.5);
+            shuffledComponents.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'vpnDns-draggable';
+                div.textContent = item.name;
+                div.draggable = true;
+                // ID'lerin benzersiz ve geçerli HTML ID'leri olduğundan emin olalım (Örn: boşluk yerine tire)
+                div.id = `vpnDns_comp-${item.name.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-_]/g, '')}`;
+                div.dataset.type = item.type;
+                div.addEventListener('dragstart', vpnDns_dragStart);
+                draggableContainer.appendChild(div);
+            });
+            const dropZones = document.querySelectorAll('#vpnDns .vpnDns-drop-zone');
+            dropZones.forEach(zone => {
+                zone.innerHTML = 'Eşleşenleri buraya sürükleyin'; 
+                zone.addEventListener('dragover', vpnDns_dragOver);
+                zone.addEventListener('dragleave', vpnDns_dragLeave);
+                zone.addEventListener('drop', vpnDns_drop);
+            });
+            const gameFeedback = document.getElementById('vpnDns_componentGameFeedback');
+            if(gameFeedback) {
+                gameFeedback.innerHTML = '';
+                gameFeedback.className = 'feedback'; // Sınıfı sıfırla
+            }
+            if(moduleScores.vpnDnsComponentGame) moduleScores.vpnDnsComponentGame.score = 0;
+            // vpnDns_updateScoreBoard(); // Bu fonksiyon daha sonra eklenecek, çağrısı şimdilik yorum satırı
+        }
+        function vpnDns_dragStart(e) {
+            e.dataTransfer.setData('text/plain', e.target.id);
+            e.dataTransfer.effectAllowed = 'move';
+            vpnDns_currentDraggable = e.target;
+        }
+        function vpnDns_dragOver(e) {
+            e.preventDefault(); // Drop işleminin gerçekleşebilmesi için gerekli
+            e.dataTransfer.dropEffect = 'move';
+            this.classList.add('over');
+        }
+        function vpnDns_dragLeave(e) {
+            this.classList.remove('over');
+        }
+        function vpnDns_drop(e) {
+            e.preventDefault(); // Tarayıcının varsayılan dosya bırakma işlemini engelle
+            this.classList.remove('over');
+            const id = e.dataTransfer.getData('text/plain');
+            const draggableElement = document.getElementById(id);
+            
+            if (draggableElement && vpnDns_currentDraggable) { // vpnDns_currentDraggable kontrolü eklendi
+                // Sadece sürüklenen alanı temizle, eğer başlangıç metni varsa
+                if (this.textContent.trim() === 'Eşleşenleri buraya sürükleyin') {
+                    this.textContent = '';
+                }
+                this.appendChild(draggableElement); 
+            }
+            vpnDns_currentDraggable = null; // Her drop işleminden sonra sıfırla
+        }
+        function vpnDns_checkComponentGameAnswers() {
+            let correctCount = 0;
+            const feedbackDiv = document.getElementById('vpnDns_componentGameFeedback');
+            if(!feedbackDiv) return;
+            feedbackDiv.innerHTML = '';
+
+            vpnDns_componentData.forEach(item => {
+                const elementId = `vpnDns_comp-${item.name.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-_]/g, '')}`;
+                const element = document.getElementById(elementId);
+                if (element && element.parentElement.classList.contains('vpnDns-drop-zone')) {
+                    const parentZoneType = element.parentElement.dataset.type;
+                    if (item.type === parentZoneType) {
+                        correctCount++;
+                        element.style.backgroundColor = '#28a745'; // Yeşil (Doğru)
+                    } else {
+                        element.style.backgroundColor = '#dc3545'; // Kırmızı (Yanlış)
+                    }
+                } else if (element) { // Eğer eleman var ama drop-zone içinde değilse (yani sürüklenmemişse)
+                     element.style.backgroundColor = ''; // Rengini sıfırla (ya da başlangıç rengi)
+                }
+            });
+            if(moduleScores.vpnDnsComponentGame) moduleScores.vpnDnsComponentGame.score = correctCount; 
+            // vpnDns_updateScoreBoard(); // Bu fonksiyon daha sonra eklenecek
+            const totalComponents = vpnDns_componentData.length;
+            const unplacedComponentsContainer = document.getElementById('vpnDns_draggableComponents');
+            const unplacedComponents = unplacedComponentsContainer ? unplacedComponentsContainer.children.length : 0;
+
+            if (correctCount === totalComponents && unplacedComponents === 0) {
+                feedbackDiv.textContent = `Tebrikler! Tüm ${totalComponents} bileşeni doğru yerleştirdiniz.`;
+                feedbackDiv.className = 'feedback correct';
+            } else if (unplacedComponents > 0) {
+                 feedbackDiv.textContent = `Lütfen tüm ${totalComponents} bileşeni yerleştirin. Henüz ${unplacedComponents} bileşen sürüklenmedi. Doğru yerleştirilen: ${correctCount}.`;
+                feedbackDiv.className = 'feedback incorrect';
+            } else {
+                feedbackDiv.textContent = `${totalComponents} bileşenden ${correctCount} tanesini doğru yerleştirdiniz. Yanlış olanlar kırmızı ile işaretlendi.`;
+                feedbackDiv.className = 'feedback incorrect';
+            }
+        }
+        function vpnDns_resetComponentGame() {
+            vpnDns_initComponentGame();
+        }
+
+        // --- VPN/DNS Senaryo Karşılaştırma Fonksiyonları ---
+        function vpnDns_initScenarios() {
+            vpnDns_currentScenarioIndex = 0;
+            if(moduleScores.vpnDnsScenarioComparison) moduleScores.vpnDnsScenarioComparison.score = 0;
+            vpnDns_loadScenario(vpnDns_currentScenarioIndex);
+            const nextButton = document.getElementById('vpnDns_nextScenarioButton');
+            if(nextButton) nextButton.style.display = 'none';
+            // vpnDns_updateScoreBoard(); // Bu fonksiyon daha sonra eklenecek
+        }
+        function vpnDns_loadScenario(index) {
+            const scenarioContainer = document.getElementById('vpnDns_scenarioContainer');
+            const feedbackDiv = document.getElementById('vpnDns_scenarioFeedback');
+            if(!scenarioContainer || !feedbackDiv) {
+                console.error("Senaryo konteyner veya geri bildirim div bulunamadı.");
+                return;
+            }
+
+            feedbackDiv.innerHTML = '';
+            feedbackDiv.className = 'feedback'; // Sınıfı sıfırla
+            if (index < vpnDns_scenarios.length) {
+                const scenario = vpnDns_scenarios[index];
+                scenarioContainer.innerHTML = `
+                    <div class="vpnDns-scenario info-box" data-id="${scenario.id}">
+                        <p><strong>Senaryo ${index + 1}/${vpnDns_scenarios.length}:</strong> ${scenario.text}</p>
+                        <div class="vpnDns-scenario-buttons">
+                            <button class="quiz-button" onclick="vpnDns_checkScenarioAnswer(${scenario.id}, 'VPN')">VPN Daha Uygun</button>
+                            <button class="quiz-button" onclick="vpnDns_checkScenarioAnswer(${scenario.id}, 'DNS')">DNS Daha Uygun</button>
+                        </div>
+                    </div>
+                `;
+                const nextButton = document.getElementById('vpnDns_nextScenarioButton');
+                if(nextButton) nextButton.style.display = 'none';
+            } else {
+                scenarioContainer.innerHTML = "<p class='info-box'>Tüm senaryolar tamamlandı! Skorunuzu İlerleme bölümünde görebilirsiniz.</p>";
+                const nextButton = document.getElementById('vpnDns_nextScenarioButton');
+                if(nextButton) nextButton.style.display = 'none';
+                // vpnDns_updateScoreBoard(); // Son senaryodan sonra da skor güncellenebilir.
+            }
+        }
+        function vpnDns_checkScenarioAnswer(scenarioId, userAnswer) {
+            const scenario = vpnDns_scenarios.find(s => s.id == scenarioId);
+            const feedbackDiv = document.getElementById('vpnDns_scenarioFeedback');
+            const scenarioButtonsContainer = document.querySelector(`#vpnDns .vpnDns-scenario[data-id='${scenarioId}'] .vpnDns-scenario-buttons`);
+            
+            if(!feedbackDiv || !scenario) {
+                console.error("Geri bildirim div veya senaryo bulunamadı.");
+                return;
+            }
+
+            if (userAnswer === scenario.correct) {
+                feedbackDiv.innerHTML = `<strong>Doğru!</strong> ${scenario.explanation} <br/>🎉 Tebrikler!`;
+                feedbackDiv.className = 'feedback correct';
+                if(moduleScores.vpnDnsScenarioComparison) moduleScores.vpnDnsScenarioComparison.score++;
+            } else {
+                feedbackDiv.innerHTML = `<strong>Yanlış.</strong> Doğru cevap <strong>${scenario.correct}</strong> olmalıydı. <br/><strong>Açıklama:</strong> ${scenario.explanation}`;
+                feedbackDiv.className = 'feedback incorrect';
+            }
+            
+            if(scenarioButtonsContainer) { // Butonları kaldırıp cevabı göster
+                scenarioButtonsContainer.innerHTML = `<p style='font-weight:bold;'>Sizin Seçiminiz: ${userAnswer}</p>`;
+            }
+            const nextButton = document.getElementById('vpnDns_nextScenarioButton');
+            if(nextButton) nextButton.style.display = 'block';
+            // vpnDns_updateScoreBoard(); // Her cevaptan sonra skorbordu güncelle
+        }
+        function vpnDns_nextScenario() {
+            vpnDns_currentScenarioIndex++;
+            vpnDns_loadScenario(vpnDns_currentScenarioIndex);
+        }
+
+        // --- VPN/DNS Kısa Test Fonksiyonları ---
+        function vpnDns_initQuiz() {
+            const quizContainer = document.getElementById('vpnDns_quizContainer');
+            if(!quizContainer) return;
+            quizContainer.innerHTML = '';
+            if(moduleScores.vpnDnsQuiz) moduleScores.vpnDnsQuiz.score = 0;
+            
+            vpnDns_quizQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'vpnDns-quiz-question info-box';
+                let optionsHtml = '';
+                q.options.forEach(opt => {
+                    optionsHtml += `
+                        <label>
+                            <input type="radio" name="vpnDns_question${index}" value="${opt}"> ${opt}
+                        </label>
+                    `;
+                });
+                questionDiv.innerHTML = `
+                    <p><strong>Soru ${index + 1}/${vpnDns_quizQuestions.length}:</strong> ${q.question}</p>
+                    <div class="vpnDns-quiz-options">${optionsHtml}</div>
+                    <div id="vpnDns_feedback-q${index}" class="feedback" style="margin-top:10px;"></div>
+                `;
+                quizContainer.appendChild(questionDiv);
+            });
+            const quizFeedback = document.getElementById('vpnDns_quizFeedback');
+            if(quizFeedback) {
+                quizFeedback.innerHTML = '';
+                quizFeedback.className = 'feedback';
+            }
+            const quizScoreDisplay = document.getElementById('vpnDns_quizScore');
+            if(quizScoreDisplay) quizScoreDisplay.innerHTML = '';
+            // vpnDns_updateScoreBoard(); // Skorları en son submitQuiz içinde güncelleyeceğiz
+        }
+        function vpnDns_submitQuiz() {
+            if(moduleScores.vpnDnsQuiz) moduleScores.vpnDnsQuiz.score = 0;
+            const feedbackDiv = document.getElementById('vpnDns_quizFeedback');
+            if(!feedbackDiv) return;
+
+            vpnDns_quizQuestions.forEach((q, index) => {
+                const selectedOption = document.querySelector(`input[name="vpnDns_question${index}"]:checked`);
+                const questionFeedback = document.getElementById(`vpnDns_feedback-q${index}`);
+                if(!questionFeedback) return;
+
+                if (selectedOption) {
+                    if (selectedOption.value === q.answer) {
+                        if(moduleScores.vpnDnsQuiz) moduleScores.vpnDnsQuiz.score++;
+                        questionFeedback.innerHTML = `✔️ Doğru! ${q.explanation}`;
+                        questionFeedback.className = 'feedback correct';
+                    } else {
+                        questionFeedback.innerHTML = `❌ Yanlış. Doğru cevap: <strong>${q.answer}</strong>. <br/><em>Açıklama: ${q.explanation}</em>`;
+                        questionFeedback.className = 'feedback incorrect';
+                    }
+                } else {
+                    questionFeedback.innerHTML = `⚠️ Bu soru cevaplanmadı. Doğru cevap: <strong>${q.answer}</strong>. <br/><em>Açıklama: ${q.explanation}</em>`;
+                    questionFeedback.className = 'feedback incorrect'; // Cevaplanmamışsa da yanlış kabul edilebilir veya farklı bir stil.
+                }
+            });
+            const totalQuestions = vpnDns_quizQuestions.length;
+            const quizScoreDisplay = document.getElementById('vpnDns_quizScore');
+            if(quizScoreDisplay && moduleScores.vpnDnsQuiz) {
+                quizScoreDisplay.innerHTML = `
+                    <h4>Test Sonucu</h4>
+                    <p>Toplam ${totalQuestions} sorudan ${moduleScores.vpnDnsQuiz.score} tanesini doğru cevapladınız.</p>
+                `;
+            }
+            if (moduleScores.vpnDnsQuiz && moduleScores.vpnDnsQuiz.score === totalQuestions) {
+                 feedbackDiv.innerHTML = "Harika! Testteki tüm soruları doğru yanıtladınız!";
+                 feedbackDiv.className = 'feedback correct';
+            } else {
+                 feedbackDiv.innerHTML = "Test tamamlandı. Sonuçlarınızı yukarıda ve cevapların yanında görebilirsiniz.";
+                 feedbackDiv.className = 'feedback'; // Nötr genel bildirim
+            }
+            // vpnDns_updateScoreBoard(); // Bu fonksiyon eklendikten sonra çağrılacak
+        }
+
+        // --- VPN/DNS Skorlama ve İlerleme Fonksiyonları ---
+        function vpnDns_updateScoreBoard() {
+            // Elementlerin varlığını kontrol ederek güncelleme yap
+            const gameScoreEl = document.getElementById('vpnDns_componentGameScore');
+            const gameTotalEl = document.getElementById('vpnDns_componentGameTotal');
+            const scenarioScoreEl = document.getElementById('vpnDns_scenarioScore');
+            const scenarioTotalEl = document.getElementById('vpnDns_scenarioTotal');
+            const quizScoreEl = document.getElementById('vpnDns_quizTotalScore');
+            const quizTotalEl = document.getElementById('vpnDns_quizTotalQuestions');
+            const overallScoreEl = document.getElementById('vpnDns_overallScore');
+
+            if(gameScoreEl && moduleScores.vpnDnsComponentGame) gameScoreEl.textContent = moduleScores.vpnDnsComponentGame.score;
+            if(gameTotalEl && moduleScores.vpnDnsComponentGame) gameTotalEl.textContent = moduleScores.vpnDnsComponentGame.total;
+            if(scenarioScoreEl && moduleScores.vpnDnsScenarioComparison) scenarioScoreEl.textContent = moduleScores.vpnDnsScenarioComparison.score;
+            if(scenarioTotalEl && moduleScores.vpnDnsScenarioComparison) scenarioTotalEl.textContent = moduleScores.vpnDnsScenarioComparison.total;
+            if(quizScoreEl && moduleScores.vpnDnsQuiz) quizScoreEl.textContent = moduleScores.vpnDnsQuiz.score;
+            if(quizTotalEl && moduleScores.vpnDnsQuiz) quizTotalEl.textContent = moduleScores.vpnDnsQuiz.total;
+            if(overallScoreEl && moduleScores.vpnDnsOverall) overallScoreEl.textContent = moduleScores.vpnDnsOverall.score;
+        }
+
+        // --- VPN/DNS Skorlarını Yükleme Fonksiyonu ---
+        function vpnDns_loadScores() {
+            // Örnek: localStorage'dan skorları yükle
+            // const savedVpnDnsScores = localStorage.getItem('vpnDnsModuleScores');
+            // if (savedVpnDnsScores) {
+            // moduleScores.vpnDnsComponentGame = JSON.parse(savedVpnDnsScores).componentGame || moduleScores.vpnDnsComponentGame;
+            // moduleScores.vpnDnsScenarioComparison = JSON.parse(savedVpnDnsScores).scenarioComparison || moduleScores.vpnDnsScenarioComparison;
+            // moduleScores.vpnDnsQuiz = JSON.parse(savedVpnDnsScores).quiz || moduleScores.vpnDnsQuiz;
+            // }
+            if (typeof vpnDns_updateScoreBoard === 'function') vpnDns_updateScoreBoard();
+        }
+
+        // --- Porter'ın 5 Güç Modülü için Global Veriler ve Fonksiyonlar ---
+        let porter5guc_gameScore = { correct: 0, total: 0, played: false };
+        let porter5guc_quizScore = { correct: 0, total: 0, played: false };
+
+        const porter5guc_glossaryData = [
+            {
+                term: "Rekabet Ortamındaki Rekabet (Industry Rivalry)",
+                definition: "Endüstrideki mevcut firmalar arasındaki rekabetin yoğunluğu. Yoğun rekabet, fiyat savaşlarına, yüksek pazarlama harcamalarına ve düşük karlılığa yol açabilir. Etkileyen faktörler: rakip sayısı ve büyüklüğü, endüstri büyüme hızı, ürün farklılaşması, çıkış engelleri, sabit maliyetlerin yüksekliği."
+            },
+            {
+                term: "Yeni Gireceklerin Tehdidi (Threat of New Entrants)",
+                definition: "Pazara yeni firmaların girme olasılığı ve kolaylığı. Yüksek giriş tehdidi, mevcut firmaların fiyatları düşük tutmasına ve giriş engelleri yaratmasına neden olur. Etkileyen faktörler: giriş engelleri (ölçek ekonomileri, sermaye gereksinimleri, marka sadakati, dağıtım kanallarına erişim, devlet politikaları, patentler, mevcut firmaların misilleme beklentisi)."
+            },
+            {
+                term: "İkame Ürünlerin Tehdidi (Threat of Substitute Products or Services)",
+                definition: "Müşterilerin ihtiyaçlarını karşılayabilecek farklı endüstrilerden gelen alternatif ürün veya hizmetlerin varlığı. Güçlü ikame tehdidi, fiyatlar üzerinde baskı oluşturur ve karlılığı sınırlar. Etkileyen faktörler: ikame ürünlerin fiyat/performans oranı, müşterilerin ikameye geçiş maliyeti, ürün farklılaşması."
+            },
+            {
+                term: "Tedarikçilerin Pazarlık Gücü (Bargaining Power of Suppliers)",
+                definition: "Tedarikçilerin fiyatları artırma veya sağladıkları ürün/hizmetlerin kalitesini düşürme yeteneği. Güçlü tedarikçiler, endüstrinin karlılığını azaltabilir. Etkileyen faktörler: tedarikçi sayısı ve yoğunlaşması, girdilerin benzersizliği/farklılaşması, tedarikçi değiştirme maliyeti, tedarikçilerin ileriye doğru entegrasyon tehdidi, endüstrinin tedarikçi için önemi."
+            },
+            {
+                term: "Alıcıların Pazarlık Gücü (Bargaining Power of Buyers)",
+                definition: "Alıcıların fiyatları düşürme, daha yüksek kalite veya daha fazla hizmet talep etme yeteneği. Güçlü alıcılar, endüstrinin karlılığını azaltabilir. Etkileyen faktörler: alıcı sayısı ve yoğunlaşması, alım hacmi, ürünlerin standartlaşma derecesi, alıcıların değiştirme maliyeti, alıcıların geriye doğru entegrasyon tehdidi, fiyat hassasiyeti, ürünün alıcının toplam maliyetindeki payı."
+            },
+            { term: "Giriş Engelleri (Entry Barriers)", definition: "Yeni firmaların bir endüstriye girmesini zorlaştıran veya engelleyen faktörler. Örn: Yüksek sermaye gereksinimi, patentler, marka bilinirliği, ölçek ekonomileri, devlet düzenlemeleri." },
+            { term: "Değiştirme Maliyetleri (Switching Costs)", definition: "Bir müşterinin bir tedarikçiden, üründen veya hizmetten diğerine geçerken karşılaştığı maliyetler (parasal, zamansal, çaba, psikolojik)." },
+            { term: "Ürün Farklılaşması (Product Differentiation)", definition: "Bir firmanın ürün veya hizmetlerini rakiplerinden ayıran ve müşteriler tarafından algılanan benzersiz özellikler. Yüksek farklılaşma, rekabeti azaltabilir ve marka sadakati yaratabilir." },
+            { term: "Ölçek Ekonomileri (Economies of Scale)", definition: "Üretim hacmi arttıkça birim başına maliyetin düşmesi. Bu, büyük firmalar için bir avantaj ve yeni girecekler için bir engel olabilir." },
+            { term: "Marka Sadakati (Brand Loyalty)", definition: "Müşterilerin belirli bir markayı tercih etme ve sürekli olarak o markadan satın alma eğilimi. Yeni girecekler için önemli bir engeldir." },
+            { term: "İleri Entegrasyon (Forward Integration)", definition: "Bir şirketin tedarik zincirinde kendine daha yakın bir aşamaya (örneğin, bir üreticinin kendi perakende mağazalarını açması veya dağıtım ağını kurması) doğru genişlemesi. Tedarikçiler için bir güç kaynağı olabilir." },
+            { term: "Geri Entegrasyon (Backward Integration)", definition: "Bir şirketin tedarik zincirinde kendinden önceki bir aşamaya (örneğin, bir perakendecinin kendi ürünlerini üretmeye başlaması veya bir otomobil üreticisinin parça üretimine girmesi) doğru genişlemesi. Alıcılar için bir güç kaynağı olabilir." }
+        ];
+
+        const porter5guc_gameForces = [
+            { id: "porter5guc_force0", name: "Rekabet Ortamındaki Rekabet" },
+            { id: "porter5guc_force1", name: "Yeni Gireceklerin Tehdidi" },
+            { id: "porter5guc_force2", name: "İkame Ürünlerin Tehdidi" },
+            { id: "porter5guc_force3", name: "Tedarikçilerin Pazarlık Gücü" },
+            { id: "porter5guc_force4", name: "Alıcıların Pazarlık Gücü" }
+        ];
+        const porter5guc_gameFactors = [
+            { id: "porter5guc_factor0", text: "Çok sayıda benzer büyüklükte rakip firma", correctForceId: "porter5guc_force0" },
+            { id: "porter5guc_factor1", text: "Yüksek sermaye gereksinimleri ve Ar-Ge maliyetleri", correctForceId: "porter5guc_force1" },
+            { id: "porter5guc_factor2", text: "Alternatif ürünlerin düşük fiyatı ve iyi performansı", correctForceId: "porter5guc_force2" },
+            { id: "porter5guc_factor3", text: "Az sayıda kilit tedarikçi ve özelleşmiş girdi", correctForceId: "porter5guc_force3" },
+            { id: "porter5guc_factor4", text: "Alıcıların büyük alım hacimleri ve fiyat hassasiyeti", correctForceId: "porter5guc_force4" },
+            { id: "porter5guc_factor5", text: "Düşük endüstri büyüme hızı ve yüksek çıkış engelleri", correctForceId: "porter5guc_force0" },
+            { id: "porter5guc_factor6", text: "Devlet politikaları, lisanslama ve patent koruması", correctForceId: "porter5guc_force1" },
+            { id: "porter5guc_factor7", text: "Müşterinin ikame ürüne kolay ve düşük maliyetle geçişi", correctForceId: "porter5guc_force2" },
+            { id: "porter5guc_factor8", text: "Tedarik edilen girdinin kritik önemi ve farklılaşması", correctForceId: "porter5guc_force3" },
+            { id: "porter5guc_factor9", text: "Alıcılar için ürünlerin standartlaşmış olması, düşük değiştirme maliyeti", correctForceId: "porter5guc_force4" }
+        ];
+        let porter5guc_draggedItem = null;
+
+        const porter5guc_scenariosData = [
+            {
+                title: "Düşük Maliyetli Havayolu Sektörü",
+                description: "Bu sektör, genellikle yoğun fiyat rekabeti, yüksek sabit maliyetler (uçak, yakıt, bakım) ve fiyat odaklı müşterilerle karakterizedir. Uçuş rotaları ve hizmetler genellikle standartlaşmıştır.",
+                forces: [
+                    { name: "Yeni Gireceklerin Tehdidi", id: "porter5guc_s1_f1" },
+                    { name: "Tedarikçilerin Pazarlık Gücü (örn: uçak üreticileri, yakıt)", id: "porter5guc_s1_f2" },
+                    { name: "Alıcıların Pazarlık Gücü (yolcular)", id: "porter5guc_s1_f3" },
+                    { name: "İkame Ürünlerin Tehdidi (örn: tren, otobüs, araba)", id: "porter5guc_s1_f4" },
+                    { name: "Rekabet Ortamındaki Rekabet", id: "porter5guc_s1_f5" }
+                ]
+            },
+            {
+                title: "Lüks Akıllı Saat Pazarı",
+                description: "Bu pazar, yüksek marka değeri, teknolojik yenilik, özel tasarımlar ve genellikle daha az fiyat duyarlı, belirli bir statü veya yaşam tarzını arayan niş bir müşteri kitlesi ile tanımlanır. Ürünler genellikle yüksek oranda farklılaşmıştır.",
+                forces: [
+                    { name: "Yeni Gireceklerin Tehdidi", id: "porter5guc_s2_f1" },
+                    { name: "Tedarikçilerin Pazarlık Gücü (örn: çip üreticileri, özel malzeme tedarikçileri)", id: "porter5guc_s2_f2" },
+                    { name: "Alıcıların Pazarlık Gücü", id: "porter5guc_s2_f3" },
+                    { name: "İkame Ürünlerin Tehdidi (örn: geleneksel lüks saatler, standart akıllı saatler)", id: "porter5guc_s2_f4" },
+                    { name: "Rekabet Ortamındaki Rekabet", id: "porter5guc_s2_f5" }
+                ]
+            },
+            {
+                title: "Online Video Yayın Platformları (Örn: Netflix, Disney+)",
+                description: "Bu sektör, orijinal içerik üretimi, geniş kütüphaneler, abonelik tabanlı gelir modeli ve küresel rekabet ile karakterizedir. Kullanıcılar için platformlar arası geçiş maliyetleri genellikle düşüktür.",
+                forces: [
+                    { name: "Yeni Gireceklerin Tehdidi (örn: yeni yayın servisleri, büyük teknoloji şirketleri)", id: "porter5guc_s3_f1" },
+                    { name: "Tedarikçilerin Pazarlık Gücü (örn: içerik üreticileri, stüdyolar, yetenekler)", id: "porter5guc_s3_f2" },
+                    { name: "Alıcıların Pazarlık Gücü (aboneler)", id: "porter5guc_s3_f3" },
+                    { name: "İkame Ürünlerin Tehdidi (örn: kablolu TV, sinema, oyunlar, diğer eğlence türleri)", id: "porter5guc_s3_f4" },
+                    { name: "Rekabet Ortamındaki Rekabet", id: "porter5guc_s3_f5" }
+                ]
+            }
+        ];
+        let porter5guc_currentScenarioIndex = 0;
+
+        const porter5guc_quizData = [
+            {
+                question: "Porter'ın Beş Güç Modeli'nin temel amacı nedir?",
+                options: [
+                    "Bir şirketin içsel güçlü ve zayıf yönlerini analiz etmek.",
+                    "Bir endüstrinin karlılık potansiyelini ve rekabet yoğunluğunu analiz etmek.",
+                    "Makroekonomik trendleri tahmin etmek.",
+                    "Yeni ürün geliştirme süreçlerini yönetmek."
+                ],
+                correctAnswer: 1,
+                explanation: "Beş Güç Modeli, bir endüstrinin yapısını ve rekabet dinamiklerini anlayarak karlılık potansiyelini değerlendirmek için kullanılır."
+            },
+            {
+                question: "Bir endüstride alıcıların pazarlık gücü yüksekse, bu durum genellikle endüstri karlılığını nasıl etkiler?",
+                type: "tf", 
+                statement: "Bir endüstride alıcıların pazarlık gücü yüksekse, bu durum genellikle endüstri karlılığını olumlu etkiler.",
+                correctAnswer: false, 
+                explanation: "Alıcıların pazarlık gücünün yüksek olması, fiyatları aşağı çekebilecekleri veya daha fazla değer (kalite, hizmet) talep edebilecekleri anlamına gelir, bu da genellikle karlılığı olumsuz etkiler."
+            },
+            {
+                question: "Aşağıdakilerden hangisi 'Yeni Gireceklerin Tehdidi'ni azaltan bir faktördür?",
+                options: [
+                    "Düşük sermaye gereksinimleri",
+                    "Zayıf marka sadakati",
+                    "Yüksek ölçek ekonomilerinin varlığı",
+                    "Kolay erişilebilir dağıtım kanalları"
+                ],
+                correctAnswer: 2,
+                explanation: "Yüksek ölçek ekonomileri, mevcut büyük firmaların maliyet avantajına sahip olmasını sağlar ve yeni girecekler için bir engel (barrier to entry) teşkil eder, bu da tehdidi azaltır."
+            },
+            {
+                question: "Tedarikçilerin pazarlık gücünün yüksek olmasının bir nedeni aşağıdakilerden hangisi olabilir?",
+                options: [
+                    "Endüstride çok sayıda alternatif tedarikçi bulunması",
+                    "Tedarik edilen ürünün standart bir emtia olması",
+                    "Tedarikçinin ürününün endüstri için kritik öneme sahip olması ve az sayıda alternatifin bulunması",
+                    "Endüstri firmalarının tedarikçi değiştirme maliyetlerinin düşük olması"
+                ],
+                correctAnswer: 2,
+                explanation: "Kritik ve az bulunan girdiler (veya farklılaşmış girdiler) tedarikçilere daha fazla pazarlık gücü verir, çünkü endüstri firmaları bu tedarikçilere bağımlıdır."
+            },
+            {
+                question: "'İkame Ürün Tehdidi' ne anlama gelir?",
+                options: [
+                    "Aynı endüstrideki rakip firmaların benzer ürünler sunması durumu",
+                    "Müşterilerin aynı temel ihtiyacı farklı bir endüstriden gelen bir ürün veya hizmetle karşılayabilmesi",
+                    "Tedarikçilerin kendi ürünlerini doğrudan pazara sunma olasılığı",
+                    "Pazara yeni firmaların girmesiyle oluşacak potansiyel rekabet"
+                ],
+                correctAnswer: 1,
+                explanation: "İkame ürünler, farklı bir endüstriden gelmelerine rağmen aynı temel müşteri ihtiyacını karşılayan alternatiflerdir (örneğin, tren vs. uçak)."
+            }
+        ];
+
+        // Porter 5 Güç Alt Bölüm Yönlendirme
+        function porter5guc_showSection(subsectionId) {
+            console.log(`porter5guc_showSection called with: ${subsectionId}`);
+
+            document.querySelectorAll('#porter5guc .porter5guc-subsection').forEach(section => {
+                if (section) section.classList.remove('active');
+            });
+            const activeSubsection = document.getElementById(subsectionId);
+            if (activeSubsection) {
+                activeSubsection.classList.add('active');
+                console.log(`Activated subsection: ${subsectionId}`);
+            } else {
+                console.error(`Porter subsection with ID '${subsectionId}' not found.`);
+            }
+
+            document.querySelectorAll('#porter5guc_nav button').forEach(button => {
+                if (button) {
+                    button.classList.remove('active');
+                    const onclickAttr = button.getAttribute('onclick');
+                    if (onclickAttr && onclickAttr.includes(`porter5guc_showSection('${subsectionId}')`)) {
+                        button.classList.add('active');
+                    }
+                }
+            });
+
+            if (activeSubsection) {
+                if (subsectionId === 'porter5guc_glossary' && typeof porter5guc_loadGlossary === 'function') porter5guc_loadGlossary();
+                if (subsectionId === 'porter5guc_game' && typeof porter5guc_initializeGame === 'function') porter5guc_initializeGame();
+                if (subsectionId === 'porter5guc_scenarios' && typeof porter5guc_loadScenarios === 'function') porter5guc_loadScenarios();
+                if (subsectionId === 'porter5guc_quiz' && typeof porter5guc_loadQuiz === 'function') porter5guc_loadQuiz();
+                if (subsectionId === 'porter5guc_progress' && typeof porter5guc_updateProgressDisplay === 'function') porter5guc_updateProgressDisplay();
+            }
+        }
+
+        // Porter 5 Güç Kavramlar Sözlüğü
+        function porter5guc_renderGlossary(dataToRender) {
+            const glossaryContent = document.getElementById('porter5guc_glossary-content');
+            if (!glossaryContent) {
+                console.error("Porter Glossary content element not found!");
+                return;
+            }
+            glossaryContent.innerHTML = '';
+            dataToRender.forEach(item => {
+                const div = document.createElement('div');
+                div.classList.add('porter5guc-glossary-item');
+                div.innerHTML = `<strong>${item.term}:</strong> ${item.definition}`;
+                glossaryContent.appendChild(div);
+            });
+        }
+
+        function porter5guc_filterGlossary() {
+            const searchInput = document.getElementById('porter5guc_glossary-search');
+            if (!searchInput) {
+                console.error("Porter Glossary search input not found!");
+                return;
+            }
+            const searchTerm = searchInput.value.toLowerCase();
+            const filteredData = porter5guc_glossaryData.filter(item =>
+                item.term.toLowerCase().includes(searchTerm) ||
+                item.definition.toLowerCase().includes(searchTerm)
+            );
+            porter5guc_renderGlossary(filteredData);
+        }
+
+        function porter5guc_loadGlossary() {
+            porter5guc_renderGlossary(porter5guc_glossaryData);
+            const searchInput = document.getElementById('porter5guc_glossary-search');
+            if (searchInput) {
+                searchInput.value = '';
+                searchInput.onkeyup = porter5guc_filterGlossary;
+            } else {
+                console.error("Porter Glossary search input not found during load!");
+            }
+        }
+
+        // Porter 5 Güç Bileşen Tanıma Oyunu
+        function porter5guc_initializeGame() {
+            const factorsSource = document.getElementById('porter5guc_factors-source');
+            const forcesTargetContainer = document.getElementById('porter5guc_forces-target');
+            const gameScoreDisplay = document.getElementById('porter5guc_game-score-display');
+            
+            if (!factorsSource || !forcesTargetContainer) return;
+
+            factorsSource.innerHTML = '<h4>Faktörler (Sürükleyin)</h4>'; 
+            forcesTargetContainer.innerHTML = ''; 
+
+            const shuffledFactors = [...porter5guc_gameFactors].sort(() => Math.random() - 0.5);
+
+            shuffledFactors.forEach(factor => {
+                const factorEl = document.createElement('div');
+                factorEl.classList.add('factor-item'); // CSS sınıfı porter5guc_ ön eki olmadan, HTML'deki gibi
+                factorEl.textContent = factor.text;
+                factorEl.id = factor.id; // ID'ler zaten porter5guc_ içeriyor
+                factorEl.draggable = true;
+                factorEl.addEventListener('dragstart', porter5guc_dragStart);
+                factorsSource.appendChild(factorEl);
+            });
+
+            porter5guc_gameForces.forEach(force => {
+                const dropzone = document.createElement('div');
+                dropzone.classList.add('force-dropzone'); // CSS sınıfı porter5guc_ ön eki olmadan
+                dropzone.id = force.id; // ID'ler zaten porter5guc_ içeriyor
+                dropzone.innerHTML = `<h4>${force.name}</h4>`;
+                dropzone.addEventListener('dragover', porter5guc_dragOver);
+                dropzone.addEventListener('dragenter', porter5guc_dragEnter);
+                dropzone.addEventListener('dragleave', porter5guc_dragLeave);
+                dropzone.addEventListener('drop', porter5guc_drop);
+                forcesTargetContainer.appendChild(dropzone);
+            });
+            if (gameScoreDisplay) gameScoreDisplay.textContent = '';
+            porter5guc_gameScore = { correct: 0, total: porter5guc_gameFactors.length, played: false };
+            if (typeof porter5guc_updateProgressDisplay === 'function') porter5guc_updateProgressDisplay();
+        }
+
+        function porter5guc_dragStart(e) {
+            porter5guc_draggedItem = e.target;
+            e.dataTransfer.setData('text/plain', e.target.id);
+        }
+
+        function porter5guc_dragOver(e) {
+            e.preventDefault();
+        }
+
+        function porter5guc_dragEnter(e) {
+            e.preventDefault();
+            // CSS sınıfı porter5guc_ ön eki olmadan
+            if (e.target.classList.contains('force-dropzone')) {
+                e.target.classList.add('drag-over');
+            }
+        }
+
+        function porter5guc_dragLeave(e) {
+            // CSS sınıfı porter5guc_ ön eki olmadan
+            if (e.target.classList.contains('force-dropzone')) {
+                e.target.classList.remove('drag-over');
+            }
+        }
+
+        function porter5guc_drop(e) {
+            e.preventDefault();
+            const dropzone = e.target.closest('.force-dropzone'); // CSS sınıfı porter5guc_ ön eki olmadan
+            if (dropzone && porter5guc_draggedItem) {
+                dropzone.appendChild(porter5guc_draggedItem);
+                dropzone.classList.remove('drag-over');
+            }
+            porter5guc_draggedItem = null;
+        }
+
+        function porter5guc_checkGameAnswers() {
+            let correctMatches = 0;
+            porter5guc_gameScore.played = true;
+
+            porter5guc_gameFactors.forEach(factorData => {
+                const factorEl = document.getElementById(factorData.id);
+                if (factorEl && factorEl.parentElement) {
+                    factorEl.classList.remove('correct-match', 'incorrect-match'); 
+                    if (factorEl.parentElement.id === factorData.correctForceId) {
+                        factorEl.classList.add('correct-match');
+                        correctMatches++;
+                    } else if (factorEl.parentElement.classList.contains('force-dropzone')) { // CSS sınıfı porter5guc_ ön eki olmadan
+                         factorEl.classList.add('incorrect-match');
+                    }
+                }
+            });
+
+            porter5guc_gameScore.correct = correctMatches;
+            const gameScoreDisplay = document.getElementById('porter5guc_game-score-display');
+            if (gameScoreDisplay) {
+                gameScoreDisplay.innerHTML = `Skor: ${correctMatches} / ${porter5guc_gameFactors.length} doğru.<br>`;
+                if (correctMatches < porter5guc_gameFactors.length) {
+                    gameScoreDisplay.innerHTML += `Yanlış yerleştirilen veya yerleştirilmeyen faktörler kırmızı ile işaretlendi. Doğrular yeşil.`;
+                } else {
+                     gameScoreDisplay.innerHTML += `Tebrikler, tüm eşleştirmeler doğru!`;
+                }
+            }
+            if (typeof porter5guc_updateProgressDisplay === 'function') porter5guc_updateProgressDisplay();
+        }
+
+        function porter5guc_resetGame() {
+            if (typeof porter5guc_initializeGame === 'function') porter5guc_initializeGame(); 
+        }
+
+        // Porter 5 Güç Senaryo Bazlı Analiz
+        function porter5guc_loadScenarios() {
+            const scenariosContent = document.getElementById('porter5guc_scenarios-content');
+            const prevBtn = document.getElementById('porter5guc_prevScenarioBtn');
+            const nextBtn = document.getElementById('porter5guc_nextScenarioBtn');
+
+            if(!scenariosContent) return;
+            scenariosContent.innerHTML = ''; 
+
+            const scenario = porter5guc_scenariosData[porter5guc_currentScenarioIndex];
+            if (!scenario) {
+                scenariosContent.innerHTML = "<p class='info-box'>Tüm senaryolar tamamlandı. İlerleme Takibi bölümünden genel durumunuza bakabilirsiniz.</p>";
+                if(prevBtn) prevBtn.style.display = porter5guc_currentScenarioIndex > 0 ? 'inline-block' : 'none';
+                if(nextBtn) nextBtn.style.display = 'none';
+                return;
+            }
+            const scenarioDiv = document.createElement('div');
+            scenarioDiv.classList.add('scenario');
+            scenarioDiv.innerHTML = `
+                <h3>${scenario.title} (Senaryo ${porter5guc_currentScenarioIndex + 1}/${porter5guc_scenariosData.length})</h3>
+                <p>${scenario.description}</p>
+                <div class="scenario-forces">
+                    ${scenario.forces.map(force => `
+                        <div class="scenario-force-evaluation">
+                            <label for="${force.id}">${force.name}:</label>
+                            <div>
+                                <input type="radio" id="${force.id}_low" name="${force.id}" value="Düşük">
+                                <label for="${force.id}_low" class="radio-label">Düşük</label>
+                                <input type="radio" id="${force.id}_medium" name="${force.id}" value="Orta" checked>
+                                <label for="${force.id}_medium" class="radio-label">Orta</label>
+                                <input type="radio" id="${force.id}_high" name="${force.id}" value="Yüksek">
+                                <label for="${force.id}_high" class="radio-label">Yüksek</label>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                <button onclick="porter5guc_analyzeCurrentScenario()" class="quiz-button">Bu Senaryoyu Analiz Et</button>
+                <div class="scenario-result" id="porter5guc_result_${porter5guc_currentScenarioIndex}" style="display:none;"></div>
+            `;
+            scenariosContent.appendChild(scenarioDiv);
+            if (typeof porter5guc_updateScenarioNavigationButtons === 'function') porter5guc_updateScenarioNavigationButtons();
+        }
+
+        function porter5guc_analyzeCurrentScenario() {
+            const scenario = porter5guc_scenariosData[porter5guc_currentScenarioIndex];
+            const resultDiv = document.getElementById(`porter5guc_result_${porter5guc_currentScenarioIndex}`);
+            if (!resultDiv || !scenario) return;
+
+            let analysisText = "<h4>Analiz Sonucu:</h4><ul>";
+            let highImpactForces = 0; 
+            let lowImpactForces = 0;  
+
+            scenario.forces.forEach(force => {
+                const selectedValueElement = document.querySelector(`input[name="${force.id}"]:checked`);
+                if (!selectedValueElement) return;
+                const selectedValue = selectedValueElement.value;
+                analysisText += `<li><strong>${force.name}:</strong> ${selectedValue} olarak değerlendirildi. `;
+                switch (selectedValue) {
+                    case "Yüksek":
+                        analysisText += `Bu durum, ${force.name.toLowerCase()} kaynaklı önemli bir baskı (veya tehdit) olduğunu gösterir ve genellikle karlılığı olumsuz etkiler.`;
+                        highImpactForces++;
+                        break;
+                    case "Orta":
+                        analysisText += `Bu durum, ${force.name.toLowerCase()} kaynaklı orta düzeyde bir etki olduğunu gösterir. Karlılık üzerindeki etkisi diğer güçlere bağlı olarak değişebilir.`;
+                        break;
+                    case "Düşük":
+                        analysisText += `Bu durum, ${force.name.toLowerCase()} kaynaklı düşük bir baskı (veya tehdit) olduğunu gösterir ve genellikle karlılığı olumlu etkiler.`;
+                        lowImpactForces++;
+                        break;
+                }
+                analysisText += `</li>`;
+            });
+            analysisText += "</ul>";
+
+            let overallProfitability = "";
+            if (highImpactForces >= 3) {
+                overallProfitability = "<strong>Genel Karlılık Potansiyeli: Düşük.</strong> Endüstride rekabet yoğun ve/veya dış baskılar fazla görünüyor.";
+            } else if (lowImpactForces >= 3) {
+                overallProfitability = "<strong>Genel Karlılık Potansiyeli: Yüksek.</strong> Endüstride rekabet daha az yoğun ve/veya dış baskılar yönetilebilir düzeyde görünüyor.";
+            } else {
+                overallProfitability = "<strong>Genel Karlılık Potansiyeli: Orta.</strong> Endüstride bazı olumlu ve olumsuz faktörler dengede görünüyor. Karlılık, şirketin stratejik konumlanmasına bağlı olacaktır.";
+            }
+            
+            if (highImpactForces === scenario.forces.length) {
+                 overallProfitability = "<strong>Genel Karlılık Potansiyeli: Çok Düşük.</strong> Tüm güçler endüstri karlılığını ciddi şekilde baskılıyor.";
+            } else if (lowImpactForces === scenario.forces.length) {
+                 overallProfitability = "<strong>Genel Karlılık Potansiyeli: Çok Yüksek.</strong> Tüm güçler endüstri karlılığı için elverişli görünüyor.";
+            }
+
+            resultDiv.innerHTML = analysisText + `<p>${overallProfitability}</p>`;
+            resultDiv.style.display = 'block';
+            
+            const analyzeButton = resultDiv.previousElementSibling;
+            if(analyzeButton && analyzeButton.tagName === 'BUTTON' && analyzeButton.textContent.includes('Analiz Et')) {
+                analyzeButton.style.display = 'none'; 
+            }
+        }
+        
+        function porter5guc_nextScenario() {
+            if (porter5guc_currentScenarioIndex < porter5guc_scenariosData.length - 1) {
+                porter5guc_currentScenarioIndex++;
+                if (typeof porter5guc_loadScenarios === 'function') porter5guc_loadScenarios();
+            }
+        }
+
+        function porter5guc_prevScenario() {
+            if (porter5guc_currentScenarioIndex > 0) {
+                porter5guc_currentScenarioIndex--;
+                if (typeof porter5guc_loadScenarios === 'function') porter5guc_loadScenarios();
+            }
+        }
+
+        function porter5guc_updateScenarioNavigationButtons() {
+            const prevBtn = document.getElementById('porter5guc_prevScenarioBtn');
+            const nextBtn = document.getElementById('porter5guc_nextScenarioBtn');
+            if(prevBtn) prevBtn.style.display = porter5guc_currentScenarioIndex > 0 ? 'inline-block' : 'none';
+            if(nextBtn) nextBtn.style.display = porter5guc_currentScenarioIndex < porter5guc_scenariosData.length - 1 ? 'inline-block' : 'none';
+        }
+
+        // Porter 5 Güç Kısa Test
+        function porter5guc_loadQuiz() {
+            const quizContent = document.getElementById('porter5guc_quiz-content');
+            const quizScoreEl = document.getElementById('porter5guc_quiz-score');
+            if(!quizContent) return;
+
+            quizContent.innerHTML = ''; 
+            porter5guc_quizData.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'quiz-question';
+                let optionsHtml = '';
+                if (q.type === 'tf') {
+                    optionsHtml = `
+                        <label class="radio-label"><input type="radio" name="porter5guc_question${index}" value="true"> Doğru</label>
+                        <label class="radio-label"><input type="radio" name="porter5guc_question${index}" value="false"> Yanlış</label>
+                    `;
+                } else {
+                    optionsHtml = q.options.map((option, i) => `
+                        <label><input type="radio" name="porter5guc_question${index}" value="${i}"> ${option}</label>
+                    `).join('');
+                }
+
+                questionDiv.innerHTML = `
+                    <p>${index + 1}. ${q.type === 'tf' ? q.statement : q.question}</p>
+                    <div class="quiz-options" id="porter5guc_q_options_${index}">
+                        ${optionsHtml}
+                    </div>
+                    <div class="quiz-feedback" id="porter5guc_feedback${index}"></div>
+                    <div class="quiz-explanation" id="porter5guc_explanation${index}" style="display:none;"></div>
+                `;
+                quizContent.appendChild(questionDiv);
+            });
+            if(quizScoreEl) quizScoreEl.textContent = '';
+            porter5guc_quizScore = { correct: 0, total: porter5guc_quizData.length, played: false };
+            if (typeof porter5guc_updateProgressDisplay === 'function') porter5guc_updateProgressDisplay();
+        }
+
+        function porter5guc_submitQuiz() {
+            let score = 0;
+            porter5guc_quizScore.played = true;
+
+            porter5guc_quizData.forEach((q, index) => {
+                const feedbackEl = document.getElementById(`porter5guc_feedback${index}`);
+                const explanationEl = document.getElementById(`porter5guc_explanation${index}`);
+                const optionsContainer = document.getElementById(`porter5guc_q_options_${index}`);
+                
+                if (!feedbackEl || !explanationEl || !optionsContainer) return;
+                
+                optionsContainer.querySelectorAll('input[type="radio"]').forEach(rb => rb.disabled = true);
+
+                const selectedOption = document.querySelector(`input[name="porter5guc_question${index}"]:checked`);
+                if (selectedOption) {
+                    let userAnswer;
+                    if (q.type === 'tf') {
+                        userAnswer = selectedOption.value === 'true';
+                    } else {
+                        userAnswer = parseInt(selectedOption.value);
+                    }
+
+                    if (userAnswer === q.correctAnswer) {
+                        score++;
+                        feedbackEl.textContent = "Doğru!";
+                        feedbackEl.className = 'quiz-feedback correct';
+                    } else {
+                        feedbackEl.textContent = `Yanlış. Doğru cevap: ${q.type === 'tf' ? (q.correctAnswer ? 'Doğru' : 'Yanlış') : q.options[q.correctAnswer]}`;
+                        feedbackEl.className = 'quiz-feedback incorrect';
+                    }
+                } else {
+                    feedbackEl.textContent = "Cevaplanmadı.";
+                    feedbackEl.className = 'quiz-feedback incorrect';
+                }
+                explanationEl.textContent = `Açıklama: ${q.explanation}`;
+                explanationEl.style.display = 'block';
+            });
+
+            porter5guc_quizScore.correct = score;
+            const quizScoreEl = document.getElementById('porter5guc_quiz-score');
+            if (quizScoreEl) quizScoreEl.textContent = `Test Skoru: ${score} / ${porter5guc_quizData.length} doğru.`;
+            if (typeof porter5guc_updateProgressDisplay === 'function') porter5guc_updateProgressDisplay();
+        }
+
+        // Porter 5 Güç İlerleme Takibi
+        function porter5guc_updateProgressDisplay() {
+            const gameProgressEl = document.getElementById('porter5guc_game-progress-score');
+            const quizProgressEl = document.getElementById('porter5guc_quiz-progress-score');
+            const overallProgressEl = document.getElementById('porter5guc_overall-progress');
+
+            if (gameProgressEl) {
+                gameProgressEl.textContent = porter5guc_gameScore.played ? `${porter5guc_gameScore.correct} / ${porter5guc_gameScore.total} doğru` : "Henüz oynanmadı.";
+            }
+            if (quizProgressEl) {
+                quizProgressEl.textContent = porter5guc_quizScore.played ? `${porter5guc_quizScore.correct} / ${porter5guc_quizScore.total} doğru` : "Henüz çözülmedi.";
+            }
+
+            if (overallProgressEl) {
+                let totalCorrect = 0;
+                let totalPossible = 0;
+                let activitiesPlayed = 0;
+
+                if (porter5guc_gameScore.played) {
+                    totalCorrect += porter5guc_gameScore.correct;
+                    totalPossible += porter5guc_gameScore.total;
+                    activitiesPlayed++;
+                }
+                if (porter5guc_quizScore.played) {
+                    totalCorrect += porter5guc_quizScore.correct;
+                    totalPossible += porter5guc_quizScore.total;
+                    activitiesPlayed++;
+                }
+
+                if (activitiesPlayed > 0 && totalPossible > 0) {
+                    const percentage = (totalCorrect / totalPossible * 100).toFixed(1);
+                    overallProgressEl.textContent = `${percentage}% (${totalCorrect} / ${totalPossible} doğru)`;
+                } else {
+                    overallProgressEl.textContent = "N/A";
+                }
+            }
+            
+            if (typeof updateModuleScoreBoard === 'function') {
+                if (!moduleScores.porter5gucGame) moduleScores.porter5gucGame = {};
+                if (!moduleScores.porter5gucQuiz) moduleScores.porter5gucQuiz = {};
+
+                moduleScores.porter5gucGame.score = porter5guc_gameScore.correct;
+                moduleScores.porter5gucGame.total = porter5guc_gameScore.total;
+                moduleScores.porter5gucGame.played = porter5guc_gameScore.played;
+                
+                moduleScores.porter5gucQuiz.score = porter5guc_quizScore.correct;
+                moduleScores.porter5gucQuiz.total = porter5guc_quizScore.total;
+                moduleScores.porter5gucQuiz.played = porter5guc_quizScore.played;
+                // updateModuleScoreBoard(); // Bu, genel skor tablosunu güncelleyebilir, döngüden kaçınmak için dikkatli olunmalı.
+            }
+        }
+
+        function porter5guc_resetAllProgress() {
+            porter5guc_gameScore = { correct: 0, total: porter5guc_gameFactors.length, played: false };
+            porter5guc_quizScore = { correct: 0, total: porter5guc_quizData.length, played: false };
+            
+            const activePorterGameSection = document.getElementById('porter5guc_game');
+            if (activePorterGameSection && activePorterGameSection.classList.contains('active') && typeof porter5guc_resetGame === 'function') {
+                 porter5guc_resetGame();
+            } else if (typeof porter5guc_initializeGame === 'function') {
+                // Eğer oyun bölümü aktif değilse bile, resetlerken başlangıç durumuna getirmek için initialize çağrılabilir.
+                // porter5guc_initializeGame(); // Gerekirse açılabilir.
+            }
+
+            const activePorterQuizSection = document.getElementById('porter5guc_quiz');
+            if (activePorterQuizSection && activePorterQuizSection.classList.contains('active') && typeof porter5guc_loadQuiz === 'function') {
+                porter5guc_loadQuiz(); 
+            } else if (typeof porter5guc_loadQuiz === 'function') {
+                // porter5guc_loadQuiz(); // Gerekirse açılabilir.
+            }
+            
+            const gameScoreDisplay = document.getElementById('porter5guc_game-score-display');
+            if(gameScoreDisplay) gameScoreDisplay.textContent = '';
+            const quizScoreDisplay = document.getElementById('porter5guc_quiz-score');
+            if(quizScoreDisplay) quizScoreDisplay.textContent = '';
+
+            if (typeof porter5guc_updateProgressDisplay === 'function') porter5guc_updateProgressDisplay(); 
+        }
+
+        // --- Organizasyon ve Strateji Kısa Test Fonksiyonları ---
+        let currentQuestionIndex = 0;
+        let quizScores = { correct: 0, answered: [] };
+
+        function initQuiz() {
+            currentQuestionIndex = 0;
+            quizScores = { correct: 0, answered: new Array(quizQuestions.length).fill(null) };
+            
+            document.getElementById('quizScore').innerHTML = '';
+            document.getElementById('submitQuizBtn').style.display = 'none';
+            document.getElementById('questionFeedback').style.display = 'none';
+            document.getElementById('learnMoreContainer').innerHTML = '';
+            
+            displayQuestion(currentQuestionIndex);
+            updateQuizNavigation();
+        }
+
+        function displayQuestion(index) {
+            const qc = document.getElementById('quizContainer');
+            const qFeedback = document.getElementById('questionFeedback');
+            const learnMoreContainer = document.getElementById('learnMoreContainer');
+            qc.innerHTML = '';
+            qFeedback.style.display = 'none';
+            learnMoreContainer.innerHTML = '';
+
+            if (index < 0 || index >= quizQuestions.length) return;
+
+            const qData = quizQuestions[index];
+            const qDiv = document.createElement('div');
+            qDiv.className = 'quiz-question';
+
+            let optsHtml = qData.options.map((opt, i) => 
+                `<label><input type="radio" name="q${index}" value="${opt}" data-option-index="${i}"> ${opt}</label>`
+            ).join('');
+
+            qDiv.innerHTML = `<p><strong>Soru ${index + 1}/${quizQuestions.length}:</strong> ${qData.question}</p><div class="quiz-options">${optsHtml}</div>`;
+            qc.appendChild(qDiv);
+
+            const radioButtons = qc.querySelectorAll(`input[name="q${index}"]`);
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', handleAnswerSelection);
+                if (quizScores.answered[index] !== null && quizScores.answered[index].selectedOptionValue === radio.value) {
+                    radio.checked = true;
+                    showAnswerFeedback(qData, radio.value, radio.parentElement);
+                    disableOptions(radioButtons, radio);
+                }
+            });
+            
+            if (quizScores.answered.every(ans => ans !== null)) {
+                document.getElementById('submitQuizBtn').style.display = 'block';
+            }
+        }
+
+        function handleAnswerSelection(event) {
+            const selectedRadio = event.target;
+            const questionIndex = currentQuestionIndex;
+            const qData = quizQuestions[questionIndex];
+            const selectedValue = selectedRadio.value;
+            const selectedLabel = selectedRadio.parentElement;
+
+            const isCorrect = selectedValue === qData.answer;
+            quizScores.answered[questionIndex] = { selectedOptionValue: selectedValue, isCorrect: isCorrect };
+            
+            // Hemen geri bildirim göster
+            showAnswerFeedback(qData, selectedValue, selectedLabel);
+            disableOptions(document.querySelectorAll(`input[name=\"q${questionIndex}\"]`), selectedRadio);
+
+            if (isCorrect) {
+                quizScores.correct = quizScores.answered.filter(a => a && a.isCorrect).length;
+            }
+
+            // Otomatik geçiş kaldırıldı. Sadece feedback gösterilecek, kullanıcı Sonraki Soru butonuna tıklayacak.
+            if (quizScores.answered.every(ans => ans !== null)) {
+                document.getElementById('submitQuizBtn').style.display = 'block';
+            }
+        }
+
+        function showAnswerFeedback(qData, selectedValue, selectedLabel) {
+            const qFeedback = document.getElementById('questionFeedback');
+            qFeedback.style.display = 'block';
+            
+            if (selectedValue === qData.answer) {
+                qFeedback.textContent = "Doğru! 🎉";
+                qFeedback.className = 'feedback correct';
+                selectedLabel.style.backgroundColor = '#d4edda';
+                selectedLabel.style.color = '#155724';
+            } else {
+                qFeedback.textContent = `Yanlış. Doğru cevap: ${qData.answer}`;
+                qFeedback.className = 'feedback incorrect';
+                selectedLabel.style.backgroundColor = '#f8d7da';
+                selectedLabel.style.color = '#721c24';
+                
+                // Doğru cevabı göster
+                const allLabels = document.querySelectorAll(`input[name="q${currentQuestionIndex}"]`);
+                allLabels.forEach(radio => {
+                    if (radio.value === qData.answer) {
+                        radio.parentElement.style.backgroundColor = '#d4edda';
+                        radio.parentElement.style.color = '#155724';
+                    }
+                });
+            }
+        }
+
+        function disableOptions(radioButtons, selectedRadio) {
+            radioButtons.forEach(rb => {
+                if (rb !== selectedRadio) {
+                    rb.disabled = true;
+                    rb.parentElement.style.cursor = 'not-allowed';
+                    rb.parentElement.style.opacity = '0.7';
+                }
+                rb.removeEventListener('change', handleAnswerSelection);
+            });
+        }
+
+        function updateQuizNavigation() {
+            document.getElementById('prevQuestionBtn').disabled = currentQuestionIndex === 0;
+            document.getElementById('nextQuestionBtn').disabled = currentQuestionIndex === quizQuestions.length - 1;
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < quizQuestions.length - 1) {
+                currentQuestionIndex++;
+                displayQuestion(currentQuestionIndex);
+                updateQuizNavigation();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                displayQuestion(currentQuestionIndex);
+                updateQuizNavigation();
+            }
+        }
+
+        function submitQuiz() {
+            quizScores.correct = quizScores.answered.filter(a => a && a.isCorrect).length;
+
+            const feedback = document.getElementById('questionFeedback');
+            const scoreDiv = document.getElementById('quizScore');
+            
+            const allAttempted = quizScores.answered.every(ans => ans !== null);
+
+            if (!allAttempted && !confirm("Tüm soruları cevaplamadınız. Yine de testi bitirmek istiyor musunuz?")) {
+                return;
+            }
+
+            scoreDiv.innerHTML = `<h3>Test Sonucu: ${quizScores.correct}/${quizQuestions.length} doğru.</h3>`;
+            if (allAttempted) {
+                feedback.textContent = quizScores.correct === quizQuestions.length ? "Mükemmel! Testteki tüm soruları doğru yanıtladınız!" : "Test tamamlandı. Sonuçlarınızı yukarıda görebilirsiniz.";
+            } else {
+                feedback.textContent = "Test tamamlandı (bazı sorular cevaplanmadı). Sonuçlarınızı yukarıda görebilirsiniz.";
+            }
+            feedback.className = quizScores.correct === quizQuestions.length && allAttempted ? 'feedback correct' : 'feedback';
+            feedback.style.display = 'block';
+            
+            document.getElementById('quizContainer').innerHTML = "<p style='text-align:center;'>Testi yeniden başlatmak için lütfen 'İlerleme' sekmesinden ilerlemeyi sıfırlayın veya Test sekmesine yeniden tıklayın.</p>";
+            document.querySelector('.quiz-navigation').style.display = 'none';
+            document.getElementById('submitQuizBtn').style.display = 'none';
+            document.getElementById('learnMoreContainer').innerHTML = '';
+        }
+
+        // Otomatik başlatma: Quiz sekmesi açıldığında soruları yükle
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('quiz')) {
+                initQuiz();
+            }
+        });
+
+        // --- Organizasyon ve Strateji Kısa Test Soruları ---
+        const quizQuestions = [
+            {
+                question: "İşletmeler arasında standart formatlarda elektronik olarak belge (sipariş, fatura vb.) değişimini sağlayan sisteme ne ad verilir?",
+                options: [
+                    "CRM (Customer Relationship Management)",
+                    "SCM (Supply Chain Management)",
+                    "EDI (Electronic Data Interchange)",
+                    "ERP (Enterprise Resource Planning)",
+                    "VPN (Virtual Private Network)"
+                ],
+                answer: "EDI (Electronic Data Interchange)"
+            },
+            {
+                question: "Porter'ın Rekabetçi Güçler Modeli'ne göre, bir sektöre yeni firmaların girme kolaylığı veya zorluğu hangi gücü ifade eder?",
+                options: [
+                    "Tedarikçilerin Pazarlık Gücü",
+                    "Müşterilerin Pazarlık Gücü",
+                    "İkame Ürün ve Hizmet Tehdidi",
+                    "Pazara Yeni Girişlerin Tehdidi",
+                    "Sektör İçi Rekabetin Şiddeti"
+                ],
+                answer: "Pazara Yeni Girişlerin Tehdidi"
+            },
+            {
+                question: "Porter'ın Değer Zinciri Modeli'nde, doğrudan ürünün yaratılması, üretilmesi, satılması ve teslim edilmesiyle ilgili olan faaliyetler hangi kategori altında toplanır?",
+                options: [
+                    "Destek Faaliyetleri",
+                    "Ana (Temel) Faaliyetler",
+                    "Stratejik Faaliyetler",
+                    "Operasyonel Faaliyetler",
+                    "İkincil Faaliyetler"
+                ],
+                answer: "Ana (Temel) Faaliyetler"
+            },
+            {
+                question: "Rutinlerin toplamı olarak tanımlanan ve çalışanların verimli olmasını sağlayan yapı aşağıdakilerden hangisidir?",
+                options: [
+                    "Organizasyon şeması",
+                    "İş süreçleri",
+                    "Stratejik hedefler",
+                    "Misyon bildirgesi"
+                ],
+                answer: "İş süreçleri"
+            },
+            {
+                question: "Organizasyon kültürünün teknolojik değişimler üzerindeki potansiyel etkisi nedir?",
+                options: [
+                    "Her zaman değişimi hızlandırır.",
+                    "Değişimi kısıtlayan bir engel olabilir.",
+                    "Teknolojik değişimlerle hiçbir ilgisi yoktur.",
+                    "Sadece yeni kurulan şirketlerde etkilidir."
+                ],
+                answer: "Değişimi kısıtlayan bir engel olabilir."
+            },
+            {
+                question: "Yıkıcı teknolojilerle ilgili aşağıdaki ifadelerden hangisi metne göre genellikle doğrudur?",
+                options: [
+                    "Piyasaya ilk giren firma her zaman pazarın kazananı olur.",
+                    "Yıkıcı teknolojiler her zaman yüksek maliyetlidir.",
+                    "Hızlı takipçiler, teknolojiyi daha iyi uygulayarak başarılı olabilir.",
+                    "Yıkıcı teknolojiler sadece büyük firmalar tarafından geliştirilebilir."
+                ],
+                answer: "Hızlı takipçiler, teknolojiyi daha iyi uygulayarak başarılı olabilir."
+            },
+            {
+                question: "Küçük, genç, esnek ve hızlı adapte olan organizasyon yapısı aşağıdakilerden hangisidir?",
+                options: [
+                    "Makine Bürokrasisi",
+                    "Profesyonel Bürokrasi",
+                    "Girişimci Yapı",
+                    "Adhokrasi"
+                ],
+                answer: "Girişimci Yapı"
+            },
+            {
+                question: "Bilgi ve uzmanlık temelli, uzmanların gücünün yüksek olduğu, merkezi otoritenin zayıf olduğu (örn: okullar, hastaneler) organizasyon yapısı hangisidir?",
+                options: [
+                    "Bölümlere Ayrılmış Bürokrasi",
+                    "Profesyonel Bürokrasi",
+                    "Makine Bürokrasisi",
+                    "Girişimci Yapı"
+                ],
+                answer: "Profesyonel Bürokrasi"
+            },
+            {
+                question: "Bilgi teknolojilerinin (BT) organizasyonlar üzerindeki en temel ekonomik etkilerinden biri aşağıdakilerden hangisidir?",
+                options: [
+                    "Sermaye ve bilgi maliyetlerini artırması",
+                    "Geleneksel emek ve sermayenin yerine geçerek yeni bir üretim faktörü olması",
+                    "Özellikle üst düzey yöneticilerin sayısını artırması",
+                    "Organizasyonların daha hiyerarşik hâle gelmesine neden olması"
+                ],
+                answer: "Geleneksel emek ve sermayenin yerine geçerek yeni bir üretim faktörü olması"
+            },
+            {
+                question: "İşlem maliyetleri teorisine göre, BT'nin işlem maliyetlerini düşürmesi firmaları genellikle nasıl etkiler?",
+                options: [
+                    "Daha fazla iç üretim yapmaya ve büyümeye teşvik eder.",
+                    "Dış kaynak kullanımını (outsourcing) azaltır.",
+                    "Dış tedarikçilere ve yüklenicilere daha fazla güvenmelerini sağlar.",
+                    "Sektörel ağların önemini azaltır."
+                ],
+                answer: "Dış tedarikçilere ve yüklenicilere daha fazla güvenmelerini sağlar."
+            },
+            {
+                question: "Vekalet (Acente) teorisine göre, yöneticiler kimin vekili olarak kabul edilir?",
+                options: [
+                    "Müşterilerin",
+                    "Devletin",
+                    "Çalışanların",
+                    "Hissedarların"
+                ],
+                answer: "Hissedarların"
+            },
+            {
+                question: "BT'nin vekalet maliyetlerini düşürmesinin temel sonucu aşağıdakilerden hangisidir?",
+                options: [
+                    "Yöneticilerin denetlenmesini zorlaştırır.",
+                    "Daha fazla sayıda yöneticiye ihtiyaç duyulmasına neden olur.",
+                    "Yöneticilerin performansını daha kolay ve düşük maliyetle izlemeyi mümkün kılar.",
+                    "İşletmelerin büyümesini engeller."
+                ],
+                answer: "Yöneticilerin performansını daha kolay ve düşük maliyetle izlemeyi mümkün kılar."
+            },
+            {
+                question: "BT'nin organizasyonlarda hiyerarşinin 'yataylaşmasına' (flattening) neden olmasının temel sebebi nedir?",
+                options: [
+                    "Çalışanların teknolojiye karşı direnç göstermesi",
+                    "Bilginin alt kademelere kolayca dağıtılabilmesi ve paylaşılabilmesi",
+                    "Üst yönetim kademelerinin sayısının artması",
+                    "Karar verme süreçlerinin merkezileşmesi"
+                ],
+                answer: "Bilginin alt kademelere kolayca dağıtılabilmesi ve paylaşılabilmesi"
+            },
+            {
+                question: "BT sayesinde bilginin kolayca paylaşılması, otoritenin kaynağında nasıl bir değişime yol açar?",
+                options: [
+                    "Otorite sadece hiyerarşik pozisyona bağlı kalır.",
+                    "Bilgi ve yeteneğe dayalı otorite ön plana çıkar.",
+                    "Otorite kavramı tamamen ortadan kalkar.",
+                    "Sadece üst düzey yöneticilerin otoritesi artar."
+                ],
+                answer: "Bilgi ve yeteneğe dayalı otorite ön plana çıkar."
+            },
+            {
+                question: "Sektör ötesi (post-sektöryel) organizasyonlarda yetkinin temel kaynağı nedir?",
+                options: [
+                    "Hiyerarşideki pozisyon",
+                    "Yaş ve deneyim",
+                    "Sahip olunan bilgi ve uzmanlık",
+                    "Sermaye miktarı"
+                ],
+                answer: "Sahip olunan bilgi ve uzmanlık"
+            },
+            {
+                question: "Organizasyonların bilgi sistemleri gibi köklü değişikliklere karşı direnç göstermesinin en yaygın nedeni nedir?",
+                options: [
+                    "Teknolojinin çok ucuz olması",
+                    "Çalışanların yeni teknolojileri çok hızlı öğrenmesi",
+                    "Değişikliğin mevcut güç yapılarını, iş tanımlarını ve alışkanlıkları tehdit etmesi",
+                    "Üst yönetimin değişimi her zaman desteklemesi"
+                ],
+                answer: "Değişikliğin mevcut güç yapılarını, iş tanımlarını ve alışkanlıkları tehdit etmesi"
+            },
+            {
+                question: "İşletmelerin maliyetleri düşürmek, kaliteyi artırmak ve hizmeti iyileştirmek için iş akışlarını ve süreçlerini temelden yeniden düşünmesine ve tasarlamasına ne ad verilir?",
+                options: [
+                    "SWOT Analizi",
+                    "İş Süreçlerinin Yeniden Tasarımı (BPR)",
+                    "Değer Zinciri Analizi",
+                    "Vekalet Teorisi"
+                ],
+                answer: "İş Süreçlerinin Yeniden Tasarımı (BPR)"
+            },
+            {
+                question: "Porter'ın 5 Güç Modeli'nde, bir endüstriye yeni firmaların girme kolaylığını veya zorluğunu ifade eden güç hangisidir?",
+                options: [
+                    "Tedarikçilerin Pazarlık Gücü",
+                    "Alıcıların Pazarlık Gücü",
+                    "Yeni Girenlerin Tehdidi",
+                    "İkame Ürün veya Hizmetlerin Tehdidi"
+                ],
+                answer: "Yeni Girenlerin Tehdidi"
+            },
+            {
+                question: "Porter'ın 5 Güç Modeli'nde, 'tedarikçilerin pazarlık gücünü' artıran bir faktör aşağıdakilerden hangisidir?",
+                options: [
+                    "Çok sayıda alternatif tedarikçinin olması",
+                    "Tedarik edilen girdinin standart ve kolay bulunabilir olması",
+                    "Tedarikçilerin ileriye doğru entegrasyon tehdidinin olmaması",
+                    "Tedarik edilen girdinin benzersiz olması ve az sayıda tedarikçiden gelmesi"
+                ],
+                answer: "Tedarik edilen girdinin benzersiz olması ve az sayıda tedarikçiden gelmesi"
+            }
+        ];
+
+        // --- NEW NAVIGATION JS FUNCTIONS (from btaltyapi.html) ---
+        function initializeNavigation() {
+            const navLinks = document.querySelectorAll('nav ul a.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) { 
+                    event.preventDefault(); 
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#')) { 
+                        const sectionId = href.substring(1);
+                        showSection(sectionId); 
+                        updateActiveLink(sectionId); 
+
+                        // Close all dropdowns when a section link is clicked (if hover isn't solely managing this)
+                        // This might be redundant if CSS :hover is solely responsible for submenu visibility
+                        document.querySelectorAll('nav ul li.dropdown ul.submenu.open').forEach(submenu => {
+                           // submenu.classList.remove('open'); // Commented out, hover should handle this
+                        });
+                    }
+                });
+            });
+            
+            // Dropdown toggle click (not strictly needed for hover, but good for accessibility/mobile if CSS fails)
+            // For now, since it's hover-based, this part can be omitted or simplified.
+            // If click-to-open is desired later, this can be expanded.
+            /*
+            document.querySelectorAll('nav ul li.dropdown > a.nav-link-dropdown').forEach(ddLink => {
+                ddLink.addEventListener('click', function(event) {
+                    event.preventDefault(); 
+                    const parentLi = this.parentElement; 
+                    const submenu = parentLi.querySelector('ul.submenu'); 
+                    if (submenu) {
+                        // Optional: Close other open submenus
+                        document.querySelectorAll('nav ul li.dropdown ul.submenu.open').forEach(otherSubmenu => {
+                            if (otherSubmenu !== submenu) {
+                                otherSubmenu.classList.remove('open');
+                            }
+                        });
+                        submenu.classList.toggle('open'); 
+                    }
+                });
+            });
+            */
+        }
+
+        function updateActiveLink(targetOrSectionId) {
+            const allNavLinksAndToggles = document.querySelectorAll('nav ul a');
+            allNavLinksAndToggles.forEach(link => link.classList.remove('active'));
+
+            let activeLinkElement = null;
+            let sectionIdToMatch = '';
+
+            if (typeof targetOrSectionId === 'string') {
+                sectionIdToMatch = targetOrSectionId;
+                 // Try to find a direct link first
+                activeLinkElement = document.querySelector(`nav ul a.nav-link[href="#${sectionIdToMatch}"]`);
+            } else if (targetOrSectionId && targetOrSectionId.nodeName === 'A') {
+                activeLinkElement = targetOrSectionId;
+                const href = activeLinkElement.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    sectionIdToMatch = href.substring(1);
+                }
+            }
+
+            if (activeLinkElement) {
+                activeLinkElement.classList.add('active');
+                const parentSubmenu = activeLinkElement.closest('ul.submenu');
+                if (parentSubmenu) {
+                    const dropdownLi = parentSubmenu.closest('li.dropdown');
+                    if (dropdownLi) {
+                        const parentToggle = dropdownLi.querySelector('a.nav-link-dropdown');
+                        if (parentToggle) {
+                            parentToggle.classList.add('active');
+                        }
+                    }
+                }
+            } else if (sectionIdToMatch) {
+                // If sectionIdToMatch is from a submodule (e.g., vpnDns_home), 
+                // we need to activate the main module link (e.g., #vpnDns)
+                let mainModuleLink = null;
+                if (sectionIdToMatch.startsWith('vpnDns_')) {
+                    mainModuleLink = document.querySelector(`nav ul a.nav-link[href="#vpnDns"]`);
+                } else if (sectionIdToMatch.startsWith('porter5guc_')) {
+                    mainModuleLink = document.querySelector(`nav ul a.nav-link[href="#porter5guc"]`);
+                } else if (sectionIdToMatch.startsWith('intExt_')) {
+                     mainModuleLink = document.querySelector(`nav ul a.nav-link[href="#intranetExtranet"]`);
+                }
+                // Add more else if for other submodules if necessary
+
+                if (mainModuleLink) {
+                     mainModuleLink.classList.add('active');
+                     const parentSubmenu = mainModuleLink.closest('ul.submenu');
+                     if (parentSubmenu) {
+                         const dropdownLi = parentSubmenu.closest('li.dropdown');
+                         if (dropdownLi) {
+                             const parentToggle = dropdownLi.querySelector('a.nav-link-dropdown');
+                             if (parentToggle) {
+                                 parentToggle.classList.add('active');
+                             }
+                         }
+                     }
+                } else {
+                    // Fallback for direct section links if no specific submodule logic matched
+                    const linkForSection = document.querySelector(`nav ul a.nav-link[href="#${sectionIdToMatch}"]`);
+                    if (linkForSection) {
+                        linkForSection.classList.add('active');
+                        const parentSubmenu = linkForSection.closest('ul.submenu');
+                        if (parentSubmenu) {
+                            const dropdownLi = parentSubmenu.closest('li.dropdown');
+                            if (dropdownLi) {
+                                const parentToggle = dropdownLi.querySelector('a.nav-link-dropdown');
+                                if (parentToggle) {
+                                    parentToggle.classList.add('active');
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+</html> 

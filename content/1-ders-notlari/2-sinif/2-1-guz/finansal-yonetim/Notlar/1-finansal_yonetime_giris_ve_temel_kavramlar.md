@@ -25,6 +25,7 @@ created: 2025-10-01
 
 ---
 
+## [[Bilanço Mantığı]]
 
 > [!note] Bilanço Mantığı: Kaynaklar ve Varlıklar  
 > Bir işletmenin finansal yapısı Bilanço ile özetlenir. Bilançonun iki temel tarafı vardır:

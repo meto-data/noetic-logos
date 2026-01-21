@@ -5,6 +5,7 @@ ders: Bilişim Matematiği
 created: 2025-10-10
 cssclasses:
   - ders-notu
+draft: true
 ---
 <h2 style="text-align:center"><span style="color:darkblue; text-align:center">Ünite 2: Mantık</span> | <span style="color:#bf3f36">10.10.2025</span></h2>
 

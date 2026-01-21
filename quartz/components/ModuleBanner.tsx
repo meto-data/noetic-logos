@@ -15,7 +15,7 @@ interface ModuleConfig {
     title: string
     buttonText: string
     moduleUrl: string
-    iconType: "oop" | "database" | "language"
+    iconType: "oop" | "database" | "language" | "ybs"
 }
 
 // Modül konfigürasyonları
@@ -40,6 +40,13 @@ const MODULE_CONFIGS: ModuleConfig[] = [
         buttonText: "Türk Dili Modülüne Git",
         moduleUrl: "static/logos-module/index.html",
         iconType: "language"
+    },
+    {
+        slugPattern: "yonetim-bilisim-sistemleri|ybs|management-information-systems",
+        title: "Yönetim Bilişim Sistemleri",
+        buttonText: "YBS Modülüne Git",
+        moduleUrl: "static/ybs-module/index.html",
+        iconType: "ybs"
     }
 ]
 
@@ -63,6 +70,13 @@ const ICONS = {
         <svg class="module-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+        </svg>
+    ),
+    ybs: (
+        <svg class="module-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="17" x2="12" y2="21" />
         </svg>
     )
 }

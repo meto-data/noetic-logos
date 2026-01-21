@@ -1,0 +1,2 @@
+- Verileri, hesaplama, sınıflandırma, düzenleme vb. işlemler ile bilgiye dönüştürüp kullanıcılara sunan, girdisi veri, çıktısı bilgiolan sistemlerdir.
+- Bilişim sistemleri süreçlerde hız ve maliyet düşürücü etkileriyle işletmelere ciddi rekabet avantajı sağlayabilirler.
