@@ -1,5 +1,6 @@
 ---
 title: Yönetim Bilişim Sistemleri
+created: 2025-09-20
 ---
 Malum meşhur ders... Öğrenciler tarafından pek sevilmez ödevler zorlayıcı olduğu için ve fazla vaaz verdiği için, ancak bunu bir fırsat olmak görmek lâzım. Ayriyeten kendisi idealist bir kişidir, kendisini de asıl bu sebepten ötürü severim, bir de öğrencileri zorladığı için.
 
@@ -12,5 +13,3 @@ Bana sorulacak olursa, gizli olanı ifşa etmeyi sevmekteyim genel olarak. Karma
 Derslere hazırlıklı gelinmeli, EBS üzerinde zaten o hafta ne işlenileceği yazıyor. Konuyla ilgili birkaç metin okumak önemlidir o dersten önce. 
 
 Ders zaten slayt üzerinden ilerlediği için pek not almadım. Slaytlara bakmakla yetinmeniz daha iyi olur gibi.
-
-Ders ile alakalı interaktif internet sitesi: 
