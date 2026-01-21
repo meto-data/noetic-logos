@@ -1,0 +1,3070 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilgisayar Ağları Öğrenme Uygulaması</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 20px auto;
+            overflow: hidden;
+            padding: 25px;
+            background-color: #fff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            flex-grow: 1;
+        }
+
+        header {
+            background: #1a5276;
+            /* Koyu Mavi */
+            color: #eaf2f8;
+            padding: 1.5rem 0;
+            text-align: center;
+            border-bottom: #2980b9 5px solid;
+            /* Biraz daha açık mavi */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.4em;
+            font-weight: 600;
+        }
+
+        /* NEW NAVIGATION CSS (from strateji_organizasyon_bs.html) */
+        nav {
+            background: #2c3e50;
+            color: #fff;
+            padding: 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 0 0 10px 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        nav ul li.dropdown {
+            position: relative;
+        }
+
+        nav ul li.dropdown>a.nav-link-dropdown::after {
+            content: ' ▾';
+            font-size: 0.8em;
+        }
+
+        nav ul ul.submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #34495e;
+            padding: 0;
+            min-width: 280px;
+            /* Adjusted min-width for longer BD titles */
+            z-index: 1000;
+            border-radius: 0 0 6px 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul li.dropdown:hover>ul.submenu {
+            /* Restored hover to open */
+            display: block;
+        }
+
+        nav ul ul.submenu li {
+            width: 100%;
+        }
+
+        nav ul ul.submenu li a {
+            padding: 0.7rem 1rem;
+            white-space: normal;
+            /* Allow text wrapping for long submenu items */
+            text-align: left;
+        }
+
+        nav ul ul.submenu li a:hover,
+        nav ul ul.submenu li a.active {
+            background-color: #2980b9;
+        }
+
+        /* Mobil Uyum */
+        @media (max-width: 900px) {
+            nav ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            nav ul li a {
+                text-align: left;
+                padding-left: 1rem;
+            }
+
+            nav ul ul.submenu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+                background-color: #465a6e;
+            }
+
+            nav ul ul.submenu li a {
+                padding-left: 2rem;
+            }
+
+            nav ul li.dropdown>a.nav-link-dropdown::after {
+                float: right;
+                margin-right: 1rem;
+            }
+        }
+
+        .section {
+            display: none;
+            padding: 25px;
+            border: 1px solid #dfe6e9;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            background-color: #fdfefe;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #1a5276;
+            border-bottom: 3px solid #2980b9;
+            padding-bottom: 15px;
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            color: #566573;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        h5 {
+            /* For sub-sub-headings like in Topologies */
+            color: #1a5276;
+            font-size: 1.15em;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        .info-box {
+            background-color: #f9f9f9;
+            /* Neutral background */
+            border-left: 5px solid #7f8c8d;
+            /* Neutral border color (e.g., grey) */
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-box ul,
+        .info-box ol {
+            padding-left: 25px;
+            margin-top: 10px;
+        }
+
+        .info-box li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .info-box p strong,
+        .info-box li strong {
+            color: #2c3e50;
+            /* Default strong text color */
+        }
+
+        .info-box.info-box-highlighted {
+            /* More specific selector for highlighted boxes */
+            background-color: #e8f6f3;
+            /* Açık yeşilimsi arka plan */
+            border-left-color: #1abc9c;
+            /* Yeşil sol kenarlık */
+        }
+
+        .info-box.info-box-highlighted p strong,
+        .info-box.info-box-highlighted li strong {
+            color: #117a65;
+            /* Koyu yeşil vurgu for highlighted */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        }
+
+        th,
+        td {
+            border: 1px solid #bdc3c7;
+            padding: 12px 15px;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        th {
+            background-color: #566573;
+            /* Koyu gri-mavi başlık */
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+            /* Açık gri satır */
+        }
+
+        tr:hover {
+            background-color: #e9ecef;
+            /* Hover üzerine gelince satır rengi */
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.8rem;
+            background: #1a5276;
+            /* Koyu mavi footer */
+            color: #eaf2f8;
+            margin-top: auto;
+            /* Sayfa sonunda kalması için */
+        }
+
+        /* Mobil Uyum */
+        @media (max-width: 1200px) {
+            .nav-categories {
+                flex-wrap: wrap;
+            }
+
+            .nav-category {
+                flex-basis: 45%;
+                /* İki kategori yan yana sığsın */
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            h4 {
+                font-size: 1.1em;
+            }
+
+            .nav-categories {
+                flex-direction: column;
+                /* Mobilde kategoriler alt alta */
+            }
+
+            .nav-category {
+                flex-basis: 100%;
+                /* Tam genişlik */
+                margin: 8px 0;
+            }
+
+            .category-buttons button {
+                font-size: 0.85em;
+                padding: 8px 12px;
+            }
+
+            .home-button {
+                padding: 8px 12px;
+                margin: 5px 8px;
+                font-size: 0.85em;
+            }
+        }
+
+        .topology-diagram {
+            background-color: #eef1f3;
+            /* Light grey-blue background for diagrams */
+            border: 1px solid #d6dbdf;
+            /* Solid border, slightly softer */
+            padding: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+            /* Center the image */
+        }
+
+        .topology-diagram img {
+            max-width: 500px;
+            /* Increased max-width for images */
+            height: auto;
+            /* Maintain aspect ratio */
+            border-radius: 6px;
+            /* Optional: slightly rounded corners for images */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+            /* Subtle shadow for images */
+        }
+
+        .topology-diagram .no-image-placeholder {
+            font-style: italic;
+            color: #566573;
+            font-size: 0.95em;
+        }
+
+        /* Podcast Player Styles */
+        .podcast-controls {
+            margin-bottom: 10px;
+            /* Space below controls */
+            display: flex;
+            /* Align items in a row */
+            align-items: center;
+            /* Vertically align items */
+            flex-wrap: wrap;
+            /* Allow wrapping on smaller screens */
+        }
+
+        .podcast-play-button {
+            background-color: #27ae60;
+            /* Green */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            /* Circular button */
+            width: 36px;
+            /* Slightly smaller */
+            height: 36px;
+            font-size: 18px;
+            /* Icon size */
+            line-height: 36px;
+            /* Center icon vertically */
+            text-align: center;
+            cursor: pointer;
+            margin-right: 8px;
+            transition: background-color 0.3s;
+            flex-shrink: 0;
+            /* Prevent button from shrinking */
+        }
+
+        .podcast-play-button:hover {
+            background-color: #2ecc71;
+            /* Lighter green */
+        }
+
+        .podcast-duration {
+            font-size: 0.85em;
+            margin-right: 15px;
+            /* Space before speed controls */
+            color: #555;
+            flex-shrink: 0;
+        }
+
+        .playback-speed-controls button {
+            background-color: #bdc3c7;
+            color: #2c3e50;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 8px;
+            margin-left: 5px;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: background-color 0.3s;
+        }
+
+        .playback-speed-controls button:hover {
+            background-color: #95a5a6;
+        }
+
+        .playback-speed-controls button.active-speed {
+            background-color: #3498db;
+            color: white;
+        }
+
+        /* Quiz Styles (Adapted from kurumsal.html and btaltyapi.html) */
+        .quiz-container {
+            margin-bottom: 20px;
+        }
+
+        .quiz-question {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #e5e7e9;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        .quiz-question p strong {
+            color: #1a5276;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .quiz-options label {
+            display: block;
+            background-color: #e9ecef;
+            padding: 15px;
+            margin-bottom: 0;
+            /* Gap handles spacing */
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s, border-left 0.2s, transform 0.1s;
+            border-left: 5px solid transparent;
+            font-weight: 500;
+            text-align: left;
+            font-size: 1em;
+        }
+
+        .quiz-options label:hover {
+            background-color: #d1d9e0;
+            border-left: 5px solid #2980b9;
+            transform: translateX(3px);
+        }
+
+        .quiz-options input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.2);
+            vertical-align: middle;
+        }
+
+        .feedback {
+            padding: 15px;
+            margin-top: 18px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-align: center;
+            font-size: 1.05em;
+            border: 1px solid transparent;
+        }
+
+        .feedback.correct {
+            background-color: #d1f2eb;
+            color: #0e6251;
+            border-color: #a3e4d7;
+        }
+
+        .feedback.incorrect {
+            background-color: #fdedec;
+            color: #943126;
+            border-color: #fadbd8;
+        }
+
+        /* Highlighting for options */
+        .quiz-options label.correct-choice {
+            background-color: #d1f2eb !important;
+            border-left: 5px solid #27ae60 !important;
+            color: #0e6251 !important;
+            font-weight: bold;
+        }
+
+        .quiz-options label.incorrect-choice {
+            background-color: #fdedec !important;
+            border-left: 5px solid #c0392b !important;
+            color: #943126 !important;
+        }
+
+        .quiz-options label.correct-answer-highlight {
+            /* For showing the right answer when user was wrong */
+            outline: 2px dashed #1e8449;
+            outline-offset: 2px;
+            box-shadow: 0 0 8px rgba(39, 174, 96, 0.4);
+        }
+
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .quiz-navigation button,
+        .quiz-button {
+            background-color: #566573;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .quiz-navigation button:hover,
+        .quiz-button:hover {
+            background-color: #2c3e50;
+            transform: translateY(-2px);
+        }
+
+        .quiz-navigation button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+            transform: translateY(0);
+        }
+
+        .quiz-button.submit {
+            /* Specific style for submit button */
+            background-color: #27ae60;
+        }
+
+        .quiz-button.submit:hover {
+            background-color: #229954;
+        }
+
+        .quiz-score {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #eaf2f8;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .quiz-score h3 {
+            margin-top: 0;
+            color: #1a5276;
+        }
+
+        /* Flashcard Styles */
+        .flashcard-wrapper {
+            perspective: 1000px;
+            /* For 3D effect */
+            width: 320px;
+            height: 200px;
+            margin: 20px auto;
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.7s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        }
+
+        .flashcard.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 12px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .flashcard-front {
+            background: #eaf2f8;
+            /* Light blue-grey */
+            color: #2c3e50;
+            /* Dark blue-grey text */
+            border: 1px solid #d0d9e0;
+        }
+
+        .flashcard-back {
+            background: #ddecf8;
+            /* Slightly different light blue */
+            color: #1a5276;
+            /* Dark blue text */
+            transform: rotateY(180deg);
+            border: 1px solid #c0d0e0;
+        }
+
+        /* True/False Quiz Specific Styles */
+        #tfAnswerButtonsMS button {
+            margin: 0 10px;
+            padding: 12px 25px;
+        }
+
+        /* Matching Game Styles */
+        .matching-game-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            flex-wrap: wrap;
+            /* Allow wrapping for smaller screens */
+        }
+
+        .matching-column {
+            width: 45%;
+            padding: 10px;
+            background-color: #eaf2f8;
+            border-radius: 6px;
+            min-height: 200px;
+            /* Minimum height for columns */
+        }
+
+        .matching-column h4 {
+            margin-top: 0;
+            color: #1a5276;
+            text-align: center;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 8px;
+        }
+
+        .matching-item,
+        .matching-slot {
+            padding: 10px 12px;
+            margin: 8px 0;
+            background-color: #ffffff;
+            border: 1px solid #d1d9e0;
+            border-radius: 5px;
+            cursor: grab;
+            text-align: center;
+            font-size: 0.95em;
+            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s ease-out;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .matching-item:hover {
+            background-color: #f0f4f8;
+            transform: scale(1.02);
+        }
+
+        .matching-slot {
+            border-style: dashed;
+            border-color: #a9cce3;
+            min-height: 38px;
+            /* Same as item height roughly */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #566573;
+        }
+
+        .matching-slot.over {
+            background-color: #cce5ff;
+            /* Brighter, clearer blue */
+            border-color: #007bff;
+            /* Standard active blue */
+            border-style: solid;
+            /* Make border solid to indicate active state */
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.4);
+            /* Subtle glow */
+        }
+
+        .matching-slot.matched-correct .matching-item {
+            background-color: #d1f2eb;
+            /* Light green for correct match */
+            border-color: #27ae60;
+            cursor: default;
+        }
+
+        .matching-slot.matched-incorrect .matching-item {
+            background-color: #fdedec;
+            /* Light red for incorrect match */
+            border-color: #c0392b;
+            cursor: default;
+        }
+
+        .matching-item.dragging {
+            opacity: 0.8;
+            /* Slightly more visible than 0.5 */
+            transform: scale(1.07) rotate(3deg);
+            /* More noticeable lift and rotation */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            /* Deeper shadow for lifted effect */
+            background-color: #f8f9fa;
+            /* Slightly off-white to stand out if over white bg */
+        }
+
+        .matching-feedback {
+            margin-top: 15px;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .matching-feedback.correct {
+            background-color: #d4efdf;
+            color: #1e8449;
+        }
+
+        .matching-feedback.incorrect {
+            background-color: #f5b7b1;
+            color: #a93226;
+        }
+
+        .matching-check-btn,
+        .matching-restart-btn {
+            margin: 10px 5px;
+        }
+
+        .home-button {
+            background: #1a5276;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px 15px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            font-weight: 500;
+            white-space: nowrap;
+            align-self: flex-start;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .home-button:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .home-icon {
+            font-size: 1.2em;
+            margin-right: 2px;
+        }
+
+        /* Fill in the Blanks Styles (Copied from e-ticaret.html) */
+        .fill-blanks-container {
+            margin-bottom: 20px;
+        }
+
+        .fill-blanks-question {
+            margin-bottom: 18px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #5dade2;
+            border-radius: 5px;
+            font-size: 1.05em;
+            display: flex;
+            /* Flexbox for alignment */
+            align-items: center;
+            /* Vertically align items */
+            flex-wrap: wrap;
+            /* Allow wrapping for smaller screens */
+        }
+
+        .fill-blanks-question p .sentence-part {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .fill-blanks-question input[type="text"] {
+            padding: 10px 12px;
+            /* Increased padding */
+            border: 1px solid #bdc3c7;
+            /* Softer border color, consistent with table borders */
+            border-radius: 6px;
+            /* Rounded corners, consistent with buttons */
+            font-size: 0.95em;
+            min-width: 150px;
+            /* Slightly increased min-width */
+            flex-grow: 1;
+            max-width: 300px;
+            /* Slightly increased max-width */
+            margin: 0 10px;
+            /* Adjusted margin for better spacing */
+            background-color: #fdfefe;
+            /* Light background for the input */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset;
+            /* Subtle inner shadow */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth transition for focus */
+        }
+
+        .fill-blanks-question input[type="text"]:focus {
+            border-color: #2980b9;
+            /* Highlight color on focus - matches header/active elements */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 0 3px rgba(41, 128, 185, 0.2);
+            /* Inner shadow + outer focus ring */
+            outline: none;
+            /* Remove default browser outline */
+        }
+
+        .fill-blanks-question .feedback-icon {
+            margin-left: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .feedback-icon.correct {
+            color: #27ae60;
+        }
+
+        .feedback-icon.incorrect {
+            color: #c0392b;
+        }
+
+        .correct-answer-text {
+            color: #2980b9;
+            margin-left: 8px;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        .fill-blanks-controls button {
+            margin-right: 10px;
+        }
+
+        .fill-blanks-score {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #eaf2f8;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .fill-blanks-score h4 {
+            margin-top: 0;
+            color: #1a5276;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Bilgisayar Ağları ve Telekomünikasyon Notları</h1>
+    </header>
+
+    <!-- NEW NAVIGATION STRUCTURE -->
+    <nav>
+        <ul>
+            <li><a href="index.html" class="nav-link">Ana Menü</a></li>
+            <li><a href="#giris" class="nav-link">Modül Ana Sayfa</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Giriş ve Temeller</a>
+                <ul class="submenu">
+                    <li><a href="#amaclar_ve_trenderler" class="nav-link">Amaçlar ve Trendler</a></li>
+                    <li><a href="#altyapi_ve_deger" class="nav-link">Ağ Altyapısı ve Ticari Değeri</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Ağ Mimarisi ve Bileşenleri</a>
+                <ul class="submenu">
+                    <li><a href="#temel_bilesenler_cihazlar" class="nav-link">Temel Bileşenler ve Cihazlar</a></li>
+                    <li><a href="#dijital_ag_teknolojileri" class="nav-link">Dijital Ağ Teknolojileri</a></li>
+                    <li><a href="#fiziksel_iletim_modem" class="nav-link">Fiziksel İletim ve Modem</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Ağ Yapıları</a>
+                <ul class="submenu">
+                    <li><a href="#ag_turleri_detay" class="nav-link">Ağ Türleri (LAN, WAN vb.)</a></li>
+                    <li><a href="#ag_topolojileri_detay" class="nav-link">Ağ Topolojileri (Star, Bus vb.)</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">İnternet ve Servisler</a>
+                <ul class="submenu">
+                    <li><a href="#internet_adresleme" class="nav-link">İnternet, DNS, IP</a></li>
+                    <li><a href="#intranet_extranet_detay" class="nav-link">Intranet & Extranet</a></li>
+                    <li><a href="#voip_detay" class="nav-link">VoIP Teknolojisi</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Testler</a>
+                <ul class="submenu">
+                    <li><a href="#quizSet1" class="nav-link">Test Seti 1 (S2)</a></li>
+                    <li><a href="#quizSet2" class="nav-link">Test Seti 2 (AS)</a></li>
+                    <li><a href="#trueFalseQuizMS" class="nav-link">D/Y (Modern Sorular)</a></li>
+                    <li><a href="#trueFalseQuizIS" class="nav-link">D/Y (İnternet ve Servisler)</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">İnteraktif Araçlar</a>
+                <ul class="submenu">
+                    <li><a href="#flashcardsMS" class="nav-link">Bilgi Kartları (MS)</a></li>
+                    <li><a href="#fillBlanksAglarBolum1" class="nav-link">BD: Temel Kavramlar ve Ağ Bileşenleri</a></li>
+                    <li><a href="#fillBlanksAglarBolum2" class="nav-link">BD: Dijital Ağ Teknolojileri</a></li>
+                    <li><a href="#fillBlanksAglarBolum3" class="nav-link">BD: Ağ Türleri ve Topolojiler</a></li>
+                    <li><a href="#fillBlanksAglarBolum4" class="nav-link">BD: İnternet, Adresleme, VoIP</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Eşleştirme Uygulamaları</a>
+                <ul class="submenu">
+                    <li><a href="#matchingGameProtocols" class="nav-link">Protokoller</a></li>
+                    <li><a href="#matchingGameTopologies" class="nav-link">Topolojiler</a></li>
+                    <li><a href="#matchingGameDevices" class="nav-link">Cihazlar</a></li>
+                    <li><a href="#matchingGameIpVersions" class="nav-link">IPv4/IPv6</a></li>
+                    <li><a href="#matchingGameGeneral" class="nav-link">Genel Kavramlar</a></li>
+                    <li><a href="#matchingGameInternetServices" class="nav-link">İnternet ve Servisler</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Ek Teknolojiler ve Yönetim</a>
+                <ul class="submenu">
+                    <li><a href="#genisbant_hizmetler" class="nav-link">Genişbant Hizmetleri</a></li>
+                    <li><a href="#yonetimsel_hususlar" class="nav-link">Yönetimsel Hususlar</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Ana Sayfa (Giriş) -->
+        <div id="giris" class="section active">
+            <h2>Hoş Geldiniz!</h2>
+            <div class="info-box info-box-highlighted">
+                <p>Bu uygulama, "Bilgisayar Ağları ve Telekomünikasyon" ders notlarını içermektedir. Yukarıdaki
+                    navigasyon menüsünü kullanarak farklı konular arasında geçiş yapabilirsiniz.</p>
+
+            </div>
+            <h3>Telekomünikasyon, Ağlar ve İnternet</h3>
+            <div class="info-box">
+                <p>Günümüz iş dünyasında telekomünikasyon, yazı, ses ve video görüntüleri için hayati iletişim kanalları
+                    sağlar. Büyük bir kurumun ağ altyapısı, hem veri hem de ses iletişimi için çeşitli ağ türlerinden
+                    oluşur ve bu ağların çoğu ortak bir İnternet temeline doğru yakınsamaktadır.</p>
+                <p><strong>Paylaşım Kavramı:</strong> Alıcı, göndericiye yanıt verdiğinde paylaşım gerçekleşir. Bu,
+                    gerçek zamanlı veya zamana yayılan karşılıklı etkileşim olabilir ve iletişimin iki yönlü olmasını
+                    sağlar.</p>
+            </div>
+        </div>
+
+        <!-- Amaçlar ve Trendler -->
+        <div id="amaclar_ve_trenderler" class="section">
+            <h2>Dersin Amaçları ve Sektördeki Trendler</h2>
+            <div class="info-box info-box-highlighted">
+                <h3>Amaçlar</h3>
+                <ul>
+                    <li>Güncel bir kurumsal ağ altyapısının ve anahtar ağ teknolojilerinin özelliklerini tanımlamak.
+                    </li>
+                    <li>Alternatif iletim ortamlarını, ağ tiplerini ve ağ hizmetlerini değerlendirmek.</li>
+                    <li>İnternet ve World Wide Web'in bir firmanın bilgi teknolojileri altyapısındaki rolünü
+                        değerlendirmek.</li>
+                    <li>İletişim ve e-iş için en önemli araçları teşhis etmek ve tanımlamak.</li>
+                    <li>Ağ ve İnternet ile ortaya çıkan rekabet unsurlarını ve yönetim çözümlerini tanımlamak.</li>
+                </ul>
+            </div>
+            <div class="info-box info-box-highlighted">
+                <h3>Ağ ve İletişim Alanındaki Önemli Trendler</h3>
+                <ul>
+                    <li>Teknolojik yeniliklerdeki hızlı gelişmeler, donanım ve iletişim alanlarına sürekli yeni
+                        alternatifler sunmaktadır.</li>
+                    <li>Telekomünikasyon dünyasındaki düzenlemeler, rekabeti artırarak birçok alternatifin ortaya
+                        çıkmasını sağlamaktadır.</li>
+                    <li>Telefon, kablolu TV, internet ve uydu iletişimi gibi farklı platformlar giderek iç içe
+                        geçmektedir.</li>
+                    <li>Ses, görüntü ve veri iletiminde internet teknolojisi dominant bir konuma gelmiştir.</li>
+                    <li>Yeni nesil, yüksek hızlı genişbant bağlantılar evlere ve iş yerlerine yaygın olarak ulaşmıştır.
+                    </li>
+                    <li>Kablosuz telefonlar, kablosuz bilgisayar ağları ve mobil internet cihazları hızla
+                        yaygınlaşmaktadır.</li>
+                    <li>İletişim için geliştirilen hizmet ve ürün sayılarında sürekli bir artış gözlenmektedir.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Ağ Altyapısı ve Ticari Değeri -->
+        <div id="altyapi_ve_deger" class="section">
+            <h2>Kurumsal Ağ Altyapısı ve Telekomünikasyonun Ticari Değeri</h2>
+            <div class="info-box">
+                <h3>Tipik Bir Kurumsal Ağ Altyapısı</h3>
+                <p>Modern bir kurumsal ağ altyapısı genellikle aşağıdaki bileşenleri içerir:</p>
+                <ul>
+                    <li>Cep Telefonları (Cell Phones)</li>
+                    <li>Telefon Sistemi (Telephone System) ve Telefon Servis Sağlayıcı (Telephone Service Provider)</li>
+                    <li>Kurumsal Web Sitesi, Intranet ve Extranet Sunucuları (Corporate Web Site, Intranet and Extranet
+                        Servers) ve İnternet Servis Sağlayıcı (Internet Service Provider)</li>
+                    <li>Kablosuz Yerel Alan Ağı (Wireless LAN)</li>
+                    <li>Kurumsal Kablolu Yerel Alan Ağı (Corporate Wired LAN)</li>
+                    <li>Mobil Wi-Fi Ağı (Mobile Wi-Fi Network)</li>
+                    <li>İnternet (Internet)</li>
+                    <li>Kablosuz İnternet Servis Sağlayıcı (Wireless Internet Service Provider)</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>Telekomünikasyonun ve Ağın Ticari Değeri</h3>
+                <ul>
+                    <li><strong>İşlem Maliyetlerinde Azalma:</strong> Ağlar, iletişimi ve veri paylaşımını
+                        kolaylaştırarak operasyonel maliyetleri düşürür.</li>
+                    <li><strong>Artan Çeviklik:</strong> Hızlı iletişim ve bilgiye erişim, kurumların pazar
+                        değişikliklerine daha çabuk adapte olmasını sağlar.</li>
+                    <li><strong>Yönetim Kararlarındaki Kalite:</strong> Doğru ve zamanında bilgi akışı, daha bilinçli ve
+                        etkili yönetim kararları alınmasına yardımcı olur.</li>
+                    <li><strong>Zaman ve Coğrafya Kaynaklı Engelleri Azaltır:</strong> Ağlar sayesinde farklı
+                        lokasyonlardaki ekipler ve müşterilerle etkili iletişim kurulabilir.</li>
+                    <li>Telekomünikasyon ve iş ağlarındaki hızlı gelişmeler, büyük ölçüde İnternet ağına katılımın
+                        yaygınlaşmasından kaynaklanmaktadır.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Temel Ağ Bileşenleri ve Cihazları -->
+        <div id="temel_bilesenler_cihazlar" class="section">
+            <h2>Ağlar ve Kurumsal Altyapı: Temel Bileşenler ve Cihazlar</h2>
+            <div class="info-box">
+                <h3>Ağların Temel Yapısı</h3>
+                <ul>
+                    <li>Bir ağ, iki veya daha fazla bilgisayarın birbirine bağlanmasıyla oluşur.</li>
+                    <li>Ağdaki her bilgisayar, <strong>NIC (Network Interface Card - Ağ Arayüz Kartı)</strong> adı
+                        verilen bir ağ arayüz aracına sahip olmalıdır.</li>
+                    <li>Ağ bileşenlerini birbirine bağlamak için çeşitli ortamlar kullanılır: Telefon kablosu, eşeksenel
+                        (koaksiyel) kablo veya radyo sinyalleri (kablosuz ağlarda olduğu gibi).</li>
+                    <li><strong>NOS (Network Operating System - Ağ İşletim Sistemi)</strong>, ağ üzerindeki iletişimi
+                        yönlendirir, yönetir ve koordine eder.</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>Ağ Bileşenleri ve İşlevleri</h3>
+                <ul>
+                    <li>Ağlar, bilgisayarlar arasındaki bağlantıyı kuran <strong>anahtar (switch)</strong> veya
+                        <strong>hub</strong> gibi merkezi bağlantı cihazları bulundurur.
+                    </li>
+                    <li><strong>Hublar:</strong> Ağ bileşenlerini birbirine bağlayan, gelen tüm bilgi paketlerini ağdaki
+                        tüm cihazlara ileten basit cihazlardır. Verimliliği düşüktür.</li>
+                    <li><strong>Anahtar (Switch):</strong> Hub'lara göre daha akıllıdır. Veriyi filtreleyerek sadece
+                        hedeflenen cihaza gönderir. Bu sayede ağ trafiğini azaltır ve performansı artırır. Genellikle
+                        modern LAN'larda kullanılır.</li>
+                    <li><strong>Yönlendirici (Router):</strong> Farklı ağlar arasında veri paketlerini yönlendiren özel
+                        bir iletişim işlemcisidir. İletinin doğru IP adresine ve dolayısıyla doğru ağa gitmesini kontrol
+                        eder. İnternet bağlantısı için vazgeçilmez bir cihazdır.</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>Temel Ağ Cihazları ve Kavramlar</h3>
+                <ul>
+                    <li><strong>PC (Kişisel Bilgisayar):</strong> Kullanıcının doğrudan etkileşimde bulunduğu, işlem
+                        yapabilen ve ağa bağlanabilen cihazdır.</li>
+                    <li><strong>Server (Sunucu):</strong> Ağa ve ağdaki diğer cihazlara hizmet veren (dosya paylaşımı,
+                        yazıcı paylaşımı, uygulama barındırma vb.) güçlü bilgisayardır.</li>
+                    <li><strong>NOS (Ağ İşletim Sistemi):</strong> Ağ kaynaklarının yönetimi, kullanıcı yetkilendirmesi
+                        ve güvenlik kontrolleri gibi işlevleri yerine getiren özel işletim sistemidir (Örn: Windows
+                        Server, Linux tabanlı sunucu dağıtımları).</li>
+                    <li><strong>NIC (Ağ Arayüz Kartı):</strong> Bilgisayarın fiziksel olarak ağa (kablolu veya kablosuz)
+                        bağlanmasını sağlayan donanım birimidir. Ethernet kartları ve Wi-Fi adaptörleri bu kategoriye
+                        girer.</li>
+                    <li><strong>Other Networks / Internet (Diğer Ağlar / İnternet):</strong> Yerel ağın (LAN) dışındaki
+                        daha geniş kapsamlı ağları ifade eder. Bu ağlara erişim genellikle bir yönlendirici (router)
+                        aracılığıyla sağlanır.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Dijital Ağ Teknolojileri -->
+        <div id="dijital_ag_teknolojileri" class="section">
+            <h2>Önemli Dijital Ağ Teknolojileri</h2>
+            <div class="info-box">
+                <h3>İstemci/Sunucu Mimarisi (Client/Server Architecture)</h3>
+                <ul>
+                    <li>İşlemci gücünün çoğunlukla küçük ve daha az maliyetli istemci bilgisayarlarında bulunduğu
+                        dağıtık bir programlama modelidir.</li>
+                    <li>İstemciler (kullanıcıların bilgisayarları), merkezi bir ağ sunucusu tarafından kontrol edilen
+                        bir ağ aracılığıyla birbirine ve sunucuya bağlanır.</li>
+                    <li>Sunucu, ağ için iletişim kurallarını belirler, kaynakları yönetir ve her istemciye ağ üzerinde
+                        tanınabilmesi için bir adres (genellikle IP adresi) atar.</li>
+                </ul>
+            </div>
+            <div class="info-box info-box-highlighted">
+                <h3>Paket Anahtarlama (Packet Switching)</h3>
+                <ul>
+                    <li>Paket anahtarlamalı ağlarda, gönderilecek iletiler (veriler) önce "paket" adı verilen küçük veri
+                        yığınlarına ayrılır.</li>
+                    <li>Bu paketler, ağ üzerinde farklı iletim kanalları (yollar) üzerinden bağımsız olarak
+                        gönderilebilir ve alıcıya ulaştıklarında tekrar orijinal iletiyi oluşturacak şekilde bir araya
+                        getirilir.</li>
+                    <li>Paket anahtarlama, ağın iletişim kapasitesinin daha verimli kullanılmasını sağlar, çünkü bir
+                        iletişim kanalı sadece belirli bir iletişim için rezerve edilmez; birçok farklı paketi
+                        taşıyabilir.</li>
+                    <li>Her paketin içerisinde, nereye gönderileceğine dair adres bilgisi (hedef IP adresi gibi) ve
+                        gönderim sırasında veride oluşabilecek hataları denetlemek için kontrol bilgileri (checksum
+                        gibi) bulunur.</li>
+                    <li>Paket anahtarlama, özellikle terminalden bilgisayara ve bilgisayardan bilgisayara olan veri
+                        haberleşmeleri için yaygın olarak kullanılır.</li>
+                    <li>İlk paket anahtarlamalı ağlara örnek olarak X.25 ve WAN (Geniş Alan Ağı) için kullanılan Frame
+                        Relay hatları verilebilir.</li>
+                </ul>
+            </div>
+            <div class="info-box info-box-highlighted">
+                <h3>TCP/IP ve Bağlantı</h3>
+                <ul>
+                    <li><strong>TCP/IP (Transmission Control Protocol/Internet Protocol)</strong>, İnternet'in ve çoğu
+                        modern bilgisayar ağının temel iletişim protokolleri takımıdır.</li>
+                    <li>TCP/IP, dijital iletilerin paketlere ayrılmasını, bu paketlerin uygun adreslere (IP adresleri
+                        aracılığıyla) yönlendirilmesini ve alıcı tarafta bu paketlerden orijinal iletinin doğru bir
+                        şekilde tekrar oluşturulmasını yönetir.</li>
+                </ul>
+                <h4>TCP (Transmission Control Protocol - İletim Kontrol Protokolü)</h4>
+                <ul>
+                    <li>Bilgisayarlar (veya ağ cihazları) arasındaki veri hareketliliğini güvenilir bir şekilde kontrol
+                        eder.</li>
+                    <li>İki cihaz arasında bir bağlantı (session) oluşturur.</li>
+                    <li>Gönderilen veri paketlerini sıraya koyar (doğru sırada birleştirilmeleri için).</li>
+                    <li>Veri gönderiminin alıcı tarafından başarıyla alındığını teyit eder (acknowledgment mekanizması
+                        ile). Kaybolan veya bozulan paketlerin yeniden gönderilmesini sağlar. Bu nedenle "bağlantı
+                        tabanlı" (connection-oriented) bir protokoldür.</li>
+                </ul>
+                <h4>IP (Internet Protocol - İnternet Protokolü)</h4>
+                <ul>
+                    <li>Veri paketlerinin ağlar arasında iletiminden (adreslenmesi ve yönlendirilmesinden) sorumludur.
+                    </li>
+                    <li>Aktarım sırasında, büyük veri paketlerinin daha küçük parçalara (fragmentation) ayrılmasını ve
+                        alıcıda tekrar birleştirilmesini (reassembly) yönetebilir.</li>
+                    <li>IP, "bağlantısız" (connectionless) bir protokoldür, yani paketlerin teslimatını garanti etmez;
+                        bu görev genellikle TCP gibi üst katman protokollerine bırakılır.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Fiziksel İletim Ortamları ve Modem -->
+        <div id="fiziksel_iletim_modem" class="section">
+            <h2>Fiziksel Aktarım Ortamları ve Modem</h2>
+            <div class="info-box">
+                <h3>İletişim Ortamları</h3>
+                <h4>Kablolu İletişim Ortamları:</h4>
+                <ul>
+                    <li><strong>Çift-Bükümlü Kablo (Twisted-Pair):</strong> Genellikle bakır tellerden oluşur. Tellerin
+                        birbirine bükülmesi, elektromanyetik girişimi (EMI) azaltmaya yardımcı olur. Ethernet
+                        LAN'larında yaygın olarak kullanılır (Örn: UTP, STP).</li>
+                    <li><strong>Koaksiyel Kablo (Coaxial Cable):</strong> Merkezi bir bakır iletken, yalıtkan bir
+                        katman, metalik bir örgü (ekranlama) ve dış bir kılıftan oluşur. Çift bükümlüye göre daha yüksek
+                        bant genişliği sunar ve EMI'ye karşı daha dirençlidir. Kablo TV ve bazı ağ uygulamalarında
+                        kullanılır.</li>
+                    <li><strong>Fiber Optik Kablo:</strong> Veriyi ışık sinyalleri şeklinde ileten, cam veya plastik
+                        fiberlerden (ince tellerden) oluşur.
+                        <ul>
+                            <li><strong>Avantajları:</strong> Çok yüksek bant genişliği (saniyede trilyonlarca bit veri
+                                taşıyabilir), uzun mesafelere veri iletimi, hafiflik, elektromanyetik girişimden
+                                etkilenmeme, yüksek güvenlik.</li>
+                            <li><strong>Dezavantajları:</strong> Diğer kablo türlerine göre genellikle daha pahalıdır ve
+                                kurulumu daha hassastır.</li>
+                            <li><strong>Çalışma Prensibi:</strong> Veri sinyali bir ışık kaynağı (genellikle lazer veya
+                                LED) tarafından ışık darbelerine dönüştürülür, fiber optik kablo içinden yansıyarak
+                                ilerler ve hedefe ulaştığında bir ışık dedektörü (fotodiyot) tarafından tekrar elektrik
+                                sinyaline çevrilir. (SİNYAL → LAZER → KABLO → IŞIK DEDEKTÖRÜ → SİNYAL)</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Kablosuz İletişim Ortamları:</h4>
+                <ul>
+                    <li><strong>Mikrodalga Teknolojisi:</strong> Yüksek frekanslı radyo dalgalarını kullanır. Genellikle
+                        uzun mesafeli iletişim için (örneğin, iki bina arasında veya telekomünikasyon kuleleri arasında)
+                        ve "görüş hattı" (line-of-sight) gerektiren durumlarda kullanılır.</li>
+                    <li><strong>Hücresel Teknoloji (Cellular Technology):</strong> Mobil telefon ağlarının temelidir.
+                        Coğrafi alanları "hücre" adı verilen küçük bölgelere ayırır ve her hücrede bir baz istasyonu
+                        bulunur. Cihazlar, hücreler arasında hareket ettikçe bağlantıyı bir baz istasyonundan diğerine
+                        aktarır (handover/handoff).</li>
+                    <li><strong>Kızılötesi Teknoloji (Infrared Technology):</strong> Kızılötesi ışık dalgalarını
+                        kullanır. Genellikle kısa mesafeli (birkaç metre) ve "görüş hattı" gerektiren iletişim için
+                        kullanılır (Örn: TV uzaktan kumandaları, bazı kablosuz klavye/fareler). Duvar gibi engellerden
+                        geçemez.</li>
+                    <li><em>Not: Metindeki "Elektromanyetik dalga boyunun 1 mt.den kısa olduğu frekanslar" ifadesi
+                            genellikle mikrodalga ve daha yüksek frekansları (milimetre dalgaları gibi) işaret
+                            eder.</em></li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>Modem (Modulation-Demodulation)</h3>
+                <h4>Modemin İşlevleri:</h4>
+                <ul>
+                    <li><strong>Modülasyon (Modulation):</strong> Bir bilgisayarın ürettiği dijital (sayısal)
+                        sinyalleri, telefon hattı gibi analog (sürekli) bir iletim ortamı üzerinden gönderilebilecek
+                        analog sinyallere çevirme işlemidir. (Bilgisayar → Modem → Analog Hat)</li>
+                    <li><strong>Demodülasyon (Demodulation):</strong> Analog iletim ortamından gelen analog sinyalleri
+                        tekrar bilgisayarın anlayabileceği dijital sinyallere çevirme işlemidir. (Analog Hat → Modem →
+                        Bilgisayar)</li>
+                    <li>Kısacası, modem adını bu iki temel işlevden alır: <strong>MO</strong>dülatör +
+                        <strong>DEM</strong>odülatör.
+                    </li>
+                    <li>Görselde genellikle dijital sinyalin kare dalgalar, analog sinyalin ise sinüzoidal dalgalar
+                        şeklinde temsil edildiği gösterilir. Bu, iki farklı sinyal türü arasındaki temel farkı vurgular.
+                    </li>
+                </ul>
+                <div class="topology-diagram">
+                    <img src="görseller/dijitalanalog.png" alt="Dijital ve Analog Sinyal Gösterimi">
+                </div>
+            </div>
+        </div>
+
+        <!-- Ağ Türleri (Yeni Bölüm) -->
+        <div id="ag_turleri_detay" class="section">
+            <h2>Ağ Türleri (Kapsama Alanlarına Göre)</h2>
+            <div class="info-box">
+                <h3>Ağ Türleri</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tür</th>
+                            <th>Kapsama Alanı</th>
+                            <th>Açıklama</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>LAN (Local Area Network - Yerel Alan Ağı)</strong></td>
+                            <td>Genellikle 100/500 metreye kadar; bir ofis, bir bina veya bir kat içinde</td>
+                            <td>Sınırlı bir coğrafi alandaki cihazları birbirine bağlar. Yüksek hızlı veri transferi
+                                sağlar. Ethernet en yaygın LAN teknolojisidir.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CAN (Campus Area Network - Kampüs Alan Ağı)</strong></td>
+                            <td>1 kilometreye kadar; bir okul kampüsü, üniversite veya büyük bir şirket yerleşkesi
+                                içinde</td>
+                            <td>Birden fazla LAN'ı birbirine bağlayarak daha geniş bir yerleşkeyi kapsar.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>MAN (Metropolitan Area Network - Metropol Alan Ağı)</strong></td>
+                            <td>Bir şehir veya büyük bir metropol alanı</td>
+                            <td>Bir şehir içindeki farklı LAN'ları ve CAN'ları birbirine bağlayabilir. Genellikle
+                                telekomünikasyon şirketleri tarafından sağlanır.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>WAN (Wide Area Network - Geniş Alan Ağı)</strong></td>
+                            <td>Kıtalararası veya küresel bir alan</td>
+                            <td>Çok geniş coğrafi alanları (şehirler, ülkeler, kıtalar arası) kapsar. İnternet, en büyük
+                                WAN örneğidir. Genellikle daha düşük hızlarda çalışır ve çeşitli telekomünikasyon
+                                hatlarını (kiralık hatlar, uydu bağlantıları vb.) kullanır.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Ağ Topolojileri (Yeni Bölüm) -->
+        <div id="ag_topolojileri_detay" class="section">
+            <h2>Ağ Topolojileri ve Bağlantı Türleri</h2>
+            <div class="info-box">
+                <h3>Ağ Yapıları ve Topolojiler</h3>
+                <p>Ağ topolojisi, bir ağdaki cihazların fiziksel veya mantıksal olarak nasıl düzenlendiğini ve birbirine
+                    nasıl bağlandığını tanımlar.</p>
+
+
+                <h5>1. Yıldız (Star) Topolojisi</h5>
+                <ul>
+                    <li><strong>Tanım/Çalışma Prensibi:</strong> Tüm cihazlar (bilgisayarlar, yazıcılar vb.) merkezi bir
+                        bağlantı cihazına (genellikle bir <strong>hub</strong> veya <strong>switch</strong>) bağlanır.
+                        Veri, bir cihazdan diğerine merkezi cihaz üzerinden iletilir.</li>
+                    <li><strong>Avantajları:</strong>
+                        <ul>
+                            <li>Bir cihazda veya o cihaza giden kabloda bir arıza meydana geldiğinde, sadece o cihaz
+                                etkilenir; ağın geri kalanı çalışmaya devam eder.</li>
+                            <li>Hata tespiti ve yönetimi merkezi cihaz sayesinde daha kolaydır.</li>
+                            <li>Ağa yeni bir cihaz eklemek veya çıkarmak basittir ve ağı etkilemez.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Dezavantajları:</strong>
+                        <ul>
+                            <li>Merkezi cihaz (hub/switch) arızalanırsa, tüm ağ çöker. Bu, tek bir hata noktası (single
+                                point of failure) oluşturur.</li>
+                            <li>Diğer bazı topolojilere göre (örneğin, bus) daha fazla kablo gerektirebilir, çünkü her
+                                cihazın merkezi cihaza ayrı bir kabloyla bağlanması gerekir.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Kullanım Alanı/Notlar:</strong>
+                        <ul>
+                            <li>Günümüzde en yaygın kullanılan LAN topolojisidir, özellikle <strong>ofislerdeki Ethernet
+                                    ağları</strong> genellikle bu yapıdadır.</li>
+                            <li><strong>ARCNET (Attached Resource Computer Network):</strong> 1977'de geliştirilen ve
+                                genellikle yıldız topolojisiyle (bazen bus topolojisini de desteklerdi) çalışan eski bir
+                                LAN teknolojisidir. Token tabanlı bir iletişim yöntemi kullanarak veri çakışmalarını
+                                önlerdi. Kurulumu kolay olmasına rağmen hızı (yaklaşık 2.5 Mbps) düşüktü. Günümüzde
+                                yaygın olarak kullanılmamaktadır.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="topology-diagram">
+                    <img src="görseller/star.png" alt="Yıldız Topolojisi Şeması">
+                </div>
+
+
+                <h5>2. Halka (Ring/Token Ring) Topolojisi</h5>
+                <ul>
+                    <li><strong>Tanım/Çalışma Prensibi:</strong> Cihazlar, birbirlerine dairesel bir şekilde bağlanarak
+                        bir halka (ring) oluşturur. Veri, halka üzerinde genellikle tek bir yönde (saat yönünde veya
+                        tersi) dolaşır. "Token" adı verilen özel bir sinyal paketi, veri iletim hakkını belirler; sadece
+                        token'a sahip olan cihaz veri gönderebilir. Bu yöntem (token passing), veri çakışmalarını
+                        (collisions) önler.</li>
+                    <li><strong>Avantajları:</strong>
+                        <ul>
+                            <li>Token passing mekanizması sayesinde veri çakışması çok azdır veya hiç olmaz.</li>
+                            <li>Yıldız topolojisine göre tüm cihazları bağlamak için daha az kablo gerektirebilir
+                                (özellikle cihazlar fiziksel olarak halka şeklinde dizilmişse).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Dezavantajları:</strong>
+                        <ul>
+                            <li>Halkadaki bir cihaz veya halkayı oluşturan kablolardan birinde bir arıza meydana
+                                gelirse, <strong>tüm ağ çökebilir</strong>.</li>
+                            <li>Ağa yeni bir cihaz eklemek veya mevcut bir cihazı çıkarmak, halkayı geçici olarak
+                                kesintiye uğratabilir ve ağı durdurabilir.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Kullanım Alanı/Notlar:</strong>
+                        <ul>
+                            <li>Eskiden özellikle <strong>IBM'in Token Ring ağlarında</strong> sıkça kullanılmıştır.
+                                Ancak günümüzde Ethernet tabanlı yıldız topolojilerinin yaygınlaşmasıyla kullanımı
+                                oldukça <strong>nadirleşmiştir</strong>.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="topology-diagram">
+                    <img src="görseller/ring.jpg" alt="Halka Topolojisi Şeması">
+                </div>
+
+
+                <h5>3. Doğrusal (Bus) Topolojisi</h5>
+                <ul>
+                    <li><strong>Tanım/Çalışma Prensibi:</strong> Tüm cihazlar, "bus" adı verilen <strong>tek bir ana
+                            kabloya (backbone)</strong> bağlanır. Veri, ana kablo üzerinden tüm cihazlara gönderilir
+                        (broadcast edilir), ancak sadece hedef adresine sahip olan cihaz veriyi kabul eder.</li>
+                    <li><strong>Avantajları:</strong>
+                        <ul>
+                            <li>Kurulumu diğer topolojilere göre genellikle daha ucuz ve basittir, çünkü daha az kablo
+                                gerektirir.</li>
+                            <li>Ağa yeni bir cihaz eklemek (uygun konektörlerle ana kabloya bağlamak) nispeten kolaydır.
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Dezavantajları:</strong>
+                        <ul>
+                            <li><strong>Ana kabloda bir sorun (kopma, kısa devre, arıza) olursa, tüm ağ çöker</strong>.
+                            </li>
+                            <li>Hata tespiti (sorunun ana kablonun neresinde olduğunu bulmak) zordur.</li>
+                            <li>Ana kablonun uçlarına, sinyallerin geri yansımasını ve parazit oluşturmasını önlemek
+                                için <strong>sonlandırıcı (terminatör)</strong> adı verilen özel dirençlerin takılması
+                                gerekir. Eğer sonlandırıcılar eksik veya arızalıysa ağ düzgün çalışmaz.</li>
+                            <li>Ağa bağlanan cihaz sayısı arttıkça ağ performansı düşebilir ve veri çakışmaları
+                                (collisions) sık görülür, çünkü tüm cihazlar aynı iletişim hattını paylaşır. Bu nedenle
+                                en az güvenilir topolojilerden biri olarak kabul edilir.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Kullanım Alanı/Notlar:</strong>
+                        <ul>
+                            <li><strong>Eski Ethernet (örneğin, 10BASE2 - Thinnet, 10BASE5 - Thicknet)
+                                    sistemlerinde</strong> ve bazı küçük, basit ağlarda kullanılmıştır. Günümüzde,
+                                özellikle yıldız topolojisinin sunduğu avantajlar nedeniyle pek tercih edilmez.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="topology-diagram">
+                    <img src="görseller/bus.png" alt="Doğrusal (Bus) Topolojisi Şeması">
+                </div>
+
+
+                <h5>4. Örgü (Mesh) Topolojisi</h5>
+                <ul>
+                    <li><strong>Tanım/Çalışma Prensibi:</strong> Her cihazın, ağdaki diğer birçok cihaza (tam örgü -
+                        full mesh topolojisinde ise ağdaki tüm diğer cihazlara) doğrudan fiziksel bir bağlantısı vardır.
+                        Veri, hedefe ulaşmak için birden fazla alternatif yoldan gidebilir.
+                        <ul>
+                            <li><strong>Tam Örgü (Full Mesh):</strong> Her düğüm, diğer tüm düğümlere doğrudan bağlıdır.
+                            </li>
+                            <li><strong>Kısmi Örgü (Partial Mesh):</strong> Bazı düğümler tüm diğer düğümlere bağlıyken,
+                                bazıları sadece ağdaki birkaç kritik düğüme bağlıdır.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Avantajları:</strong>
+                        <ul>
+                            <li><strong>Yüksek güvenilirlik ve hata toleransı (fault tolerance):</strong> Bir bağlantı
+                                veya bir cihaz arızalansa bile, iletişim alternatif yollar üzerinden devam edebilir. Bu,
+                                ağı kesintilere karşı çok dirençli hale getirir.</li>
+                            <li>Veri, hedefe en kısa veya en az yoğun yoldan gönderilebilir.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Dezavantajları:</strong>
+                        <ul>
+                            <li>Kurulumu (özellikle tam örgü topolojisinde) <strong>çok maliyetli ve
+                                    karmaşıktır</strong>, çünkü çok fazla kablo ve her cihazda çok sayıda bağlantı
+                                noktası (port) gerektirir.</li>
+                            <li>Yönetimi ve yapılandırması zordur.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Kullanım Alanı/Notlar:</strong>
+                        <ul>
+                            <li>Yüksek kesintisizlik ve güvenilirlik gerektiren <strong>kritik ağlarda (örneğin, bazı
+                                    askeri sistemler, internetin omurgasını oluşturan bazı bağlantılar, bazı WAN
+                                    yapıları)</strong> ve bazı kablosuz ağ türlerinde (Wireless Mesh Networks - WMN)
+                                kullanılır. Kablosuz mesh ağlarda, cihazlar birbirleri üzerinden veri aktararak kapsama
+                                alanını genişletir.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="topology-diagram">
+                    <img src="görseller/mesh.png" alt="Örgü (Mesh) Topolojisi Şeması">
+                </div>
+
+                <h5>5. Ad hoc Ağ (Ad hoc Network)</h5>
+                <ul>
+                    <li><strong>Tanım/Özellikleri:</strong>
+                        <ul>
+                            <li>Geçici, <strong>merkezsiz (decentralized) bir kablosuz ağ yapısıdır</strong>.</li>
+                            <li>Cihazlar, bir yönlendirici (router) veya erişim noktası (Access Point - AP) gibi merkezi
+                                bir altyapı donanımına ihtiyaç duymadan doğrudan (peer-to-peer) birbirine bağlanır.</li>
+                            <li>Hızlı ve kolay bir şekilde kurulabilir.</li>
+                            <li>Dinamik bir yapıya sahiptir; cihazlar ağa kolayca katılıp ayrılabilir.</li>
+                            <li>Genellikle sınırlı bir coğrafi alanda (örneğin, aynı odada) ve az sayıda cihaz için
+                                uygundur.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Dezavantajları:</strong>
+                        <ul>
+                            <li>Güvenliği ve yönetimi, merkezi bir erişim noktası olan altyapı modu (infrastructure
+                                mode) kablosuz ağlara göre genellikle daha zordur.</li>
+                            <li>Kapsama alanı ve performansı, cihazların sayısına ve aralarındaki mesafeye bağlı olarak
+                                sınırlı olabilir.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Kullanım Alanı:</strong>
+                        <ul>
+                            <li>İki veya daha fazla laptopun geçici olarak dosya paylaşımı için birbirine bağlanması.
+                            </li>
+                            <li>Acil durum haberleşmesi (altyapının zarar gördüğü durumlarda).</li>
+                            <li>Mobil oyunlar veya merkezi bir altyapının olmadığı (örneğin, bir toplantıda, açık
+                                havada) durumlar için idealdir.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="topology-diagram">
+                    <p class="no-image-placeholder">Ad hoc ağ için görsel şema mevcut değil.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- İnternet ve Adresleme -->
+        <div id="internet_adresleme" class="section">
+            <h2>İnternet, Adresleme, Mimari ve Kontrol</h2>
+            <div class="info-box">
+                <h3>İnternet Tanımı</h3>
+                <p>Teknik olarak, interneti şu üç temel özelliğe sahip küresel bir bilgi sistemi olarak
+                    tanımlayabiliriz:</p>
+                <ul>
+                    <li>IP (İnternet Protokolü) üzerinden atanmış sabit (veya dinamik olarak atanmış benzersiz)
+                        adreslerle birbirlerine mantıksal olarak bağlanmış bilgisayarlar ve diğer ağa bağlanabilen
+                        cihazlar (örneğin, sunucular, yönlendiriciler, akıllı telefonlar) ağıdır.</li>
+                    <li>TCP/IP (İletim Kontrol Protokolü/İnternet Protokolü) veya diğer uyumlu protokolleri (örneğin,
+                        UDP) kullanarak iletişimi sağlayan, birbirine bağlı ağ cihazlarından (yönlendiriciler,
+                        anahtarlar vb.) oluşan bir ağdır.</li>
+                    <li>İletişime ve bu ağ altyapısına dayalı olarak, e-posta, web siteleri, dosya transferi gibi yüksek
+                        seviyede çeşitli hizmetler sunan küresel bir ağdır.</li>
+                </ul>
+                <p><strong>Önemli Not:</strong> İnternet'in merkezi bir sahibi veya yönetici otoritesi yoktur. Farklı
+                    organizasyonlar, servis sağlayıcılar ve ülkeler tarafından yönetilen birçok bağımsız ağın birbirine
+                    bağlanmasıyla oluşur. Yönetimi ve standartları, ICANN, IETF gibi uluslararası kuruluşlar tarafından
+                    koordine edilir.</p>
+            </div>
+            <div class="info-box info-box-highlighted">
+                <h3>İnternet Adreslendirmesi, Mimarisi ve Kontrolü</h3>
+                <h4>Domain Name System (DNS - Alan Adı Sistemi)</h4>
+                <ul>
+                    <li><strong>Alan Adı (Domain Name):</strong> İnsanların hatırlaması kolay olan, internete bağlı
+                        bilgisayarların (sunucuların) ve hizmetlerin adıdır (örneğin, <code>www.google.com</code>). Bu
+                        alan adları, aslında sayısal IP adreslerine karşılık gelir.</li>
+                    <li><strong>DNS'in İşlevi:</strong> Temel olarak, insanların kullandığı İngilizce (veya diğer
+                        dillerdeki) alan adlarını, bilgisayarların ve ağ cihazlarının birbirini bulmak için kullandığı
+                        sayısal IP adreslerine (ve tersi işlemle IP adreslerini alan adlarına) çevirir.</li>
+                    <li><strong>DNS Sunucuları:</strong> Her bir IP adresinin hangi alan adına karşılık geldiğini (veya
+                        hangi alan adının hangi IP adresine sahip olduğunu) içeren dağıtık bir "haritalar veri tabanına"
+                        (aslında hiyerarşik bir kayıt sistemine) sahiptirler. Bir kullanıcı tarayıcısına bir alan adı
+                        girdiğinde, bilgisayarı bu çeviriyi yapmak için bir DNS sunucusuna sorgu gönderir.</li>
+                    <li>Kullanıcıların bilgisayarlar ve hizmetler ile internete bağlanabilmek için bu alan adlarını
+                        (veya dolaylı olarak IP adreslerini) belirlemeleri gerekmektedir. DNS bu süreci
+                        otomatikleştirir.</li>
+                </ul>
+            </div>
+            <div class="info-box info-box-highlighted">
+                <h3>İnternet: Alan Adı Sistemi Hiyerarşisi</h3>
+                <p>DNS, hiyerarşik bir yapıya sahiptir. En üstten en alta doğru şu şekilde örneklendirilebilir:</p>
+                <ul>
+                    <li><strong>Internet Root Domain (İnternet Kök Alan Adı):</strong> Hiyerarşinin en tepesidir,
+                        genellikle görünmez bir nokta (".") ile temsil edilir. Kök DNS sunucuları bu seviyeyi yönetir.
+                    </li>
+                    <li><strong>Top-Level Domains (TLDs - Üst Seviye Alan Adları):</strong> Kök alan adının hemen
+                        altındadır. Örnekler:
+                        <ul>
+                            <li><code>.com</code> (Ticari kuruluşlar)</li>
+                            <li><code>.edu</code> (Eğitim kurumları, genellikle ABD'de)</li>
+                            <li><code>.gov</code> (Devlet kurumları, genellikle ABD'de)</li>
+                            <li><code>.org</code> (Genellikle kar amacı gütmeyen organizasyonlar)</li>
+                            <li><code>.net</code> (Ağ altyapıları ile ilgili kuruluşlar)</li>
+                            <li>Ülke kodlu TLD'ler (ccTLDs): <code>.tr</code> (Türkiye), <code>.uk</code> (Birleşik
+                                Krallık), <code>.de</code> (Almanya) vb.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Second-Level Domains (SLDs - İkinci Seviye Alan Adları):</strong> TLD'nin hemen solunda
+                        yer alır ve genellikle bir organizasyonun veya bireyin seçtiği addır. Örnekler:
+                        <code>google.com</code> (google), <code>expedia.com</code> (expedia), <code>congress.gov</code>
+                        (congress).
+                    </li>
+                    <li><strong>Third-Level Domains (Üçüncü Seviye Alan Adları) veya Subdomains (Alt Alan
+                            Adları):</strong> İkinci seviye alan adının solunda yer alır ve genellikle ana domain
+                        içindeki belirli bir bölümü veya hizmeti işaret eder. Örnek: <code>sales.google.com</code>
+                        (sales kısmı), <code>mail.google.com</code>.</li>
+                    <li><strong>Hosts (Ana Bilgisayarlar):</strong> Hiyerarşinin en altındaki belirli bir bilgisayarı
+                        veya cihazı işaret edebilir. Örnek: <code>computer1.sales.google.com</code>.</li>
+                </ul>
+            </div>
+            <div class="info-box info-box-highlighted">
+                <h3>İnternet: IP Adreslerindeki Kısıtlar (IPv4 ve IPv6)</h3>
+                <h4>Internet Protocol version 4 (IPv4)</h4>
+                <ul>
+                    <li>32-bitlik bir adresleme şeması kullanır.</li>
+                    <li>Adresler genellikle dört onluk sayı (her biri 0-255 arasında) ile gösterilir ve noktalarla
+                        ayrılır (örn: <code>192.168.1.10</code>).</li>
+                    <li>Teorik olarak 2<sup>32</sup> yani yaklaşık 4.3 milyar benzersiz adres sağlayabilir.</li>
+                    <li>İnternet'e bağlanan cihaz sayısının hızla artmasıyla birlikte IPv4 adres alanı tükenme noktasına
+                        gelmiştir. Bu durum, NAT (Network Address Translation) gibi geçici çözümlerin yaygınlaşmasına
+                        neden olmuştur.</li>
+                </ul>
+                <h4>Internet Protocol version 6 (IPv6)</h4>
+                <ul>
+                    <li>IPv4 adres kıtlığı sorununu çözmek ve ek iyileştirmeler sunmak için geliştirilmiştir.</li>
+                    <li>128-bitlik bir adresleme şeması kullanır.</li>
+                    <li>Adresler genellikle sekiz grup dörtlü heksadesimal sayılarla gösterilir ve iki nokta üst üste
+                        (colon) ile ayrılır (örn: <code>2001:0db8:85a3:0000:0000:8a2e:0370:7334</code>). Sıfırların
+                        olduğu bölümler kısaltılabilir.</li>
+                    <li>Teorik olarak 2<sup>128</sup> yani katrilyonlarca (neredeyse sınırsız sayıda) benzersiz adres
+                        sağlayabilir. Bu, gelecekteki tüm internete bağlı cihazlar için yeterli adres alanı sunar.</li>
+                    <li>IPv6 ayrıca daha iyi güvenlik özellikleri, daha verimli yönlendirme ve otomatik yapılandırma
+                        gibi avantajlar da sunar.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Intranet ve Extranet (Yeni Bölüm) -->
+        <div id="intranet_extranet_detay" class="section">
+            <h2>Intranet ve Extranet</h2>
+            <div class="info-box">
+                <h3>Intranet</h3>
+                <ul>
+                    <li>Bir intranet, bir iş firması veya organizasyon içinde, sadece o organizasyonun çalışanları veya
+                        yetkili üyeleri tarafından erişilebilen özel bir ağdır.</li>
+                    <li>İnternet teknolojilerini (web sunucuları, tarayıcılar, TCP/IP protokolleri gibi) kullanır ancak
+                        dışarıdan genel internet erişimine kapalıdır (genellikle güvenlik duvarları - firewall'lar ile
+                        korunur).</li>
+                    <li>Amacı, organizasyon içindeki bilgi paylaşımını, iletişimi ve işbirliğini kolaylaştırmaktır.
+                        Örneğin, şirket içi duyurular, belgeler, veritabanları, uygulamalar intranette barındırılabilir.
+                    </li>
+                    <li>Verilere ve kaynaklara erişim, genellikle kullanıcı kimlik doğrulaması ile kontrol edilir.</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>Extranet</h3>
+                <ul>
+                    <li>Bir extranet, bir şirketin intranetinin bir bölümünü, yetkilendirilmiş dış kullanıcılara
+                        (örneğin, iş ortakları, tedarikçiler, müşteriler) açtığı özel bir ağdır.</li>
+                    <li>Yine internet teknolojilerini kullanır ve güvenlik önlemleriyle korunur.</li>
+                    <li>Amacı, şirket ile önemli dış paydaşları arasında güvenli ve kontrollü bir şekilde bilgi ve
+                        uygulama paylaşımını sağlamaktır. Örneğin, tedarikçiler sipariş durumlarını takip edebilir,
+                        müşteriler özel bilgilere erişebilir.</li>
+                    <li>İntranetten farkı, intranet sadece kurum içi iken, extranet kurum dışından belirli kişilere
+                        kontrollü erişim sunar.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- VoIP (Yeni Bölüm) -->
+        <div id="voip_detay" class="section">
+            <h2>İnternet Telefonu (VoIP)</h2>
+            <div class="info-box">
+                <h3>İnternet Telefonu (VoIP - Voice over IP)</h3>
+                <ul>
+                    <li><strong>İnternet Telefonu Genel Tanımı:</strong> Firmaların veya bireylerin, geleneksel telefon
+                        hatları yerine İnternet veya diğer özel IP tabanlı ağlar üzerinden telefon görüşmeleri
+                        yapabilmelerini sağlayan teknolojidir.</li>
+                    <li><strong>IP üzerinden Ses (VoIP) Teknolojisi:</strong> Bu teknolojinin temelini oluşturur. VoIP,
+                        ses bilgisini (konuşmayı) dijital biçime dönüştürür, bu dijital veriyi küçük paketlere böler ve
+                        bu paketleri İnternet Protokolü (IP) kullanarak hedef alıcıya iletir. Alıcı tarafta bu paketler
+                        tekrar birleştirilerek sese dönüştürülür. Yani, paket anahtarlama teknolojisini kullanır.</li>
+                    <li><strong>Birleşik Mesajlaşma Sistemleri (Unified Messaging):</strong> VoIP ile sıkça entegre olan
+                        bu sistemler, sesli posta, e-posta, faks ve bazen anlık mesajlaşma gibi farklı iletişim
+                        türlerini tek bir gelen kutusunda veya arayüzde birleştirerek kullanıcının tüm mesajlarına tek
+                        bir noktadan erişimini ve yönetimini sağlar.</li>
+                </ul>
+                <h4>IP Telefonu Nasıl Çalışır? (Basit Akış)</h4>
+                <p>Temel bir VoIP çağrısı şu adımları izleyebilir:</p>
+                <ol>
+                    <li>Kullanıcı, bir VoIP özellikli telefon veya bilgisayarındaki bir yazılım (softphone) aracılığıyla
+                        numarayı çevirir.</li>
+                    <li>Ses sinyali dijital verilere dönüştürülür ve IP paketlerine ayrılır.</li>
+                    <li>Bu paketler, kullanıcının yerel ağından çıkarak bir <strong>Gateway (Ağ Geçidi)</strong>
+                        üzerinden (eğer geleneksel telefon ağına bağlanılıyorsa) veya doğrudan İnternet üzerinden karşı
+                        tarafa yönlendirilir. Gateway, IP ağı ile geleneksel telefon ağı (PSTN) arasında bir köprü
+                        görevi görür.</li>
+                    <li>Paketler İnternet üzerinden hedefe ulaşır.</li>
+                    <li>Hedefteki Gateway veya VoIP cihazı, gelen IP paketlerini alır, tekrar ses sinyaline dönüştürür
+                        ve karşıdaki kullanıcının telefonuna veya yazılımına iletir.</li>
+                </ol>
+                <p><em>Metindeki "N'aber la?" (ABC) -> ABC paketi -> (XYZ) "İyi, sağ ol la!" şeklindeki iletişim akışı,
+                        sesin paketlere bölünüp karşı tarafta tekrar birleştirilmesini basitleştirilmiş bir şekilde
+                        ifade etmektedir.</em></p>
+            </div>
+        </div>
+
+        <!-- Genişbant Hizmetleri -->
+        <div id="genisbant_hizmetler" class="section">
+            <h2>Genişbantlı Ağ Hizmetleri ve Teknolojileri</h2>
+            <div class="info-box">
+                <p>Şirketlerin ve bireylerin ihtiyaç duydukları yüksek hızda veri aktarımı ve internet erişimini
+                    sağlayan birçok farklı ağ hizmeti ve teknolojisi mevcuttur. Bunlardan bazıları şunlardır:</p>
+                <ul>
+                    <li>
+                        <strong>Integrated Services Digital Network (ISDN - Bütünleşik Hizmetler Sayısal Ağı):</strong>
+                        Geleneksel analog telefon hatları üzerinden dijital iletişim sağlayan bir çevirmeli ağ erişimi
+                        standardıdır. Ses, veri ve hatta sınırlı video gibi farklı servisleri tek bir hat üzerinden
+                        entegre bir şekilde iletebilir. Geçmişte DSL'den önce popüler bir seçenekti, ancak günümüzde DSL
+                        ve kablo modem gibi teknolojilerin gerisinde kalmıştır. İki ana türü vardır: BRI (Basic Rate
+                        Interface) ve PRI (Primary Rate Interface).
+                    </li>
+                    <li>
+                        <strong>Digital Subscriber Line (DSL - Sayısal Abone Hattı):</strong>
+                        Mevcut bakır telefon hatları üzerinden yüksek kapasitede (genişbant) veri aktarımı sağlayan bir
+                        teknolojiler serisidir. Telefon görüşmeleri için kullanılan frekanslardan farklı frekansları
+                        kullanarak aynı hat üzerinden hem telefon görüşmesi yapılmasına hem de internete bağlanılmasına
+                        olanak tanır. Farklı türleri vardır:
+                        <ul>
+                            <li><strong>ADSL (Asymmetric DSL):</strong> İndirme (download) hızı yükleme (upload)
+                                hızından daha yüksektir, ev kullanıcıları için yaygındır.</li>
+                            <li><strong>SDSL (Symmetric DSL):</strong> İndirme ve yükleme hızları eşittir, genellikle iş
+                                uygulamaları için tercih edilir.</li>
+                            <li>VDSL (Very-high-bit-rate DSL): ADSL'e göre daha yüksek hızlar sunar, ancak genellikle
+                                telefon santraline daha yakın mesafelerde etkilidir.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Kablo Modem (Cable Modem):</strong>
+                        Kablo TV (CATV) altyapısını kullanarak yüksek kapasitede (genişbant) internet erişimi ve veri
+                        aktarımı sağlayan bir servistir. Koaksiyel kablo ağları üzerinden çalışır. Genellikle DSL ile
+                        rekabet eden popüler bir ev interneti erişim yöntemidir. Paylaşımlı bir ağ olduğu için aynı
+                        bölgedeki kullanıcı sayısı arttıkça performans düşebilir, ancak modern DOCSIS standartları bu
+                        etkiyi azaltmaya yöneliktir.
+                    </li>
+                    <li>
+                        <strong>Fiber İnternet (Fiber to the x - FTTx):</strong>
+                        Veriyi ışık hızında ileten fiber optik kabloları kullanarak çok yüksek hızlarda internet erişimi
+                        sağlar. "FTTH" (Fiber to the Home - Eve Kadar Fiber), "FTTB" (Fiber to the Building - Binaya
+                        Kadar Fiber) gibi farklı mimarileri vardır. En yüksek hız ve güvenilirliği sunan genişbant
+                        teknolojilerinden biridir.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Yönetimsel Hususlar -->
+        <div id="yonetimsel_hususlar" class="section">
+            <h2>Yönetimsel Fırsatlar, Sorunlar ve Çözümler</h2>
+            <div class="info-box info-box-highlighted">
+                <h3>Yönetimsel Fırsatlar</h3>
+                <ul>
+                    <li>Şirketlerin, çalışanları, satıcıları ve müşterileriyle olan iletişim maliyetlerinde köklü bir
+                        indirim sağlama fırsatı vardır. E-posta, VoIP, video konferans gibi teknolojiler seyahat ve
+                        geleneksel iletişim giderlerini azaltabilir.</li>
+                    <li>Yeni telekomünikasyon teknolojileri (mobil uygulamalar, bulut bilişim, IoT vb.) temelinde yeni
+                        iş modelleri (örneğin, e-ticaret, abonelik tabanlı hizmetler, uzaktan çalışma) geliştirebilmek
+                        için birçok fırsat mevcuttur. Bu, pazarda rekabet avantajı sağlayabilir ve yeni gelir kaynakları
+                        oluşturabilir.</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>Yönetimsel Zorluklar</h3>
+                <ul>
+                    <li><strong>Yönetimsel Kontrolün Yitirilmesi:</strong> Dağıtık ağlar, uzaktan erişim ve bulut
+                        hizmetleri, veri ve sistemler üzerindeki merkezi kontrolü zorlaştırabilir. Güvenlik ve uyumluluk
+                        riskleri artabilir.</li>
+                    <li><strong>Organizasyonel Değişim Gereksinimleri:</strong> Yeni ağ teknolojilerinin ve iletişim
+                        araçlarının etkin kullanımı, iş süreçlerinde, organizasyon yapısında ve çalışanların
+                        becerilerinde değişiklikler gerektirebilir. Bu değişime direniş olabilir.</li>
+                    <li><strong>Ölçeklendirilebilirlik, Güvenilirlik ve Güvenlik:</strong>
+                        <ul>
+                            <li><strong>Ölçeklendirilebilirlik (Scalability):</strong> İşletme büyüdükçe veya ihtiyaçlar
+                                değiştikçe ağ altyapısının bu büyümeye ayak uydurabilmesi gerekir.</li>
+                            <li><strong>Güvenilirlik (Reliability):</strong> Ağın ve iletişim sistemlerinin kesintisiz
+                                ve hatasız çalışması kritik öneme sahiptir. Kesintiler iş kaybına yol açabilir.</li>
+                            <li><strong>Güvenlik (Security):</strong> Verilerin gizliliği, bütünlüğü ve
+                                erişilebilirliğinin korunması, siber saldırılara, veri sızıntılarına ve yetkisiz
+                                erişimlere karşı önlemler alınması hayati önem taşır.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>Çözüm İlkeleri</h3>
+                <ul>
+                    <li><strong>Stratejik Ağ Oluşumu Planı Geliştirilmesi:</strong> İşletmenin mevcut ve gelecekteki
+                        ihtiyaçlarına, hedeflerine uygun, ölçeklenebilir, güvenli ve maliyet-etkin bir ağ altyapısı
+                        planlanmalıdır. Bu plan, teknoloji seçimlerini, güvenlik politikalarını ve yatırım önceliklerini
+                        içermelidir.</li>
+                    <li><strong>Değişimin Yönetilmesi:</strong> Yeni teknolojilerin ve süreçlerin benimsenmesi için
+                        çalışanların eğitilmesi, bilgilendirilmesi ve katılımının sağlanması önemlidir. Direncin
+                        yönetilmesi ve yeni çalışma biçimlerine adaptasyon desteklenmelidir. Etkili bir değişim
+                        yönetimi, projelerin başarısı için kritik bir faktördür.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Test Seti 1 (soru2.md) -->
+        <div id="quizSet1" class="section">
+            <h2>Test: Soru Seti 1</h2>
+            <div id="quizContainerSet1" class="quiz-container">
+                <!-- Question will be loaded here by JavaScript -->
+            </div>
+            <div id="questionFeedbackSet1" class="feedback" style="display:none; margin-bottom:15px;"></div>
+            <div class="quiz-navigation">
+                <button id="prevQuestionBtnSet1" onclick="prevQuestion('Set1')">Önceki Soru</button>
+                <button id="nextQuestionBtnSet1" onclick="nextQuestion('Set1')">Sonraki Soru</button>
+            </div>
+            <button id="submitQuizBtnSet1" class="quiz-button submit" onclick="submitQuiz('Set1')"
+                style="display:none; margin-top: 20px;">Testi Bitir ve Sonuçları Gör</button>
+            <div id="quizScoreSet1" class="quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- Test Seti 2 (ağlarsoru.md) -->
+        <div id="quizSet2" class="section">
+            <h2>Test: Soru Seti 2</h2>
+            <div id="quizContainerSet2" class="quiz-container">
+                <!-- Question will be loaded here by JavaScript -->
+            </div>
+            <div id="questionFeedbackSet2" class="feedback" style="display:none; margin-bottom:15px;"></div>
+            <div class="quiz-navigation">
+                <button id="prevQuestionBtnSet2" onclick="prevQuestion('Set2')">Önceki Soru</button>
+                <button id="nextQuestionBtnSet2" onclick="nextQuestion('Set2')">Sonraki Soru</button>
+            </div>
+            <button id="submitQuizBtnSet2" class="quiz-button submit" onclick="submitQuiz('Set2')"
+                style="display:none; margin-top: 20px;">Testi Bitir ve Sonuçları Gör</button>
+            <div id="quizScoreSet2" class="quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- True/False Quiz (modernsoru.md) -->
+        <div id="trueFalseQuizMS" class="section">
+            <h2>Doğru/Yanlış Testi (Modern Soru İçeriği)</h2>
+            <div id="tfQuizContainerMS" class="quiz-container">
+                <div id="tfQuestionAreaMS" class="quiz-question">
+                    <!-- Statement will be loaded here -->
+                </div>
+                <div id="tfAnswerButtonsMS" style="text-align: center; margin: 20px 0;">
+                    <button id="tfTrueButtonMS" class="quiz-button">Doğru</button>
+                    <button id="tfFalseButtonMS" class="quiz-button">Yanlış</button>
+                </div>
+                <div id="tfFeedbackAreaMS" class="feedback" style="display:none;"></div>
+                <div id="tfQuizProgressMS" style="text-align: center; margin-top: 10px; font-weight: bold;"></div>
+                <div id="tfQuizScoreMS" class="quiz-score" style="margin-top: 15px;"></div>
+                <button id="tfNextQuestionButtonMS" class="quiz-button"
+                    style="display:none; margin: 20px auto; display: block;">Sonraki Soru</button>
+            </div>
+        </div>
+
+        <!-- Flashcards (modernsoru.md) -->
+        <div id="flashcardsMS" class="section">
+            <h2>Bilgi Kartları (Modern Soru İçeriği)</h2>
+            <div id="flashcardContainerMS" style="text-align: center;">
+                <div class="flashcard-wrapper">
+                    <div id="flashcardMS" class="flashcard">
+                        <div id="flashcardFrontMS" class="flashcard-face flashcard-front"></div>
+                        <div id="flashcardBackMS" class="flashcard-face flashcard-back"></div>
+                    </div>
+                </div>
+                <div id="flashcardControlsMS" style="margin-top: 20px;">
+                    <button id="fcPrevButtonMS" class="quiz-button">Önceki Kart</button>
+                    <button id="fcFlipButtonMS" class="quiz-button">Kartı Çevir</button>
+                    <button id="fcNextButtonMS" class="quiz-button">Sonraki Kart</button>
+                </div>
+                <div id="flashcardProgressMS" style="margin-top: 10px; font-weight: bold;"></div>
+            </div>
+        </div>
+
+        <!-- Matching Games Section -->
+        <div id="matchingGameProtocols" class="section">
+            <h2>Protokol Eşleştirme Oyunu</h2>
+            <div class="matching-game-container">
+                <!-- Game content will be loaded by JS -->
+            </div>
+            <button class="quiz-button matching-check-btn">Kontrol Et</button>
+            <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            <div class="matching-feedback"></div>
+            <div class="matching-score quiz-score"></div>
+        </div>
+
+        <div id="matchingGameTopologies" class="section">
+            <h2>Topoloji Eşleştirme Oyunu</h2>
+            <div class="matching-game-container">
+                <!-- Game content will be loaded by JS -->
+            </div>
+            <button class="quiz-button matching-check-btn">Kontrol Et</button>
+            <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            <div class="matching-feedback"></div>
+            <div class="matching-score quiz-score"></div>
+        </div>
+
+        <div id="matchingGameDevices" class="section">
+            <h2>Cihaz Eşleştirme Oyunu</h2>
+            <div class="matching-game-container">
+                <!-- Game content will be loaded by JS -->
+            </div>
+            <button class="quiz-button matching-check-btn">Kontrol Et</button>
+            <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            <div class="matching-feedback"></div>
+            <div class="matching-score quiz-score"></div>
+        </div>
+
+        <div id="matchingGameIpVersions" class="section">
+            <h2>IPv4/IPv6 Karşılaştırma Oyunu</h2>
+            <div class="matching-game-container">
+                <!-- Game content will be loaded by JS -->
+            </div>
+            <button class="quiz-button matching-check-btn">Kontrol Et</button>
+            <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            <div class="matching-feedback"></div>
+            <div class="matching-score quiz-score"></div>
+        </div>
+
+        <div id="matchingGameGeneral" class="section">
+            <h2>Genel Kavramlar Eşleştirme Oyunu</h2>
+            <div class="matching-game-container">
+                <!-- Game content will be loaded by JS -->
+            </div>
+            <button class="quiz-button matching-check-btn">Kontrol Et</button>
+            <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            <div class="matching-feedback"></div>
+            <div class="matching-score quiz-score"></div>
+        </div>
+
+        <div id="matchingGameInternetServices" class="section">
+            <h2>İnternet ve Servisler Eşleştirme Oyunu</h2>
+            <div class="matching-game-container">
+                <!-- Game content will be loaded by JS -->
+            </div>
+            <button class="quiz-button matching-check-btn">Kontrol Et</button>
+            <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            <div class="matching-feedback"></div>
+            <div class="matching-score quiz-score"></div>
+        </div>
+
+        <!-- True/False Quiz for Internet Services (New) -->
+        <div id="trueFalseQuizIS" class="section">
+            <h2>Doğru/Yanlış Testi (İnternet ve Servisler)</h2>
+            <div id="tfQuizContainerIS" class="quiz-container">
+                <div id="tfQuestionAreaIS" class="quiz-question">
+                    <!-- Statement will be loaded here -->
+                </div>
+                <div id="tfAnswerButtonsIS" style="text-align: center; margin: 20px 0;">
+                    <button id="tfTrueButtonIS" class="quiz-button">Doğru</button>
+                    <button id="tfFalseButtonIS" class="quiz-button">Yanlış</button>
+                </div>
+                <div id="tfFeedbackAreaIS" class="feedback" style="display:none;"></div>
+                <div id="tfQuizProgressIS" style="text-align: center; margin-top: 10px; font-weight: bold;"></div>
+                <div id="tfQuizScoreIS" class="quiz-score" style="margin-top: 15px;"></div>
+                <button id="tfNextQuestionButtonIS" class="quiz-button"
+                    style="display:none; margin: 20px auto; display: block;">Sonraki Soru</button>
+            </div>
+        </div>
+
+        <!-- Section for Fill in the Blanks: Ağlar Bölüm 1 -->
+        <div id="fillBlanksAglarBolum1" class="section">
+            <h2>Boşluk Doldurma: Temel Kavramlar ve Ağ Bileşenleri</h2>
+            <div class="fill-blanks-container">
+                <!-- Questions will be loaded here by JavaScript -->
+            </div>
+            <div class="fill-blanks-controls">
+                <button class="quiz-button matching-check-btn">Cevapları Kontrol Et</button>
+                <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            </div>
+            <div class="fill-blanks-score quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- Section for Fill in the Blanks: Ağlar Bölüm 2 -->
+        <div id="fillBlanksAglarBolum2" class="section">
+            <h2>Boşluk Doldurma: Önemli Dijital Ağ Teknolojileri (Mimariler, Protokoller ve Modem)</h2>
+            <div class="fill-blanks-container">
+                <!-- Questions will be loaded here by JavaScript -->
+            </div>
+            <div class="fill-blanks-controls">
+                <button class="quiz-button matching-check-btn">Cevapları Kontrol Et</button>
+                <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            </div>
+            <div class="fill-blanks-score quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- Section for Fill in the Blanks: Ağlar Bölüm 3 -->
+        <div id="fillBlanksAglarBolum3" class="section">
+            <h2>Boşluk Doldurma: Ağ Türleri ve Topolojiler</h2>
+            <div class="fill-blanks-container">
+                <!-- Questions will be loaded here by JavaScript -->
+            </div>
+            <div class="fill-blanks-controls">
+                <button class="quiz-button matching-check-btn">Cevapları Kontrol Et</button>
+                <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            </div>
+            <div class="fill-blanks-score quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- Section for Fill in the Blanks: Ağlar Bölüm 4 -->
+        <div id="fillBlanksAglarBolum4" class="section">
+            <h2>Boşluk Doldurma: İnternet, Adresleme, VoIP ve Yönetimsel Hususlar</h2>
+            <div class="fill-blanks-container">
+                <!-- Questions will be loaded here by JavaScript -->
+            </div>
+            <div class="fill-blanks-controls">
+                <button class="quiz-button matching-check-btn">Cevapları Kontrol Et</button>
+                <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            </div>
+            <div class="fill-blanks-score quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Bilgisayar Ağları Öğrenme Uygulaması</p>
+    </footer>
+
+    <script>
+        // --- NEW: Global variable for current section ---
+        let currentSectionId = 'giris';
+
+        // --- COMBINED & MODIFIED: showSection Function (with logging and all initializations) ---
+        // Sadece bir tane showSection fonksiyonu tanımlayın
+        function showSection(sectionId, elementId = null) {
+            console.log(`showSection called with: ${sectionId}, elementId: ${elementId}`);
+            document.querySelectorAll('.section').forEach(s => {
+                s.classList.remove('active');
+            });
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                console.log(`Target section found: ${targetSection.id}. Adding active class.`);
+                targetSection.classList.add('active');
+                currentSectionId = sectionId;
+
+                // --- Game/Quiz Initializations (ensure these are NOT commented out if you want them to run) ---
+                if (sectionId === 'quizSet1') initQuiz('Set1');
+                else if (sectionId === 'quizSet2') initQuiz('Set2');
+                else if (sectionId === 'trueFalseQuizMS') initTFQuizMS();
+                else if (sectionId === 'flashcardsMS') initFlashcardsMS();
+                else if (sectionId === 'matchingGameProtocols') initMatchingGame('protocols');
+                else if (sectionId === 'matchingGameTopologies') initMatchingGame('topologies');
+                else if (sectionId === 'matchingGameDevices') initMatchingGame('devices');
+                else if (sectionId === 'matchingGameIpVersions') initMatchingGame('ipVersions');
+                else if (sectionId === 'matchingGameGeneral') initMatchingGame('general');
+                else if (sectionId === 'matchingGameInternetServices') initMatchingGame('internetServices');
+                else if (sectionId === 'trueFalseQuizIS') initTFQuizIS();
+                else if (sectionId === 'fillBlanksAglarBolum1') initFillInTheBlanks('bolum1_temelKavramlarAgBilesenleri', 'fillBlanksAglarBolum1');
+                else if (sectionId === 'fillBlanksAglarBolum2') initFillInTheBlanks('bolum2_dijitalAgTeknolojileri', 'fillBlanksAglarBolum2');
+                else if (sectionId === 'fillBlanksAglarBolum3') initFillInTheBlanks('bolum3_agTurleriTopolojiler', 'fillBlanksAglarBolum3');
+                else if (sectionId === 'fillBlanksAglarBolum4') initFillInTheBlanks('bolum4_internetAdreslemeVoIPYonetim', 'fillBlanksAglarBolum4');
+                // --- END Game/Quiz Initializations ---
+
+            } else {
+                console.error(`Target section NOT found for ID: ${sectionId}`);
+            }
+
+            // Update active button state for category buttons (if applicable)
+            document.querySelectorAll('.category-buttons button').forEach(button => {
+                button.classList.remove('active');
+            });
+            const activeButton = Array.from(document.querySelectorAll('.category-buttons button')).find(
+                button => button.getAttribute('onclick') && button.getAttribute('onclick').includes(`showSection('${sectionId}')`)
+            );
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+
+
+            if (elementId) {
+                setTimeout(() => {
+                    const el = document.getElementById(elementId);
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            } else {
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // --- MODIFIED: initializeNavigation Function (now targets all internal links) ---
+        function initializeNavigation() {
+            console.log("Initializing navigation...");
+            // Hedefi # ile başlayan tüm a etiketlerini seç
+            const navLinks = document.querySelectorAll('nav ul li a[href^="#"]');
+            console.log(`Found ${navLinks.length} internal nav links to attach listeners to.`);
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    const href = this.getAttribute('href');
+                    console.log(`Link clicked: ${href}`);
+                    if (href && href.startsWith('#')) {
+                        event.preventDefault();
+                        console.log("Prevented default for internal link. Calling showSection.");
+                        const sectionId = href.substring(1);
+                        showSection(sectionId);
+                        updateActiveLink(sectionId);
+                        // Eğer Bootstrap dropdown kullanılıyorsa, menüyü kapatmak için
+                        // İlgili dropdown'ın parent elemanını bulup Bootstrap'in metodunu çağırabiliriz
+                        // Örneğin: $(this).closest('.dropdown').dropdown('hide');
+                        // Veya sadece active class'ını kaldırarak kapanmasını sağlayabiliriz.
+                        const parentDropdownMenu = this.closest('.dropdown-menu');
+                        if (parentDropdownMenu) {
+                            parentDropdownMenu.classList.remove('show');
+                            const parentDropdownToggle = this.closest('.dropdown').querySelector('.dropdown-toggle');
+                            if (parentDropdownToggle) {
+                                parentDropdownToggle.setAttribute('aria-expanded', 'false');
+                            }
+                        }
+                    } else {
+                        console.log("Allowing default for external or non-hash link.");
+                    }
+                });
+            });
+            // Check if dropdown toggles accidentally have .nav-link (for debugging) - Keep this warning if you want.
+            const dropdownToggles = document.querySelectorAll('nav ul li.dropdown > a.nav-link-dropdown');
+            dropdownToggles.forEach(toggle => {
+                if (toggle.classList.contains('nav-link')) {
+                    console.warn("Dropdown toggle has .nav-link class, this might be unintended:", toggle);
+                }
+            });
+        }
+
+        // --- MODIFIED: updateActiveLink Function (now targets all internal links) ---
+        function updateActiveLink(activeSectionId) {
+            console.log(`Updating active link for: ${activeSectionId}`);
+            // Hedefi # ile başlayan tüm a etiketlerini seç
+            document.querySelectorAll('nav ul li a[href^="#"]').forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (href === `#${activeSectionId}`) {
+                    link.classList.add('active');
+                    console.log(`Activated link: ${href}`);
+                }
+            });
+        }
+
+        // --- MODIFIED: window.onload (with logging) ---
+        window.onload = () => {
+            console.log("Window loaded.");
+            showSection('giris');
+            initializeNavigation();
+            updateActiveLink('giris');
+            console.log("Initial setup complete. Current section: " + currentSectionId);
+        };
+
+        // --- Podcast Player Functions (No changes needed here) ---
+        function togglePodcast(playerId, audioSrc, buttonElement) {
+            const audioPlayer = document.getElementById(playerId);
+            const durationElement = document.getElementById(buttonElement.id.replace('PlayButton', 'Duration'));
+
+            if (!audioPlayer) return;
+
+            let sourceNeedsUpdate = !audioPlayer.currentSrc || !audioPlayer.currentSrc.endsWith(audioSrc);
+
+            if (sourceNeedsUpdate) {
+                audioPlayer.src = audioSrc;
+                audioPlayer.onloadedmetadata = function () {
+                    if (durationElement) {
+                        const minutes = Math.floor(audioPlayer.duration / 60);
+                        const seconds = Math.floor(audioPlayer.duration % 60).toString().padStart(2, '0');
+                        durationElement.textContent = `(${minutes}:${seconds})`;
+                    }
+                };
+            }
+
+            if (audioPlayer.paused || audioPlayer.ended) {
+                audioPlayer.play().then(() => {
+                    buttonElement.innerHTML = '❚❚'; // Pause icon
+                }).catch(error => {
+                    console.error("Error playing audio:", error, "PlayerID:", playerId, "AudioSRC:", audioSrc);
+                    // If source update failed or another error, revert button
+                    if (sourceNeedsUpdate || audioPlayer.error) buttonElement.innerHTML = '►';
+                });
+            } else {
+                audioPlayer.pause();
+                buttonElement.innerHTML = '►'; // Play icon
+            }
+
+            audioPlayer.onended = function () {
+                buttonElement.innerHTML = '►';
+                audioPlayer.currentTime = 0;
+            };
+
+            // Ensure playback speed controls are visible if they were hidden
+            const speedControls = document.getElementById('playbackSpeedControls' + playerId.substring('podcastPlayer'.length));
+            if (speedControls) speedControls.style.display = 'inline-block';
+        }
+
+        function setPlaybackSpeed(playerId, speed, speedButtonElement) {
+            const audioPlayer = document.getElementById(playerId);
+            if (audioPlayer) {
+                audioPlayer.playbackRate = speed;
+                const speedControls = speedButtonElement.parentElement;
+                if (speedControls) {
+                    speedControls.querySelectorAll('button').forEach(btn => {
+                        btn.classList.remove('active-speed');
+                    });
+                    speedButtonElement.classList.add('active-speed');
+                }
+            }
+        }
+
+        // --- Quiz Data and Functions (No changes needed here) ---
+        const allQuizData = {
+            'Set1': {
+                questions: [
+                    { question: "Ağa bağlı tüm cihazlara aynı anda veri gönderme yöntemi aşağıdakilerden hangisidir ve genellikle hangi tür ağ cihazlarında sınırlanmadan kullanılır?", options: ["Unicast - Switch", "Multicast - Router", "Broadcast - Hub", "Anycast - Modem"], answer: "Broadcast - Hub" },
+                    { question: "Karakterleri sayılara çeviren, toplam 128 karakter içeren (0-127 arası) ve 'A' harfini 65 sayısı ile temsil eden standart aşağıdakilerden hangisidir?", options: ["Unicode", "EBCDIC", "UTF-8", "ASCII"], answer: "ASCII" },
+                    { question: "8 bitten oluşan ve genellikle 1 byte\'a eşit kabul edilen veri birimine ne ad verilir?", options: ["Nibble", "Word", "Oktet", "Bit"], answer: "Oktet" },
+                    { question: "Bir karakterin ASCII ondalık değeri 80 ise, bu karakterin 8-bitlik ikili (binary) karşılığı aşağıdakilerden hangisidir?", options: ["01010000", "10100000", "00101000", "01001000"], answer: "01010000" },
+                    { question: "24 bit renk derinliğine sahip bir pikselin alabileceği farklı renk ihtimali sayısı aşağıdakilerden hangisi ile ifade edilir?", options: ["24", "24×3", "2^24", "24^2"], answer: "2^24" },
+                    { question: "Sürekli, dalga şeklinde olan ve ses gibi doğal olayları temsil eden sinyal türü aşağıdakilerden hangisidir?", options: ["Dijital Sinyal", "Kare Dalga Sinyali", "Analog Sinyal", "Paketlenmiş Sinyal"], answer: "Analog Sinyal" },
+                    { question: "Bilgisayarın sayısal verisini telefon hattı gibi analog bir ortamda iletilebilecek analog sinyale çevirme işlemine ne ad verilir?", options: ["Demodülasyon", "Kodlama", "Modülasyon", "Çözümleme"], answer: "Modülasyon" },
+                    { question: "İnternet ve internet aygıtlarınca kullanılan, dijital iletilerin paketlere ayrılmasını, uygun adreslere yönlendirilmesini ve alıcı tarafta tekrar doğru şekilde oluşturulmasını sağlayan temel iletişim protokolleri seti hangisidir?", options: ["HTTP/FTP", "TCP/IP", "SMTP/POP3", "DNS/DHCP"], answer: "TCP/IP" },
+                    { question: "İletilerin gönderilmeden önce \"paket\" denilen küçük yığınlara ayrıldığı ve her paketin ağ üzerinde bağımsız olarak hedefe yönlendirildiği veri iletim yöntemi aşağıdakilerden hangisidir?", options: ["Devre Anahtarlama", "Mesaj Anahtarlama", "Paket Anahtarlama", "Hücre Anahtarlama"], answer: "Paket Anahtarlama" },
+                    { question: "Işık sinyallerini cam veya plastik tellerle ileten, çok yüksek bant genişliği sunan ve elektromanyetik girişimden etkilenmeyen kablolu fiziksel aktarım ortamı hangisidir?", options: ["Koaksiyel Kablo", "UTP Kablo", "STP Kablo", "Fiber Optik Kablo"], answer: "Fiber Optik Kablo" },
+                    { question: "İnsanların kullandığı alan adlarını (örn: www.example.com), bilgisayarların anladığı sayısal IP adreslerine çeviren hiyerarşik sisteme ne ad verilir?", options: ["URL (Uniform Resource Locator)", "MAC (Media Access Control) Adresi", "DNS (Domain Name System)", "DHCP (Dynamic Host Configuration Protocol)"], answer: "DNS (Domain Name System)" },
+                    { question: "32-bit adresleme kullanan ve yaklaşık 4 milyar adres kapasitesine sahip olan internet protokolü sürümü hangisidir?", options: ["IPv5", "IPv6", "IPX", "IPv4"], answer: "IPv4" },
+                    { question: "Sesli iletişimin internet protokolü (IP) tabanlı ağlar üzerinden dijital olarak paketler halinde iletilmesi teknolojisine ne ad verilir?", options: ["ISDN", "PSTN", "VoIP", "GSM"], answer: "VoIP" },
+                    { question: "Mevcut bakır telefon hatları üzerinden yüksek kapasitede veri aktarımı sağlayan genişbantlı ağ teknolojileri serisine genel olarak ne ad verilir?", options: ["Kablo Modem", "DSL", "Uydu İnternet", "ISDN"], answer: "DSL" },
+                    { question: "Güvenilir ve sıralı veri akışı sağlayan, hata kontrolü yapan ve kayıp paketlerin yeniden gönderilmesini yöneten TCP/IP protokol takımının önemli bir bileşeni hangisidir?", options: ["IP (Internet Protocol)", "UDP (User Datagram Protocol)", "ICMP (Internet Control Message Protocol)", "TCP (Transmission Control Protocol)"], answer: "TCP (Transmission Control Protocol)" }
+                ],
+                currentQuestionIndex: 0,
+                scores: { correct: 0, answered: [] }
+            },
+            'Set2': {
+                questions: [
+                    { question: "Bir alıcının göndericiye mukabele etmesiyle gerçekleşen, iletişimin çift taraflı yapılabilmesini sağlayan ve kaynakların (donanım, yazılım, veri) birden fazla kullanıcı tarafından ortaklaşa kullanılmasını ifade eden temel ağ kavramı aşağıdakilerden hangisidir?", options: ["Broadcast", "Paylaşım", "Modem", "Topoloji"], answer: "Paylaşım" },
+                    { question: "Yalnızca bir organizasyonun çalışanları tarafından erişilebilen, internet teknolojilerini kullanan özel bir ağ türü aşağıdakilerden hangisidir?", options: ["Extranet", "WAN", "Intranet", "Internet"], answer: "Intranet" },
+                    { question: "Veri paketlerini farklı ağlar arasında yönlendiren ve iletinin doğru yere gidip gitmediğini IP adreslerine göre kontrol eden özel iletişim işlemcisi aşağıdakilerden hangisidir?", options: ["Hub", "Switch", "NIC", "Router"], answer: "Router" },
+                    { question: "Aşağıdakilerden hangisi, tüm son kullanıcı bilgisayarlarının merkezi bir cihaza (genellikle switch veya hub) bağlandığı ve merkezi cihaz arızalandığında tüm ağın çöktüğü ağ topolojisidir?", options: ["Halka (Ring)", "Doğrusal (Bus)", "Yıldız (Star)", "Örgü (Mesh)"], answer: "Yıldız (Star)" },
+                    { question: "'K' harfinin ASCII onluk değeri 75 olduğuna göre, bu karakterin 8-bitlik ikili (binary) karşılığı aşağıdakilerden hangisidir?", options: ["01001011", "10010110", "01001001", "01011001"], answer: "01001011" },
+                    { question: "8 bitten oluşan veri birimine ne ad verilir ve genellikle bir ASCII karakterini temsil etmek için kullanılır?", options: ["Bit", "Sinyal", "Oktet (Byte)", "Paket"], answer: "Oktet (Byte)" },
+                    { question: "Bilgisayarların ürettiği dijital veriyi, analog telefon hatları üzerinden iletilebilecek analog sinyallere çevirme (modülasyon) ve gelen analog sinyalleri tekrar dijital verilere çevirme (demodülasyon) işlemini yapan cihaz hangisidir?", options: ["Router", "Switch", "Modem", "NIC"], answer: "Modem" },
+                    { question: "İnternet\'in temel iletişim protokolleri takımı olan ve dijital iletilerin paketlere ayrılmasını, uygun adreslere yönlendirilmesini ve alıcı tarafta tekrar doğru şekilde oluşturulmasını sağlayan yapı aşağıdakilerden hangisidir?", options: ["DNS", "HTTP", "TCP/IP", "ISDN"], answer: "TCP/IP" },
+                    { question: "Aşağıdakilerden hangisi, güvenilir, bağlantı tabanlı bir protokol olup, bilgisayarlar arasında veri hareketliliğini kontrol eden, paket aktarımlarını sıraya koyan ve veri gönderiminin alındığını teyit eden bir TCP/IP katmanı protokolüdür?", options: ["IP (Internet Protocol)", "TCP (Transmission Control Protocol)", "UDP (User Datagram Protocol)", "HTTP (HyperText Transfer Protocol)"], answer: "TCP (Transmission Control Protocol)" },
+                    { question: "Verinin ışık sinyalleri aracılığıyla cam veya plastik tellerden iletildiği, çok yüksek bant genişliği sunan ve elektromanyetik girişimden etkilenmeyen kablolu iletişim ortamı hangisidir?", options: ["Koaksiyel Kablo", "Çift-Bükümlü Kablo (UTP)", "Fiber Optik Kablo", "Telefon Kablosu"], answer: "Fiber Optik Kablo" },
+                    { question: "İnsanların kullandığı alan adlarını (örn: www.google.com), bilgisayarların anladığı sayısal IP adreslerine çeviren ve internetin temel bir hizmeti olan sistem aşağıdakilerden hangisidir?", options: ["DHCP (Dynamic Host Configuration Protocol)", "DNS (Domain Name System)", "NAT (Network Address Translation)", "APIPA (Automatic Private IP Addressing)"], answer: "DNS (Domain Name System)" },
+                    { question: "Merkezi bir erişim noktası veya yönlendirici olmadan, cihazların doğrudan birbirleriyle iletişim kurduğu geçici kablosuz ağ türü aşağıdakilerden hangisidir?", options: ["WLAN (Wireless Local Area Network)", "Adhoc Ağ", "Mesh (Örgü) Ağ", "Altyapı Modu (Infrastructure Mode)"], answer: "Adhoc Ağ" },
+                    { question: "32-bitlik bir adresleme şeması kullanan ve teorik olarak yaklaşık 4.3 milyar farklı adres sağlayabilen, ancak günümüzde adres alanı tükenme noktasına gelen internet protokolü sürümü hangisidir?", options: ["IPv6", "IPX/SPX", "IPv4", "AppleTalk"], answer: "IPv4" },
+                    { question: "Aşağıdakilerden hangisi bir şehri veya büyük bir metropol alanını kapsayan, genellikle birden fazla LAN ve CAN\'ı birbirine bağlayan ağ türüdür?", options: ["LAN (Local Area Network)", "WAN (Wide Area Network)", "PAN (Personal Area Network)", "MAN (Metropolitan Area Network)"], answer: "MAN (Metropolitan Area Network)" },
+                    { question: "\"Kablolu TV hatları üzerinden yüksek kapasitede veri aktarımı sağlayan servis\" tanımı aşağıdaki genişbantlı ağ teknolojilerinden hangisine aittir?", options: ["ISDN", "DSL", "Kablo Modem", "Fiber İnternet"], answer: "Kablo Modem" }
+                ],
+                currentQuestionIndex: 0,
+                scores: { correct: 0, answered: [] }
+            }
+        };
+
+        function initQuiz(quizSetId) {
+            const quiz = allQuizData[quizSetId];
+            quiz.currentQuestionIndex = 0;
+            quiz.scores.correct = 0;
+            quiz.scores.answered = new Array(quiz.questions.length).fill(null);
+
+            document.getElementById(`quizScore${quizSetId}`).innerHTML = '';
+            document.getElementById(`submitQuizBtn${quizSetId}`).style.display = 'none';
+            document.getElementById(`questionFeedback${quizSetId}`).style.display = 'none';
+
+            displayQuestion(quiz.currentQuestionIndex, quizSetId);
+            updateQuizNavigation(quizSetId);
+        }
+
+        function displayQuestion(index, quizSetId) {
+            const quiz = allQuizData[quizSetId];
+            const qData = quiz.questions[index];
+            const quizContainer = document.getElementById(`quizContainer${quizSetId}`);
+            const qFeedback = document.getElementById(`questionFeedback${quizSetId}`);
+
+            quizContainer.innerHTML = '';
+            qFeedback.style.display = 'none';
+
+            if (!qData) return;
+
+            const qDiv = document.createElement('div');
+            qDiv.className = 'quiz-question';
+
+            let optsHtml = qData.options.map((optText, i) =>
+                `<label><input type="radio" name="q${quizSetId}_${index}" value="${optText}" data-option-index="${i}"> ${optText}</label>`
+            ).join('');
+
+            qDiv.innerHTML = `<p><strong>Soru ${index + 1}/${quiz.questions.length}:</strong> ${qData.question}</p><div class="quiz-options">${optsHtml}</div>`;
+            quizContainer.appendChild(qDiv);
+
+            const radioButtons = quizContainer.querySelectorAll(`input[name="q${quizSetId}_${index}"]`);
+            radioButtons.forEach(radio => {
+                if (quiz.scores.answered[index] !== null) { // If question was already answered
+                    if (quiz.scores.answered[index].selectedOptionValue === radio.value) {
+                        radio.checked = true;
+                    }
+                    const selectedLabel = Array.from(radioButtons).find(rb => rb.value === quiz.scores.answered[index].selectedOptionValue)?.parentElement;
+                    if (selectedLabel) {
+                        showAnswerFeedback(qData, quiz.scores.answered[index].selectedOptionValue, selectedLabel, quizSetId);
+                    }
+                    disableOptions(radioButtons);
+                } else {
+                    radio.addEventListener('change', (event) => handleAnswerSelection(event, quizSetId));
+                }
+            });
+            // Show submit button if all questions are answered for this quiz set
+            if (quiz.scores.answered.every(ans => ans !== null)) {
+                document.getElementById(`submitQuizBtn${quizSetId}`).style.display = 'block';
+            } else {
+                document.getElementById(`submitQuizBtn${quizSetId}`).style.display = 'none';
+            }
+        }
+
+        function handleAnswerSelection(event, quizSetId) {
+            const selectedRadio = event.target;
+            const quiz = allQuizData[quizSetId];
+            const questionIndex = quiz.currentQuestionIndex;
+            const qData = quiz.questions[questionIndex];
+            const selectedValue = selectedRadio.value;
+            const selectedLabel = selectedRadio.parentElement;
+
+            const isCorrect = selectedValue === qData.answer;
+            quiz.scores.answered[questionIndex] = { selectedOptionValue: selectedValue, isCorrect: isCorrect };
+
+            showAnswerFeedback(qData, selectedValue, selectedLabel, quizSetId);
+            disableOptions(document.querySelectorAll(`input[name="q${quizSetId}_${questionIndex}"]`));
+
+            if (isCorrect) {
+                quiz.scores.correct = quiz.scores.answered.filter(a => a && a.isCorrect).length;
+            }
+
+            // Show submit button if all questions are answered for this quiz set
+            if (quiz.scores.answered.every(ans => ans !== null)) {
+                document.getElementById(`submitQuizBtn${quizSetId}`).style.display = 'block';
+            }
+        }
+
+        function showAnswerFeedback(qData, selectedValue, selectedLabel, quizSetId) {
+            const qFeedback = document.getElementById(`questionFeedback${quizSetId}`);
+            const isCorrect = selectedValue === qData.answer;
+
+            // Clear previous highlights from all labels in the current question's options
+            const optionLabels = selectedLabel.parentElement.querySelectorAll('label');
+            optionLabels.forEach(label => {
+                label.classList.remove('correct-choice', 'incorrect-choice', 'correct-answer-highlight');
+            });
+
+            qFeedback.style.display = 'block';
+            if (isCorrect) {
+                qFeedback.textContent = `Doğru! 🎉`;
+                qFeedback.className = 'feedback correct';
+                selectedLabel.classList.add('correct-choice');
+            } else {
+                qFeedback.textContent = `Yanlış. Doğru cevap: ${qData.answer}`;
+                qFeedback.className = 'feedback incorrect';
+                selectedLabel.classList.add('incorrect-choice');
+
+                const correctOptionLabel = Array.from(optionLabels).find(label =>
+                    label.querySelector('input') && label.querySelector('input').value === qData.answer
+                );
+                if (correctOptionLabel) correctOptionLabel.classList.add('correct-answer-highlight');
+            }
+        }
+
+        function disableOptions(radioButtons) {
+            radioButtons.forEach(rb => {
+                rb.disabled = true;
+                rb.parentElement.style.cursor = 'default'; // Change cursor to indicate non-interactive
+                // rb.parentElement.style.opacity = '0.8'; // Optionally dim
+                rb.removeEventListener('change', handleAnswerSelection);
+            });
+        }
+
+        function updateQuizNavigation(quizSetId) {
+            const quiz = allQuizData[quizSetId];
+            document.getElementById(`prevQuestionBtn${quizSetId}`).disabled = quiz.currentQuestionIndex === 0;
+            document.getElementById(`nextQuestionBtn${quizSetId}`).disabled = quiz.currentQuestionIndex === quiz.questions.length - 1;
+        }
+
+        function nextQuestion(quizSetId) {
+            const quiz = allQuizData[quizSetId];
+            if (quiz.currentQuestionIndex < quiz.questions.length - 1) {
+                quiz.currentQuestionIndex++;
+                displayQuestion(quiz.currentQuestionIndex, quizSetId);
+                updateQuizNavigation(quizSetId);
+            }
+        }
+
+        function prevQuestion(quizSetId) {
+            const quiz = allQuizData[quizSetId];
+            if (quiz.currentQuestionIndex > 0) {
+                quiz.currentQuestionIndex--;
+                displayQuestion(quiz.currentQuestionIndex, quizSetId);
+                updateQuizNavigation(quizSetId);
+            }
+        }
+
+        function submitQuiz(quizSetId) {
+            const quiz = allQuizData[quizSetId];
+            quiz.scores.correct = quiz.scores.answered.filter(a => a && a.isCorrect).length;
+
+            const scoreDiv = document.getElementById(`quizScore${quizSetId}`);
+            const qFeedback = document.getElementById(`questionFeedback${quizSetId}`);
+
+            const allAttempted = quiz.scores.answered.every(ans => ans !== null);
+
+            scoreDiv.innerHTML = `<h3>Test Sonucu: ${quiz.scores.correct}/${quiz.questions.length} doğru.</h3>`;
+
+            if (allAttempted) {
+                qFeedback.textContent = quiz.scores.correct === quiz.questions.length ? "Mükemmel! Testteki tüm soruları doğru yanıtladınız!" : "Test tamamlandı. Sonuçlarınızı yukarıda görebilirsiniz.";
+            } else {
+                qFeedback.textContent = "Test tamamlandı (bazı sorular cevaplanmadı). Sonuçlarınızı yukarıda görebilirsiniz.";
+            }
+            qFeedback.className = quiz.scores.correct === quiz.questions.length && allAttempted ? 'feedback correct' : 'feedback';
+            qFeedback.style.display = 'block';
+
+            document.getElementById(`quizContainer${quizSetId}`).innerHTML = `<p style='text-align:center;'>Testi yeniden başlatmak için Test sekmesine yeniden tıklayınız.</p>`;
+            document.getElementById(`prevQuestionBtn${quizSetId}`).style.display = 'none';
+            document.getElementById(`nextQuestionBtn${quizSetId}`).style.display = 'none';
+            document.getElementById(`submitQuizBtn${quizSetId}`).style.display = 'none';
+        }
+
+        // --- True/False Quiz (modernsoru.md) Data & Functions ---
+        const tfQuizDataMS = [
+            { statement: "Broadcast, ağdaki sadece belirli bir grup cihaza veri gönderme yöntemidir.", answer: false, explanation: "Broadcast, ağa bağlı TÜM cihazlara aynı anda veri gönderme yöntemidir." },
+            { statement: "ASCII, 'A' harfini 97 sayısı ile temsil eder.", answer: false, explanation: "ASCII'de 'A' harfi 65, 'a' harfi ise 97 ile temsil edilir." },
+            { statement: "Bir oktet 16 bitten oluşur.", answer: false, explanation: "Bir oktet 8 bitten oluşur ve genellikle 1 byte'a eşittir." },
+            { statement: "Renk derinliği 24 bit olan bir piksel, 2^24 farklı renk ihtimaline sahiptir.", answer: true, explanation: "Evet, her bit bir seçeneği ikiye katladığı için 24 bit 2^24 olasılık sunar." },
+            { statement: "Analog sinyaller kesikli, 0 ve 1'lerden oluşur.", answer: false, explanation: "Analog sinyaller sürekli dalga şeklindedir. Dijital sinyaller 0 ve 1'lerden oluşur." },
+            { statement: "Modülasyon, analog sinyali sayısal veriye çevirme işlemidir.", answer: false, explanation: "Modülasyon, sayısal veriyi analog sinyale çevirme işlemidir. Demodülasyon tersini yapar." },
+            { statement: "TCP/IP, paketlerin ağlar arasında adreslenmesinden ve yönlendirilmesinden sorumlu olan tek bir protokoldür.", answer: false, explanation: "TCP/IP bir protokol SETİDİR. IP adresleme ve yönlendirmeden, TCP ise güvenilir veri akışından sorumludur." },
+            { statement: "Paket anahtarlamada, iletiler paketlere bölünmeden bütün olarak gönderilir.", answer: false, explanation: "Paket anahtarlamada iletiler 'paket' denilen küçük yığınlara ayrılır ve bağımsız gönderilir." },
+            { statement: "Fiber optik kablolar, elektromanyetik girişimden (EMI) kolayca etkilenir.", answer: false, explanation: "Fiber optik kablolar ışıkla çalıştığı için elektromanyetik girişimden etkilenmez." },
+            { statement: "DNS, sayısal IP adreslerini insanların hatırlaması kolay alan adlarına çevirir.", answer: true, explanation: "Evet, DNS'in temel işlevi budur (örn: 172.217.160.142 -> google.com)." },
+            { statement: "IPv4, 128-bit adresleme kullanır.", answer: false, explanation: "IPv4, 32-bit adresleme kullanır. IPv6 ise 128-bit adresleme kullanır." },
+            { statement: "VoIP, sesli iletişimin geleneksel telefon hatları üzerinden analog olarak iletilmesidir.", answer: false, explanation: "VoIP, sesli iletişimin IP tabanlı ağlar üzerinden DİJİTAL olarak paketler halinde iletilmesidir." },
+            { statement: "DSL, kablo TV hatları üzerinden internet erişimi sağlar.", answer: false, explanation: "DSL, mevcut bakır TELEFON hatları üzerinden internet erişimi sağlar. Kablo modemler kablo TV hatlarını kullanır." },
+            { statement: "ISDN, fiber optik kabloları kullanan çok yüksek hızlı bir internet teknolojisidir.", answer: false, explanation: "ISDN, geleneksel telefon hatları üzerinden dijital erişim sağlayan, DSL'den daha yavaş bir teknolojidir." },
+            { statement: "Koaksiyel kablo, çift bükümlü kabloya göre daha düşük bant genişliği sunar.", answer: false, explanation: "Koaksiyel kablo genellikle çift bükümlüye göre daha yüksek bant genişliği ve EMI direnci sunar." },
+            { statement: "Mikrodalga iletişimi için genellikle cihazlar arasında fiziksel bir görüş hattı gerekmez.", answer: false, explanation: "Mikrodalga iletişimi genellikle 'görüş hattı' (line-of-sight) gerektirir." },
+            { statement: "ASCII standardı toplam 256 karakter içerir.", answer: false, explanation: "Temel ASCII 128 karakter (0-127) içerir. Genişletilmiş ASCII setleri 256 karakter içerebilir." },
+            { statement: "IP, güvenilir ve sıralı veri akışı sağlayan bağlantı tabanlı bir protokoldür.", answer: false, explanation: "IP, bağlantısız bir protokoldür; paket teslimatını garanti etmez. TCP bağlantı tabanlıdır ve güvenilir akış sağlar." },
+            { statement: "Fiber optik kabloda veri iletimi için lazer ışığı kullanılmaz, sadece LED ışık kullanılır.", answer: false, explanation: "Fiber optik kabloda veri iletimi için hem lazer hem de LED ışık kaynakları kullanılabilir. Lazerler genellikle daha uzun mesafeler ve yüksek hızlar içindir." },
+            { statement: "Bir ağdaki tüm cihazlara aynı anda veri gönderme işlemine Unicast denir.", answer: false, explanation: "Bu işlem Broadcast olarak adlandırılır. Unicast tek bir hedefe göndermedir." }
+        ];
+        let currentTFQuestionMS = 0;
+        let scoreTFMS = 0;
+
+        function initTFQuizMS() {
+            currentTFQuestionMS = 0;
+            scoreTFMS = 0;
+            document.getElementById('tfQuizScoreMS').innerHTML = "";
+            document.getElementById('tfFeedbackAreaMS').style.display = 'none';
+            document.getElementById('tfNextQuestionButtonMS').style.display = 'none';
+            document.getElementById('tfTrueButtonMS').disabled = false;
+            document.getElementById('tfFalseButtonMS').disabled = false;
+            document.getElementById('tfAnswerButtonsMS').style.display = 'flex'; // Ensure buttons are visible
+            document.getElementById('tfQuizProgressMS').style.display = 'block'; // Ensure progress is visible
+            displayTFQuestionMS();
+        }
+
+        function displayTFQuestionMS() {
+            const questionData = tfQuizDataMS[currentTFQuestionMS];
+            document.getElementById('tfQuestionAreaMS').textContent = questionData.statement;
+            document.getElementById('tfQuizProgressMS').textContent = `Soru: ${currentTFQuestionMS + 1} / ${tfQuizDataMS.length}`;
+            document.getElementById('tfFeedbackAreaMS').style.display = 'none';
+            document.getElementById('tfTrueButtonMS').disabled = false;
+            document.getElementById('tfFalseButtonMS').disabled = false;
+            document.getElementById('tfNextQuestionButtonMS').style.display = 'none';
+        }
+
+        function handleTFAnswerMS(userAnswer) {
+            const questionData = tfQuizDataMS[currentTFQuestionMS];
+            const feedbackArea = document.getElementById('tfFeedbackAreaMS');
+            document.getElementById('tfTrueButtonMS').disabled = true;
+            document.getElementById('tfFalseButtonMS').disabled = true;
+
+            if (userAnswer === questionData.answer) {
+                scoreTFMS++;
+                feedbackArea.textContent = "Doğru! " + (questionData.explanation || "");
+                feedbackArea.className = 'feedback correct';
+            } else {
+                feedbackArea.textContent = "Yanlış. Doğru cevap: " + (questionData.answer ? "Doğru" : "Yanlış") + ". " + (questionData.explanation || "");
+                feedbackArea.className = 'feedback incorrect';
+            }
+            feedbackArea.style.display = 'block';
+            document.getElementById('tfNextQuestionButtonMS').style.display = 'block';
+            if (currentTFQuestionMS === tfQuizDataMS.length - 1) {
+                document.getElementById('tfNextQuestionButtonMS').textContent = 'Sonuçları Gör';
+            } else {
+                document.getElementById('tfNextQuestionButtonMS').textContent = 'Sonraki Soru';
+            }
+        }
+
+        document.getElementById('tfTrueButtonMS').addEventListener('click', () => handleTFAnswerMS(true));
+        document.getElementById('tfFalseButtonMS').addEventListener('click', () => handleTFAnswerMS(false));
+        document.getElementById('tfNextQuestionButtonMS').addEventListener('click', () => {
+            if (currentTFQuestionMS < tfQuizDataMS.length - 1) {
+                currentTFQuestionMS++;
+                displayTFQuestionMS();
+            } else {
+                document.getElementById('tfQuizScoreMS').innerHTML = `<h3>Test Sonucu: ${scoreTFMS} / ${tfQuizDataMS.length} doğru.</h3>`;
+                document.getElementById('tfQuestionAreaMS').textContent = "Test tamamlandı!";
+                document.getElementById('tfAnswerButtonsMS').style.display = 'none';
+                document.getElementById('tfNextQuestionButtonMS').style.display = 'none';
+                document.getElementById('tfQuizProgressMS').style.display = 'none';
+            }
+        });
+
+        // --- Flashcard (modernsoru.md) Data & Functions ---
+        const flashcardDataMS = [
+            { term: "Broadcast Nedir?", definition: "Ağa bağlı tüm cihazlara aynı anda veri gönderme yöntemidir. Genellikle hub'larda kullanılır, switchlerde ise sınırlanır." },
+            { term: "ASCII Nedir?", definition: "Karakterleri sayılara çeviren standarttır. Toplam 128 karakter içerir (0–127). Örnek: A = 65, a = 97." },
+            { term: "Oktet Nedir?", definition: "8 bitten oluşan bir veri birimidir. Genellikle 1 byte = 1 oktet olarak kabul edilir. IP adresleri 4 oktetten oluşur." },
+            { term: "Analog Sinyal Özellikleri", definition: "Sürekli, dalga şeklindedir (örnek: ses, sıcaklık). Daha doğal sinyallerdir." },
+            { term: "Dijital Sinyal Özellikleri", definition: "Kesikli, 0 ve 1'lerden oluşur (örnek: bilgisayar verisi). Daha sağlam, hata düzeltilebilir." },
+            { term: "Modem İşlevi", definition: "Bilgisayar sinyallerini analog hale çevirip (Modülasyon) iletir, sonra gelen analog sinyali tekrar sayısala çevirir (Demodülasyon)." },
+            { term: "TCP/IP Temel İşlevleri", definition: "Dijital iletilerin paketlere ayrılması, paketlerin uygun adreslere yönlendirilmesi ve alıcıda doğru şekilde oluşturulması." },
+            { term: "Paket Anahtarlama Nedir?", definition: "İletilerin 'paket' denilen küçük yığınlara ayrıldığı ve her paketin ağ üzerinde bağımsız olarak hedefe yönlendirildiği veri iletim yöntemidir." },
+            { term: "Fiber Optik Kablonun Avantajı", definition: "Çok yüksek bant genişliği, uzun mesafe iletimi, elektromanyetik girişimden etkilenmeme." },
+            { term: "DNS'in Açılımı ve İşlevi", definition: "Domain Name System (Alan Adı Sistemi). İnsanların kullandığı alan adlarını (örn: www.google.com) sayısal IP adreslerine çevirir." },
+            { term: "IPv4 Adres Yapısı", definition: "32-bit adresleme kullanır. Yaklaşık 4 milyar adres kapasitesi vardır." },
+            { term: "IPv6 Adres Yapısı", definition: "128-bit adresleme kullanır. Katrilyonlarca adres kapasitesi sunar ve IPv4'e göre daha gelişmiştir." },
+            { term: "VoIP Nedir?", definition: "Voice over IP. Sesli iletişimin internet protokolü (IP) tabanlı ağlar üzerinden dijital olarak paketler halinde iletilmesidir." },
+            { term: "DSL Teknolojisi", definition: "Digital Subscriber Line. Mevcut bakır telefon hatları üzerinden yüksek kapasitede veri aktarımı sağlar." },
+            { term: "Kablo Modem Teknolojisi", definition: "Kablo TV hatları (genellikle koaksiyel kablo) üzerinden yüksek kapasitede internet erişimi sağlar." },
+            { term: "ISDN Teknolojisi", definition: "Integrated Services Digital Network. Çevirmeli ağ erişimi standardıdır; ses, veri ve görüntü servislerini dijital hat üzerinden entegre edebilir." },
+            { term: "Çift-bükümlü Kablo (UTP/STP)", definition: "Bakır tellerden oluşur, bükülerek EMI azaltılır. LAN'larda yaygın olarak kullanılır." },
+            { term: "Koaksiyel Kablo", definition: "Merkezi bakır iletken ve ekranlamadan oluşur, çift bükümlüye göre daha yüksek bant genişliği ve EMI direnci sunar." },
+            { term: "Mikrodalga İletişimi", definition: "Yüksek frekanslı radyo dalgalarını kullanır, genellikle uzun mesafe ve görüş hattı (line-of-sight) gerektirir." },
+            { term: "Hücresel Teknoloji", definition: "Mobil telefon ağlarının temelidir, coğrafi alanları 'hücre' adı verilen küçük bölgelere ayırır ve her hücrede bir baz istasyonu bulunur." }
+        ];
+        let currentFlashcardMS = 0;
+        const flashcardElementMS = document.getElementById('flashcardMS');
+        const flashcardFrontMS = document.getElementById('flashcardFrontMS');
+        const flashcardBackMS = document.getElementById('flashcardBackMS');
+
+        function initFlashcardsMS() {
+            currentFlashcardMS = 0;
+            displayFlashcardMS();
+            flashcardElementMS.classList.remove('is-flipped');
+        }
+
+        function displayFlashcardMS() {
+            const cardData = flashcardDataMS[currentFlashcardMS];
+            flashcardFrontMS.textContent = cardData.term;
+            flashcardBackMS.textContent = cardData.definition;
+            document.getElementById('flashcardProgressMS').textContent = `Kart: ${currentFlashcardMS + 1} / ${flashcardDataMS.length}`;
+        }
+
+        document.getElementById('fcFlipButtonMS').addEventListener('click', () => {
+            flashcardElementMS.classList.toggle('is-flipped');
+        });
+
+        document.getElementById('fcNextButtonMS').addEventListener('click', () => {
+            if (currentFlashcardMS < flashcardDataMS.length - 1) {
+                currentFlashcardMS++;
+                displayFlashcardMS();
+                flashcardElementMS.classList.remove('is-flipped'); // Show front of next card
+            }
+        });
+
+        document.getElementById('fcPrevButtonMS').addEventListener('click', () => {
+            if (currentFlashcardMS > 0) {
+                currentFlashcardMS--;
+                displayFlashcardMS();
+                flashcardElementMS.classList.remove('is-flipped'); // Show front of prev card
+            }
+        });
+
+        // Allow flipping by clicking the card itself
+        flashcardElementMS.addEventListener('click', () => {
+            flashcardElementMS.classList.toggle('is-flipped');
+        });
+
+        // --- Matching Game Data & Functions ---
+        const matchingGameData = {
+            'protocols': {
+                title: "Protokol Eşleştirme Oyunu",
+                terms: [
+                    { id: "p1", text: "TCP" },
+                    { id: "p2", text: "IP" },
+                    { id: "p3", text: "DNS" },
+                    { id: "p4", text: "HTTP" },
+                    { id: "p5", text: "FTP" }
+                ],
+                definitions: [
+                    { id: "pd1", text: "Güvenilir, sıralı veri akışı ve hata kontrolü sağlar.", matches: "p1" },
+                    { id: "pd2", text: "Paketlerin ağlar arasında adreslenmesi ve yönlendirilmesi.", matches: "p2" },
+                    { id: "pd3", text: "Alan adlarını (örn: google.com) IP adreslerine çevirir.", matches: "p3" },
+                    { id: "pd4", text: "Web sayfalarının iletimi için kullanılır.", matches: "p4" },
+                    { id: "pd5", text: "Dosya transferi için kullanılır.", matches: "p5" }
+                ]
+            },
+            'topologies': {
+                title: "Topoloji Eşleştirme Oyunu",
+                terms: [
+                    { id: "t1", text: "Yıldız (Star)" },
+                    { id: "t2", text: "Doğrusal (Bus)" },
+                    { id: "t3", text: "Halka (Ring)" },
+                    { id: "t4", text: "Örgü (Mesh)" },
+                    { id: "t5", text: "Ad hoc Ağ" }
+                ],
+                definitions: [
+                    { id: "td1", text: "Tüm cihazlar merkezi bir hub/switch\'e bağlanır; merkez arızalanırsa ağ çöker.", matches: "t1" },
+                    { id: "td2", text: "Tüm cihazlar tek bir ana kabloya (backbone) bağlanır; ana kablo arızası ağı çökertir.", matches: "t2" },
+                    { id: "td3", text: "Cihazlar dairesel bağlanır; bir cihaz/kablo arızası ağı durdurabilir.", matches: "t3" },
+                    { id: "td4", text: "Her cihazın diğer birçok cihaza doğrudan bağlantısı vardır; yüksek güvenilirlik.", matches: "t4" },
+                    { id: "td5", text: "Merkezi bir AP olmadan cihazların doğrudan birbirine bağlandığı geçici kablosuz ağ.", matches: "t5" }
+                ]
+            },
+            'devices': {
+                title: "Cihaz Eşleştirme Oyunu",
+                terms: [
+                    { id: "d1", text: "Router (Yönlendirici)" },
+                    { id: "d2", text: "Switch (Anahtar)" },
+                    { id: "d3", text: "Hub (Dağıtıcı)" },
+                    { id: "d4", text: "Modem" },
+                    { id: "d5", text: "NIC (Ağ Arayüz Kartı)" }
+                ],
+                definitions: [
+                    { id: "dd1", text: "Farklı ağlar arasında veri paketlerini yönlendirir.", matches: "d1" },
+                    { id: "dd2", text: "Veriyi filtreleyerek sadece hedeflenen cihaza gönderir, LAN\'larda yaygındır.", matches: "d2" },
+                    { id: "dd3", text: "Gelen tüm paketleri ağdaki tüm cihazlara ileten basit bağlantı cihazı.", matches: "d3" },
+                    { id: "dd4", text: "Dijital sinyalleri analog sinyallere (ve tersi) çevirir.", matches: "d4" },
+                    { id: "dd5", text: "Bilgisayarın fiziksel olarak ağa bağlanmasını sağlayan donanım.", matches: "d5" }
+                ]
+            },
+            'ipVersions': {
+                title: "IPv4/IPv6 Karşılaştırma Oyunu",
+                terms: [
+                    { id: "ip1", text: "IPv4 Adres Uzunluğu" },
+                    { id: "ip2", text: "IPv6 Adres Uzunluğu" },
+                    { id: "ip3", text: "IPv4 Yaklaşık Kapasite" },
+                    { id: "ip4", text: "IPv6 Yaklaşık Kapasite" },
+                    { id: "ip5", text: "IPv4 Adres Gösterimi" }
+                ],
+                definitions: [
+                    { id: "ipd1", text: "32-bit", matches: "ip1" },
+                    { id: "ipd2", text: "128-bit", matches: "ip2" },
+                    { id: "ipd3", text: "~4.3 Milyar Adres", matches: "ip3" },
+                    { id: "ipd4", text: "Katrilyonlarca Adres (Neredeyse Sınırsız)", matches: "ip4" },
+                    { id: "ipd5", text: "Dört onluk sayı, noktalarla ayrılmış (örn: 192.168.1.1)", matches: "ip5" }
+                ]
+            },
+            'general': {
+                title: "Genel Kavramlar Eşleştirme Oyunu",
+                terms: [
+                    { id: "g1", text: "LAN (Yerel Alan Ağı)" },
+                    { id: "g2", text: "WAN (Geniş Alan Ağı)" },
+                    { id: "g3", text: "Paket Anahtarlama" },
+                    { id: "g4", text: "Modülasyon" },
+                    { id: "g5", text: "ASCII" }
+                ],
+                definitions: [
+                    { id: "gd1", text: "Sınırlı bir coğrafi alandaki (ofis, bina) cihazları bağlar.", matches: "g1" },
+                    { id: "gd2", text: "Çok geniş coğrafi alanları (şehirler, ülkeler) kapsar.", matches: "g2" },
+                    { id: "gd3", text: "Verilerin küçük paketlere bölünüp ağda bağımsız gönderilmesi.", matches: "g3" },
+                    { id: "gd4", text: "Dijital sinyalin analog sinyale çevrilmesi işlemi.", matches: "g4" },
+                    { id: "gd5", text: "Karakterleri sayılara çeviren 128 karakterlik standart kodlama sistemi.", matches: "g5" }
+                ]
+            },
+            'internetServices': {
+                title: "İnternet ve Servisler Eşleştirme Oyunu",
+                terms: [
+                    { id: "is1", text: "DNS (Alan Adı Sistemi)" },
+                    { id: "is2", text: "IP Adresi (IPv4)" },
+                    { id: "is3", text: "VoIP (Voice over IP)" },
+                    { id: "is4", text: "Intranet" },
+                    { id: "is5", text: "Extranet" },
+                    { id: "is6", text: "HTTP" }
+                ],
+                definitions: [
+                    { id: "isd1", text: "İnsanların hatırlayabileceği alan adlarını (örn: google.com) bilgisayarların anladığı sayısal IP adreslerine çevirir.", matches: "is1" },
+                    { id: "isd2", text: "Ağa bağlı bir cihazı tanımlayan, genellikle 32-bitlik, noktalarla ayrılmış sayısal adres (örn: 192.168.1.10).", matches: "is2" },
+                    { id: "isd3", text: "Sesli iletişimin internet veya diğer IP tabanlı ağlar üzerinden dijital paketler halinde iletilmesi teknolojisi.", matches: "is3" },
+                    { id: "isd4", text: "Bir organizasyon içinde, sadece çalışanların erişebildiği, internet teknolojilerini kullanan özel ağ.", matches: "is4" },
+                    { id: "isd5", text: "Bir şirketin intranetinin bir bölümünü, yetkilendirilmiş dış kullanıcılara (örn: iş ortakları, tedarikçiler) açtığı özel ağ.", matches: "is5" },
+                    { id: "isd6", text: "Web sayfalarının sunucudan istemciye (tarayıcıya) aktarılması için kullanılan temel protokol.", matches: "is6" }
+                ]
+            }
+        };
+
+        let draggedItem = null;
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function initMatchingGame(gameType) {
+            const gameData = matchingGameData[gameType];
+            const sectionId = `matchingGame${gameType.charAt(0).toUpperCase() + gameType.slice(1)}`;
+            const gameSection = document.getElementById(sectionId);
+            const container = gameSection.querySelector('.matching-game-container');
+            const feedbackEl = gameSection.querySelector('.matching-feedback');
+            const scoreEl = gameSection.querySelector('.matching-score');
+            const checkBtn = gameSection.querySelector('.matching-check-btn');
+            const restartBtn = gameSection.querySelector('.matching-restart-btn');
+
+            container.innerHTML = ''; // Clear previous game
+            feedbackEl.innerHTML = '';
+            feedbackEl.className = 'matching-feedback'; // Reset feedback class
+            scoreEl.innerHTML = '';
+            checkBtn.disabled = false; // Ensure check button is enabled
+            checkBtn.textContent = 'Kontrol Et'; // Reset button text
+
+            // Ensure any lingering .placed or .filled classes are removed for a clean start
+            gameSection.querySelectorAll('.matching-item.placed').forEach(item => item.classList.remove('placed'));
+            gameSection.querySelectorAll('.matching-slot.filled').forEach(slot => slot.classList.remove('filled'));
+
+            const termsColumn = document.createElement('div');
+            termsColumn.className = 'matching-column terms-column';
+            termsColumn.innerHTML = '<h4>Kavramlar/Terimler</h4>';
+
+            const definitionsColumn = document.createElement('div');
+            definitionsColumn.className = 'matching-column definitions-column';
+            definitionsColumn.innerHTML = '<h4>Açıklamalar/Tanımlar</h4>';
+
+            const shuffledTerms = shuffleArray([...gameData.terms]);
+            const shuffledDefinitions = shuffleArray([...gameData.definitions]);
+
+            shuffledTerms.forEach(term => {
+                const item = document.createElement('div');
+                item.id = term.id;
+                item.className = 'matching-item';
+                item.textContent = term.text;
+                item.draggable = true;
+                item.addEventListener('dragstart', dragStart);
+                termsColumn.appendChild(item);
+            });
+
+            shuffledDefinitions.forEach(def => {
+                const slot = document.createElement('div');
+                slot.className = 'matching-slot';
+                slot.dataset.matches = def.matches; // Store what this slot should match
+                slot.innerHTML = `<span>${def.text}</span>`; // Definition text is part of the slot
+                slot.addEventListener('dragover', dragOver);
+                slot.addEventListener('dragleave', dragLeave);
+                slot.addEventListener('drop', drop);
+                definitionsColumn.appendChild(slot);
+            });
+
+            container.appendChild(termsColumn);
+            container.appendChild(definitionsColumn);
+
+            // Add event listeners for check and restart buttons for this specific game
+            checkBtn.onclick = () => checkMatches(gameType, sectionId);
+            restartBtn.onclick = () => initMatchingGame(gameType);
+        }
+
+        function dragStart(e) {
+            draggedItem = e.target; // The item being dragged (e.g., a term)
+            e.dataTransfer.setData('text/plain', e.target.id);
+            setTimeout(() => e.target.classList.add('dragging'), 0);
+        }
+
+        function dragOver(e) {
+            e.preventDefault();
+            if (e.target.classList.contains('matching-slot') && !e.target.querySelector('.matching-item')) {
+                e.target.classList.add('over');
+            }
+        }
+
+        function dragLeave(e) {
+            if (e.target.classList.contains('matching-slot')) {
+                e.target.classList.remove('over');
+            }
+        }
+
+        function drop(e) {
+            e.preventDefault();
+            const slotTarget = e.target.closest('.matching-slot');
+            const termsContainer = draggedItem.closest('.matching-game-container').querySelector('.terms-column');
+
+            // Clear previous slot styling if item was in a slot
+            const previousParent = draggedItem.parentElement;
+            if (previousParent.classList.contains('matching-slot')) {
+                previousParent.classList.remove('filled');
+            }
+            draggedItem.classList.remove('placed'); // Always remove .placed when an item starts being handled by drop
+
+            if (slotTarget) { // Dropped onto a slot (or an item within a slot, handled by closest)
+                const currentItemInSlot = slotTarget.querySelector('.matching-item');
+                if (draggedItem && !currentItemInSlot) { // Slot is empty
+                    slotTarget.appendChild(draggedItem);
+                    draggedItem.classList.add('placed');
+                    slotTarget.classList.add('filled');
+                } else if (draggedItem && currentItemInSlot && draggedItem !== currentItemInSlot) {
+                    // Slot is occupied by a DIFFERENT item. Swap them.
+                    termsContainer.appendChild(currentItemInSlot); // Move current item in slot back to terms list
+                    currentItemInSlot.classList.remove('placed'); // Item returning to terms is no longer .placed
+
+                    slotTarget.appendChild(draggedItem); // Place dragged item into slot
+                    draggedItem.classList.add('placed');
+                    slotTarget.classList.add('filled'); // Slot remains filled, just with a new item
+                }
+            } else if (e.target.closest('.terms-column') && draggedItem) { // Dropped onto the terms column itself
+                termsContainer.appendChild(draggedItem);
+                // .placed was already removed at the start of the function for draggedItem
+            }
+
+            // Final cleanup for the dragged item visual state
+            if (draggedItem) { // Check if draggedItem is not null (it could be if drop was invalid)
+                draggedItem.classList.remove('dragging');
+            }
+            // Remove hover effect from the slot if it was the direct target
+            if (e.target.classList.contains('matching-slot')) {
+                e.target.classList.remove('over');
+            }
+
+            draggedItem = null; // Reset draggedItem global var
+        }
+
+        function checkMatches(gameType, sectionId) {
+            const gameSection = document.getElementById(sectionId);
+            const slots = gameSection.querySelectorAll('.matching-slot');
+            let correctMatches = 0;
+            let totalItems = matchingGameData[gameType].terms.length;
+
+            slots.forEach(slot => {
+                const placedItem = slot.querySelector('.matching-item');
+                // Remove temporary .placed class before applying final correct/incorrect styles
+                if (placedItem) {
+                    placedItem.classList.remove('placed');
+                }
+                slot.classList.remove('matched-correct', 'matched-incorrect');
+                // We keep .filled on the slot to keep definition text hidden after check.
+
+                if (placedItem) {
+                    if (placedItem.id === slot.dataset.matches) {
+                        correctMatches++;
+                        slot.classList.add('matched-correct');
+                    } else {
+                        slot.classList.add('matched-incorrect');
+                    }
+                    placedItem.draggable = false; // Disable dragging after check
+                }
+            });
+
+            const feedbackEl = gameSection.querySelector('.matching-feedback');
+            const scoreEl = gameSection.querySelector('.matching-score');
+            const checkBtn = gameSection.querySelector('.matching-check-btn');
+
+            if (correctMatches === totalItems && totalItems > 0) {
+                feedbackEl.textContent = `Harika! Tümünü doğru eşleştirdiniz: ${correctMatches} / ${totalItems}`;
+                feedbackEl.className = 'matching-feedback correct';
+            } else if (totalItems > 0) {
+                feedbackEl.textContent = `Sonuç: ${correctMatches} / ${totalItems} doğru eşleşme.`;
+                feedbackEl.className = 'matching-feedback incorrect'; // General incorrect if not all are right
+            } else {
+                feedbackEl.textContent = "Eşleştirilecek öğe yok.";
+                feedbackEl.className = 'matching-feedback';
+            }
+            scoreEl.innerHTML = `<h3>Skor: ${correctMatches}/${totalItems}</h3>`;
+
+            checkBtn.disabled = true;
+            checkBtn.textContent = 'Kontrol Edildi';
+        }
+
+
+        // --- True/False Quiz for Internet Services (New Functions) ---
+        const tfQuizDataIS = [
+            { statement: "DNS, IP adreslerini fiziksel MAC adreslerine çevirir.", answer: false, explanation: "DNS, alan adlarını IP adreslerine çevirir. MAC adresleri için ARP protokolü kullanılır." },
+            { statement: "IPv6, 128 bitlik adresler kullanır ve bu da IPv4'e göre çok daha büyük bir adres alanı sağlar.", answer: true, explanation: "Evet, IPv6 128-bit adresleme ile neredeyse sınırsız adres sunar." },
+            { statement: "VoIP (Voice over IP), yalnızca yazılı mesajların internet üzerinden gönderilmesini sağlar.", answer: false, explanation: "VoIP, öncelikle sesli iletişimin (telefon görüşmelerinin) internet üzerinden yapılmasını sağlar." },
+            { statement: "Bir Intranet, bir şirketin ürünlerini ve hizmetlerini genel halka tanıttığı web sitesidir.", answer: false, explanation: "Intranet, bir organizasyonun yalnızca kendi çalışanları veya yetkili üyeleri tarafından erişilebilen özel bir ağıdır." },
+            { statement: "Extranet, bir şirketin belirli iş ortaklarına veya müşterilerine ağının bir kısmına kontrollü erişim verdiği yapıdır.", answer: true, explanation: "Evet, extranet, intranet kaynaklarının yetkili dış kullanıcılara açılmasıdır." },
+            { statement: "İnternet, tek bir merkezi otorite tarafından yönetilir.", answer: false, explanation: "İnternet'in merkezi bir sahibi veya yönetici otoritesi yoktur; dağıtık bir yapıya sahiptir ve çeşitli kuruluşlar tarafından yönetilen ağların birleşimidir." },
+            { statement: "HTTP (HyperText Transfer Protocol), e-posta almak ve göndermek için kullanılan temel protokoldür.", answer: false, explanation: "HTTP, web sayfalarının iletimi için kullanılır. E-posta için SMTP, POP3, IMAP gibi protokoller kullanılır." },
+            { statement: "Herhangi bir ağa bağlı her cihazın benzersiz bir IP adresine sahip olması gerekir.", answer: true, explanation: "Evet, bir ağdaki (özellikle internet gibi genel bir ağda) her cihazın iletişim kurabilmesi için benzersiz bir IP adresine sahip olması gerekir." },
+            { statement: ".org alan adı uzantısı genellikle ticari olmayan, kar amacı gütmeyen organizasyonlar tarafından kullanılır.", answer: true, explanation: "Evet, .org (organization) TLD'si genellikle bu tür kuruluşlar için tercih edilir." },
+            { statement: "IPv4 adresleri, sekiz grup heksadesimal sayıdan oluşur ve iki nokta üst üste ile ayrılır.", answer: false, explanation: "Bu, IPv6 adreslerinin formatıdır. IPv4 adresleri dört onluk sayıdan oluşur ve noktalarla ayrılır (örn: 192.168.1.1)." }
+        ];
+        let currentTFQuestionIS = 0;
+        let scoreTFIS = 0;
+
+        function initTFQuizIS() {
+            currentTFQuestionIS = 0;
+            scoreTFIS = 0;
+            document.getElementById('tfQuizScoreIS').innerHTML = "";
+            document.getElementById('tfFeedbackAreaIS').style.display = 'none';
+            document.getElementById('tfNextQuestionButtonIS').style.display = 'none';
+            document.getElementById('tfTrueButtonIS').disabled = false;
+            document.getElementById('tfFalseButtonIS').disabled = false;
+            document.getElementById('tfAnswerButtonsIS').style.display = 'flex'; // Ensure buttons are visible
+            document.getElementById('tfQuizProgressIS').style.display = 'block'; // Ensure progress is visible
+            displayTFQuestionIS();
+        }
+
+        function displayTFQuestionIS() {
+            const questionData = tfQuizDataIS[currentTFQuestionIS];
+            document.getElementById('tfQuestionAreaIS').textContent = questionData.statement;
+            document.getElementById('tfQuizProgressIS').textContent = `Soru: ${currentTFQuestionIS + 1} / ${tfQuizDataIS.length}`;
+            document.getElementById('tfFeedbackAreaIS').style.display = 'none';
+            document.getElementById('tfTrueButtonIS').disabled = false;
+            document.getElementById('tfFalseButtonIS').disabled = false;
+            document.getElementById('tfNextQuestionButtonIS').style.display = 'none';
+        }
+
+        function handleTFAnswerIS(userAnswer) {
+            const questionData = tfQuizDataIS[currentTFQuestionIS];
+            const feedbackArea = document.getElementById('tfFeedbackAreaIS');
+            document.getElementById('tfTrueButtonIS').disabled = true;
+            document.getElementById('tfFalseButtonIS').disabled = true;
+
+            if (userAnswer === questionData.answer) {
+                scoreTFIS++;
+                feedbackArea.textContent = "Doğru! " + (questionData.explanation || "");
+                feedbackArea.className = 'feedback correct';
+            } else {
+                feedbackArea.textContent = "Yanlış. Doğru cevap: " + (questionData.answer ? "Doğru" : "Yanlış") + ". " + (questionData.explanation || "");
+                feedbackArea.className = 'feedback incorrect';
+            }
+            feedbackArea.style.display = 'block';
+            document.getElementById('tfNextQuestionButtonIS').style.display = 'block';
+            if (currentTFQuestionIS === tfQuizDataIS.length - 1) {
+                document.getElementById('tfNextQuestionButtonIS').textContent = 'Sonuçları Gör';
+            } else {
+                document.getElementById('tfNextQuestionButtonIS').textContent = 'Sonraki Soru';
+            }
+        }
+
+        document.getElementById('tfTrueButtonIS').addEventListener('click', () => handleTFAnswerIS(true));
+        document.getElementById('tfFalseButtonIS').addEventListener('click', () => handleTFAnswerIS(false));
+        document.getElementById('tfNextQuestionButtonIS').addEventListener('click', () => {
+            if (currentTFQuestionIS < tfQuizDataIS.length - 1) {
+                currentTFQuestionIS++;
+                displayTFQuestionIS();
+            } else {
+                document.getElementById('tfQuizScoreIS').innerHTML = `<h3>Test Sonucu: ${scoreTFIS} / ${tfQuizDataIS.length} doğru.</h3>`;
+                document.getElementById('tfQuestionAreaIS').textContent = "Test tamamlandı!";
+                document.getElementById('tfAnswerButtonsIS').style.display = 'none';
+                document.getElementById('tfNextQuestionButtonIS').style.display = 'none';
+                document.getElementById('tfQuizProgressIS').style.display = 'none';
+            }
+        });
+
+        // --- Fill in the Blanks Data & Functions (Copied and adapted for ağlar.html) ---
+        const fillInTheBlanksData = {
+            'bolum1_temelKavramlarAgBilesenleri': [
+                { sentenceParts: ["Telekomünikasyonun ve ağın ticari değerlerinden biri, ", " maliyetlerinde azalma sağlamasıdır."], answer: "işlem", alternatives: [], placeholder: "1 kelime" },
+                { sentenceParts: ["Ağdaki her bilgisayarın, ağa bağlanmak için ", " (Ağ Arayüz Kartı) adı verilen bir ağ arayüz aracına sahip olması gerekir."], answer: "NIC", alternatives: ["nıc"], placeholder: "KISALTMA (3 harf)" },
+                { sentenceParts: ["Ağ üzerindeki iletişimi yönlendiren, yöneten ve koordine eden özel yazılıma ", " (Ağ İşletim Sistemi) denir."], answer: "NOS", alternatives: ["nos"], placeholder: "KISALTMA (3 harf)" },
+                { sentenceParts: ["Ağ bileşenlerini birbirine bağlayan ve gelen tüm bilgi paketlerini ağdaki tüm cihazlara ileten basit bağlantı cihazlarına ", " denir."], answer: "Hub", alternatives: ["hub"], placeholder: "1 kelime" },
+                { sentenceParts: ["Hub'lara göre daha akıllı olan, veriyi filtreleyerek sadece hedeflenen cihaza gönderen ve ağ trafiğini azaltan bağlantı cihazına ", " denir."], answer: "Anahtar", alternatives: ["switch", "anahtar (switch)"], placeholder: "1-2 kelime" },
+                { sentenceParts: ["Farklı ağlar arasında veri paketlerini yönlendiren ve iletinin doğru IP adresine gitmesini kontrol eden özel iletişim işlemcisine ", " denir."], answer: "Yönlendirici", alternatives: ["router", "yönlendirici (router)"], placeholder: "1-2 kelime" },
+                { sentenceParts: ["Ağa ve ağdaki diğer cihazlara dosya paylaşımı, yazıcı paylaşımı gibi hizmetler veren güçlü bilgisayara ", " denir."], answer: "Server", alternatives: ["sunucu", "server (sunucu)"], placeholder: "1-2 kelime" },
+                { sentenceParts: ["Ağa bağlı tüm cihazlara aynı anda veri gönderme işlemine/yöntemine ", " denir."], answer: "Broadcast", alternatives: ["broadcast"], placeholder: "1 kelime" },
+                { sentenceParts: ["Karakterleri sayılara çeviren, toplam 128 standart karakter içeren (0-127 arası) ve 'A' harfini 65 ondalık sayısı ile temsil eden temel karakter kodlama standardına ", " denir."], answer: "ASCII", alternatives: [], placeholder: "KISALTMA (4 harf)" },
+                { sentenceParts: ["Kesikli olmayan, sürekli değişen değerler alabilen ve ses gibi doğal olayları temsil eden dalga şeklindeki sinyal türüne ", " denir."], answer: "Analog Sinyal", alternatives: ["Analog sinyal", "analog sinyal"], placeholder: "2 kelime" },
+                { sentenceParts: ["Belirli zaman aralıklarında yalnızca iki farklı değeri (genellikle 0 ve 1) alabilen, kesikli sinyal türüne ", " denir."], answer: "Dijital Sinyal", alternatives: ["dijital sinyal", "Dijital sinyal"], placeholder: "2 kelime" },
+                { sentenceParts: ["Genellikle 8 bitten oluşan ve bir bayt (byte) ile eşdeğer kabul edilen veri birimine ", " denir."], answer: "Oktet", alternatives: ["oktet"], placeholder: "1 kelime" }
+            ],
+            'bolum2_dijitalAgTeknolojileri': [
+                { sentenceParts: ["İşlemci gücünün çoğunlukla küçük istemci bilgisayarlarında bulunduğu ve istemcilerin merkezi bir ağ sunucusuna bağlandığı dağıtık programlama modeline ", " Mimarisi denir."], answer: "İstemci/Sunucu", alternatives: ["Client/Server", "istemci sunucu", "istemci-sunucu"], placeholder: "2 kelime (X/Y)" },
+                { sentenceParts: ["Gönderilecek iletilerin önce \"paket\" adı verilen küçük veri yığınlarına ayrıldığı ve ağ üzerinde bağımsız olarak gönderildiği veri iletim yöntemine ", " denir."], answer: "Paket Anahtarlama", alternatives: ["Packet Switching", "packet switching"], placeholder: "2 kelime" },
+                { sentenceParts: ["İnternet'in ve çoğu modern bilgisayar ağının temel iletişim protokolleri takımına ", " denir."], answer: "TCP/IP", alternatives: ["tcp/ip", "TCP/Ip"], placeholder: "KISALTMA (X/Y)" },
+                { sentenceParts: ["TCP/IP takımında, bilgisayarlar arasındaki veri hareketliliğini güvenilir bir şekilde kontrol eden, bağlantı kuran ve veri paketlerini sıraya koyan protokole ", " denir."], answer: "TCP", alternatives: ["Transmission Control Protocol", "tcp"], placeholder: "KISALTMA (3 harf)" },
+                { sentenceParts: ["TCP/IP takımında, veri paketlerinin ağlar arasında adreslenmesi ve yönlendirilmesinden sorumlu olan, \"bağlantısız\" bir protokol olan yapıya ", " denir."], answer: "IP", alternatives: ["Internet Protocol", "ip", "Ip"], placeholder: "KISALTMA (2 harf)" },
+                { sentenceParts: ["Bir bilgisayarın ürettiği dijital sinyalleri, telefon hattı gibi analog bir ortam üzerinden gönderilebilecek analog sinyallere çevirme işlemine ", " denir."], answer: "modülasyon", alternatives: ["Modülasyon"], placeholder: "1 kelime" },
+                { sentenceParts: ["Analog iletim ortamından gelen analog sinyalleri tekrar bilgisayarın anlayabileceği dijital sinyallere çevirme işlemine ", " denir."], answer: "Demodülasyon", alternatives: ["demodülasyon"], placeholder: "1 kelime" }
+            ],
+            'bolum3_agTurleriTopolojiler': [
+                { sentenceParts: ["Genellikle bir ofis veya bina içinde, sınırlı bir coğrafi alandaki cihazları birbirine bağlayan ağ türüne ", " denir."], answer: "LAN", alternatives: ["Local Area Network", "Lan", "lan", "LAn"], placeholder: "KISALTMA (3 harf)" },
+                { sentenceParts: ["Bir şehir veya büyük bir metropol alanını kapsayan ağ türüne ", " denir."], answer: "MAN", alternatives: ["Metropolitan Area Network"], placeholder: "KISALTMA (3 harf)" },
+                { sentenceParts: ["Kıtalararası veya küresel bir alanı kapsayan, internetin en büyük örneği olduğu ağ türüne ", " denir."], answer: "WAN", alternatives: ["Wide Area Network", "wide area network"], placeholder: "KISALTMA (3 harf)" },
+                { sentenceParts: ["Bir ağdaki cihazların fiziksel veya mantıksal olarak nasıl düzenlendiğini ve birbirine nasıl bağlandığını tanımlayan kavrama ", " denir."], answer: "Ağ Topolojisi", alternatives: ["ağ topolojisi", "Ağ topolojisi"], placeholder: "2 kelime" },
+                { sentenceParts: ["Tüm cihazların merkezi bir bağlantı cihazına (hub/switch) bağlandığı ve merkezi cihaz arızalanırsa tüm ağın çöktüğü topolojiye ", " denir."], answer: "Yıldız Topolojisi", alternatives: ["star topolojisi", "yıldız", "star", "Yıldız (Star) Topolojisi"], placeholder: "1-2 kelime + 'Topolojisi'" },
+                { sentenceParts: ["Cihazların birbirlerine dairesel bir şekilde bağlanarak bir halka oluşturduğu ve \"token\" adı verilen özel bir sinyal paketinin veri iletim hakkını belirlediği topolojiye ", " denir."], answer: "Halka Topolojisi", alternatives: ["ring topolojisi", "halka", "ring", "Halka (Ring/Token Ring) Topolojisi"], placeholder: "1-2 kelime + 'Topolojisi'" },
+                { sentenceParts: ["Tüm cihazların adı verilen tek bir ana kabloya (backbone) bağlandığı ve ana kablo arızalanırsa tüm ağın çöktüğü topolojiye ", " denir."], answer: "Doğrusal Topolojisi", alternatives: ["bus topolojisi", "doğrusal", "bus", "Doğrusal (Bus) Topolojisi", "bus topoloji"], placeholder: "1-2 kelime + 'Topolojisi'" },
+                { sentenceParts: ["Doğrusal (Bus) topolojisinde, ana kablonun uçlarına sinyallerin geri yansımasını önlemek için takılan özel dirençlere ", " denir."], answer: "sonlandırıcı", alternatives: ["terminatör", "terminator", "sonlandırıcı (terminatör)"], placeholder: "1 kelime" },
+                { sentenceParts: ["Her cihazın, ağdaki diğer birçok cihaza (veya tüm cihazlara) doğrudan fiziksel bir bağlantısının olduğu, yüksek güvenilirlik sunan ancak maliyetli ve karmaşık topolojiye ", " denir."], answer: "Örgü Topolojisi", alternatives: ["mesh topolojisi", "örgü", "mesh", "Örgü (Mesh) Topolojisi", "mesh topoloji", "örgü topoloji"], placeholder: "1-2 kelime + 'Topolojisi'" }
+            ],
+            'bolum4_internetAdreslemeVoIPYonetim': [
+                { sentenceParts: ["İnsanların hatırlaması kolay olan, internete bağlı bilgisayarların ve hizmetlerin adı olan (örn: `www.google.com`) yapıya ", " denir."], answer: "Alan Adı", alternatives: ["Domain Name", "alan adı", "domain name", "domain"], placeholder: "2 kelime" },
+                { sentenceParts: ["İnsanların kullandığı alan adlarını, bilgisayarların kullandığı sayısal IP adreslerine çeviren hiyerarşik sisteme ", " (Alan Adı Sistemi) denir."], answer: "DNS", alternatives: ["dns"], placeholder: "KISALTMA (3 harf)" },
+                { sentenceParts: ["İnternet protokolünün, 32-bitlik bir adresleme şeması kullanan ve yaklaşık 4.3 milyar benzersiz adres sağlayabilen sürümüne ", " denir."], answer: "IPv4", alternatives: ["Internet Protocol version 4", "IPV4", "Ipv4", "IpV4", "ipv4"], placeholder: "KISALTMA (XvY)" },
+                { sentenceParts: ["IPv4 adres kıtlığı sorununu çözmek için geliştirilen, 128-bitlik bir adresleme şeması kullanan ve katrilyonlarca benzersiz adres sağlayabilen internet protokolü sürümüne ", " denir."], answer: "IPv6", alternatives: ["Internet Protocol version 6", "IPV6", "Ipv6", "ipv6", "IpV6"], placeholder: "KISALTMA (XvY)" },
+                { sentenceParts: ["Ses bilgisini dijital biçime dönüştürüp, paketlere bölerek İnternet Protokolü (IP) kullanarak ileten teknolojiye ", " (IP üzerinden Ses) denir."], answer: "VoIP", alternatives: ["voip", "voIP", "VOIP"], placeholder: "KISALTMA (4 harf)" },
+                { sentenceParts: ["VoIP çağrısında, IP ağı ile geleneksel telefon ağı (PSTN) arasında köprü görevi gören cihaza ", " (Ağ Geçidi) denir."], answer: "Gateway", alternatives: ["ağ geçidi", "gateway"], placeholder: "1-2 kelime" }
+            ]
+        };
+
+        function initFillInTheBlanks(categoryKey, sectionId) {
+            const gameData = fillInTheBlanksData[categoryKey];
+            const sectionElement = document.getElementById(sectionId);
+
+            if (!gameData || !sectionElement) {
+                console.error("Fill in the blanks data or section not found for:", categoryKey, sectionId);
+                return;
+            }
+
+            const container = sectionElement.querySelector('.fill-blanks-container');
+            const controls = sectionElement.querySelector('.fill-blanks-controls');
+            const scoreEl = sectionElement.querySelector('.fill-blanks-score');
+            const checkBtn = controls.querySelector('.matching-check-btn');
+            const restartBtn = controls.querySelector('.matching-restart-btn');
+
+            container.innerHTML = ''; // Clear previous questions
+            scoreEl.innerHTML = '';
+            checkBtn.disabled = false;
+            checkBtn.textContent = 'Cevapları Kontrol Et';
+
+            gameData.forEach((q, index) => {
+                const qDiv = document.createElement('div');
+                qDiv.className = 'fill-blanks-question';
+                qDiv.dataset.questionIndex = index;
+
+                const p = document.createElement('p');
+
+                const part1 = document.createElement('span');
+                part1.className = 'sentence-part';
+                part1.textContent = q.sentenceParts[0];
+                p.appendChild(part1);
+
+                const inputElement = document.createElement('input');
+                inputElement.type = 'text';
+                inputElement.id = `blank_aglar_${categoryKey}_${index}`; // Added 'aglar' prefix to avoid ID collision with e-ticaret
+                inputElement.placeholder = q.placeholder || '...';
+                inputElement.setAttribute('aria-label', `Soru ${index + 1} için boşluğu doldurun`);
+                p.appendChild(inputElement);
+
+                if (q.sentenceParts.length > 1 && q.sentenceParts[1]) {
+                    const part2 = document.createElement('span');
+                    part2.className = 'sentence-part';
+                    part2.textContent = q.sentenceParts[1];
+                    p.appendChild(part2);
+                }
+
+                const feedbackIcon = document.createElement('span');
+                feedbackIcon.className = 'feedback-icon';
+                feedbackIcon.id = `feedback_aglar_${categoryKey}_${index}`; // Added 'aglar' prefix
+                p.appendChild(feedbackIcon);
+
+                qDiv.appendChild(p);
+                container.appendChild(qDiv);
+            });
+
+            checkBtn.onclick = () => checkFillInTheBlanks(categoryKey, sectionId, 'aglar'); // Pass prefix
+            restartBtn.onclick = () => initFillInTheBlanks(categoryKey, sectionId); // Restart doesn't need prefix for now
+        }
+
+        function checkFillInTheBlanks(categoryKey, sectionId, prefix = '') { // Added prefix parameter
+            const gameData = fillInTheBlanksData[categoryKey]; // This should be specific to aglar.html's data
+            const sectionElement = document.getElementById(sectionId);
+            const scoreEl = sectionElement.querySelector('.fill-blanks-score');
+            const checkBtn = sectionElement.querySelector('.fill-blanks-controls .matching-check-btn');
+            let correctAnswers = 0;
+            const idPrefix = prefix ? `${prefix}_` : '';
+
+
+            gameData.forEach((q, index) => {
+                const inputElement = document.getElementById(`blank_${idPrefix}${categoryKey}_${index}`);
+                const feedbackIcon = document.getElementById(`feedback_${idPrefix}${categoryKey}_${index}`);
+
+                const oldCorrectAnswerText = inputElement.parentNode.querySelector('.correct-answer-text');
+                if (oldCorrectAnswerText) {
+                    oldCorrectAnswerText.remove();
+                }
+
+                const userAnswer = inputElement.value.trim().toLowerCase();
+                const correctAnswer = q.answer.toLowerCase();
+                const alternativeAnswers = (q.alternatives || []).map(a => a.toLowerCase().trim());
+
+                feedbackIcon.textContent = '';
+                feedbackIcon.className = 'feedback-icon';
+
+                if (userAnswer === correctAnswer || (alternativeAnswers.length > 0 && alternativeAnswers.includes(userAnswer))) {
+                    correctAnswers++;
+                    feedbackIcon.textContent = '✔';
+                    feedbackIcon.classList.add('correct');
+                    inputElement.style.borderColor = '#27ae60';
+                } else {
+                    feedbackIcon.textContent = '✖';
+                    feedbackIcon.classList.add('incorrect');
+                    inputElement.style.borderColor = '#c0392b';
+
+                    const correctAnswerSpan = document.createElement('span');
+                    correctAnswerSpan.className = 'correct-answer-text';
+                    correctAnswerSpan.textContent = `(Doğru: ${q.answer})`;
+                    feedbackIcon.parentNode.insertBefore(correctAnswerSpan, feedbackIcon.nextSibling);
+                }
+                inputElement.disabled = true;
+            });
+
+            scoreEl.innerHTML = `<h4>Skor: ${correctAnswers} / ${gameData.length}</h4>`;
+            checkBtn.disabled = true;
+            checkBtn.textContent = 'Kontrol Edildi';
+        }
+    </script>
+</body>
+
+</html>

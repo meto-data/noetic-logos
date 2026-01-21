@@ -6,6 +6,7 @@ konu: Mantık
 created: 2025-10-03
 cssclasses:
   - ders-notu
+draft: true
 ---
 - **Not**: Ders hârici bir anlatım için [[1- Buders Önermeler]] ve [[1- Temeller (Mantık)]] notlarına bakılması tavsiye edilir. <br>
 - **Not 2**: Sadece bu dosya için, bu dosya ders anlatımına bire-bir sadık değildir. Derste anlatılanların hepsini kapsar ancak ilave eklemeler de vardır.

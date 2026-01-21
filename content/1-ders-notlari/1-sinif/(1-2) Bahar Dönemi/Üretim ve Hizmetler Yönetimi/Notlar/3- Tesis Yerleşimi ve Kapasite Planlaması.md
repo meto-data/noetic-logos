@@ -8,19 +8,18 @@ tags:
   - anabaslik
 Kavramlar: "```dataview\rLIST from outgoing([[4- Tesis Yerleşimi ve Kapasite Planlaması]])\r```"
 ---
-## Tesis Yeri Seçimi
+## [[Tesis Yeri Seçimi]]
 - Tanım olarak, **bir kuruluşun tesisi için en iyi coğrafi konumu belirlemesi**dir.
 - Müşteriler, tedarikçilere yakınlık, işçilik ve nakliye maliyetleri dâhil olmak üzere birçok faktör hesaba katılarak belirli bir konumun arzu edilirliği değerlendirilir.
 	- Bilimsel yöntemlerle veyahut istatistiki yöntemler ile seçilmesi gerekir ki, yanlış ve hatalı bir seçim yapılmasın.
 
 
-
-### Tesis Yeri Seçim Kararlarını Etkileyen Faktörler
+### [[Tesis Yeri Seçim Kararlarını Etkileyen Faktörler]]
 1. Müşterilere yakınlık
 2. Tedarikçilere yakınlık
 3. İş gücü kaynağı
 4. Topluluk tutumu
-vb.
+vb. (Sektörlerle ilgili kısımdan sonra daha detaylı anlatılacak.)
 
 - İşletme işinin doğası, yer kararında hangi faktörlerin baskın olması gerektiğini belirleyecektir. 
 - Hizmet ve imalat işletmeleri farklı faktörlere odaklanırken kâr amacı güden ve kâr amacı gütmeyen kuruluşlar da farklı faktörlere odaklanmaktadır.
@@ -63,7 +62,7 @@ vb.
 		- **Örneğin**: Oteller, eğlence mekânları.
 
 #### c) İş Gücüne Yakınlık
-- **[[Emek]]** yoğun sektörler, nitelikli **[[iş Gücü]]ne** **erişim** ve **maliyet verimliliği** için stratejik konumlanır.
+- **[[Emek]]** yoğun sektörler, nitelikli **[[iş gücü]]ne** **erişim** ve **maliyet verimliliği** için stratejik konumlanır.
 	1. **Tekstil ve Konfeksiyon Atölyeleri** → Dikiş/kesim uzmanı mavi yakalı işçiler için sanayi bölgeleri.
 	2. **Çağrı Merkezleri** → Üniversite şehirlerinde düşük maliyetli, dil bilen işgücü.
 	3. **Otomotiv Montaj Fabrikaları** → Teknik eğitimli işçiler için sanayi bölgeleri.
@@ -91,7 +90,7 @@ vb.
 - Belirlenen konumlar **faktörler bazında** karşılaştırılır.    
 	- Bir konum bazı faktörlerde avantajlıyken, diğerlerinde dezavantajlı olabilir.    
     - Yöneticiler **en uygun dengeyi** sağlayan konumu seçer.
-**[[iş Gücü]]**
+**[[iş gücü]]**
 
 
 #### Faktör Derecelendirilmesi

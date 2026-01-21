@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 
 ### **Osmanlı Dönemi Eğitim Sisteminin Durumu:**
 - Eğitim, insan yetiştirme sanatı olarak tanımlanabilir ve bir toplumun ilerlemesi için eğitim sisteminin çağın gereklerine ayak uydurması ve sürekli yenilenmesi zaruridir.

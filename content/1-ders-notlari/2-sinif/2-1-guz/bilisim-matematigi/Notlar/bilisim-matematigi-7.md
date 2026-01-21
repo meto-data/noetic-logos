@@ -6,6 +6,7 @@ created: 2025-11-7
 date: 2025-11-07
 cssclasses:
   - ders-notu
+draft: true
 ---
 <h1 style="text-align:center"><span style="color:lightblue; text-align:center">Ünite 4: Lineer Cebir (Matrisler ve Determinantlar)</span> | <span style="color:lightorange">07.11.2025</span></h2>
 

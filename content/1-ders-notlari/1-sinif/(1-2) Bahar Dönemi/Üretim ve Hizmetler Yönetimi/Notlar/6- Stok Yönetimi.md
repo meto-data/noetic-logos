@@ -14,6 +14,7 @@ Kavramlar: "```dataview\rLIST from outgoing([[7- Stok Yönetimi]])\r```"
 ---
 
 
+
 > [!important] STOK
 > **[[Stok]]**: İşletmelerin satmak, tüketmek veya üretmek amacıyla edindiği; makul bir süre sonunda elden çıkarılması düşünülen varlıklardır. <br>
 > **[[Stok Yönetimi]]**: İşletmelerin stok kalemlerini satın alırken, üretirken, kullanırken ve depolarken nasıl izleneceği ve kontrol edileceği ile ilgili faaliyetlerin tümüdür. <br><br>
@@ -28,7 +29,7 @@ Kavramlar: "```dataview\rLIST from outgoing([[7- Stok Yönetimi]])\r```"
 	- Daha iyi stok yönetimi, daha iyi nakit akışına dönüşür.
 - Ham madde, malzeme ve ürünleri tedarik zinciri boyunca hareket etme şeklini organize eden sistemdir.
 - **İşletmelerin maliyetlerini en aza indirmek için sürekli optimum stok seviyelerini korumalarını sağlamaları için çok önemlidir.**
-- **Stok yönetiminde, [[Talep]] tahminleri ve üretim planlama verileri kullanılarak stoklama yapılır.**
+- **Stok yönetiminde, [[Talep|talep]] tahminleri ve üretim planlama verileri kullanılarak stoklama yapılır.**
 
 
 ## [[İşletmelerde Stok Bulundurma Nedenleri]]

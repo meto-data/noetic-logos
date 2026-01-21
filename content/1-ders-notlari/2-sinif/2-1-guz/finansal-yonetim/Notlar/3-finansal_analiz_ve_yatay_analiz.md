@@ -8,7 +8,7 @@ cssclasses:
 created: 2025-10-15
 ---
 - **Not**: Finans dersinden nispeten bıktığım için bazı notlar akademik düzeyden sapıyor. İdare ediverin.
-	- Notlar henüz yarımdır. Haftaya göre değil konuya göre alınmaktadır notlar.
+	- Haftaya göre değil konuya göre alınmaktadır notlar.
 
 ---
 
@@ -22,7 +22,7 @@ created: 2025-10-15
 >[!quote] Alıntı
 >"Hafıza-ı beşer nisyan ile mâlûldür."...
 
-
+## [[Muhasebe ve Hesap Planı]]
 - Bkz. [[Muhasebenin Beş İşlevi]]
 - Muhasebe bir bilgi sistemi. Bu sistem ne yapar? E bilgi sistemi olduğundan firmada olup biten para hareketlerini (mâlî olaylar) alıp anlamlı bir şeye dönüştürür. Bu süreç de şöyle işler:
 	1. **[[Saptamak]]**: "Mal aldım", "para ödedim" demek yeterli değil. **Elde belge olmalı**; faturadır, makbuzdur, dekonttur vs. Olayı **somut** olarak tespit edebilmek gerekli. Belgesi olmayan şeyin muhasebe yeri yoktur.
@@ -135,7 +135,7 @@ created: 2025-10-15
 
 ## **1.1.** Finansal Tablolar
 - Muhasebecilerin tuttuğu kayıtların özeti. Bu sayede patronlar, bankacılar, yatırımcılar şirketin ne yaptığını anlar. Biz analizi **bilanço** ve **gelir tablosu** üzerinden yapacağız, gerisi ayrıntı.
-## **1.2.** Temel Mâlî Tablolar
+## **1.2.** [[Temel Mâlî Tablolar]]
 ### 1.2.1. [[Bilanço Tablosu|Bilanço]]
 - Firmanın belli bir andaki röntgeni. O gün neyi var, ne kadar borcu var vesair onu gösterir. Anlık bir fotoğraf gibi işte.
 - **Aktif (Varlıklar)**: **Firmanın ekonomik gücüdür**, ekonomik değeridir, ekonomik tarafı gösterir. En hızlı paraya **dönen**den (kasa) en yavaşına/**duran**ına (bina) doğru sıralanır. Buna **[[likidite]]** derler.

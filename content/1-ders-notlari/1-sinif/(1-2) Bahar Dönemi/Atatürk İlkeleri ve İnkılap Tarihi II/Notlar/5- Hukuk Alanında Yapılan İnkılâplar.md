@@ -1,3 +1,9 @@
+---
+draft: true
+---
+
+
+
 - Osmanlı İmparatorluğu'nda hüküm süren hukuk sistemi, temelde **şer'i hukuk** üzerine kuruluydu. Bu hukuk anlayışı, dini metinlerin yorumlanmasıyla şekillenirdi.
 - Şer'i hukukun yanı sıra, örf ve adetlerden doğan **örfi hukuk** da, şer'i hukukun boş bıraktığı veya izin verdiği alanlarda uygulanmaktaydı. Bu iki unsur, Osmanlı hukuk sisteminin temelini oluştururdu.
 - Devletin kuruluşundan Tanzimat dönemine kadar, hukuki anlaşmazlıkların çözüldüğü birincil merci **Şer'iye Mahkemeleri** idi. Bu mahkemelerin başkanları olan kadılar, sadece yargısal görevler ifa etmekle kalmaz, bulundukları bölgelerin idari, mali ve belediye işleriyle de ilgilenirlerdi.

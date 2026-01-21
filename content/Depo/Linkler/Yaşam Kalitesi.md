@@ -1,0 +1,1 @@
+- Bir şirketin bulunduğu bölgedeki yaşam kalitesi, işletme çalışanlarına sunulan yaşam kalitesi ile özdeştir. Söz gelişi, bulunduğumuz bir konumda çevre kirliliği varsa, kişiye göre değişmekle beraber "eğlence" faktörü minimal düzeydeyse, suç oranlarının fazla olması gibi faktörler de varsa, yaşam kalitesini olumsuz yönde etkileyecektir.

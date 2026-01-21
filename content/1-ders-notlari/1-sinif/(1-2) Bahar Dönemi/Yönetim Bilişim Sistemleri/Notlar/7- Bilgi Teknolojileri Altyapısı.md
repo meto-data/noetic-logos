@@ -3,7 +3,7 @@ Ders: YBS
 Dönem: II. Dönem
 Hafta: VII. Hafta
 Konu: Bilgi Teknolojileri Altyapısı
-Kavramlar: "```dataview\rLIST from outgoing([[]])\r```"
+Kavramlar:
 ---
 
 ## [[İkili Sayı Sistemi]] (Binary Digit Systems)

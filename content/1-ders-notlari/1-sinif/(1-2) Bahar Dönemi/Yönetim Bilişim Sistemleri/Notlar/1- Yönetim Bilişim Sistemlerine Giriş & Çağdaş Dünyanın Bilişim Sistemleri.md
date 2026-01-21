@@ -55,7 +55,7 @@ tags:
 	- **Örneğin**: Klavye, barkod okuyucu, yazıcı, anakart.
 - **Yazılım**: Bilgisayara üzerinde işlem gerçekleştirmeyi sağlayan programlardır.
 	- **Örneğin:** İşletim sistemi, uygulama programları, paket programları vb.
-- **Veritabanı**: Verilerin toplanmasını ve bilginin organize edilmesini sağlar.
+- **Veri Tabanı**: Verilerin toplanmasını ve bilginin organize edilmesini sağlar.
 	- **Örneğin**: Tablolar, formlar, veri erişim sayfaları, raporlar.
 - **İnsan**: *Bilgi sistemlerinin en önemli elemanıdır. Bilgisayar sistemini yöneten, çalıştıran, programlayan ve bakımını sağlayan kişidir.*
 	- Yönetici, karar verici, sistem analisti, programcı, diğer kullanıcılar, operatör vb.

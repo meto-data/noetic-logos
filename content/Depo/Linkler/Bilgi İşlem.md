@@ -1,0 +1,1 @@
+Organizasyonların işlevlerini yerine getirmek, ürün ve hizmetlerini sunmak için sahip oldukları bilgileri işleyerek kullandıkları birimdir.

@@ -1,3 +1,9 @@
+---
+draft: true
+---
+
+
+
 **ATATÜRK İLKELERİ**
 
 - **GİRİŞ**

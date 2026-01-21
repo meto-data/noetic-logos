@@ -1,6 +1,10 @@
 ---
 title: Finansal Yönetim
+created: 2025-09-24
 ---
+- Bu index 2025-2026 eğitim yılı bağlamında girilmiştir.
+<br>
+
 
 Dersi veren: [Doç. Dr. Nevin Özer](https://akademik.duzce.edu.tr/nevinozer)
 

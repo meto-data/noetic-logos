@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veri Tabanları ve Veri Yönetimi Öğrenme Uygulaması</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            overflow: hidden;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            flex-grow: 1;
+        }
+
+        header {
+            background: #004d40;
+            /* Koyu Yeşil */
+            color: #e0f2f1;
+            padding: 1.2rem 0;
+            text-align: center;
+            border-bottom: #00796b 4px solid;
+            /* Orta Yeşil */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.1em;
+        }
+
+        header p {
+            margin: 4px 0 0;
+            font-size: 1em;
+            color: #a7ffeb;
+        }
+
+        nav {
+            background: #2c3e50;
+            /* Consistent with kurumsal.html */
+            color: #fff;
+            padding: 0;
+            /* Adjusted padding for ul based nav */
+            text-align: center;
+            margin-bottom: 25px;
+            border-radius: 0 0 10px 10px;
+            /* Consistent with kurumsal.html */
+            display: flex;
+            /* Added for centering ul */
+            justify-content: center;
+            /* Added for centering ul */
+        }
+
+        nav ul {
+            /* New style for the navigation list */
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            /* Allow wrapping on smaller screens */
+            justify-content: center;
+        }
+
+        nav ul li {
+            /* New style for list items */
+            margin: 0;
+        }
+
+        nav ul li a {
+            /* New style for navigation links */
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            /* Adjust padding as needed */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            /* Combined hover and active styles */
+            background: #00796b;
+            /* Keep module-specific hover color */
+            transform: translateY(-2px);
+            /* Subtle lift effect */
+        }
+
+        /* Dropdown Menu Styles */
+        nav ul li.dropdown {
+            position: relative;
+            /* Needed for absolute positioning of submenu */
+        }
+
+        nav ul li.dropdown>a::after {
+            /* Add dropdown arrow */
+            content: ' ▾';
+            /* Simple down arrow */
+            font-size: 0.8em;
+        }
+
+        nav ul ul.submenu {
+            display: none;
+            /* Hidden by default */
+            position: absolute;
+            top: 100%;
+            /* Position below the parent */
+            left: 0;
+            background-color: #34495e;
+            /* Consistent with kurumsal.html */
+            padding: 0;
+            min-width: 220px;
+            /* Adjusted for longer text */
+            z-index: 1000;
+            border-radius: 0 0 6px 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul li.dropdown:hover>ul.submenu {
+            display: block;
+            /* Show on hover */
+        }
+
+        nav ul ul.submenu li {
+            width: 100%;
+        }
+
+        nav ul ul.submenu li a {
+            padding: 0.7rem 1rem;
+            white-space: nowrap;
+            /* Prevent text wrapping */
+        }
+
+        nav ul ul.submenu li a:hover,
+        nav ul ul.submenu li a.active {
+            /* Style for active/hover submenu items */
+            background-color: #00796b;
+            /* Keep module-specific hover color */
+        }
+
+        /* End Dropdown Menu Styles */
+
+        .section {
+            display: none;
+            padding: 20px;
+            border: 1px solid #cfd8dc;
+            /* Açık Gri */
+            border-radius: 6px;
+            margin-bottom: 20px;
+            background-color: #eceff1;
+            /* Çok Açık Gri-Mavi */
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeInSection 0.5s ease-out;
+        }
+
+        @keyframes fadeInSection {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #004d40;
+            /* Koyu Yeşil */
+            border-bottom: 2px solid #00796b;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 1.7em;
+        }
+
+        h3 {
+            color: #00695c;
+            /* Biraz daha açık yeşil */
+            font-size: 1.4em;
+            margin-top: 20px;
+        }
+
+        h4 {
+            color: #37474f;
+            /* Koyu Gri-Mavi */
+            font-size: 1.2em;
+        }
+
+        .info-block {
+            background-color: #e0f2f1;
+            /* Çok açık yeşil */
+            border-left: 5px solid #00796b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .info-block ul {
+            padding-left: 20px;
+        }
+
+        .info-block li {
+            margin-bottom: 6px;
+        }
+
+        .highlight {
+            background-color: #fff9c4;
+            /* Açık Sarı */
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        /* Eşleştirme Oyunu Stilleri */
+        .matching-game-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .draggable-terms,
+        .drop-definitions {
+            padding: 15px;
+            border: 2px dashed #b0bec5;
+            /* Gri */
+            border-radius: 6px;
+            background-color: #fff;
+        }
+
+        .draggable-terms {
+            flex: 1;
+        }
+
+        .drop-definitions {
+            flex: 2;
+        }
+
+        .draggable-term {
+            background-color: #00796b;
+            /* Orta Yeşil */
+            color: white;
+            padding: 8px 12px;
+            margin: 8px 0;
+            border-radius: 4px;
+            cursor: grab;
+            text-align: center;
+        }
+
+        .definition-slot {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+        }
+
+        .drop-zone-term {
+            min-width: 120px;
+            min-height: 38px;
+            /* Draggable term yüksekliği ile uyumlu */
+            border: 1px dashed #78909c;
+            /* Koyu Gri-Mavi */
+            margin-right: 10px;
+            padding: 5px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .drop-zone-term.over {
+            background-color: #cfd8dc;
+            /* Açık Gri */
+        }
+
+        .definition-text {
+            flex-grow: 1;
+        }
+
+        /* Test Stilleri */
+        .quiz-question {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 18px;
+            border-radius: 6px;
+            border: 1px solid #b0bec5;
+            /* Gri */
+        }
+
+        .quiz-options label {
+            display: block;
+            background-color: #f5f5f5;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .quiz-options label:hover {
+            background-color: #e0e0e0;
+        }
+
+        .quiz-options input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .game-button,
+        .quiz-button {
+            background-color: #00796b;
+            /* Orta Yeşil */
+            color: white;
+            padding: 10px 22px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-right: 10px;
+            /* Butonlar arası boşluk */
+        }
+
+        .game-button.reset {
+            background-color: #d32f2f;
+            /* Kırmızı */
+        }
+
+        .game-button:hover,
+        .quiz-button:hover {
+            opacity: 0.85;
+        }
+
+
+        .feedback {
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .feedback.correct {
+            background-color: #c8e6c9;
+            /* Açık Yeşil */
+            color: #2e7d32;
+            border: 1px solid #a5d6a7;
+        }
+
+        .feedback.incorrect {
+            background-color: #ffcdd2;
+            /* Açık Kırmızı */
+            color: #c62828;
+            border: 1px solid #ef9a9a;
+        }
+
+        #scoreBoard {
+            background-color: #e0f2f1;
+            /* Çok Açık Yeşil */
+            padding: 18px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        #scoreBoard h3 {
+            margin-top: 0;
+            color: #004d40;
+        }
+
+        #scoreBoard p {
+            margin: 8px 0;
+        }
+
+        /* NEW DATA HIERARCHY STYLES */
+        .data-hierarchy-container {
+            display: flex;
+            flex-direction: column-reverse;
+            /* Reverse to show Bit at bottom, Database at top */
+            align-items: center;
+            margin: 35px 0 25px;
+            /* Increased top margin by 10px */
+            padding: 15px;
+            background-color: #e8f5e9;
+            /* Light green background for the container */
+            border-radius: 8px;
+            border: 1px solid #c8e6c9;
+        }
+
+        .hierarchy-level {
+            color: #fff;
+            /* Keep text white for darker backgrounds */
+            padding: 10px 15px;
+            margin-top: 8px;
+            /* Space between levels */
+            text-align: center;
+            font-weight: bold;
+            border-radius: 6px;
+            width: 90%;
+            /* Default width */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease-out;
+            cursor: pointer;
+            /* Indicate clickable */
+        }
+
+        .hierarchy-level:hover {
+            transform: scale(1.03);
+        }
+
+        .hierarchy-level strong {
+            /* For the level name like "Bit:" */
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .hierarchy-level span {
+            /* For the description */
+            font-weight: normal;
+            font-size: 0.9em;
+            display: block;
+            line-height: 1.4;
+        }
+
+        .hierarchy-level-details {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 6px;
+            text-align: left;
+            color: #333;
+            font-weight: normal;
+            font-size: 0.9em;
+            display: none;
+            /* Hidden by default */
+            animation: fadeInDetails 0.4s ease-out;
+        }
+
+        .hierarchy-level.active .hierarchy-level-details {
+            display: block;
+            /* Show when parent is active */
+        }
+
+        @keyframes fadeInDetails {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Specific styles for each level, similar to kurumsal.html pyramid */
+        .level-bit {
+            background: linear-gradient(90deg, #004d40 60%, #00695c 100%);
+            width: 40%;
+        }
+
+        /* Dark Green */
+        .level-byte {
+            background: linear-gradient(90deg, #00695c 60%, #00796b 100%);
+            width: 50%;
+        }
+
+        /* Slightly Lighter Green */
+        .level-field {
+            background: linear-gradient(90deg, #00796b 60%, #00897b 100%);
+            width: 60%;
+        }
+
+        /* Medium Green */
+        .level-record {
+            background: linear-gradient(90deg, #00897b 60%, #26a69a 100%);
+            width: 70%;
+        }
+
+        /* Teal Green */
+        .level-file {
+            background: linear-gradient(90deg, #26a69a 60%, #4db6ac 100%);
+            width: 80%;
+        }
+
+        /* Lighter Teal */
+        .level-database {
+            background: linear-gradient(90deg, #4db6ac 60%, #b2dfdb 100%);
+            width: 90%;
+            color: #333;
+        }
+
+        /* Lightest Teal, dark text for contrast */
+        /* END NEW DATA HIERARCHY STYLES */
+
+        /* Styles for podcast controls */
+        .podcast-controls {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #e8f5e9;
+            /* Light green background */
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .podcast-play-button {
+            background-color: #00796b;
+            /* Medium Green */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            flex-shrink: 0;
+        }
+
+        .podcast-play-button:hover {
+            background-color: #00897b;
+            /* Teal Green */
+        }
+
+        .podcast-title-audio {
+            font-weight: bold;
+            color: #004d40;
+            /* Dark Green */
+        }
+
+        .podcast-duration {
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        .playback-speed-controls button {
+            background-color: #b2dfdb;
+            /* Lightest Teal */
+            color: #004d40;
+            /* Dark Green */
+            border: none;
+            border-radius: 4px;
+            padding: 5px 8px;
+            margin-left: 5px;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: background-color 0.3s;
+        }
+
+        .playback-speed-controls button:hover {
+            background-color: #80cbc4;
+        }
+
+        .playback-speed-controls button.active-speed {
+            background-color: #00796b;
+            /* Medium Green */
+            color: white;
+        }
+
+        /* Styles for hierarchy audio synchronization */
+        .data-hierarchy-container.hierarchy-highlight-dim>.hierarchy-level:not(.hierarchy-highlight-active) {
+            opacity: 0.4;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        #dataHierarchyTextTitle.dimmed-by-audio:not(.hierarchy-highlight-active) {
+            opacity: 0.4;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .hierarchy-highlight-active {
+            opacity: 1 !important;
+            transform: scale(1.06) !important;
+            /* Slightly more than hover */
+            box-shadow: 0 0 18px rgba(0, 121, 107, 0.7) !important;
+            /* Brighter, more distinct shadow (00796b) */
+            border: 2px solid #00695c !important;
+            /* Slightly darker border */
+            transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border 0.2s ease-in-out !important;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+            /* Subtle overlay to make it pop */
+        }
+
+        #dataHierarchyTextTitle.hierarchy-highlight-active {
+            opacity: 1 !important;
+            color: #004d40 !important;
+            background-color: #c8e6c9 !important;
+            /* Lighter green */
+            padding: 5px 8px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 77, 64, 0.4) !important;
+            transform: scale(1.03) !important;
+            display: inline-block;
+            transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s, color 0.2s !important;
+        }
+
+        /* Mobil Uyum */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            nav ul li a {
+                padding: 0.8rem 0.5rem;
+                font-size: 0.9em;
+            }
+
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            .matching-game-container {
+                flex-direction: column;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.2rem;
+            background: #004d40;
+            /* Koyu Yeşil */
+            color: #e0f2f1;
+            margin-top: auto;
+        }
+
+        /* MODAL FOR HIERARCHY INFO */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #fff;
+            border-radius: 16px;
+            max-width: 420px;
+            width: 95vw;
+            padding: 0 0 18px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+            position: relative;
+            animation: fadeInModal 0.3s;
+            outline: none;
+        }
+
+        .modal-header-bar {
+            height: 48px;
+            border-radius: 16px 16px 0 0;
+            display: flex;
+            align-items: center;
+            padding: 0 18px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+            position: relative;
+        }
+
+        .modal-header-icon {
+            font-size: 1.7em;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            font-size: 1.3em;
+            color: #fff;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .modal-body {
+            padding: 18px 22px 0 22px;
+        }
+
+        .modal-body ul {
+            margin: 0 0 10px 18px;
+            padding: 0;
+        }
+
+        .modal-body li {
+            margin-bottom: 5px;
+        }
+
+        .modal-example {
+            background: #e0f2f1;
+            border-left: 4px solid #26a69a;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-size: 0.97em;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 22px 10px 22px;
+            margin-top: 10px;
+        }
+
+        .modal-nav-btn {
+            background: #00796b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 6px 14px;
+            font-size: 1em;
+            cursor: pointer;
+            margin: 0 2px;
+            transition: background 0.2s;
+        }
+
+        .modal-nav-btn:disabled {
+            background: #b2dfdb;
+            color: #888;
+            cursor: not-allowed;
+        }
+
+        .modal-ok-btn {
+            background: linear-gradient(90deg, #43a047, #26a69a);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 22px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: auto;
+            transition: background 0.2s;
+        }
+
+        .modal-ok-btn:focus {
+            outline: 2px solid #00796b;
+        }
+
+        .modal-link {
+            color: #00796b;
+            text-decoration: underline;
+            font-size: 0.97em;
+            margin-left: 6px;
+        }
+
+        @keyframes fadeInModal {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Gradient backgrounds and hover for hierarchy levels */
+        .level-bit {
+            background: linear-gradient(90deg, #004d40 60%, #00695c 100%);
+            width: 40%;
+        }
+
+        .level-byte {
+            background: linear-gradient(90deg, #00695c 60%, #00796b 100%);
+            width: 50%;
+        }
+
+        .level-field {
+            background: linear-gradient(90deg, #00796b 60%, #00897b 100%);
+            width: 60%;
+        }
+
+        .level-record {
+            background: linear-gradient(90deg, #00897b 60%, #26a69a 100%);
+            width: 70%;
+        }
+
+        .level-file {
+            background: linear-gradient(90deg, #26a69a 60%, #4db6ac 100%);
+            width: 80%;
+        }
+
+        .level-database {
+            background: linear-gradient(90deg, #4db6ac 60%, #b2dfdb 100%);
+            width: 90%;
+            color: #333;
+        }
+
+        .hierarchy-level:hover,
+        .hierarchy-level:focus {
+            transform: scale(1.05);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+            outline: 2px solid #26a69a;
+        }
+
+        .hierarchy-level:active {
+            filter: brightness(0.95);
+        }
+
+        /* Responsive modal */
+        @media (max-width: 600px) {
+            .modal-content {
+                max-width: 98vw;
+                padding: 0;
+            }
+
+            .modal-body,
+            .modal-footer {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Veri Tabanları ve Veri Yönetimi</h1>
+        <p>YBS Öğrenme Modülü</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Modül İçeriği</a>
+                <ul class="submenu">
+                    <li><a href="#home" class="nav-link">Giriş</a></li>
+                    <li><a href="#concepts" class="nav-link">Temel Kavramlar</a></li>
+                    <li><a href="#dbmsFeatures" class="nav-link">VTYS ve Özellikleri</a></li>
+                    <li><a href="#dbModels" class="nav-link">Veri Tabanı Modelleri</a></li>
+                    <li><a href="#designTrends" class="nav-link">Tasarım ve Trendler</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Etkileşimli Araçlar</a>
+                <ul class="submenu">
+                    <li><a href="#termMatchingGame" class="nav-link">Terim Eşleştirme Oyunu</a></li>
+                    <li><a href="#quiz" class="nav-link">Kısa Test</a></li>
+                </ul>
+            </li>
+            <li><a href="#progress" class="nav-link">İlerleme</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Ana Sayfa Bölümü -->
+        <div id="home" class="section active">
+            <h2>Hoş Geldiniz!</h2>
+            <p>Bu interaktif modül, Yönetim Bilişim Sistemleri kapsamında "Veri Tabanları ve Veri Yönetimi" konusunu
+                anlamanıza yardımcı olmak için tasarlanmıştır. Modül, temel kavramlardan başlayarak Veri Tabanı Yönetim
+                Sistemleri (VTYS), farklı veri tabanı modelleri ve tasarım prensiplerine kadar geniş bir yelpazeyi
+                kapsamaktadır.</p>
+            <h3>Öğrenme Amaçları:</h3>
+            <div class="info-block">
+                <ul>
+                    <li>Dosyalamayla ilgili temel kavramları ve geleneksel dosyalama ortamındaki sorunları anlamak.</li>
+                    <li>Veri Tabanı Yönetim Sistemlerinin (VTYS) enformasyonu nasıl organize ettiğini ve temel veri
+                        tabanı modellerini kıyaslamak.</li>
+                    <li>Önemli veri tabanı tasarım prensiplerini (özellikle İlişkisel VTYS'deki 3 temel işlem ve
+                        Mantıksal/Fiziksel görünüm ayrımı) belirlemek.</li>
+                    <li>Yeni veri tabanı trendleri ve veri kaynakları yönetimi hakkında genel bir fikir edinmek.</li>
+                </ul>
+            </div>
+            <p>Yukarıdaki menüden istediğiniz bölüme geçiş yapabilirsiniz. İyi öğrenmeler!</p>
+        </div>
+
+        <!-- Temel Kavramlar Bölümü -->
+        <div id="concepts" class="section">
+            <h2>Temel Veri Kavramları ve Hiyerarşisi</h2>
+            <div class="info-block">
+                <h4 id="dataHierarchyTextTitle">Veri Hiyerarşisi</h4>
+                <!-- OLD LIST - Will be replaced/supplemented by the visual hierarchy -->
+                <!--
+                <ul>
+                    <li><strong>Bit:</strong> En küçük veri birimi (0 veya 1).</li>
+                    <li><strong>Byte:</strong> Genellikle 8 bit; bir karakteri (harf, rakam) simgeler.</li>
+                    <li><strong>Alan (Field):</strong> Bir varlığın belirli bir özelliğini tutan veri grubu (Örn: MusteriAdi, UrunFiyati).</li>
+                    <li><strong>Kayıt (Record / Tuple):</strong> Birbiriyle bağlantılı alanlar grubu; tek bir varlık örneğine ait tüm bilgiler (Örn: Bir müşterinin tüm bilgileri). Tablodaki bir satıra denk gelir.</li>
+                    <li><strong>Dosya (File / Table):</strong> Aynı yapıdaki kayıtların topluluğu (Örn: Tüm müşterilerin kayıtlarını içeren "Musteriler" tablosu).</li>
+                    <li><strong>Veri Tabanı (Database):</strong> Birbiriyle ilişkili, organize edilmiş dosyaların (tabloların) mantıksal bütünü.</li>
+                </ul>
+                -->
+            </div>
+
+            <!-- Podcast Controls for Data Hierarchy -->
+            <div class="podcast-controls">
+                <button id="podcastPlayButtonVts" class="podcast-play-button"
+                    title="Veri Hiyerarşisi Sesli Anlatımını Oynat/Duraklat">&#9658;</button>
+                <span class="podcast-title-audio">Veri Hiyerarşisi Anlatımı</span>
+                <span id="podcastDurationVts" class="podcast-duration"></span>
+                <div id="playbackSpeedControlsVts" class="playback-speed-controls">
+                    <button data-speed="0.75">0.75x</button>
+                    <button data-speed="1" class="active-speed">1x</button>
+                    <button data-speed="1.25">1.25x</button>
+                    <button data-speed="1.5">1.5x</button>
+                    <button data-speed="2">2x</button>
+                </div>
+            </div>
+            <audio id="audioPlayerVts" style="display: none;"></audio>
+            <!-- END Podcast Controls -->
+
+            <!-- NEW VISUAL DATA HIERARCHY -->
+            <div class="data-hierarchy-container">
+                <div class="hierarchy-level level-bit" data-level="bit" tabindex="0">
+                    <strong>Bit:</strong>
+                    <span>En küçük veri birimi (0 veya 1).</span>
+                    <div class="hierarchy-level-details"></div>
+                </div>
+                <div class="hierarchy-level level-byte" data-level="byte">
+                    <strong>Byte:</strong>
+                    <span>Genellikle 8 bit; bir karakteri (harf, rakam) simgeler.</span>
+                    <div class="hierarchy-level-details"></div>
+                </div>
+                <div class="hierarchy-level level-field" data-level="field">
+                    <strong>Alan (Field):</strong>
+                    <span>Bir varlığın belirli bir özelliğini tutan veri grubu (Örn: MusteriAdi, UrunFiyati).</span>
+                    <div class="hierarchy-level-details"></div>
+                </div>
+                <div class="hierarchy-level level-record" data-level="record">
+                    <strong>Kayıt (Record / Tuple):</strong>
+                    <span>Birbiriyle bağlantılı alanlar grubu; tek bir varlık örneğine ait tüm bilgiler (Örn: Bir
+                        müşterinin tüm bilgileri). Tablodaki bir satıra denk gelir.</span>
+                    <div class="hierarchy-level-details"></div>
+                </div>
+                <div class="hierarchy-level level-file" data-level="file">
+                    <strong>Dosya (File / Table):</strong>
+                    <span>Aynı yapıdaki kayıtların topluluğu (Örn: Tüm müşterilerin kayıtlarını içeren "Musteriler"
+                        tablosu).</span>
+                    <div class="hierarchy-level-details"></div>
+                </div>
+                <div class="hierarchy-level level-database" data-level="database">
+                    <strong>Veri Tabanı (Database):</strong>
+                    <span>Birbiriyle ilişkili, organize edilmiş dosyaların (tabloların) mantıksal bütünü.</span>
+                    <div class="hierarchy-level-details"></div>
+                </div>
+            </div>
+            <!-- END NEW VISUAL DATA HIERARCHY -->
+
+            <div class="info-block">
+                <h4>Diğer Önemli Terimler</h4>
+                <ul>
+                    <li><strong>Varlık (Entity):</strong> Hakkında bilgi tutulan ve ayırt edilebilen herhangi bir şey
+                        (Örn: Öğrenci, Kitap, Sipariş). Genellikle veri tabanında bir tablo ile temsil edilir.</li>
+                    <li><strong>Nitelik (Attribute):</strong> Bir varlığın özelliği veya tanımı (Örn: Öğrencinin 'Adı',
+                        Kitabın 'ISBN' numarası). Tablodaki bir sütuna karşılık gelir.</li>
+                    <li><strong>Anahtar Alan (Key Field / Primary Key):</strong> Bir tablodaki her bir kaydı benzersiz
+                        olarak tanımlayan alan veya alanlar grubu (Örn: MusteriID, SiparisNo). Verilere erişim ve
+                        ilişkiler için kritiktir.</li>
+                </ul>
+            </div>
+            <h3>Geleneksel Dosyalama Ortamındaki Sorunlar</h3>
+            <p>Veri Tabanı Yönetim Sistemleri öncesinde kullanılan geleneksel dosyalama yöntemleri birçok probleme yol
+                açmaktaydı:</p>
+            <ul>
+                <li><span class="highlight">Gereksiz ve Tutarsız Veri:</span> Aynı bilginin birden fazla yerde
+                    tekrarlanması ve bu kopyaların zamanla farklılaşması.</li>
+                <li><span class="highlight">Program-Veri Bağımlılığı:</span> Veri dosyalarının yapısının uygulama
+                    programlarına sıkı sıkıya bağlı olması, veri yapısındaki değişikliğin program kodlarında da
+                    değişiklik gerektirmesi.</li>
+                <li><span class="highlight">Esneklik Yoksunluğu:</span> Anlık rapor veya özel sorgu üretmenin zorluğu.
+                </li>
+                <li><span class="highlight">Zayıf Güvenlik:</span> Veri erişiminde ve güvenliğinde merkezi kontrol
+                    eksikliği.</li>
+                <li><span class="highlight">Veri Paylaşımı ve Kullanılabilirlik Zorluğu:</span> Farklı uygulamalar veya
+                    departmanlar arasında veri entegrasyonunun güçlüğü.</li>
+            </ul>
+        </div>
+
+        <!-- VTYS ve Özellikleri Bölümü -->
+        <div id="dbmsFeatures" class="section">
+            <h2>Veri Tabanı Yönetim Sistemleri (VTYS) ve Özellikleri</h2>
+            <p><span class="highlight">VTYS (Veri Tabanı Yönetim Sistemi / DBMS - Database Management System)</span>,
+                veri tabanlarını oluşturmak, yönetmek, sorgulamak ve bakımını yapmak için geliştirilmiş kapsamlı bir
+                yazılım sistemidir. Geleneksel dosyalama sorunlarına çözüm getirir.</p>
+            <h3>VTYS'nin Temel İşlevleri ve Avantajları</h3>
+            <div class="info-block">
+                <h4>Mantıksal ve Fiziksel Görünüm Ayrımı (Veri Bağımsızlığı)</h4>
+                <p>Bu, VTYS'nin en önemli özelliklerinden biridir. İki tür veri bağımsızlığı sağlar:</p>
+                <ul>
+                    <li><strong>Lojik Veri Bağımsızlığı:</strong> Veri Tabanının genel mantıksal yapısında (kavramsal
+                        şemada) yapılan değişikliklerin (örn: yeni bir tablo veya sütun eklemek), mevcut uygulama
+                        programlarını etkilememesi veya minimum düzeyde etkilemesidir. Uygulamalar, verinin mantıksal
+                        yapısına göre yazılır.</li>
+                    <li><strong>Fiziksel Veri Bağımsızlığı:</strong> Verinin disk üzerinde fiziksel olarak nasıl
+                        saklandığına (depolama yapısı, erişim metotları) dair yapılan değişikliklerin, uygulama
+                        programlarını ve verinin lojik görünümünü etkilememesidir. Örneğin, veri tabanı farklı bir
+                        depolama teknolojisine geçirilebilir ve bu durum uygulamaların yeniden yazılmasını gerektirmez.
+                    </li>
+                </ul>
+                <p>Bu ayrım sayesinde sistemin esnekliği artar, bakım kolaylaşır ve teknolojik adaptasyon hızlanır.</p>
+            </div>
+            <ul>
+                <li>Uygulama programları ile fiziksel veri dosyaları arasında bir <span class="highlight">arayüz</span>
+                    görevi görür.</li>
+                <li>Veri tekrarını ve tutarsızlığını <span class="highlight">kontrol eder</span> veya azaltır.</li>
+                <li>Veri güvenliğini (yetkilendirme) ve veri bütünlüğünü (doğruluk, tutarlılık) <span
+                        class="highlight">sağlar</span>.</li>
+                <li><span class="highlight">Eş zamanlı erişimi</span> yönetir, çakışmaları önler.</li>
+                <li><span class="highlight">Yedekleme ve kurtarma</span> hizmetleri sunar.</li>
+                <li>Veri tanımlama (DDL) ve veri manipülasyonu (DML - örn: SQL) için diller sunar.</li>
+            </ul>
+        </div>
+
+        <!-- Veri Tabanı Modelleri Bölümü -->
+        <div id="dbModels" class="section">
+            <h2>Veri Tabanı Modelleri</h2>
+            <div class="info-block">
+                <h4>İlişkisel Veri Tabanı Yönetim Sistemi (RDBMS)</h4>
+                <p>Günümüzde en yaygın kullanılan modeldir. Verileri <span class="highlight">iki boyutlu
+                        tablolarda</span> (satır ve sütunlardan oluşan) temsil eder. Tablolar, ortak anahtar alanlar
+                    aracılığıyla birbirleriyle ilişkilendirilir.</p>
+                <p><strong>Önemli Firmalar/Yazılımlar:</strong> <span class="highlight">Oracle</span>, <span
+                        class="highlight">Microsoft (MS SQL Server)</span>, IBM (DB2), MySQL, PostgreSQL.</p>
+                <h4>İlişkisel VTYS İçindeki 3 Temel Operasyon:</h4>
+                <ol>
+                    <li><strong>SEÇ (SELECT):</strong> Bir tablodan, belirtilen bir koşulu sağlayan <span
+                            class="highlight">tüm satırları (kayıtları)</span> seçerek yeni bir alt tablo oluşturur.
+                        Satır bazlı filtreleme yapar.
+                        <br><em>Örnek: "Ogrenciler" tablosundan "Bolum" alanı 'YBS' olan tüm öğrencileri seçmek.</em>
+                    </li>
+                    <li><strong>BAĞLA (JOIN):</strong> İki veya daha fazla tabloyu, aralarındaki <span
+                            class="highlight">ortak bir alana göre birleştirerek</span> yeni bir tablo oluşturur. Farklı
+                        tablolardaki ilişkili verileri bir araya getirir.
+                        <br><em>Örnek: "Siparisler" tablosu ile "Musteriler" tablosunu "MusteriID" alanı üzerinden
+                            bağlayarak her siparişin müşteri bilgilerini de göstermek.</em>
+                    </li>
+                    <li><strong>OLUŞTUR (PROJECT):</strong> Bir tablodan (veya birleştirilmiş tablolardan) <span
+                            class="highlight">sadece belirli sütunları (alanları)</span> seçerek yeni bir tablo
+                        oluşturur. Sütun bazlı filtreleme yapar.
+                        <br><em>Örnek: "Urunler" tablosundan sadece "UrunAdi" ve "Fiyat" sütunlarını alarak bir fiyat
+                            listesi oluşturmak.</em>
+                    </li>
+                </ol>
+                <p>İK sistemleri gibi birçok kurumsal uygulama için standart çözümdür.</p>
+            </div>
+            <div class="info-block">
+                <h4>Diğer Veri Tabanı Modelleri</h4>
+                <ul>
+                    <li><strong>Hiyerarşik VTYS:</strong> Veriyi bir ağaç yapısında (baba-oğul ilişkisi) organize eder.
+                        Az esnektir.</li>
+                    <li><strong>Ağ VTYS:</strong> Çoktan-çoka ilişkileri gösterebilir. Hiyerarşik modele göre daha esnek
+                        olsa da ilişkisel kadar yaygın değildir.</li>
+                    <li><strong>Nesne Odaklı VTYS (OODBMS):</strong> Veri ve prosedürleri "nesne" olarak saklar.
+                        Karmaşık veri türleri (multimedya vb.) için uygundur.</li>
+                    <li><strong>Nesne-İlişkisel VTYS (ORDBMS):</strong> İlişkisel ve Nesne Odaklı modellerin
+                        özelliklerini birleştirir.</li>
+                </ul>
+                <p><em>Not: "Selective VTYS" standart bir veri tabanı modeli türü değildir.</em></p>
+            </div>
+        </div>
+
+        <!-- Terim Eşleştirme Oyunu Bölümü -->
+        <div id="termMatchingGame" class="section">
+            <h2>Temel Veri Tabanı Terimleri Eşleştirme Oyunu</h2>
+            <p>Aşağıdaki terimleri doğru tanımlarıyla eşleştirmek için terimleri tanımların yanındaki boşluklara
+                sürükleyip bırakın.</p>
+            <div class="matching-game-container">
+                <div class="draggable-terms" id="termSourceArea">
+                    <h3>Terimler</h3>
+                    <!-- Terimler JS ile eklenecek -->
+                </div>
+                <div class="drop-definitions" id="definitionTargetArea">
+                    <h3>Tanımlar</h3>
+                    <!-- Tanımlar ve bırakma alanları JS ile eklenecek -->
+                </div>
+            </div>
+            <button class="game-button" onclick="checkTermMatchingAnswers()">Cevapları Kontrol Et</button>
+            <button class="game-button reset" onclick="resetTermMatchingGame()">Oyunu Sıfırla</button>
+            <div id="termMatchingFeedback" class="feedback"></div>
+        </div>
+
+        <!-- Tasarım ve Trendler Bölümü -->
+        <div id="designTrends" class="section">
+            <h2>Veri Tabanı Tasarımı ve Güncel Trendler</h2>
+            <div class="info-block">
+                <h4>Veri Tabanı Tasarımı Temelleri</h4>
+                <ul>
+                    <li><strong>Kavramsal Tasarım:</strong> İş ihtiyaçlarına göre VTYS'den bağımsız üst düzey modelleme
+                        (Genellikle <span class="highlight">Varlık-İlişki Diyagramları - VİD / ERD</span> kullanılır).
+                        VİD, varlıkları, nitelikleri ve aralarındaki ilişkileri grafiksel olarak gösterir.</li>
+                    <li><strong>Fiziksel Tasarım:</strong> Kavramsal modelin seçilen VTYS üzerinde nasıl uygulanacağının
+                        detaylandırılması (tablo yapıları, veri türleri, indeksler).</li>
+                    <li><strong>Normalizasyon:</strong> Veri tekrarını azaltmak, veri bütünlüğünü sağlamak ve güncelleme
+                        anomalilerini önlemek için tabloları belirli kurallara göre yapılandırma işlemidir.</li>
+                </ul>
+            </div>
+            <div class="info-block">
+                <h4>Güncel Trendler (Kısaca)</h4>
+                <ul>
+                    <li><strong>Dağıtık Veri Tabanları:</strong> Veri Tabanının fiziksel olarak farklı konumlara (ağ
+                        üzerindeki farklı sunuculara) dağıtılması. Performans ve erişilebilirlik avantajları sunabilir.
+                    </li>
+                    <li><strong>Veri Kalitesinin Temini:</strong> Verinin doğruluğu, eksiksizliği ve tutarlılığı için
+                        <span class="highlight">veri denetimi</span> ve <span class="highlight">veri temizleme</span>
+                        süreçleri büyük önem taşır.
+                    </li>
+                    <li><strong>Veri Ambarı (Data Warehouse):</strong> Farklı kaynaklardan toplanan, entegre edilmiş,
+                        geçmişe dönük büyük veri yığınlarının saklandığı, karar destek ve analitik raporlama için
+                        kullanılan merkezi depodur.</li>
+                    <li><strong>Veri Madenciliği (Data Mining):</strong> Büyük veri kümeleri içinden gizli, değerli
+                        desenleri, ilişkileri ve trendleri keşfetmek için kullanılan teknikler bütünüdür.</li>
+                    <li><strong>Çevrimiçi Analitik İşlem (OLAP):</strong> Kullanıcıların veriyi çok boyutlu olarak
+                        interaktif bir şekilde analiz etmesini sağlayan teknolojidir.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Kısa Test Bölümü -->
+        <div id="quiz" class="section">
+            <h2>Kısa Test: Veri Tabanları</h2>
+            <div id="quizContainer"></div>
+            <div id="questionFeedback" class="feedback" style="display:none; margin-bottom:15px;"></div>
+            <div class="quiz-navigation" style="margin-top: 20px; display: flex; justify-content: space-between;">
+                <button id="prevQuestionBtn" class="quiz-button" onclick="prevQuestion()">Önceki Soru</button>
+                <button id="nextQuestionBtn" class="quiz-button" onclick="nextQuestion()">Sonraki Soru</button>
+            </div>
+            <button id="submitQuizBtn" class="quiz-button" onclick="submitQuiz()" style="margin-top: 20px;">Testi
+                Bitir</button>
+            <div id="quizScore" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- İlerleme Takibi Bölümü -->
+        <div id="progress" class="section">
+            <h2>İlerleme Takibi</h2>
+            <div id="scoreBoard">
+                <h3>Sonuçlarınız</h3>
+                <p>Terim Eşleştirme Oyunu Skoru: <span id="termMatchingGameScore">0</span> / <span
+                        id="termMatchingGameTotal">0</span></p>
+                <p>Kısa Test Skoru: <span id="quizTotalScore">0</span> / <span id="quizTotalQuestions">0</span></p>
+                <hr>
+                <p><strong>Genel Başarı Yüzdesi: <span id="overallScore">0</span>%</strong></p>
+            </div>
+            <button class="game-button reset" onclick="resetAllProgress()">Tüm İlerlemeyi Sıfırla</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Veri Tabanları ve Veri Yönetimi Öğrenme Uygulaması</p>
+    </footer>
+
+    <!-- MODAL FOR HIERARCHY INFO -->
+    <div id="hierarchyModal" class="modal-overlay" tabindex="-1" aria-modal="true" role="dialog">
+        <div class="modal-content" tabindex="0">
+            <div id="modalHeaderBar" class="modal-header-bar">
+                <span id="modalHeaderIcon" class="modal-header-icon"></span>
+                <span id="modalHeaderTitle"></span>
+                <button class="modal-close" id="closeHierarchyModal" title="Kapat" aria-label="Kapat">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modalHierarchySummary"></div>
+                <div id="modalHierarchyExample" class="modal-example"></div>
+                <a id="modalHierarchyLink" class="modal-link" href="#" target="_blank" rel="noopener"></a>
+            </div>
+            <div class="modal-footer">
+                <button id="modalPrevBtn" class="modal-nav-btn">&lt; Önceki</button>
+                <button id="modalNextBtn" class="modal-nav-btn">Sonraki &gt;</button>
+                <button id="modalOkBtn" class="modal-ok-btn">Anladım!</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Test Soruları
+
+
+        const existingQuestions = [
+            { question: "Bir müşterinin adı, soyadı ve telefon numarası gibi bilgiler, veri hiyerarşisinde hangi kavrama karşılık gelir?", options: ["Bit", "Kayıt (Record)", "Alan (Field)", "Veri Tabanı (Database)", "Byte"], answer: "Alan (Field)" },
+            { question: "Geleneksel dosyalama ortamında, aynı verinin birden fazla yerde farklı değerlere sahip olmasına ne ad verilir?", options: ["Program-Veri Bağımlılığı", "Veri Gereksizliği (Redundancy)", "Veri Tutarsızlığı (Inconsistency)", "Esneklik Yoksunluğu", "Zayıf Güvenlik"], answer: "Veri Tutarsızlığı (Inconsistency)" },
+            { question: "VTYS'nin, verinin diskte nasıl saklandığına dair yapılan fiziksel değişikliklerin uygulamaları etkilememesini sağlayan temel özelliği nedir?", options: ["Veri Tanımlama Dili (DDL)", "Veri Sözlüğü Yönetimi", "Eş Zamanlılık Kontrolü", "Lojik ve Fiziksel Görünüm Ayrımı (Veri Bağımsızlığı)", "Yedekleme ve Kurtarma"], answer: "Lojik ve Fiziksel Görünüm Ayrımı (Veri Bağımsızlığı)" },
+            { question: "Hangisi İlişkisel VTYS'de (RDBMS) verileri temsil etmek için kullanılan temel yapıdır?", options: ["Ağaç Yapıları", "Nesneler ve Metotlar", "İki Boyutlu Tablolar", "Pointer'lar ile Bağlı Kayıtlar", "Hiyerarşik Segmentler"], answer: "İki Boyutlu Tablolar" },
+            { question: "Bir RDBMS'de, 'Musteriler' tablosundan sadece 'Şehir' alanı 'İstanbul' olan kayıtları getiren temel operasyon hangisidir?", options: ["JOIN (Bağla)", "PROJECT (Oluştur)", "CREATE (Yarat)", "SELECT (Seç)", "UPDATE (Güncelle)"], answer: "SELECT (Seç)" },
+            { question: "'Siparisler' tablosu ile 'Urunler' tablosunu 'UrunID' alanı üzerinden birleştirerek her siparişteki ürün adını göstermek için hangi temel RDBMS operasyonu kullanılır?", options: ["SELECT (Seç)", "PROJECT (Oluştur)", "JOIN (Bağla)", "INSERT (Ekle)", "DELETE (Sil)"], answer: "JOIN (Bağla)" },
+            { question: "'Calisanlar' tablosundan sadece 'Adi', 'Soyadi' ve 'Departman' sütunlarını içeren yeni bir tablo görünümü elde etmek için hangi temel RDBMS operasyonu kullanılır?", options: ["JOIN (Bağla)", "SELECT (Seç)", "GROUP BY (Grupla)", "FILTER (Filtrele)", "PROJECT (Oluştur)"], answer: "PROJECT (Oluştur)" },
+            { question: "Veriyi bir ağaç yapısında, 'baba-oğul' ilişkileriyle organize eden veri tabanı modeli hangisidir?", options: ["İlişkisel VTYS", "Ağ VTYS", "Nesne Odaklı VTYS", "Hiyerarşik VTYS", "Nesne-İlişkisel VTYS"], answer: "Hiyerarşik VTYS" },
+            { question: "Veri Tabanı tasarımında veri tekrarını azaltmak ve güncelleme anomalilerini önlemek amacıyla tabloların yapılandırılması işlemine ne ad verilir?", options: ["Fiziksel Tasarım", "Kavramsal Tasarım", "Veri Madenciliği", "Normalizasyon", "Veri Temizleme"], answer: "Normalizasyon" },
+            { question: "Varlıkları, nitelikleri ve aralarındaki ilişkileri grafiksel olarak gösteren veri tabanı dokümantasyon metodolojisi hangisidir?", options: ["Veri Akış Diyagramı (VAD)", "Varlık-İlişki Diyagramı (VİD / ERD)", "Sistem Şeması", "Normal Form Diyagramı", "Kullanım Senaryosu Diyagramı"], answer: "Varlık-İlişki Diyagramı (VİD / ERD)" },
+            { question: "Veri Tabanında bulunan yanlış, eksik veya formata uygun olmayan verilerin tespit edilip düzeltilmesi işlemine ne denir?", options: ["Veri Denetimi", "Veri Ambarlama", "Veri Temizleme (Data Cleansing)", "Veri Madenciliği", "OLAP"], answer: "Veri Temizleme (Data Cleansing)" },
+            { question: "Karar verme amacıyla farklı operasyonel sistemlerden toplanan, entegre edilmiş ve geçmişe dönük büyük hacimli verilerin saklandığı merkezi veri deposuna ne ad verilir?", options: ["Veri Mağazası (Data Mart)", "Operasyonel Veri Deposu (ODS)", "Veri Ambarı (Data Warehouse)", "Dağıtık Veri Tabanı", "Veri Sözlüğü"], answer: "Veri Ambarı (Data Warehouse)" },
+        ];
+
+        const quizQuestionsData = [...existingQuestions];
+
+        // Eşleştirme Oyunu Verileri
+        const termMatchingData = [
+            { id: "term1", term: "Bit", definition: "En küçük veri birimi (0 veya 1)." },
+            { id: "term2", term: "Alan (Field)", definition: "Bir varlığın belirli bir özelliğini tutan veri grubu." },
+            { id: "term3", term: "Kayıt (Record)", definition: "Birbiriyle bağlantılı alanlar grubu; tek bir varlık örneği." },
+            { id: "term4", term: "Veri Tabanı", definition: "Birbiriyle ilişkili, organize edilmiş dosyalar bütünü." },
+            { id: "term5", term: "Varlık (Entity)", definition: "Hakkında bilgi tutulan ve ayırt edilebilen herhangi bir şey." },
+            { id: "term6", term: "Anahtar Alan", definition: "Bir tablodaki her bir kaydı benzersiz olarak tanımlayan alan." }
+        ];
+        let draggedTerm = null;
+        let currentQuizQuestionIndex = 0; // For single question display
+        let userQuizAnswers = []; // To store user's answers
+
+        let scores = {
+            termMatchingGame: { correct: 0, total: termMatchingData.length },
+            quiz: { correct: 0, total: quizQuestionsData.length, answered: [] } // Added 'answered' for detailed tracking
+        };
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // Old button-based active state - will be handled by updateActiveLink for <a> tags
+            // document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+            // const navButtons = document.querySelectorAll('nav button');
+            // navButtons.forEach(button => {
+            //     const expectedAttributeValue = "showSection('" + sectionId + "')";
+            //     if (button.getAttribute('onclick') === expectedAttributeValue) {
+            //         button.classList.add('active');
+            //     }
+            // });
+
+            if (sectionId === 'termMatchingGame') initTermMatchingGame();
+            if (sectionId === 'quiz') initQuiz();
+            if (sectionId === 'progress') updateScoreBoard();
+        }
+
+        // --- Terim Eşleştirme Oyunu Fonksiyonları ---
+        function initTermMatchingGame() {
+            const termSourceArea = document.getElementById('termSourceArea');
+            const definitionTargetArea = document.getElementById('definitionTargetArea');
+            termSourceArea.innerHTML = '<h3>Terimler</h3>'; // Temizle ve başlığı ekle
+            definitionTargetArea.innerHTML = '<h3>Tanımlar</h3>'; // Temizle ve başlığı ekle
+            scores.termMatchingGame.correct = 0;
+
+            const shuffledTerms = [...termMatchingData].sort(() => Math.random() - 0.5);
+            shuffledTerms.forEach(item => {
+                const termDiv = document.createElement('div');
+                termDiv.id = item.id;
+                termDiv.className = 'draggable-term';
+                termDiv.textContent = item.term;
+                termDiv.draggable = true;
+                termDiv.addEventListener('dragstart', dragStart);
+                termSourceArea.appendChild(termDiv);
+            });
+
+            const shuffledDefinitions = [...termMatchingData].sort(() => Math.random() - 0.5);
+            shuffledDefinitions.forEach(item => {
+                const definitionSlot = document.createElement('div');
+                definitionSlot.className = 'definition-slot';
+                definitionSlot.innerHTML =
+                    '<div class="drop-zone-term" data-correct-term-id="' + item.id + '"></div>' +
+                    '<div class="definition-text">' + item.definition + '</div>';
+                const dropZone = definitionSlot.querySelector('.drop-zone-term');
+                dropZone.addEventListener('dragover', dragOver);
+                dropZone.addEventListener('dragleave', dragLeave);
+                dropZone.addEventListener('drop', dropTerm);
+                definitionTargetArea.appendChild(definitionSlot);
+            });
+            document.getElementById('termMatchingFeedback').innerHTML = '';
+            updateScoreBoard();
+        }
+
+        function dragStart(event) {
+            draggedTerm = event.target;
+            event.dataTransfer.setData('text/plain', event.target.id);
+        }
+
+        function dragOver(event) {
+            event.preventDefault();
+            event.target.classList.add('over');
+        }
+
+        function dragLeave(event) {
+            event.target.classList.remove('over');
+        }
+
+        function dropTerm(event) {
+            event.preventDefault();
+            event.target.classList.remove('over');
+            const sourceArea = document.getElementById('termSourceArea');
+
+            // Sadece boşsa veya kaynak alandan geliyorsa ekle
+            if (event.target.classList.contains('drop-zone-term') && event.target.children.length === 0) {
+                event.target.appendChild(draggedTerm);
+            } else if (draggedTerm.parentElement.classList.contains('drop-zone-term')) {
+                // Eğer terim zaten bir drop zone'daysa ve başka bir boş drop zone'a taşınıyorsa
+                if (event.target.classList.contains('drop-zone-term') && event.target.children.length === 0) {
+                    event.target.appendChild(draggedTerm);
+                }
+            }
+            draggedTerm = null;
+        }
+
+        function checkTermMatchingAnswers() {
+            scores.termMatchingGame.correct = 0;
+            const dropZones = document.querySelectorAll('.drop-zone-term');
+            let allPlaced = true;
+
+            dropZones.forEach(zone => {
+                const placedTermDiv = zone.querySelector('.draggable-term');
+                zone.style.backgroundColor = '#f5f5f5'; // Nötr renge döndür
+                if (placedTermDiv) {
+                    const placedTermId = placedTermDiv.id;
+                    const correctTermIdForZone = zone.dataset.correctTermId;
+                    if (placedTermId === correctTermIdForZone) {
+                        scores.termMatchingGame.correct++;
+                        placedTermDiv.style.backgroundColor = '#4caf50'; // Yeşil
+                    } else {
+                        placedTermDiv.style.backgroundColor = '#f44336'; // Kırmızı
+                    }
+                } else {
+                    allPlaced = false; // Boş bırakılmış slot var
+                }
+            });
+
+            const feedbackDiv = document.getElementById('termMatchingFeedback');
+            if (!allPlaced && document.getElementById('termSourceArea').children.length > 1) { // Başlık hariç
+                feedbackDiv.textContent = 'Lütfen tüm terimleri yerleştirin. Şu ana kadar ' + scores.termMatchingGame.correct + ' doğru.';
+                feedbackDiv.className = 'feedback incorrect';
+            }
+            else if (scores.termMatchingGame.correct === termMatchingData.length) {
+                feedbackDiv.textContent = 'Tebrikler! Tüm ' + termMatchingData.length + ' terimi doğru eşleştirdiniz!';
+                feedbackDiv.className = 'feedback correct';
+            } else {
+                feedbackDiv.textContent = termMatchingData.length + ' terimden ' + scores.termMatchingGame.correct + ' tanesini doğru eşleştirdiniz.';
+                feedbackDiv.className = 'feedback incorrect';
+            }
+            updateScoreBoard();
+        }
+
+        function resetTermMatchingGame() {
+            initTermMatchingGame();
+        }
+
+        // --- Kısa Test Fonksiyonları ---
+        function initQuiz() {
+            currentQuizQuestionIndex = 0;
+            userQuizAnswers = new Array(quizQuestionsData.length).fill(null);
+            scores.quiz.correct = 0;
+            scores.quiz.answered = new Array(quizQuestionsData.length).fill(null); // Reset answered tracking
+
+            document.getElementById('quizContainer').innerHTML = '';
+            document.getElementById('questionFeedback').innerHTML = '';
+            document.getElementById('questionFeedback').style.display = 'none';
+            document.getElementById('quizScore').innerHTML = '';
+
+            displayCurrentQuizQuestion();
+            updateQuizNavigationButtons();
+            document.getElementById('submitQuizBtn').style.display = 'block'; // Show submit button from start
+            updateScoreBoard();
+        }
+
+        function displayCurrentQuizQuestion() {
+            const qc = document.getElementById('quizContainer');
+            qc.innerHTML = ''; // Clear previous question
+            document.getElementById('questionFeedback').style.display = 'none'; // Hide previous feedback
+
+            if (currentQuizQuestionIndex < 0 || currentQuizQuestionIndex >= quizQuestionsData.length) return;
+
+            const qData = quizQuestionsData[currentQuizQuestionIndex];
+            const qDiv = document.createElement('div');
+            qDiv.className = 'quiz-question';
+
+            let optsHtml = '';
+            const shuffledOptions = [...qData.options].sort(() => Math.random() - 0.5); // Shuffle options
+            shuffledOptions.forEach(opt => {
+                const isChecked = userQuizAnswers[currentQuizQuestionIndex] === opt ? 'checked' : '';
+                optsHtml += '<label><input type="radio" name="quizOption" value="' + opt + '" ' + isChecked + '> ' + opt + '</label>';
+            });
+
+            qDiv.innerHTML =
+                '<p><strong>Soru ' + (currentQuizQuestionIndex + 1) + '/' + quizQuestionsData.length + ':</strong> ' + qData.question + '</p>' +
+                '<div class="quiz-options">' + optsHtml + '</div>';
+            qc.appendChild(qDiv);
+
+            // Add event listeners to new radio buttons
+            qc.querySelectorAll('input[name="quizOption"]').forEach(radio => {
+                radio.addEventListener('change', handleQuizAnswerSelection);
+            });
+
+            // If an answer was previously given and feedback was shown, re-show feedback
+            if (scores.quiz.answered[currentQuizQuestionIndex]) {
+                showQuizAnswerFeedback(qData, scores.quiz.answered[currentQuizQuestionIndex].selectedOptionValue);
+                disableQuizOptions();
+            }
+        }
+
+        function handleQuizAnswerSelection(event) {
+            userQuizAnswers[currentQuizQuestionIndex] = event.target.value;
+            const qData = quizQuestionsData[currentQuizQuestionIndex];
+            const isCorrect = event.target.value === qData.answer;
+
+            scores.quiz.answered[currentQuizQuestionIndex] = {
+                selectedOptionValue: event.target.value,
+                isCorrect: isCorrect
+            };
+
+            showQuizAnswerFeedback(qData, event.target.value);
+            disableQuizOptions(); // Disable options after an answer is selected for the current question
+
+            // Recalculate score immediately
+            scores.quiz.correct = scores.quiz.answered.filter(a => a && a.isCorrect).length;
+            updateScoreBoard();
+        }
+
+        function showQuizAnswerFeedback(qData, selectedValue) {
+            const qFeedback = document.getElementById('questionFeedback');
+            qFeedback.style.display = 'block';
+            const isCorrect = selectedValue === qData.answer;
+
+            const optionsContainer = document.querySelector('.quiz-question .quiz-options');
+            optionsContainer.querySelectorAll('label').forEach(label => {
+                label.classList.remove('correct-choice', 'incorrect-choice');
+                const radio = label.querySelector('input');
+                if (radio.value === qData.answer) {
+                    label.classList.add('correct-choice'); // Highlight correct answer
+                }
+                if (radio.value === selectedValue && !isCorrect) {
+                    label.classList.add('incorrect-choice'); // Highlight user's incorrect choice
+                }
+            });
+
+            if (isCorrect) {
+                qFeedback.textContent = 'Doğru! 🎉';
+                qFeedback.className = 'feedback correct';
+            } else {
+                qFeedback.textContent = 'Yanlış. Doğru cevap: ' + qData.answer;
+                qFeedback.className = 'feedback incorrect';
+            }
+        }
+
+        function disableQuizOptions() {
+            document.querySelectorAll('.quiz-question input[name="quizOption"]').forEach(radio => {
+                radio.disabled = true;
+                radio.parentElement.style.cursor = 'default';
+            });
+        }
+
+        function nextQuestion() {
+            if (currentQuizQuestionIndex < quizQuestionsData.length - 1) {
+                currentQuizQuestionIndex++;
+                displayCurrentQuizQuestion();
+                updateQuizNavigationButtons();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuizQuestionIndex > 0) {
+                currentQuizQuestionIndex--;
+                displayCurrentQuizQuestion();
+                updateQuizNavigationButtons();
+            }
+        }
+
+        function updateQuizNavigationButtons() {
+            document.getElementById('prevQuestionBtn').disabled = currentQuizQuestionIndex === 0;
+            document.getElementById('nextQuestionBtn').disabled = currentQuizQuestionIndex === quizQuestionsData.length - 1;
+        }
+
+        function submitQuiz() {
+            // Final score calculation based on the 'answered' array
+            scores.quiz.correct = scores.quiz.answered.filter(a => a && a.isCorrect).length;
+
+            const feedbackDiv = document.getElementById('questionFeedback'); // General feedback
+            const scoreDiv = document.getElementById('quizScore');
+
+            const numAnswered = scores.quiz.answered.filter(a => a !== null).length;
+
+            if (numAnswered < quizQuestionsData.length) {
+                if (!confirm('Tüm soruları cevaplamadınız. Yine de testi bitirip sonucu görmek istiyor musunuz?')) {
+                    return;
+                }
+            }
+
+            scoreDiv.innerHTML = '<h3>Test Sonucunuz: ' + scores.quiz.correct + ' / ' + quizQuestionsData.length + ' doğru.</h3>';
+            if (scores.quiz.correct === quizQuestionsData.length && numAnswered === quizQuestionsData.length) {
+                feedbackDiv.textContent = "Mükemmel! Testteki tüm soruları doğru yanıtladınız!";
+                feedbackDiv.className = 'feedback correct';
+            } else if (numAnswered < quizQuestionsData.length) {
+                feedbackDiv.textContent = "Test tamamlandı (bazı sorular cevaplanmadı). Sonuçlarınızı yukarıda görebilirsiniz.";
+                feedbackDiv.className = 'feedback';
+            }
+            else {
+                feedbackDiv.textContent = "Test tamamlandı. Sonuçlarınızı yukarıda görebilirsiniz.";
+                feedbackDiv.className = 'feedback';
+            }
+            feedbackDiv.style.display = 'block';
+
+            // Hide navigation and submit button, maybe show a message to reset
+            document.getElementById('quizContainer').innerHTML = '<p style="text-align:center; margin-top:20px;">Testi yeniden denemek için "İlerleme" sekmesinden sıfırlayabilir veya bu sekmeye yeniden gelebilirsiniz.</p>';
+            document.querySelector('.quiz-navigation').style.display = 'none';
+            document.getElementById('submitQuizBtn').style.display = 'none';
+
+            updateScoreBoard();
+        }
+
+        // --- Skorlama ve İlerleme Takibi ---
+        function updateScoreBoard() {
+            document.getElementById('termMatchingGameScore').textContent = scores.termMatchingGame.correct;
+            document.getElementById('termMatchingGameTotal').textContent = scores.termMatchingGame.total;
+            document.getElementById('quizTotalScore').textContent = scores.quiz.correct;
+            document.getElementById('quizTotalQuestions').textContent = scores.quiz.total;
+
+            let totalCorrect = scores.termMatchingGame.correct + scores.quiz.correct;
+            let totalPossible = scores.termMatchingGame.total + scores.quiz.total;
+
+            let overallPercentage = 0;
+            if (totalPossible > 0) {
+                overallPercentage = ((totalCorrect / totalPossible) * 100).toFixed(0);
+            }
+            document.getElementById('overallScore').textContent = overallPercentage;
+            localStorage.setItem('dbAppScores', JSON.stringify(scores));
+        }
+
+        function loadScores() {
+            const savedScores = localStorage.getItem('dbAppScores');
+            if (savedScores) {
+                scores = JSON.parse(savedScores);
+            }
+            // Total'leri her zaman güncel veri yapısından al
+            scores.termMatchingGame.total = termMatchingData.length;
+            scores.quiz.total = quizQuestionsData.length;
+        }
+
+        function resetAllProgress() {
+            if (confirm("Tüm ilerlemenizi ve skorlarınızı sıfırlamak istediğinizden emin misiniz?")) {
+                scores = {
+                    termMatchingGame: { correct: 0, total: termMatchingData.length },
+                    quiz: { correct: 0, total: quizQuestionsData.length, answered: new Array(quizQuestionsData.length).fill(null) } // Also reset answered array
+                };
+                localStorage.removeItem('dbAppScores');
+                updateScoreBoard();
+                if (document.getElementById('termMatchingGame').classList.contains('active')) {
+                    initTermMatchingGame();
+                }
+                if (document.getElementById('quiz').classList.contains('active')) {
+                    initQuiz();
+                }
+                alert('İlerlemeniz sıfırlandı.');
+            }
+        }
+
+        // --- Navigasyon JS (kurumsal.html'den uyarlandı) ---
+        function initializeNavigation() {
+            const navLinks = document.querySelectorAll('nav ul a.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        event.preventDefault();
+                        const sectionId = href.substring(1);
+                        showSection(sectionId);
+                        updateActiveLink(this);
+                    }
+                });
+            });
+
+            document.querySelectorAll('nav ul li.dropdown > a.nav-link-dropdown').forEach(ddLink => {
+                ddLink.addEventListener('click', function (event) {
+                    event.preventDefault();
+                });
+            });
+        }
+
+        function updateActiveLink(target) {
+            const allNavLinksAndToggles = document.querySelectorAll('nav ul a');
+            allNavLinksAndToggles.forEach(link => link.classList.remove('active'));
+
+            let activeLinkElement = null;
+
+            if (typeof target === 'string') {
+                activeSectionId = target;
+                // For veritabani.html, direct section IDs are fine, no special game hub logic needed here
+                activeLinkElement = document.querySelector(`nav ul a.nav-link[href="#${activeSectionId}"]`);
+            } else if (target && target.nodeName === 'A') {
+                activeLinkElement = target;
+            }
+
+            if (activeLinkElement) {
+                activeLinkElement.classList.add('active');
+                const parentSubmenu = activeLinkElement.closest('ul.submenu');
+                if (parentSubmenu) {
+                    const dropdownLi = parentSubmenu.closest('li.dropdown');
+                    if (dropdownLi) {
+                        const parentToggle = dropdownLi.querySelector('a.nav-link-dropdown');
+                        if (parentToggle) {
+                            parentToggle.classList.add('active');
+                        }
+                    }
+                }
+            }
+        }
+
+        // --- Data Hierarchy Click Handler ---
+        function initializeHierarchyClicks() {
+            document.querySelectorAll('.hierarchy-level').forEach(levelDiv => {
+                levelDiv.addEventListener('click', function () {
+                    const level = this.dataset.level; // Get the level key from data attribute
+                    const detailsDiv = this.querySelector('.hierarchy-level-details');
+
+                    // Hide all other details and remove 'active' class
+                    document.querySelectorAll('.hierarchy-level').forEach(otherLevel => {
+                        if (otherLevel !== this) {
+                            otherLevel.classList.remove('active');
+                            otherLevel.querySelector('.hierarchy-level-details').style.display = 'none';
+                        }
+                    });
+
+                    // Toggle the current level's details
+                    if (detailsDiv.style.display === 'block') {
+                        detailsDiv.style.display = 'none';
+                        this.classList.remove('active');
+                    } else {
+                        detailsDiv.innerHTML = technicalInfo[level] || 'Teknik bilgi bulunamadı.';
+                        detailsDiv.style.display = 'block';
+                        this.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Teknik Bilgiler Veri Hiyerarşisi İçin
+        // Teknik Bilgiler Veri Hiyerarşisi İçin
+        const technicalInfo = {
+            bit: {
+                title: "Bit (Binary Digit)",
+                text: "Dijital bilgisayarların en temel ve en küçük veri birimidir. İkili sistemde (binary) sadece iki olası durumu temsil eder: 0 (kapalı/yok) veya 1 (açık/var). Elektronik devrelerde voltaj seviyeleri (düşük/yüksek) veya manyetik depolamada polarite yönü ile fiziksel olarak temsil edilir. Tüm dijital veriler, metin, sayılar, resimler, ses, video dahil olmak üzere, bitlerin kombinasyonları olarak saklanır ve işlenir."
+            },
+            byte: {
+                title: "Byte",
+                text: "Genellikle 8 bitten oluşan bir veri birimidir. Bir bayt, 2^8 = 256 farklı değeri temsil edebilir. Bu, tipik olarak tek bir karakteri (örneğin, bir harf, rakam, noktalama işareti) depolamak için yeterlidir. ASCII ve UTF-8 gibi karakter kodlama standartları, karakterleri bayt dizilerine eşler. Bayt, bilgisayar belleği ve depolama kapasitesini ölçmek için temel bir birimdir (Kilobayt, Megabayt, Gigabayt, Terabayt vb. baytın katlarıdır)."
+            },
+            field: {
+                title: "Alan (Field / Veri Elemanı)",
+                text: "Bir kayıttaki belirli bir özelliğin veya niteliğin değerini tutan yapısal bir birimdir. Örneğin, bir 'Öğrenci' kaydında 'Adı', 'Soyadı', 'Öğrenci Numarası' veya 'Doğum Tarihi' birer alandır. Alanlar, sayı, metin, tarih, mantıksal (boolean) gibi belirli bir veri tipine sahiptir ve genellikle tanımlı bir boyuta veya formata uyması beklenir. Veri Tabanı tablolarında bir sütuna karşılık gelir."
+            },
+            record: {
+                title: "Kayıt (Record / Tuple)",
+                text: "Birbiriyle mantıksal olarak ilişkili alanların bir araya gelerek oluşturduğu veri grubudur ve genellikle tek bir varlık örneğini temsil eder. Örneğin, bir 'Kitap' tablosunda tek bir kayıt, belirli bir kitabın tüm bilgilerini (Başlık, Yazar, ISBN, Yayın Tarihi vb. alanlarının değerlerini) içerir. İlişkisel veritabanlarında bir tablonun bir satırına karşılık gelir. Kayıtlar, bir varlığın eksiksiz bir örneğini tanımlar."
+            },
+            file: {
+                title: "Dosya (File / Table)",
+                text: "Aynı yapıya (yani aynı alan kümesine) sahip kayıtların düzenlenmiş bir koleksiyonudur. Geleneksel dosyalama sistemlerinde ayrı bir dosya olarak depolanırken, ilişkisel veritabanlarında bir tabloya karşılık gelir. Örneğin, bir üniversite veri tabanında 'Öğrenciler' dosyası tüm öğrencilerin kayıtlarını, 'Dersler' dosyası ise tüm derslerin kayıtlarını içerir. Dosyalar, belirli bir konu veya varlık türüyle ilgili verileri gruplandırır."
+            },
+            database: {
+                title: "Veri Tabanı (Database)",
+                text: "Birbiriyle mantıksal olarak ilişkili, organize edilmiş dosyaların (ilişkisel modelde tabloların) veya diğer veri yapılarının merkezi veya dağıtık bir koleksiyonudur. Veritabanları, verinin etkin bir şekilde depolanması, yönetilmesi, erişilmesi, güncellenmesi ve güvenliğinin sağlanması için tasarlanmıştır. Bir Veri Tabanı Yönetim Sistemi (VTYS / DBMS) tarafından yönetilir ve genellikle bir kuruluşun iş süreçleri veya bir uygulamanın ihtiyaç duyduğu tüm veya ilgili verileri barındırır. Amacı veri tekrarını azaltmak, tutarlılığı sağlamak ve farklı uygulamaların aynı veriye erişimini kolaylaştırmaktır."
+            }
+        };
+
+        // Modal açma ve kapama fonksiyonları
+        function showHierarchyModal(levelKey) {
+            const modal = document.getElementById('hierarchyModal');
+            const titleDiv = document.getElementById('modalHierarchyTitle');
+            const infoDiv = document.getElementById('modalHierarchyInfo');
+            if (technicalInfo[levelKey]) {
+                titleDiv.innerHTML = '<h3>' + technicalInfo[levelKey].title + '</h3>';
+                infoDiv.textContent = technicalInfo[levelKey].text;
+            } else {
+                titleDiv.innerHTML = '<h3>Bilgi</h3>';
+                infoDiv.textContent = 'Teknik bilgi bulunamadı.';
+            }
+            modal.classList.add('active');
+        }
+        function closeHierarchyModal() {
+            document.getElementById('hierarchyModal').classList.remove('active');
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('closeHierarchyModal').onclick = closeHierarchyModal;
+            document.getElementById('hierarchyModal').onclick = function (e) {
+                if (e.target === this) closeHierarchyModal();
+            };
+            // Hiyerarşi kutularına tıklama
+            document.querySelectorAll('.hierarchy-level').forEach(levelDiv => {
+                levelDiv.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const level = this.dataset.level;
+                    showHierarchyModal(level);
+                });
+            });
+        });
+
+        // --- Başlangıç ---
+        window.onload = () => {
+            loadScores();
+            initializeNavigation(); // Initialize new navigation
+            // initializeHierarchyClicks(); // Call to old handler is removed.
+
+            const initialSectionId = window.location.hash ? window.location.hash.substring(1) : 'home';
+            showSection(initialSectionId);
+            updateActiveLink(initialSectionId); // Update active link for the initial section
+        };
+
+        // Teknik Bilgiler Veri Hiyerarşisi İçin
+        const hierarchyLevels = ["bit", "byte", "field", "record", "file", "database"];
+        let technicalInfoNew = { // Changed to let and renamed to avoid redeclaration
+            bit: {
+                title: "Bit (Binary Digit)",
+                icon: "<svg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='6' y='10' width='7' height='14' rx='2' fill='#004D40'/><rect x='15' y='4' width='7' height='20' rx='2' fill='#26A69A'/><text x='8.5' y='20' font-size='10' fill='white' font-family='Arial' font-weight='bold'>0</text><text x='17.5' y='20' font-size='10' fill='white' font-family='Arial' font-weight='bold'>1</text></svg>",
+                summary: [
+                    "En küçük veri birimi.",
+                    "Sadece 0 veya 1 değeri alır.",
+                    "Donanımda voltaj veya manyetik kutupla temsil edilir.",
+                    "Tüm dijital veriler bitlerin birleşimidir."
+                ],
+                example: "Örnek: 1 bit = 0 veya 1",
+                link: "https://tr.wikipedia.org/wiki/Bit_(bili%C5%9Fim)"
+            },
+            byte: {
+                title: "Byte",
+                icon: "<svg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='6' width='20' height='16' rx='3' fill='#00695C'/><path d='M9 12H11.5L13 18H11L10.5 16H8L7.5 18H5.5L7 12H9ZM8.5 14.5L7.75 12.5H7.25L6.5 14.5H8.5Z' fill='white'/><text x='15' y='19' font-size='10' fill='white' font-family='Arial' font-weight='bold'>8</text></svg>",
+                summary: [
+                    "8 bitten oluşur (1 byte = 8 bit).",
+                    "Bir karakteri (harf, rakam) temsil eder.",
+                    "256 farklı değer alabilir.",
+                    "Bellek ve depolama ölçü birimidir."
+                ],
+                example: "Örnek: 'A' harfi = 01000001 (ASCII)",
+                link: "https://tr.wikipedia.org/wiki/Byte"
+            },
+            field: {
+                title: "Alan (Field)",
+                icon: "<svg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='8' width='20' height='12' rx='3' fill='#00796B'/><rect x='7' y='12' width='14' height='4' rx='1' fill='rgba(255,255,255,0.5)'/><text x='7' y='19' font-size='7' fill='white' font-family='Arial'>Adı</text></svg>",
+                summary: [
+                    "Bir kayıttaki belirli bir özelliği tutar.",
+                    "Veri tipi ve boyutu tanımlıdır.",
+                    "Tablolarda sütun olarak yer alır.",
+                    "Örn: Adı, Soyadı, Fiyat."
+                ],
+                example: "Örnek: 'Müşteri Adı' alanı: 'Ali'",
+            },
+            record: {
+                title: "Kayıt (Record / Tuple)",
+                icon: "<svg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='7' width='20' height='14' rx='3' fill='#00897B'/><rect x='7' y='10' width='14' height='2.5' rx='1' fill='rgba(255,255,255,0.6)'/><rect x='7' y='14.5' width='10' height='2.5' rx='1' fill='rgba(255,255,255,0.4)'/></svg>",
+                summary: [
+                    "Birbiriyle ilişkili alanların birleşimi.",
+                    "Bir varlık örneğini (satırı) temsil eder.",
+                    "Tablolarda bir satırdır.",
+                    "Tüm alanların değerlerini içerir."
+                ],
+                example: "Örnek: Adı: Ali, Soyadı: Yılmaz, Tel: 555...",
+            },
+            file: {
+                title: "Dosya (File / Table)",
+                icon: "<svg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='5' y='5' width='18' height='18' rx='3' fill='#26A69A'/><path d='M8 9H20M8 13H20M8 17H15' stroke='white' stroke-width='1.5' stroke-linecap='round'/></svg>",
+                summary: [
+                    "Aynı yapıda kayıtların topluluğu.",
+                    "İlişkisel veri tabanında tabloya karşılık gelir.",
+                    "Her kayıt bir satırdır.",
+                    "Örn: Müşteriler tablosu."
+                ],
+                example: "Örnek: 'Müşteriler' tablosu tüm müşteri kayıtlarını içerir.",
+                link: "https://en.wikipedia.org/wiki/Table_(database)"
+            },
+            database: {
+                title: "Veri Tabanı (Database)",
+                icon: "<svg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'><ellipse cx='14' cy='9' rx='9' ry='4' fill='#4DB6AC'/><path d='M5 9V19C5 21.2091 9.02944 23 14 23C18.9706 23 23 21.2091 23 19V9' fill='#B2DFDB'/><ellipse cx='14' cy='9' rx='9' ry='4' stroke='#FFFFFF' stroke-opacity='0.5' stroke-width='1'/></svg>",
+                summary: [
+                    "Birbiriyle ilişkili dosyaların/tabloların bütünü.",
+                    "Veri bütünlüğü ve güvenliği sağlar.",
+                    "VTYS ile yönetilir.",
+                    "Kurumsal verinin merkezi deposudur."
+                ],
+                example: "Örnek: Bir okulun tüm öğrenci, ders, not verileri tek veri tabanında tutulur.",
+                link: "https://tr.wikipedia.org/wiki/Veritaban%C4%B1"
+            }
+        };
+
+        // Modal açma ve kapama fonksiyonları ve erişilebilirlik
+        let currentHierarchyIndex = 0;
+        function showHierarchyModal(levelKey) {
+            const modal = document.getElementById('hierarchyModal');
+            const headerBar = document.getElementById('modalHeaderBar');
+            const iconSpan = document.getElementById('modalHeaderIcon');
+            const titleSpan = document.getElementById('modalHeaderTitle');
+            const summaryDiv = document.getElementById('modalHierarchySummary');
+            const exampleDiv = document.getElementById('modalHierarchyExample');
+            const linkA = document.getElementById('modalHierarchyLink');
+            const idx = hierarchyLevels.indexOf(levelKey);
+            currentHierarchyIndex = idx >= 0 ? idx : 0;
+            // Set header color
+            const colorMap = {
+                bit: '#004d40', byte: '#00695c', field: '#43a047', record: '#00897b', file: '#26a69a', database: '#4db6ac'
+            };
+            headerBar.style.background = colorMap[levelKey] || '#00796b';
+
+            // Use technicalInfoNew here
+            if (technicalInfoNew[levelKey]) {
+                iconSpan.innerHTML = technicalInfoNew[levelKey].icon;
+                titleSpan.textContent = technicalInfoNew[levelKey].title;
+                summaryDiv.innerHTML = '<ul>' + technicalInfoNew[levelKey].summary.map(s => '<li>' + s + '</li>').join('') + '</ul>';
+                exampleDiv.textContent = technicalInfoNew[levelKey].example;
+                linkA.href = technicalInfoNew[levelKey].link;
+                linkA.textContent = 'Daha fazla oku';
+                linkA.style.display = technicalInfoNew[levelKey].link ? 'inline' : 'none';
+            } else {
+                // Fallback if data not found (should not happen if keys are correct)
+                iconSpan.innerHTML = '';
+                titleSpan.textContent = 'Bilgi Yok';
+                summaryDiv.innerHTML = 'Teknik bilgi bulunamadı.';
+                exampleDiv.textContent = '';
+                linkA.style.display = 'none';
+            }
+
+            // Set nav buttons
+            document.getElementById('modalPrevBtn').disabled = (currentHierarchyIndex === 0);
+            document.getElementById('modalNextBtn').disabled = (currentHierarchyIndex === hierarchyLevels.length - 1);
+            // Show modal
+            modal.classList.add('active');
+            setTimeout(() => {
+                document.querySelector('.modal-content').focus();
+            }, 100);
+        }
+        function closeHierarchyModal() {
+            document.getElementById('hierarchyModal').classList.remove('active');
+        }
+        function showPrevHierarchy() {
+            if (currentHierarchyIndex > 0) showHierarchyModal(hierarchyLevels[currentHierarchyIndex - 1]);
+        }
+        function showNextHierarchy() {
+            if (currentHierarchyIndex < hierarchyLevels.length - 1) showHierarchyModal(hierarchyLevels[currentHierarchyIndex + 1]);
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('closeHierarchyModal').onclick = closeHierarchyModal;
+            document.getElementById('modalOkBtn').onclick = closeHierarchyModal;
+            document.getElementById('modalPrevBtn').onclick = showPrevHierarchy;
+            document.getElementById('modalNextBtn').onclick = showNextHierarchy;
+            document.getElementById('hierarchyModal').onclick = function (e) {
+                if (e.target === this) closeHierarchyModal();
+            };
+            document.querySelectorAll('.hierarchy-level').forEach((levelDiv, idx) => {
+                levelDiv.setAttribute('tabindex', '0');
+                levelDiv.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const level = this.dataset.level;
+                    showHierarchyModal(level);
+                });
+                levelDiv.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        showHierarchyModal(this.dataset.level);
+                    }
+                });
+            });
+            // ESC ile kapatma
+            document.addEventListener('keydown', function (e) {
+                if (document.getElementById('hierarchyModal').classList.contains('active')) {
+                    if (e.key === 'Escape') closeHierarchyModal();
+                    if (e.key === 'ArrowLeft') showPrevHierarchy();
+                    if (e.key === 'ArrowRight') showNextHierarchy();
+                }
+            });
+        });
+
+        const hierarchyHighlightDataVts = [
+            { timeStart: 0.265, timeEnd: 38.951, targets: ['#dataHierarchyTextTitle'], description: "Veri Hiyerarşisi Intro" },
+            { timeStart: 39.838, timeEnd: 58.038, targets: ['.hierarchy-level[data-level="bit"]'], description: "Bit" },
+            { timeStart: 58.814, timeEnd: 74.074, targets: ['.hierarchy-level[data-level="byte"]'], description: "Byte" },
+            { timeStart: 74.677, timeEnd: 97.147, targets: ['.hierarchy-level[data-level="field"]'], description: "Alan (Field)" },
+            { timeStart: 97.952, timeEnd: 129.342, targets: ['.hierarchy-level[data-level="record"]'], description: "Kayıt (Record)" },
+            { timeStart: 130.332, timeEnd: 149.092, targets: ['.hierarchy-level[data-level="file"]'], description: "Dosya (File)" },
+            { timeStart: 150.023, timeEnd: 173.753, targets: ['.hierarchy-level[data-level="database"]'], description: "Veri Tabanı (Database)" }
+        ];
+
+        const allHierarchyTargetsVts = [
+            '#dataHierarchyTextTitle',
+            '.hierarchy-level[data-level="bit"]',
+            '.hierarchy-level[data-level="byte"]',
+            '.hierarchy-level[data-level="field"]',
+            '.hierarchy-level[data-level="record"]',
+            '.hierarchy-level[data-level="file"]',
+            '.hierarchy-level[data-level="database"]'
+        ];
+
+        function togglePodcastVts(audioSrc) {
+            const audioPlayer = document.getElementById('audioPlayerVts');
+            const playButton = document.getElementById('podcastPlayButtonVts');
+            const durationDisplay = document.getElementById('podcastDurationVts');
+            const hierarchyContainer = document.querySelector('.data-hierarchy-container');
+            const hierarchyTitle = document.getElementById('dataHierarchyTextTitle');
+
+            if (!audioPlayer || !playButton || !durationDisplay) return;
+
+            if (!audioPlayer.src || !audioPlayer.src.endsWith(audioSrc)) {
+                audioPlayer.src = audioSrc;
+                audioPlayer.onloadedmetadata = () => {
+                    const minutes = Math.floor(audioPlayer.duration / 60);
+                    const seconds = Math.floor(audioPlayer.duration % 60).toString().padStart(2, '0');
+                    durationDisplay.textContent = `(${minutes}:${seconds})`;
+                };
+            }
+
+            if (audioPlayer.paused || audioPlayer.ended) {
+                audioPlayer.play().then(() => {
+                    playButton.innerHTML = '&#10074;&#10074;'; // Pause icon
+                    audioPlayer.addEventListener('timeupdate', handleTimeUpdateHierarchy);
+                    if (hierarchyContainer) hierarchyContainer.classList.add('hierarchy-highlight-dim');
+                    if (hierarchyTitle) hierarchyTitle.classList.add('dimmed-by-audio');
+                }).catch(error => console.error("Audio play error:", error));
+            } else {
+                audioPlayer.pause();
+                playButton.innerHTML = '&#9658;'; // Play icon
+                // Do not remove dimming on pause, only on end or if explicitly cleared
+            }
+
+            audioPlayer.onended = () => {
+                playButton.innerHTML = '&#9658;';
+                audioPlayer.currentTime = 0;
+                audioPlayer.removeEventListener('timeupdate', handleTimeUpdateHierarchy);
+                clearHierarchyHighlightsVts();
+            };
+        }
+
+        function setPlaybackSpeedVts(speed, speedButtonElement) {
+            const audioPlayer = document.getElementById('audioPlayerVts');
+            if (audioPlayer) {
+                audioPlayer.playbackRate = speed;
+                document.querySelectorAll('#playbackSpeedControlsVts button').forEach(btn => btn.classList.remove('active-speed'));
+                if (speedButtonElement) speedButtonElement.classList.add('active-speed');
+            }
+        }
+
+        function clearHierarchyHighlightsVts() {
+            allHierarchyTargetsVts.forEach(selector => {
+                document.querySelectorAll(selector).forEach(el => el.classList.remove('hierarchy-highlight-active'));
+            });
+            const hierarchyContainer = document.querySelector('.data-hierarchy-container');
+            if (hierarchyContainer) hierarchyContainer.classList.remove('hierarchy-highlight-dim');
+            const hierarchyTitle = document.getElementById('dataHierarchyTextTitle');
+            if (hierarchyTitle) hierarchyTitle.classList.remove('dimmed-by-audio');
+            if (hierarchyTitle) hierarchyTitle.classList.remove('hierarchy-highlight-active'); // Ensure title highlight is also cleared
+        }
+
+        function handleTimeUpdateHierarchy() {
+            const audioPlayer = document.getElementById('audioPlayerVts');
+            if (!audioPlayer) return;
+            const currentTime = audioPlayer.currentTime;
+
+            // Clear previous active highlights before applying new ones
+            allHierarchyTargetsVts.forEach(selector => {
+                document.querySelectorAll(selector).forEach(el => el.classList.remove('hierarchy-highlight-active'));
+            });
+
+            let activeFound = false;
+            for (const item of hierarchyHighlightDataVts) {
+                if (currentTime >= item.timeStart && currentTime < item.timeEnd) {
+                    item.targets.forEach(selector => {
+                        document.querySelectorAll(selector).forEach(el => {
+                            el.classList.add('hierarchy-highlight-active');
+                        });
+                    });
+                    activeFound = true;
+                    break;
+                }
+            }
+
+            // Ensure dimming is active if any highlight is active or player is playing
+            const hierarchyContainer = document.querySelector('.data-hierarchy-container');
+            const hierarchyTitle = document.getElementById('dataHierarchyTextTitle');
+            if (activeFound || !audioPlayer.paused) {
+                if (hierarchyContainer) hierarchyContainer.classList.add('hierarchy-highlight-dim');
+                if (hierarchyTitle) hierarchyTitle.classList.add('dimmed-by-audio');
+            } else if (audioPlayer.paused && !activeFound) { // If paused and nothing is highlighted (e.g. seeking outside ranges)
+                clearHierarchyHighlightsVts();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // ... (existing listeners for modal) ...
+
+            const vtsPlayButton = document.getElementById('podcastPlayButtonVts');
+            if (vtsPlayButton) {
+                vtsPlayButton.onclick = () => togglePodcastVts('SESLER/vtses1.wav');
+            }
+
+            const vtsSpeedControls = document.getElementById('playbackSpeedControlsVts');
+            if (vtsSpeedControls) {
+                vtsSpeedControls.querySelectorAll('button').forEach(button => {
+                    button.onclick = () => setPlaybackSpeedVts(parseFloat(button.dataset.speed), button);
+                });
+            }
+
+            // Ensure existing listeners are not overwritten or are merged correctly
+            // ...
+        });
+    </script>
+</body>
+
+</html>

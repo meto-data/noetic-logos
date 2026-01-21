@@ -1,3 +1,8 @@
+---
+draft: true
+---
+
+
 - **Osmanlı İmparatorluğu'nun Son Dönemi**
     - İktisadi yapı savaşlar ve Batı’nın üstünlüğü nedeniyle yıprandı.
     - Sanayi Devrimi, Osmanlı ekonomisini rekabette geri bıraktı.

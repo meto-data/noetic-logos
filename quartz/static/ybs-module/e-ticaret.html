@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Ticaret ve E-İş Notları</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 20px auto;
+            overflow: hidden;
+            padding: 25px;
+            background-color: #fff;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            flex-grow: 1;
+        }
+        header {
+            background: #1a5276; /* Koyu Mavi */
+            color: #eaf2f8;
+            padding: 1.5rem 0;
+            text-align: center;
+            border-bottom: #2980b9 5px solid; /* Biraz daha açık mavi */
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.4em;
+            font-weight: 600;
+        }
+        .nav-container {
+            background: #2c3e50;
+            color: #fff;
+            padding: 0.3rem 0;
+            margin-bottom: 30px;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+        }
+        .nav-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+        }
+        .nav-category {
+            flex: 1 1 280px; /* Esnek büyüme, küçülme ve temel genişlik */
+            margin: 5px;
+            position: relative; /* İçerik konumlandırması için */
+        }
+        .category-title {
+            background: #1a5276; /* Başlık için koyu mavi */
+            color: #f0f4f8;
+            padding: 8px 12px;
+            font-size: 0.95em;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 6px 6px 0 0;
+            border-bottom: 2px solid #3498db; /* Açık mavi vurgu */
+        }
+        .category-buttons {
+            background: #34495e; /* Butonlar için biraz daha açık mavi-gri */
+            padding: 8px;
+            border-radius: 0 0 6px 6px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px; /* Butonlar arası boşluk */
+        }
+        .category-buttons button {
+            background: #566573; /* Standart buton rengi */
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin: 2px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        .category-buttons button:hover, .category-buttons button.active {
+            background: #2980b9; /* Hover ve aktif durum için açık mavi */
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .category-buttons button.active {
+             background: #1f618d; /* Aktif için daha belirgin bir mavi */
+             color: #f9e79f; /* Açık sarı metin */
+             font-weight: 600;
+        }
+        .section {
+            display: none;
+            padding: 25px;
+            border: 1px solid #dfe6e9;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            background-color: #fdfefe;
+        }
+        .section.active {
+            display: block;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h2 {
+            color: #1a5276;
+            border-bottom: 3px solid #2980b9;
+            padding-bottom: 15px;
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+        h3 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        h4 {
+            color: #566573;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+         h5 { 
+            color: #1a5276;
+            font-size: 1.15em;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        .info-box {
+            background-color: #f9f9f9; 
+            border-left: 5px solid #7f8c8d; 
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .info-box ul, .info-box ol {
+            padding-left: 25px;
+            margin-top: 10px;
+        }
+        .info-box li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .info-box p strong, .info-box li strong {
+            color: #2c3e50; 
+        }
+        .info-box.info-box-highlighted { 
+            background-color: #e8f6f3; 
+            border-left-color: #1abc9c; 
+        }
+        .info-box.info-box-highlighted p strong,
+        .info-box.info-box-highlighted li strong {
+            color: #117a65; 
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 12px 15px;
+            text-align: left;
+            line-height: 1.5;
+        }
+        th {
+            background-color: #566573; 
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa; 
+        }
+        tr:hover {
+            background-color: #e9ecef; 
+        }
+        footer {
+            text-align: center;
+            padding: 1.8rem;
+            background: #1a5276; 
+            color: #eaf2f8;
+            margin-top: auto; 
+        }
+        /* Mobil Uyum */
+        @media (max-width: 1200px) {
+            .nav-categories {
+                flex-wrap: wrap;
+            }
+            .nav-category {
+                 flex-basis: 45%; 
+            }
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            h2 { font-size: 1.6em; }
+            h3 { font-size: 1.3em; }
+            h4 { font-size: 1.1em; }
+            .nav-categories {
+                flex-direction: column; 
+            }
+            .nav-category {
+                flex-basis: 100%; 
+                margin: 8px 0;
+            }
+            .category-buttons button {
+                font-size: 0.85em;
+                padding: 8px 12px;
+            }
+        }
+
+        /* Quiz Styles (Adapted from ağlar.html) */
+        .quiz-container {
+            margin-bottom: 20px;
+        }
+        .quiz-question {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #e5e7e9;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+        .quiz-question p strong {
+            color: #1a5276;
+        }
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .quiz-options label {
+            display: block;
+            background-color: #e9ecef;
+            padding: 15px;
+            margin-bottom: 0; /* Gap handles spacing */
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s, border-left 0.2s, transform 0.1s;
+            border-left: 5px solid transparent;
+            font-weight: 500;
+            text-align: left;
+            font-size: 1em;
+        }
+        .quiz-options label:hover {
+            background-color: #d1d9e0;
+            border-left: 5px solid #2980b9;
+            transform: translateX(3px);
+        }
+        .quiz-options input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.2);
+            vertical-align: middle;
+        }
+        .feedback {
+            padding: 15px;
+            margin-top: 18px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-align: center;
+            font-size: 1.05em;
+            border: 1px solid transparent;
+        }
+        .feedback.correct {
+            background-color: #d1f2eb;
+            color: #0e6251;
+            border-color: #a3e4d7;
+        }
+        .feedback.incorrect {
+            background-color: #fdedec;
+            color: #943126;
+            border-color: #fadbd8;
+        }
+        .quiz-options label.correct-choice {
+            background-color: #d1f2eb !important;
+            border-left: 5px solid #27ae60 !important;
+            color: #0e6251 !important;
+            font-weight: bold;
+        }
+        .quiz-options label.incorrect-choice {
+            background-color: #fdedec !important;
+            border-left: 5px solid #c0392b !important;
+            color: #943126 !important;
+        }
+        .quiz-options label.correct-answer-highlight { 
+            outline: 2px dashed #1e8449;
+            outline-offset: 2px;
+            box-shadow: 0 0 8px rgba(39, 174, 96, 0.4);
+        }
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .quiz-navigation button, .quiz-button {
+            background-color: #566573;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .quiz-navigation button:hover, .quiz-button:hover {
+            background-color: #2c3e50;
+            transform: translateY(-2px);
+        }
+        .quiz-navigation button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+            transform: translateY(0);
+        }
+        .quiz-button.submit { 
+            background-color: #27ae60;
+        }
+        .quiz-button.submit:hover {
+            background-color: #229954;
+        }
+        .quiz-score {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #eaf2f8;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        .quiz-score h3 {
+            margin-top: 0;
+            color: #1a5276;
+        }
+
+        /* Matching Game Styles (Adapted from ağlar.html) */
+        .matching-game-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            flex-wrap: wrap; 
+        }
+        .matching-column {
+            width: 45%;
+            padding: 10px;
+            background-color: #eaf2f8;
+            border-radius: 6px;
+            min-height: 200px; 
+        }
+        .matching-column h4 {
+            margin-top: 0;
+            color: #1a5276;
+            text-align: center;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 8px;
+        }
+        .matching-item, .matching-slot {
+            padding: 10px 12px;
+            margin: 8px 0;
+            background-color: #ffffff;
+            border: 1px solid #d1d9e0;
+            border-radius: 5px;
+            cursor: grab;
+            text-align: center;
+            font-size: 0.95em;
+            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s ease-out;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .matching-item:hover {
+            background-color: #f0f4f8;
+            transform: scale(1.02);
+        }
+        .matching-slot {
+            border-style: dashed;
+            border-color: #a9cce3;
+            min-height: 38px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #566573;
+        }
+        .matching-slot.over {
+            background-color: #cce5ff; 
+            border-color: #007bff;    
+            border-style: solid;      
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.4); 
+        }
+        .matching-slot.matched-correct .matching-item {
+            background-color: #d1f2eb; 
+            border-color: #27ae60;
+            cursor: default;
+        }
+        .matching-slot.matched-incorrect .matching-item {
+            background-color: #fdedec; 
+            border-color: #c0392b;
+            cursor: default;
+        }
+        .matching-item.dragging {
+            opacity: 0.8; 
+            transform: scale(1.07) rotate(3deg); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25); 
+            background-color: #f8f9fa; 
+        }
+        .matching-feedback {
+            margin-top: 15px;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .matching-feedback.correct {
+            background-color: #d4efdf;
+            color: #1e8449;
+        }
+        .matching-feedback.incorrect {
+            background-color: #f5b7b1;
+            color: #a93226;
+        }
+        .matching-check-btn, .matching-restart-btn {
+            margin: 10px 5px;
+        }
+
+        /* Fill in the Blanks Styles */
+        .fill-blanks-container {
+            margin-bottom: 20px;
+        }
+        .fill-blanks-question {
+            margin-bottom: 18px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #5dade2;
+            border-radius: 5px;
+            font-size: 1.05em;
+            display: flex; /* Flexbox for alignment */
+            align-items: center; /* Vertically align items */
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+        }
+        .fill-blanks-question p .sentence-part {
+            margin: 0;
+            line-height: 1.6;
+        }
+        .fill-blanks-question input[type="text"] {
+            padding: 10px 12px; /* Increased padding */
+            border: 1px solid #bdc3c7; /* Softer border color, consistent with table borders */
+            border-radius: 6px; /* Rounded corners, consistent with buttons */
+            font-size: 0.95em;
+            min-width: 150px; /* Slightly increased min-width */
+            flex-grow: 1;
+            max-width: 300px; /* Slightly increased max-width */
+            margin: 0 10px; /* Adjusted margin for better spacing */
+            background-color: #fdfefe; /* Light background for the input */
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05) inset; /* Subtle inner shadow */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus */
+        }
+        .fill-blanks-question input[type="text"]:focus {
+            border-color: #2980b9; /* Highlight color on focus - matches header/active elements */
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05) inset, 0 0 0 3px rgba(41, 128, 185, 0.2); /* Inner shadow + outer focus ring */
+            outline: none; /* Remove default browser outline */
+        }
+        .fill-blanks-question .feedback-icon {
+            margin-left: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .feedback-icon.correct {
+            color: #27ae60;
+        }
+        .feedback-icon.incorrect {
+            color: #c0392b;
+        }
+        .correct-answer-text {
+            color: #2980b9;
+            margin-left: 8px;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+        .fill-blanks-controls button {
+            margin-right: 10px;
+        }
+        .fill-blanks-score {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #eaf2f8;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        .fill-blanks-score h4 {
+            margin-top: 0;
+            color: #1a5276;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>E-Ticaret ve E-İş Notları</h1>
+        <p>E-ticaret ve E-iş dünyasına giriş yapın.</p>
+    </header>
+
+    <div class="nav-container">
+        <div class="nav-categories">
+            <div class="nav-category">
+                <div class="category-title">Genel</div>
+                <div class="category-buttons">
+                    <button onclick="showSection('home', 'eTicaretGiris')">Modül Ana Sayfa</button>
+                    <button onclick="location.href='index.html'">Ana Menü</button>
+                </div>
+            </div>
+            <div class="nav-category">
+                <div class="category-title">E-Ticaret Temelleri</div>
+                <div class="category-buttons">
+                    <button onclick="showSection('internet-teknolojisi')">İnternet Teknolojisi</button>
+                    <button onclick="showSection('yeni-is-modelleri')">Yeni İş Modelleri</button>
+                    <button onclick="showSection('degisen-enformasyon-ekonomileri')">Değişen Enformasyon Ekonomileri</button>
+                </div>
+            </div>
+            <div class="nav-category">
+                <div class="category-title">E-Ticaret Genel Bakış</div>
+                <div class="category-buttons">
+                    <button onclick="showSection('e-ticaret-tanimi')">E-Ticaret Tanımı</button>
+                    <button onclick="showSection('e-ticaret-nitelikleri')">E-Ticaret'in 7 Temel Niteliği</button>
+                </div>
+            </div>
+            <div class="nav-category">
+                <div class="category-title">İş Modelleri ve Türleri</div>
+                <div class="category-buttons">
+                    <button onclick="showSection('internet-is-modelleri')">İnternet İş Modelleri</button>
+                    <button onclick="showSection('internet-reklam-modeli')">İnternet Reklam Modeli</button>
+                    <button onclick="showSection('e-ticaret-turleri')">E-Ticaret Türleri</button>
+                </div>
+            </div>
+            <div class="nav-category">
+                <div class="category-title">Ödeme ve Altyapı</div>
+                <div class="category-buttons">
+                    <button onclick="showSection('e-odeme-sistemleri')">Elektronik Ticaret Ödeme Sistemleri</button>
+                    <button onclick="showSection('intranetler-extranetler')">Intranetler ve E-İş, Extranetler</button>
+                </div>
+            </div>
+            <div class="nav-category">
+                <div class="category-title">Uygulamalar ve İşbirliği</div>
+                <div class="category-buttons">
+                    <button onclick="showSection('intranet-uygulamalari')">Intranetlerin Fonksiyonel Uygulama Alanları</button>
+                    <button onclick="showSection('isbirligine-dayali-ticaret')">İşbirliğine Dayalı Ticaret</button>
+                    <button onclick="showSection('karsilastirma-tablosu')">Karşılaştırma Tablosu</button>
+                </div>
+            </div>
+            <div class="nav-category">
+                <div class="category-title">İnteraktif Araçlar</div>
+                <div class="category-buttons">
+                    <button onclick="showSection('quizEticaret')">E-Ticaret Testi</button>
+                    <button onclick="showSection('matchingGameGenelKavramlar')">Eşleştirme: Genel Kavramlar</button>
+                    <button onclick="showSection('matchingGameIsModelleri')">Eşleştirme: İş Modelleri</button>
+                    <button onclick="showSection('matchingGameAltyapiNitelik')">Eşleştirme: Altyapı ve Nitelikler</button>
+                    <button onclick="showSection('fillBlanksBolum1')">BD: İnternet Tekn. ve İş Modelleri</button>
+                    <button onclick="showSection('fillBlanksBolum3')">BD: E-Ticaret ve Türleri</button>
+                    <button onclick="showSection('fillBlanksBolum4')">BD: E-Ticaretin 7 Niteliği</button>
+                    <button onclick="showSection('fillBlanksBolum5')">BD: Ödeme Sistemleri</button>
+                    <button onclick="showSection('fillBlanksBolum6')">BD: Intranet, Extranet ve E-İş</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Section for İnternet Teknolojisi -->
+        <div id="internet-teknolojisi" class="section">
+            <h2>İnternet Teknolojisi</h2>
+            <div class="info-box">
+                <h3>BT Altyapısı</h3>
+                <ul>
+                    <li>İnternet, tüm örgütler tarafından kullanılabilen, merkeziyetsiz, kolay ve her yerde geçerli olan teknolojileri ve teknoloji standartlarını temin eder.</li>
+                </ul>
+                <h3>Ticari Ortaklar Arasında Doğrudan İletişim</h3>
+                <ul>
+                    <li>Aracıların ortadan kalkmasıyla süreçler basitleştirilip etkinlik artırılır.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section for Yeni İş Modelleri -->
+        <div id="yeni-is-modelleri" class="section">
+            <h2>Yeni İş Modelleri</h2>
+            <div class="info-box">
+                <h4>İş Modeli</h4>
+                <ul>
+                    <li>Örgütü tanımlar.</li>
+                    <li>Örgütün bir ürün ve hizmeti nasıl sunacağını tanımlar.</li>
+                    <li>Örgütün nasıl para kazanacağını gösterir.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Section for Değişen Enformasyon Ekonomileri -->
+        <div id="degisen-enformasyon-ekonomileri" class="section">
+            <h2>Değişen Enformasyon Ekonomileri</h2>
+            <div class="info-box">
+                <ul>
+                    <li>Enformasyondaki asimetriyi azaltır.
+                        <ul>
+                            <li><strong>Enformasyon:</strong> Bilgiye ulaşmadaki asimetri (Not: PDF'teki "Enformasyon: Bilgiye ulaşmadaki asimetri" ifadesi, "bilgi asimetrisinin" tanımıdır. Bu not, kullanıcının orijinal notundan alınmıştır.)</li>
+                            <li>Asimetri taraflardan birinin diğerinden daha fazla bilgiye sahip olmasıdır. Bkz. Bilgi asimetrisi</li>
+                        </ul>
+                    </li>
+                    <li>Enformasyon zenginliğini artırır.
+                        <ul>
+                            <li>İnternet, enformasyon derinliğini, kapsamını ve ayrıntılarını artırır.</li>
+                        </ul>
+                    </li>
+                    <li>Ulaşılabilirlik artar.
+                        <ul>
+                            <li>Bağlantı kurulan insan sayısı artar.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>Bilgi Asimetrisi:</strong> Bir tarafın diğerinden daha çok bilmesi.</p>
+            </div>
+        </div>
+
+        <!-- Section for E-Ticaret Tanımı -->
+        <div id="e-ticaret-tanimi" class="section">
+            <h2>E-Ticaret Tanımı</h2>
+            <div class="info-box">
+                <ul>
+                    <li>E-Ticaret, İşletmeden İşletmeye (B2B), İşletmeden Tüketiciye (B2C), Tüketiciden Tüketiciye (C2C) veya Tüketiciden İşletmeye (C2B) gerçekleşen, çevrim içi/internet ortamında oluşan ticari işlemlerdir.
+                        <ul>
+                            <li>En fazla <strong>İşletmeden Tüketiciye (B2C)</strong> şeklinde gerçekleşir.</li>
+                        </ul>
+                    </li>
+                    <li>E-Ticaret, iktisadi faaliyeti kolaylaştıran en önemli unsurdur.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section for E-Ticaret'in 7 Temel Niteliği -->
+        <div id="e-ticaret-nitelikleri" class="section">
+            <h2>E-Ticaret'in 7 Temel Niteliği</h2>
+            <div class="info-box">
+                <h3>1- Her Yerde Bulunma (Ubiquity)</h3>
+                <ul>
+                    <li>Fiziksel bir dükkana gitmek yerine, evden, işten, hatta arabadan alışveriş yapabilme imkânı. Pazar yeri her an her yerdedir.</li>
+                    <li>E-Ticaret, doğası gereği internet bağlantısının olduğu her noktada "potansiyel olarak" vardır. Bir nevi "pazarın ruhunun bedenden (fiziksel dükkandan) ayrılıp her yerde tezahür edebilmesi" gibi.</li>
+                </ul>
+                <h3>2- Küresel Pazarlara Erişim (Access to Global Markets)</h3>
+                <ul>
+                    <li>E-ticaret sayesinde fiziksel mağazaların sınırlamaları ortadan kalkar ve ürünler dünyanın her köşesine ulaştırılabilir.</li>
+                </ul>
+                <div class="info-box info-box-highlighted">
+                    <p><strong>Diogenes ve Kozmopolit...</strong></p>
+                    <p>Nereli olduğu sorulunca "Dünya vatandaşıyım." dedi.</p>
+                </div>
+                <h3>3- Evrensel Standartlar (Universal Standards)</h3>
+                <ul>
+                    <li>İnternetin teknik standartları (TCP/IP, HTML vb.) tüm dünyada aynıdır. Bu, farklı bilgisayar sistemlerinin birbirleriyle konuşabilmesini sağlar.</li>
+                    <li>Babil Kulesi sorununun çözümü...</li>
+                </ul>
+                <h3>4- Bilgi Zenginliği (Information Richness)</h3>
+                <ul>
+                    <li>Metin, ses, video gibi zengin içeriklerle çok sayıda kişiye ulaşabilme.</li>
+                    <li>Geleneksel medyada ya içerik zengindir erişim dardır (yüz yüze satış) ya da erişim geniştir ancak içerik zayıftır (TV reklamı).
+                        <ul>
+                            <li>Web ikisini de birleştirir.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>5- Etkileşim (Interactivity)</h3>
+                <ul>
+                    <li>Satıcı ve müşteri arasında çift yönlü iletişim imkânı. TV reklamına soru soramazsın ancak e-ticaret sitesinde canlı sohbet yapabilir ve yorum bırakabilirsin.</li>
+                </ul>
+                <h3>6- Bilgi Yoğunluğu (Information Density)</h3>
+                <ul>
+                    <li>Pazardaki tüm katılımcılar için var olan bilginin miktarının ve kalitesinin artması.</li>
+                    <li>Bilgi asimetrisi azalır.</li>
+                </ul>
+                <h3>7- Kişiselleştirme/Uyarlama (Personalization/Customization)</h3>
+                <ul>
+                    <li>E-ticaret, işletmelerin müşterilerden topladığı verilerle onların ihtiyaç ve tercihlerine özel <strong>kişiselleştirilmiş</strong> çözümler/ürünler sunar.
+                        <ul>
+                            <li>Ürün önerileri, özel indirimler, kişiye özel tasarımlar veya alışveriş alışkanlıklarına göre özelleştirilmiş kampanyalar şeklinde gerçekleşebilir.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section for İnternet İş Modelleri -->
+        <div id="internet-is-modelleri" class="section">
+            <h2>İnternet İş Modelleri</h2>
+            <div class="info-box">
+                <p><strong>Mülakatta, sınavda vb. sorulabilir.</strong></p>
+                <h4>Sosyal Medya Modeli (Social Media Model)</h4>
+                <ul>
+                    <li>İnsanların veya işletmelerin belli bir amaç doğrultusunda bir araya geldiği sanal platformlar üzerinden ücretsiz bir sosyal ağ servisini kullanmaları ve bu kullanıcılara hedefli reklam gösterimiyle para kazanılan modeldir.</li>
+                    <li><strong>Örnek:</strong> Facebook, X, LinkedIn.</li>
+                    <li><strong>Bkz.</strong> Platformların Gelir Modelleri</li>
+                </ul>
+
+                <h4>Satış Ortaklığı Modeli (Affiliate Model)</h4>
+                <ul>
+                    <li>Bir firmanın ürünlerini kendi web sitesiniz veya ağınız üzerinden satış yapma ve satış başına belli bir komisyon alma modelidir.</li>
+                    <li><strong>Örnek:</strong> Sitenize bir oto galerinin bannerını ekleyip veya tavsiye edici bir paylaşım yaparak siteniz üzerinden yapılan her satıştan komisyon almak vb.</li>
+                    <li><strong>Örnek Siteler:</strong> Cimri, akakçe (Not: Orijinal PDF'te yok, kullanıcının ek notu)</li>
+                    <li><strong>Bkz.</strong> Platformların Gelir Modelleri</li>
+                </ul>
+
+                <h4>Abonelik Modeli (Subscription Model)</h4>
+                <ul>
+                    <li>Aylık veya yıllık belli bir ücret karşılığı ürün veya hizmetlere erişim imkânı sunan iş modelidir.</li>
+                    <li><strong>Örnek:</strong> Netflix (130 milyonu aşan abone sayısıyla 2017 yılında 11,7 milyar dolar brüt gelir ve 559 milyon dolar yıllık net kâr elde etti.)</li>
+                    <li><strong>Bkz.</strong> Platformların Gelir Modelleri</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section for İnternet Reklam Modeli -->
+        <div id="internet-reklam-modeli" class="section">
+            <h2>İnternet Reklam Modeli</h2>
+            <div class="info-box">
+                <ul>
+                    <li>Klasik medya yayın modelinin internet üzerinden dönüşüme uğramış halidir. Modelde medya şirketleri yerine web siteleri kullanıcı ve izleyicilerine internet üzerinden ücretsiz içerik ve hizmetler sunarken platform bu izleyici ve kullanıcılara hedefli reklamlar gösterir.</li>
+                    <li><strong>Örnek:</strong> Google, Yahoo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section for E-Ticaret Türleri -->
+        <div id="e-ticaret-turleri" class="section">
+            <h2>E-Ticaret Türleri</h2>
+            <div class="info-box">
+                <h3>1- İşletmeden İşletmeye (Business-to-business -B2B-)</h3>
+                <ul>
+                    <li>Endüstriyel pazarlarda üretim mallarının alınıp satıldığı e-ticaret türüdür.</li>
+                    <li><strong>En büyükleri:</strong> Alibaba ve Amazon.</li>
+                </ul>
+
+
+                <h3>2- İşletmeden Tüketiciye (Business-to-consumer -B2C-)</h3>
+                <ul>
+                    <li>Bir işletmenin ürettiği ürün veya hizmetleri doğrudan son tüketiciye sattığı bir iş modelidir. Yani, bir şirketin bir ürünü veya hizmeti aracı olmadan, toptancıları ve perakendecileri atlayarak doğrudan bir kişiye satmalarıdır.</li>
+                    <li><strong>En büyükleri:</strong> Amazon ve Aliexpress</li>
+                </ul>
+                <h4>B2C E-Ticaretin Avantajları</h4>
+                <div class="info-box">
+                    <h5>1. Müşteri Odaklı Satış:</h5>
+                    <ul>
+                        <li>İşletmelerin müşterileriyle daha yakın ve kişiselleştirilmiş ilişkiler kurmasına olanak tanır.</li>
+                    </ul>
+
+                    <h5>2. Web Siteleri Aracılığıyla Kolay Bilgi Erişimi:</h5>
+                    <ul>
+                        <li>Firmaların sunduğu web siteleri (portallar), müşterilerin ürünler, fiyatlar, hizmet koşulları ve sipariş detayları gibi bilgilere çok hızlı ve kolay bir şekilde ulaşmasını sağlar. Bu, müşterilerin self-servis yapabilme kabiliyetini artırır.</li>
+                    </ul>
+
+                    <h5>3. Aracıların Ortadan Kaldırılması (Disintermediation):</h5>
+                    <ul>
+                        <li>Değer zincirinde yer alan bazı geleneksel aracıların (örneğin, toptancılar, bazı perakendeciler) ortadan kaldırılmasıyla süreçler basitleşir.</li>
+                        <li>Bu durum, son tüketiciye yansıyan maliyetlerin düşürülmesine ve işletme için kâr marjlarının artmasına yardımcı olabilir.</li>
+                    </ul>
+
+                    <h5>4. Yeni Aracılık Biçimlerinin Ortaya Çıkışı (Reintermediation / Cybermediation):</h5>
+                    <ul>
+                        <li>Geleneksel aracıların rolü dönüşebilir veya yerini yeni tür dijital aracılara bırakabilir.</li>
+                        <li>Bu yeni aracılar (örneğin, fiyat karşılaştırma siteleri, uzmanlaşmış pazar yerleri, tavsiye platformları), tüketicilere farklı kanallar üzerinden ek değer (daha fazla seçenek, daha iyi bilgi, kolaylık vb.) sunarak aracılık rolünü yeniden tanımlar.</li>
+                    </ul>
+                </div>
+
+                <h3>3- Tüketiciden İşletmeye (Consumer-to-business -C2B-)</h3>
+                <ul>
+                    <li>Bireyler, kendi ürettikleri ürün veya hizmetleri doğrudan işletmelere sunarak gelir elde ederler.</li>
+                    <li><strong>Freelance platformları</strong> buna örnektir.
+                        <ul>
+                            <li>Upwork, Freelancer, Fiverr gibi platformlarda bireyler kendi becerilerini listeleyerek şirketlerden proje alabilirler veya yaptıkları projeleri satabilirler.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>4- Tüketiciden Tüketiciye (Consumer-to-consumer -C2C-)</h3>
+                <ul>
+                    <li>Bir ürün veya hizmetin bir işletme aracılığı olmadan doğrudan bir tüketiciden diğer tüketiciye satılmasıdır. Bireyler sahip oldukları ürünleri (ikinci el eşyalar, el işleri) veya hizmetleri (ders verme, danışmanlık) başka bireylere satabilirler.</li>
+                    <li><strong>En büyükleri:</strong> Aliexpress ve Amazon.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section for Elektronik Ticaret Ödeme Sistemleri -->
+        <div id="e-odeme-sistemleri" class="section">
+            <h2>Elektronik Ticaret Ödeme Sistemleri</h2>
+            <div class="info-box info-box-highlighted">
+                 <p><strong>Normal web siteleri ile e-ticaret siteleri arasındaki temel fark gelecek sınavda. Kesinlikle gelecek, teyit edildi.</strong></p>
+                 <p><strong>Normal web siteleri para ödemeye dair bir sayfa içermezken e-ticaret siteleri içerir.</strong> Çeşitli teknolojik alt yapılar kullanarak e-ödeme vb. yöntemlerle para tahsilatı yapabilen daha gelişmiş sitelerdir. Özde fark budur.</p>
+                 <p><strong>Üzerinde mutlaka para tahsilatı yapan bir sistem olması.</strong>  Bkz. Elektronik Fon Transferi</p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sistem</th>
+                        <th>Tanım</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Kredi kartı</td>
+                        <td>Güvenli siteler bilgiyi korur</td>
+                    </tr>
+                    <tr>
+                        <td>Elektronik nakit</td>
+                        <td>Küçük ödemeler için dijital para kullanılır</td>
+                    </tr>
+                    <tr>
+                        <td>Kişiden kişiye</td>
+                        <td>Sitelere para gönderilir. Kredi kartı kullanılamaz</td>
+                    </tr>
+                    <tr>
+                        <td>Dijital cüzdan</td>
+                        <td>Yazılım kredi kartı bilgilerini tutar.</td>
+                    </tr>
+                    <tr>
+                        <td>Elektronik çek</td>
+                        <td>Kriptolu dijital imza içeren çekler</td>
+                    </tr>
+                    <tr>
+                        <td>Elektronik hesap ödeme</td>
+                        <td>Elektronik fon transferi (eft)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Section for Intranetler ve E-İş, Extranetler -->
+        <div id="intranetler-extranetler" class="section">
+            <h2>Intranetler ve E-İş, Extranetler</h2>
+            <div class="info-box">
+                <ul>
+                    <li><strong>Ulaşılabilirlik:</strong> Pek çok bilişim platformundan ulaşılır olmak, firmanın kendi veri ve işlem tabanlarına bağlantı.</li>
+                    <li>Geçmiş kayıtlara ve işlem süreçlerine bakılabilirlik.</li>
+                    <li>Metin, ses ve görüntülü etkileşim sağlar.</li>
+                    <li>İsteğe göre ölçeklenebilir (küçük veya büyük sistemler).</li>
+                    <li>Üniversal standart Web arayüzlerinin kullanımı kolaydır.</li>
+                    <li>Başlangıç maliyetleri düşüktür.</li>
+                    <li>Zengin ve etkileşimli bir bilişim ortamı sağlar.</li>
+                    <li>Enformasyonun dağıtım maliyetleri azaltılmıştır.</li>
+                </ul>
+                <p>İş web tabanlı olduğundan e-iş'e dönüşüyor.</p>
+            </div>
+        </div>
+
+        <!-- Section for Intranetlerin Fonksiyonel Uygulama Alanları -->
+        <div id="intranet-uygulamalari" class="section">
+            <h2>Intranetlerin Fonksiyonel Uygulama Alanları</h2>
+            <div class="info-box">
+                <p>Kurumsal Intranet, bir şirketin çeşitli departmanları arasında bilgi paylaşımını ve işlevselliği merkezileştirir. Başlıca uygulama alanları şunlardır:</p>
+                <h3>1. Finans ve Muhasebe</h3>
+                <ul>
+                    <li>Genel muhasebe raporlaması</li>
+                    <li>Proje maliyetlendirmesi</li>
+                    <li>Yıllık raporlar</li>
+                    <li>Bütçeleme</li>
+                </ul>
+                <h3>2. İnsan Kaynakları</h3>
+                <ul>
+                    <li>Kurumsal politikalar</li>
+                    <li>Çalışan tasarruf planları</li>
+                    <li>Yan haklar kaydı</li>
+                    <li>Online eğitim</li>
+                    <li>İş ilanları</li>
+                </ul>
+                <h3>3. Üretim ve İmalat (Manufacturing and Production)</h3>
+                <ul>
+                    <li>Kalite ölçümleri</li>
+                    <li>Bakım programları</li>
+                    <li>Tasarım özellikleri</li>
+                    <li>Makine çıktısı</li>
+                    <li>Sipariş takibi</li>
+                </ul>
+                <h3>4. Satış ve Pazarlama</h3>
+                <ul>
+                    <li>Rakip analizi</li>
+                    <li>Fiyat güncellemeleri</li>
+                    <li>Promosyon kampanyaları</li>
+                    <li>Satış sunumları</li>
+                    <li>Satış bağlantıları (kontakları)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section for İşbirliğine Dayalı Ticaret -->
+        <div id="isbirligine-dayali-ticaret" class="section">
+            <h2>İşbirliğine Dayalı Ticaret</h2>
+            <div class="info-box">
+                <p>Firma Ekstraneti, bir firmanın çeşitli iç ve dış paydaşlarla işbirliği yapmasını ve bilgi alışverişinde bulunmasını sağlar. Bu sistemin temel bileşenleri ve işlevleri şunlardır:</p>
+                <h3>1. Mühendisler (Engineers)</h3>
+                <ul>
+                    <li>Tasarım dokümanları (Design documents)</li>
+                </ul>
+                <h3>2. Tedarikçiler (Suppliers)</h3>
+                <ul>
+                    <li>İkmal (Replenishment)</li>
+                    <li>Fiyat çizelgeleri (Price schedules)</li>
+                </ul>
+                <h3>3. Müşteriler (Customers)</h3>
+                <ul>
+                    <li>Siparişler (Orders)</li>
+                    <li>Ürün değişiklik talepleri (Product modification requests)</li>
+                </ul>
+                <h3>4. Üretim (Manufacturing)</h3>
+                <ul>
+                    <li>Malzeme listeleri (Bills of material)</li>
+                    <li>Talep tahminleri (Demand forecasts)</li>
+                    <li>Sipariş durumu (Order status)</li>
+                </ul>
+                <h3>5. Satış ve Pazarlama (Sales and Marketing)</h3>
+                <ul>
+                    <li>Pazarlama koordinasyonu (Marketing coordination)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section for Karşılaştırma Tablosu -->
+        <div id="karsilastirma-tablosu" class="section">
+            <h2>İntranet Uygulama Alanları ve İşbirliğine Dayalı Ticaret Karşılaştırması</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Özellik</th>
+                        <th>Kurumsal İntranet (Fonksiyonel Uygulama Alanları)</th>
+                        <th>Firma Ekstraneti (İşbirliğine Dayalı Ticaret)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Temel Amaç</strong></td>
+                        <td>Şirket içi bilgi paylaşımı, iletişim ve departmanların fonksiyonel ihtiyaçlarının karşılanması.</td>
+                        <td>Firmanın iç departmanları ile dış paydaşları (tedarikçiler, müşteriler) arasında işbirliği ve veri alışverişi.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kullanıcılar</strong></td>
+                        <td>Öncelikle şirket çalışanları.</td>
+                        <td>Şirket çalışanları, mühendisler, tedarikçiler, müşteriler.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kapsam</strong></td>
+                        <td>Şirket içi.</td>
+                        <td>Şirket içi ve dışı (seçili dış paydaşlarla).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Odak Noktası</strong></td>
+                        <td>Departmanların iç operasyonları ve verimliliği. (Örn: Finans, İK, Üretim, Pazarlama).</td>
+                        <td>Tedarik zinciri optimizasyonu, ürün geliştirme süreçleri, müşteri ilişkileri yönetimi gibi işbirliğine dayalı süreçler.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bilgi/İşlev Türü (Örnekler)</strong></td>
+                        <td>Raporlama, politikalar, eğitim, bütçeleme, sipariş takibi (içsel).</td>
+                        <td>Tasarım dokümanları, ikmal bilgileri, fiyat çizelgeleri, siparişler, talep tahminleri, pazarlama koordinasyonu.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Teknoloji Platformu</strong></td>
+                        <td>Genellikle İntranet.</td>
+                        <td>Genellikle Ekstranet.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Etkileşim Yönü</strong></td>
+                        <td>Çoğunlukla içe dönük, departmanlar arası.</td>
+                        <td>Hem içe hem dışa dönük, firma ile paydaşları arası.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section for E-Ticaret Testi -->
+        <div id="quizEticaret" class="section">
+            <h2>E-Ticaret Testi</h2>
+            <div id="quizContainerEticaret" class="quiz-container">
+                <!-- Question will be loaded here by JavaScript -->
+            </div>
+            <div id="questionFeedbackEticaret" class="feedback" style="display:none; margin-bottom:15px;"></div>
+            <div class="quiz-navigation">
+                <button id="prevQuestionBtnEticaret" onclick="prevQuestion('Eticaret')">Önceki Soru</button>
+                <button id="nextQuestionBtnEticaret" onclick="nextQuestion('Eticaret')">Sonraki Soru</button>
+            </div>
+            <button id="submitQuizBtnEticaret" class="quiz-button submit" onclick="submitQuiz('Eticaret')" style="display:none; margin-top: 20px;">Testi Bitir ve Sonuçları Gör</button>
+            <div id="quizScoreEticaret" class="quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- Section for Matching Game: Genel Kavramlar -->
+        <div id="matchingGameGenelKavramlar" class="section">
+            <h2>Eşleştirme Oyunu: Genel E-Ticaret Kavramları</h2>
+            <div class="matching-game-container">
+                <!-- Game content will be loaded by JS -->
+            </div>
+            <button class="quiz-button matching-check-btn">Kontrol Et</button>
+            <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            <div class="matching-feedback"></div>
+            <div class="matching-score quiz-score"></div>
+        </div>
+
+        <!-- Section for Matching Game: İş Modelleri -->
+        <div id="matchingGameIsModelleri" class="section">
+            <h2>Eşleştirme Oyunu: E-Ticaret İş Modelleri ve Türleri</h2>
+            <div class="matching-game-container">
+                <!-- Game content will be loaded by JS -->
+            </div>
+            <button class="quiz-button matching-check-btn">Kontrol Et</button>
+            <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            <div class="matching-feedback"></div>
+            <div class="matching-score quiz-score"></div>
+        </div>
+
+        <!-- Section for Matching Game: Altyapı ve Nitelikler -->
+        <div id="matchingGameAltyapiNitelik" class="section">
+            <h2>Eşleştirme Oyunu: E-Ticaret Altyapı ve Temel Nitelikler</h2>
+            <div class="matching-game-container">
+                <!-- Game content will be loaded by JS -->
+            </div>
+            <button class="quiz-button matching-check-btn">Kontrol Et</button>
+            <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            <div class="matching-feedback"></div>
+            <div class="matching-score quiz-score"></div>
+        </div>
+
+        <!-- Section for Fill in the Blanks: Bölüm 1 -->
+        <div id="fillBlanksBolum1" class="section">
+            <h2>Boşluk Doldurma: İnternet Teknolojisi ve İnternet İş Modelleri</h2>
+            <div class="fill-blanks-container">
+                <!-- Questions will be loaded here by JavaScript -->
+            </div>
+            <div class="fill-blanks-controls">
+                <button class="quiz-button matching-check-btn">Cevapları Kontrol Et</button>
+                <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            </div>
+            <div class="fill-blanks-score quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- Section for Fill in the Blanks: Bölüm 3 -->
+        <div id="fillBlanksBolum3" class="section">
+            <h2>Boşluk Doldurma: E-Ticaret ve Türleri</h2>
+            <div class="fill-blanks-container">
+                <!-- Questions will be loaded here by JavaScript -->
+            </div>
+            <div class="fill-blanks-controls">
+                <button class="quiz-button matching-check-btn">Cevapları Kontrol Et</button>
+                <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            </div>
+            <div class="fill-blanks-score quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- Section for Fill in the Blanks: Bölüm 4 -->
+        <div id="fillBlanksBolum4" class="section">
+            <h2>Boşluk Doldurma: E-Ticaret'in 7 Temel Niteliği</h2>
+            <div class="fill-blanks-container">
+                <!-- Questions will be loaded here by JavaScript -->
+            </div>
+            <div class="fill-blanks-controls">
+                <button class="quiz-button matching-check-btn">Cevapları Kontrol Et</button>
+                <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            </div>
+            <div class="fill-blanks-score quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- Section for Fill in the Blanks: Bölüm 5 -->
+        <div id="fillBlanksBolum5" class="section">
+            <h2>Boşluk Doldurma: Elektronik Ticaret Ödeme Sistemleri</h2>
+            <div class="fill-blanks-container">
+                <!-- Questions will be loaded here by JavaScript -->
+            </div>
+            <div class="fill-blanks-controls">
+                <button class="quiz-button matching-check-btn">Cevapları Kontrol Et</button>
+                <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            </div>
+            <div class="fill-blanks-score quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- Section for Fill in the Blanks: Bölüm 6 -->
+        <div id="fillBlanksBolum6" class="section">
+            <h2>Boşluk Doldurma: Intranetler, Extranetler ve E-İş</h2>
+            <div class="fill-blanks-container">
+                <!-- Questions will be loaded here by JavaScript -->
+            </div>
+            <div class="fill-blanks-controls">
+                <button class="quiz-button matching-check-btn">Cevapları Kontrol Et</button>
+                <button class="quiz-button matching-restart-btn">Yeniden Başla</button>
+            </div>
+            <div class="fill-blanks-score quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 E-Ticaret ve E-İş Notları. Tüm hakları Metin'e aittir...</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+
+            // Deactivate all buttons
+            var buttons = document.querySelectorAll('.category-buttons button');
+            buttons.forEach(function(button) {
+                button.classList.remove('active');
+            });
+
+            // Show the selected section
+            var activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+                 // Initialize quiz or matching game if the section requires it
+                if (sectionId === 'quizEticaret') {
+                    initQuiz('Eticaret');
+                } else if (sectionId === 'matchingGameGenelKavramlar') {
+                    initMatchingGame('genelKavramlar');
+                } else if (sectionId === 'matchingGameIsModelleri') {
+                    initMatchingGame('isModelleri');
+                } else if (sectionId === 'matchingGameAltyapiNitelik') {
+                    initMatchingGame('altyapiNitelik');
+                } else if (sectionId === 'fillBlanksBolum1') {
+                    initFillInTheBlanks('bolum1_internetTeknolojisiVeIsModelleri', 'fillBlanksBolum1');
+                } else if (sectionId === 'fillBlanksBolum3') {
+                    initFillInTheBlanks('bolum3_eTicaretVeTurleri', 'fillBlanksBolum3');
+                } else if (sectionId === 'fillBlanksBolum4') {
+                    initFillInTheBlanks('bolum4_eTicaretin7TemelNiteligi', 'fillBlanksBolum4');
+                } else if (sectionId === 'fillBlanksBolum5') {
+                    initFillInTheBlanks('bolum5_elektronikTicaretOdemeSistemleri', 'fillBlanksBolum5');
+                } else if (sectionId === 'fillBlanksBolum6') {
+                    initFillInTheBlanks('bolum6_intranetlerExtranetlerVeEIs', 'fillBlanksBolum6');
+                }
+            }
+
+            // Activate the clicked button
+            var activeButton = document.querySelector('.category-buttons button[onclick="showSection(\'' + sectionId + '\')"]');
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+            window.scrollTo(0, 0); // Scroll to top for better UX
+        }
+
+        // Optional: Show the first section by default or a specific one
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('internet-teknolojisi'); 
+        });
+
+        // --- Quiz Data and Functions ---
+        const allQuizData = {
+            'Eticaret': {
+                questions: [
+                    { question: "Normal web siteleri ile e-ticaret sitelerini birbirlerinden ayıran farklar konusunda aşağıdakilerden hangisi doğrudur?", options: ["E-ticaret siteleri e-ödeme sistemlerine sahiptir.", "E-ticaret sitelerini barındıran sunucular yüksek bant genişliğine sahip olmalıdır.", "E-Ticarete kullanılan serverlar daha yüksek donanım gücüne sahiptir.", "Hepsi", "Güvenlik e-ticaret sitelerinde çok yüksektir."], answer: "E-ticaret siteleri e-ödeme sistemlerine sahiptir." },
+                    { question: "E-ticarette en çok tercih edilen 2 (iki) ödeme sistemi aşağıdakilerden hangisinde doğru olarak belirtilmiştir?", options: ["Kredi kartı, Dijital cüzdan", "Dijital cüzdan, Elektronik çek", "Elektronik çek, Dijital para", "Hiçbiri", "Kredi kartı, EFT - Havale"], answer: "Kredi kartı, EFT - Havale" },
+                    { question: "Aşağıdakilerden hangisi, internet teknolojisinin BT altyapısı açısından sağladığı temel özelliklerden biri **değildir**?", options: ["Merkeziyetli bir yapı sunması", "Tüm örgütler tarafından kullanılabilmesi", "Kolay ve her yerde geçerli teknolojiler sunması", "Teknoloji standartlarını temin etmesi", "Küresel olarak erişilebilir olması"], answer: "Merkeziyetli bir yapı sunması" },
+                    { question: "\"Taraflardan birinin diğerinden daha fazla bilgiye sahip olması\" durumu aşağıdaki kavramlardan hangisiyle ifade edilir?", options: ["Enformasyon zenginliği", "Bilgi yoğunluğu", "Bilgi asimetrisi", "Ulaşılabilirlik", "Etkinlik"], answer: "Bilgi asimetrisi" },
+                    { question: "Bir örgütün kendisini nasıl tanımladığını, bir ürün veya hizmeti nasıl sunacağını ve nasıl para kazanacağını gösteren yapıya ne ad verilir?", options: ["BT Altyapısı", "İş Modeli", "E-Ticaret Türü", "Enformasyon Ekonomisi", "Sosyal Medya Stratejisi"], answer: "İş Modeli" },
+                    { question: "Kullanıcıların sanal platformlarda ücretsiz bir sosyal ağ servisini kullanmaları ve bu kullanıcılara hedefli reklam gösterimiyle gelir elde edilen iş modeli aşağıdakilerden hangisidir?", options: ["Abonelik Modeli", "Satış Ortaklığı Modeli", "İnternet Reklam Modeli", "Sosyal Medya Modeli", "Tüketiciden İşletmeye Modeli"], answer: "Sosyal Medya Modeli" },
+                    { question: "Bir firmanın ürünlerini kendi web sitesi veya ağı üzerinden tanıtarak yapılan her satıştan komisyon alma esasına dayanan iş modeli hangisidir?", options: ["Abonelik Modeli", "Sosyal Medya Modeli", "Satış Ortaklığı Modeli", "C2C Modeli", "B2B Modeli"], answer: "Satış Ortaklığı Modeli" },
+                    { question: "Netflix gibi platformların, aylık veya yıllık belirli bir ücret karşılığında ürün veya hizmetlere erişim sunduğu iş modeli aşağıdakilerden hangisidir?", options: ["Satış Ortaklığı Modeli", "İnternet Reklam Modeli", "Abonelik Modeli", "Sosyal Medya Modeli", "Elektronik Nakit Modeli"], answer: "Abonelik Modeli" },
+                    { question: "E-ticaret işlemlerinin en fazla hangi türde gerçekleştiği belirtilmektedir?", options: ["İşletmeden İşletmeye (B2B)", "Tüketiciden Tüketiciye (C2C)", "İşletmeden Tüketiciye (B2C)", "Tüketiciden İşletmeye (C2B)", "Devletten İşletmeye (G2B)"], answer: "İşletmeden Tüketiciye (B2C)" },
+                    { question: "Klasik medya yayın modelinin internet üzerinden dönüşüme uğramış hali olup, web sitelerinin kullanıcılara ücretsiz içerik sunarken hedefli reklamlarla gelir elde ettiği model hangisidir?", options: ["Abonelik Modeli", "Sosyal Medya Modeli", "İnternet Reklam Modeli", "Satış Ortaklığı Modeli", "Dijital Cüzdan Modeli"], answer: "İnternet Reklam Modeli" },
+                    { question: "Endüstriyel pazarlarda üretim mallarının işletmeler arasında alınıp satıldığı e-ticaret türü aşağıdakilerden hangisidir?", options: ["İşletmeden Tüketiciye (B2C)", "Tüketiciden Tüketiciye (C2C)", "Tüketiciden İşletmeye (C2B)", "İşletmeden İşletmeye (B2B)", "İşletmeden Devlete (B2G)"], answer: "İşletmeden İşletmeye (B2B)" },
+                    { question: "Bir işletmenin ürettiği ürün veya hizmetleri aracıları atlayarak doğrudan son tüketiciye sattığı iş modeli hangisidir?", options: ["B2B", "C2C", "B2C", "C2B", "G2C"], answer: "B2C" },
+                    { question: "Freelance platformlarında bireylerin kendi becerilerini listeleyerek şirketlerden proje almaları veya yaptıkları projeleri satmaları hangi e-ticaret türüne örnektir?", options: ["İşletmeden İşletmeye (B2B)", "İşletmeden Tüketiciye (B2C)", "Tüketiciden Tüketiciye (C2C)", "Tüketiciden İşletmeye (C2B)", "Devletten Tüketiciye (G2C)"], answer: "Tüketiciden İşletmeye (C2B)" },
+                    { question: "Bireylerin sahip oldukları ikinci el eşyaları veya el işi ürünleri başka bireylere, bir işletme aracılığı olmadan satabildiği e-ticaret türü hangisidir?", options: ["B2B", "B2C", "C2C", "C2B", "B2G"], answer: "C2C" },
+                    { question: "E-ticaretin, internet bağlantısının olduğu her yerden alışveriş yapabilme imkanı sunması, yani pazar yerinin her an her yerde olması hangi temel niteliğini ifade eder?", options: ["Küresel Pazarlara Erişim", "Evrensel Standartlar", "Her Yerde Bulunma (Ubiquity)", "Bilgi Zenginliği", "Etkileşim"], answer: "Her Yerde Bulunma (Ubiquity)" },
+                    { question: "E-ticaret sayesinde ürünlerin dünyanın her köşesine ulaştırılabilmesi ve fiziksel mağaza sınırlamalarının ortadan kalkması hangi temel nitelikle ilgilidir?", options: ["Her Yerde Bulunma", "Küresel Pazarlara Erişim", "Evrensel Standartlar", "Bilgi Yoğunluğu", "Kişiselleştirme"], answer: "Küresel Pazarlara Erişim" },
+                    { question: "İnternetin teknik standartlarının (TCP/IP, HTML vb.) tüm dünyada aynı olması ve farklı bilgisayar sistemlerinin birbirleriyle konuşabilmesini sağlayan e-ticaret niteliği hangisidir?", options: ["Bilgi Zenginliği", "Etkileşim", "Evrensel Standartlar", "Bilgi Yoğunluğu", "Her Yerde Bulunma"], answer: "Evrensel Standartlar" },
+                    { question: "E-ticaretin, işletmelerin müşterilerden topladığı verilerle onların ihtiyaç ve tercihlerine özel ürün önerileri veya indirimler sunması hangi temel niteliğe örnektir?", options: ["Küresel Pazarlara Erişim", "Bilgi Yoğunluğu", "Etkileşim", "Kişiselleştirme/Uyarlama", "Evrensel Standartlar"], answer: "Kişiselleştirme/Uyarlama" },
+                    { question: "Aşağıdakilerden hangisi kurumsal bir intranetin İnsan Kaynakları departmanı için sunduğu fonksiyonel uygulama alanlarından biri **değildir**?", options: ["Kurumsal politikaların yayınlanması", "Çalışan tasarruf planları hakkında bilgi", "Rakip analizi raporları", "Online eğitim modülleri", "İş ilanlarının duyurulması"], answer: "Rakip analizi raporları" },
+                    { question: "Bir firmanın tedarikçileri ile ikmal bilgilerini ve fiyat çizelgelerini paylaştığı, müşterilerinden sipariş ve ürün değişiklik talepleri aldığı sistem aşağıdakilerden hangisidir?", options: ["Kurumsal İntranet", "Sosyal Medya Platformu", "Firma Ekstraneti (İşbirliğine Dayalı Ticaret)", "Genel Web Sitesi", "E-posta Sunucusu"], answer: "Firma Ekstraneti (İşbirliğine Dayalı Ticaret)" },
+                    { question: "Kurumsal intranet ile firma ekstranetinin temel farkı aşağıdakilerden hangisinde doğru ifade edilmiştir?", options: ["İntranet yalnızca finans departmanı tarafından kullanılırken, ekstranet tüm departmanlarca kullanılır.", "İntranet şirket içi bilgi paylaşımına odaklanırken, ekstranet firmanın dış paydaşlarla (tedarikçi, müşteri) işbirliğine odaklanır.", "İntranetler ücretli, ekstranetler ise ücretsiz platformlardır.", "Ekstranetler yalnızca metin tabanlı iletişim sağlarken, intranetler multimedya içeriği destekler.", "İntranetler küresel erişime sahipken, ekstranetler sadece yerel ağda çalışır."], answer: "İntranet şirket içi bilgi paylaşımına odaklanırken, ekstranet firmanın dış paydaşlarla (tedarikçi, müşteri) işbirliğine odaklanır." },
+                    { question: "E-ticaretin \"Bilgi Zenginliği\" niteliği ne anlama gelir?", options: ["Pazardaki tüm katılımcılar için bilginin miktarının ve kalitesinin artması.", "Satıcı ve müşteri arasında çift yönlü iletişim imkanı.", "Metin, ses, video gibi zengin içeriklerle çok sayıda kişiye ulaşabilme.", "İnternet bağlantısının olduğu her noktada potansiyel olarak var olma.", "Farklı bilgisayar sistemlerinin birbirleriyle konuşabilmesi."], answer: "Metin, ses, video gibi zengin içeriklerle çok sayıda kişiye ulaşabilme." }
+                ],
+                currentQuestionIndex: 0,
+                scores: { correct: 0, answered: [] }
+            }
+        };
+
+        function initQuiz(quizSetId) {
+            const quiz = allQuizData[quizSetId];
+            if (!quiz) {
+                console.error("Quiz set not found:", quizSetId);
+                return;
+            }
+            quiz.currentQuestionIndex = 0;
+            quiz.scores.correct = 0;
+            quiz.scores.answered = new Array(quiz.questions.length).fill(null);
+            
+            document.getElementById(`quizScore${quizSetId}`).innerHTML = '';
+            const submitButton = document.getElementById(`submitQuizBtn${quizSetId}`);
+            if (submitButton) submitButton.style.display = 'none';
+            const feedbackElement = document.getElementById(`questionFeedback${quizSetId}`);
+            if (feedbackElement) feedbackElement.style.display = 'none';
+            
+            displayQuestion(quiz.currentQuestionIndex, quizSetId);
+            updateQuizNavigation(quizSetId);
+        }
+
+        function displayQuestion(index, quizSetId) {
+            const quiz = allQuizData[quizSetId];
+            const qData = quiz.questions[index];
+            const quizContainer = document.getElementById(`quizContainer${quizSetId}`);
+            const qFeedback = document.getElementById(`questionFeedback${quizSetId}`);
+            
+            if (!quizContainer) return;
+            quizContainer.innerHTML = ''; 
+            if (qFeedback) qFeedback.style.display = 'none';
+
+            if (!qData) return;
+
+            const qDiv = document.createElement('div');
+            qDiv.className = 'quiz-question';
+
+            let optsHtml = qData.options.map((optText, i) => 
+                `<label><input type="radio" name="q${quizSetId}_${index}" value="${optText.replace(/"/g, '&quot;')}" data-option-index="${i}"> ${optText}</label>`
+            ).join('');
+
+            qDiv.innerHTML = `<p><strong>Soru ${index + 1}/${quiz.questions.length}:</strong> ${qData.question}</p><div class="quiz-options">${optsHtml}</div>`;
+            quizContainer.appendChild(qDiv);
+
+            const radioButtons = quizContainer.querySelectorAll(`input[name="q${quizSetId}_${index}"]`);
+            radioButtons.forEach(radio => {
+                if (quiz.scores.answered[index] !== null) { 
+                    if (quiz.scores.answered[index].selectedOptionValue === radio.value) {
+                        radio.checked = true;
+                    }
+                    const selectedLabel = Array.from(radioButtons).find(rb => rb.value === quiz.scores.answered[index].selectedOptionValue)?.parentElement;
+                    if (selectedLabel) {
+                        showAnswerFeedback(qData, quiz.scores.answered[index].selectedOptionValue, selectedLabel, quizSetId);
+                    }
+                    disableOptions(radioButtons); 
+                } else {
+                    radio.addEventListener('change', (event) => handleAnswerSelection(event, quizSetId));
+                }
+            });
+            const submitBtn = document.getElementById(`submitQuizBtn${quizSetId}`);
+            if (submitBtn) {
+                if (quiz.scores.answered.every(ans => ans !== null)) {
+                    submitBtn.style.display = 'block';
+                } else {
+                    submitBtn.style.display = 'none';
+                }
+            }
+        }
+
+        function handleAnswerSelection(event, quizSetId) {
+            const selectedRadio = event.target;
+            const quiz = allQuizData[quizSetId];
+            const questionIndex = quiz.currentQuestionIndex;
+            const qData = quiz.questions[questionIndex];
+            const selectedValue = selectedRadio.value;
+            const selectedLabel = selectedRadio.parentElement;
+
+            const isCorrect = selectedValue === qData.answer;
+            quiz.scores.answered[questionIndex] = { selectedOptionValue: selectedValue, isCorrect: isCorrect };
+            
+            showAnswerFeedback(qData, selectedValue, selectedLabel, quizSetId);
+            disableOptions(document.querySelectorAll(`input[name="q${quizSetId}_${questionIndex}"]`));
+
+            if (isCorrect) {
+                quiz.scores.correct = quiz.scores.answered.filter(a => a && a.isCorrect).length;
+            }
+            
+            const submitBtn = document.getElementById(`submitQuizBtn${quizSetId}`);
+            if (submitBtn && quiz.scores.answered.every(ans => ans !== null)) {
+                 submitBtn.style.display = 'block';
+            }
+        }
+        
+        function showAnswerFeedback(qData, selectedValue, selectedLabel, quizSetId) {
+            const qFeedback = document.getElementById(`questionFeedback${quizSetId}`);
+            if (!qFeedback) return;
+            const isCorrect = selectedValue === qData.answer;
+
+            const optionLabels = selectedLabel.parentElement.querySelectorAll('label');
+            optionLabels.forEach(label => {
+                label.classList.remove('correct-choice', 'incorrect-choice', 'correct-answer-highlight');
+            });
+
+            qFeedback.style.display = 'block';
+            if (isCorrect) {
+                qFeedback.textContent = `Doğru! 🎉`;
+                qFeedback.className = 'feedback correct';
+                selectedLabel.classList.add('correct-choice');
+            } else {
+                qFeedback.textContent = `Yanlış. Doğru cevap: ${qData.answer}`;
+                qFeedback.className = 'feedback incorrect';
+                selectedLabel.classList.add('incorrect-choice');
+                
+                const correctOptionLabel = Array.from(optionLabels).find(label => 
+                    label.querySelector('input') && label.querySelector('input').value === qData.answer
+                );
+                if (correctOptionLabel) correctOptionLabel.classList.add('correct-answer-highlight');
+            }
+        }
+
+        function disableOptions(radioButtons) {
+            radioButtons.forEach(rb => {
+                rb.disabled = true;
+                rb.parentElement.style.cursor = 'default'; 
+                rb.removeEventListener('change', (event) => handleAnswerSelection(event, 'Eticaret')); // Ensure correct quizSetId if generalized
+            });
+        }
+
+        function updateQuizNavigation(quizSetId) {
+            const quiz = allQuizData[quizSetId];
+            const prevBtn = document.getElementById(`prevQuestionBtn${quizSetId}`);
+            const nextBtn = document.getElementById(`nextQuestionBtn${quizSetId}`);
+            if(prevBtn) prevBtn.disabled = quiz.currentQuestionIndex === 0;
+            if(nextBtn) nextBtn.disabled = quiz.currentQuestionIndex === quiz.questions.length - 1;
+        }
+
+        function nextQuestion(quizSetId) {
+            const quiz = allQuizData[quizSetId];
+            if (quiz.currentQuestionIndex < quiz.questions.length - 1) {
+                quiz.currentQuestionIndex++;
+                displayQuestion(quiz.currentQuestionIndex, quizSetId);
+                updateQuizNavigation(quizSetId);
+            }
+        }
+
+        function prevQuestion(quizSetId) {
+            const quiz = allQuizData[quizSetId];
+            if (quiz.currentQuestionIndex > 0) {
+                quiz.currentQuestionIndex--;
+                displayQuestion(quiz.currentQuestionIndex, quizSetId);
+                updateQuizNavigation(quizSetId);
+            }
+        }
+
+        function submitQuiz(quizSetId) {
+            const quiz = allQuizData[quizSetId];
+            quiz.scores.correct = quiz.scores.answered.filter(a => a && a.isCorrect).length;
+
+            const scoreDiv = document.getElementById(`quizScore${quizSetId}`);
+            const qFeedback = document.getElementById(`questionFeedback${quizSetId}`);
+            
+            if(!scoreDiv || !qFeedback) return;
+
+            const allAttempted = quiz.scores.answered.every(ans => ans !== null);
+
+            scoreDiv.innerHTML = `<h3>Test Sonucu: ${quiz.scores.correct}/${quiz.questions.length} doğru.</h3>`;
+            
+            if (allAttempted) {
+                 qFeedback.textContent = quiz.scores.correct === quiz.questions.length ? "Mükemmel! Testteki tüm soruları doğru yanıtladınız!" : "Test tamamlandı. Sonuçlarınızı yukarıda görebilirsiniz.";
+            } else {
+                 qFeedback.textContent = "Test tamamlandı (bazı sorular cevaplanmadı). Sonuçlarınızı yukarıda görebilirsiniz.";
+            }
+            qFeedback.className = quiz.scores.correct === quiz.questions.length && allAttempted ? 'feedback correct' : 'feedback'; // Keep it simple, or specific based on correctness
+            qFeedback.style.display = 'block';
+            
+            const quizContainer = document.getElementById(`quizContainer${quizSetId}`);
+            if(quizContainer) quizContainer.innerHTML = `<p style='text-align:center;'>Testi yeniden başlatmak için İnteraktif Araçlar menüsünden ilgili teste yeniden tıklayınız.</p>`;
+            
+            const prevButton = document.getElementById(`prevQuestionBtn${quizSetId}`);
+            const nextButton = document.getElementById(`nextQuestionBtn${quizSetId}`);
+            const submitButton = document.getElementById(`submitQuizBtn${quizSetId}`);
+
+            if(prevButton) prevButton.style.display = 'none';
+            if(nextButton) nextButton.style.display = 'none';
+            if(submitButton) submitButton.style.display = 'none';
+        }
+
+        // --- Matching Game Data & Functions ---
+        const matchingGameData = {
+            'genelKavramlar': {
+                title: "Genel E-Ticaret Kavramları",
+                terms: [
+                    { id: "gk1", text: "E-Ticaret" },
+                    { id: "gk2", text: "İş Modeli" },
+                    { id: "gk3", text: "Bilgi Asimetrisi" },
+                    { id: "gk4", text: "Her Yerde Bulunma (Ubiquity)" },
+                    { id: "gk5", text: "Küresel Pazarlara Erişim" },
+                    { id: "gk6", text: "Evrensel Standartlar" },
+                    { id: "gk7", text: "Bilgi Zenginliği" },
+                    { id: "gk8", text: "Etkileşim" },
+                    { id: "gk9", text: "Bilgi Yoğunluğu" },
+                    { id: "gk10", text: "Kişiselleştirme/Uyarlama" }
+                ],
+                definitions: [
+                    { id: "gd1", text: "Çevrim içi/internet ortamında oluşan ticari işlemlerdir.", matches: "gk1" },
+                    { id: "gd2", text: "Örgütün nasıl para kazanacağını ve ürün/hizmet sunacağını tanımlar.", matches: "gk2" },
+                    { id: "gd3", text: "Taraflardan birinin diğerinden daha fazla bilgiye sahip olması durumu.", matches: "gk3" },
+                    { id: "gd4", text: "Pazar yerinin her an her yerde olması, fiziksel dükkan zorunluluğunun kalkması.", matches: "gk4" },
+                    { id: "gd5", text: "Ürünlerin dünyanın her köşesine ulaştırılabilmesi.", matches: "gk5" },
+                    { id: "gd6", text: "İnternetin teknik standartlarının (TCP/IP, HTML vb.) tüm dünyada aynı olması.", matches: "gk6" },
+                    { id: "gd7", text: "Metin, ses, video gibi zengin içeriklerle çok sayıda kişiye ulaşabilme.", matches: "gk7" },
+                    { id: "gd8", text: "Satıcı ve müşteri arasında çift yönlü iletişim imkânı.", matches: "gk8" },
+                    { id: "gd9", text: "Pazardaki tüm katılımcılar için var olan bilginin miktarının ve kalitesinin artması.", matches: "gk9" },
+                    { id: "gd10", text: "Müşteri verileriyle onların ihtiyaç ve tercihlerine özel çözümler sunma.", matches: "gk10" }
+                ]
+            },
+            'isModelleri': {
+                title: "E-Ticaret İş Modelleri ve Türleri",
+                terms: [
+                    { id: "im1", text: "Sosyal Medya Modeli" },
+                    { id: "im2", text: "Satış Ortaklığı Modeli" },
+                    { id: "im3", text: "Abonelik Modeli" },
+                    { id: "im4", text: "İnternet Reklam Modeli" },
+                    { id: "im5", text: "B2B (İşletmeden İşletmeye)" },
+                    { id: "im6", text: "B2C (İşletmeden Tüketiciye)" },
+                    { id: "im7", text: "C2B (Tüketiciden İşletmeye)" },
+                    { id: "im8", text: "C2C (Tüketiciden Tüketiciye)" }
+                ],
+                definitions: [
+                    { id: "id1", text: "Sanal platformlarda ücretsiz sosyal ağ kullanımı ve hedefli reklamlarla gelir.", matches: "im1" },
+                    { id: "id2", text: "Bir firmanın ürünlerini web sitenizde satarak satış başına komisyon alma.", matches: "im2" },
+                    { id: "id3", text: "Aylık/yıllık ücret karşılığı ürün/hizmetlere erişim (Örn: Netflix).", matches: "im3" },
+                    { id: "id4", text: "Web sitelerinin ücretsiz içerik sunup hedefli reklamlarla gelir elde etmesi (Örn: Google).", matches: "im4" },
+                    { id: "id5", text: "Endüstriyel pazarlarda üretim mallarının işletmeler arasında alınıp satılması.", matches: "im5" },
+                    { id: "id6", text: "İşletmenin ürün/hizmetlerini doğrudan son tüketiciye satması.", matches: "im6" },
+                    { id: "id7", text: "Bireylerin ürün/hizmetlerini işletmelere sunması (Örn: Freelance).", matches: "im7" },
+                    { id: "id8", text: "Tüketicilerin ürün/hizmetleri doğrudan başka tüketicilere satması.", matches: "im8" }
+                ]
+            },
+            'altyapiNitelik': {
+                title: "E-Ticaret Altyapı ve Temel Nitelikler",
+                terms: [
+                    { id: "an1", text: "Elektronik Ödeme Sistemleri" },
+                    { id: "an2", text: "Intranet" },
+                    { id: "an3", text: "Extranet" },
+                    { id: "an4", text: "BT Altyapısı (İnternet Tekn.)" },
+                    { id: "an5", text: "Değişen Enformasyon Ekonomileri" },
+                    { id: "an6", text: "Müşteriyle Doğrudan Temas" },
+                    { id: "an7", text: "Self-service" }
+                ],
+                definitions: [
+                    { id: "ad1", text: "E-ticaret sitelerinin para tahsilatı yapabilmesini sağlayan sistemler (Kredi kartı, EFT vb.).", matches: "an1" },
+                    { id: "ad2", text: "Şirket içi, sadece çalışanların erişebildiği özel ağ.", matches: "an2" },
+                    { id: "ad3", text: "Şirket intranetinin bir bölümünün yetkili dış kullanıcılara (iş ortakları, müşteriler) açıldığı özel ağ.", matches: "an3" },
+                    { id: "ad4", text: "Merkeziyetsiz, kolay ve her yerde geçerli teknolojiler sunan yapı.", matches: "an4" },
+                    { id: "ad5", text: "Bilgi asimetrisinin azalması, enformasyon zenginliğinin ve ulaşılabilirliğin artması.", matches: "an5" },
+                    { id: "ad6", text: "B2C modelinin bir avantajı olarak, işletmenin son kullanıcıyla doğrudan iletişim kurması.", matches: "an6" },
+                    { id: "ad7", text: "Web sitelerinin müşterinin bilgiye ulaşmasını ve sorularına yanıt bulmasını sağlaması (B2C Avantajı).", matches: "an7" }
+                ]
+            }
+        };
+
+        let draggedItem = null;
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function initMatchingGame(gameType) {
+            const gameData = matchingGameData[gameType];
+            if (!gameData) {
+                console.error("Matching game data not found for type:", gameType);
+                return;
+            }
+            let sectionIdPrefix = "matchingGame";
+            let sectionId = "";
+            if (gameType === 'genelKavramlar') sectionId = sectionIdPrefix + "GenelKavramlar";
+            else if (gameType === 'isModelleri') sectionId = sectionIdPrefix + "IsModelleri";
+            else if (gameType === 'altyapiNitelik') sectionId = sectionIdPrefix + "AltyapiNitelik";
+            else {
+                 console.error("Unknown game type for section ID generation:", gameType);
+                 return;
+            }
+
+            const gameSection = document.getElementById(sectionId);
+            if (!gameSection) {
+                console.error("Game section not found for ID:", sectionId);
+                return;
+            }
+
+            const container = gameSection.querySelector('.matching-game-container');
+            const feedbackEl = gameSection.querySelector('.matching-feedback');
+            const scoreEl = gameSection.querySelector('.matching-score');
+            const checkBtn = gameSection.querySelector('.matching-check-btn');
+            const restartBtn = gameSection.querySelector('.matching-restart-btn');
+            
+            if (!container || !feedbackEl || !scoreEl || !checkBtn || !restartBtn) {
+                console.error("One or more essential elements for matching game not found in section:", sectionId);
+                return;
+            }
+            
+            container.innerHTML = ''; 
+            feedbackEl.innerHTML = '';
+            feedbackEl.className = 'matching-feedback'; 
+            scoreEl.innerHTML = '';
+            checkBtn.disabled = false; 
+            checkBtn.textContent = 'Kontrol Et'; 
+
+            gameSection.querySelectorAll('.matching-item.placed').forEach(item => item.classList.remove('placed'));
+            gameSection.querySelectorAll('.matching-slot.filled').forEach(slot => slot.classList.remove('filled'));
+
+            const termsColumn = document.createElement('div');
+            termsColumn.className = 'matching-column terms-column';
+            termsColumn.innerHTML = '<h4>Kavramlar/Terimler</h4>';
+            
+            const definitionsColumn = document.createElement('div');
+            definitionsColumn.className = 'matching-column definitions-column';
+            definitionsColumn.innerHTML = '<h4>Açıklamalar/Tanımlar</h4>';
+
+            const shuffledTerms = shuffleArray([...gameData.terms]);
+            const shuffledDefinitions = shuffleArray([...gameData.definitions]);
+
+            shuffledTerms.forEach(term => {
+                const item = document.createElement('div');
+                item.id = term.id;
+                item.className = 'matching-item';
+                item.textContent = term.text;
+                item.draggable = true;
+                item.addEventListener('dragstart', dragStart);
+                termsColumn.appendChild(item);
+            });
+
+            shuffledDefinitions.forEach(def => {
+                const slot = document.createElement('div');
+                slot.className = 'matching-slot';
+                slot.dataset.matches = def.matches; 
+                slot.innerHTML = `<span>${def.text}</span>`; 
+                slot.addEventListener('dragover', dragOver);
+                slot.addEventListener('dragleave', dragLeave);
+                slot.addEventListener('drop', drop);
+                definitionsColumn.appendChild(slot);
+            });
+
+            container.appendChild(termsColumn);
+            container.appendChild(definitionsColumn);
+            
+            checkBtn.onclick = () => checkMatches(gameType, sectionId);
+            restartBtn.onclick = () => initMatchingGame(gameType);
+        }
+
+        function dragStart(e) {
+            draggedItem = e.target; 
+            e.dataTransfer.setData('text/plain', e.target.id);
+            setTimeout(() => e.target.classList.add('dragging'), 0);
+        }
+
+        function dragOver(e) {
+            e.preventDefault();
+            if (e.target.classList.contains('matching-slot') && !e.target.querySelector('.matching-item')) {
+                e.target.classList.add('over');
+            }
+        }
+
+        function dragLeave(e) {
+            if (e.target.classList.contains('matching-slot')) {
+                e.target.classList.remove('over');
+            }
+        }
+
+        function drop(e) {
+            e.preventDefault();
+            const slotTarget = e.target.closest('.matching-slot');
+             if (!draggedItem) return; // If no item is being dragged, do nothing.
+            const termsContainer = draggedItem.closest('.matching-game-container').querySelector('.terms-column');
+
+            const previousParent = draggedItem.parentElement;
+            if (previousParent.classList.contains('matching-slot')) {
+                previousParent.classList.remove('filled');
+                 previousParent.classList.remove('matched-correct', 'matched-incorrect'); // Clear result styling too
+            }
+            draggedItem.classList.remove('placed'); 
+
+            if (slotTarget) { 
+                const currentItemInSlot = slotTarget.querySelector('.matching-item');
+                if (draggedItem && !currentItemInSlot) { 
+                    slotTarget.appendChild(draggedItem);
+                    draggedItem.classList.add('placed');
+                    slotTarget.classList.add('filled');
+                } else if (draggedItem && currentItemInSlot && draggedItem !== currentItemInSlot) {
+                    termsContainer.appendChild(currentItemInSlot); 
+                    currentItemInSlot.classList.remove('placed'); 
+                    currentItemInSlot.draggable = true; // Make it draggable again
+                    
+                    slotTarget.appendChild(draggedItem); 
+                    draggedItem.classList.add('placed');
+                    slotTarget.classList.add('filled'); 
+                }
+                 slotTarget.classList.remove('over'); // Remove hover effect
+            } else if (e.target.closest('.terms-column') && draggedItem) { 
+                termsContainer.appendChild(draggedItem);
+            }
+            
+            if (draggedItem) {
+                 draggedItem.classList.remove('dragging');
+            }
+            
+            draggedItem = null; 
+        }
+
+        function checkMatches(gameType, sectionId) {
+            const gameSection = document.getElementById(sectionId);
+            const slots = gameSection.querySelectorAll('.matching-slot');
+            let correctMatches = 0;
+            let totalItems = matchingGameData[gameType].terms.length;
+
+            slots.forEach(slot => {
+                const placedItem = slot.querySelector('.matching-item');
+                slot.classList.remove('matched-correct', 'matched-incorrect'); 
+
+                if (placedItem) {
+                    if (placedItem.id === slot.dataset.matches) {
+                        correctMatches++;
+                        slot.classList.add('matched-correct');
+                    } else {
+                        slot.classList.add('matched-incorrect');
+                    }
+                    placedItem.draggable = false; 
+                }
+            });
+
+            const feedbackEl = gameSection.querySelector('.matching-feedback');
+            const scoreEl = gameSection.querySelector('.matching-score');
+            const checkBtn = gameSection.querySelector('.matching-check-btn');
+
+            if (correctMatches === totalItems && totalItems > 0) {
+                feedbackEl.textContent = `Harika! Tümünü doğru eşleştirdiniz: ${correctMatches} / ${totalItems}`;
+                feedbackEl.className = 'matching-feedback correct';
+            } else if (totalItems > 0) {
+                feedbackEl.textContent = `Sonuç: ${correctMatches} / ${totalItems} doğru eşleşme.`;
+                feedbackEl.className = 'matching-feedback incorrect';
+            } else {
+                feedbackEl.textContent = "Eşleştirilecek öğe yok.";
+                feedbackEl.className = 'matching-feedback';
+            }
+            scoreEl.innerHTML = `<h3>Skor: ${correctMatches}/${totalItems}</h3>`;
+            
+            checkBtn.disabled = true;
+            checkBtn.textContent = 'Kontrol Edildi';
+        }
+
+        // --- Fill in the Blanks Data & Functions ---
+        const fillInTheBlanksData = {
+            'bolum1_internetTeknolojisiVeIsModelleri': [
+                { sentenceParts: ["İnternetin, tüm örgütler tarafından kullanılabilen, ", ", kolay ve her yerde geçerli olan teknolojileri ve teknoloji standartlarını temin ettiği belirtilir."], answer: "merkeziyetsiz", alternatives: [], placeholder: "1 kelime" },
+                { sentenceParts: ["Örgütü tanımlayan, örgütün bir ürün ve hizmeti nasıl sunacağını ve nasıl para kazanacağını gösteren yapıya ", " denir."], answer: "iş modeli", alternatives: ["İş modeli", "İş Modeli"], placeholder: "1-2 kelime" },
+                { sentenceParts: ["Taraflardan birinin diğerinden daha fazla bilgiye sahip olması durumuna ", " denir."], answer: "bilgi asimetrisi", alternatives: ["enformasyon asimetrisi"], placeholder: "2 kelime" },
+                { sentenceParts: ["İnternetin, enformasyonun derinliğini, kapsamını ve ayrıntılarını artırmasına ", " denir."], answer: "enformasyon zenginliği", alternatives: [], placeholder: "2 kelime" },
+                { sentenceParts: ["İnsanların veya işletmelerin belli bir amaç doğrultusunda bir araya geldiği sanal platformlar üzerinden ücretsiz bir sosyal ağ servisini kullanmaları ve bu kullanıcılara hedefli reklam gösterimiyle para kazanılan modele ", " denir."], answer: "sosyal medya modeli", alternatives: ["sosyal medya"], placeholder: "2-3 kelime" },
+                { sentenceParts: ["Bir firmanın ürünlerini kendi web sitesi veya ağı üzerinden satış yapma ve satış başına belli bir komisyon alma modeline ", " denir."], answer: "satış ortaklığı modeli", alternatives: ["satış ortaklığı", "affiliate model"], placeholder: "2-3 kelime" },
+                { sentenceParts: ["Aylık veya yıllık belli bir ücret karşılığı ürün veya hizmetlere erişim imkânı sunan iş modeline ", " denir."], answer: "abonelik modeli", alternatives: ["abonelik"], placeholder: "1-2 kelime" },
+                { sentenceParts: ["Klasik medya yayın modelinin internet üzerinden dönüşüme uğramış hali olup, web sitelerinin kullanıcılara ücretsiz içerik sunarken hedefli reklamlarla gelir elde ettiği modele ", " denir."], answer: "internet reklam modeli", alternatives: ["internet reklam"], placeholder: "2-3 kelime" }
+            ],
+            'bolum3_eTicaretVeTurleri': [
+                { sentenceParts: ["B2B, B2C, C2C veya C2B şeklinde gerçekleşen, çevrim içi/internet ortamında oluşan ticari işlemlere genel olarak ", " denir."], answer: "e-ticaret", alternatives: ["E-Ticaret", "E-ticaret"], placeholder: "1 kelime" },
+                { sentenceParts: ["Endüstriyel pazarlarda üretim mallarının işletmeler arasında alınıp satıldığı e-ticaret türüne ", " denir."], answer: "b2b", alternatives: ["İşletmeden İşletmeye (B2B)", "işletmeden işletmeye"], placeholder: "B2B / 2-3 kelime" },
+                { sentenceParts: ["Bir işletmenin ürettiği ürün veya hizmetleri doğrudan son tüketiciye sattığı iş modeline ", " denir."], answer: "b2c", alternatives: ["İşletmeden Tüketiciye (B2C)", "işletmeden tüketiciye"], placeholder: "B2C / 2-3 kelime" },
+                { sentenceParts: ["Web sitelerinin müşterinin bilgiye ulaşması ve sorularına yanıt bulmasını sağlamak amacıyla kullanılmasına B2C avantajları kapsamında ", " denir."], answer: "self-service", alternatives: ["self service", "self-servis", "self servis"], placeholder: "1 kelime" },
+                { sentenceParts: ["Bireylerin, kendi ürettikleri ürün veya hizmetleri doğrudan işletmelere sunarak gelir elde ettiği e-ticaret türüne ", " denir."], answer: "c2b", alternatives: ["Tüketiciden İşletmeye (C2B)", "tüketiciden işletmeye"], placeholder: "C2B / 2-3 kelime" },
+                { sentenceParts: ["Bir ürün veya hizmetin bir işletme aracılığı olmadan doğrudan bir tüketiciden diğer tüketiciye satıldığı e-ticaret türüne ", " denir."], answer: "c2c", alternatives: ["Tüketiciden Tüketiciye (C2C)", "tüketiciden tüketiciye"], placeholder: "C2C / 2-3 kelime" }
+            ],
+            'bolum4_eTicaretin7TemelNiteligi': [
+                { sentenceParts: ["E-ticaretin, fiziksel bir dükkana gitmek yerine her an her yerden alışveriş yapabilme imkânı sunan niteliğine ", " denir."], answer: "her yerde bulunma", alternatives: [], placeholder: "3 kelime" },
+                { sentenceParts: ["E-ticaret sayesinde fiziksel mağaza sınırlamalarının ortadan kalkarak ürünlerin dünyanın her köşesine ulaştırılabilmesi niteliğine ", " denir."], answer: "küresel pazarlara erişim", alternatives: ["küresel erişim"], placeholder: "3 kelime" },
+                { sentenceParts: ["İnternetin teknik standartlarının (TCP/IP, HTML vb.) tüm dünyada aynı olması ve farklı bilgisayar sistemlerinin birbirleriyle konuşabilmesini sağlayan e-ticaret niteliğine ", " denir."], answer: "evrensel standartlar", alternatives: [], placeholder: "2 kelime" },
+                { sentenceParts: ["E-ticarette metin, ses, video gibi zengin içeriklerle çok sayıda kişiye ulaşabilme niteliğine ", " denir."], answer: "bilgi zenginliği", alternatives: [], placeholder: "2 kelime" },
+                { sentenceParts: ["E-ticarette satıcı ve müşteri arasında çift yönlü iletişim imkânı sunan niteliğe ", " denir."], answer: "etkileşim", alternatives: [], placeholder: "1 kelime" },
+                { sentenceParts: ["Pazardaki tüm katılımcılar için var olan bilginin miktarının ve kalitesinin artmasıyla ilgili e-ticaret niteliğine ", " denir."], answer: "bilgi yoğunluğu", alternatives: [], placeholder: "2 kelime" },
+                { sentenceParts: ["E-ticarette, işletmelerin müşterilerden topladığı verilerle onların ihtiyaç ve tercihlerine özel, kişiselleştirilmiş çözümler/ürünler sunmasına ", " denir."], answer: "kişiselleştirme/uyarlama", alternatives: ["kişiselleştirme", "uyarlama"], placeholder: "1-2 kelime" }
+            ],
+            'bolum5_elektronikTicaretOdemeSistemleri': [
+                { sentenceParts: ["Normal web sitelerinin para ödemeye dair bir sayfa içermezken, e-ticaret sitelerinin çeşitli teknolojik altyapılar kullanarak para tahsilatı yapabilmesini sağlayan sistemlere genel olarak ", " denir."], answer: "elektronik ticaret ödeme sistemleri", alternatives: ["e-ödeme sistemleri", "elektronik ödeme sistemleri", "e-ödeme", "e ödeme", "elektronik ödeme", "e-ticaret ödeme", "e ticaret ödeme"], placeholder: "2-4 kelime" },
+                { sentenceParts: ["Küçük ödemeler için kullanılan dijital paraya ", " denir."], answer: "elektronik nakit", alternatives: [], placeholder: "2 kelime" },
+                { sentenceParts: ["Kişilerin sitelere para gönderdiği ancak genellikle kredi kartının kullanılamadığı ödeme sistemine ", " denir."], answer: "kişiden kişiye ödeme", alternatives: [], placeholder: "3 kelime" },
+                { sentenceParts: ["Kredi kartı bilgilerini tutan yazılımlara dayalı ödeme sistemine ", " denir."], answer: "dijital cüzdan", alternatives: [], placeholder: "2 kelime" },
+                { sentenceParts: ["Kriptolu dijital imza içeren çeklere dayalı ödeme sistemine ", " denir."], answer: "elektronik çek", alternatives: ["e-çek", "e çek"], placeholder: "1-2 kelime" },
+                { sentenceParts: ["Bankalar arası veya banka içi fon aktarımını sağlayan ve \"elektronik hesap ödeme\" olarak da adlandırılan sisteme ", " denir."], answer: "elektronik fon transferi (eft)", alternatives: ["eft", "elektronik fon transferi"], placeholder: "EFT / 3 kelime" }
+            ],
+            'bolum6_intranetlerExtranetlerVeEIs': [
+                { sentenceParts: ["İş süreçlerinin web tabanlı teknolojilerle yürütülerek dijitalleşmesine genel olarak ", " denir."], answer: "e-iş", alternatives: ["E-İş", "elektronik iş"], placeholder: "1 kelime" },
+                { sentenceParts: ["Şirket içi bilgi paylaşımı ve departmanların fonksiyonel ihtiyaçları için kullanılan, genellikle sadece şirket çalışanlarının erişebildiği kapalı ağ sistemine ", " denir."], answer: "kurumsal intranet", alternatives: ["intranet", "İntranet"], placeholder: "1-2 kelime" },
+                { sentenceParts: ["Bir firmanın iç departmanları ile tedarikçiler, müşteriler gibi seçili dış paydaşları arasında işbirliği ve veri alışverişi için kullanılan ağ sistemine ", " denir."], answer: "firma ekstraneti", alternatives: ["ekstranet", "Ekstranet"], placeholder: "1-2 kelime" },
+                { sentenceParts: ["İntranet ve ekstranetlerin pek çok bilişim platformundan ulaşılır olması ve firmanın kendi veri ve işlem tabanlarına bağlantı kurabilmesi özelliğine ", " denir."], answer: "ulaşılabilirlik", alternatives: [], placeholder: "1 kelime" },
+                { sentenceParts: ["İntranet ve ekstranetlerin isteğe göre küçük veya büyük sistemler olarak kurulabilme özelliğine ", " denir."], answer: "ölçeklenebilirlik", alternatives: [], placeholder: "1 kelime" },
+                { sentenceParts: ["Kurumsal intranetlerin, ", " gibi departmanlar için genel muhasebe raporlaması, proje maliyetlendirmesi gibi işlevler sunduğu belirtilir."], answer: "finans ve muhasebe", alternatives: ["muhasebe ve finans"], placeholder: "2-3 kelime" },
+                { sentenceParts: ["Kurumsal intranetlerin, ", " gibi departmanlar için kurumsal politikalar, online eğitim ve iş ilanları gibi uygulamalar sunduğu belirtilir."], answer: "insan kaynakları", alternatives: ["İK"], placeholder: "1-2 kelime" },
+                { sentenceParts: ["Firma ekstranetlerinin, ", " gibi dış paydaşlarla tasarım dokümanlarının paylaşılmasına olanak tanıdığı belirtilir."], answer: "mühendisler", alternatives: ["teknik taraf", "tekniker"], placeholder: "1 kelime" },
+                { sentenceParts: ["Firma ekstranetlerinin, ", " gibi dış paydaşlarla ikmal ve fiyat çizelgeleri bilgilerinin paylaşılmasını sağladığı belirtilir."], answer: "tedarikçiler", alternatives: [], placeholder: "1 kelime" }
+            ]
+        };
+
+        function initFillInTheBlanks(categoryKey, sectionId) {
+            const gameData = fillInTheBlanksData[categoryKey];
+            const sectionElement = document.getElementById(sectionId);
+
+            if (!gameData || !sectionElement) {
+                console.error("Fill in the blanks data or section not found for:", categoryKey, sectionId);
+                return;
+            }
+
+            const container = sectionElement.querySelector('.fill-blanks-container');
+            const controls = sectionElement.querySelector('.fill-blanks-controls');
+            const scoreEl = sectionElement.querySelector('.fill-blanks-score');
+            const checkBtn = controls.querySelector('.matching-check-btn'); // Reusing class from matching game for style consistency
+            const restartBtn = controls.querySelector('.matching-restart-btn'); // Reusing class
+
+            container.innerHTML = ''; // Clear previous questions
+            scoreEl.innerHTML = '';
+            checkBtn.disabled = false;
+            checkBtn.textContent = 'Cevapları Kontrol Et';
+
+            gameData.forEach((q, index) => {
+                const qDiv = document.createElement('div');
+                qDiv.className = 'fill-blanks-question';
+                qDiv.dataset.questionIndex = index;
+
+                // Using a paragraph to hold sentence parts and input for better structure
+                const p = document.createElement('p');
+                
+                const part1 = document.createElement('span');
+                part1.className = 'sentence-part';
+                part1.textContent = q.sentenceParts[0];
+                p.appendChild(part1);
+
+                const inputElement = document.createElement('input');
+                inputElement.type = 'text';
+                inputElement.id = `blank_${categoryKey}_${index}`;
+                inputElement.placeholder = q.placeholder || '...';
+                inputElement.setAttribute('aria-label', `Soru ${index + 1} için boşluğu doldurun`);
+                p.appendChild(inputElement);
+
+                if (q.sentenceParts.length > 1 && q.sentenceParts[1]) {
+                    const part2 = document.createElement('span');
+                    part2.className = 'sentence-part';
+                    part2.textContent = q.sentenceParts[1];
+                    p.appendChild(part2);
+                }
+
+                const feedbackIcon = document.createElement('span');
+                feedbackIcon.className = 'feedback-icon';
+                feedbackIcon.id = `feedback_${categoryKey}_${index}`;
+                p.appendChild(feedbackIcon);
+                
+                qDiv.appendChild(p);
+                container.appendChild(qDiv);
+            });
+
+            checkBtn.onclick = () => checkFillInTheBlanks(categoryKey, sectionId);
+            restartBtn.onclick = () => initFillInTheBlanks(categoryKey, sectionId);
+        }
+
+        function checkFillInTheBlanks(categoryKey, sectionId) {
+            const gameData = fillInTheBlanksData[categoryKey];
+            const sectionElement = document.getElementById(sectionId);
+            const scoreEl = sectionElement.querySelector('.fill-blanks-score');
+            const checkBtn = sectionElement.querySelector('.fill-blanks-controls .matching-check-btn');
+            let correctAnswers = 0;
+
+            gameData.forEach((q, index) => {
+                const inputElement = document.getElementById(`blank_${categoryKey}_${index}`);
+                const feedbackIcon = document.getElementById(`feedback_${categoryKey}_${index}`);
+                // Clear previous correct answer text if any
+                const oldCorrectAnswerText = inputElement.parentNode.querySelector('.correct-answer-text');
+                if (oldCorrectAnswerText) {
+                    oldCorrectAnswerText.remove();
+                }
+
+                const userAnswer = inputElement.value.trim().toLowerCase();
+                const correctAnswer = q.answer.toLowerCase();
+                const alternativeAnswers = (q.alternatives || []).map(a => a.toLowerCase().trim());
+
+                feedbackIcon.textContent = '';
+                feedbackIcon.className = 'feedback-icon'; // Reset classes
+
+                if (userAnswer === correctAnswer || (alternativeAnswers.length > 0 && alternativeAnswers.includes(userAnswer))) {
+                    correctAnswers++;
+                    feedbackIcon.textContent = '✔'; // Correct icon
+                    feedbackIcon.classList.add('correct');
+                    inputElement.style.borderColor = '#27ae60';
+                } else {
+                    feedbackIcon.textContent = '✖'; // Incorrect icon
+                    feedbackIcon.classList.add('incorrect');
+                    inputElement.style.borderColor = '#c0392b';
+                    
+                    const correctAnswerSpan = document.createElement('span');
+                    correctAnswerSpan.className = 'correct-answer-text';
+                    correctAnswerSpan.textContent = `(Doğru: ${q.answer})`;
+                    feedbackIcon.parentNode.insertBefore(correctAnswerSpan, feedbackIcon.nextSibling);
+                }
+                inputElement.disabled = true; // Disable input after checking
+            });
+
+            scoreEl.innerHTML = `<h4>Skor: ${correctAnswers} / ${gameData.length}</h4>`;
+            checkBtn.disabled = true;
+            checkBtn.textContent = 'Kontrol Edildi';
+        }
+
+    </script>
+</body>
+</html> 
