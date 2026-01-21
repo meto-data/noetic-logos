@@ -10,6 +10,7 @@ export const sharedPageComponents: SharedLayout = {
         Component.Chat(),
         Component.Hamburger(), // Mobil menü
         Component.ThemeCanvas(), // Tema efektleri (Balina)
+        Component.MobileOnly(Component.ModuleBanner()), // Mobilde içerik sonunda banner
     ],
     footer: Component.Footer({
         links: {
@@ -26,7 +27,7 @@ export const defaultContentPageLayout: PageLayout = {
             condition: (page) => page.fileData.slug !== "index",
         }),
         Component.ArticleTitle(),
-        Component.ModuleBanner(),
+        Component.DesktopOnly(Component.ModuleBanner()),
         Component.PrerequisiteBanner(),
         Component.ContentMeta(),
         Component.TagList(),
@@ -53,7 +54,7 @@ export const defaultContentPageLayout: PageLayout = {
 
 // components for pages that display lists of pages (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
-    beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ModuleBanner(), Component.ContentMeta()],
+    beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.DesktopOnly(Component.ModuleBanner()), Component.ContentMeta()],
     left: [
         Component.PageTitle(),
         Component.MobileOnly(Component.Spacer()),
