@@ -59,6 +59,14 @@
         color: var(--muted);
     }
 
+    .module-banner-warning {
+        font-size: 0.75rem;
+        font-style: italic;
+        color: var(--muted);
+        opacity: 0.8;
+        margin-top: 0.25rem;
+    }
+
     .module-banner-button {
         display: inline-flex;
         align-items: center;

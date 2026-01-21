@@ -16,6 +16,7 @@ interface ModuleConfig {
     buttonText: string
     moduleUrl: string
     iconType: "oop" | "language" | "ybs" | "finance"
+    warningNote?: string
 }
 
 const MODULE_CONFIGS: ModuleConfig[] = [
@@ -31,7 +32,8 @@ const MODULE_CONFIGS: ModuleConfig[] = [
         title: "Türk Dili",
         buttonText: "Türk Dili Modülüne Git",
         moduleUrl: "static/logos-module/index.html",
-        iconType: "language"
+        iconType: "language",
+        warningNote: "(Yanlış cevaplardaki dönütler hoşunuza gitmeyebilir... Ancak eğlenceli olduğunu düşünüyorum :D)"
     },
     {
         slugPattern: "yonetim-bilisim-sistemleri|1-2-bahar/ybs|/ybs/|/ybs$|management-information-systems",
@@ -45,7 +47,8 @@ const MODULE_CONFIGS: ModuleConfig[] = [
         title: "Finansal Yönetim",
         buttonText: "Finans Modülüne Git",
         moduleUrl: "static/finance-module/index.html",
-        iconType: "finance"
+        iconType: "finance",
+        warningNote: "(Yanlış cevaplardaki dönütler hoşunuza gitmeyebilir... Ancak eğlenceli olduğunu düşünüyorum :D)"
     }
 ]
 
@@ -100,6 +103,9 @@ const ModuleBanner: QuartzComponent = ({ fileData, displayClass }: QuartzCompone
                 <div class="module-banner-text">
                     <span class="module-banner-title">{matchingModule.title}</span>
                     <span class="module-banner-subtitle">Test ve pratik modülü hazır!</span>
+                    {matchingModule.warningNote && (
+                        <span class="module-banner-warning">{matchingModule.warningNote}</span>
+                    )}
                 </div>
                 <a href="#" class="module-banner-button" data-module-link>
                     {matchingModule.buttonText}
