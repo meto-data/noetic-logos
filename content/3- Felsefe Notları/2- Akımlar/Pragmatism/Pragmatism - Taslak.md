@@ -1,2 +1,0 @@
-- Kabaca yapılan karşılaştırmaya göre rasyonalistler ziyade ilkelere göre hareket eden **[[idealist]]**, **[[iyimser]]**, dindar, özgür iradeci, **[[monist]]**, **[[entelektüalist]]** ve dogmatik olma eğilimindeyken ampiristler olgulara göre hareket eden materyalist, kötümser, kaderci, **[[pluralist]]**, **[[skeptik]]**, **[[duyumcu]]** ve dinsiz olma eğilimindeler. ([[William James - Pragmatizm.pdf#page=17&selection=13,0,34,7&color=yellow|Rasyonalist ve Ampirist]])
-
