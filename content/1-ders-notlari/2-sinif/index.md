@@ -1,4 +1,5 @@
 ---
 title: (2.) 2. Sınıf
+created: 2025-09-20
 ---
-İkinci sınıf ders notları. Henüz başlamadı tabii, düzenli olarak kullanacağım gibi burayı.
+İkinci sınıf ders notlarıdır.
