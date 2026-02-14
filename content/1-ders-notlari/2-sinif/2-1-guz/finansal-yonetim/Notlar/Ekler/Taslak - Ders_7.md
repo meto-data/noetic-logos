@@ -1,7 +1,7 @@
 ---
 title: Taslak_Ders_6
 type: ogrenis
-ders: "[[Notlar]]"
+ders: "[[Hapishanenin Doğuşu/Notlar]]"
 created: 2025-11-05
 HUB:
 cssclasses:

@@ -1,7 +1,7 @@
 ---
 title: f
 type: ogrenis
-ders: "[[Notlar]]"
+ders: "[[Hapishanenin Doğuşu/Notlar]]"
 created: 2025-10-22
 cssclasses:
   - ders-notu
