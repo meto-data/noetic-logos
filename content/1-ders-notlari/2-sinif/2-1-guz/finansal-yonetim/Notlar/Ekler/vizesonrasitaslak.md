@@ -1,7 +1,7 @@
 ---
 title: vizesonrasitaslak
 type: ogrenis
-ders: "[[Notlar]]"
+ders: "[[Hapishanenin Doğuşu/Notlar]]"
 created: 2025-11-26
 tags:
   - ders/notlar
