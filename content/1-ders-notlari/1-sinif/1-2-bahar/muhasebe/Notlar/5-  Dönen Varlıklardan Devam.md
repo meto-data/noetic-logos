@@ -1,5 +1,5 @@
 	
-> [!warning] Final
+> [!warning] Final (2025 tarihi)
 > Finalde KDV işlemleri gelecek. 
 > Stoklar (15) ve Ticarî Mallar (153) kısmı önemli.
 
@@ -83,21 +83,12 @@ Bu işlemdeki bilgiler:
 
 
 ## Başka bir olay olmadığını varsayarak, tüm işlemlerin ay sonu KDV mahsup kaydını yapınız.
-````col
-```col-md
-flexGrow=1
-===
+
 
 ![[18.04.2025-1.svg]]
 
-```
-```col-md
-flexGrow=1
-===
 
 ![[18.04.2025-2.svg]]
 
-```
-````
 
 ![[18.04.2025-mahsup.svg|800]]

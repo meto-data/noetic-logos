@@ -44,6 +44,8 @@
 	- **Örneğin:** Taşıtlar, binalar.
 ## [[Öz Kaynaklar (Equity)]]
 - Öz kaynaklar, bir işletmenin sahiplerinin veya hissedarlarının işletmeye yatırdığı toplam sermayedir.
+- Bkz. [[Öz Kaynaklar]], [[Öz Kaynaklar (Equity)]]
 ## [[Yabancı Kaynaklar (Borçlar)]]
 - Üçüncü kişilerin işletme varlıkları üzerindeki haklarını ifade eder.
+- Bkz. [[Yabancı Kaynaklar]], [[Kısa Vadeli Yabancı Kaynaklar]], [[Uzun Vadeli Yabancı Kaynaklar]]
 

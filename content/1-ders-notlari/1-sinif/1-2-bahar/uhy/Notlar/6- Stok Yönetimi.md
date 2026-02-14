@@ -9,8 +9,8 @@ Kavramlar: "```dataview\rLIST from outgoing([[7- Stok Yönetimi]])\r```"
 ---
 
 
-> [!cite] Bro...
->Her etkin olan verimli değildir, ammâ her verimlilik etkindir.
+> [!cite] Söz
+>Her etkin olan verimli değildir, ama her verimlilik etkindir.
 ---
 
 
@@ -86,5 +86,5 @@ Kavramlar: "```dataview\rLIST from outgoing([[7- Stok Yönetimi]])\r```"
 
 ## [[Stok Yönetiminin Önemi]]
 - **Temel Sorun:** [[Stok]], hem varlığıyla (depolama, eskime, finansman maliyeti) hem de yokluğuyla (satış/müşteri kaybı, üretim durması, itibar zedelenmesi) maliyet yaratan kritik bir unsurdur.
-- **Gereklilik Nedeni:** Stok tutmanın ana sebebi, ==talep miktarındaki ve tedarik (sipariş teslim) sürecindeki belirsizliklerdir==. Eğer bu iki faktör kesin olarak bilinebilseydi, stok tutmaya gerek kalmazdı.  
+- **Gereklilik Nedeni:** Stok tutmanın ana sebebi, talep miktarındaki ve tedarik (sipariş teslim) sürecindeki belirsizliklerdir. Eğer bu iki faktör kesin olarak bilinebilseydi, stok tutmaya gerek kalmazdı.  
 - **Amaç (Dengeleme):** Stok yönetiminin amacı, fazla stok tutma maliyetleri ile yetersiz stok bulundurma riskleri/maliyetleri arasında optimum bir denge kurmaktır!!! Ne aşırı stokla maliyetleri şişirmek ne de stoksuz kalarak fırsatları kaçırmak istenir.

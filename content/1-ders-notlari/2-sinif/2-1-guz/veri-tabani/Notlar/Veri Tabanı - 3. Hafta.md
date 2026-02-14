@@ -3,7 +3,6 @@ title: Veri Tabanı Yönetim Sistemleri - 3. Ders
 ---
 
 
-
  - Sınavda soru gelecek kesinlikle, diyagramların çizimine önem göstermek gerekiyor. [Draw](https://draw.io)
 
 ---

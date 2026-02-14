@@ -1,5 +1,6 @@
 ---
 title: Üretim ve Hizmetler Yönetimi
+created: 2025-09-20
 ---
 Bu ders slaytlar üzerinden ilerlemektedir. Genel olarak iyi ilerlese de öğrenciler tarafından matematiksel işlemlerin kullanıldığı konulara gelince iyi anlatamadığı söyleniliyor, o derslere katılmadığım için yorum yapamayacağım.
 
@@ -7,6 +8,4 @@ Sınavlar kolaydır, öğretmenin derste anlattığı bazı bilgiler slaytta olm
 
 Sınavların kolay olmasıysa pek iyi değildir, çalışanla çalışmayan arasındaki fark ortaya çıkmaz böylelikle. 3x çalışan ile x çalışan arasında hemen hemen hiç fark olmaz sınavlarda, o yüzden sınavları sevdiğimi söyleyemeyeceğim, aynısı Yönetim-Organizasyon dersi için de geçerli.
 
-Mizah yeteneği de iyidir, bazen zorlama şakalar yapar ama iyidir... Dijital ekonomi öğretmeninden sonra en iyi espriler yapan öğretmendir diyebilirim -bana göre-. Sonrasında Yönetim-Organizasyon hocası gelir (tier list yapalım bi ara).
-
-Burası biraz ciddiyetsiz üslupla geçti ama olsun artık, ara sıra bu yanım tutuyor. 
+Mizah yeteneği de iyidir, bazen zorlama şakalar yapar ama iyidir...
