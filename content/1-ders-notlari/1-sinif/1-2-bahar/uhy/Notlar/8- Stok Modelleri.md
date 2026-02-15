@@ -45,7 +45,11 @@ $$\large i$$
 $$\large H \space \text{(Holding Cost)}$$
 ### Üretim sipariş miktarı (birim)
 
-$$\large Q{*}$$
+
+$$
+\large Q*
+$$
+
 ---
 
 ## EPQ Hesaplamaları
