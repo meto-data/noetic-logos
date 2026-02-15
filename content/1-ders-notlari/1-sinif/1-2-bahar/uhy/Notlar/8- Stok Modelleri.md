@@ -82,7 +82,6 @@
 
 Bkz.  [[4-rasyolar_1#2.2. Stok Devir Hızı (Inventory Turnover)|Rasyolar: Stok Devir Hızı]]
 
-[[1- Klasik Yönetim#Teşvikli Ücret Sistemi (Parça Başı Ücret Sistemi)|Klasik Yönetim: Teşvikli Ücret Sistemi]]
 
 
 #### [[Ortalama Stokta Kalma Süresi]]
@@ -95,7 +94,7 @@ Bkz.  [[4-rasyolar_1#2.2. Stok Devir Hızı (Inventory Turnover)|Rasyolar: Stok 
 
 ### $$\boxed{\text{Ortalama Stokta Kalma Süresi = } \frac{360}{\text{Stok Devir Hızı}}}$$
 
-Bkz. [[4-rasyolar_1#2.2.0.2. **Ortalama Stokta Kalma Süresi** (Days in Inventory)|Rasyolar: Ortalama Stokta Kalma Süresi]]]
+Bkz. [[4-rasyolar_1#2.2.0.2. Ortalama Stokta Kalma Süresi (Days in Inventory)|Rasyolar: Ortalama Stokta Kalma Süresi]]]
 
 #### [[Stok Daralma Oranı]]
 - Kayıtlarda "100 tane var" yazan malı sayıyorsun, bir bakmışsın 90 tane. Aradaki 10 tane nereye gitti? İşte bu kayıp "**stok daralması**"dır.

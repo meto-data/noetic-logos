@@ -14,7 +14,7 @@ export const sharedPageComponents: SharedLayout = {
     ],
     footer: Component.Footer({
         links: {
-            Instagram: "https://www.instagram.com/metophysica",
+            Instagram: "https://www.instagram.com/meto.data",
         },
     }),
 }
