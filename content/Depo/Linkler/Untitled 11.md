@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 Sayın Önder Hocam,
 
 Ben Yönetim Bilişim Sistemleri 2. Sınıf öğrencisi Metin.
