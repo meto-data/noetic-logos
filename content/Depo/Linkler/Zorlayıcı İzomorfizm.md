@@ -1,0 +1,3 @@
+- Zorlayıcı izomorfizm, örgütlerin **dışsal baskılar** sonucunda benzer yapı ve süreçleri benimsemesidir.
+	- Dışsal baskılara hükümet düzenlemeleri, kanunsal zorunluluklar ve çok uluslu şirket standartları gibi örnekler verilebilir.
+		- Söz gelimi, kamu ihalelerine katılmak için TSE-ISO 9000 belgesi alma zorunluluğu Zorlayıcı İzomorfizme örnektir.
