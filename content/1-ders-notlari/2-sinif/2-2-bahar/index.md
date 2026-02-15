@@ -1,4 +1,5 @@
 ---
-title: (2.2) 2. Sınıf Bahar Dönemi
-slug: /1-ders-notlar-ybs-/2-snf/2-2-2-snf-bahar-donemi/
+title: 2. Sınıf Bahar Dönemi
+slug: 2-2-bahar
+created: 2025-09-20
 ---
