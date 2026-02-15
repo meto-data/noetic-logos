@@ -188,7 +188,7 @@ $$
 $$
 
 
-##### 2.2.0.1 **Ortalama Stok** (Average Inventory)
+##### 2.2.0.1 Ortalama Stok (Average Inventory)
 
 $$
 \large
@@ -196,7 +196,7 @@ $$
 \frac{\text{Dönem Başı Stoklar + Dönem Sonu Stoklar}}{2}}
 $$
 
-#### 2.2.0.2. **Ortalama Stokta Kalma Süresi** (Days in Inventory)
+#### 2.2.0.2. Ortalama Stokta Kalma Süresi (Days in Inventory)
 - Stok Devir Hızı (SDH) ile ilişkili olarak, 
 - "*Bir mal depoya girdiği andan satılana kadar ortalama kaç gün geçiyor?*" sorusunu yanıtlar.
 
