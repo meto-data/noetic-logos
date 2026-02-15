@@ -21,7 +21,7 @@
 4. Üretim durduktan sonra, mevcut stoklar sadece talep hızıyla (D) tüketilmeye devam eder.
 5. Stok seviyesi sıfıra (veya emniyet stoğuna) düştüğünde, yeni bir üretim partisine başlanır ve döngü tekrarlanır. EPQ modeli, bu döngüdeki "**ideal üretim miktarı Q**" değerini bulmaya odaklanır.
 
-#### Amacı ve Önemi
+### Amacı ve Önemi
 - **Maliyet Minimizasyonu:** Üretim hazırlık (setup) maliyetleri ile stokta bulundurma (elde tutma) maliyetleri arasında bir denge kurarak toplam maliyeti en aza indirmeyi hedefler.
 - **Üretim Planlama:** İşletmelere ne zaman ve ne kadar üretecekleri konusunda bir rehber sunar.
 - **Kaynak Verimliliği:** Gereksiz stok birikimi önleyerek depolama alanı ve sermaye gibi kaynakların daha verimli kullanılmasını sağlar.
@@ -31,75 +31,77 @@
 
 ## EPQ Modelinde Kullanılan Değişkenler
 
-#### Yıllık talep hızı (birim/yıl)
+### Yıllık talep hızı (birim/yıl)
 $$\large D \space \text{(Demand)}$$
-#### Yıllık üretim hızı (birim/yıl)
+### Yıllık üretim hızı (birim/yıl)
 $$\large P \space \text{(Production Rate)}$$
-#### Birim başına ürün maliyeti (TL/birim)
+### Birim başına ürün maliyeti (TL/birim)
 $$\large C \space \text{(Cost Per Unit)}$$
-#### Parti başına üretim hazırlık maliyeti (TL/parti)
+### Parti başına üretim hazırlık maliyeti (TL/parti)
 $$\large A \space \text{(Setup Cost)}$$
-#### Yıllık faiz oranı (%)
+### Yıllık faiz oranı (%)
 $$\large i$$
-#### Birim başına yıllık stokta bulundurma maliyeti (TL/birim-yıl)
+### Birim başına yıllık stokta bulundurma maliyeti (TL/birim-yıl)
 $$\large H \space \text{(Holding Cost)}$$
-#### Üretim sipariş miktarı (birim)
-$$\large Q$$
+### Üretim sipariş miktarı (birim)
+
+$$\large Q{*}$$
 ---
 
 ## EPQ Hesaplamaları
 
-#### Çevrim Süresi (T)
+### Çevrim Süresi (T)
 Bir üretim partisinin ($Q$) tamamının tüketilmesine kadar geçen toplam süre.
 
 $$\large T = \frac{Q}{D}$$
-#### Üretim Süresi (Birikme Devresi - $T_P$)
+### Üretim Süresi (Birikme Devresi - $T_P$)
 Bir üretim partisinin (Q) tamamının üretilmesi için geçen süre.
 
 $$\large T_{P} = \frac{Q}{P}$$
 
-#### Tüketim Süresi (Tüketim Devresi - $T_D$)
+### Tüketim Süresi (Tüketim Devresi - $T_D$)
 
 $$\large T_{D} = \frac{I_{enb}}{D}$$
 
-#### En Büyük Stok Düzeyi ($I_{enb}$)
+### En Büyük Stok Düzeyi ($I_{enb}$)
 
 Üretim periyodunun sonunda ulaşılan en yüksek stok miktarı.
 
 $$\large I_{enb} = Q \left( 1-\frac{D}{P} \right)$$
 
-#### Ortalama Stok Düzeyi ($I_{ort}$)
+### Ortalama Stok Düzeyi ($I_{ort}$)
 
 Bir çevrim boyunca ortalama olarak elde tutulan stok miktarı.
 
 $$\large I_{ort} = \left( \frac{Q}{2} \right)\left( 1-\frac{D}{P} \right) = \frac{I_{enb}}{2}$$
 
-#### Yıllık Üretim Sayısı
+### Yıllık Üretim Sayısı
 Yılda yapılması gereken üretim parti sayısı.
 
 $$\large \frac{D}{Q^*}$$
 
-#### Stokta Bulundurma Maliyeti (SBM)
+### Stokta Bulundurma Maliyeti (SBM)
 
 $$\large \text{SBM} = H \frac{Q}{2} \left( 1-\frac{D}{P} \right) = H \times I_{ort}$$
 
-#### Sipariş Verme Maliyeti (Yıllık Hazırlık Maliyeti - SVM)
+### Sipariş Verme Maliyeti (Yıllık Hazırlık Maliyeti - SVM)
 
 $$\large SVM = \frac{D}{Q}A$$
 
-#### Toplam Maliyet (TM)
+### Toplam Maliyet (TM)
 
 $$\large TM = DC + \frac{D}{Q}A + H \frac{Q}{2}\left( 1-\frac{D}{P} \right)$$
 
-#### Optimal Üretim Miktarı (Q*)
+### Optimal Üretim Miktarı (Q*)
 
-$$\large Q^* = \sqrt{\frac{2 \cdot D \cdot A}{H \cdot (1 - \frac{D}{P})}} = \sqrt{\frac{2 \cdot D \cdot A \cdot P}{H \cdot (P - D)}}$$
+
+$$\large Q^{*} = \sqrt{\frac{2 \cdot D \cdot A}{H \cdot (1 - \frac{D}{P})}} = \sqrt{\frac{2 \cdot D \cdot A \cdot P}{H \cdot (P - D)}}$$
 
 ---
 
 # Stok Yönetiminde Temel Performans Göstergeleri
 
-###### Temel Performans Göstergeleri
+#### Temel Performans Göstergeleri
 - Stok yönetiminni verimliliğini ölçmek amacıyla işletmelerin işlediği bazı göstergelerdir. Bu göstergeler performans konusunda görünürlük ve başarı düzeyini takip etmek için ölçüm değerleri sağlarlar.
 
 ### Stok Devir Hızı: Mal Ne Kadar Hızlı Kaçıyor?
