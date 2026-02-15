@@ -173,7 +173,7 @@ $$
 $$
 
 
-### 2.2. **Stok Devir Hızı** (Inventory Turnover)
+### 2.2. Stok Devir Hızı (Inventory Turnover)
 - Depodaki malı (stokları) ne kadar hızlı sattığımızdır. Stokların 1 yılda kaç yez yenilendiğini veya devir ettiğini gösterir.
 - **Kârlılığı göstermez! Sadece hızı ölçer!**
 - Üretim dersinde görmüştük aslında. Bkz. [[Stok Yönetiminde Temel Performans Göstergeleri]]
