@@ -1,6 +1,4 @@
-Anlaşıldı, metnin orijinal dokusuna ve anlatım diline (örneklemeler dahil) hiç dokunmadan, sadece belirttiğin teknik düzenlemeleri (Markdown formatı, `$$` kullanımı, `\large` boyutu ve `#*` çakışmalarının giderilmesi) uygulayarak baştan düzenledim.
 
----
 
 **Not**: Bu konudaki bazı formüller Finansal Yönetim dersinde de karşımıza çıkmakta. Dolayısıyla ilave bir önem verilmesi faydanıza olur. 
 
@@ -75,7 +73,9 @@ $$\large SVM = \frac{D}{Q}A$$
 #### Toplam Maliyet (TM)
 $$\large TM = DC + \frac{D}{Q}A + H \frac{Q}{2}\left( 1-\frac{D}{P} \right)$$
 #### Optimal Üretim Miktarı (Q*)
+
 $$\large Q^* = \sqrt{\frac{2 \cdot D \cdot A}{H \cdot (1 - \frac{D}{P})}} = \sqrt{\frac{2 \cdot D \cdot A \cdot P}{H \cdot (P - D)}}$$
+
 ---
 
 # Stok Yönetiminde Temel Performans Göstergeleri
