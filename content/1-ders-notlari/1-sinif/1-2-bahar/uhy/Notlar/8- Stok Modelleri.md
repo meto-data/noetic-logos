@@ -51,27 +51,46 @@ $$\large Q$$
 
 #### Çevrim Süresi (T)
 Bir üretim partisinin ($Q$) tamamının tüketilmesine kadar geçen toplam süre.
+
 $$\large T = \frac{Q}{D}$$
 #### Üretim Süresi (Birikme Devresi - $T_P$)
 Bir üretim partisinin (Q) tamamının üretilmesi için geçen süre.
+
 $$\large T_{P} = \frac{Q}{P}$$
+
 #### Tüketim Süresi (Tüketim Devresi - $T_D$)
+
 $$\large T_{D} = \frac{I_{enb}}{D}$$
+
 #### En Büyük Stok Düzeyi ($I_{enb}$)
+
 Üretim periyodunun sonunda ulaşılan en yüksek stok miktarı.
+
 $$\large I_{enb} = Q \left( 1-\frac{D}{P} \right)$$
+
 #### Ortalama Stok Düzeyi ($I_{ort}$)
+
 Bir çevrim boyunca ortalama olarak elde tutulan stok miktarı.
+
 $$\large I_{ort} = \left( \frac{Q}{2} \right)\left( 1-\frac{D}{P} \right) = \frac{I_{enb}}{2}$$
+
 #### Yıllık Üretim Sayısı
 Yılda yapılması gereken üretim parti sayısı.
+
 $$\large \frac{D}{Q^*}$$
+
 #### Stokta Bulundurma Maliyeti (SBM)
+
 $$\large \text{SBM} = H \frac{Q}{2} \left( 1-\frac{D}{P} \right) = H \times I_{ort}$$
+
 #### Sipariş Verme Maliyeti (Yıllık Hazırlık Maliyeti - SVM)
+
 $$\large SVM = \frac{D}{Q}A$$
+
 #### Toplam Maliyet (TM)
+
 $$\large TM = DC + \frac{D}{Q}A + H \frac{Q}{2}\left( 1-\frac{D}{P} \right)$$
+
 #### Optimal Üretim Miktarı (Q*)
 
 $$\large Q^* = \sqrt{\frac{2 \cdot D \cdot A}{H \cdot (1 - \frac{D}{P})}} = \sqrt{\frac{2 \cdot D \cdot A \cdot P}{H \cdot (P - D)}}$$
