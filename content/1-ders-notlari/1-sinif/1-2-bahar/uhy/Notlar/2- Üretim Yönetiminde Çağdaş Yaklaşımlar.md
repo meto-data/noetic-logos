@@ -14,6 +14,7 @@ Konu:
  - **Kalite, ancak rekabetin olduğu yerde olur.**
  - **Toplam kalite yönetimi**, işletmedeki herkesi kaliteyi iyileştirmek ve müşteri memnuniyetini sağlamak için sürekli bir çabaya dâhil eden bir felsefedir.
  - Temeli 1900'lerin başında **Taylor** tarafından atılan ve daha çok **fordist üretim sistemi** olarak anılan batı tarzı yönetim yaklaşımına dayanır.
+	 - Bkz. [[1- Klasik Yönetim#Bilimsel Yönetim Yaklaşımı|Klasik Yönetim: Bilimsel Yönetim Yaklaşımı]]
 
 ---
 ##### **[[TSE (Türk Standartları Enstitüsü)]]**
@@ -50,7 +51,7 @@ Konu:
 ### [[Tedarik Zinciri Yönetimi]]
 - Tedarik Zinciri Yönetimi, ürünlerin veya hizmetlerin tedarikçilerden son kullanıcıya kadar ulaşmasını sağlayan süreçlerin yönetimidir. 
 	- **[[Tedarik]]:** Edinme, sağlama, hazır etme, hazır bulundurma, araştırıp elde etme. 
-- Bkz. **[[Sistem Yaklaşımı]]**
+- Bkz. **[[3- Modern Yönetim Anlayışı#Sistem Yaklaşımı|Modern Yönetim: Sistem Yaklaşımı]]**
 ##### **Tedarik zinciri iki temel fikre dayanır:**,
 1. Ürün, zincirdeki tüm işletmelerin toplam çabasının sonucudur.
 2. İşletmeler genellikle sadece kendi süreçlerini görür, zincirin tamamını anlayamaz. Bu da verimsizliğe yol açar.
