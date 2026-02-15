@@ -1,5 +1,6 @@
 ---
 title: Ana Sayfa
+created: 2021-07-18
 ---
 # Noetic Logos
 
@@ -14,4 +15,4 @@ Bağlantılardan da anlaşılacağı üzere birçok ders ve birçok konu başka 
 Bu ikisini birleştirirsek kabaca düşünceyle ilgili söz de diyebiliriz, düşünceyle kavranılan *tanrısal akıl (logos)* da diyebiliriz, birçok çeşitli kombinasyon var. Fix olarak tek bir anlama zorlamıyoruz, *logos* kelimesin farklı anlamlarda kullanılabildiği gibi *noetic logos* da farklı anlamlarda kullanılabilir...
 
 ##### Sosyal Medya Hesaplarım
-- **Instagram**: [metophysica](https://www.instagram.com/metophysica)
+- **Instagram**: [meto.data](https://www.instagram.com/meto.data)

@@ -6,5 +6,6 @@ tags:
   - index
   - felsefe
 created: 2025-12-27
+draft: true
 ---
 Uzunca süre boş kalacak notlar.
