@@ -124,6 +124,8 @@ Bkz.  [[4-rasyolar_1#2.2. Stok Devir Hızı (Inventory Turnover)|Rasyolar: Stok 
 
 > [!cite] Alıntı
 > **Ortalama stokta kalma süresi,** bir öğenin stokta tutulduğu ortalama gün sayısını ölçen bir orandır.
+> <br>
+> 
 $$\large \boxed{\text{Ortalama Stokta Kalma Süresi = } \frac{360}{\text{Stok Devir Hızı}}}$$
 
 
