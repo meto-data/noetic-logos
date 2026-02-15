@@ -58,22 +58,22 @@ $$
 Bir üretim partisinin ($Q$) tamamının tüketilmesine kadar geçen toplam süre.
 
 $$\large T = \frac{Q}{D}$$
-### Üretim Süresi (Birikme Devresi - $T_P$)
+### Üretim Süresi (Birikme Devresi)
 Bir üretim partisinin (Q) tamamının üretilmesi için geçen süre.
 
 $$\large T_{P} = \frac{Q}{P}$$
 
-### Tüketim Süresi (Tüketim Devresi - $T_D$)
+### Tüketim Süresi (Tüketim Devresi )
 
 $$\large T_{D} = \frac{I_{enb}}{D}$$
 
-### En Büyük Stok Düzeyi ($I_{enb}$)
+### En Büyük Stok Düzeyi
 
 Üretim periyodunun sonunda ulaşılan en yüksek stok miktarı.
 
 $$\large I_{enb} = Q \left( 1-\frac{D}{P} \right)$$
 
-### Ortalama Stok Düzeyi ($I_{ort}$)
+### Ortalama Stok Düzeyi
 
 Bir çevrim boyunca ortalama olarak elde tutulan stok miktarı.
 
@@ -125,6 +125,8 @@ Bkz.  [[4-rasyolar_1#2.2. Stok Devir Hızı (Inventory Turnover)|Rasyolar: Stok 
 > [!cite] Alıntı
 > **Ortalama stokta kalma süresi,** bir öğenin stokta tutulduğu ortalama gün sayısını ölçen bir orandır.
 $$\large \boxed{\text{Ortalama Stokta Kalma Süresi = } \frac{360}{\text{Stok Devir Hızı}}}$$
+
+
 Bkz. [[4-rasyolar_1#2.2.0.2. Ortalama Stokta Kalma Süresi (Days in Inventory)|Rasyolar: Ortalama Stokta Kalma Süresi]]
 
 ### Stok Daralma Oranı
