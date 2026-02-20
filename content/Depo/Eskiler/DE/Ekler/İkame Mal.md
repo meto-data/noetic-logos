@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Bir malın yerine kullanılabilen, benzer ihtiyaçları karşılayan mal.
 
 - A ve B mallarını düşleyelim. A malının fiyatı artarsa, B malının talebi artacaktır ancak arzı düşecektir. Bunun sebebi şudur:

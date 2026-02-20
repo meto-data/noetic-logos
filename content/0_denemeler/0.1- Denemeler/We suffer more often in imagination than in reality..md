@@ -1,3 +1,9 @@
+---
+draft: true
+tags:
+  - uretim/yazi
+---
+
 “Çok kez de gerçekler yüzünden değil, yanlış kanılar yüzünden acı çekeriz.” **(Seneca, 2018: 64).**
 
 Çektiğimiz acılardan pek çok zaman başkalarını, yeri geldiğindeyse kendimizi suçlarız. Başkaları derken kastedilen yalnızca insan değil, aynı zamanda nesnelerdir. Söz gelişi, bilgisayar olabilir, dizi/film olabilir; oyun, müzik, herhangi bir olay, bir kadın, birisinin ölümü…
@@ -25,7 +31,7 @@ Bu değerlendirme hususunda Epiktetos şunları söyler:
 
 “(…) öncelikle, görünüş nedeniyle telaşa kapılarak aceleci davranmayın ve şunu söyleyin: ‘Durun ey görünüşler! Kim olduğunuzu ve ne anlattığınızı bileyim, durun da sizi sınayayım.’” **(Epiktetos, 2013: 193)**
 
-Bu dönüşümden sonra o görünüşü değerlendirmeye başlar; değişen çağın değerleriyle değil, değişmeyen, kalıcı olan hakîkatin değerleriyle -kimine göre erdem, kimine göre logos, kimine göre İslâm’a uygun yaşamaktır bu hakîkat. Hakîkatin mâhiyeti ise değişime uğramıyor olmasıdır. “**Panta rhei** (her şey akar)” Akana değil, akmayana; hareketli değil, hareketli olmayana -yani değişene değil, değişmeyene güvenmek gerekir. “**Nulli, quod semper mobile, fide** (Her an hareketli/değişebilir olana güvenme).” Değişebilen bir hakîkat, hakîkat değildir. Bu değerlendiriş sonrasında, kendisine zuhur eden görünüşe karşı yargısı oluşacaktır: Kabul ya da red.
+Bu dönüşümden sonra o görünüşü değerlendirmeye başlar; değişen çağın değerleriyle değil, bir ölçüte göre değerlendirir -kimine göre erdem, kimine göre logos, kimine göre İslâm’a uygun yaşamaktır bu ölçüt. Oysa, değişmeyen ne varsa o ölçüte göre değerlendirilmelidir kanımca. Akana değil, akmayana; hareketli değil, hareketli olmayana -yani değişene değil, değişmeyene güvenmek gerekir. “**Nulli, quod semper mobile, fide** (Her an hareketli/değişebilir olana güvenme).” Değişebilen bir ölçüt, ölçüt olmamalıdır. Bu değerlendiriş sonrasında, kendisine zuhur eden görünüşe karşı yargısı oluşacaktır: Kabul ya da red.
 
 Değişmeyen, erdemli ya da erdemsiz yaşamayı seçmektir; zira insanın elinde olan yegâne şey budur. Ailesi kalıcı değil, eşi kalıcı değil, işi kalıcı değil, mülkü kalıcı değil, mevkisi kalıcı değil… Hatta ve hatta, **bedeni** dahi kalıcı değil. Eli bir gün kendisinden alınabilir; hatta sadece eli değil, bütün uzuvları kendisinden alınabilir. Her ne alınırsa alınsın, onunla beraber kalacak olan tek şey iradesidir; bütün bu olaylara rağmen erdemli veyahut erdemsiz davranabilmeyi seçebilme yetisidir.
 
@@ -41,13 +47,7 @@ Modern dünyada böylesine bir etkenlik içerisinde olmanın neredeyse imkânsı
 
 Evet, “Gösteri, imajlar, aşk ve tüketim” adlı yazımda da değinmiştim bu konulara aslında. Tekrar değinmeye gerek yok. Tabii, orada üslup biraz daha farklı.
 
-Yazının pek çok kısmı asıl bağlamdan, amaçladığım mânâdan koptu. Sistematik bir şekilde inceleme yapmak gerekirdi aslında, ancak bu daha fazla zaman alacağından böylesi daha iyi şimdilik. Birkaç alıntı ile noktalamak uygun olur.
-
-_“Başkasının kanısına hemen uyuveriyoruz, bizi korkuya düşüren nedenleri eleştirmiyoruz, aslını araştırmıyoruz ama titriyoruz korkudan ve tersyüz oluyoruz (…).”_ **(Seneca, 2018: 65).**
-
-_“Doğanın arzuları sınırlıdır. Yanlış bir kanıdan doğan arzularsa durdurak bilmezler.”_ **(Seneca, 2018: 78)**
-
-_“Özgür doğmuş insanlar arasında, tek başına özgür olmayı başarabilirsin. ‘Nasıl olur bu?’ diyorsun, iyiyle kötüyü ayırmakta halkın kanısına göre karar vermezsen başarırsın bunu. İnsanların nereden geldiklerini değil, nereye gittiklerini göz önünde tutmalı asıl. Yaşamı mutlu yapabilen bir şey varsa, bu haklı olarak bir iyi’dir, çünkü kötü’ye indirgenemez.”_ **(Seneca, 2018: 151).**
+Yazının pek çok kısmı asıl bağlamdan, amaçladığım mânâdan koptu. Sistematik bir şekilde inceleme yapmak gerekirdi aslında, diyonizyaklığın başı kopsun kardeş.
 
 ---
 
@@ -55,4 +55,4 @@ _“Özgür doğmuş insanlar arasında, tek başına özgür olmayı başarabil
 
 Epiktetos. (2013). Söylevler, (Çeviri: Birdal Akar). İstanbul: Divan Kitap.
 
-Seneca. (2018). _Ahlak Mektupları_, (Çeviri: Türkân Uzel). İstanbul: Say Yayınları.
+Seneca. (2018). _Ahlak Mektupları_, (Çeviri: Türkân Uzel). İstanbul: Say Yayınları

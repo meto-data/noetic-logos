@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - E-Ticaret Platformları
 - Sosyal Medya Platformları
 - Tele-tıp

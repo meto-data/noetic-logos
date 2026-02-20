@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Rahatça hesaplanabilen, kaydedilemeyen maliyettir. Örtük maliyet, ürün veya hizmet üretiminde doğrudan ve dolaylı olarak katlanılan fedakârlıkların parasal değerini ifade eder.
 	- Bir işletmenin sahip olduğu **fizikî ve finansal sermayesi** ile işletme sahibinin başka bir işletmede çalışması durumunda alternatif maliyeti, söz konusu firmanın örtük maliyetlerini ifade eder.
 	- Firma sahibinin maaşı, firma sahibinin kendi binasını iş yeri olarak kullanması gibi örtük maliyetler.

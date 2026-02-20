@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Bulut Bilişim
 - Büyük Veri Analitiği
 	- Verileri dinamik (anlık) olarak okurlar.

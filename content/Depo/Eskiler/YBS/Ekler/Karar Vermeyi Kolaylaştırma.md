@@ -1,1 +1,5 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 BT, özellikle büyük firmalarda, rutin işlemlerin **anlık takibini** sağlayarak **karar vermeyi hızlandırır ve kolaylaştırır**. Bu temel faydayı unutmayın!

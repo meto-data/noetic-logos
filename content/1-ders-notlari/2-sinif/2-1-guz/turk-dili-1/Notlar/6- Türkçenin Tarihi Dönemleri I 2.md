@@ -1,5 +1,7 @@
 ---
 title: 6- Türkçenin Tarihi Dönemleri II
+tags:
+  - akademi/dersler/turk-dili-1
 ---
 
 # Orta Türkçe

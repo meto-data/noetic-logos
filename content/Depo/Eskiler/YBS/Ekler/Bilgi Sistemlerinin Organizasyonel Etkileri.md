@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 - **[[Karar Vermeyi Kolaylaştırma]]:** BT, özellikle büyük firmalarda, rutin işlemlerin **anlık takibini** sağlayarak **karar vermeyi hızlandırır ve kolaylaştırır**. Bu temel faydayı unutmayın!
     
 #### [[Ekonomik Etkiler]]

@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 #### [[a) Üretim Artışı]]
 ##### Teknolojik İlerleme
 - [[verimlilik]]

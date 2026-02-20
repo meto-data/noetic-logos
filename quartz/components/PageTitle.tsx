@@ -6,9 +6,10 @@ import { i18n } from "../i18n"
 const PageTitle: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzComponentProps) => {
   const title = cfg?.pageTitle ?? i18n(cfg.locale).propertyDefaults.title
   const baseDir = pathToRoot(fileData.slug!)
+  const homeUrl = cfg?.baseUrl ? new URL(baseDir, cfg.baseUrl).href : baseDir
   return (
     <h2 class={classNames(displayClass, "page-title")}>
-      <a href={baseDir}>{title}</a>
+      <a href={homeUrl}>{title}</a>
     </h2>
   )
 }

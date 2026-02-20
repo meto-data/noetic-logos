@@ -1,1 +1,5 @@
+---
+tags:
+  - akademi/dersler/uhy
+---
 Yeterli ürün olup olmadığını takip ederek talebi karşılayamama, satış kaybetme ve işletmeye zarar verme riski azaltılır.

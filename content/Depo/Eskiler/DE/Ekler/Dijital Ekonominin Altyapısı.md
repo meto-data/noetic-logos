@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 
 > [!important] ÖNEMLİ
 > Tüm bu liste bir kolondor. **BİRİSİ BİLE EKSİK OLAMAZ!**

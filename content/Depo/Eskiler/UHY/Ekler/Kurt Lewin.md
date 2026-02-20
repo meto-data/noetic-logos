@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/uhy
+---
 ### [[Kurt Lewin]] (Erime, Değişim, Donma)
 1. **Çözülme/Erime (Unfreezing)**: Mevcut durumu veya alışkanlıkları kırarak değişime hazırlanma aşaması.
 2. **Değişim (Changing)**: Yeni davranışları, süreçleri veya yapıları benimseme süreci.

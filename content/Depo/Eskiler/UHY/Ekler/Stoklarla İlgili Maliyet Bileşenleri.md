@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/uhy
+---
 #### 1- **[[Birim Satın Alma Maliyeti]]** (Unit Purchase Cost -*C* )
 - **Tanım:** Malzeme için ödenen ana fiyat ve malzemenin işletmeye getirilmesi için yapılan diğer ek satın alma masraflarının toplamıdır.
 - **Açıklama:** Ürünün etiketteki fiyatı gibidir ama sadece o değildir; üzerine kargo (navlun), sigorta, gümrük vergisi (tarife), hatta bazen malı kontrol etme (inceleme , test) masrafları da eklenebilir. Yani "<span style="color:#008B8B; font-weight:bolder">Bu mal bana kaça geldi?</span>" sorunun cevabıdır.

@@ -1,2 +1,6 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Sipariş hacminin beklenenden fazla artması durumunda lojistik süreçlerin aksaması, teslimatların gecikmesi veya yanlış ürün gönderimi, ürünlerin hasarlı olması gibi durumlar yaşanabilir. 
 	- Bu durumlar hem müşteri memnuniyetini olumsuz etkiler hem de işletme için maliyetli bir süreç hâline gelir.

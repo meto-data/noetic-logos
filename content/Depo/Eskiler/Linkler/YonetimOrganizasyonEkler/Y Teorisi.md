@@ -1,0 +1,6 @@
+---
+tags:
+  - akademi/dersler/yonetim-organizasyon
+---
+- İnsanlar doğası gereği pasif ya da örgütün ihtiyaçlarına karşı dirençli değildir. Tecrübe ve deneyimlerine bağlı olarak örgütün bir parçası haline gelirler. 
+- Tüm insanlarda örgütsel amaçları gerçekleştirmek için gerekli motivasyon, gelişim potansiyeli, sorumluluk alma kapasitesi ve gönüllü davranışlar mevcuttur.

@@ -1,1 +1,5 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 Üretim süreçlerinden toplanan verilerin analiz edilerek verimlilik artışı ve optimizasyon sağlanması.

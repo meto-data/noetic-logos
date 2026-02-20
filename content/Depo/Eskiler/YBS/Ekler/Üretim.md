@@ -1,1 +1,5 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 - Alınan girdilerin (malzemelerin) nihai ürüne veya hizmete dönüştürüldüğü tüm adımlar (üretim, montaj, paketleme, test etme vb.). (Değer: Girdiyi istenen çıktıya verimli ve kaliteli şekilde dönüştürmek).

@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Büyüme, bir ülkenin reel GSYH'sinin bir yıldan ötekine artması hâline verilen isimdir.
 	- Reel Büyüme ve Nominal Büyüme.
 	

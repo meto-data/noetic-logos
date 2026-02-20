@@ -1,0 +1,5 @@
+---
+tags:
+  - akademi/dersler/uhy
+---
+- Karma yerleşim, hem sürece göre yerleşim (fonksiyonel gruplama, atölye tipi) hem de ürüne göre yerleşim (üretim hattı, seri üretim) türlerinin özelliklerini birleştiren bir tesis düzenleme biçimidir. Üretimin bazı kısımlarının seri ve standart, bazı kısımlarının ise daha esnek ve çeşitli (parti üretimi gibi) olduğu fabrikalarda kullanılır.

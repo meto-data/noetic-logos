@@ -1,1 +1,5 @@
+---
+tags:
+  - akademi/dersler/muhasebe
+---
  İşletmelerin günlük mâlî olaylarını kaydettiği ve sınıflandırdığı bir muhasebe belgesidir.

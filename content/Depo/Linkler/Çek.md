@@ -1,2 +1,0 @@
-- Özellikle kriz dönemlerinde kullanımı artar.
-- Genellikle tüzel kişiler (şirketler) kullanır.

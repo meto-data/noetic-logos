@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
 - Finans y
 #### Yatırım Kararları
 - "Hangi tür varlıklara ne miktarda yatırım yapılacak?" sorusu önemlidir. (Sermaye Bütçelemesi veya Yatırım Kararı)

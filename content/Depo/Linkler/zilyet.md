@@ -1,3 +1,0 @@
-- Bir eşya üzerinde fiili hâkimiyet kurma, onu fiilen kullanma durumu. 
-- **Zilyet olmak, malik (sahip) olmakla aynı şey değildir.** 
-	- Bir şirketin size tahsis ettiği bilgisayarın maliki (sahibi) şirkettir, ancak onu fiilen kullanan ve hâkimiyetinde bulunduran kişi olarak siz "zilyet"sinizdir.

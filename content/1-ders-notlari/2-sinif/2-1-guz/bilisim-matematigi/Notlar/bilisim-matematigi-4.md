@@ -7,6 +7,8 @@ date: 2025-10-17
 cssclasses:
   - ders-notu
 draft: true
+tags:
+  - akademi/dersler/bilisim-matematigi
 ---
 
 <h2 style="text-align:center"><span style="color:darkblue; text-align:center">Ünite 3: Taban Aritmetiği</span> | <span style="color:#bf3f36">17.10.2025</span></h2>

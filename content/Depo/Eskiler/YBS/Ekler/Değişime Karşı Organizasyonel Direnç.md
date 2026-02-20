@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
     
 #### **[[Direncin Sebepleri]]:**   
 ##### **[[Politik Direnç]]:** 

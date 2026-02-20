@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 Bir üretim sürecindeki girdi ile çıktı arasındaki fark. Üretim sürecinde kazanılan değer artışı. Üretilen ürünün kıymeti.
 
 ---

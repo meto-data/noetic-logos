@@ -1,5 +1,7 @@
 ---
 title: 12- Dillerarası Alışveriş
+tags:
+  - akademi/dersler/turk-dili-1
 ---
 ## I. Giriş: Etkileşim Türleri
 Toplumların karşılaşma biçimine göre dil etkilenmeleri beş ana kategoride tasnif edilir:

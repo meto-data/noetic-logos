@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/yonetim-organizasyon
+---
 - NE? sorusuna cevap verir.
 	- Bu ürün/hizmet bana ne sunuyor? Hangi özellikleri taşıyor?
 - Standartlara uyması, kendisinden bekleneni vermesi.

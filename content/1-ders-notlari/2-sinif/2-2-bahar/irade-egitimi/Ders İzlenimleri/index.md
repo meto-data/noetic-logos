@@ -1,0 +1,1 @@
+Ders izlenimleridir. Malum, konuşmakta epey zorlanıyorum derste. İçimi boşaltmak için kullandığım bir mekân gibi burası. Hem hislerimi ve düşüncelerimi, hem de ilgili ders hususunda aslında *söylemek istediklerimi* ancak söyleyemediklerimi barındırdığım alan.

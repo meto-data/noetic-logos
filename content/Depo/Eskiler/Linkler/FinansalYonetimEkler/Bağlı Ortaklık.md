@@ -1,0 +1,5 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
+Pay oranının **%50'den fazla (%51 ve üzeri)** olmasıdır. Bu durumda ana şirket, bağlı ortaklığın yönetiminde çoğunluk hissesi sayesinde kontrol ve karar yetkisine sahip olur. 

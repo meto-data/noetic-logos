@@ -1,2 +1,6 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Birden fazla katılımcının etkileşimde bulunduğu piyasadır.
 - Alıcılar, satıcılar, hizmet sağlayıcılar gibi farklı taraflar bir arada bulunur.

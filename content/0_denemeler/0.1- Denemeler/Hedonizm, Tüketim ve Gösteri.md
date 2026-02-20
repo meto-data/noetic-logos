@@ -1,3 +1,7 @@
+---
+tags:
+  - uretim/yazi
+---
 Bir habere denk geldim, moda sektörü ile ilintili olarak en fazla moda harcaması yapan ülkeleri sıralayan veri vardı. Gördüğüm gibi lider olarak ABD vardır kesin dediydim, tuttu. Sonra nüfusu yoğun ülkeler geliyor (Çin ve Hindistan) tabii. Genel olarak bakıldığında birkaç istisna hariç Avrupa ülkelerinde bu tüketim fazla gözüküyor.
 
 İçedönüklük Doğu’yla özdeş olduğundan gösteri niyeti onlarda pek göze çarpmaz. Bilakis Batı’ya baktığımızda ise dışadönüklüğün zirvede olduğunu, dolayısıyla bunun gösteri ile de illa ki harmanlandığını görüyoruz.

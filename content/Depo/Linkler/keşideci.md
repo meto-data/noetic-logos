@@ -1,1 +1,0 @@
-- Çeki yazan, imzalayan kişi.

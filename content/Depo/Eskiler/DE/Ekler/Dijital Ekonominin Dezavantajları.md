@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 ### 1) [[Gizlilik ve Güvenlik]]
 **[[Gizlilik]]:** Hangi verinin kime ait olduğunun belli olmaması.
 **[[Güvenlik]]:** [[Gizlilik]] kapsamındaki verilerin başkalarının eline geçmemesi

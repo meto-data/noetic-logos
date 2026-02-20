@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/yonetim-organizasyon
+---
 
 ### [[İşletme]]
 - Toplum ihtiyaçlarını karşılayacak fayda sağlamak için mal ya da hizmet üreten veya pazarlayan örgütler.
@@ -74,7 +78,7 @@ Klasik yönetim, örgütlerin verimliliğini ve etkililiğini artırmak için ge
 > [!important] Önemli
 > - Fayol, yönetim fonksiyonlarını diğerlerinden ayırarak **işletmenin başarısı için kritik öneme** sahip olduğunu vurgulamıştır.
 
-####  [[Yönetim Fonksiyonları]]
+####  Yönetim Fonksiyonları
 - Fayol'a göre yönetimin beş ana fonksiyonu vardır.
 ##### 1. Planlama
 - Hedeflerin belirlenmesi ve gerekli adımların planlanması.

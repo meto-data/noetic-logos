@@ -1,1 +1,5 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 Ana faaliyetler ve diğer destek faaliyetleri için gerekli olan her türlü girdinin (hammadde, makine, ofis malzemesi, dış hizmet vb.) en uygun şartlarla (fiyat, kalite, teslimat) satın alınması. (Dikkat: Bu sadece gelen lojistikteki malzeme alımı değil, tüm satın almaları kapsar). (Değer: Girdileri uygun maliyet ve kalitede temin etmek).

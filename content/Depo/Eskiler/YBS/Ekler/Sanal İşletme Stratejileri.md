@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 **Özetle:** Az masrafla, başkalarının gücünü kullanarak hızlı ve esnek iş yapma modeli.
 
 - **Sanal işletme**, fiziksel sınırlara bağlı kalmadan, başka şirketlerle işbirliği içinde ürün veya hizmet üreten ve dağıtan esnek bir iş modelidir.

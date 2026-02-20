@@ -1,5 +1,7 @@
 ---
 title: Finansal Yönetim
+tags:
+  - akademi/dersler/finansal-yonetim
 created: 2025-09-24
 ---
 - Bu index 2025-2026 eğitim yılı bağlamında girilmiştir.

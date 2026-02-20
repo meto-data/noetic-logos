@@ -1,2 +1,6 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 - Pazardaki tüm katılımcılar için var olan bilginin miktarı ve kalitesinin artması.
 - [[Bilgi asimetrisi]] azalır

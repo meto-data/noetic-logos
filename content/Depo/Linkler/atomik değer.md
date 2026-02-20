@@ -1,2 +1,0 @@
-- Bir hücrede **tek bir bilgi** olmalı.
-- Hücrenin içindeki veri **bölünememeli.**

@@ -1,2 +1,6 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Fintek, bankacılık veya sigortacılık işlemlerinde kullanılan/rol oynayan teknolojilerdir.
 	- **Örneğin:** Paypal, Papara, Findeks

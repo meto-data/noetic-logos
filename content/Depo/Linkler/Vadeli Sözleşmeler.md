@@ -1,1 +1,0 @@
-Gelecekte belirli bir fiyat üzerinden alım-satım yapma sözleşmeleri.

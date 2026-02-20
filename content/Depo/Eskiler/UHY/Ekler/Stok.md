@@ -1,3 +1,8 @@
+---
+tags:
+  - akademi/dersler/uhy
+created: 2025-08-31
+---
 İşletmelerin satmak, tüketmek veya üretmek amacıyla edindiği; makul bir süre sonunda elden çıkarılması düşünülen varlıklardır.
 
 ***

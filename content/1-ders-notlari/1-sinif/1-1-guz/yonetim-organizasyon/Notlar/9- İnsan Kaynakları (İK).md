@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/yonetim-organizasyon
+---
 
 
 ##  İş Analizi (Hemşire örneği)

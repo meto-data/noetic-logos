@@ -6,6 +6,8 @@ created: 2025-11-05
 HUB:
 cssclasses:
   - ders-notu
+tags:
+  - akademi/dersler/finansal-yonetim
 ---
 - Bilanço ve gelir tablosu önemli: Finansal analiz yaparken verileri ilgili tablodan çektiğimiz için oradna sorumluyuz, mali tabloları verecek ve birtakım bilgiler verecek, bilgiler tablonun neresinde bulunuyor vesaire epey önemli, daha ziyade bu bağlamda bir önem söz konusu denilebilir.
 	- Hangi hesap hangisinde yer alıyor bilmek gerekiyor, analizde yararlanacağız ilgili tablodan.

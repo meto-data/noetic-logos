@@ -1,2 +1,6 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Ağ dışsallığının devreye girmesi yıllar sürebiliyor.
 	- Yapılan bir araştırmaya göre bir platformun tutunabilmesi en aşağı 5 yıl sürüyor.

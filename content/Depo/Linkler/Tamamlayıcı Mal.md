@@ -1,1 +1,0 @@
-Bir malı kullanabilmek için birlikte kullanılması gereken mal.

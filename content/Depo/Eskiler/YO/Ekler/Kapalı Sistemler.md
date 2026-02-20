@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/yonetim-organizasyon
+---
 - Çevreleriyle etkileşimde bulunmayan veya sınırlı etkileşimde bulunan sistemlerdir. 
 - Dışarıdan girdi almazlar ve dışarıya çıktı vermezler.
 - Kapalı sistemler zamanla **[[entropi]]ye** maruz kalırlar ve ölürler.

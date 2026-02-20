@@ -1,2 +1,6 @@
+---
+tags:
+  - akademi/dersler/uhy
+---
 - İşçiler, ürettikleri çıktıya göre ücretlendirilir. Diğer bir deyişle verimliliklerine göre.
 - Parça başı ücret sistemi.

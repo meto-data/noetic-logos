@@ -1,0 +1,7 @@
+---
+tags:
+  - akademi/dersler/uhy
+---
+- **Ulaşım, iş gücü ve tedarik zinciri önemlidir.**
+- Ham maddelere erişim, iş gücü maliyetleri, lojistik avantajlar önemlidir.
+- **Örneğin:** Otomotiv fabrikası, sanayi bölgeleri, ulaşımı kolay yerlerde konumlanırken tekstil fabrikası iş gücü bol, maliyet düşük bölgelerde konumlanır.

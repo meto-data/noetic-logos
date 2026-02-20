@@ -1,2 +1,6 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Dijital ürünlerin çalışması için enerjiye ihtiyacı vardır.
 - Mobil aygıtlar ve bilgisayarların üretimi için doğal kaynaklar gereklidir.

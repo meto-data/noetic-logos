@@ -1,1 +1,0 @@
-Basit bileşenlerinin doğruluk değeri ne olursa olsun yanlış olan bileşke önerme.

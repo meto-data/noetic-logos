@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 ### 1- [[Elektronik Fon Transferi]] (EFT)
 - Elektronik Fon Transferi, dijital ortamda para transferini ifade eder. E-ticaret için kritik bir rol oynar çünkü müşterilerin güvenli ve hızlı bir şekilde ödeme yapabilmelerini sağlar. 
 	- Söz gelimi, banka kartı veya kredi kartıyla yapılan ödemeler EFT sistemlerine dayanır. Bu süreç hem müşteri hem de satıcı için zaman ve iş gücü tasarrufu sağlar.

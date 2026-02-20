@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 
 #### **[[Girişimci Yapılar]]** 
 Küçük, genç, esnek, hızlı adapte olur (Örn: Yeni kurulan şirketler). 

@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 ### 1) [[Mobilite]]
 Her yere götürülebilir | ekonomi yanımızda taşınır.
 Ekonomik faaliyetler her yerden yapılabilir.

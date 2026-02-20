@@ -6,6 +6,8 @@ date: 2025-12-03
 cssclasses:
   - ders-notu
 created: 2025-12-03
+tags:
+  - akademi/dersler/finansal-yonetim
 ---
 ### Kavramlar, Tanımlamalar, Ön Hazırlık vs.
 

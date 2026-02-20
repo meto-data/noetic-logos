@@ -1,2 +1,6 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Bir işletmenin ürettiği ürün veya hizmetleri doğrudan son tüketiciye sattığı bir iş modelidir. Yani, bir şirketin bir ürünü veya hizmeti aracı olmadan, toptancıları ve perakendecileri atlayarak doğrudan bir kişiye satmalarıdır.
 - **Örneğin:** LC Waikiki, A101Online, Migros Yemek.

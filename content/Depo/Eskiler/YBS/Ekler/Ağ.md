@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 Bkz. [[marjinal maliyet]], [[dijital ürün]]
 - Azalan verimler kanunu bilgi ve teknolojiye dayalı ağ (ölçek) ekonomilerinde <u>geçerli olmaz</u>.
 **Örneğin**: Turkcell'e katılan her yeni abonenin marjinal maliyeti sıfıra yakınken marjinal getirisi oldukça fazladır.

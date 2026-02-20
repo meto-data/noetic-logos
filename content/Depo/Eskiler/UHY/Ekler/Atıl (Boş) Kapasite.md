@@ -1,2 +1,6 @@
+---
+tags:
+  - akademi/dersler/uhy
+---
 - İşletmenin belirli bir dönemde gerçekleştirilen üretim miktarı yani fiili kapasitesi, normal kapasitenin altında ise aradaki farka işletmenin atıl (boş) kapasitesi denir.
 - Atıl Kapasite = $\text{Normal (Pratik) Kapasite - Fiili Kapasite}$

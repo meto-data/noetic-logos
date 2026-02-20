@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/muhasebe
+---
 	
 > [!warning] Final (2025 tarihi)
 > Finalde KDV işlemleri gelecek. 

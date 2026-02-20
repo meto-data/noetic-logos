@@ -1,3 +1,0 @@
-- Vadesi bir yıldan uzun (genellikle 1-5 yıl arası orta, 5 yıl üzeri uzun) olan, [[sermaye piyasaları|Sermaye Piyasası]] üzerinden temin edilen borçlanma araçlarını temsil eder.
-- Genellikle işletmenin devamlılık arz eden fon gereksinimleri ve genişleme projeleri için kullanılır.
-- İşletmenin Sermaye Yapısı'nı belirler ve uzun vadeli finansal riskin temel belirleyicisidir.

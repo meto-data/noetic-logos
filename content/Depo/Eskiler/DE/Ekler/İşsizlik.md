@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
  - **Bir kişinin işsiz sayılabilmesi için;**
 	1. 15 yaşından büyük olması gerekir.
 	2. Çalışmak istemesi gerekir.

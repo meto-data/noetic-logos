@@ -1,5 +1,7 @@
 ---
 title: 3- Dil Türleri
+tags:
+  - akademi/dersler/turk-dili-1
 ---
 
 ### Ana Dil

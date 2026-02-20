@@ -1,2 +1,6 @@
+---
+tags:
+  - akademi/dersler/muhasebe
+---
 - Bir yıl içerisinde nakde dönüşme potansiyeli yüksek olan varlıklar.
 	- **Örneğin:** Kasadaki nakit, **[[Stoklar]]**.

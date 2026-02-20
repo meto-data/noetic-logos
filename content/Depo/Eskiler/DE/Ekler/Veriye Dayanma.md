@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - **[[Veri]]**: Gerçekler hakkında birbirinden kopuk küçük parçalar.
 - **[[Verinin Bilgiye Dönüşüm Süreci]]**: **Veri** -> **[[Enformasyon]]** -> **Bilgi**
 	- **Bilgiden sonraki süreç ise bilgeliktir.**

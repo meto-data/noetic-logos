@@ -6,6 +6,8 @@ date: 2025-11-12
 cssclasses:
   - ders-notu
 created: 2025-11-12
+tags:
+  - akademi/dersler/finansal-yonetim
 ---
 # 3. **Mâlî Yapı Oranları** (Kaldıraç Oranları)
 - Şirketin parasının ne kadarının borç ne kadarının kendi öz malı olduğunu ölçer.

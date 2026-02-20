@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/uhy
+---
 Çeviklik, hızlı değişen müşteri istekleri ve yoğun rekabet ortamında, üreticilerin **uluslararası liderlik** için performanslarını artırmak amacıyla benimsediği bir stratejidir.
 
 - İşletmelerin değişen taleplerine, yeni fırsatlara ve teknolojik gelişmelere çeviklikle yanıt verir.

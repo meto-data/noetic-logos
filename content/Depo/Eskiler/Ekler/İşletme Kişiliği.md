@@ -1,1 +1,5 @@
+---
+tags:
+  - akademi/dersler/muhasebe
+---
 - İşletme kurulduğu andan itibaren işletmenin işletme kurucularından, yöneticilerinden, personellerinden ve diğer tüm ilgililerden bağımsız bir kişiliği olduğunu ifade eder.

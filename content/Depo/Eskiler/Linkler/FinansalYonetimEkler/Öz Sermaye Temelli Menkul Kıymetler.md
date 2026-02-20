@@ -1,0 +1,8 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
+- Bir şirketin sermayesine katılmayı temsil eder. Yatırımcı şirkette ortak olur ve kâr payı ([[temettü]]) ve oy hakkı gibi haklar kazanır.
+- **[[Hisse Senetleri]] (Stocks/Shares)**
+	- [[Adi Hisse Senetleri]]: Oy hakkı ve temettü hakkı tanır.
+	- [[İmtiyazlı Hisse Senetleri]]: Öncelikli temettü ve bazen sınırlı oy hakkı vardır.

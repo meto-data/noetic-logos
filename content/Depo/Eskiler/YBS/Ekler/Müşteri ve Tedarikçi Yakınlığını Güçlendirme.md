@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 - Müşterilerle ve tedarikçilerle çok sıkı ilişkiler kurmak, onları kendine bağlamak. Müşterilerin başka yere gitmesini, tedarikçilerin de başkalarıyla çalışmasını zorlaştırmak. Bu, genellikle yüksek "geçiş maliyetleri" (switching costs) yaratarak yapılır.
     
 ###### **IS Nasıl Yardımcı Olur?**

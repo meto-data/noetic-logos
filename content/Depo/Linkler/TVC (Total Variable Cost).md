@@ -1,1 +1,0 @@
-(Toplam Değişken Maliyet): Üretim miktarına bağlı olarak değişen maliyetlerdir. Ham madde, nakliyat, üretim vb.

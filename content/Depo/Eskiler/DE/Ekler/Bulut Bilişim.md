@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 Veri depolama, işleme ve paylaşma için bulut tabanlı sistemlerin kullanılması.
 
 ---

@@ -1,2 +1,6 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Bir ürün veya hizmetin bir işletme aracılığı olmadan doğrudan bir tüketiciden diğer tüketiciye satılmasıdır. Bireyler sahip oldukları ürünleri (ikinci el eşyalar, el işleri) veya hizmetleri (ders verme, danışmanlık) başka bireylere satabilirler.
 - **Örneğin:** Gardrops, Vinted, DeviantArt, Shutterstock. eBay

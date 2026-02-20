@@ -1,3 +1,8 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+created: 2025-08-31
+---
 - Verinin işlenmesi, organize edilmesi ve yapılandırılmasıyla elde edilen anlamlı bir çıktıdır.
 
 - **Anlam kazanmış veridir**. Veriye bir context (bağlam) eklenmiş hâlidir. 

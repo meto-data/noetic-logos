@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 E-iş (elektronik iş), iş süreçlerinin internet ve dijital teknolojiler kullanılarak yürütüldüğü bir iş modelidir.
 
 ---

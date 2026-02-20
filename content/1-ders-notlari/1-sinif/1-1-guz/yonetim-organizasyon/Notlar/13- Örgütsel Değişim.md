@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/yonetim-organizasyon
+---
 - **Değişim:** Mevcut hâlden başka bir hâle pozitif ya da negatif bir biçimde geçiş süreci.
 - **Örgütsel Değişim:** Mevcut hâlden başka bir hâle **pozitif** bir biçimde geçiş süreci.
 

@@ -1,1 +1,0 @@
-`Uzun Vadeli Yabancı Kaynaklar` $+$ `Öz Sermaye`

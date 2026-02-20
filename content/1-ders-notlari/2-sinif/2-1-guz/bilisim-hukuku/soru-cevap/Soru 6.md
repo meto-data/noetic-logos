@@ -1,6 +1,8 @@
 ---
 aliases:
 draft: true
+tags:
+  - akademi/dersler/bilisim-hukuku
 ---
 
 - **Soru**: "Blokzincir ne demektir? Kısaca izah ediniz."

@@ -1,1 +1,0 @@
-- $\text{Verimlilik}$ = $\frac {\text{Çıktı}}{\text{Girdi}}$

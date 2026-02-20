@@ -5,6 +5,8 @@ ders: "[[Hapishanenin Doğuşu/Notlar]]"
 created: 2025-10-22
 cssclasses:
   - ders-notu
+tags:
+  - akademi/dersler/finansal-yonetim
 ---
 - 5 fonksiyona değinildiyse hem içerikleri hem de isimleri çıkacaktır.
 - Ödeme vasıtaları da önemli denilebilir. [[Ödeme Vasıtası]]

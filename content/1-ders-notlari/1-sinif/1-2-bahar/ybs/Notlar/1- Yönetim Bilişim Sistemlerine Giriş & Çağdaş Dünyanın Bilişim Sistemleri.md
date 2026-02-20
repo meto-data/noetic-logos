@@ -1,10 +1,6 @@
 ---
-Ders: YBS
-Konu: Yönetim Bilişim Sistemlerine Giriş & Çağdaş Dünyanın Bilişim Sistemleri
-Hafta: II. Hafta
-Dönem: II. Dönem
 tags:
-  - "#ybsders"
+  - akademi/dersler/ybs
 ---
 ### [[Veri, Enformasyon ve Bilgi]]
 - Veri, işlenmemiş bilgidir. Bilginin ham hâlidir. 

@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 
 > [!NOTE] **[[firma-sirket-isletme|Firma - Şirket - İşletme]]**
 > Firma, şirket veya işletme: Hepsi aynı anlama gelmektedir. Yalnızca sektöre göre kullanılan tanımlar farklılık gösterir o kadar. İktisatçılar (ekonomistler) firma; hukukçular şirket; işletmeler ise işletme der. 

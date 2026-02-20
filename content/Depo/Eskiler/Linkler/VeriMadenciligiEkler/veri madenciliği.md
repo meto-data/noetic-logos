@@ -1,0 +1,1 @@
+Devamlı akan veya depolanmış ham veri yığınlarının (raw data), istatistiksel algoritmalar ve makine öğrenmesi metotları kullanılarak işlenmesi, bu yığınların ardındaki deterministik veya olasılıksal örüntülerin (pattern) açığa çıkarılması sürecidir. 

@@ -6,6 +6,8 @@ date: 2025-10-15
 cssclasses:
   - ders-notu
 created: 2025-10-15
+tags:
+  - akademi/dersler/finansal-yonetim
 ---
 - **Not**: Finans dersinden nispeten bıktığım için bazı notlar akademik düzeyden sapıyor. İdare ediverin.
 	- Haftaya göre değil konuya göre alınmaktadır notlar.
@@ -135,10 +137,10 @@ created: 2025-10-15
 
 ## **1.1.** Finansal Tablolar
 - Muhasebecilerin tuttuğu kayıtların özeti. Bu sayede patronlar, bankacılar, yatırımcılar şirketin ne yaptığını anlar. Biz analizi **bilanço** ve **gelir tablosu** üzerinden yapacağız, gerisi ayrıntı.
-## **1.2.** [[Temel Mâlî Tablolar]]
+## **1.2.** Temel Mâlî Tablolar
 ### 1.2.1. [[Bilanço Tablosu|Bilanço]]
 - Firmanın belli bir andaki röntgeni. O gün neyi var, ne kadar borcu var vesair onu gösterir. Anlık bir fotoğraf gibi işte.
-- **Aktif (Varlıklar)**: **Firmanın ekonomik gücüdür**, ekonomik değeridir, ekonomik tarafı gösterir. En hızlı paraya **dönen**den (kasa) en yavaşına/**duran**ına (bina) doğru sıralanır. Buna **[[likidite]]** derler.
+- **Aktif (Varlıklar)**: **Firmanın ekonomik gücüdür**, ekonomik değeridir, ekonomik tarafı gösterir. En hızlı paraya **dönen**den (kasa) en yavaşına/**duran**ına (bina) doğru sıralanır. Buna **[[ATLAS/Depo/Eskiler/Linkler/Ekler 2/likidite]]** derler.
 - **Pasif (Kaynaklar)**: **Firmanın finansal yapısıdır**. Şirketin kimin parasıyla döndüğünü gösterir. Borçlar vadesine göre sıralanır. En önce ödenmesi gereken en üsttedir.  "Firma bugün batsa, kim parasını hangi sırayla alır?" sorusuna da yanıt verir. 
 	1. **Kısa Vadeli Borçlar**:  1 yıl içinde ödenecekler.
 		- **300 Mâlî Borçlar**: Banka, [[Faktoring Şirketleri|faktoring]] gibi [[Finansal Kuruluşlar|finansal kuruluşlar]]a olan borçlar, krediler falan. Ana faaliyet konusu para olan kurumlara olan borçlardır da denilebilir.

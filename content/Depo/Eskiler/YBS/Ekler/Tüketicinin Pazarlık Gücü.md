@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 - Müşterilerin, firmadan daha düşük fiyat, daha yüksek kalite veya daha fazla hizmet talep etme ve bunu kabul ettirme gücü.
 	- Az sayıda büyük müşteri veya geniş ürün alternatifleri, müşterilerin pazarlık gücünü artırır ve kârlılığı düşürebilir.
 ###### **Güçleri ne zaman artar**?

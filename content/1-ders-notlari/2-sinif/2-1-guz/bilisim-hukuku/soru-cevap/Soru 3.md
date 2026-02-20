@@ -1,5 +1,7 @@
 ---
 draft: true
+tags:
+  - akademi/dersler/bilisim-hukuku
 ---
 
 

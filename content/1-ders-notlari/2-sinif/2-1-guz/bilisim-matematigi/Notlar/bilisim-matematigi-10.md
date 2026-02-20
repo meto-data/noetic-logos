@@ -7,6 +7,8 @@ date: 2025-12-05
 cssclasses:
   - ders-notu
 draft: true
+tags:
+  - akademi/dersler/bilisim-matematigi
 ---
 <h1 style="text-align:center"><span style="color:lightblue; text-align:center">Ünite 5: Logaritma</span> <span>| 05.12.2025</span></h1>
 

@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Akıllı sözleşmelerin en yaygın kullanılan platformu **Ethereum**'dur. Akıllı sözleşmeler, belirli koşullar yerine getirildiğinde otomatik olarak yürütülen dijital anlaşmalardır. Aracılara gerek duymadan güvenli ve verimli bir şekilde işlem yapılmasına olanak tanır.
 - Akıllı sözleşmelerde geriye dönük değişim mümkün değildir.
 - En yaygın kullanılan platformu **Ethereum**'dur.

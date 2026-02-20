@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - İki veya daha fazla tarafın bir araya girip etkileşim kurduğu çevrim içi platformlardır.
 	- Platform: Mekân, alan.
 ## Platform Ekonomisini Oluşturan Unsurlar

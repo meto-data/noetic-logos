@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Donanım
 - Yazılım
 - Beşeri Sermaye

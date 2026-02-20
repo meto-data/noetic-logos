@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Basit faizden tek ve en önemli farklı **kazanılan faizin de faiz kazanmasıdır**.
 - Her dönemin sonunda kazanılan faiz ana paraya eklenir ve bir sonraki dönemde faiz, bu yeni ve daha büyük ana para üzerinden hesaplanır. Para bu şekilde zamanla doğrusal olarak değil, **üslü (exponential)** olarak artar. 
 

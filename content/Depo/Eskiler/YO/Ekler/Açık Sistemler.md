@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/yonetim-organizasyon
+---
 - Çevreleriyle sürekli etkileşim hâlinde olan sistemlerdir. 
 - Dışarıdan enerji, bilgi, malzeme gibi girdiler alır ve sistemden çıkan çıktılar verir.
 - Açık sistemler **[[Negentropi]]** **(Negatif Entropi**) ile çalışır.

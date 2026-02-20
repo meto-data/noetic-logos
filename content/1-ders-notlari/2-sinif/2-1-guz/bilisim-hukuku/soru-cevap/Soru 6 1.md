@@ -1,6 +1,8 @@
 ---
 aliases:
 draft: true
+tags:
+  - akademi/dersler/bilisim-hukuku
 ---
 
 ##### **Soru**: "Bilişim hukuku nedir, neleri kapsar açıklayınız. Bu çerçevede bilişim hukukunun kapsamını küresel alanı da göz önüne alarak tasnif ediniz ve bilişim ihlalleri nasıl yapılır ve nasıl sınıflandırılır yazınız.

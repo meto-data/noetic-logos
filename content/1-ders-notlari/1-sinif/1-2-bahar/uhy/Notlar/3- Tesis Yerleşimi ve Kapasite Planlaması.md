@@ -1,12 +1,6 @@
 ---
-Ders: Üretim ve Hizmetler Yönetimi
-Dönem: II. Dönem
-Hafta: V. Hafta
-Konu: Tesis Yerleşimi ve Kapasite Planlaması
 tags:
-  - uretimders
-  - anabaslik
-Kavramlar: "```dataview\rLIST from outgoing([[4- Tesis Yerleşimi ve Kapasite Planlaması]])\r```"
+  - akademi/dersler/uhy
 ---
 ## [[Tesis Yeri Seçimi]]
 - Tanım olarak, **bir kuruluşun tesisi için en iyi coğrafi konumu belirlemesi**dir.
@@ -51,7 +45,7 @@ vb. (Sektörlerle ilgili kısımdan sonra daha detaylı anlatılacak.)
 	- $\to$ Tarım, madencilik gibi sektörlerde üretim **doğal kaynakların bulunduğu bölgeyle sınırlıdır.**
 		- **Örneğin:** Maden işletmeleri, termik santraller ve seramik fabrikaları.
 #### b) Müşterilere Yakınlık
-- Müşteriye yakınlık özellikle **[[hizmet sektörü]]**'nde kritik öneme sahiptir.
+- Müşteriye yakınlık özellikle **[[Hizmet Sektörü]]**'nde kritik öneme sahiptir.
 	1. Hizmet işletmeleri, müşteri trafiğini maksimize etmek için yoğun nüfuslu bölgelerde veya ana ulaşım noktalarında yer alır.
 		- **Örneğin:** Perakende mağazaları, fast-food zincirleri, eczaneler.
 	2. Çabuk bozulan ürünler veya acil ihtiyaçlar, müşteriye **anında ulaşım** gerektirir. 

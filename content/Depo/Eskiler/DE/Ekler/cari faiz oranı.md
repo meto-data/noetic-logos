@@ -1,1 +1,5 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 Cari faiz oranı, **belirli bir zamanda** geçerli olan faiz oranıdır. Genellikle bankaların kredi vermek veya mevduat kabul etmek için kullandıkları faiz oranını ifade eder. Bkz: [[cari piyasa fiyatları]]

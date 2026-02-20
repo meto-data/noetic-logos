@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/uhy
+---
 
 
 **Not**: Bu konudaki bazı formüller Finansal Yönetim dersinde de karşımıza çıkmakta. Dolayısıyla ilave bir önem verilmesi faydanıza olur. 

@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/uhy
+---
 
 > [!important] Özce
 > Beklenmedik bir ham madde sıkıntısı olması durumunda üretimin devam etmesini sağlamak.

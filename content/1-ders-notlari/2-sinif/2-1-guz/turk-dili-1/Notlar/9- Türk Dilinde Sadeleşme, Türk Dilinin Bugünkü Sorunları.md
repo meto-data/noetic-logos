@@ -1,5 +1,7 @@
 ---
 title: 9- Türk Dilinde Sadeleşme, Türk Dilinin Bugünkü Sorunları
+tags:
+  - akademi/dersler/turk-dili-1
 ---
 
 **Not**: "📢" ile olan kısımlar öğretmenin vurguladığı kısımlardır. 
