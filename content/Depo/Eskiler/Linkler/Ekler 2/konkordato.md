@@ -1,0 +1,5 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
+- **konkordato**:  Borçlarını vadesi geldiği hâlde ödeyemeyen veya vadesinde ödeyememe tehlikesi altında bulunan dürüst/iyi niyetli bir borçlunun haciz ve iflâs tâkibinden kurtulmak için alacaklıların üçte ikisinin kabûlü ve ticâret mahkemesinin onayı ile geçerlilik kazanan bir ödeme planını kabul etmesini sağlayan **[[cebrî icrâ]]** yolu.

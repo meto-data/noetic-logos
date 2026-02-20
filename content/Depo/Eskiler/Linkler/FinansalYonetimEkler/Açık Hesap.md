@@ -1,0 +1,9 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
+- Alıcının satıcıya bir ödeme yapmadığı hesap. Alıcı satıcıya ödeme yapmaz; alacak **satıcının defterini alacak**, **alıcının defterine** ise **borç** olarak kaydedilir. En yalın ve en güvenilir yöntemdir.
+	- **Satıcının Defteri:** Satıcı, malı sattığı için parayı alacaklı konumundadır. Bu yüzden kendi muhasebe defterine bu tutarı "Alacak" olarak yazar
+	- **Alıcının Defteri**: Alıcı, malı aldığı ancak henüz parasını ödemediği için borçludur. Bu yüzden kendi defterine bu tutarı "Borç" olarak kaydeder
+	- **Neden en yalın yöntem?**: Geçmiş derslerden de bilindiği üzere, ticarî kredinin iki kullanım şekli vardır: [[Senetsiz Alacaklar|Açık Hesap]] **(Senetsiz Alacaklar)** ve [[Senetli Alacaklar|Borç Senetleri]] **(Senetli Alacaklar)**. 
+		- Borç senetlerinde [[Bonolar|bono]] veya [[Poliçe|poliçe]] düzenlenmesi, imzalanması ve takip edilmesi gerekirken **açık hesapta hiçbir bürokratik belgeye gerek yoktur**. Sadece iki tarafın aralarındaki güvene binaen defterlerine not düşmesi yeterlidir, bu yüzden en basit (yalın) yöntemdir.

@@ -1,3 +1,7 @@
+---
+tags:
+  - uretim/yazi
+---
 Araştırmayı “Devletler Nasıl Yönetilmelidir?” ve “Machiavelli’nin Yönetim Anlayışının Eleştirisi” olarak ikiye ayırmak uygun görüldü. Son kısımda Machiavelli’nin hükümdarını Sokrates’in yöneticisi ile mukayese etmeyi ve bunun dışında etik bağlamda da eleştiri yapmayı uygun gördüm. Araştırma yalnızca Machiavelli’nin Hükümdar’ı ile sınırlı tutulduğu için Machiavelli’nin genel görüşlerine değil, Hükümdar kitabı bağlamındaki görüşlerine eleştiri getirildi.
 
 # **Devletler Nasıl Yönetilmelidir?**

@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 ##### [[Hizmet Olarak Platform]] - Platform as a Service (PaaS)
 - Sağlayıcı işletme, internet üzerinden erişilen platform sunar (yazılım/uygulama vb.).
 - **Örneğin:** Google App Engine, Microsoft Azure

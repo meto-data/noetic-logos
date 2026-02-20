@@ -1,5 +1,7 @@
 ---
 title: 11- Türkçe Kelimelerdeki Başlıca Ses Özellikleri, Türkçede Kelime Türetme Yolları
+tags:
+  - akademi/dersler/turk-dili-1
 ---
 
 ## Türkçe Kelimelerdeki Başlıca Ses Özellikleri

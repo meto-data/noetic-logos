@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Veri Yönetimi, e-ticaret platformunun müşteriler, ürünler, stoklar ve satışlar gibi bilgileri düzenli ve güvenli bir şekilde yönetmesini ifade eder. 
 	- Veri yönetiminde *KVKK (Kişisel Verilerin Korunumu Kanunu)* gibi yasal düzenlemelere uyum sağlamak ***şarttır***.
 - Doğru veri analizi sayesinde müşteri davranışları anlaşılabilir ve iş stratejileri buna göre optimize edilebilir. 

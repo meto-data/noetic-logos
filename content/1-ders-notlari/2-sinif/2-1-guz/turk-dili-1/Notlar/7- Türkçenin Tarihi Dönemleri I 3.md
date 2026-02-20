@@ -1,5 +1,7 @@
 ---
 title: 7- Türkçenin Tarihi Dönemleri III
+tags:
+  - akademi/dersler/turk-dili-1
 ---
 
 ### Giriş: Dil neden yine bölünüyor?

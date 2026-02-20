@@ -1,1 +1,5 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 Bu, teorinin merkezindeki problemdir! İşletmeler büyüdükçe, yöneticilerin gerçekten hissedarlar adına mı yoksa kendi çıkarları için mi çalıştığını **izleme ve denetleme maliyetleri** artar. Bu maliyetlere "vekalet maliyeti" denir. 

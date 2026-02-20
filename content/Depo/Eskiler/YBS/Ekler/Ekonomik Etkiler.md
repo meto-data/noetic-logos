@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 - **[[Maliyet Değişimi]]:** BT, **sermaye ve bilgi maliyetlerini** değiştirerek organizasyonun ekonomik yapısını etkiler.
 		
 - **[[Üretim Faktörü Olarak BT]]:** Bilgi Sistemleri/Teknolojileri, geleneksel emek ve sermayenin yerine geçen (ikame edilen) yeni bir üretim faktörüdür. 

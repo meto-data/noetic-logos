@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Mevduat toplama
 	- Vadesiz mevduat
 		- Likit olduğu için getirisi az olmasına rağmen tercih edilir.

@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 ##### [[Organizasyon ve Çevre İlişkisi]]
 - Organizasyonlar, çevreleriyle (kaynaklar, mal ve hizmetler açısından) sürekli bir etkileşim ve ilişki içindedir.
 - Organizasyon çevrelerini etkileyebildikleri gibi, çevrelerinden de etkilenirler.

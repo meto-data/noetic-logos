@@ -1,0 +1,5 @@
+---
+tags:
+  - akademi/derlser/bilisim-hukuku
+---
+- Dış dünyadaki **insan fiili**.  Düşünce, niyet veya duygu geçerli değildir. **Davranış** olması şart.

@@ -7,6 +7,8 @@ date: 2025-11-14
 cssclasses:
   - ders-notu
 draft: true
+tags:
+  - akademi/dersler/bilisim-matematigi
 ---
 <h1 style="text-align:center"><span style="color:lightblue; text-align:center">Konu Dağılımı ve Süre</span> | <span style="color:lightorange">...</span></h2>
 

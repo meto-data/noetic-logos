@@ -1,1 +1,0 @@
-Veri ekleme, silme ve özel sorgular yapar.

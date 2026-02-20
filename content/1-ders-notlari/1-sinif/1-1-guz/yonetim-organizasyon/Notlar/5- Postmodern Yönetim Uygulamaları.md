@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/yonetim-organizasyon
+---
 
 # [[Toplam Kalite Yönetimi (TQM)]]
 

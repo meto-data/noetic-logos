@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/uhy
+---
 - Teorik kapasiteden çeşitli duraklamalar sonucu meydana gelen kayıplar çıkarılarak bulunan kapasite, bir işletmenin, çeşitli sınırlamalar çerçevesinde ulaşabileceği çıktı düzeyidir ve normal (pratik) kapasite olarak adlandırılır. 
 - Geleceğe dönük bir **beklentidir**. "Ne kadar _yapabilmeliyiz_?" sorusuna cevap verir (normal şartlarda).
 - Pratik kapasite ile normal düzeyde bir üretim ifade edilmektedir ve genellikle bu kapasite **işletmelerin varmaya çalıştığı normal verimliliği ifade eden bir ölçü olarak kullanılmaktadır**.

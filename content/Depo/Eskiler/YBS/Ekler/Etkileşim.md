@@ -1,1 +1,5 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 - Satıcı ve müşteri arasında çift yönlü iletişim imkânı. TV reklamına soru soramazsın ancak e-ticaret sitesinde canlı sohbet yapabilir ve yorum bırakabilirsin.

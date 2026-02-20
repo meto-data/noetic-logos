@@ -1,5 +1,7 @@
 ---
 title: 1- Dilin Tanımı, Nitelikleri, Kökeni
+tags:
+  - akademi/dersler/turk-dili-1
 ---
 
 - Dil TDK tarafından "İnsanların düşündüklerini ve duyduklarını bildirmek için kelimelerle veya işaretlerle yapılan anlaşma, lisan, zeban." olarak tanımlanır.

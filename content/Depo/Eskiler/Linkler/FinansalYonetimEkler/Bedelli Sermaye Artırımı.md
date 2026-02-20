@@ -1,0 +1,5 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
+Firmanın yeni hisse senedi çıkararak ve bunları ortaklara bir bedel karşılığında satarak sermayesini artırmasıdır. **Karşılığında şirkete sıcak para (nakit) gelir**.

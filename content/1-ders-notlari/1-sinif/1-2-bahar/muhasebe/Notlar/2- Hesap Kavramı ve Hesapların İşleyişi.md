@@ -4,7 +4,7 @@ tags:
   - kapsayici_muh
   - coz
 Kavramlar: "```dataview\rLIST from outgoing([[2- Hesap Kavramı ve Hesapların İşleyişi]])\r```"
-Başlık: 
+Başlık:
 Dönem: II. Dönem
 Hafta: II. Hafta
 Konu: II. Hafta

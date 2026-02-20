@@ -1,0 +1,5 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
+Bir girişimin gerçekleşmesi, bir kuruluşun gelişip işleyebilmesi için gerekli mâlî imkânları sağlama.

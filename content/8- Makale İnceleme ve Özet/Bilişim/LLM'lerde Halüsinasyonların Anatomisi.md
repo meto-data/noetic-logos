@@ -22,12 +22,17 @@ Temel sorun modellerin belirsizlik durumunda "bilmiyorum" demek yerine istatisti
 - **İlişki:** Modelin üretimdeki hata oranı, IIV sınıflandırmasındaki hata oranından daha düşük olamaz. Matematiksel olarak `(üretim hatası) ≥ 2 * (IIV hatası)`. Bu ifade bir konsepti sınıflandırmak zorsa, o konsept hakkında doğru metin üretmenin kaçınılmaz olarak daha da zor olduğu anlamına gelir.
 #### **1.3.** Ön Eğitimdeki Hata Faktörleri
 
-- **Epistemik Belirsizlik**: Doğum günleri gibi altında öğrenilebilir bir desen olmayan keyfî gerçekler yüksek bir IIV hata oranına neden olur. Model bu bilgileri ezberlemek zorundadır. Eğitim verilerinde yalnızca bir kez görünen (singleton) bir gerçek istatistiksel olarak gürültüden farksızdır ve modelin bu konuda halüsinasyon görme olasılığı yüksektir.
-- **Kötü Modeller**: Model mimarisinin öğrenilmeye çalışılan kavramı temsil etmek için yetersiz olmasıdır (misal trigram modellerinin uzun vadeli dilbilgisi bağımlılıklarını yakalayamaması). Bu durum model ailesinin optimal hata oranını $(\space opt(G)\space)$ yükseltir ve kaçınılmaz olarak üretim hatalarına yol açar.
-- **Dağılım Kayması (Distribution Shift)**: Model, eğitimde gördüğü veri dağılımının dışında (Out-of-Distribution, [[OOD]]) bir istemle karşılaştığında performansı düşer. BU da IIV sınıflandırıcısının yeni ve beklenmedik durumlarda hata yapmasına neden olur, bu da doğrudan halüsinasyon olarak yansır.
+##### Epistemik Belirsizlik 
+- Doğum günleri gibi altında öğrenilebilir bir desen olmayan keyfî gerçekler yüksek bir IIV hata oranına neden olur. Model bu bilgileri ezberlemek zorundadır. Eğitim verilerinde yalnızca bir kez görünen (singleton) bir gerçek istatistiksel olarak gürültüden farksızdır ve modelin bu konuda halüsinasyon görme olasılığı yüksektir.
+##### Kötü Modeller 
+- Model mimarisinin öğrenilmeye çalışılan kavramı temsil etmek için yetersiz olmasıdır (misal trigram modellerinin uzun vadeli dilbilgisi bağımlılıklarını yakalayamaması). Bu durum model ailesinin optimal hata oranını $(\space opt(G)\space)$ yükseltir ve kaçınılmaz olarak üretim hatalarına yol açar.
+##### Dağılım Kayması (Distribution Shift) 
+- Model, eğitimde gördüğü veri dağılımının dışında (Out-of-Distribution, [[OOD]]) bir istemle karşılaştığında performansı düşer. BU da IIV sınıflandırıcısının yeni ve beklenmedik durumlarda hata yapmasına neden olur, bu da doğrudan halüsinasyon olarak yansır.
 	-  OOD, modelin eğitimde görmediği veya çok nadir gördüğü veri türü demek.  Yani model öğrenirken gördüğü veri dağılımının dışında bir örnekle karşılaştığında performansı düşer, hatalı yanıt verebilir.
-- **GIGO (Garbage In, Garbage Out)**: Büyük veri setleri genellikle çok sayıda olgusal hata içerir. Kalitesiz veya hatalı veriyle eğitilen sistemlerin kaçınılmaz olarak hatalı veya değersiz çıktılar üretmesi durumudur.
-- **Hesaplama Zorluğu**: Kriptografik bir şifreyi çözmek gibi hesaplama açısından zor problemler modelin doğru yanıtı bulmasını engeller.
+##### GIGO (Garbage In, Garbage Out)
+- Büyük veri setleri genellikle çok sayıda olgusal hata içerir. Kalitesiz veya hatalı veriyle eğitilen sistemlerin kaçınılmaz olarak hatalı veya değersiz çıktılar üretmesi durumudur.
+##### Hesaplama Zorluğu 
+- Kriptografik bir şifreyi çözmek gibi hesaplama açısından zor problemler modelin doğru yanıtı bulmasını engeller.
 
 ### **Bölüm 2:** Halüsinasyonların Kalıcılığı - Değerlendirme ve Teşvik Mekanizmaları
 

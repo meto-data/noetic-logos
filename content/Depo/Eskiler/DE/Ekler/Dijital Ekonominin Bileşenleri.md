@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 ### 1) [[E-iş Altyapısı]]
 - Donanım
 - Yazılım

@@ -7,6 +7,8 @@ date: 2025-12-26
 cssclasses:
   - ders-notu
 draft: true
+tags:
+  - akademi/dersler/bilisim-matematigi
 ---
 d<h1 style="text-align:center"><span style="color:lightblue; text-align:center">Ünite 6: Diziler ve Seriler</span> <span>| 25.12.2025</span2></h1>
 

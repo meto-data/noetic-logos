@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/yonetim-organizasyon
+---
 - Yönetim biliminde iletişim; duygunun, bilginin ve fikirlerin karşılıklı ya da karşılıksız; lafzi ya da gayri-lafzi, pasif ya da aktif bir biçimde aktarılma sürecidir. 
 - **İletişim Türleri:** H2H (Human to Human), H2M (Human to Machine), M2H (Machine to Human), M2M (Machine to Machine) ve B2B (Business to Business).
 ### Retorik

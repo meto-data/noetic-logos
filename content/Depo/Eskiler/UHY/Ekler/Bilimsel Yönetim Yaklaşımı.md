@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/uhy
+---
 
 - Bilimsel yönetim yaklaşımı, işletmelerde **verimliliği** artırmak için iş süreçlerini **sistematik** ve **bilimsel yöntemlerle analiz etmeyi** ve **optimize** etmeyi amaçlayan bir yaklaşımdır.
 - Öncüsü **[[Frederick W. Taylor]]**'dur.

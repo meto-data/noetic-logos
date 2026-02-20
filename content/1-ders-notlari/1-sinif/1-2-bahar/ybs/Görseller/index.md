@@ -1,4 +1,4 @@
 ---
-title: Görseller
-slug:
+tags:
+  - akademi/dersler/ybs
 ---

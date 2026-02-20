@@ -1,6 +1,8 @@
 ---
 aliases:
 draft: true
+tags:
+  - akademi/dersler/bilisim-hukuku
 ---
 
 - **Soru**: "Doğrudan bilişim suçları nelerdir? Bilişim sistemine girme suçunda korunan hukuksal değer nedir? bu suçun maddî unsurunu da izah ederek detaylıca açıklayınız."

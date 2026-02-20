@@ -1,0 +1,6 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
+- **(İşletme için):** İşletmenin ürettiği mal veya hizmetleri müşterilere satması sonucunda elde ettiği toplum **[[hâsılât]]**. Müşteriden alınan paranın brüt tutarıdır, yani içinden henüz maliyetler düşülmemiştir.
+- (**Kişi için**): Gelir işte abi. Açıklamaya gerek yok bunu ama, "*belli zamanlarda belli yerlerden ele geçen para.*" denilebilir Kubbealtı Lugatı'ndaki tanıma göre.

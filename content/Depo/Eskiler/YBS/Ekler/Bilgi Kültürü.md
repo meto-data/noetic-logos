@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 - Sürdürülebilirlik için bilgi kültürü yaratılması elzemdir.
 - Çeviklikle ilgili çalışanlara eğitim vermek için yatırım yapılması mânâsına gelmektedir bu.
 - Çevik işletme, hızlı değişimi ve devam eden adaptasyonu desteklemek için çalışanlarına bu kültürü kazandıran eğitimler vermelidir. Çalışanların dâhil olduğu hızlı değişim ve uyumu anlamaları beklenmektedir.

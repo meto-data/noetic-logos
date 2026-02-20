@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 ### 1) [[Verimlilik Artışı]]
 ### 2) [[Maliyetlerde Azalma]]
 - Bulut Bilişim Teknolojileri, marjinal maliyet sıfır vb.

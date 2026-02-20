@@ -6,6 +6,8 @@ date: 2025-12-17
 cssclasses:
   - ders-notu
 created: 2025-12-17
+tags:
+  - akademi/dersler/finansal-yonetim
 ---
 # 1. Nakit Bütçesi
 - İşletmenin nakit giriş ve çıkışlarının miktar ve zaman bakımından uyumlaştırılmasını sağlayan kısa vadeli planlara **nakit bütçesi** denir. 

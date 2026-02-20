@@ -30,9 +30,8 @@
 - **Bir amaca yönelik kullanılan, organize edilmiş enformasyondur.**
 ### Temel Özellikleri
 - **Amaca Yöneliktir**: Bir problemi çözmek, bir karar vermek veya bir eylemde bulunmak için kullanılır. **Enformasyonun aksine bir hedefi vardır**.
-- Mesela elimizde "Seneca 3 yılında doğmuştur." gibi bir **enformasyon** var. Bu enformasyonu kullanarak "Seneca'nın çağında teknolojik aletler var mıydı?" sorusuna yanıt verebiliriz ve bu bir bilgi olur. 
+- Mesela elimizde "**Ad**: Seneca, **Doğum Tarihi**: 3" gibi bir **enformasyon** var. Bu enformasyonu kullanarak "Seneca'nın çağında teknolojik aletler var mıydı?" sorusuna yanıt verebiliriz ve bu bir bilgi olur. 
 	- Enformasyonu bir **anlam** üretmek için kullandık.
-		- Bunu yaparken hem deneyimden bağımsız (a priori) hem de deneyime bağlı (a posteriori) bilgilerimizi kullanırız. Mantıksal bir çıkarımla ilgili bilgiye erişeceksek a priori, tecrübeyle ilintili bir bilgiye erişiyorsak a posteriori olacaktır.
 - **Teknolojik Karşılığı:** Makine öğrenmesi ve yapay zekâ algoritmaları tam olarak bu seviyede çalışır. Mevcut enformasyonu kullanarak bir amaç doğrultusunda (tahmin, sınıflandırma vb.) sonuçlar üretirler.
 ## 4. **[[Bilgelik]] (Wisdom):** (Hikmet)
 - Proto-Cermen \*wisaz (bilen, doğruyu ayırt eden, sezen) kökünden gelir. **Bilginin felsefî, etik ve ileriye dönük boyutu denebilir; felsefîdir, zira çözümleme içerir (ayırt etme); etiktir, zira normatiflik içerir (doğru şudur, iyi-kötü budur ilânı); ileriye dönüktür, zira sezgisellik içerir.** 
@@ -47,7 +46,7 @@
 
 ## Zekâ (Intelligence) ve Yapay Zekâ (Artificial Intelligence) Tanımları
 
-### **[[Zekâ]] (Intelligence):**
+### **Zekâ (Intelligence):**
 - Piramidin basamakları arasında **aşağı ve yukarı hareket edebilme** yeteneğidir. 
 - **Doğada olmayan bir şeyleri var edebilme, yaratabilme yeteneği** de denilebilir.
 - Kaostan düzen, anlamsızlıktan anlam çıkarma sürecidir.

@@ -1,0 +1,5 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
+- Firmaların yaşam dönemleri boyunca çok da sık karşılaşmadıkları sorunlar vardır. Şirket birleşmeleri, tamamının ya da bir kısmının satılması, halka açılma, **[[konkordato|konkordatoya]]** gidilmesi, işletmenin tasfiyesi gibi sorunlar karşısında finansal yönetimin önemi artmakta, finans yöneticisinin sorunların gerektirdiği tüm değerlendirmeleri en etkin bir şekilde yapması gerekmektedir.

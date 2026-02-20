@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 - 1 veya 0 (Binary) = Bit
 - Byte = 8 bit
 - Kilobyte = 1024 byte

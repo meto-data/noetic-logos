@@ -1,6 +1,8 @@
 ---
 aliases:
 draft: true
+tags:
+  - akademi/dersler/bilisim-hukuku
 ---
 
 - **Soru**: "Web'in açılımı nedir? Web'in tarihini ve Web 1.0, Web 2.0, Web 3.0 olarak dönemlerini kısaca izah ediniz."

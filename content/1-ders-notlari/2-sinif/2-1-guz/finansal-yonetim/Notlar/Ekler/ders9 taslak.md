@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
 ## finansal planlama ve denetim
 
 - analiz teknikleri ve nakit bütçesi mutlaka sınavda olacak.

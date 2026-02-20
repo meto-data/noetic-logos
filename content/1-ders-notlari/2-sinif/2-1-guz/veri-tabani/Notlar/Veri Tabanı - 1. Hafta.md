@@ -1,6 +1,8 @@
 ---
 title: Veri Tabanı Yönetim Sistemleri - 1. Ders
 date:
+tags:
+  - akademi/dersler/veri-tabani
 ---
 ## DIKW Pyramid (Data - Information - Knowledge - Wisdom)
 
@@ -41,18 +43,18 @@ date:
 ## [[VTYS|Veri Tabanı Yönetim Sistemi]] 
 - Bir veri tabanını oluşturmak, saklamak, çoğaltmak, güncellemek ve yönetmek için kullanılan programlar.
 ### VTYS'nin Sağladığı Yararlar
-#### [[Veri Tutarlılığı]] (Data Consistency)
+#### Veri Tutarlılığı (Data Consistency)
 - Aynı verinin birden fazla yerde farklı kopyalarının bulunması durumunda bir yerde yapılan değişikliğin diğer kopyalara da yansıtılması durumu.  [[Consistency]]
-#### [[Veri Bütünlüğü]] (Data Integrity)
+#### Veri Bütünlüğü]] (Data Integrity)
 - Bir verinin sistem genelinde tutarlılığının ve doğruluğunun korunması. (bkz. [[integrity]])
 	- Bir tablodan silinen kayıt diğer ilgili tablolardan da silinmelidir.
-#### [[Veri Paylaşımı]] (Data Sharing)
+#### Veri Paylaşımı (Data Sharing)
 - Birden fazla kullanıcının aynı veriye eşzamanlı erişebilmesi. (bkz. [[availability]])
 	- Aynı anda birçok kullanıcının banka müşteri verilerine erişebilmesi.
-#### [[Veri Güvenliği]] (Data Security)
+#### Veri Güvenliği (Data Security)
 - Verilere erişim yetkilerinin kullanıcı bazında kontrol edilmesi.
 	- Bazı kullanıcılar sadece veriyi okuyabilir bazılarıysa ekleme/silme yetkisine sahiptir.  [[Confidentiality]]
-### [[Veri Tabanı Yöneticisi]] (DBA - Database Administrator)
+### Veri Tabanı Yöneticisi (DBA - Database Administrator)
 - Veri tabanının tasarımı, oluşturulması ve işletiminden sorumlu kişi.
 - **Görevleri**:
 	1. Veri tabanı tasarımı
@@ -61,14 +63,14 @@ date:
 	4. Yedekleme ve geri yükleme
 	5. Veri bütünlüğünü sağlama
 	6. Sistem sürekliliğini sağlama
-### [[Veri Tabanı Kullanıcıları]]
+### Veri Tabanı Kullanıcıları
 1. **[[Uygulama Programcısı]]**: Son kullanıcıya yönelik yazılım geliştirir.
 2. **[[Sorgu Dili Kullanıcıları]]**: Veri ekleme, silme ve özel sorgular yapar.
 3. **[[Son Kullanıcılar]]**: Yazılımı doğrudan kullanır.
 
 ### Neden Veri Tabanı Kullanıyoruz?
 - Geleneksel yöntem (ayrı dosyalarla veriyi saklama) yetersiz kalmaktadır. Veri miktarı arttığından kategorize edilmesi, eşzamanlı erişilmesi ve eşzamanlı düzenlenmesi gerekmektedir.
-### [[Veri Tabanı Yaklaşımının Avantajları]]
+### Veri Tabanı Yaklaşımının Avantajları
 1. Gereksiz veri tekrarını önler.
 2. Veriler üzerinde merkezî denetim sağlar.
 3. **[[Veri bütünlüğü]]** sağlar. 
@@ -98,14 +100,14 @@ date:
 - **Tanım**: Tablodaki her bir sütundur ve kayıtlara ait belirli bir tekil özelliği (nitelik) ifade eder.
 - **Örnek**: "Öğrenciler" tablosundaki "ad" sütunu tüm sadece ad bilgisini içerir.
 
-## [[İlişkisel Veri Tabanları]] (Relational Databases)
+## İlişkisel Veri Tabanları (Relational Databases)
 - Tabloların aralarında önceden tanımlanmış mantıksal ilişkiler (bağlantılar) kurularak organize edildiği veri tabanı modelidir.
 	- Tablolar arası bağlantılar **ortak alanlar (anahtar alanlar)** üzerinden kurulur.
 	- Veri tekrarını en aza indirir ve [[Veri bütünlüğü|veri bütünlüğünü]] güçlendirir.
 	- Günümüzdeki modern veri tabanı sistemlerinin (Oracle, MySQL, SQL Server vb.) neredeyse tamamı bu yapıdadır.
 - **Örnek**: Bir kütüphane sisteminde "Kitaplar" tablosu ile "Yazarlar" tablosu, her ikisinde de bulunan "yazar_id" alanı üzerinden birbirine bağlanır. Bu sayede hangi kitabın hangi yazara ait olduğu bilgisi tutulur.
 
-## [[Veri Türleri]] (Data Types)
+## Veri Türleri (Data Types)
 - Bir alanda (sütunda) ne türde veri saklanacağını önceden tanımlamak için kullanılır. Bu sayede;
 	1. [[Veri bütünlüğü]] sağlanır.
 	2.  Bellek kullanımı optimize edilir.

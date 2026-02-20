@@ -1,9 +1,6 @@
 ---
-Ders: YBS
-Dönem: II. Dönem
-Hafta: VII. Hafta
-Konu: Bilgi Teknolojileri Altyapısı
-Kavramlar:
+tags:
+  - akademi/dersler/ybs
 ---
 
 ## [[İkili Sayı Sistemi]] (Binary Digit Systems)

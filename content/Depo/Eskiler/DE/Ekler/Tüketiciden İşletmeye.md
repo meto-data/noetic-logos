@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Bireyler, kendi ürettikleri ürün veya hizmetleri doğrudan işletmelere sunarak gelir elde ederler.
 - **Örneğin:** 99Designs, Taskrabbit, Toptal.
 	1. Bireyler, yaratıcılıklarını veya bilgilerini kullanarak ürün veya hizmetler oluştururlar.

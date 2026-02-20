@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/uhy
+---
 - **Sigma (σ)**: İstatistikte, standart sapmayı ifade eder ve bir sürecin değişkenliğini ölçer.
 - **Altı Sigma**, bir sürecin hedeflenen değerden sapmalarını ölçmek için standart sapma kullanır.
 	- Süreç, ortalamadan **±6σ** sınırları içinde çalışır.

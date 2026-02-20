@@ -1,0 +1,8 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
+- Kâr payı demektir.
+- Bir şirketin elde ettiği kârın bir kısmını hissedarlarına dağıtmasıdır.
+- Dağıtım nakit para ya da ek hisse senedi şeklinde olabilir.
+- Şirketin bir dönem sonunda elde ettiği net dönem kârından vergiler ve diğer yasal yükümlülükler düşüldükten sonra, ortaklara hisseleri oranında dağıtılan kısımdır. Temettü, ortakların şirkete yatırdıkları sermayenin karşılığında elde ettikleri bir gelirdir.

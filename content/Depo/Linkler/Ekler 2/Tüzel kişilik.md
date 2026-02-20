@@ -1,1 +1,0 @@
-Tüzel kişilik, bir işletmenin veya kurumun, kurucularından veya sahiplerinden ayrı bir hukukî varlığa ve kimliğe sahip olması demektir. Bu sayede işletme kendi adına borçlanabilir, alacaklı olabilir ve dava açabilir.

@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Elektronik cihazların insan aracılığı olmaksızın internet ya da bluetooth aracılığıyla birbirleriyle etkileşim/iletişim kurması.
 - **[[RFID (Radio Frequency Identification)]]**
 	- RFID, IoT sistemlerinde nesneleri tanımlamak ve izlemek için kullanılan bir teknolojidir. Nesnelerden toplanan veriler, IoT ağları üzerinden analiz edilir ve süreçleri optimize ederek verimliliği artırmak için kullanılır.

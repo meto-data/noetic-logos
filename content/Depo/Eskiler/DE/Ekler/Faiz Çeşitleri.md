@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 Bkz. [[Faiz]]
 
 ### [[Bileşik (Nominal) Faiz]]

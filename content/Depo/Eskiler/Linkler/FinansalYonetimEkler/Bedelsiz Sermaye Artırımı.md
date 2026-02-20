@@ -1,0 +1,5 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
+Firmanın kendi iç kaynaklarını (dağıtılmamış kârlar) sermayeye ekleyerek ortaklarına yeni hisse vermesi. Firmaya dışarıdan nakit girişi olmaz.

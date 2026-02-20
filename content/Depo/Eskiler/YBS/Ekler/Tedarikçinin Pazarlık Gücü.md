@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 - Firmaya mal veya hizmet sağlayanların (ham madde, parça, enerji, iş gücü vb.) fiyatları yükseltme veya kaliteyi düşürme gücü.. 
 	- Tedarikçi sayısı az ise veya benzersiz ham madde sağlıyorsa, tedarikçiler daha güçlü olabilir.
 ###### **Güçleri ne zaman artar**?

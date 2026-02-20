@@ -1,1 +1,0 @@
-Firmanın üretim miktarından bağımsız, değişmeyen maliyettir. Kira, beyaz yaka maaşları vb.

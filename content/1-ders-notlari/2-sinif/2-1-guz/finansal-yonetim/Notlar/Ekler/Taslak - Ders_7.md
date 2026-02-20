@@ -6,6 +6,8 @@ created: 2025-11-05
 HUB:
 cssclasses:
   - ders-notu
+tags:
+  - akademi/dersler/finansal-yonetim
 ---
 - Rasyo Analizi
 - Formülleri de ekle testlere.

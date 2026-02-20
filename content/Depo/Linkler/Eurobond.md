@@ -1,2 +1,0 @@
-- $_{1:}$Devletlerin veya şirketlerin, uluslararası piyasalarda **yabancı para birimi cinsinden** (genellikle Dolar veya Euro) ihraç ettikleri **uzun vadeli ($5, 10, \text{ vb.}$)** tahvillerdir.
-- $_{2: }$İhraç edildiği ülkenin para biriminden farklı bir para biriminde (örn: ABD Doları veya Euro) ihraç edilen uluslararası bir borçlanma aracıdır. **Bu menkul kıymetler genellikle uzun vadeli olup sabit gelirli yatırım aracı olarak kullanılır** ve yatırımcılara belirli aralıklarla faiz ödemesi (kupon) yapar.

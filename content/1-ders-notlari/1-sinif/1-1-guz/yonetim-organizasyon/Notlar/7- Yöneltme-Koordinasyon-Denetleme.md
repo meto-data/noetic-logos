@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/yonetim-organizasyon
+---
 # [[Yöneltme]]
 
 - Açık ve anlaşılır hedefler belirlenmelidir. Bkz. **[[SMART]]** 

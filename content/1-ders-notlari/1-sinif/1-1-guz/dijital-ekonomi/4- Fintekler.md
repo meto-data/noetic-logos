@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 #### [[Fintekler (Fintech)]]
 ##### Ön Tanımlamalar
 ###### Bankacılık

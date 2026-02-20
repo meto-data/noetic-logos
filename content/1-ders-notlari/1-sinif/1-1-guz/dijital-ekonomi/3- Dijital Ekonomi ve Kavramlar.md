@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 ## [[Sayısallaştırma]] (Digitization)
 - Sayısallaştırma, analog bilgilerin (sürekli ve kesintisiz, herhangi bir değer alabilen bilgiler) dijital formata dönüştürülmesi işlemidir.
 - Süreç sayısallaştırma ile başlar ve **[[Dijitalleşme]]** ile devam eder.

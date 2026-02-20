@@ -1,0 +1,6 @@
+---
+tags:
+  - akademi/dersler/veri-tabani
+---
+- Tablodaki her satır bir kayıttır. 
+- Her bir satır, bir kişiye ya da nesneye ait tüm bilgileri içerir.

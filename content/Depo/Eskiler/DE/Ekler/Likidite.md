@@ -1,1 +1,6 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+created: 2025-08-31
+---
 - Likidite, bir varlığın ne kadar hızlı ve kolay bir şekilde nakde çevrilebileceğinin bir ölçüsüdür. Akışkanlık hızıdır da denilebilir.

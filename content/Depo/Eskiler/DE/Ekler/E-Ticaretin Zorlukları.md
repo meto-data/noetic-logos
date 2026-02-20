@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 #### 1- [[Sınırlı Yüz Yüze Erişim]]
 - Müşteriler, ürünü satın almadan önce fiziksel olarak görme ve dokunma imkanına sahip olamazlar. Özellikle giyim, kozmetik gibi ürünlerde önemli bir dezavantajdır.
 #### 2- [[Teknik Zorluklar]]

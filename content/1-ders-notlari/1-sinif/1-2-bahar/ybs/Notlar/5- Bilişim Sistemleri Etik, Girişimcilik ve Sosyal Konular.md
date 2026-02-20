@@ -1,9 +1,6 @@
 ---
-Ders: YBS
-Dönem: II. Dönem
-Hafta: VI. Hafta
-Konu: Bilişim Sistemleri Etik, Girişimcilik ve Sosyal Konular
-Sayfa: 68-77
+tags:
+  - akademi/dersler/ybs
 ---
 
 **Etik**: Bireylerin davranışlarını yönlendiren ahlâki ilkelerin ve değerlerin incelenmesidir. Etik, bir ahlâk felsefesidir ve neyin doğru neyin yanlış olduğunu sorgulayarak inceler. Neden ahlâklı davranmalıyım, niçin ahlâklı davranmalıyım gibi sorulara yanıt vermeye çalışır.

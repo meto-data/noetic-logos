@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 Enflasyon beklentisi ile gerçekleşen [[Enflasyon]] arasındaki fark, reel faiz oranını etkiler. Şöyle ki:
 
 - Gerçekleşen enflasyon, enflasyon beklentisinden düşükse, r oranı yükselir.

@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 - Rutinlerin toplamıdır.
 - Çalışanlar alışılagelmiş süreçleri bildikleri için oldukça **[[verimlilik|verimli]]** ve **[[etkinlik|etkin]]** olabilmektedir.
 	- Bu sayede işletme, **etkinliğini** artırarak maliyetleri azaltır ve gelirlerini yükseltir. 

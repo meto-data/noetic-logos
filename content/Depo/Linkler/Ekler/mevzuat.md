@@ -1,1 +1,0 @@
-Yürürlükte bulunan, geçerli olan yasalar, kararnāmeler, yönetmelikler

@@ -2,6 +2,8 @@
 title: 1- Finansal Yönetime Giriş ve Temel Kavramlar
 date: 2025-10-01
 created: 2025-10-01
+tags:
+  - akademi/dersler/finansal-yonetim
 ---
 
 ---
@@ -118,7 +120,7 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 > [!important] Esas Sözleşme
 > *Anonim şirketlerde **şirket kuruluş belgesi** **[[esas sözleşme]]**'dir.* <br> 
 > Noter huzurundan imzalanır ve ardından ticaret siciline tescil ettirilir. <br>
->  Tescil edildiğinde şirket **[[tüzel kişilik]]** kazanır.
+>  Tescil edildiğinde şirket **[[Tüzel kişilik]]** kazanır.
 
 
 - **Ortaklar**: Tek bir gerçek veya tüzel kişi ile kurulabilir. Ortak sayısında (halka açık olmayanlar hariç, onlarda 500) üst sınır yoktur.
@@ -253,7 +255,7 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 | **$Q_3 \space \space \text{ - 9 ay}$**  | Temmuz - Ağustos - Eylül | Kasım              |
 | **$Q_4 \space \space \text{ - 12 ay}$** | Ekim - Kasım - Aralık    | Şubat              |
 
-#### [[Sermaye Piyasaları]]
+#### [[sermaye piyasaları]]
 - Sermaye Piyasaları **fon arz edenler (tasarruf sahipleri)** ile **fon talep edenleri (şirketler, devletler)** **[[Menkul Kıymetler|menkul kıymetler]]** aracılığıyla bir araya getiren piyasalardır. Şirketler için banka kredilerine alternatif, önemli bir borçlanma kanalıdır.
 ##### [[Kısa Vadeli Borçlanma Araçları]] (Vadesi 1 Yıldan Az)
 - [[Hazine Bonosu]]: Devletin bir yıldan kısa vadeli borçlanma ihtiyaçları için çıkardığı borçlanma aracı.
@@ -313,7 +315,7 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 	 - **[[Elektronik Fon Transferi]] (EFT)**: Farklı bankalar arasındaki para transferi.
 	 - **[[Virman]]**: Kişinin veya kurumun aynı bankadaki kendi hesapları arasında yaptığı para aktarımı.
 	 - **[[Menkul Kıymetler]]**: Geçici yatırım amacıyla alınan ve kısa sürede nakde çevrilebilen hisse senetleri (*110 Hisse Senetleri Hs.*), hazine banoları gibi varlıklar.3
-##### B. Ticarî Alacakların Yönetimi (Vadeli Likidite) ([[Ödeme Vasıtası]])
+##### B. Ticarî Alacakların Yönetimi (Vadeli Likidite) (Ödeme Vasıtası)
 
 
 > [!info] Bilgi
@@ -327,7 +329,7 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 - Satıcının alıcıya sadece fatura keserek, aradaki güvene dayanarak mal veya hizmet satması. Borç fatura üzerinde belirtilen vadede ödenir.
 - Bkz. [[Açık Hesap]]
 ##### [[Senetli Alacaklar]] (Kıymetli Evraklar ve İşlemler)
-- Alacağın hukukî güvencesi yüksek olan [[çek]], [[senet]], [[poliçe]] gibi devredilebilir belgelerde güvence altına alınmasıdır.
+- Alacağın hukukî güvencesi yüksek olan [[Çek]], [[Senet]], [[Poliçe]] gibi devredilebilir belgelerde güvence altına alınmasıdır.
 
 - **[[Senet]] (Bono)**: Borçlunun (düzenleyenin) alacaklıya (lehtara) belirli bir tarihte, belirli bir meblağı kayıtsız şartsız ödeme taahhüdünü içeren belge. İki taraf arasında düzenlenir.
 - **[[Çek]]**: Bir banka hesabından ödeme yapılması için düzenlenmiş bir ödeme emri. **Kredi aracı değil, ödeme aracıdır**. Üzerindeki tarihte ödenmesi esastır. 

@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 
 <p style = "text-align:justify"> <strong>Çözüm Yaklaşımı (Leavitt's Diamond Modeli):</strong> Değişimle başarılı bir şekilde başa çıkmak için sadece teknolojiyi değiştirmek yetmez. <strong> <u>Eş zamanlı ve uyumlu bir değişim gereklidir. </strong> </u> Bu değişim şu unsurları kapsamalıdır: </p>
 1. **Teknoloji:** Yeni bilgi sistemi veya araçlar.

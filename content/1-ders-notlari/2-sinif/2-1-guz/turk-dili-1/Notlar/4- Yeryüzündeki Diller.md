@@ -1,5 +1,7 @@
 ---
 title: 4- Yeryüzündeki Diller
+tags:
+  - akademi/dersler/turk-dili-1
 ---
 
 ### GİRİŞ: DİLLERİ KUTULAMA MERAKI

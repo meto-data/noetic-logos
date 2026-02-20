@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 ### [[Paylaşım Ekonomisi]]
 - Dijital Ekonominin bir uzantısıdır.
 - Elde duran [[atıl varlıklar]]ı paylaştığımız ekonomidir.

@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 Ekonomideki genel bir durgunluk veya yavaşlama döneminde ortaya çıkan işsizlik türüdür. **Talep yetersizliği** nedeniyle işletmeler üretimlerini kısmak zorunda kalır ve bu da işten çıkarmalara ve işsizlik oranlarında artışa yol açar.
     - Bkz. Virüs. 
     - Bkz. Avrupa Birliği örneği.

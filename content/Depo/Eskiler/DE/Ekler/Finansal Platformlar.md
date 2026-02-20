@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 
 ### a)  [[Ödeme Platformları]]
 **Örneğin:** Paypal, EasyCo, 

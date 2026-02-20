@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/uhy
+---
 - **Kapasite**: Bir tesisin ulaşabileceği maksimum çıktı oranı. Tesis, bir organizasyon, bir bölüm veya sadece bir makine olabilir.
 - **Kapasite Planlaması:** Bir tesisin ulaşabileceği çıktı oranını belirleme süreci.
 

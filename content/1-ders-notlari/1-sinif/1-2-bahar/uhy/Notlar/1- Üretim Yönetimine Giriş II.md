@@ -1,12 +1,6 @@
 ---
-Ders: Üretim ve Hizmetler Yönetimi
-Dönem: II. Dönem
-Hafta: III. Hafta
-Konu: Üretim Yönetimine Giriş II
 tags:
-  - anabaslik
-  - uretimders
-Kavramlar: "```dataview\rLIST from outgoing([[2- Üretim Yönetimine Giriş II]])\r```"
+  - akademi/dersler/uhy
 ---
 
 - Üretim, insanoğlunun var olmasından beri süregelmektedir. 

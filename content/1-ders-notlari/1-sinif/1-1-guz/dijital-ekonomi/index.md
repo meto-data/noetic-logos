@@ -1,6 +1,9 @@
 ---
 title: Dijital Ekonomi
 slug:
+tags:
+  - akademi/dersler/dijital-ekonomi
+created: 2025-09-20
 ---
 Dijital Ekonomi... En sevdiğim derstir muhtemelen en düşük ikinci notum olmasına rağmen. 
 

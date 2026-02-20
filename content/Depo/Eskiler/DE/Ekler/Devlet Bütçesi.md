@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 ### [[Gelirler]]
 1. [[Vergiler]]
 2. [[Harçlar]]

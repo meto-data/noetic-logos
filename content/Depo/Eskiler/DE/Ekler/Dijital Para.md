@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Yürürlülükteki paranın dijital hâlidir (Merkez Bankası tarafından yürütülür).
 - Gerçek bir kimlik ile kullanılır.
 - Merkezi yapısı vardır, belirli bir yapı üzerinden gerçekleşir (Merkez Bankası üzerinden).

@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/yonetim-organizasyon
+---
 - Bir ana sistem, kendine bağlı alt sistemlerden oluşmaktadır ve her bir alt sistem birbirleriyle ilişkili ve bütüncül bir yaklaşımla ana sistemin amacını gerçekleştirmek amacıyla birlikte hareket etmektedir.
 	- Sistem yaklaşımı, bir sistemin bütünüyle kendisini oluşturan alt sistemleri ve bunlar arasındaki ilişkileri doğru olarak kavrayıp değerlendiren, yöneten ve sistemde meydana gelecek sorunları çözümlemede ve karar vermede sistem analiz yöntemlerini uygulayan bir bakış açısı ve davranış biçimidir. #ekstraBilgi
 - Biyolog Ludwig von Bertalanffy tarafından ileri sürülmüştür.

@@ -6,6 +6,8 @@ date: 2025-12-24
 cssclasses:
   - ders-notu
 created: 2025-12-24
+tags:
+  - akademi/dersler/finansal-yonetim
 ---
 # İlgili bağlam için anımsatıcılar
 ### [[Kısa Vadeli Yabancı Kaynaklar]]
@@ -38,7 +40,7 @@ created: 2025-12-24
 
 >[!summary] **Not**
 >- Uzun vâdeli fonlar, işletmenin **duran varlıklarının finansmanı** için kullanılır. İşletmenin anlık nakit ihtiyacı için değil, [[Duran Varlıklar|sabit varlıkların]] (fabrika, makine, büyük teknoloji yatırımları) finansmanı için kullanılır.
->- Genellikle [[Sermaye Piyasaları]] (Capital Markets) üzerinden sağlanır.
+>- Genellikle [[sermaye piyasaları]] (Capital Markets) üzerinden sağlanır.
 >- Bir işletme, duran varlıklarını kısa vadeli borçla finanse ediyorsa, o işletme finansal intihara teşebbüs ediyordur. Buna "vade uyumsuzluğu" deriz ki, piyasa bunu affetmez.
 
 
@@ -61,7 +63,7 @@ created: 2025-12-24
 #### 1.2.2. Sermaye Yedekleri 
 - Hisse senedi ihraç primleri gibi, faaliyet dışı sermaye hareketlerinden doğan fazlalıklar.
 #### 1.2.3. Kâr Yedekleri
-- Geçmişte kazanılan ama dağıtılmayan, "kötü gün akçesi". [[Otofinansman]] dediğimiz o stratejinin kalesi de budur. Şirket kâr eder, ama *Homo Economicus* olan patron "Hepsini yemeyelim, yarın öbür gün lazım olur" der. 
+- Geçmişte kazanılan ama dağıtılmayan, "kötü gün akçesi". [[otofinansman]] dediğimiz o stratejinin kalesi de budur. Şirket kâr eder, ama *Homo Economicus* olan patron "Hepsini yemeyelim, yarın öbür gün lazım olur" der. 
 - Bkz. [[Yedek Akçe|Yedek akçeler]]
 
   

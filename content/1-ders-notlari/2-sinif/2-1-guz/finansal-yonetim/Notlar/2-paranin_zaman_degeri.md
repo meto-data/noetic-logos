@@ -6,6 +6,8 @@ created: 2025-10-08
 cssclasses:
   - ders-notu
 date: 2025-10-08
+tags:
+  - akademi/dersler/finansal-yonetim
 ---
 > [!tip] Sınav Kapsamı
 > - **Sayısal Sorumluluk:**

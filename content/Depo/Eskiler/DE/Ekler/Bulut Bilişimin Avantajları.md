@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 ##### [[Maliyet Avantajı]]
 - Donanım ve altyapı gibi yatırımları azaltır.
 ##### [[Zaman Avantajı]]

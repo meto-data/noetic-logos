@@ -1,1 +1,0 @@
-Türk Ticaret Kanunu gereğince ayrılması *zorunlu* olan yedek akçe.

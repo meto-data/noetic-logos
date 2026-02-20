@@ -1,5 +1,7 @@
 ---
 title: Veri Tabanı Yönetim Sistemleri - 3. Ders
+tags:
+  - akademi/dersler/veri-tabani
 ---
 
 

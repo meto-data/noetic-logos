@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
 ### İlk Dersin Tekrarı
 - Ders 1 ile ilgili;
 	- Sermaye hesapları

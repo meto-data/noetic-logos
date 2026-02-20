@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 Merkez Bankası Politika Faizi, 1 Haftalık Fonlama Faizi olarak da adlandırılmaktadır.
 
 ---

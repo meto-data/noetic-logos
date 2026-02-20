@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 ##### **[[Politik Direnç]]:** 
 Mevcut güç dengelerinin ve çıkarların tehdit edilmesi.
 ###### **[[Çaba ve Zorluk]]:**

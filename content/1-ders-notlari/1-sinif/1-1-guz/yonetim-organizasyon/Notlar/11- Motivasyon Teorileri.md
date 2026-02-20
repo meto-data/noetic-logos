@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/yonetim-organizasyon
+---
 **Motivasyon:** İnsanları harekete geçiren her şey. İnsanları hedeflere/planlara/amaçlara uygun biçimde harekete geçirme süreci.
 - Daha düzgün bir tanımla, bir veya birden çok insanı belirli bir amaca doğru devamlı şekilde harekete geçirmek için yapılan çabaların toplamıdır.
 - Motivasyon teorileri, bireylerin davranışlarını harekete geçiren ve yönlendiren güdüleri anlamaya çalışan teorik çerçevelerdir.

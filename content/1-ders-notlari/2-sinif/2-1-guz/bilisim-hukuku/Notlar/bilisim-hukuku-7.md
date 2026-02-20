@@ -1,6 +1,8 @@
 ---
 title: Bilişim Hukuku - 7. Ders
 date: 2025-12-22
+tags:
+  - akademi/dersler/bilisim-hukuku
 created: 2025-12-26
 ---
 ### Sorular

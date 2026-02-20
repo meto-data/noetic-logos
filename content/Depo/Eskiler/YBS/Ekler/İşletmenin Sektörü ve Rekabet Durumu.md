@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 - **Sektör yapısı** nedir? Rekabetçi güçler, yeni rakipler, tedarikçi ve müşteri gücü, ikame ürünlerin etkisi nasıl?
 - Temel **rekabet öğesi** ne? Kalite, fiyat veya marka mı?
 - Sektördeki **değişim yönü** ve **bilgi sistemlerinin kullanımı** nasıl?

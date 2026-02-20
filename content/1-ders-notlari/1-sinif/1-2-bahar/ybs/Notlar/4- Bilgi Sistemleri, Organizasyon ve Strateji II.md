@@ -1,11 +1,6 @@
 ---
-Ders: YBS
-Hafta: V. Hafta
-Dönem: II. Dönem
 tags:
-  - ybsders
-Konu: Bilgi Sistemleri, Organizasyon ve Strateji II
-Kavramlar:
+  - akademi/dersler/ybs
 ---
 
 ## İnternet ve Organizasyonlar
@@ -26,7 +21,7 @@ Kavramlar:
 	        - Coğrafi olarak dağınık yapıların (farklı ofisler, şubeler, uzaktan çalışanlar) **entegrasyonunu** sağlar (Örn: VPN gibi teknolojilerle güvenli bağlantı)
 ### Yeni bir sistem planlarken dikkate alınacak temel organizasyonel faktörler
 - **Çevre**
-	- Çevre, organizasyondan daha hızlı değişir ve bu çevreye uyum sağlanılamazsa, şirket batmaya mahkûmdur. Bkz. **[[Açık Sistemler]]**, **[[Kapalı Sistemler]]**
+	- Çevre, organizasyondan daha hızlı değişir ve bu çevreye uyum sağlanılamazsa, şirket batmaya mahkûmdur. Bkz. **[[3- Modern Yönetim Anlayışı#Açık ve Kapalı Sistemler|Açık ve Kapalı Sistemler]]** 
 - Organizasyon yapısı; hiyerarşi, uzmanlık alanı, rutinler, iş süreçleri
 - Organizasyon kültürü ve politikaları
 - Organizasyon tipi ve liderlik türü

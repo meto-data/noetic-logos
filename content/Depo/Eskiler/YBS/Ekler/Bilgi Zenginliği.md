@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 - Metin, ses, video gibi zengin içeriklerle çok sayıda kişiye ulaşabilme. 
 - Geleneksel medyada ya içerik zengindir erişim dardır (yüz yüze satış) ya da erişim geniştir ancak içerik zayıftır (TV reklamı). 
 	- Web ikisini de birleştirir.

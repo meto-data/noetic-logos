@@ -1,6 +1,8 @@
 ---
 aliases:
 draft: true
+tags:
+  - akademi/dersler/bilisim-hukuku
 ---
 
 - **Soru**: "Siber alanın tanımlanmasında kullanılan internet, web ve siber alan ne demektir? Kısaca izah ediniz. İnternetin toplumsallaşmasında vurgulanan 3 faktör nedir? İzah ediniz."

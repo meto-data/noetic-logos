@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/yonetim-organizasyon
+---
 # [[Planlama]]
 - Planlama, çevresel faktörlerin analiz edilerek amaçların/hedeflerin belirlenmesi sürecidir.
 ## [[Çevre Analizi]]
@@ -103,7 +107,7 @@
 - Örgüt hantallaşır, örgüt içi iletişim zorlaşır ve bunun sonucunda **[[zamanındalık]]** azalır.
 #### [[Adem-i Merkeziyetçi Örgüt Yapısı]]
 - Kontrolü zorlaşır.
-- Uzmanlaşma azalır ancak bakış açısı ve [[inovasyon kültürü]] gelişir.
+- Uzmanlaşma azalır ancak bakış açısı ve [[inovasyon Kültürü]] gelişir.
 - İletişim kolaylaşır.
 
 ---

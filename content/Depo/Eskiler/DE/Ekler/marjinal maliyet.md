@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Marjinal maliyet, bir birim daha fazla mal veya hizmet üretmenin ek maliyetidir.
 
 > [!NOTE] Anlaşılmadı mı?

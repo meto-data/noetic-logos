@@ -1,5 +1,7 @@
 ---
 title: 10- Ses Olayları
+tags:
+  - akademi/dersler/turk-dili-1
 ---
 
 - Sınavda buradan 3-4 soru gelecek.

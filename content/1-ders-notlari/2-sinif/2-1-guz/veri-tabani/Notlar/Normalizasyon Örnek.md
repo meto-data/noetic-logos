@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/veri-tabani
+---
 ## 0NF (un-normalized - flat table) -  `Ogrenci_Ders`
 
 

@@ -1,1 +1,0 @@
-- Tevhit: Birkaç şeyi bir araya getirip bir yapma, birleştirme.

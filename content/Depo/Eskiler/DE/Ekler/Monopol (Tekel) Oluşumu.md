@@ -1,1 +1,5 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 - Piyasada tek bir satıcının olduğu piyasa. **Bkz. Google ve Amazon.**

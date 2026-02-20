@@ -1,2 +1,0 @@
-- Bir önerme ele aldığımızda, bu önerme ya doğrudur **(D/True) - 1** ya da yanlıştır **(Y/False) - 0**
-- Önerme sayısına *n* dersek, $2^n$ tane doğruluk değeri ortaya çıkar.

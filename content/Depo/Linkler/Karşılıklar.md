@@ -1,1 +1,0 @@
-- Gelecekte doğması muhtemel borç veya zararlar için ayrılan fonlar.

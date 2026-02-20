@@ -1,11 +1,6 @@
 ---
-Ders: Üretim ve Hizmetler Yönetimi
-Dönem: II. Dönem
-Hafta: IX. Hafta
 tags:
-  - uretimders
-  - anabaslik
-Kavramlar: "```dataview\rLIST from outgoing([[7- Stok Yönetimi]])\r```"
+  - akademi/dersler/uhy
 ---
 
 

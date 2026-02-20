@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/muhasebe
+---
 ## [[Olayı Muhasebeleştirmenin Adımları]]
 
 1. **Hangi hesaplar etkileniyor?** – İşlem hangi muhasebe hesaplarını ilgilendiriyor? Örneğin, nakit girişi mi oldu, borç mu alındı, gelir mi elde edildi?

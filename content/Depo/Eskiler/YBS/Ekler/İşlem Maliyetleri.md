@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 ```
 Tedarikçilerle iletişim kurma maliyeti
 Pazar araştırma maliyeti

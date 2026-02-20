@@ -1,6 +1,9 @@
 ---
 title: Bilişim Hukuku - 6. Ders (Detaylı)
 date: 2025-12-15
+tags:
+  - akademi/dersler/bilisim-hukuku
+created: 2025-12-18
 ---
 ### Sorular
 1. Mâlî suçlar kapsamında Türkiyede etkin bir şekilde görev üstlenen kurumun adı nedir? Bu kurum hangi bakanlığa bağlıdır? Bu kurumun üstlendiği görev tanımı nedir? İzah ediniz. Bu bağlamda mâlî suçlar söz konusu olduğunda sıklıkla karşımıza çıkan kara para ve aklama kavramlarını izah ediniz. Aklama yöntemlerinden  2 tanesini açıklayınız.

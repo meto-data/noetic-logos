@@ -6,6 +6,8 @@ date: 2025-12-24
 cssclasses:
   - ders-notu
 created: 2025-12-24
+tags:
+  - akademi/dersler/finansal-yonetim
 ---
 - Normal finansal tabloları hazırlarken nelerden yararlanıyoruz?
 - Kısa vadeli ve orta vadeli finansal ürünlerin tasnif edilmesi gerekiyor.

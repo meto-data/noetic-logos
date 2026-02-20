@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/yonetim-organizasyon
+---
 #### Toplam Kalite Yönetimi (TQM)
 - Süreç odaklıdır, süreçlerin iyileştirilmesine önem verir.
 - Tüm çalışanlar/organizasyonun tamamı kalite iyileştirme sürecine dâhil edilir.

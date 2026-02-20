@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
 #### Operasyonel Sistemler
 - Temel faaliyetlere ve işlemlere ilişkin kayıtları tutarak *operasyonel yönetici*'leri destekleyen sistemlerdir.
 #### Yönetsel Sistemler

@@ -1,1 +1,0 @@
-- İhracat yapıldığında ülkeye diğer ülkelerden döviz girer ve döviz arzı artar.

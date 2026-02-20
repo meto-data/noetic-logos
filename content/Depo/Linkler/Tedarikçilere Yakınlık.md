@@ -1,7 +1,0 @@
-- Bazı sektörlerde tedarikçilere yakınlık, üretim sürecinin verimliliği ve maliyet kontrolü için **zorunlu bir kriterdir**.
-	- *$\to$* Çabuk bozulan ham maddelerde çalışan işletmeler, tedarik kaynaklarına **yakın olmak zorundadır.**
-		- **Örneğin**: Şeker fabrikaları (şeker pancarı), balık işleme tesisleri ve süt ürünleri fabrikaları.
-	- *$\to$* Ağır ve hacimli ham maddelerin taşınma maliyeti epey fazla olacağından, tesisler doğrudan kaynağın yanına kurulur.
-		- **Örneğin:** Çimento fabrikaları, demir-çelik fabrikaları, kâğıt fabrikaları.
-	- $\to$ Tarım, madencilik gibi sektörlerde üretim **doğal kaynakların bulunduğu bölgeyle sınırlıdır.**
-		- **Örneğin:** Maden işletmeleri, termik santraller ve seramik fabrikaları.

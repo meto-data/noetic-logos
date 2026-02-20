@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/yonetim-organizasyon
+---
 ## [[Hawthorne Araştırmaları]]
 - Klasik Yönetim, verimliliği artırmak için iş süreçlerinin rasyonelleştirilmesine ve çalışanların makine gibi görülmesine odaklanıyor, insanların sorunlarına dört duvar içerisinde çözüm bulmaya çalışıyordu. Hawthorne Araştırmaları ise, çalışanların sosyal ve psikolojik ihtiyaçlarının verimlilik üzerindeki etkisini ortaya koyarak bu anlayışı sorgulamıştır.
 	- **[[Elton Mayo]]** tarafından yapılmıştır.

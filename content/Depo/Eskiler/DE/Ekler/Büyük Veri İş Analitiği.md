@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 ##### [[Tanımlayıcı Analitik]] (Descriptive Analytics)
 - Tanımlayıcıdır. Geçmiş verilerden yola çıkarak "ne oldu?" sorusuna yanıt verir.
 ##### [[Kestirimci Analitik]]

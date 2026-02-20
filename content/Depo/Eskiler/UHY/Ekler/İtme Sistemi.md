@@ -1,2 +1,6 @@
+---
+tags:
+  - akademi/dersler/uhy
+---
 - **Tanım:** Üretimin, gelecekteki talebe yönelik tahminlere dayanarak yapıldığı ve üretilen ürünlerin/parçaların bir sonraki aşamaya veya stoğa (talep henüz gelmeden) "itildiği" geleneksek bir üretim yaklaşımıdır.
 - **Açıklama:** "Önce üret, sonra sat/kullan" yaklaşımı vardır. Talep belirsizliğine karşı genellikle tampon stoklar tutulur. Tahminler yanlışsa aşırı stok veya stoksuz kalma riski taşır. Genellikle MRP gibi planlama sistemleri kullanılır

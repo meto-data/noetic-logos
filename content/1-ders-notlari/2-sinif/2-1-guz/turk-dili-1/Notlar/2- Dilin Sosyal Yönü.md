@@ -1,5 +1,7 @@
 ---
 title: 2- Dilin Sosyal Yönü
+tags:
+  - akademi/dersler/turk-dili-1
 ---
 
 ## 1. Dil ve Toplum

@@ -1,5 +1,7 @@
 ---
 title: 8- Türk Dilinin Bugünkü Durumu ve Yayılma Alanları
+tags:
+  - akademi/dersler/turk-dili-1
 ---
 
 ## 1. İstatistiksel ve Küresel Büyüklük

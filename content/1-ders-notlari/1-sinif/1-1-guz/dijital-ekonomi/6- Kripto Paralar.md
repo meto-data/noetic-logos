@@ -1,3 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
 ## [[Paranın Fonksiyonları]]
 ### 1- [[Değişim Aracı]] (Medium of Exchange)
 - Para, değiş-tokuşta kullanılan bir nesnedir.

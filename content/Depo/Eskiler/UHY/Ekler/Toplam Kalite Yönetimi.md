@@ -1,5 +1,5 @@
 ---
-Başlık: 
+Başlık:
 tags:
   - uretimders
   - uretimbaslik
