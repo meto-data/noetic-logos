@@ -34,10 +34,10 @@ Veri madenciliği tek atımlık bir işlem değildir. **Veri Tabanlarında Bilgi
 ```mermaid
 graph TD
     A[(Ham Veri)] -->|Seçim| B(Hedef Veri)
-    B -->|Ön İşleme| C(Temiz Veri)
-    C -->|Dönüşüm| D(Formatlı Veri)
-    D -->|VERİ MADENCİLİĞİ| E{Örüntüler}
-    E -->|Değerlendirme| F((BİLGİ))
+    B -->| Ön İşleme | C(Temiz Veri)
+    C -->| Dönüşüm | D(Formatlı Veri)
+    D -->| VERİ MADENCİLİĞİ | E{Örüntüler}
+    E -->| Değerlendirme | F((BİLGİ))
 
     subgraph Kritik Faz 
       
