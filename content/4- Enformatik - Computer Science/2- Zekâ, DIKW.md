@@ -46,7 +46,7 @@
 
 ## Zekâ (Intelligence) ve Yapay Zekâ (Artificial Intelligence) Tanımları
 
-### **Zekâ (Intelligence):**
+### Zekâ (Intelligence):
 - Piramidin basamakları arasında **aşağı ve yukarı hareket edebilme** yeteneğidir. 
 - **Doğada olmayan bir şeyleri var edebilme, yaratabilme yeteneği** de denilebilir.
 - Kaostan düzen, anlamsızlıktan anlam çıkarma sürecidir.
