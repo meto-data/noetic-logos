@@ -5,7 +5,7 @@ ders: "[[veri-madenciligi]]"
 created: 2026-02-17
 durum: taslak
 draft: true
-tags:
+tags: akademi/dersler/veri-madenciligi
 HUB:
 cssclasses:
   - ders-notu
