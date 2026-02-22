@@ -148,4 +148,7 @@ Verinin sadece saklanan değil, "sorgulanan" bir şeyden "analiz edilen" bir şe
     
  
  > [!note] Neden Önemli?
+ > 
  > 1950'lerde bilgisayar sadece "sayıyordu". 1970'lerde veriyi "ilişkilendirdi" (SQL). 1990'larda ise veriden "bilgi üretmeye" (madencilik) başladı. Bu ilerleyiş donanım kapasitesinin artışı ([[Moore Yasası]]) ve depolama maliyetlerinin düşüşü ile doğrudan koreledir.
+ 
+ 
