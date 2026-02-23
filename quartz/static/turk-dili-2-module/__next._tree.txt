@@ -1,5 +1,5 @@
-:HL["/_next/static/chunks/111c734dff51cf92.css","style"]
-:HL["/_next/static/media/5f402bd2d8eef81a-s.p.b72f0478.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/9433d1a810498265-s.p.8f3b692e.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/noetic-logos/static/turk-dili-2-module/_next/static/chunks/111c734dff51cf92.css","style"]
+:HL["/noetic-logos/static/turk-dili-2-module/_next/static/media/5f402bd2d8eef81a-s.p.b72f0478.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/noetic-logos/static/turk-dili-2-module/_next/static/media/9433d1a810498265-s.p.8f3b692e.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap","style"]
-0:{"buildId":"iXxe_XkW8TIjDt75FYG9E","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"4HujiGyoh7T_mv13mRDIz","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
