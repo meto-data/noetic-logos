@@ -166,6 +166,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
   // Relative module paths (without leading slash)
   const secretCommands: Record<string, string> = {
     türkdili: "static/logos-module/index.html",
+    türkdili2: "static/turk-dili-2-module/index.html",
     finance: "static/finance-module/index.html",
     oop1: "static/oop1-module/index.html",
     database: "static/database-module/index.html",
@@ -173,6 +174,10 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     "ybs-module": "static/ybs-module/index.html",
     ybsmodule: "static/ybs-module/index.html",
     ybs: "static/ybs-module/index.html",
+    datamining: "static/data-mining-module/index.html",
+    "data-mining": "static/data-mining-module/index.html",
+    "veri-madenciligi": "static/data-mining-module/index.html",
+    verimadenciliği: "static/data-mining-module/index.html",
   }
 
   // Special commands that trigger events instead of redirects
