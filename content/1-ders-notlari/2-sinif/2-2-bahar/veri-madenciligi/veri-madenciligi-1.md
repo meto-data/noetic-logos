@@ -16,6 +16,10 @@ slug: veri-madenciligi-1
 
 ---
 
+[[hafta_1_giris_110819.pdf]]
+
+
+
 ## 1. Veri Madenciliği Nedir?
 
 Dersin temel analojisi adı üstünde **madenciliktir**. Doğadan çıkarılan altın saf değildir; toprak, kaya ve diğer elementlerle (gürültü) karışık hâldedir. [[veri madenciliği|Veri madenciliği]] de veri tabanlarındaki milyonlarca satır *çöp* (loglar, hatalı girişler) yahut **[[2- Zekâ, DIKW#1. ** Veri (Data) ** İşaret/Sembol|ham veri]]** arasından işe yarar örüntüyü (altını) ayrıştırma ve değerli **[[2- Zekâ, DIKW#3. ** Bilgi (Knowledge)**|bilgiye]]** dönüştürme işidir.

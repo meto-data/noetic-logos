@@ -49,6 +49,21 @@ const MODULE_CONFIGS: ModuleConfig[] = [
         moduleUrl: "static/finance-module/index.html",
         iconType: "finance",
         warningNote: "(Yanlış cevaplardaki dönütler hoşunuza gitmeyebilir... Ancak eğlenceli olduğunu düşünüyorum :D)"
+    },
+    {
+        slugPattern: "turk-dili-2|türk-dili-2|turk-dili-ii|türk-dili-ii",
+        title: "Türk Dili II",
+        buttonText: "Türk Dili II Modülüne Git",
+        moduleUrl: "static/turk-dili-2-module/index.html",
+        iconType: "language",
+        warningNote: "(Yanlış cevaplardaki dönütler hoşunuza gitmeyebilir... Ancak eğlenceli olduğunu düşünüyorum :D)"
+    },
+    {
+        slugPattern: "veri-madenciligi|veri-madenciliği|data-mining",
+        title: "Veri Madenciliği",
+        buttonText: "Veri Madenciliği Modülüne Git",
+        moduleUrl: "static/data-mining-module/index.html",
+        iconType: "ybs"
     }
 ]
 
