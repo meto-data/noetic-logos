@@ -14,3 +14,8 @@ tags:
 ##### 3. [[Olağanüstü Yedek Akçe]] (İradî)
 - **Zorunluluk Kaynağı**: Genel Kurul Kararı (keyfî).
 - Ne yasa ne sözleşme vardır; o yılın ahval ve şeraitine göre "bu parayı dağıtmayalım, kara gün akçesi olsun" denilerek ayrılır.
+
+[[isletme_ve_ekonomi_sozlugu#Duran Varlıklar|DV]]
+
+[[isletme_ve_ekonomi_sozlugu#Dönen Varlıklar|DD]]
+
