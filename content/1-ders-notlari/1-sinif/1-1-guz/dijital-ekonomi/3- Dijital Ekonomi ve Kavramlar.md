@@ -24,7 +24,7 @@ tags:
 ## [[İnternet Ekonomisi Nasıl Dijital Ekonomiye Dönüştü]] ?
 - İnternet ekonomisi, internetin yaygınlaşmasıyla ortaya çıkan ve ekonomik faaliyetlerin internet üzerinden gerçekleştirildiği bir ekonomik modeldir.
 #### [[Pandemi]]
-- Pandemi, dijital ekonomiye geçişi hızlandırmıştır.
+- **Pandemi, dijital ekonomiye geçişi hızlandırmıştır.**
 #### [[Bulut Bilişim]]
 - Veri depolama, işleme ve paylaşma için bulut tabanlı sistemlerin kullanılması da dijital ekonomiye geçişi hızlandırmıştır.
 #### [[Büyük Veri Analitiği]]
