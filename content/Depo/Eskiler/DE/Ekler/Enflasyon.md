@@ -1,7 +1,6 @@
 ---
 tags:
   - akademi/dersler/dijital-ekonomi
-created: 2025-08-31
 ---
 Fiyatların genel olarak ve sürekli bir biçimde artmasıdır. Başka bir deyişle, paranın zaman içinde satın alma gücünün azalmasıdır.
 # [[Talebin Çektiği Enflasyon - Talep Enflasyonu]]

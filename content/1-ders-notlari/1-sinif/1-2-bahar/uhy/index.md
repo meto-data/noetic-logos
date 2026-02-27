@@ -1,7 +1,6 @@
 ---
 tags:
   - akademi/dersler/uhy
-created: 2025-09-20
 ---
 Bu ders slaytlar üzerinden ilerlemektedir. Genel olarak iyi ilerlese de öğrenciler tarafından matematiksel işlemlerin kullanıldığı konulara gelince iyi anlatamadığı söyleniliyor, o derslere katılmadığım için yorum yapamayacağım.
 

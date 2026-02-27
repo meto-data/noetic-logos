@@ -3,8 +3,8 @@ title: Bilişim Hukuku - 2. Ders
 date: 2025-10-09
 tags:
   - akademi/dersler/bilisim-hukuku
-created: 2025-10-11
 ---
+
 - **Soru**: "Doğrudan bilişim suçları nelerdir? Bilişim sistemine girme suçunda korunan hukuksal değer nedir? Bu suçun maddî unsurunu da izah ederek detaylıca açıklayınız."
 ---
 ## [[Doğrudan Bilişim Suçları]] (Gerçek Bilişim Suçları)

@@ -1,6 +1,5 @@
 ---
 tags:
   - akademi/dersler/dijital-ekonomi
-created: 2025-08-31
 ---
 Belirli bir süre için veya proje bazlı olarak yapılan, genellikle kısa süreli ve geçici işleri ifade eder.

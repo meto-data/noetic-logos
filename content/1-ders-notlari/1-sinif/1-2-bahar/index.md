@@ -1,7 +1,6 @@
 ---
 title: 1. Sınıf Bahar Dönemi
 slug: 1-2-bahar
-created: 2025-09-20
 ---
 Bahar dönemi ders notları. **Görsel Programlama** için not almaya gerek duymadım, ne de olsa ilgili dersin notları paylaşılıyor EBS üzerinden. İstatistik notlarını ise paylaşamam, zira öğretmen oradaki soruların çözümünden puanlar vermekte. Haksız rekabete ve kazanca karşıyız. 
 

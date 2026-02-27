@@ -1,9 +1,8 @@
 ---
 tags:
   - akademi/dersler/dijital-ekonomi
-created: 2025-08-31
 ---
-1. [[Yatırımlar]]
+ 1. [[Yatırımlar]]
 	- [[Altyapı Yatırımları]]
 		1. Ulaşım: Köprü, yol, tünel vb.
 		2. Enerji: Nükleer santral vb.
