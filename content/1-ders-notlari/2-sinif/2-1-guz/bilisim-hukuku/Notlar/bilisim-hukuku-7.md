@@ -3,7 +3,6 @@ title: Bilişim Hukuku - 7. Ders
 date: 2025-12-22
 tags:
   - akademi/dersler/bilisim-hukuku
-created: 2025-12-26
 ---
 ### Sorular
 6. Elektronik sözleşme ve e-ticaret ne demektir, yazınız. Elektronik iletişim yöntemlerinden ön plana çıkan ve elektronik sözleşmenin kurulmasında yaygın şekilde kullanılan 3 sözleşme tipi nedir, açıklayınız.

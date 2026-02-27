@@ -2,8 +2,9 @@
 title: Bilişim Matematiği
 tags:
   - akademi/dersler/bilisim-matematigi
-created: 2025-09-25
 ---
+
+
 - Bu index 2025-2026 eğitim yılı bağlamında girilmiştir.
 <br>
 AA alamadığım tek ders buydu o dönem. 

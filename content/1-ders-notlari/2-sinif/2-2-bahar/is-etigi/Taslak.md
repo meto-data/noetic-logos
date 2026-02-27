@@ -1,7 +1,3 @@
----
-created: 2026-02-27
----
-
 
 **Proje Adı:** Çilimli - Dijital Zimem Projesi
 
@@ -43,7 +39,7 @@ created: 2026-02-27
 
 
 > [!important] NOT: 
->Görev tanımları esnek olabilir. Hâlihazırda bir görevle meşgul olmayan kişi, diğer görevlerdeki kişilere yardım edebilir. Dolayısıyla iş ağırlığı bakımından bir eşitsizlik çıkarsa, hâlihazırda işi olmayan(lar)ın da yardım etmesi gerekmektedir. Mesela Dökümantasyon sorumlusu, Araştırma ve Literatür sorumlusuna yardım edebilir hâlihazırda işi bittiyse ya da yoksa.
+>Görev tanımları esnek olabilir. Hâlihazırda bir görevle meşgul olmayan kişi, diğer görevlerdeki kişilere yardım edebilir. Dolayısıyla iş ağırlığı bakımından bir eşitsizlik çıkarsa, hâlihazırda işi olmayan(lar)ın da yardım etmesi gerekmektedir. Mesela dökümantasyon sorumlusu, araştırma ve literatür sorumlusuna yardım edebilir hâlihazırda işi bittiyse ya da yoksa.
 
 
 > [!warning] NOT 2:

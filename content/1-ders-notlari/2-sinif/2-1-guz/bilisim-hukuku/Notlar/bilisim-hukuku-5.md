@@ -3,7 +3,6 @@ title: Bilişim Hukuku - 5. Ders
 date: 2025-12-04
 tags:
   - akademi/dersler/bilisim-hukuku
-created: 2025-12-11
 ---
 #### Sorular
 1. Ceza muhakemesi kanunda yer alan 'teknik araçla inceleme' hangi usul ve esaslara tâbidir? Kısaca anlatınız. Bu bağlamda "soruşturma" ve "kavuşturma" evresinde faydalanılan SEGBİS'in kullanım alanları nelerdir, yazınız.

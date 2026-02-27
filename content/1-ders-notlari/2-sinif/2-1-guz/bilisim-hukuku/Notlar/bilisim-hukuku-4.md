@@ -3,8 +3,8 @@ title: Bilişim Hukuku - 4. Ders
 date: 2025-10-16
 tags:
   - akademi/dersler/bilisim-hukuku
-created: 2025-11-06
 ---
+
 ###### **Sorular**: 
 1. "Siber alanın tanımlanmasında kullanılan internet, web ve siber alan ne demektir? Kısaca izah ediniz. İnternetin toplumsallaşmasında vurgulanan 3 faktör nedir? İzah ediniz."
 2. "Web'in açılımı nedir? Web'in tarihini ve Web 1.0, Web 2.0, Web 3.0 olarak dönemlerini kısaca izah ediniz."

@@ -2,8 +2,8 @@
 title: Bilişim Hukuku
 tags:
   - akademi/dersler/bilisim-hukuku
-created: 2025-09-25
 ---
+
 **Dersi Veren**: [Şerife Büşra ÜMİT IŞIK](https://akademik.duzce.edu.tr/sbusraumitisik)
 
 Her derste o hafta işlenen konunun tamamını bütüncül olarak kapsayan bir-iki soru sorulacak. Bu sorular aşağı yukarı 10 adet olacak, vize sınavında bu 10 sorudan 4'ünü soracak, hepsi 25 puan olmak üzere toplam 100 puan. 
