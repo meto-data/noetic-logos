@@ -34,7 +34,7 @@ created: 2026-02-27
 
 > 	*Not*: Bu kısım tek kişiye ait olacak diye bir kaide yok. Herkes dış kaynak bulmak için tanıdığı, yakın olduğu kişilerden meblağ alabilir en nihayetinde. Bu kısımdaki kişinin görevi daha ziyade sponsorluk bulmak ile ilgili bir kısım olacak. O yüzden iyi bir iletişim şart...
 
-### 4. **Görselleştirme, Tasarım ve Sunum Sorumlusu.** 
+### 4. **Görselleştirme, Tasarım ve Sunum Sorumlusu** 
 - Literatür sorumlusunun bulduğu akademik verilerle bilimsel kurallara uygun poster/bildiri tasarımının yapılması ve 12. haftadaki 10-15 sayfalık final PPT sunumunun grafik, dekont ve tablolar kullanılarak dizgilenmesi, slaytın sunumunun yapılması.
 
 > 	*Not*: Sunum sesli yapılacağı için bu kısımdaki kişinin de iyi bir iletişim kurabiliyor olması şart...
