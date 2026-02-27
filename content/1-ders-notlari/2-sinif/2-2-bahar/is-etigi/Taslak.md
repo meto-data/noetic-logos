@@ -1,3 +1,7 @@
+---
+created: 2026-02-27
+---
+
 
 **Proje Adı:** Çilimli - Dijital Zimem Projesi
 
@@ -19,10 +23,10 @@
 - **Beklenen Etkiler**: Hanelerin üzerindeki ödenemeyen borç baskısının kalkması ve esnafın tahsil edilemeyen alacaklarının doğrudan banka hesaplarına aktarılarak yerel ekonomik döngünün rahatlatılması.
 
 
-## **Proje Ekibi ve Görev Tanımları:**
+## **Görev Tanımları:**
 
 ### 1. **Dokümantasyon, Araştırma ve Raporlama Sorumlusu** 
-- Proje taslağının, ilerleme raporlarının, evrak süreçlerinin akademik formata uygun yazılması, 5. ile 7. haftalardaki resmî evrak teslim süreçlerinin yönetilmesi, 12. hafta final raporu metinlerinin düzenlenmesi ve proje evraklarının zaman çizelgesine uygun biçimde teslimi.
+- Proje taslağının, ilerleme raporlarının, projeyi destekleyen bilimsel kaynakların, evrak süreçlerinin akademik formata uygun yazılması, 5. ile 7. haftalardaki resmî evrak teslim süreçlerinin yönetilmesi, 12. hafta final raporu metinlerinin düzenlenmesi ve proje evraklarının zaman çizelgesine uygun biçimde teslimi.
 ### 2. **Finans ve Bütçe Sorumlusu**
 - Ekip içi ve dışı kaynaklardan toplanan fonların dijital bir hesapta toplanması, bütçe tablosunun şeffafça tutulması.
 ### 3. **İç-Dış Kaynak ve Sponsorluk Sorumlusu**
@@ -30,28 +34,27 @@
 
 > 	*Not*: Bu kısım tek kişiye ait olacak diye bir kaide yok. Herkes dış kaynak bulmak için tanıdığı, yakın olduğu kişilerden meblağ alabilir en nihayetinde. Bu kısımdaki kişinin görevi daha ziyade sponsorluk bulmak ile ilgili bir kısım olacak. O yüzden iyi bir iletişim şart...
 
-### 4. **Akademik Araştırma ve Literatür Sorumlusu.**
-- %15'lik Poster Bildiri ödevi için gereken slogan argümantasyonunun yapılması, en az 7 adet DOI ve link bağlantılı akademik makalenin veri tabanlarından taranarak bulunması ve etik teori eşleştirmesi metninin yazılması.
-### 5. **Görselleştirme, Tasarım ve Sunum Sorumlusu.** 
+### 4. **Görselleştirme, Tasarım ve Sunum Sorumlusu.** 
 - Literatür sorumlusunun bulduğu akademik verilerle bilimsel kurallara uygun poster/bildiri tasarımının yapılması ve 12. haftadaki 10-15 sayfalık final PPT sunumunun grafik, dekont ve tablolar kullanılarak dizgilenmesi, slaytın sunumunun yapılması.
 
 > 	*Not*: Sunum sesli yapılacağı için bu kısımdaki kişinin de iyi bir iletişim kurabiliyor olması şart...
 
 
 > [!important] NOT: 
->Görev tanımları esnek olabilir. Hâlihazırda bir görevle meşgul olmayan kişi, diğer görevlerdeki kişilere yardım edebilir. Dolayısıyla iş ağırlığı bakımından bir eşitsizlik çıkarsa, hâlihazırda işi olmayan(lar)ın da yardım etmesi gerekmektedir. Mesela dökümantasyon sorumlusu, araştırma ve literatür sorumlusuna yardım edebilir hâlihazırda işi bittiyse ya da yoksa.
+>Görev tanımları esnek olabilir. Hâlihazırda bir görevle meşgul olmayan kişi, diğer görevlerdeki kişilere yardım edebilir. Dolayısıyla iş ağırlığı bakımından bir eşitsizlik çıkarsa, hâlihazırda işi olmayan(lar)ın da yardım etmesi gerekmektedir. Mesela dökümantasyon sorumlusu, görselleştirme sorumlusuna yardım edebilir hâlihazırda işi bittiyse ya da yoksa.
 
 
 > [!warning] NOT 2:
 >Hoca derste "parayı verip geçmek olmaz" demişti. Oturduğumuz yerden SYDV'nin hesabına 3000₺ atarsak ortada bir "faaliyet" olmaz. Hoca organize olmamızı, bir iş akışı kurmamızı, bir sorun tespit edip onu çözmemizi istiyor. Fon bulmak için emek gösterdiğimizi vs. görmek istiyor herhalde.
 
 
-## **Proje Çıktıları Ve Başarı Ölçütleri**
-- **Faaliyet Çıktısı**: Ekip üyelerinin iç kaynaklar (kendilerinin koyacakları meblağ, mümkünse e-ticaret (ikinci el kitap/materyal satışı) ve dış kaynaklar (sponsorluk, aile fertleri, yakınlar, yerel esnaf vs.) faaliyetleri yoluyla hedeflenen iç kaynağa ulaşılması.
-- **Fon Çıktısı**: İç faaliyet ve dış sponsorluk destekleriyle belirlenen toplam operasyon bütçesinin eksiksiz toplanması.
+## **Proje Çıktıları Ve Başarı Ölçütleri (Faaliyet Çıktıları)**
+- **Faaliyet Çıktısı**: Ekip üyelerinin iç kaynak (kendilerinin koyacakları meblağ) ve dış kaynak (sponsorluk, aile fertleri, yakınlar, yerel esnaf vs.) faaliyetleri. Başka çıktı ne var bulamadım...
+- **Fon Çıktısı**: İç kaynak ve dış kaynak destekleriyle belirlenen toplam operasyon bütçesinin eksiksiz toplanması.
 - **Operasyon Çıktısı**: Çilimli SYDV Zimem Defteri platformu üzerinden en az 3000₺ borç kaydının sistemden tamamen silinmesi.
 - **Belgeleme Çıktısı**: Gerçekleştirilen çevrim içi ödemeye ait dijital banka dekontunun proje dosyasına kanıt evrakı olarak eklenmesi.
 - **Raporlama Çıktısı**: Tüm maliyet kalemlerinin, faaliyet kanıtlarının ve dekontların 12. haftadaki akademik sunum raporuna entegre edilmesi.
+- **Toplumsal Entegrasyon Çıktısı**: Çilimli SYDV'nin dijital altyapısı ile sivil öğrenci inisiyatifinin başarıyla entegre edilmesi; dijital platformların toplumsal dayanışma için verimli bir araç olarak kullanılabileceğinin belgelenmesi.
 
 
 
