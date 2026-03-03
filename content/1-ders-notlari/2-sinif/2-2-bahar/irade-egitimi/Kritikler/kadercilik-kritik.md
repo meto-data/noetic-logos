@@ -27,16 +27,14 @@ Numenal benlik zamanın akışına tâbi değildir. Fenomenal dünyadaki eylemle
 
 Bu seçim değişime engel değildir Kant için. Kant'a göre niyet devrimi de vardır. Zaman dışı olduğu için aklımızla her an yeniden bir ilke koyabiliriz. Numenal alanda ani bir devrim yaparak yeni bir insan olabiliriz, ancak bu numenal duruş, ampirik karaktere yavaş yavaş bir reform yapar, zira ampirik karakterde determinizm yasalarına tâbiyiz. 
 
-Schopenhauer hususundaki iddialarında yerden göğe kadar haklıdır Payot. Ancak Schopenhauer tek bir istisna tanır buna: Yaşama istencinin yadsınmadır o da; söz gelişi, azizin veya çilecinin durumu böyledir. Karakterin iyileştirilmesi değil de, istencin tamamen susturulmasıdır bu. Yeniden doğuş gibi nadir ve metafizik bir olaydır Schopenhauer nezdinde. Nitekim Schopenhauer, Seneca'nın «velle non discitur» (istemek öğretilemez) sözünü de alıntılar.  Ancak Payot'un "değişim" olarak gördüğü şeye Schopenhauer zaten itiraz etmiyor, yalnızca bunun cevheri değiştirmediğini savunuyor.
+Schopenhauer hususundaki iddialarında ise haklıdır Payot. Gerçekten de yarım saatliğine dahi olsa radikal şekilde dönüşen karakter asla değişmez bir karakter değildir ve bu değişimleri giderek sıklaşan bir şekilde yineleme umudu vardır.
 
-Schopenhauer'e göre bu görüngülerin tamamı karakterin değil de ona etki eden **bilginin, aklın (intellect)** ve **güdülerin** değişmesiyle açıklanıyor. 
-
-Şöyle derdi herhalde bu duruma Schopenhauer:
-
-> "Aklın (idrakin - _intellect_) sana sunduğu yeni perspektifler aracılığıyla yeni bir motif ortaya çıktı... Bu motiflerin işaret ettiği _intelligible character_ herhangi bir değişime uğramadı, o _intelligible character_'in şu ya da bu şekilde *görüngü*deki tezahürü değişime uğradı." 
+Özgür iradede de benzer bir biçimde haklı bana göre. Bir saike basit bir istemle güç kazandırma iddiasında oldukları için (*fiat*) karşı çıkıyor özgür iradecilere Payot. Kendisi ortaklaştırma yasasını akıllıca uygulayarak ona güç kazandırma iddiasında, zira insan tabiatına ancak ona uyarak hükmedilebilir. Bu bağlamda da özgür iradecilerin insan doğasına hâkim olmadığını dile getiriyor. Nihayetinde özgürlüğün tek güvencesi psikoloji yasaları Payot'a göre. Azat olabilmemizin tek olası aracı da onlar. Determinizm bağrında özgürlüğe kavuşulabilir ancak.
 
 
-Schopenhauer'da "cüzî değişim", ahlâkın bir parçasının değil, ona etki eden **bilginin** değişmesidir. Dolayısıyla "kısmî düzelme", karakterin değil, kişinin olayları anlama ve değerlendirme biçiminin, yani **idrakinin** düzelmesidir. Bencil bir adam, bencilliğinden vazgeçtiği için değil, bencilliğinin amacına daha zekice hizmet eden yeni **araçlar** bulduğu için davranışını değiştirir. Amacı, yani iradesinin temel yönelimi zerre kadar değişmemiştir. "Nefsini tamamen ıslah edememek" de iradenin bu değişmezliği karşısında aklın çabalarının önünde sonunda yetersiz kalacağına işaret eder.
+> «Ahlâkın tek ihtiyacı da özgürlüktür -ki bu çok farklı bir şeydir. Ancak determinizm içinde ve onun aracılığıyla mümkündür.»
 
-Nihayetinde Payot'un eleştirileri Schopenhauer'in felsefesinin ampirik düzlemdeki yansımalarını doğru bir şekilde tespit etse de tezin metafiziksel çekirdeğine nüfuz edememektedir. Ancak bu durum eleştirilerin tamamen geçersiz olduğu anlamına gelmez Schopenhauer'in teorisinin gerçekten de heves kırıcı bir iddia olması ve insanları ahlâkî gelişim çabasından alıkoyma potansiyeli taşıması iddiası bana göre de kısmen doğrudur. Karakterim bu, doğam bu, değiştiremem minvalinde karşı çıkışlara da bir zemin hazırlamaktadır esasında bu. 
 
+Başlıbaşına bir sebat eseri olan benliği özgür kılmanın uzun ve zahmetli yolunu gençlere bir *fiat*'a bağlı basit bir işmiş gibi göstermek onların cesaretini en baştan kırmak demektir.
+
+**[[Özgürlük]]**: Benliğine egemen olmak, içimizdeki hayvanın zorlamalarına karşı soylu duygulara ve ahlâkî fikirlere hâkimiyet sağlamak.

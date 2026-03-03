@@ -12,6 +12,7 @@ HUB:
 cssclasses:
   - ders-notu
 ---
+-
 
 "Sürekli metinlere referans vermekle uğraşan zihnin yaratıcılık sergilemesine hiç gerek yoktur ve bir konuyu içinden kavrama noktasını yitirdiğinde bile verimli
 bir şekilde çalışmayı sürdürebilir." diyor Payot.

@@ -1,7 +1,7 @@
 ---
 title: 0- İlk İzlenim
 created: 2026-02-20
-draft: false
+draft: true
 tags:
   - akademi/dersler/is-etigi
 ---
