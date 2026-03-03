@@ -106,7 +106,7 @@ Eksik veriyle başa çıkmak için şu yöntemler kullanılır:
 #### 2. Global Sabit Bir Değere Doldurmak
 - Hücrelere manuel olarak "`Unknown`" veya "`Bilinmiyor`" metnini atamaktır.
 
-### 3. İstatistiksel Doldurma (Central Tendency)
+#### 3. İstatistiksel Doldurma (Central Tendency)
 - Eksik kısımları o sütunun genel **Ortalama (Mean)**, **Medyan (Ortanca)** veya **Mod (Tepe Değer)** ile doldurmaktır.
 
 #### 4. Sınıfa Göre Doldurma (En Mantıklısı)

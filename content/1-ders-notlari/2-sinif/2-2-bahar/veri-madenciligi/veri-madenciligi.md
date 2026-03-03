@@ -43,7 +43,7 @@ dv.table(["Pratik Notu", "Python Snippet"], tableRows);
 > Missing Value, Outlier, Normalizasyon, Pandas
 
 - **Haftalık Pano:** [[Infrastructure/hafta-02/02-Hafta-MOC|02-Hafta-MOC (Detaylı Görünüm)]]
-- **Teorik Notlar:** [[Teorik Notlar/veri-madenciligi-2|2. Hafta Teorik Notları]]
+- **Teorik Notlar:** [[veri-madenciligi-2|2. Hafta Teorik Notları]]
 - **Pratik Uygulamalar (Konular):**
   - [[Infrastructure/hafta-02/Konular/1_numpy-temelleri|1. Numpy Temelleri]]
   - [[Infrastructure/hafta-02/Konular/2_pandas-veri-manipulasyonu|2. Pandas Veri Manipülasyonu]]
