@@ -3,6 +3,7 @@ title: Dijital Pazarlama - 1
 tags:
   - akademi/dersler/dijital-pazarlama
 cssclasses:
+created: 2026-02-19
 ---
 ## Dersin Bürokrasisi, Vurgular vs.
 - **Sınav ve Değerlendirme**: Vize %40, Final %60 ağırlığında (dönem içi ödev verilmezse). Sınavlarda kesinlikle çoktan seçmeli test <u>sorulmayacak</u>. Değerlendirme karma yöntem veya tamamen klasik sorular üzerinden yapılacak. Derse tam katılım final notuna doğrudan +10 puan olarak yansıyacak.
@@ -31,17 +32,46 @@ Pazarlama stratejileri oluşturulurken dört temel bileşen çerçevesinde harek
   <img src="pen.jpeg" width="400">
 </p>
 
+<br>
 
-### 1. Ürün (**P**roduct)
+```mermaid
+mindmap
+  root((PAZARLAMA<br/>KARMASI -4P-))
+    P1["📦 ÜRÜN (Product)"]
+      id11(Somut Nesne / Hizmet)
+      id12(Ambalaj ve Tasarım)
+      id13(Renk Psikolojisi)
+      id14(Yeşil Pazarlama)
+    P2["💰 FİYAT (Price)"]
+      id21(Maliyete Dayalı)
+      id22(Rekabete Dayalı)
+      id23(Dönemsel Fiyatlandırma)
+      id24(Pazarın Kaymağını Alma)
+    P3["📍 DAĞITIM (Place)"]
+      id31(Lojistik Yönetimi)
+      id32(Doğru Konumlandırma)
+      id33(Hedef Kitle Erişimi)
+    P4["📢 TUTUNDURMA (Promotion)"]
+      id41(Reklam Çalışmaları)
+      id42(Halkla İlişkiler PR)
+      id43(Satış Geliştirme)
+      id44(Ağızdan Ağza WOMM)
+```
+
+
+
+<br>
+
+### 1. Ürün (Product)
 Pazara sunulan, bir ihtiyacı veya isteği karşılayan her türlü somut nesne veya soyut hizmettir (bkz. [[1- Mikro İktisat#İktisat|İktisat]]).
 
 - **Ambalajlama ve Tasarım**: Ürünün kutusu sadece onu korumakla kalmaz. Müşteriye de bir mesaj verir aynı zamanda.
 - **Renk Psikolojisi**: Markalar renkleri bilinçli kullanırlar; söz gelişi, McDonald's'ın kırmızı ve sarı kullanımı iştah açıcı ve acele ettirici bir etki yaratır.
 - **Yeşil Pazarlama (Green Marketing)**: Çevreye duyarlı, geri dönüştürülebilir ambalaj kullanımıdır. Pozitif bir marka algısı yaratılır bu şekilde. 
 	- *Doğayı katleden şirketlerin o plastiğin üzerine geri dönüşüm logosu basarak vicdanlarını rahatlatması ve o ürünü iki katı fiyata satarak bizleri gezegeni kurtardıklarına inandırmalarıdır da diyebiliriz. Para hırsıyla katledilen doğa, yine para hırsıyla "çevreye duyarlı" imajıyla gösterime sokulur burada.*
-		- Bu ürünler bir ihtiyacı gidermek için değil de göstergelerin manipülasyonu için alınır daha ziyade, üreten firmalar da bunun farkında. "Yeşil pazarlama" logolu ürünü alırken dünyayı kurtarmıyoruz, "çevreci" göstergesini satın alıp kendi narsisizmimizi parlatıyoruz: ne kadar da **parlak** bir çevreciyiz biz. Ders akışından sapmaması için kritik yapmayacağım daha fazla.
+		- Bu ürünler bir ihtiyacı gidermek için değil de göstergelerin manipülasyonu için alınır daha ziyade, üreten firmalar da bunun farkında. "Yeşil pazarlama" logolu ürünü alırken dünyayı kurtarmıyoruz, "çevreci" göstergesini satın alıp kendi narsisizmimizi parlatıyoruz. Kahve alırken de sadece kahve almıyoruz, Afrikalı çocuklara yardım etme hissini (vicdanı) satın alıyoruz.
 
-### 2. Fiyat (**P**rice)
+### 2. Fiyat (Price)
 Ürünün veya hizmetin parasal karşılığıdır. İşletmeler pazara girerken veya ürün konumlandırırken farkı stratejileri izler:
 
 - **Maliyet Artı Fiyatlandırma**: Maliyetin üzerine kâr marjı eklenmesidir.
@@ -50,13 +80,13 @@ Pazara sunulan, bir ihtiyacı veya isteği karşılayan her türlü somut nesne 
 - **Pazarın Kaymağını Alma (Price Skimming)**: Piyasada muadili olmayan tamamen yenilikçi bir ürün çıkarıldığında başlangıçta fiyatı en yüksek seviyede tutma stratejisi.
 - **Pazara Nüfuz Etme/Pazarı Domine Etme (Market Penetration)**: Piyasaya girerken fiyatı rakiplerden düşük tutarak **[[sürümden kazanmak|sürümden kazanma]]** ve hızlıca pazar payı elde etme stratejisi.
 
-### 3. Dağıtım (**P**lace)
+### 3. Dağıtım (Place)
 Ürünün doğru zamanda ve doğru yerde müşteriye ulaştırılmasıdır. Sadece lojistik değil, aynı zamanda fiziksel mağazaların veya dijital platformların erişilebilirliğidir.
 
-- Derste örnek verilmişti, bizim üniversiteden bir kişinin, üniversite kampüsüne Gratis açılması fikri varmış. Bunun arka planında hedef kitleye ([[hedef pazar]]) doğrudan temas etme stratejisi yatmaktadır tabii; nihayetinde öğrencilerin yoğun olduğu bir alandan söz ediyoruz. Doğru yerde müşteriye ulaşma örneğidir bu bakımdan.
+- Derste örnek verilmişti, bizim üniversiteden bir kişinin, üniversite kampüsüne Gratis açılması fikri varmış. Bunun arka planında hedef kitleye ([[Hedef Pazar]]) doğrudan temas etme stratejisi yatmaktadır tabii; nihayetinde öğrencilerin yoğun olduğu bir alandan söz ediyoruz. Doğru yerde müşteriye ulaşma örneğidir bu bakımdan.
 - Amazon gibi firmaların drone ile teslimat yapması da geleneksel kargo maliyetlerini düşürürken müşteri memnuniyetini de maksimize eder ve bu **lojistik süreçleri** müşteri açısından zaman tasarrufu da sağlar. Elbet bu ivmelidir, ancak insanî ilişkileri sekteye uğratacak bir yapıdadır aynı zamanda. Karşı tarafta bir öteki değil de mekanik bir alet söz konusudur nitekim. Gitgide ivme ve konfor uğruna insanî ilişkiler de sekteye uğruyor, ivme uğruna bütün anlatı günbegün bertaraf ediliyor. Bu bakımdan riskleri de vardır hâliyle.
 
-### 4. Tutundurma (**P**romotion)
+### 4. Tutundurma (Promotion)
 Markanın ve ürünün hedef kitleye duyurulması, hatırlatılması ve ikna edilmesi sürecidir.
 
 - **Reklam**: Ücretli kitlesel iletişim.

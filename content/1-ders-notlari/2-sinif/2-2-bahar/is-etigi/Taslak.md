@@ -1,8 +1,7 @@
 ---
+draft: true
 created: 2026-02-27
 ---
-
-
 **Proje Adı:** Çilimli - Dijital Zimem Projesi
 
 **Proje Konusu:** Düzce Çilimli Sosyal Yardımlaşma ve Dayanışma Vakfı (SYDV) tarafından yürütülen dijital Zimem Defteri platformu kullanılarak önceden doğrulanmış ihtiyaç sahibi hanelerin yerel esnafa olan bakkal borçlarının anonim bir şekilde, çevrim içi ödeme yöntemiyle ödenmesi. 
