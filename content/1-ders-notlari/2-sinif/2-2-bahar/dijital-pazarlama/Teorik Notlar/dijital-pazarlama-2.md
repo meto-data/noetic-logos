@@ -2,7 +2,6 @@
 title: Dijital Pazarlama - 2
 tags:
   - akademi/dersler/dijital-pazarlama
-cssclasses:
 created: 2026-02-26
 ---
 ## Dersin Bürokrasisi, Vurgular vs.
@@ -62,7 +61,7 @@ Tüplü, hantal monitörlerden dinamik, mobil cihazlara geçiş.
 ### Web 3.0, 4.0 ve 5.0   
 
 - **[[Bulut Bilişim]] (Cloud Computing)**: Verilerin depolanması. 
-##### *Web 3.0'ın Temelleri**
+##### **Web 3.0'ın Temelleri**
 - **Yapay Zeka (AI) ve Makine Öğrenimi (Machine Learning)**: Söze gerek yok bunun için ya.
 - **Anlamsal Ağ (Semantic Web)**: İnternetin veriyi bir insan gibi "anlamlandırması".
 - **Merkeziyetsizleşme (Decentralization)**: Verilerin tek bir şirketin tekelinden çıkması (Blockchain, Kripto Paralar, NFT, Akıllı Sözleşmeler).
@@ -72,14 +71,36 @@ Tüplü, hantal monitörlerden dinamik, mobil cihazlara geçiş.
 ## 3. Pazarlamanın Temel Çerçeveleri
 
 - [[dijital-pazarlama-1#Pazarlama Karması (Marketing Mix - 4P)|Pazarlamanın 4 P'si]] (*Üzerinde bu derste de duruldu, sınavda çıkması muhtemelel dolayısıyla*): **Product** (Ürün), **Price** (Fiyat), **Place** (Dağıtım), **Promotion** (Tutundurma/Reklam).
-- [[SWOT Analizi]]: Strengths, Weaknesses, Opportunities (Fırsatlar - Yeni müşteriler bulmak), Threats (Tehditler - Siber güvenlik, korsan APK'lar, rakipler).
+- [[SWOT Analizi]]: Strengths, Weaknesses, Opportunities, Threats 
 
 
-## 4. Ağ Toğlumu (Network Society)
-- **Not**: Yanlış bir biçimde "community" olarak ele alındı derste. Community değil, society olması gerekiyor. 
+## 4. Ağ Toplumu (Network Society)
+- **Not**: Yanlış bir biçimde "community" olarak ele alındı derste. Community değil, society olması gerekiyor. Society daha büyük, soyut, kurumsal ve hukukî bağlarla bağlı insan topluluğudur. Community ise daha ziyade cemaat gibidir, topluluk gibidir. Daha küçük, organik, ortak ilgi alanları veya ortak kimlik etrafında toplanmış gruplardan oluşuyor. GitHub topluluğu gibi, Python geliştiricileri topluluğu gibi, DÜ YBS topluluğu gibi gibi. 
 
-Manuel Castells'in [[Ağ Toplumu (Network Society)]] kavramı işlendi. 
+**Manuel Castells'in [[Ağ Toplumu (Network Society)]] kavramı işlendi biraz.** Bkz. [[network-theories-of-power|Network Society]]
 - Ağlar (Networks) düğümlerden (nodes) ve aralarındaki bağlantılardan oluşur.
 - Şehir planlaması, sinir sistemimiz veya kargo lojistiği... Hepsi birer ağdır.
 - Toplumsal ağlarda **Süper Yayıcılar** (Super Spreaders) vardır (çok takipçili hesaplar). Bilgiyi ve aynı zamanda bilgi kirliliğini (misinformation) çok hızlı yayarlar.
-- **E-Devlet**: Bürokrasinin 'formel' yapısının dijital bir ağa taşınmasıdır. Eskiden nüfus müdürlüğünde beklenen sıralar artık tek tıkla çözülmektedir. Derste bunun tam tersinin "enformel" olduğu söylenildi de, enformel ne yahu? Doğrusunun **formal** (resmî) olması gerekiyor, olumsuzu da **informal** (gayiresmî). 
+- **E-Devlet**: Bürokrasinin 'formel' yapısının dijital bir ağa taşınmasıdır. Eskiden nüfus müdürlüğünde beklenen sıralar artık tek tıkla çözülmektedir. Derste bunun tam tersinin "enformel" olduğu söylenildi de, enformel ne yahu? Doğrusunun **formal** (resmî) olması gerekiyor, olumsuzu da **informal** (gayriresmî). 
+
+---
+
+## **Derste sorulan yahut dile getirilen İngilizce terimler/kelimeler** (*Amme hizmeti, gerçi tüm notlar amme hizmeti ama...*)
+
+- **Data Mining**: Veri Madenciliği
+- **Word of Mouth Marketing (WOMM)**: Ağızdan Ağza Pazarlama (*Not*: Mouth-to-Mouth denildi ancak genel olarak Word of Mouth kullanılıyor diye biliyorum)
+- **Content Creator**: İçerik Üreticisi
+- **Storage**: Depolama (Hafıza)
+- **Cloud Computing**: Bulut Bilişim
+- **Discussion**: Tartışma / Fikir Alışverişi
+- **Internet of Things (IoT)**: Nesnelerin İnterneti
+- **Artificial Intelligence (AI)**: Yapay Zekâ
+- **Uyum**: Hoca her nedense *Harmony* olarak ele aldı uyumu ilk başta ama, harmony daha ziyade müzikal ve felsefî bir kelime, betimleyici bir dilde kullanılır genellikle. Oysa bir şirketin pazara "uyum" sağlamasının harmony değil, **adaptation** olması gerekir. Bir ürünün müşteriye uymasına ise product-market **fit** denilebilir. Yok, eğer mevzubahis teknolojik bir ürünün uyumluluğu ise, compatibility denmesi lazım. GitHub'da compatible with older versions diye görülür mesela sürekli, eski sürümlerle uyumlu anlamında. 
+- **Machine Learning**: Makine Öğrenmesi
+- **Decentralized**: Merkeziyetsiz
+- **Smart Contracts**: Akıllı Sözleşmeler
+- **Virtual Reality (VR)**: Sanal Gerçeklik
+- **Misinformation**: Bilgi Kirliliği / Yanlış Bilgi (*post-truth olarak da ifade ederiz kimi zaman, ek bilgi.*)
+- **SWOT Analysis**: GZFT Analizi (Güçlü yönler, Zayıf yönler, Fırsatlar, Tehditler)
+- **FOMO (Fear of Missing Out)**: Bir Şeyleri Kaçırma Korkusu. Şey gibi, Instagram hesabınızı kapattığınızda falan aklınıza gelen "her şeyi kaçıracağım ama..." gibi korkular. Bir şeyi kaçırmayacaksın bu arada, hayat orada yatmıyor. Sahte kişilikler anca.
+
