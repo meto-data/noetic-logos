@@ -1,20 +1,13 @@
 ---
 title: Web Tasarım - 1. Ders
-type: ogrenis
-ders: "[[web-tasarim]]"
-created: 2026-02-19
-durum: taslak
-draft: true
+created: 2026-02-18
+draft: false
 tags:
-  - ders/web-tasarim
-  - ders/web-tasarim/web-tasarim---1
-HUB:
-cssclasses:
-  - ders-notu
+  - akademi/dersler/web-tasarim
 slug: web-tasarim-1
 ---
 
-#### Sınav ve Değerlendirme
+## Sınav ve Değerlendirme
 - %40 vize, %40 final olacak yanılmıyorsam.
 - %20 ise dönem boyunca toplamda verilecek 4 adet ödevden ölçülecek; her ödev %5.
 - Derse gelmeyenler de ödevden sorumlu.

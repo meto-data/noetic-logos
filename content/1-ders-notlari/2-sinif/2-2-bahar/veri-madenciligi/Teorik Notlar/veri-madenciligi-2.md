@@ -132,10 +132,12 @@ df.dropna() # İçinde NaN olan tüm satırları siler atar.
 ## B. Gürültülü Veri (Noisy Data / Outliers)
 Hücre boş değildir ancak ölçüm yahut giriş hatası vardır. Söz gelişi, maaşın -10 TL girilmesi veya yaşın 1000 TL girilmesi veya finansal bir grafikte genel trendin çok dışında bir sıçrama olması gibi. 
 
+**Sentetik veri de denilebilir bu verilere.**
+
 Gürültülü veriyi onarmak/minimize etmek için üç ana matematiksel yöntem kullanılır:
 
 #### 1. Hareketli Ortalama (Moving Average)
-- Veri noktalarının belirli bir pencere boyutu (örn: 3 periyotluk) içinde ortalaması alınarak dalgalanmalar (aykırı değerler) yumuşatılır.
+- Veri noktalarının belirli bir pencere boyutu (örn: 3 periyotluk) içinde ortalaması alınarak dalgalanmalar (aykırı değerler) yumuşatılır. 
 - **Dezavantajı**: İlk birkaç satırda (pencere dolana kadar) yeni `NaN` değerler oluşturmasıdır.
 
 - **Basit Hareketli Ortalama (SMA - Simple Moving Average)**: Standart olandır. Tüm değerlere **eşit** ağırlık verir.
