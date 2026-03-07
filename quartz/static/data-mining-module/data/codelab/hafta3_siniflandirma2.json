@@ -1,0 +1,1563 @@
+{
+  "id": "hafta3_siniflandirma2",
+  "title": "Sınıflandırma 2: Adult Gelir Veri Seti EDA",
+  "week": 3,
+  "csvFiles": [
+    "adult.data"
+  ],
+  "blocks": [
+    {
+      "id": "cls2-b001",
+      "title": "Veri Yükleme ve İlk Bakış",
+      "blockExplanation": "Adult Income veri seti başlık satırı içermeyen bir CSV dosyasıdır; bu yüzden sütun isimlerini elle tanımlayıp names parametresiyle veriyoruz. skipinitialspace=True ile sütun değerlerindeki baştaki boşluklar temizlenir. head() ile ilk 5 satırı kontrol ederek verinin doğru yüklendiğinden emin oluruz. shape ile satır ve sütun sayısını öğreniriz.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import pandas as pd",
+          "lineExplanation": "Pandas kütüphanesini pd takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "import",
+              "explanation": "Python'da bir modülü projeye dahil etmek için kullanılan anahtar kelime.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "pandas",
+              "explanation": "Tablo biçiminde veri işleme kütüphanesi.",
+              "turkce": "Veri Analizi Kütüphanesi",
+              "amac": "Tablolu veri setlerini (CSV, Excel, SQL) okumak, temizlemek, dönüştürmek ve analiz etmek için kullanılır.",
+              "detay": "Pandas, DataFrame (2 boyutlu tablo) ve Series (1 boyutlu sütun) veri yapıları sunar. Veri biliminde eksik veri işleme ve gruplama (groupby) gibi operasyonların kalbidir."
+            },
+            {
+              "token": "as pd",
+              "explanation": "Kütüphaneye kısa takma ad atar, kodda pd olarak kullanılır.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "",
+          "lineExplanation": "Boş satır, okunabilirlik için.",
+          "tokens": [],
+          "codeContext": "'Veri Yükleme ve İlk Bakış' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "columns = [",
+          "lineExplanation": "Sütun isimlerini tutacak listeyi başlatır.",
+          "tokens": [
+            {
+              "token": "columns",
+              "explanation": "Sütun adlarını saklayan değişken.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Veri Yükleme ve İlk Bakış' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    \"age\", \"workclass\", \"fnlwgt\", \"education\", \"education_num\",",
+          "lineExplanation": "İlk beş sütun adı: yaş, iş sınıfı, final ağırlığı, eğitim düzeyi ve eğitim sayısal karşılığı.",
+          "tokens": [
+            {
+              "token": "\"age\"",
+              "explanation": "Bireyin yaşını temsil eden sütun.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "\"fnlwgt\"",
+              "explanation": "Nüfus sayımı ağırlık katsayısı (final weight).",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "\"education_num\"",
+              "explanation": "Eğitim düzeyinin sayısal kodlaması.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Veri Yükleme ve İlk Bakış' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    \"marital_status\", \"occupation\", \"relationship\", \"race\",",
+          "lineExplanation": "Medeni durum, meslek, aile ilişkisi ve ırk sütunları.",
+          "tokens": [
+            {
+              "token": "\"marital_status\"",
+              "explanation": "Bireyin medeni durumu (evli, bekar vb.).",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "\"occupation\"",
+              "explanation": "Bireyin mesleğini gösteren kategorik sütun.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Veri Yükleme ve İlk Bakış' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    \"sex\", \"capital_gain\", \"capital_loss\",",
+          "lineExplanation": "Cinsiyet, sermaye kazancı ve sermaye kaybı sütunları.",
+          "tokens": [
+            {
+              "token": "\"capital_gain\"",
+              "explanation": "Bireyin yıllık sermaye kazancı (çoğu kayıtta 0).",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "\"capital_loss\"",
+              "explanation": "Bireyin yıllık sermaye kaybı.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Veri Yükleme ve İlk Bakış' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    \"hours_per_week\", \"native_country\", \"income\"",
+          "lineExplanation": "Haftalık çalışma saati, doğum ülkesi ve hedef değişken olan gelir sütunu.",
+          "tokens": [
+            {
+              "token": "\"hours_per_week\"",
+              "explanation": "Haftalık çalışma saati sayısı.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "\"income\"",
+              "explanation": "Hedef değişken: <=50K veya >50K gelir sınıfı.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Veri Yükleme ve İlk Bakış' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "]",
+          "lineExplanation": "Sütun listesini kapatır.",
+          "tokens": [],
+          "codeContext": "'Veri Yükleme ve İlk Bakış' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "df = pd.read_csv(\"adult.data\", names=columns, skipinitialspace=True)",
+          "lineExplanation": "adult.data dosyasını okur; names ile sütun adlarını atar, skipinitialspace ile baştaki boşlukları temizler.",
+          "tokens": [
+            {
+              "token": "pd.read_csv()",
+              "explanation": "CSV dosyasını DataFrame olarak yükleyen Pandas fonksiyonu.",
+              "turkce": "CSV Okuma Fonksiyonu",
+              "amac": "Virgülle ayrılmış (CSV) metin dosyalarındaki veriyi belleğe (DataFrame formatına) yüklemek.",
+              "detay": "Sadece virgül değil, 'sep' parametresi ile noktalı virgül veya tab ile ayrılmış dosyaları da okuyabilir."
+            },
+            {
+              "token": "\"adult.data\"",
+              "explanation": "Okunacak dosya adı; UCI Adult Income veri seti.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "names=columns",
+              "explanation": "Dosyada başlık satırı olmadığı için sütun isimlerini elle belirtir.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "skipinitialspace=True",
+              "explanation": "Virgülden sonraki baştaki boşlukları otomatik siler.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "Veri bilimi sürecinin ilk adımı olan 'Veri Toplama ve Yükleme' aşamasıdır."
+        },
+        {
+          "lineNumber": 10,
+          "code": "df.head()",
+          "lineExplanation": "DataFrame'in ilk 5 satırını görüntüler; verinin doğru yüklenip yüklenmediğini kontrol eder.",
+          "tokens": [
+            {
+              "token": "head()",
+              "explanation": "Varsayılan olarak ilk 5 satırı döndüren DataFrame metodu.",
+              "turkce": "İlk Satırları Getirme",
+              "amac": "Veri setinin yapısını, sütun isimlerini ve örnek verileri hızlıca önizlemek.",
+              "detay": "Varsayılan olarak ilk 5 satırı döndürür. Parantez içine sayı yazılarak (örn. head(10)) miktar değiştirilebilir."
+            }
+          ],
+          "codeContext": "'Veri Yükleme ve İlk Bakış' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "",
+          "lineExplanation": "Hücreler arası boşluk.",
+          "tokens": [],
+          "codeContext": "'Veri Yükleme ve İlk Bakış' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 12,
+          "code": "df.shape",
+          "lineExplanation": "DataFrame'in (satır_sayısı, sütun_sayısı) bilgisini döndürür.",
+          "tokens": [
+            {
+              "token": "shape",
+              "explanation": "DataFrame'in boyutunu (satır, sütun) tuple olarak veren özellik.",
+              "turkce": "Boyut Bilgisi",
+              "amac": "Veri setinde toplam kaç satır ve kaç sütun olduğunu öğrenmek.",
+              "detay": "(Satır_Sayısı, Sütun_Sayısı) şeklinde bir Tuple (demet) döndürür. shape[0] sadece satır sayısını verir."
+            }
+          ],
+          "codeContext": "'Veri Yükleme ve İlk Bakış' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "İlk 5 satır tablo halinde görüntülenir. 15 sütun (age, workclass, ... income) doğru şekilde adlandırılmış olur. shape çıktısı: (32561, 15)"
+    },
+    {
+      "id": "cls2-b002",
+      "title": "Veri Yapısını Anlama",
+      "blockExplanation": "info() metodu her sütunun veri tipini, boş olmayan değer sayısını ve bellek kullanımını gösterir. describe() ise sayısal sütunlar için temel istatistikleri (ortalama, standart sapma, min, max, çeyreklikler) verir. Bu iki komut EDA'nın vazgeçilmez ilk adımlarıdır ve sınavda sıkça sorulur.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.info()",
+          "lineExplanation": "Her sütunun veri tipini (int64, object vb.), boş olmayan değer sayısını ve toplam bellek kullanımını gösterir.",
+          "tokens": [
+            {
+              "token": "info()",
+              "explanation": "DataFrame hakkında özet bilgi veren metot: dtype, non-null count, memory usage.",
+              "turkce": "Veri Seti Özeti",
+              "amac": "Veri setindeki sütun isimlerini, eksik değer (null) sayısını ve veri tiplerini (int, float, object) tek seferde görmek.",
+              "detay": "Makine öğrenmesi modellemesine geçmeden önce hangi sütunların temizlenmesi veya dönüştürülmesi gerektiğini anlamak için ilk bakılan fonksiyondur."
+            }
+          ],
+          "codeContext": "'Veri Yapısını Anlama' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df.describe()",
+          "lineExplanation": "Sayısal sütunlar için count, mean, std, min, 25%, 50%, 75%, max istatistiklerini hesaplar.",
+          "tokens": [
+            {
+              "token": "describe()",
+              "explanation": "Sayısal sütunların temel istatistiksel özetini üreten DataFrame metodu.",
+              "turkce": "İstatistiksel Özet",
+              "amac": "Sayısal sütunların ortalama, standart sapma, min, max ve çeyreklik (Q1, Q2, Q3) değerlerini hesaplamak.",
+              "detay": "Aykırı değerleri (outlier) ve verinin genel dağılımını (skewness) tespit etmek için kritik öneme sahiptir. Metin sütunlarını otomatik olarak yok sayar."
+            }
+          ],
+          "codeContext": "'Veri Yapısını Anlama' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "info() çıktısı: 15 sütun, object ve int64 tipleri, bellek kullanımı. describe() çıktısı: age ortalaması ~38.5, hours_per_week ortalaması ~40.4, capital_gain ve capital_loss çoğunlukla 0."
+    },
+    {
+      "id": "cls2-b003",
+      "title": "Veri Kalitesi Kontrolü",
+      "blockExplanation": "isnull().sum() her sütundaki NaN sayısını verir; ancak bu veri setinde eksik değerler '?' karakteri ile kodlandığından isnull sıfır döner. duplicated().sum() tekrarlayan satır sayısını verir. Sınavda eksik veri tespiti ile ilgili sorularda bu iki adım mutlaka beklenir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.isnull().sum()",
+          "lineExplanation": "Her sütundaki NaN (eksik) değer sayısını hesaplar. Bu veri setinde '?' olarak kodlandığı için 0 döner.",
+          "tokens": [
+            {
+              "token": "isnull()",
+              "explanation": "Her hücreyi kontrol edip NaN ise True döndüren metot.",
+              "turkce": "Eksik Değer Kontrolü",
+              "amac": "Verideki hücrelerin boş (NaN/None) olup olmadığını satır satır denetlemek.",
+              "detay": "Her bir veri hücresi için True (boş) veya False (dolu) döndürür. Genellikle sum() ile birlikte kullanılır."
+            },
+            {
+              "token": ".sum()",
+              "explanation": "True değerleri toplayarak sütun başına eksik değer sayısını verir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Veri Kalitesi Kontrolü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df.duplicated().sum()",
+          "lineExplanation": "Tamamen aynı olan tekrarlayan satır sayısını döndürür.",
+          "tokens": [
+            {
+              "token": "duplicated()",
+              "explanation": "Her satırın daha önce görülüp görülmediğini kontrol eden metot; ilk geçtiği yerde False, sonrakilerde True döner.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": ".sum()",
+              "explanation": "True olan (tekrar eden) satırların toplam sayısını verir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Veri Kalitesi Kontrolü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "isnull().sum(): Tüm sütunlar 0 (çünkü eksikler '?' olarak kodlanmış). duplicated().sum(): 24 tekrarlayan kayıt bulunur."
+    },
+    {
+      "id": "cls2-b004",
+      "title": "Hedef Değişken Dağılımı",
+      "blockExplanation": "Hedef değişkenin (income) dağılımını countplot ile görselleştiririz. Sınıf dengesizliği (class imbalance) sınıflandırma problemlerinde model performansını doğrudan etkiler. <=50K sınıfı >50K sınıfından çok daha fazla olduğundan dengesiz bir veri seti ile karşı karşıyayız. Bu durum sınavda sıkça sorulan bir kavramdır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "Matplotlib'in pyplot modülünü plt takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "Python'un temel grafik çizim kütüphanesi.",
+              "turkce": "Görselleştirme Modülü",
+              "amac": "Verileri grafiksel olarak (çizgi, çubuk, dağılım, histogram vb.) ekrana çizdirmek.",
+              "detay": "Matplotlib, Python ekosisteminin en köklü çizim kütüphanesidir. Pyplot modülü, MATLAB benzeri kolay bir çizim arayüzü sunar."
+            },
+            {
+              "token": "as plt",
+              "explanation": "Kısa takma ad; plt.figure(), plt.show() gibi kullanılır.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import seaborn as sns",
+          "lineExplanation": "Seaborn kütüphanesini sns takma adıyla içe aktarır; istatistiksel görselleştirme için kullanılır.",
+          "tokens": [
+            {
+              "token": "seaborn",
+              "explanation": "Matplotlib üzerine kurulu, istatistiksel grafikleri kolaylaştıran kütüphane.",
+              "turkce": "İstatistiksel Görselleştirme",
+              "amac": "Daha estetik ve istatistiksel odaklı karmaşık grafikleri tek satır kodla çizebilmek.",
+              "detay": "Matplotlib üzerine inşa edilmiştir. Özellikle ısı haritaları (heatmap), dağılım matrisleri (pairplot) ve kategorik veri çizimleri için idealdir."
+            },
+            {
+              "token": "as sns",
+              "explanation": "Seaborn için yaygın kullanılan kısa takma ad.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "",
+          "lineExplanation": "Boş satır.",
+          "tokens": [],
+          "codeContext": "'Hedef Değişken Dağılımı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.figure(figsize=(6,4))",
+          "lineExplanation": "6x4 inç boyutunda yeni bir grafik alanı oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.figure()",
+              "explanation": "Yeni bir matplotlib figürü oluşturur.",
+              "turkce": "Grafik Alanı Belirleme",
+              "amac": "Çizilecek grafiğin genel kanvas boyutlarını (en x boy) ve çözünürlüğünü ayarlamak.",
+              "detay": "figsize=(10,6) parametresi ile ekranın dışına taşmayan, okunaklı büyüklükte bir çizim alanı yaratılır."
+            },
+            {
+              "token": "figsize=(6,4)",
+              "explanation": "Figür boyutunu (genişlik, yükseklik) inç cinsinden belirler.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "'Hedef Değişken Dağılımı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "sns.countplot(data=df, x=\"income\")",
+          "lineExplanation": "income sütunundaki her kategorinin (<=50K, >50K) frekansını çubuk grafik olarak çizer.",
+          "tokens": [
+            {
+              "token": "sns.countplot()",
+              "explanation": "Kategorik bir değişkenin frekans dağılımını çubuk grafik olarak gösteren Seaborn fonksiyonu.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "data=df",
+              "explanation": "Verinin alınacağı DataFrame.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "x=\"income\"",
+              "explanation": "X ekseninde gösterilecek kategorik sütun.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.title(\"Income (Target) Dağılımı\")",
+          "lineExplanation": "Grafiğe başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title()",
+              "explanation": "Grafiğin üst kısmına başlık metnini yerleştirir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Hedef Değişken Dağılımı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.xticks(rotation=0)",
+          "lineExplanation": "X eksenindeki etiketlerin dönüş açısını 0 derece (yatay) olarak ayarlar.",
+          "tokens": [
+            {
+              "token": "plt.xticks()",
+              "explanation": "X ekseni işaretlerini ve etiketlerini düzenleyen fonksiyon.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "rotation=0",
+              "explanation": "Etiketleri yatay konumda tutar.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "'Hedef Değişken Dağılımı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Grafik elemanlarının birbirine binmemesi için otomatik boşluk ayarı yapar.",
+          "tokens": [
+            {
+              "token": "tight_layout()",
+              "explanation": "Figür içindeki alt grafiklerin ve etiketlerin düzgün yerleşmesini sağlar.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Hedef Değişken Dağılımı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda gösterir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Oluşturulan figürü render edip görüntüler.",
+              "turkce": "Grafiği Göster",
+              "amac": "Arka planda çizilmiş ve tüm ayarları tamamlanmış olan grafiği nihai olarak ekrana basmak.",
+              "detay": "Bunu yazmazsanız, kod çalışır ama grafik penceresi ekranda belirmez."
+            }
+          ],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.close()",
+          "lineExplanation": "Figürü bellekten temizler, kaynak sızıntısını önler.",
+          "tokens": [
+            {
+              "token": "plt.close()",
+              "explanation": "Aktif figürü kapatıp belleği serbest bırakan fonksiyon.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Hedef Değişken Dağılımı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "(Grafik çıktısı) <=50K sınıfı ~24720 kayıt, >50K sınıfı ~7841 kayıt. Belirgin sınıf dengesizliği görülür.",
+      "plotImage": "cls2-b004.png"
+    },
+    {
+      "id": "cls2-b005",
+      "title": "Univariate Analiz - Histogramlar",
+      "blockExplanation": "Tek değişkenli analiz (univariate analysis) ile sayısal özelliklerin dağılım şekillerini histogram ve KDE ile inceleriz. age normal dağılıma yakın, hours_per_week 40 saatte yoğunlaşmış, capital_gain ise sağa çarpık (right-skewed) bir dağılım gösterir. Dağılım şekli, aykırı değer tespiti ve dönüşüm ihtiyacı sınavda önemli konulardır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.figure(figsize=(6,4))",
+          "lineExplanation": "Yaş histogramı için 6x4 figür oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.figure()",
+              "explanation": "Yeni bir matplotlib figürü oluşturur.",
+              "turkce": "Grafik Alanı Belirleme",
+              "amac": "Çizilecek grafiğin genel kanvas boyutlarını (en x boy) ve çözünürlüğünü ayarlamak.",
+              "detay": "figsize=(10,6) parametresi ile ekranın dışına taşmayan, okunaklı büyüklükte bir çizim alanı yaratılır."
+            },
+            {
+              "token": "figsize=(6,4)",
+              "explanation": "Genişlik 6, yükseklik 4 inç.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "'Univariate Analiz - Histogramlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "sns.histplot(df[\"age\"], bins=30, kde=True)",
+          "lineExplanation": "age sütununun histogramını 30 aralıkla çizer; kde=True ile yoğunluk tahmin eğrisi de eklenir.",
+          "tokens": [
+            {
+              "token": "sns.histplot()",
+              "explanation": "Histogram çizen Seaborn fonksiyonu; frekans dağılımını gösterir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "bins=30",
+              "explanation": "Histogramı 30 aralığa (bin) böler.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "kde=True",
+              "explanation": "Kernel Density Estimation eğrisini histogram üzerine ekler; düzgünleştirilmiş dağılım tahmini.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.title(\"Age Dağılımı (Histogram + KDE)\")",
+          "lineExplanation": "Grafiğe başlık ekler.",
+          "tokens": [],
+          "codeContext": "'Univariate Analiz - Histogramlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Otomatik boşluk düzenlemesi yapar.",
+          "tokens": [],
+          "codeContext": "'Univariate Analiz - Histogramlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği görüntüler.",
+          "tokens": [],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.close()",
+          "lineExplanation": "Figürü kapatır.",
+          "tokens": [],
+          "codeContext": "'Univariate Analiz - Histogramlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "",
+          "lineExplanation": "Hücreler arası boşluk.",
+          "tokens": [],
+          "codeContext": "'Univariate Analiz - Histogramlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.figure(figsize=(6,4))",
+          "lineExplanation": "Haftalık çalışma saati histogramı için yeni figür.",
+          "tokens": [],
+          "codeContext": "'Univariate Analiz - Histogramlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "sns.histplot(df[\"hours_per_week\"], bins=30, kde=True)",
+          "lineExplanation": "hours_per_week histogramı ve KDE eğrisi çizer; 40 saat civarında yoğunlaşma beklenir.",
+          "tokens": [
+            {
+              "token": "df[\"hours_per_week\"]",
+              "explanation": "Haftalık çalışma saati sütununu seçer.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.title(\"Hours per Week Dağılımı (Histogram + KDE)\")",
+          "lineExplanation": "Grafiğe başlık ekler.",
+          "tokens": [],
+          "codeContext": "'Univariate Analiz - Histogramlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Otomatik boşluk düzenlemesi.",
+          "tokens": [],
+          "codeContext": "'Univariate Analiz - Histogramlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 12,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği görüntüler.",
+          "tokens": [],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 13,
+          "code": "plt.close()",
+          "lineExplanation": "Figürü kapatır.",
+          "tokens": [],
+          "codeContext": "'Univariate Analiz - Histogramlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 14,
+          "code": "",
+          "lineExplanation": "Hücreler arası boşluk.",
+          "tokens": [],
+          "codeContext": "'Univariate Analiz - Histogramlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 15,
+          "code": "plt.figure(figsize=(6,4))",
+          "lineExplanation": "Capital gain histogramı için yeni figür.",
+          "tokens": [],
+          "codeContext": "'Univariate Analiz - Histogramlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 16,
+          "code": "sns.histplot(df[\"capital_gain\"], bins=50, kde=False)",
+          "lineExplanation": "capital_gain histogramını 50 aralıkla çizer; kde kapalı çünkü çoğu değer 0 olduğundan KDE yanıltıcı olur.",
+          "tokens": [
+            {
+              "token": "bins=50",
+              "explanation": "Daha ince aralıklarla detaylı dağılım görüntüsü sağlar.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "kde=False",
+              "explanation": "KDE eğrisini devre dışı bırakır; sıfır ağırlıklı dağılımlarda yanıltıcı olabilir.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 17,
+          "code": "plt.title(\"Capital Gain Dağılımı (Ham)\")",
+          "lineExplanation": "Grafiğe başlık ekler.",
+          "tokens": [],
+          "codeContext": "'Univariate Analiz - Histogramlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 18,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Otomatik boşluk düzenlemesi.",
+          "tokens": [],
+          "codeContext": "'Univariate Analiz - Histogramlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 19,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği görüntüler.",
+          "tokens": [],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 20,
+          "code": "plt.close()",
+          "lineExplanation": "Figürü kapatır.",
+          "tokens": [],
+          "codeContext": "'Univariate Analiz - Histogramlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "(Grafik çıktısı) Age: 20-50 yaş arasında yoğun, sağa hafif çarpık. Hours_per_week: 40 saatte belirgin tepe. Capital_gain: Büyük çoğunluk 0, çok az kayıtta yüksek değerler (sağa aşırı çarpık).",
+      "plotImage": "cls2-b005.png"
+    },
+    {
+      "id": "cls2-b006",
+      "title": "Bivariate Analiz - Boxplotlar",
+      "blockExplanation": "Boxplot (kutu grafiği) ile sayısal değişkenlerin hedef değişkene (income) göre nasıl farklılaştığını inceleriz. Medyan, çeyreklikler ve aykırı değerler (outliers) görsel olarak karşılaştırılır. >50K gelir grubunun yaş medyanı daha yüksek ve çalışma saatleri daha fazladır. Bu tür bivariate analiz sınavda özellik seçimi gerekçelendirmesinde kullanılır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.figure(figsize=(6,4))",
+          "lineExplanation": "Age vs Income boxplot için figür oluşturur.",
+          "tokens": [],
+          "codeContext": "'Bivariate Analiz - Boxplotlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "sns.boxplot(data=df, x=\"income\", y=\"age\")",
+          "lineExplanation": "Gelir gruplarına göre yaş dağılımını kutu grafiği ile karşılaştırır.",
+          "tokens": [
+            {
+              "token": "sns.boxplot()",
+              "explanation": "Kutu grafiği çizen Seaborn fonksiyonu; medyan, çeyreklikler, aykırı değerleri gösterir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "x=\"income\"",
+              "explanation": "X ekseninde kategorik değişken (gelir grubu).",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "y=\"age\"",
+              "explanation": "Y ekseninde sayısal değişken (yaş).",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.title(\"Age vs Income (Boxplot)\")",
+          "lineExplanation": "Grafiğe başlık ekler.",
+          "tokens": [],
+          "codeContext": "'Bivariate Analiz - Boxplotlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Otomatik boşluk düzenlemesi.",
+          "tokens": [],
+          "codeContext": "'Bivariate Analiz - Boxplotlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği görüntüler.",
+          "tokens": [],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.close()",
+          "lineExplanation": "Figürü kapatır.",
+          "tokens": [],
+          "codeContext": "'Bivariate Analiz - Boxplotlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "",
+          "lineExplanation": "Hücreler arası boşluk.",
+          "tokens": [],
+          "codeContext": "'Bivariate Analiz - Boxplotlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.figure(figsize=(6,4))",
+          "lineExplanation": "Hours per Week vs Income boxplot için figür oluşturur.",
+          "tokens": [],
+          "codeContext": "'Bivariate Analiz - Boxplotlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "sns.boxplot(data=df, x=\"income\", y=\"hours_per_week\")",
+          "lineExplanation": "Gelir gruplarına göre haftalık çalışma saati dağılımını kutu grafiği ile karşılaştırır.",
+          "tokens": [
+            {
+              "token": "y=\"hours_per_week\"",
+              "explanation": "Y ekseninde haftalık çalışma saati gösterilir.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.title(\"Hours per Week vs Income (Boxplot)\")",
+          "lineExplanation": "Grafiğe başlık ekler.",
+          "tokens": [],
+          "codeContext": "'Bivariate Analiz - Boxplotlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Otomatik boşluk düzenlemesi.",
+          "tokens": [],
+          "codeContext": "'Bivariate Analiz - Boxplotlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 12,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği görüntüler.",
+          "tokens": [],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 13,
+          "code": "plt.close()",
+          "lineExplanation": "Figürü kapatır.",
+          "tokens": [],
+          "codeContext": "'Bivariate Analiz - Boxplotlar' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "(Grafik çıktısı) Age boxplot: >50K grubunda medyan yaş ~44, <=50K grubunda ~33. Hours_per_week boxplot: >50K grubunda medyan ~45 saat, <=50K grubunda ~40 saat. Her iki grupta da aykırı değerler mevcut.",
+      "plotImage": "cls2-b006.png"
+    },
+    {
+      "id": "cls2-b007",
+      "title": "Kategorik Analiz - Education vs Income",
+      "blockExplanation": "Eğitim düzeyine göre >50K gelir oranını hesaplamak için crosstab ile çapraz tablo oluşturulur. normalize='index' ile satır bazlı oranlar elde edilir. Prof-school ve Doctorate en yüksek >50K oranına sahipken, HS-grad ve altı düşük oranlara sahiptir. Bu analiz sınavda kategorik özellik ile hedef değişken ilişkisini yorumlama sorusunda çıkabilir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "edu_rate = (",
+          "lineExplanation": "Eğitim-gelir çapraz tablosu hesaplaması başlar (çok satırlı ifade).",
+          "tokens": [],
+          "codeContext": "'Kategorik Analiz - Education vs Income' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    pd.crosstab(df[\"education\"], df[\"income\"], normalize=\"index\")",
+          "lineExplanation": "Eğitim ve gelir arasında çapraz tablo oluşturur; normalize='index' ile her eğitim seviyesi için gelir sınıflarının oranını hesaplar.",
+          "tokens": [
+            {
+              "token": "pd.crosstab()",
+              "explanation": "İki kategorik değişken arasında çapraz frekans tablosu oluşturur.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "normalize=\"index\"",
+              "explanation": "Her satırın toplamına göre normalize eder; böylece oranlar elde edilir.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "'Kategorik Analiz - Education vs Income' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    .reset_index()",
+          "lineExplanation": "Çapraz tablo indeksini sütuna çevirerek düz bir DataFrame elde eder.",
+          "tokens": [
+            {
+              "token": ".reset_index()",
+              "explanation": "İndeksi normal sütuna dönüştürür.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Kategorik Analiz - Education vs Income' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": ")",
+          "lineExplanation": "Çok satırlı ifadeyi kapatır.",
+          "tokens": [],
+          "codeContext": "'Kategorik Analiz - Education vs Income' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "income_cols = [c for c in edu_rate.columns if \"50K\" in c]",
+          "lineExplanation": "Sütun adlarında '50K' geçen sütunları list comprehension ile filtreler.",
+          "tokens": [
+            {
+              "token": "[c for c in ... if ...]",
+              "explanation": "Liste oluşturma ifadesi (list comprehension); koşula uyan elemanları seçer.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Kategorik Analiz - Education vs Income' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "high_col = [c for c in income_cols if \">\" in c][0]",
+          "lineExplanation": "'>50K' sütun adını seçer (>50K gelir oranı sütunu).",
+          "tokens": [
+            {
+              "token": "[0]",
+              "explanation": "Filtrelenen listeden ilk elemanı alır.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Kategorik Analiz - Education vs Income' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "edu_rate_sorted = edu_rate.sort_values(by=high_col, ascending=False)",
+          "lineExplanation": ">50K oranına göre büyükten küçüğe sıralar; en yüksek oranlı eğitim düzeyi başta olur.",
+          "tokens": [
+            {
+              "token": "sort_values()",
+              "explanation": "Belirtilen sütuna göre DataFrame'i sıralar.",
+              "turkce": "Veri Sıralama",
+              "amac": "Veri setini veya sütunu belirtilen bir kritere göre küçükten büyüğe (veya tam tersi) sıralamak.",
+              "detay": "ascending=False parametresi eklenerek büyükten küçüğe sıralama yapılabilir."
+            },
+            {
+              "token": "ascending=False",
+              "explanation": "Azalan sırada (büyükten küçüğe) sıralar.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "'Kategorik Analiz - Education vs Income' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "",
+          "lineExplanation": "Boş satır.",
+          "tokens": [],
+          "codeContext": "'Kategorik Analiz - Education vs Income' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.figure(figsize=(8,5))",
+          "lineExplanation": "8x5 inç boyutunda figür oluşturur.",
+          "tokens": [],
+          "codeContext": "'Kategorik Analiz - Education vs Income' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "sns.barplot(data=edu_rate_sorted, x=\"education\", y=high_col)",
+          "lineExplanation": "Her eğitim düzeyinin >50K gelir oranını çubuk grafik olarak çizer.",
+          "tokens": [
+            {
+              "token": "sns.barplot()",
+              "explanation": "Kategorik değişken için sayısal değeri çubuk grafik olarak gösteren Seaborn fonksiyonu.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "y=high_col",
+              "explanation": "Y ekseninde >50K gelir oranı değişkeni.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 11,
+          "code": "plt.title(\"Education'a Göre >50K Oranı\")",
+          "lineExplanation": "Grafiğe başlık ekler.",
+          "tokens": [],
+          "codeContext": "'Kategorik Analiz - Education vs Income' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 12,
+          "code": "plt.xticks(rotation=45, ha=\"right\")",
+          "lineExplanation": "X eksenindeki etiketleri 45 derece döndürür ve sağa hizalar, uzun isimlerin okunabilirliği için.",
+          "tokens": [
+            {
+              "token": "rotation=45",
+              "explanation": "Etiketleri 45 derece saat yönünde döndürür.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "ha=\"right\"",
+              "explanation": "Yatay hizalamayı sağa ayarlar (horizontal alignment).",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "'Kategorik Analiz - Education vs Income' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 13,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Otomatik boşluk düzenlemesi.",
+          "tokens": [],
+          "codeContext": "'Kategorik Analiz - Education vs Income' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 14,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği görüntüler.",
+          "tokens": [],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 15,
+          "code": "plt.close()",
+          "lineExplanation": "Figürü kapatır.",
+          "tokens": [],
+          "codeContext": "'Kategorik Analiz - Education vs Income' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "(Grafik çıktısı) Prof-school ve Doctorate en yüksek >50K oranına (~%70+), Preschool ve HS-grad düşük orana (~%15-25) sahiptir. Eğitim düzeyi arttıkça yüksek gelir olasılığı belirgin şekilde artar.",
+      "plotImage": "cls2-b007.png"
+    },
+    {
+      "id": "cls2-b008",
+      "title": "Korelasyon ve Pairplot",
+      "blockExplanation": "Korelasyon matrisi sayısal özellikler arasındaki doğrusal ilişkiyi gösterir; heatmap ile görselleştirilir. Pairplot ise seçilen özelliklerin ikili dağılım grafiklerini hedef değişkene göre renklendirir. capital_gain için log dönüşümü yapılarak çarpık dağılım düzeltilir. Bu analizler sınavda çoklu doğrusal bağlantı (multicollinearity) ve özellik seçimi sorularında karşımıza çıkar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import numpy as np",
+          "lineExplanation": "NumPy kütüphanesini np takma adıyla içe aktarır; sayısal hesaplamalar için kullanılır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "Sayısal diziler ve matematiksel işlemler için temel Python kütüphanesi.",
+              "turkce": "Sayısal Hesaplama Kütüphanesi",
+              "amac": "Çok boyutlu diziler (matrisler) üzerinde yüksek performanslı matematiksel ve istatistiksel işlemler yapmak.",
+              "detay": "C dilinde yazıldığı için Python'ın standart listelerine göre çok daha hızlıdır. Vektörizasyon sayesinde döngü (for loop) kullanmadan matris işlemleri yapılmasını sağlar."
+            },
+            {
+              "token": "as np",
+              "explanation": "NumPy için yaygın takma ad.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "num_df = df.select_dtypes(include=[np.number]).copy()",
+          "lineExplanation": "Sadece sayısal sütunları seçip yeni bir DataFrame'e kopyalar.",
+          "tokens": [
+            {
+              "token": "select_dtypes()",
+              "explanation": "Belirtilen veri tipindeki sütunları seçen DataFrame metodu.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "include=[np.number]",
+              "explanation": "Sayısal tipleri (int, float) dahil eder.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": ".copy()",
+              "explanation": "Bağımsız bir kopya oluşturur; orijinal DataFrame etkilenmez.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Korelasyon ve Pairplot' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "corr = num_df.corr()",
+          "lineExplanation": "Sayısal sütunlar arasındaki Pearson korelasyon katsayılarını hesaplar.",
+          "tokens": [
+            {
+              "token": ".corr()",
+              "explanation": "Tüm sayısal sütun çiftleri arasındaki korelasyon matrisini döndürür (-1 ile +1 arası).",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Korelasyon ve Pairplot' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "",
+          "lineExplanation": "Boş satır.",
+          "tokens": [],
+          "codeContext": "'Korelasyon ve Pairplot' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.figure(figsize=(8,6))",
+          "lineExplanation": "Korelasyon ısı haritası için 8x6 figür oluşturur.",
+          "tokens": [],
+          "codeContext": "'Korelasyon ve Pairplot' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "sns.heatmap(corr, annot=False)",
+          "lineExplanation": "Korelasyon matrisini ısı haritası olarak çizer; renk yoğunluğu korelasyon gücünü gösterir.",
+          "tokens": [
+            {
+              "token": "sns.heatmap()",
+              "explanation": "Matris verilerini renk haritası olarak görselleştiren Seaborn fonksiyonu.",
+              "turkce": "Isı Haritası Çizimi",
+              "amac": "Matris şeklindeki verileri (özellikle korelasyon matrislerini) renk yoğunluklarıyla görselleştirmek.",
+              "detay": "Değer büyüdükçe veya küçüldükçe renklerin tonu değişir; böylece ilişkileri rakam okumadan gözle sezmek çok kolaylaşır."
+            },
+            {
+              "token": "annot=False",
+              "explanation": "Hücrelere sayısal değer yazmaz; sadece renk ile gösterim yapılır.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.title(\"Sayısal Özellikler Korelasyon Haritası\")",
+          "lineExplanation": "Grafiğe Türkçe başlık ekler.",
+          "tokens": [],
+          "codeContext": "'Korelasyon ve Pairplot' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Otomatik boşluk düzenlemesi.",
+          "tokens": [],
+          "codeContext": "'Korelasyon ve Pairplot' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği görüntüler.",
+          "tokens": [],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.close()",
+          "lineExplanation": "Figürü kapatır.",
+          "tokens": [],
+          "codeContext": "'Korelasyon ve Pairplot' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "",
+          "lineExplanation": "Hücreler arası boşluk.",
+          "tokens": [],
+          "codeContext": "'Korelasyon ve Pairplot' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 12,
+          "code": "df_pp = df[[\"age\", \"education_num\", \"hours_per_week\", \"capital_gain\", \"income\"]].copy()",
+          "lineExplanation": "Pairplot için seçilen sütunlardan yeni bir DataFrame oluşturur.",
+          "tokens": [
+            {
+              "token": "df[[...]]",
+              "explanation": "Çoklu sütun seçimi; liste içinde sütun adları verilir.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Korelasyon ve Pairplot' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 13,
+          "code": "df_pp[\"capital_gain_log\"] = np.log1p(df_pp[\"capital_gain\"])",
+          "lineExplanation": "capital_gain sütununa log(1+x) dönüşümü uygulayarak çarpıklığı azaltır.",
+          "tokens": [
+            {
+              "token": "np.log1p()",
+              "explanation": "log(1+x) hesaplar; x=0 olduğunda da tanımlıdır (log(1)=0), sıfır değerlerinde hata vermez.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Korelasyon ve Pairplot' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 14,
+          "code": "df_pp = df_pp.drop(columns=[\"capital_gain\"])",
+          "lineExplanation": "Orijinal capital_gain sütununu düşürür; log dönüşümlü versiyonu kalır.",
+          "tokens": [
+            {
+              "token": "drop(columns=[...])",
+              "explanation": "Belirtilen sütunları DataFrame'den kaldırır.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "'Korelasyon ve Pairplot' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 15,
+          "code": "sample = df_pp.sample(n=min(3000, len(df_pp)), random_state=42)",
+          "lineExplanation": "Performans için 3000 rastgele örnek seçer; random_state ile tekrarlanabilirlik sağlar.",
+          "tokens": [
+            {
+              "token": ".sample()",
+              "explanation": "DataFrame'den rastgele satırlar seçen metot.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "n=min(3000, len(df_pp))",
+              "explanation": "En fazla 3000 satır seçer; veri 3000'den azsa tamamını alır.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "random_state=42",
+              "explanation": "Rastgelelik tohumunu sabitler; aynı örneklem her çalıştırmada tekrarlanır.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "'Korelasyon ve Pairplot' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 16,
+          "code": "sns.pairplot(sample, hue=\"income\", corner=True)",
+          "lineExplanation": "Seçilen özelliklerin ikili dağılım grafiklerini income rengine göre çizer; corner=True ile sadece alt üçgen gösterilir.",
+          "tokens": [
+            {
+              "token": "sns.pairplot()",
+              "explanation": "Tüm sayısal sütun çiftleri için scatter plot ve dağılım grafikleri oluşturan Seaborn fonksiyonu.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "hue=\"income\"",
+              "explanation": "Noktaları gelir sınıfına göre renklendirir.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "corner=True",
+              "explanation": "Sadece alt üçgeni gösterir; simetrik tekrarı önler.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 17,
+          "code": "plt.show()",
+          "lineExplanation": "Pairplot grafiğini görüntüler.",
+          "tokens": [],
+          "codeContext": "Analiz sonuçlarının veya verinin yapısının insan gözüyle yorumlanabilmesi için yapılan Görselleştirme aşamasıdır."
+        },
+        {
+          "lineNumber": 18,
+          "code": "plt.close()",
+          "lineExplanation": "Figürü kapatır.",
+          "tokens": [],
+          "codeContext": "'Korelasyon ve Pairplot' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "(Grafik çıktısı) Korelasyon haritasında education_num ile education arasında yüksek korelasyon, diğer özellikler arasında düşük korelasyon görülür. Pairplot'ta >50K grubunun age ve education_num'da daha yüksek değerlere yoğunlaştığı gözlenir.",
+      "plotImage": "cls2-b008.png"
+    },
+    {
+      "id": "cls2-b009",
+      "title": "Veri Temizleme - Duplicate ve Eksik Veri",
+      "blockExplanation": "Tekrarlayan kayıtlar drop_duplicates() ile silinir. Bu veri setinde eksik değerler NaN yerine '?' karakteri ile temsil edildiğinden, önce '?' içeren hücreleri tespit edip replace ile NaN'a çeviririz, sonra dropna ile kaldırırız. Sınavda veri temizleme adımları ve eksik veri stratejileri sıklıkla sorulur.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "dup_count = df.duplicated().sum()",
+          "lineExplanation": "Tekrarlayan satır sayısını hesaplayıp değişkene atar.",
+          "tokens": [
+            {
+              "token": "df.duplicated()",
+              "explanation": "Her satırın önceki satırlarla birebir aynı olup olmadığını kontrol eder.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": ".sum()",
+              "explanation": "True (tekrar eden) değerlerin toplamını verir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Veri Temizleme - Duplicate ve Eksik Veri' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "print(\"Duplicate kayıt sayısı:\", dup_count)",
+          "lineExplanation": "Tekrarlayan kayıt sayısını yazdırır.",
+          "tokens": [
+            {
+              "token": "print()",
+              "explanation": "Konsola çıktı yazdıran Python fonksiyonu.",
+              "turkce": "Ekrana Yazdırma",
+              "amac": "Kodun çıktısını, mesajları veya değişken sonuçlarını konsolda gösterir."
+            }
+          ],
+          "codeContext": "'Veri Temizleme - Duplicate ve Eksik Veri' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df_clean = df.drop_duplicates().copy()",
+          "lineExplanation": "Tekrarlayan satırları silerek temizlenmiş bir kopya oluşturur.",
+          "tokens": [
+            {
+              "token": "drop_duplicates()",
+              "explanation": "Birebir aynı olan tekrarlayan satırları kaldırır; ilk geçeni tutar.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": ".copy()",
+              "explanation": "Bağımsız kopya oluşturur; orijinal df etkilenmez.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Veri Temizleme - Duplicate ve Eksik Veri' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "print(\"Yeni boyut:\", df_clean.shape)",
+          "lineExplanation": "Tekrar silme sonrası yeni DataFrame boyutunu yazdırır.",
+          "tokens": [],
+          "codeContext": "'Veri Temizleme - Duplicate ve Eksik Veri' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "",
+          "lineExplanation": "Hücreler arası boşluk.",
+          "tokens": [],
+          "codeContext": "'Veri Temizleme - Duplicate ve Eksik Veri' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "question_missing = (df_clean == \"?\").sum().sort_values(ascending=False)",
+          "lineExplanation": "Her sütundaki '?' karakteri sayısını hesaplayıp büyükten küçüğe sıralar.",
+          "tokens": [
+            {
+              "token": "(df_clean == \"?\")",
+              "explanation": "Her hücreyi '?' ile karşılaştırır; True/False matrisi oluşturur.",
+              "turkce": "Koşullu Filtreleme",
+              "amac": "Belirtilen koşulun doğru (True) veya yanlış (False) olmasını sınar."
+            },
+            {
+              "token": ".sum()",
+              "explanation": "Sütun başına '?' sayısını toplar.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": ".sort_values(ascending=False)",
+              "explanation": "En fazla '?' olan sütunları başa getirir.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "'Veri Temizleme - Duplicate ve Eksik Veri' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "print(question_missing[question_missing > 0])",
+          "lineExplanation": "Sadece '?' içeren sütunları ve sayılarını yazdırır.",
+          "tokens": [
+            {
+              "token": "[question_missing > 0]",
+              "explanation": "Boolean indeksleme; değeri 0'dan büyük olanları filtreler.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Veri Temizleme - Duplicate ve Eksik Veri' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "",
+          "lineExplanation": "Hücreler arası boşluk.",
+          "tokens": [],
+          "codeContext": "'Veri Temizleme - Duplicate ve Eksik Veri' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "df_clean = df_clean.replace(\"?\", np.nan)",
+          "lineExplanation": "'?' karakterlerini NaN ile değiştirir; böylece Pandas eksik veri fonksiyonları kullanılabilir.",
+          "tokens": [
+            {
+              "token": ".replace()",
+              "explanation": "Belirtilen değeri başka bir değerle değiştiren DataFrame metodu.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "np.nan",
+              "explanation": "NumPy'ın eksik değer sabiti (Not a Number).",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Veri Temizleme - Duplicate ve Eksik Veri' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "print(df_clean.isnull().sum().sort_values(ascending=False).head(10))",
+          "lineExplanation": "NaN'a dönüştürme sonrası en fazla eksik değere sahip 10 sütunu yazdırır.",
+          "tokens": [
+            {
+              "token": ".head(10)",
+              "explanation": "İlk 10 satırı gösterir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Veri Temizleme - Duplicate ve Eksik Veri' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "df_clean = df_clean.dropna().copy()",
+          "lineExplanation": "En az bir NaN içeren tüm satırları siler.",
+          "tokens": [
+            {
+              "token": "dropna()",
+              "explanation": "NaN değer içeren satırları kaldıran DataFrame metodu.",
+              "turkce": "Eksik Veri Silme",
+              "amac": "İçinde eksik değer (NaN) barındıran satırları veya sütunları veri setinden tamamen atmak.",
+              "detay": "En agresif veri temizleme yöntemidir. Veri kaybına yol açar, bu yüzden sadece eksik veri oranı çok düşükse tercih edilmelidir."
+            }
+          ],
+          "codeContext": "Makine öğrenmesi modelleri null değerleri işleyemediği için yapılan kritik 'Veri Temizleme / Ön İşleme' adımıdır."
+        },
+        {
+          "lineNumber": 12,
+          "code": "print(\"NaN temizliği sonrası boyut:\", df_clean.shape)",
+          "lineExplanation": "Eksik veri temizliği sonrası kalan veri boyutunu yazdırır.",
+          "tokens": [],
+          "codeContext": "'Veri Temizleme - Duplicate ve Eksik Veri' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "Duplicate kayıt sayısı: 24\nYeni boyut: (32537, 15)\noccupation       1816\nworkclass        1831\nnative_country    274\n(NaN dönüştürme sonrası aynı değerler)\nNaN temizliği sonrası boyut: (30162, 15)"
+    },
+    {
+      "id": "cls2-b010",
+      "title": "Özellik Mühendisliği",
+      "blockExplanation": "Özellik mühendisliği (feature engineering) modelin performansını artırmak için yeni özellikler türetme sürecidir. Log dönüşümü çarpık dağılımları normalize eder. education ve education_num arasındaki ilişkiyi kontrol ederek gereksiz özelliği çıkarmayı değerlendiririz. Son olarak hedef değişken income ikili (binary) sayısal formata dönüştürülür. Bu adımlar sınavda sıkça sorulan konulardır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df_clean[\"capital_gain_log\"] = np.log1p(df_clean[\"capital_gain\"])",
+          "lineExplanation": "capital_gain sütununa log(1+x) dönüşümü uygulayarak yeni sütun oluşturur; sağa çarpıklığı azaltır.",
+          "tokens": [
+            {
+              "token": "np.log1p()",
+              "explanation": "log(1+x) hesaplar; 0 değerlerinde log(1)=0 döner, hata vermez.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "df_clean[\"capital_gain_log\"]",
+              "explanation": "Yeni sütun adı; orijinal sütun korunur.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Özellik Mühendisliği' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df_clean[\"capital_loss_log\"] = np.log1p(df_clean[\"capital_loss\"])",
+          "lineExplanation": "capital_loss sütununa da aynı log dönüşümünü uygular.",
+          "tokens": [],
+          "codeContext": "'Özellik Mühendisliği' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "",
+          "lineExplanation": "Hücreler arası boşluk.",
+          "tokens": [],
+          "codeContext": "'Özellik Mühendisliği' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "df_clean[[\"education\", \"education_num\"]].head()",
+          "lineExplanation": "education (kategorik) ve education_num (sayısal) sütunlarını yan yana gösterir; bire-bir eşleşmeyi doğrular.",
+          "tokens": [
+            {
+              "token": "df_clean[[...]]",
+              "explanation": "Birden fazla sütunu seçmek için çift köşeli parantez kullanılır.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            },
+            {
+              "token": ".head()",
+              "explanation": "İlk 5 satırı döndürür.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Özellik Mühendisliği' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "",
+          "lineExplanation": "Hücreler arası boşluk.",
+          "tokens": [],
+          "codeContext": "'Özellik Mühendisliği' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "df_clean[\"income_bin\"] = df_clean[\"income\"].apply(lambda x: 1 if \">\" in x else 0)",
+          "lineExplanation": "income sütununu ikili sayısal değere dönüştürür: >50K ise 1, <=50K ise 0.",
+          "tokens": [
+            {
+              "token": ".apply()",
+              "explanation": "Sütundaki her elemana bir fonksiyon uygulayan metot.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "lambda x:",
+              "explanation": "Tek satırlık anonim fonksiyon tanımlar.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "1 if \">\" in x else 0",
+              "explanation": "Koşullu ifade: '>' karakteri varsa 1, yoksa 0 döner.",
+              "turkce": "Koşullu Filtreleme",
+              "amac": "Belirtilen koşulun doğru (True) veya yanlış (False) olmasını sınar."
+            },
+            {
+              "token": "\"income_bin\"",
+              "explanation": "Binary (ikili) income sütunu; modelde hedef değişken olarak kullanılacak.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Özellik Mühendisliği' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "df_clean[\"income_bin\"].value_counts(normalize=True)",
+          "lineExplanation": "İkili gelir sütununun oran dağılımını gösterir; sınıf dengesizliğini sayısal olarak doğrular.",
+          "tokens": [
+            {
+              "token": "value_counts()",
+              "explanation": "Her benzersiz değerin frekansını sayan metot.",
+              "turkce": "Frekans Sayımı",
+              "amac": "Kategorik bir sütundaki farklı (benzersiz) sınıfların kaçar kez tekrar ettiğini bulmak.",
+              "detay": "Sınıflandırma problemlerinde sınıfların dengeli dağılıp dağılmadığını (class imbalance) kontrol etmek için vazgeçilmezdir."
+            },
+            {
+              "token": "normalize=True",
+              "explanation": "Frekans yerine oran (0-1 arası) döndürür.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "'Özellik Mühendisliği' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "education ve education_num ilk 5 satır:\n  education  education_num\n  Bachelors          13\n  Bachelors          13\n  HS-grad             9\n  ...\n\nincome_bin dağılımı:\n0    0.7559\n1    0.2441\nName: income_bin, dtype: float64"
+    }
+  ]
+}

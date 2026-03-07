@@ -1,0 +1,466 @@
+{
+  "id": "pandas",
+  "title": "Pandas Veri Manipülasyonu",
+  "week": 2,
+  "csvFiles": [
+    "imdb_veri.csv"
+  ],
+  "blocks": [
+    {
+      "id": "pandas-b001",
+      "title": "Kütüphane ve Veri Seti Yükleme",
+      "blockExplanation": "Bu blok Pandas kütüphanesini içe aktarır ve CSV dosyasından bir DataFrame oluşturur. DataFrame, Excel tablosu gibi satır ve sütunlardan oluşan bir veri yapısıdır. pd.read_csv() en sık kullanılan veri yükleme fonksiyonudur.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import pandas as pd",
+          "lineExplanation": "Pandas kütüphanesini 'pd' takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "Panel Data kısaltması. Tablo benzeri veri yapıları (DataFrame, Series) üzerinde işlem yapmak için kullanılan ana kütüphane.",
+              "turkce": "Veri Analizi Kütüphanesi",
+              "amac": "Tablolu veri setlerini (CSV, Excel, SQL) okumak, temizlemek, dönüştürmek ve analiz etmek için kullanılır.",
+              "detay": "Pandas, DataFrame (2 boyutlu tablo) ve Series (1 boyutlu sütun) veri yapıları sunar. Veri biliminde eksik veri işleme ve gruplama (groupby) gibi operasyonların kalbidir."
+            },
+            {
+              "token": "as pd",
+              "explanation": "Topluluk standardı takma ad. Her yerde pd olarak kullanılır.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df = pd.read_csv(\"imdb_veri.csv\")",
+          "lineExplanation": "CSV dosyasını okur ve df adlı bir DataFrame değişkenine atar.",
+          "tokens": [
+            {
+              "token": "pd.read_csv()",
+              "explanation": "Comma-Separated Values dosyasını okuyup DataFrame'e dönüştürür. Varsayılan ayırıcı virgüldür, sep parametresiyle değiştirilebilir.",
+              "turkce": "CSV Okuma Fonksiyonu",
+              "amac": "Virgülle ayrılmış (CSV) metin dosyalarındaki veriyi belleğe (DataFrame formatına) yüklemek.",
+              "detay": "Sadece virgül değil, 'sep' parametresi ile noktalı virgül veya tab ile ayrılmış dosyaları da okuyabilir."
+            },
+            {
+              "token": "df",
+              "explanation": "DataFrame kısaltması. Veri biliminde veri setini tutan değişkene geleneksel olarak df adı verilir.",
+              "turkce": "Veri Çerçevesi (DataFrame)",
+              "amac": "Tablo yapısındaki veriyi (satırlar ve sütunlar) hafızada tutan ana değişken.",
+              "detay": "Excel çalışma sayfasına benzer. Sütunlar farklı veri tiplerinde (sayı, metin, tarih) olabilir."
+            }
+          ],
+          "codeContext": "Veri bilimi sürecinin ilk adımı olan 'Veri Toplama ve Yükleme' aşamasıdır."
+        }
+      ],
+      "expectedOutput": "(DataFrame yüklendi)"
+    },
+    {
+      "id": "pandas-b002",
+      "title": "Veri Setine İlk Bakış: head, tail, shape",
+      "blockExplanation": "Bir veri seti yüklendikten sonra ilk iş onu tanımaktır. head() ilk satırları, tail() son satırları gösterir, shape ise toplam satır ve sütun sayısını verir. Bu üç komut her veri analizi projesinin ilk adımıdır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.head(3)",
+          "lineExplanation": "DataFrame'in ilk 3 satırını gösterir. Parametre verilmezse varsayılan olarak 5 satır gösterir.",
+          "tokens": [
+            {
+              "token": "head()",
+              "explanation": "DataFrame'in başından (üstünden) belirtilen sayıda satır döndürür. Veri setini hızlıca tanımak için kullanılır.",
+              "turkce": "İlk Satırları Getirme",
+              "amac": "Veri setinin yapısını, sütun isimlerini ve örnek verileri hızlıca önizlemek.",
+              "detay": "Varsayılan olarak ilk 5 satırı döndürür. Parantez içine sayı yazılarak (örn. head(10)) miktar değiştirilebilir."
+            },
+            {
+              "token": "3",
+              "explanation": "Gösterilecek satır sayısı. Varsayılan 5'tir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Veri Setine İlk Bakış: head, tail, shape' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df.tail(5)",
+          "lineExplanation": "DataFrame'in son 5 satırını gösterir.",
+          "tokens": [
+            {
+              "token": "tail()",
+              "explanation": "DataFrame'in sonundan (altından) belirtilen sayıda satır döndürür. Verinin sonunda anomali var mı kontrol etmek için faydalıdır.",
+              "turkce": "Son Satırları Getirme",
+              "amac": "Veri setinin en altındaki kayıtları görmek; genellikle verinin sonundaki anomalileri veya toplam satır sayısını teyit etmek için kullanılır.",
+              "detay": "Özellikle zaman serisi verilerinde en güncel kayıtları hızlıca kontrol etmek için faydalıdır."
+            }
+          ],
+          "codeContext": "'Veri Setine İlk Bakış: head, tail, shape' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df.shape",
+          "lineExplanation": "DataFrame'in boyutunu (satır sayısı, sütun sayısı) tuple olarak döndürür.",
+          "tokens": [
+            {
+              "token": "shape",
+              "explanation": "Bir nitelik (property), fonksiyon değil — parantez yok. (satır, sütun) formatında tuple döner.",
+              "turkce": "Boyut Bilgisi",
+              "amac": "Veri setinde toplam kaç satır ve kaç sütun olduğunu öğrenmek.",
+              "detay": "(Satır_Sayısı, Sütun_Sayısı) şeklinde bir Tuple (demet) döndürür. shape[0] sadece satır sayısını verir."
+            }
+          ],
+          "codeContext": "'Veri Setine İlk Bakış: head, tail, shape' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "len(df)",
+          "lineExplanation": "DataFrame'deki satır sayısını döndürür. shape[0] ile aynı sonucu verir.",
+          "tokens": [
+            {
+              "token": "len()",
+              "explanation": "Python'ın yerleşik uzunluk fonksiyonu. DataFrame'de satır sayısını, listede eleman sayısını verir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Veri Setine İlk Bakış: head, tail, shape' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "(ilk 3 satır IMDB veri seti)\n(son 5 satır)\n(1000, 16)\n1000"
+    },
+    {
+      "id": "pandas-b003",
+      "title": "Sütun Bilgileri ve Eksik Veri Kontrolü",
+      "blockExplanation": "Bu blok veri setinin yapısını inceler. columns sütun isimlerini, dtypes her sütunun veri tipini, isnull() ise eksik (NaN) değerleri tespit eder. Veri ön işlemenin ilk adımı her zaman veri setini tanımaktır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.columns",
+          "lineExplanation": "DataFrame'deki tüm sütun başlıklarını (isimlerini) döndürür.",
+          "tokens": [
+            {
+              "token": "columns",
+              "explanation": "Sütun isimlerini Index nesnesi olarak döndürür. Sütunları listelemek veya yeniden adlandırmak için kullanılır.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Sütun Bilgileri ve Eksik Veri Kontrolü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df.dtypes",
+          "lineExplanation": "Her sütunun veri tipini gösterir (int64, float64, object vb.). object genellikle metin verisi demektir.",
+          "tokens": [
+            {
+              "token": "dtypes",
+              "explanation": "Her sütunun veri tipini Series olarak döndürür. object = metin, int64 = tam sayı, float64 = ondalıklı sayı.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Sütun Bilgileri ve Eksik Veri Kontrolü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df.isnull()",
+          "lineExplanation": "Her hücreyi kontrol eder: boşsa (NaN) True, doluysa False döner. Tüm DataFrame boyutunda bir True/False tablosu üretir.",
+          "tokens": [
+            {
+              "token": "isnull()",
+              "explanation": "Her hücreyi NaN (Not a Number / eksik değer) kontrolü yapar. Eşanlamlısı isna() da aynı işi yapar.",
+              "turkce": "Eksik Değer Kontrolü",
+              "amac": "Verideki hücrelerin boş (NaN/None) olup olmadığını satır satır denetlemek.",
+              "detay": "Her bir veri hücresi için True (boş) veya False (dolu) döndürür. Genellikle sum() ile birlikte kullanılır."
+            }
+          ],
+          "codeContext": "'Sütun Bilgileri ve Eksik Veri Kontrolü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "Index(['Poster_Link', 'Series_Title', 'Released_Year', ...], dtype='object')\n\nPoster_Link      object\nSeries_Title     object\n...\ndtype: object\n\n(True/False tablosu)"
+    },
+    {
+      "id": "pandas-b004",
+      "title": "Sütun Seçimi ve Yeni DataFrame Oluşturma",
+      "blockExplanation": "Tek sütun seçmek için tek köşeli parantez, birden fazla sütun seçmek için çift köşeli parantez kullanılır. Birden fazla sütun seçildiğinde sonuç yeni bir DataFrame olur. Bu yöntem büyük veri setlerinden sadece ihtiyaç duyulan sütunları almak için çok kullanılır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df[\"Series_Title\"]",
+          "lineExplanation": "Tek bir sütunu Series olarak döndürür. Series, DataFrame'in tek sütunlu halidir.",
+          "tokens": [
+            {
+              "token": "df[\"...\"]",
+              "explanation": "Tek köşeli parantez ile sütun seçimi. Sonuç bir Series nesnesidir, DataFrame değil.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Sütun Seçimi ve Yeni DataFrame Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df[\"Series_Title\"][:5]",
+          "lineExplanation": "Series_Title sütununun ilk 5 elemanını (0-4 indeks) getirir. Dilimleme (slicing) burada da çalışır.",
+          "tokens": [
+            {
+              "token": "[:5]",
+              "explanation": "Dilimleme. Başlangıçtan 5. indekse kadar (5 hariç) getirir.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Sütun Seçimi ve Yeni DataFrame Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df2 = df[['Series_Title', 'Released_Year']]",
+          "lineExplanation": "İki sütunu seçip yeni bir DataFrame oluşturur. Çift köşeli parantez kullanılır.",
+          "tokens": [
+            {
+              "token": "df[[...]]",
+              "explanation": "Çift köşeli parantez: dıştaki parantez DataFrame erişimi, içteki parantez sütun isimlerinin listesi. Sonuç bir DataFrame'dir.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Sütun Seçimi ve Yeni DataFrame Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "0                  The Shawshank Redemption\n1                            The Godfather\n...\nName: Series_Title, dtype: object"
+    },
+    {
+      "id": "pandas-b005",
+      "title": "Sıralama ve Değer Sayımı",
+      "blockExplanation": "sort_values() veri setini belirli bir sütuna göre sıralar, value_counts() ise bir sütundaki benzersiz değerlerin kaçar kez tekrar ettiğini sayar. İkisi birlikte verinin dağılımını anlamak için çok güçlü araçlardır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.sort_values('Released_Year')",
+          "lineExplanation": "DataFrame'i Released_Year sütununa göre küçükten büyüğe sıralar.",
+          "tokens": [
+            {
+              "token": "sort_values()",
+              "explanation": "Belirtilen sütuna göre sıralar. ascending=False ile büyükten küçüğe sıralanır. Orijinal DataFrame değişmez, yeni bir DataFrame döner.",
+              "turkce": "Veri Sıralama",
+              "amac": "Veri setini veya sütunu belirtilen bir kritere göre küçükten büyüğe (veya tam tersi) sıralamak.",
+              "detay": "ascending=False parametresi eklenerek büyükten küçüğe sıralama yapılabilir."
+            }
+          ],
+          "codeContext": "'Sıralama ve Değer Sayımı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df[\"Released_Year\"].value_counts()",
+          "lineExplanation": "Her yılda kaç film olduğunu sayar ve çoktan aza doğru sıralar.",
+          "tokens": [
+            {
+              "token": "value_counts()",
+              "explanation": "Bir sütundaki her benzersiz değerin kaç kez tekrar ettiğini sayar. Sonuç azalan sırada sıralanmış bir Series'tir.",
+              "turkce": "Frekans Sayımı",
+              "amac": "Kategorik bir sütundaki farklı (benzersiz) sınıfların kaçar kez tekrar ettiğini bulmak.",
+              "detay": "Sınıflandırma problemlerinde sınıfların dengeli dağılıp dağılmadığını (class imbalance) kontrol etmek için vazgeçilmezdir."
+            }
+          ],
+          "codeContext": "'Sıralama ve Değer Sayımı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "2014    68\n2013    56\n2015    51\n...\nName: Released_Year, dtype: int64"
+    },
+    {
+      "id": "pandas-b006",
+      "title": "Veri Filtreleme: loc ile Koşullu Erişim",
+      "blockExplanation": "loc, etiket tabanlı (label-based) satır ve sütun seçimi yapar. Koşullu filtreleme ile belirli kriterlere uyan satırları getirebilir. Birden fazla koşul & (ve) veya | (veya) ile birleştirilir. Her koşul parantez içine alınmalıdır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df['IMDB_Rating'][5]",
+          "lineExplanation": "IMDB_Rating sütununun 5. indeksindeki (6. satır) değeri getirir.",
+          "tokens": [
+            {
+              "token": "[5]",
+              "explanation": "İndeks numarası ile erişim. Python'da ilk eleman 0'dır, yani [5] aslında 6. satırdır.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Veri Filtreleme: loc ile Koşullu Erişim' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df.loc[df['Series_Title']==\"The Godfather\"]",
+          "lineExplanation": "Series_Title'ı 'The Godfather' olan satırları getirir. Sonuç bir DataFrame'dir.",
+          "tokens": [
+            {
+              "token": "df.loc[]",
+              "explanation": "Label-based access. Koşula uyan satırları DataFrame olarak döndürür.",
+              "turkce": "Etiket Tabanlı Erişim",
+              "amac": "Veri setinde indeks numarasına göre değil, sütun veya satırın ismine/etiketine veya özel bir koşula göre seçim yapar."
+            },
+            {
+              "token": "df['Series_Title']==\"The Godfather\"",
+              "explanation": "Boolean maske oluşturur. Her satır için True veya False döner. loc bu maskeyi filtre olarak kullanır.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Veri Filtreleme: loc ile Koşullu Erişim' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df.loc[df['Series_Title']==\"The Godfather\"][\"IMDB_Rating\"]",
+          "lineExplanation": "Önce filmi bulur, sonra sadece IMDB_Rating sütununu seçer.",
+          "tokens": [
+            {
+              "token": "[\"IMDB_Rating\"]",
+              "explanation": "Filtreleme sonucu dönen DataFrame'den tek bir sütunu seçer.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Veri Filtreleme: loc ile Koşullu Erişim' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "df.loc[(df['IMDB_Rating']>=8) & (df['No_of_Votes']>=100000)]",
+          "lineExplanation": "Birden fazla koşul: IMDB puanı 8 ve üstü VE oy sayısı 100.000 ve üstü olan filmler.",
+          "tokens": [
+            {
+              "token": "&",
+              "explanation": "Bitwise AND operatörü. Pandas'ta birden fazla koşulu birleştirmek için kullanılır. Her koşul parantez içinde olmalıdır.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": ">=",
+              "explanation": "Büyük eşit karşılaştırma operatörü.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "'Veri Filtreleme: loc ile Koşullu Erişim' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "3    The Godfather    9.2\n...\n(filtrelenmiş DataFrame)"
+    },
+    {
+      "id": "pandas-b007",
+      "title": "Veri Tipi Dönüşümü",
+      "blockExplanation": "Bazen CSV'den okunan sayısal veriler metin (object) olarak gelir. Özellikle virgül içeren sayılar (örn: '1,000,000') Pandas tarafından sayı olarak algılanmaz. Önce virgüller temizlenir, sonra to_numeric() ile sayıya dönüştürülür. Bu yapılmadan filtreleme ve hesaplamalar hata verir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df['Gross'] = df['Gross'].str.replace(\",\", \"\")",
+          "lineExplanation": "Gross sütunundaki virgülleri kaldırır. '1,000,000' → '1000000' olur.",
+          "tokens": [
+            {
+              "token": ".str",
+              "explanation": "String accessor. Sütundaki metin verilerine string fonksiyonları uygulamak için kullanılır.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": ".replace(\",\", \"\")",
+              "explanation": "Virgül karakterini boş string ile değiştirir, yani siler.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Veri Tipi Dönüşümü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df[\"Gross\"] = pd.to_numeric(df[\"Gross\"])",
+          "lineExplanation": "Metin olan Gross sütununu sayısal tipe (float64/int64) dönüştürür.",
+          "tokens": [
+            {
+              "token": "pd.to_numeric()",
+              "explanation": "Metin veya karışık tipteki veriyi sayısal tipe dönüştürür. Dönüştürülemeyen değerler için errors='coerce' ile NaN yapılabilir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Veri Tipi Dönüşümü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df.loc[(df['IMDB_Rating']>=8.0) & (df['Gross']>=800000000)]",
+          "lineExplanation": "Artık Gross sayısal olduğu için büyüklük karşılaştırması yapılabilir. 800 milyon üstü gişe yapan 8+ puanlı filmler.",
+          "tokens": [],
+          "codeContext": "'Veri Tipi Dönüşümü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "(IMDB >= 8.0 ve Gross >= 800M olan filmler)"
+    },
+    {
+      "id": "pandas-b008",
+      "title": "Manuel DataFrame Oluşturma",
+      "blockExplanation": "Herhangi bir dosya okumadan, Python sözlüğü (dictionary) veya listelerden sıfırdan DataFrame oluşturulabilir. index parametresi satır etiketlerini, columns parametresi sütun isimlerini belirler. Test ve prototipleme için çok kullanılır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import random",
+          "lineExplanation": "Python'un yerleşik rastgele sayı kütüphanesini içe aktarır.",
+          "tokens": [],
+          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "rndlst1 = random.sample(range(15, 25), 2)",
+          "lineExplanation": "15-24 arasından rastgele 2 benzersiz sayı seçer.",
+          "tokens": [
+            {
+              "token": "random.sample()",
+              "explanation": "Verilen popülasyondan belirtilen sayıda benzersiz (tekrarsız) eleman seçer.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "range(15, 25)",
+              "explanation": "15'ten 24'e kadar (25 hariç) sayı aralığı oluşturur.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Manuel DataFrame Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "columns = [\"Sıcaklık 1.gün\", \"Sıcaklık 2.gün\"]",
+          "lineExplanation": "Sütun isimlerini bir liste olarak tanımlar.",
+          "tokens": [],
+          "codeContext": "'Manuel DataFrame Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "mydataframe = pd.DataFrame(data, index=[\"Düzce\",\"Sakarya\"], columns=columns)",
+          "lineExplanation": "Listelerden sıfırdan bir DataFrame oluşturur. Satır etiketleri şehir isimleri, sütunlar sıcaklık günleri.",
+          "tokens": [
+            {
+              "token": "pd.DataFrame()",
+              "explanation": "DataFrame constructor. Liste, sözlük veya NumPy dizisinden tablo yapısı oluşturur.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "index=",
+              "explanation": "Satır etiketlerini belirler. Varsayılanda 0, 1, 2... şeklinde numaralanır.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "columns=",
+              "explanation": "Sütun başlıklarını belirler.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "'Manuel DataFrame Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "        Sıcaklık 1.gün  Sıcaklık 2.gün\nDüzce              18              22\nSakarya            16              20"
+    }
+  ]
+}

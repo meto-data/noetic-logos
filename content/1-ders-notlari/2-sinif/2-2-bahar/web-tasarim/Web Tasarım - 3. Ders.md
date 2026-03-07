@@ -10,7 +10,6 @@ slug: web-tasarim-3
 ---
 
 ## Bürokrasi falan
-*(Yeni Ödev ve GitHub Pages)*
 
 > [!WARNING] **YENİ ÖDEV: 3 SAYFALI WEB SİTESİ**
 > 
