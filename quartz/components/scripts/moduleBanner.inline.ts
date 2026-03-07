@@ -36,6 +36,8 @@ function initModuleBanner() {
             const basePath = getBasePath()
             const fullUrl = new URL(moduleUrl, basePath).toString()
             link.href = fullUrl
+            link.target = "_blank"
+            link.rel = "noopener noreferrer"
         }
     })
 }
