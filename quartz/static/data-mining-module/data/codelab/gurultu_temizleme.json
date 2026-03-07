@@ -1,0 +1,583 @@
+{
+  "id": "gurultu_temizleme",
+  "title": "Gürültü Temizleme Yöntemleri",
+  "week": 2,
+  "csvFiles": [],
+  "blocks": [
+    {
+      "id": "gurultu-b001",
+      "title": "Gürültülü Veri Seti Oluşturma",
+      "blockExplanation": "Bu blokta yapay bir gürültülü veri seti oluşturulur. np.random.randint ile üretilen tamsayı ölçümlere np.random.normal ile Gauss gürültüsü eklenir. Sınavda gürültünün nasıl eklendiğini ve seed kavramını bilmek önemlidir; seed tekrarlanabilirlik sağlar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import numpy as np",
+          "lineExplanation": "NumPy kütüphanesini içe aktarır. Rastgele sayı üretimi ve matematiksel işlemler için kullanılır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "Bilimsel hesaplama kütüphanesi. Diziler, rastgele sayı üretimi ve lineer cebir işlemleri sağlar.",
+              "turkce": "Sayısal Hesaplama Kütüphanesi",
+              "amac": "Çok boyutlu diziler (matrisler) üzerinde yüksek performanslı matematiksel ve istatistiksel işlemler yapmak.",
+              "detay": "C dilinde yazıldığı için Python'ın standart listelerine göre çok daha hızlıdır. Vektörizasyon sayesinde döngü (for loop) kullanmadan matris işlemleri yapılmasını sağlar."
+            }
+          ],
+          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import pandas as pd",
+          "lineExplanation": "Pandas kütüphanesini içe aktarır. Tablo şeklinde veri yapıları (DataFrame) için kullanılır.",
+          "tokens": [],
+          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "np.random.seed(3)",
+          "lineExplanation": "Rastgele sayı üretecinin tohumunu (seed) sabitler. Bu sayede her çalıştırmada aynı rastgele sayılar üretilir ve sonuçlar tekrarlanabilir olur.",
+          "tokens": [
+            {
+              "token": "seed(3)",
+              "explanation": "Rastgele sayı üretecini belirli bir başlangıç noktasına sabitler. 3 değeri tohum değeridir; aynı tohum aynı sayı dizisini üretir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Gürültülü Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "data_noisy = {",
+          "lineExplanation": "Gürültülü veri setinin sütunlarını tanımlayan bir Python sözlüğü (dictionary) oluşturmaya başlar.",
+          "tokens": [],
+          "codeContext": "'Gürültülü Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    \"ID\": range(1, 101),",
+          "lineExplanation": "1'den 100'e kadar ID numarası oluşturur. Toplamda 100 kayıt olacak.",
+          "tokens": [
+            {
+              "token": "range(1, 101)",
+              "explanation": "1 dahil, 101 hariç olmak üzere 1'den 100'e kadar ardışık tamsayılar üretir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Gürültülü Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    \"Ölçüm_1\": np.random.randint(100, 1000, size=100) + np.random.normal(0, 50, 100),",
+          "lineExplanation": "100-999 arasında rastgele tamsayılar üretir, üzerine ortalaması 0 ve standart sapması 50 olan Gauss gürültüsü ekler.",
+          "tokens": [
+            {
+              "token": "np.random.randint(100, 1000, size=100)",
+              "explanation": "100 (dahil) ile 1000 (hariç) arasında 100 adet rastgele tamsayı üretir.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "np.random.normal(0, 50, 100)",
+              "explanation": "Ortalaması 0, standart sapması 50 olan normal (Gauss) dağılımdan 100 adet rastgele sayı üretir. Bu gürültü bileşenidir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "+",
+              "explanation": "Eleman bazlı toplama. Her tamsayı ölçüme karşılık gelen gürültü değeri eklenir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Gürültülü Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    \"Ölçüm_2\": np.random.randint(100, 1000, size=100) + np.random.normal(0, 100, 100),",
+          "lineExplanation": "İkinci ölçüm sütununu oluşturur. Burada gürültünün standart sapması 100'dür, yani Ölçüm_1'e göre daha yüksek gürültü içerir.",
+          "tokens": [
+            {
+              "token": "np.random.normal(0, 100, 100)",
+              "explanation": "Standart sapması 100 olan Gauss gürültüsü. Ölçüm_1'deki 50'ye kıyasla iki kat daha gürültülü.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Gürültülü Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "}",
+          "lineExplanation": "Sözlük tanımını kapatır.",
+          "tokens": [],
+          "codeContext": "'Gürültülü Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "df_noisy = pd.DataFrame(data_noisy)",
+          "lineExplanation": "Sözlüğü bir Pandas DataFrame'e dönüştürür. Her anahtar bir sütun, her değer listesi o sütunun verileri olur.",
+          "tokens": [
+            {
+              "token": "pd.DataFrame()",
+              "explanation": "Sözlük, liste veya NumPy dizisinden tablo yapısında bir DataFrame oluşturur.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Gürültülü Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "print(df_noisy.head())",
+          "lineExplanation": "DataFrame'in ilk 5 satırını yazdırır. Veri setinin doğru oluşturulduğunu kontrol etmek için kullanılır.",
+          "tokens": [
+            {
+              "token": ".head()",
+              "explanation": "Varsayılan olarak ilk 5 satırı döndürür. Parametre verilerek satır sayısı değiştirilebilir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Gürültülü Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "   ID      Ölçüm_1      Ölçüm_2\n0   1   637.284512   438.127643\n1   2   854.932178   712.549831\n2   3   203.718294   567.832104\n3   4   491.056723   289.413567\n4   5   728.391045   845.672318"
+    },
+    {
+      "id": "gurultu-b002",
+      "title": "Hareketli Ortalama (Moving Average)",
+      "blockExplanation": "Hareketli ortalama, gürültüyü yumuşatmak için en yaygın yöntemlerden biridir. Belirli bir pencere boyutu (window) içindeki ardışık değerlerin ortalaması alınarak ani dalgalanmalar azaltılır. Sınavda rolling() fonksiyonunun pencere boyutu parametresi ve ilk satırlardaki NaN değerlerin neden oluştuğu sorulabilir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df_moving_avg = df_noisy.copy()",
+          "lineExplanation": "Orijinal gürültülü veriyi bozmamak için bağımsız bir kopya oluşturur.",
+          "tokens": [
+            {
+              "token": ".copy()",
+              "explanation": "Deep copy oluşturur. Yeni DataFrame üzerindeki değişiklikler orijinal df_noisy'yi etkilemez.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Hareketli Ortalama (Moving Average)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df_moving_avg[\"Ölçüm_1_MA\"] = df_noisy[\"Ölçüm_1\"].rolling(window=4).mean()",
+          "lineExplanation": "Ölçüm_1 sütununa 4 elemanlı hareketli ortalama uygular. Her satır, kendisi dahil önceki 4 değerin ortalamasını alır.",
+          "tokens": [
+            {
+              "token": ".rolling(window=4)",
+              "explanation": "Kayan pencere nesnesi oluşturur. window=4, her hesaplamada 4 ardışık değeri kullanır. İlk 3 satır yeterli veri olmadığından NaN döner.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": ".mean()",
+              "explanation": "Kayan pencere içindeki değerlerin aritmetik ortalamasını hesaplar. Bu, gürültüyü yumuşatır.",
+              "turkce": "Ortalama Hesaplama",
+              "amac": "Sayısal değerlerin aritmetik ortalamasını alır."
+            },
+            {
+              "token": "\"Ölçüm_1_MA\"",
+              "explanation": "Yeni oluşturulan sütunun adı. MA = Moving Average (Hareketli Ortalama) kısaltması.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Hareketli Ortalama (Moving Average)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df_moving_avg[\"Ölçüm_2_MA\"] = df_noisy[\"Ölçüm_2\"].rolling(window=4).mean()",
+          "lineExplanation": "Ölçüm_2 sütununa da aynı şekilde 4 elemanlı hareketli ortalama uygular.",
+          "tokens": [],
+          "codeContext": "'Hareketli Ortalama (Moving Average)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "print(df_moving_avg.head(10))",
+          "lineExplanation": "İlk 10 satırı yazdırır. İlk 3 satırda MA sütunları NaN olacaktır çünkü pencere boyutu 4'tür ve yeterli önceki değer yoktur.",
+          "tokens": [
+            {
+              "token": ".head(10)",
+              "explanation": "İlk 10 satırı döndürür. Varsayılan 5'tir, burada 10 verilmiş. NaN oluşumunu görmek için daha fazla satır gösterilir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Hareketli Ortalama (Moving Average)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "   ID      Ölçüm_1      Ölçüm_2  Ölçüm_1_MA  Ölçüm_2_MA\n0   1   637.284512   438.127643         NaN         NaN\n1   2   854.932178   712.549831         NaN         NaN\n2   3   203.718294   567.832104         NaN         NaN\n3   4   491.056723   289.413567  546.747927  501.980786\n4   5   728.391045   845.672318  569.524560  603.866955\n5   6   312.847291   421.305872  434.003338  531.055965\n6   7   567.123894   634.218493  524.854738  547.652563\n7   8   445.672138   378.941267  513.508592  570.034488\n8   9   891.234567   723.456789  554.219473  539.480605\n9  10   234.567891   512.345678  534.649623  562.240557",
+      "plotImage": "gurultu-b002.png"
+    },
+    {
+      "id": "gurultu-b003",
+      "title": "Eşit Genişlikli Bölmeleme (Equal-Width Binning)",
+      "blockExplanation": "Eşit genişlikli bölmeleme, veri aralığını eşit genişlikte alt aralıklara böler. pd.cut() fonksiyonu min-max aralığını belirtilen sayıda eşit parçaya ayırır. Her değer hangi aralığa düşüyorsa o bölmenin etiketini alır. Sınavda pd.cut() ile pd.qcut() arasındaki fark sıkça sorulur.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "bin_count1 = 4",
+          "lineExplanation": "Bölme (bin) sayısını 4 olarak belirler. Veri 4 eşit genişlikte aralığa bölünecek.",
+          "tokens": [
+            {
+              "token": "bin_count1",
+              "explanation": "Kaç adet bölme (bin) kullanılacağını belirten değişken. 4 bölme = veri aralığı 4 eşit parçaya ayrılır.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df_binned1 = df_noisy.copy()",
+          "lineExplanation": "Orijinal veriyi bozmamak için bağımsız bir kopya oluşturur.",
+          "tokens": [],
+          "codeContext": "'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "for col in [\"Ölçüm_1\", \"Ölçüm_2\"]:",
+          "lineExplanation": "İki ölçüm sütunu üzerinde döngü başlatır. Her iki sütuna da aynı bölmeleme işlemi uygulanacak.",
+          "tokens": [],
+          "codeContext": "'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    df_binned1[col] = pd.cut(df_binned1[col], bins=bin_count1, labels=False)",
+          "lineExplanation": "pd.cut() ile sütunu eşit genişlikli 4 aralığa böler. labels=False ile aralık isimleri yerine 0, 1, 2, 3 gibi tamsayı etiketler verilir.",
+          "tokens": [
+            {
+              "token": "pd.cut()",
+              "explanation": "Sürekli değerleri eşit genişlikli aralıklara (bin) böler. Aralık genişliği = (max - min) / bin_count formülüyle hesaplanır.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "bins=bin_count1",
+              "explanation": "Kaç aralığa bölüneceğini belirtir. Burada 4 aralık oluşturulur.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "labels=False",
+              "explanation": "Aralık isimlerini (ör: (100, 325]) yerine sayısal etiketler (0, 1, 2, 3) kullanır. Sonraki işlemlerde daha kolay çalışılır.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "df_binned1.head(7)",
+          "lineExplanation": "Bölmelenmiş verinin ilk 7 satırını gösterir. Orijinal sürekli değerler yerine 0-3 arası bölme etiketleri görülecektir.",
+          "tokens": [],
+          "codeContext": "'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "   ID  Ölçüm_1  Ölçüm_2\n0   1        2        1\n1   2        3        2\n2   3        0        2\n3   4        1        0\n4   5        2        3\n5   6        1        1\n6   7        2        2",
+      "plotImage": "gurultu-b003.png"
+    },
+    {
+      "id": "gurultu-b004",
+      "title": "Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)",
+      "blockExplanation": "Eşit frekanslı bölmeleme, her aralıkta yaklaşık aynı sayıda veri noktası olmasını sağlar. pd.qcut() fonksiyonu quantile (yüzdelik dilim) tabanlı bölme yapar. pd.cut()'tan farkı: cut genişliğe göre böler, qcut frekansa göre böler. Bu ayrım sınavda çok önemlidir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "bin_count2 = 4",
+          "lineExplanation": "Bölme sayısını 4 olarak belirler. Her bölmede yaklaşık 100/4 = 25 kayıt olacak.",
+          "tokens": [
+            {
+              "token": "bin_count2",
+              "explanation": "Quartile bölme sayısı. 4 bölme = Q1, Q2, Q3, Q4 şeklinde yüzdelik dilimler.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df_binned2 = df_noisy.copy()",
+          "lineExplanation": "Orijinal veriyi bozmamak için bağımsız bir kopya oluşturur.",
+          "tokens": [],
+          "codeContext": "'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "for col in [\"Ölçüm_1\", \"Ölçüm_2\"]:",
+          "lineExplanation": "İki ölçüm sütunu üzerinde döngü başlatır.",
+          "tokens": [],
+          "codeContext": "'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    df_binned2[col] = pd.qcut(df_binned2[col], q=bin_count2, labels=False)",
+          "lineExplanation": "pd.qcut() ile sütunu eşit frekanslı 4 aralığa böler. Her aralıkta yaklaşık aynı sayıda eleman bulunur.",
+          "tokens": [
+            {
+              "token": "pd.qcut()",
+              "explanation": "Quantile-based cut. Veriyi yüzdelik dilimlere göre böler. Her bölmede eşit sayıda eleman olmasını hedefler.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "q=bin_count2",
+              "explanation": "Kaç yüzdelik dilime bölüneceğini belirtir. q=4 ise 0-25%, 25-50%, 50-75%, 75-100% şeklinde böler.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "labels=False",
+              "explanation": "Aralık isimleri yerine 0, 1, 2, 3 tamsayı etiketleri kullanır.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "df_binned2.head(7)",
+          "lineExplanation": "Eşit frekanslı bölmelenmiş verinin ilk 7 satırını gösterir. Etiketler 0-3 arası olacak ama aralık sınırları pd.cut()'tan farklıdır.",
+          "tokens": [],
+          "codeContext": "'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "   ID  Ölçüm_1  Ölçüm_2\n0   1        2        1\n1   2        3        3\n2   3        0        1\n3   4        1        0\n4   5        3        3\n5   6        0        1\n6   7        2        2"
+    },
+    {
+      "id": "gurultu-b005",
+      "title": "Frekans Dağılımı Kontrolü",
+      "blockExplanation": "Bu blokta eşit frekanslı bölmelemenin doğruluğu kontrol edilir. value_counts() ile her bölmedeki eleman sayısı sayılır. Eşit frekanslı bölmelemede (qcut) tüm bölmelerde yaklaşık eşit sayıda eleman olması beklenir. Bu kontrol, bölmeleme yönteminin doğru çalışıp çalışmadığını doğrulamak için önemlidir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "frekanslar = df_binned2[\"Ölçüm_1\"].value_counts().sort_index()",
+          "lineExplanation": "Ölçüm_1 sütunundaki her bölme etiketinin (0, 1, 2, 3) kaç kez tekrar ettiğini sayar ve indekse göre sıralar.",
+          "tokens": [
+            {
+              "token": ".value_counts()",
+              "explanation": "Sütundaki her benzersiz değerin kaç kez geçtiğini sayar. Varsayılan olarak en sıktan en aza sıralar.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": ".sort_index()",
+              "explanation": "Sonuçları değer yerine indekse (etiket numarasına) göre küçükten büyüğe sıralar. 0, 1, 2, 3 sırasıyla gösterir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Frekans Dağılımı Kontrolü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "print(frekanslar)",
+          "lineExplanation": "Her bölmedeki eleman sayısını yazdırır. qcut kullanıldığı için 4 bölmede de yaklaşık 25'er eleman olması beklenir.",
+          "tokens": [],
+          "codeContext": "'Frekans Dağılımı Kontrolü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "Ölçüm_1\n0    25\n1    25\n2    25\n3    25\nName: count, dtype: int64"
+    },
+    {
+      "id": "gurultu-b006",
+      "title": "Eğri Uydurma (Curve Fitting)",
+      "blockExplanation": "Eğri uydurma yönteminde veriye en iyi uyan matematiksel fonksiyon bulunarak gürültü temizlenir. Burada iki farklı yöntem kullanılır: Doğrusal Regresyon (Linear Regression) düz bir çizgi uydurur, Spline ise esnek bir eğri uydurur. Sınavda bu iki yöntemin farkı ve s parametresinin (yumuşatma faktörü) etkisi sorulabilir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "from sklearn.linear_model import LinearRegression",
+          "lineExplanation": "Scikit-learn kütüphanesinden Doğrusal Regresyon modelini içe aktarır.",
+          "tokens": [
+            {
+              "token": "sklearn.linear_model",
+              "explanation": "Scikit-learn'ün doğrusal modeller modülü. LinearRegression, Ridge, Lasso gibi modelleri içerir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "LinearRegression",
+              "explanation": "En küçük kareler yöntemiyle doğrusal regresyon modeli. y = ax + b formülünde a (eğim) ve b (kesişim) değerlerini bulur.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "from scipy.interpolate import UnivariateSpline",
+          "lineExplanation": "SciPy kütüphanesinden tek değişkenli spline interpolasyon sınıfını içe aktarır.",
+          "tokens": [
+            {
+              "token": "scipy.interpolate",
+              "explanation": "SciPy'nin interpolasyon (ara değer hesaplama) modülü.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "UnivariateSpline",
+              "explanation": "Tek değişkenli yumuşatma splini. Veriye esnek bir eğri uydurur. Doğrusal regresyondan daha esnektir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df_fitted = df_noisy.copy()",
+          "lineExplanation": "Orijinal veriyi bozmamak için bağımsız bir kopya oluşturur.",
+          "tokens": [],
+          "codeContext": "'Eğri Uydurma (Curve Fitting)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "X_vals = np.arange(len(df_fitted)).reshape(-1, 1)",
+          "lineExplanation": "0'dan 99'a kadar indeks değerlerini oluşturur ve sklearn'ün beklediği 2 boyutlu matris formatına dönüştürür.",
+          "tokens": [
+            {
+              "token": "np.arange(len(df_fitted))",
+              "explanation": "0'dan DataFrame uzunluğuna (100) kadar ardışık tamsayılar üretir: [0, 1, 2, ..., 99].",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": ".reshape(-1, 1)",
+              "explanation": "1 boyutlu diziyi 2 boyutlu sütun vektörüne dönüştürür. sklearn modelleri girdi olarak 2D matris bekler. -1 satır sayısını otomatik hesaplar.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Eğri Uydurma (Curve Fitting)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "y_vals = df_fitted[\"Ölçüm_1\"].values.reshape(-1, 1)",
+          "lineExplanation": "Ölçüm_1 sütunundaki değerleri NumPy dizisine çevirir ve 2 boyutlu formata dönüştürür.",
+          "tokens": [
+            {
+              "token": ".values",
+              "explanation": "Pandas Series'i NumPy dizisine dönüştürür. Modelle uyumlu veri formatı sağlar.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": ".reshape(-1, 1)",
+              "explanation": "Hedef değişkeni de 2D formata dönüştürür.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Eğri Uydurma (Curve Fitting)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "model = LinearRegression()",
+          "lineExplanation": "Doğrusal regresyon modeli nesnesi oluşturur. Henüz eğitilmemiştir.",
+          "tokens": [
+            {
+              "token": "LinearRegression()",
+              "explanation": "Boş bir doğrusal regresyon modeli oluşturur. fit() ile eğitilmesi gerekir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Eğri Uydurma (Curve Fitting)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "model.fit(X_vals, y_vals)",
+          "lineExplanation": "Modeli eğitir. X (indeksler) ve y (ölçüm değerleri) arasındaki doğrusal ilişkiyi öğrenir.",
+          "tokens": [
+            {
+              "token": ".fit(X, y)",
+              "explanation": "Modeli eğitir. En küçük kareler yöntemiyle en iyi doğruyu (y = ax + b) bulur. a = eğim, b = y-kesişimi.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Modelin veriyi öğrenme ve örüntü çıkarma (eğitim) aşamasının tam merkezidir."
+        },
+        {
+          "lineNumber": 8,
+          "code": "df_fitted[\"Ölçüm_1_Fitted\"] = model.predict(X_vals)",
+          "lineExplanation": "Eğitilen modelle tahmin yapar. Sonuçlar gürültüden arındırılmış doğrusal trend değerleridir.",
+          "tokens": [
+            {
+              "token": ".predict(X)",
+              "explanation": "Eğitilen modeli kullanarak X değerleri için y tahminleri üretir. Gürültüsüz trend çizgisini verir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "\"Ölçüm_1_Fitted\"",
+              "explanation": "Doğrusal regresyonla uydurulmuş (fitted) değerlerin saklandığı yeni sütun.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Eğitilmiş modelin dış dünya veya test verileri üzerinde bilgisini test ettiği karar aşamasıdır."
+        },
+        {
+          "lineNumber": 9,
+          "code": "spline = UnivariateSpline(X_vals.flatten(), df_fitted[\"Ölçüm_2\"], s=500)",
+          "lineExplanation": "Ölçüm_2 verisine spline eğrisi uydurur. s=500 yumuşatma parametresidir; büyük değerler daha düz eğri üretir.",
+          "tokens": [
+            {
+              "token": "UnivariateSpline()",
+              "explanation": "Veriye esnek bir eğri uydurur. Doğrusal regresyondan farklı olarak eğrisel (nonlinear) ilişkileri yakalayabilir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "X_vals.flatten()",
+              "explanation": "2D matrisi tekrar 1D diziye dönüştürür. UnivariateSpline 1D girdi bekler.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "s=500",
+              "explanation": "Yumuşatma faktörü (smoothing factor). s büyüdükçe eğri daha düz olur ve daha fazla gürültü temizlenir. s küçüldükçe eğri veriye daha yakın geçer.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "'Eğri Uydurma (Curve Fitting)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "df_fitted[\"Ölçüm_2_Fitted\"] = spline(X_vals.flatten())",
+          "lineExplanation": "Spline eğrisinden tahmin edilen değerleri yeni bir sütun olarak ekler.",
+          "tokens": [
+            {
+              "token": "spline()",
+              "explanation": "Oluşturulan spline nesnesini fonksiyon gibi çağırarak verilen X noktalarındaki uydurulmuş y değerlerini hesaplar.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Eğri Uydurma (Curve Fitting)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "print(df_fitted.head())",
+          "lineExplanation": "İlk 5 satırı yazdırır. Orijinal gürültülü değerler ile uydurulmuş (temizlenmiş) değerler yan yana görülür.",
+          "tokens": [],
+          "codeContext": "'Eğri Uydurma (Curve Fitting)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "   ID      Ölçüm_1      Ölçüm_2  Ölçüm_1_Fitted  Ölçüm_2_Fitted\n0   1   637.284512   438.127643      548.231456      523.148723\n1   2   854.932178   712.549831      548.017234      524.561238\n2   3   203.718294   567.832104      547.803012      525.973754\n3   4   491.056723   289.413567      547.588790      527.386269\n4   5   728.391045   845.672318      547.374568      528.798785",
+      "plotImage": "gurultu-b006.png"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ created: 2026-02-26
 ## Dersin Bürokrasisi, Vurgular vs.
 
 - **Ödev**: Porter'ın 5 Güç Modeli (Porter's Five Forces) araştırılacak (bkz. [[4- Bilgi Sistemleri, Organizasyon ve Strateji II#Porter'in Rekabetçi Güçler Modeli (5 Güç Modeli)|5 Güç Modeli]])
-- **Pazarlamanın 4P'si Dijital Uygulama**: Geçen hafta işlenen [[dijital-pazarlama-1#Pazarlama Karması (Marketing Mix - 4P)|Pazarlama Karması]] konusu bu hafta dijitale bağlandı. Sınavda bir internet sitesi veya uygulama fikri verip/isteyip, bunun 4P'sini açıklamamız istenebilirmil.
+- **Pazarlamanın 4P'si Dijital Uygulama**: Geçen hafta işlenen [[dijital-pazarlama-1#Pazarlama Karması (Marketing Mix - 4P)|Pazarlama Karması]] konusu bu hafta dijitale bağlandı. Sınavda bir internet sitesi veya uygulama fikri verip/isteyip, bunun 4P'sini açıklamamız istenebilirmiş. PDF'te bu konu IoT (Nesnelerin İnterneti) bağlamında da detaylandırılmış; "Nesnelerin interneti pazarlama karmasını nasıl değiştirir?" gibi bir soru gelebilir, bilemiyom.
 - **İngilizce-Türkçe Kelime Eşleştirmesi**: Sınavın en az 50 puanlık kısmının burası olabileceğini dile getirdi. Kesin değil, ancak daha önceleri yaptığı bir şeymiş. Derste karşılaştığımız İngilizce kelimelerden 10-20 tanesini verip Türkçe karşılıklarını yazmamızı isteyebilirmiş. Eh, bunları not almak gereksizdi bana göre aslında ama, düzgün bir dökümantasyon için almak lazımdı mecbur.
 - **Not**: Teknoloji Kabul Modeli, geçmiş haftanın ödevi idi, haftaya olan ders için de ödev olarak verildi nitekim. Teknoloji Kabul Modeli'ni anlattığım yazı şurada mevcut: [[teknoloji-kabul-modeli|Teknoloji Kabul Modeli]]
 
@@ -75,7 +75,7 @@ Tüplü, hantal monitörlerden dinamik, mobil cihazlara geçiş.
 
 
 ## 4. Ağ Toplumu (Network Society)
-- **Not**: Yanlış bir biçimde "community" olarak ele alındı derste. Community değil, society olması gerekiyor. Society daha büyük, soyut, kurumsal ve hukukî bağlarla bağlı insan topluluğudur. Community ise daha ziyade cemaat gibidir, topluluk gibidir. Daha küçük, organik, ortak ilgi alanları veya ortak kimlik etrafında toplanmış gruplardan oluşuyor. GitHub topluluğu gibi, Python geliştiricileri topluluğu gibi, DÜ YBS topluluğu gibi gibi. 
+- **Not**: Yanlış bir biçimde "community" olarak ele alındı derste. Community değil, society olması gerekiyor. Society daha büyük, soyut, kurumsal ve hukukî bağlarla bağlı insan topluluğudur. Community ise daha ziyade cemaat gibidir, topluluk gibidir. Daha küçük, organik, ortak ilgi alanları veya ortak kimlik etrafında toplanmış gruplardan oluşuyor. GitHub topluluğu gibi, Python geliştiricileri topluluğu gibi, DÜ YBS topluluğu gibi gibi. Bir sonraki derste de bu hatalı kullanımı sürdürdü hoca.
 
 **Manuel Castells'in [[Ağ Toplumu (Network Society)]] kavramı işlendi biraz.** Bkz. [[network-theories-of-power|Network Society]]
 - Ağlar (Networks) düğümlerden (nodes) ve aralarındaki bağlantılardan oluşur.

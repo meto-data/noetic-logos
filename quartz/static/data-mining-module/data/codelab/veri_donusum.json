@@ -1,0 +1,468 @@
+{
+  "id": "veri_donusum",
+  "title": "Veri Dönüşüm Teknikleri",
+  "week": 2,
+  "csvFiles": [],
+  "blocks": [
+    {
+      "id": "veri_donusum-b001",
+      "title": "Min-Max Normalizasyon",
+      "blockExplanation": "Değerleri 0-1 aralığına sıkıştırır. Her değerden minimum çıkarılır ve aralığa bölünür. Sınavda formülü sorulabilir: (x - min) / (max - min). Farklı ölçeklerdeki değişkenleri karşılaştırılabilir hale getirmek için kullanılır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "from sklearn.preprocessing import MinMaxScaler",
+          "lineExplanation": "Scikit-learn kütüphanesinin preprocessing (ön işleme) modülünden MinMaxScaler sınıfını içe aktarır. Bu sınıf verileri 0 ile 1 arasına ölçeklendirir.",
+          "tokens": [
+            {
+              "token": "sklearn.preprocessing",
+              "explanation": "Scikit-learn'ün veri ön işleme modülü. Normalizasyon, standardizasyon, kodlama gibi dönüşüm araçlarını barındırır.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "MinMaxScaler",
+              "explanation": "Her özelliği (x - min) / (max - min) formülüyle 0-1 aralığına dönüştüren sınıf. feature_range parametresi ile farklı aralıklar da belirlenebilir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import pandas as pd",
+          "lineExplanation": "Pandas kütüphanesini 'pd' takma adıyla içe aktarır. Tablo benzeri veri yapıları oluşturmak için kullanılır.",
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "Veri analizi ve manipülasyonu için temel Python kütüphanesi. DataFrame ve Series yapılarını sağlar.",
+              "turkce": "Veri Analizi Kütüphanesi",
+              "amac": "Tablolu veri setlerini (CSV, Excel, SQL) okumak, temizlemek, dönüştürmek ve analiz etmek için kullanılır.",
+              "detay": "Pandas, DataFrame (2 boyutlu tablo) ve Series (1 boyutlu sütun) veri yapıları sunar. Veri biliminde eksik veri işleme ve gruplama (groupby) gibi operasyonların kalbidir."
+            },
+            {
+              "token": "as pd",
+              "explanation": "Topluluk standardı takma ad. Kodda kısaca pd olarak kullanılır.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "",
+          "lineExplanation": "Boş satır — kod okunabilirliği için bırakılmıştır.",
+          "tokens": [],
+          "codeContext": "'Min-Max Normalizasyon' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "df = pd.DataFrame({\"Gelir\": [2500, 3000, 4000, 10000, 15000]})",
+          "lineExplanation": "Beş kişinin gelir bilgisini içeren bir DataFrame oluşturur. Sözlük yapısında sütun adı anahtar, değerler ise liste olarak verilir.",
+          "tokens": [
+            {
+              "token": "pd.DataFrame()",
+              "explanation": "Sözlük, liste veya NumPy dizisinden tablo (DataFrame) oluşturur. Anahtar sütun adı, değer ise o sütundaki verilerdir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "{\"Gelir\": [2500, 3000, 4000, 10000, 15000]}",
+              "explanation": "Gelir sütununda beş farklı değer tanımlanıyor. Min=2500, Max=15000. Aralık oldukça geniş olduğundan normalizasyon gereklidir.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Min-Max Normalizasyon' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "scaler = MinMaxScaler()",
+          "lineExplanation": "MinMaxScaler nesnesini oluşturur. Varsayılan olarak verileri 0-1 aralığına dönüştürecektir.",
+          "tokens": [
+            {
+              "token": "MinMaxScaler()",
+              "explanation": "Scaler nesnesi oluşturulur. feature_range=(0,1) varsayılandır. Örneğin feature_range=(0,10) ile 0-10 aralığına da ölçeklenebilir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "scaler",
+              "explanation": "Ölçekleyici nesneyi tutan değişken. fit_transform() metodu bu nesne üzerinden çağrılacaktır.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Min-Max Normalizasyon' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "df[\"Gelir_Normalize\"] = scaler.fit_transform(df[[\"Gelir\"]])",
+          "lineExplanation": "Gelir sütununu Min-Max formülüyle normalize eder ve sonucu yeni bir sütun olarak ekler. fit_transform hem öğrenir (min/max bulur) hem dönüştürür.",
+          "tokens": [
+            {
+              "token": "fit_transform()",
+              "explanation": "fit() ve transform() işlemlerini tek adımda yapar. fit() veriden min ve max değerlerini öğrenir, transform() formülü uygular.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "df[[\"Gelir\"]]",
+              "explanation": "Çift köşeli parantez 2B DataFrame döndürür (tek köşeli Series döner). Scikit-learn 2B girdi bekler, bu yüzden çift parantez kullanılır.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            },
+            {
+              "token": "df[\"Gelir_Normalize\"]",
+              "explanation": "Normalize edilmiş değerlerin kaydedileceği yeni sütun adı. Mevcut olmayan bir sütun adı yazıldığında otomatik olarak oluşturulur.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Min-Max Normalizasyon' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "print(df)",
+          "lineExplanation": "Orijinal Gelir sütunu ile birlikte normalize edilmiş Gelir_Normalize sütununu ekrana yazdırır.",
+          "tokens": [
+            {
+              "token": "print()",
+              "explanation": "DataFrame'i konsola yazdırır. Tüm sütunlar yan yana görüntülenir.",
+              "turkce": "Ekrana Yazdırma",
+              "amac": "Kodun çıktısını, mesajları veya değişken sonuçlarını konsolda gösterir."
+            }
+          ],
+          "codeContext": "'Min-Max Normalizasyon' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "   Gelir  Gelir_Normalize\n0   2500             0.00\n1   3000             0.04\n2   4000             0.12\n3  10000             0.60\n4  15000             1.00"
+    },
+    {
+      "id": "veri_donusum-b002",
+      "title": "Standardizasyon (Z-Score)",
+      "blockExplanation": "Veriyi ortalama=0, standart sapma=1 olacak şekilde dönüştürür. Formül: z = (x - μ) / σ. Sınavda Min-Max ile Standardizasyon arasındaki fark sıkça sorulur. Aykırı değerlere karşı Min-Max'tan daha dayanıklıdır çünkü aralığı sınırlamaz.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "from sklearn.preprocessing import StandardScaler",
+          "lineExplanation": "Scikit-learn'den StandardScaler sınıfını içe aktarır. Bu sınıf z-score standardizasyonu uygular.",
+          "tokens": [
+            {
+              "token": "StandardScaler",
+              "explanation": "Her özelliği (x - ortalama) / standart_sapma formülüyle dönüştürür. Sonuçta ortalama 0, standart sapma 1 olur.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "",
+          "lineExplanation": "Boş satır — kod okunabilirliği için bırakılmıştır.",
+          "tokens": [],
+          "codeContext": "'Standardizasyon (Z-Score)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "scaler = StandardScaler()",
+          "lineExplanation": "StandardScaler nesnesi oluşturulur. Ortalama ve standart sapmayı veriden öğrenecektir.",
+          "tokens": [
+            {
+              "token": "StandardScaler()",
+              "explanation": "Z-score dönüşümü yapacak scaler nesnesi. with_mean=True ve with_std=True varsayılan parametrelerdir.",
+              "turkce": "Standartlaştırma",
+              "amac": "Verilerin ortalamasını 0, standart sapmasını 1 yapacak şekilde ölçeklendirmek (z-score dönüşümü).",
+              "detay": "Maaş (10.000) ile Yaş (25) gibi farklı ölçekteki sütunların modeli şaşırtmasını önler. KNN ve SVM gibi mesafe tabanlı algoritmalar için zorunludur."
+            },
+            {
+              "token": "scaler",
+              "explanation": "Önceki bloktaki MinMaxScaler değişkeninin üzerine yazılır. Artık StandardScaler nesnesini tutar.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Standardizasyon (Z-Score)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "df[\"Gelir_Standardize\"] = scaler.fit_transform(df[[\"Gelir\"]])",
+          "lineExplanation": "Gelir sütununa z-score standardizasyonu uygular ve sonucu yeni sütuna yazar. Ortalamadan uzak değerler büyük mutlak z-score alır.",
+          "tokens": [
+            {
+              "token": "fit_transform()",
+              "explanation": "Önce veriden ortalama (μ) ve standart sapma (σ) hesaplar (fit), sonra (x-μ)/σ formülünü uygular (transform).",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "df[\"Gelir_Standardize\"]",
+              "explanation": "Standardize edilmiş değerlerin yazılacağı yeni sütun. Negatif değerler ortalamanın altını, pozitifler üstünü gösterir.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Standardizasyon (Z-Score)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "print(df)",
+          "lineExplanation": "DataFrame'i tüm sütunlarıyla birlikte yazdırır. Gelir, Gelir_Normalize ve Gelir_Standardize sütunları yan yana görülür.",
+          "tokens": [
+            {
+              "token": "print()",
+              "explanation": "DataFrame'i konsola yazdırır.",
+              "turkce": "Ekrana Yazdırma",
+              "amac": "Kodun çıktısını, mesajları veya değişken sonuçlarını konsolda gösterir."
+            }
+          ],
+          "codeContext": "'Standardizasyon (Z-Score)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "   Gelir  Gelir_Normalize  Gelir_Standardize\n0   2500             0.00          -0.886680\n1   3000             0.04          -0.783718\n2   4000             0.12          -0.577794\n3  10000             0.60           0.657039\n4  15000             1.00           1.591153"
+    },
+    {
+      "id": "veri_donusum-b003",
+      "title": "Log Dönüşümü",
+      "blockExplanation": "Sağa çarpık (right-skewed) verileri normalleştirmek için doğal logaritma uygulanır. Çok büyük değerler arasındaki farkı küçültür, dağılımı simetrik hale getirir. Sınavda hangi durumlarda log dönüşümü tercih edilmesi gerektiği sorulabilir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import numpy as np",
+          "lineExplanation": "NumPy kütüphanesini 'np' takma adıyla içe aktarır. Matematiksel fonksiyonlar (log, sqrt, exp vb.) için kullanılır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "Numerical Python kısaltması. Dizi işlemleri ve matematiksel fonksiyonlar sağlayan temel bilimsel hesaplama kütüphanesi.",
+              "turkce": "Sayısal Hesaplama Kütüphanesi",
+              "amac": "Çok boyutlu diziler (matrisler) üzerinde yüksek performanslı matematiksel ve istatistiksel işlemler yapmak.",
+              "detay": "C dilinde yazıldığı için Python'ın standart listelerine göre çok daha hızlıdır. Vektörizasyon sayesinde döngü (for loop) kullanmadan matris işlemleri yapılmasını sağlar."
+            },
+            {
+              "token": "as np",
+              "explanation": "Topluluk standardı takma ad. Tüm Python veri bilimi ekosisteminde np olarak kullanılır.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "",
+          "lineExplanation": "Boş satır — kod okunabilirliği için bırakılmıştır.",
+          "tokens": [],
+          "codeContext": "'Log Dönüşümü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df[\"Gelir_Log\"] = np.log(df[\"Gelir\"])",
+          "lineExplanation": "Gelir sütunundaki her değerin doğal logaritmasını (ln) alır ve yeni sütuna yazar. 2500→7.82, 15000→9.62 gibi büyük farklar daraltılır.",
+          "tokens": [
+            {
+              "token": "np.log()",
+              "explanation": "Doğal logaritma (taban e=2.718) uygular. log10() ve log2() gibi farklı tabanlı versiyonları da mevcuttur. Sıfır ve negatif değerlerde hata verir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "df[\"Gelir\"]",
+              "explanation": "Tek köşeli parantez Series döndürür. NumPy fonksiyonları Series üzerinde eleman bazında (element-wise) çalışır.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            },
+            {
+              "token": "df[\"Gelir_Log\"]",
+              "explanation": "Logaritmik dönüşüm sonuçlarının yazılacağı yeni sütun.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Log Dönüşümü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "print(df)",
+          "lineExplanation": "Tüm sütunları ekrana yazdırır. Log dönüşümünün büyük değerler arasındaki farkı nasıl azalttığı gözlemlenebilir.",
+          "tokens": [
+            {
+              "token": "print()",
+              "explanation": "DataFrame'i konsola yazdırır.",
+              "turkce": "Ekrana Yazdırma",
+              "amac": "Kodun çıktısını, mesajları veya değişken sonuçlarını konsolda gösterir."
+            }
+          ],
+          "codeContext": "'Log Dönüşümü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "   Gelir  Gelir_Normalize  Gelir_Standardize  Gelir_Log\n0   2500             0.00          -0.886680   7.824046\n1   3000             0.04          -0.783718   8.006368\n2   4000             0.12          -0.577794   8.294050\n3  10000             0.60           0.657039   9.210340\n4  15000             1.00           1.591153   9.615805"
+    },
+    {
+      "id": "veri_donusum-b004",
+      "title": "One-Hot Encoding",
+      "blockExplanation": "Kategorik değişkenleri ikili (0/1) sütunlara dönüştürür. Her benzersiz kategori için ayrı bir sütun oluşturulur. Sınavda One-Hot ve Label Encoding farkı sorulabilir: One-Hot sıralama ilişkisi olmayan (nominal) kategoriler için uygundur, çünkü sayısal büyüklük farkı oluşturmaz.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df_kategori = pd.DataFrame({\"Şehir\": [\"İstanbul\", \"Ankara\", \"İzmir\", \"İstanbul\"]})",
+          "lineExplanation": "Dört kişinin şehir bilgisini içeren yeni bir DataFrame oluşturur. İstanbul iki kez tekrarlanmıştır.",
+          "tokens": [
+            {
+              "token": "pd.DataFrame()",
+              "explanation": "Sözlükten DataFrame oluşturur. Anahtar sütun adı, değer ise liste olarak verilerdir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "df_kategori",
+              "explanation": "Kategorik veri içeren yeni bir DataFrame değişkeni. Önceki sayısal df'den ayrı tutulur.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "{\"Şehir\": [\"İstanbul\", \"Ankara\", \"İzmir\", \"İstanbul\"]}",
+              "explanation": "Şehir sütununda 3 benzersiz değer var: İstanbul, Ankara, İzmir. One-Hot ile 3 yeni sütun oluşacaktır.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'One-Hot Encoding' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df_encoded = pd.get_dummies(df_kategori, columns=[\"Şehir\"])",
+          "lineExplanation": "Şehir sütununu One-Hot Encoding ile dönüştürür. Her benzersiz şehir için ayrı bir ikili sütun oluşturulur.",
+          "tokens": [
+            {
+              "token": "pd.get_dummies()",
+              "explanation": "Pandas'ın One-Hot Encoding fonksiyonu. Kategorik sütunları otomatik olarak 0/1 sütunlarına dönüştürür. drop_first=True ile kukla değişken tuzağından kaçınılabilir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "columns=[\"Şehir\"]",
+              "explanation": "Hangi sütunların One-Hot Encoding'e tabi tutulacağını belirtir. Belirtilmezse tüm kategorik sütunlar dönüştürülür.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "df_encoded",
+              "explanation": "Dönüştürülmüş DataFrame'i tutan değişken. Orijinal Şehir sütunu kaldırılır, yerine ikili sütunlar eklenir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'One-Hot Encoding' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "print(df_encoded)",
+          "lineExplanation": "One-Hot Encoding sonucunu yazdırır. Her satırda yalnızca bir şehir sütunu 1, diğerleri 0 olur.",
+          "tokens": [
+            {
+              "token": "print()",
+              "explanation": "Dönüştürülmüş DataFrame'i konsola yazdırır.",
+              "turkce": "Ekrana Yazdırma",
+              "amac": "Kodun çıktısını, mesajları veya değişken sonuçlarını konsolda gösterir."
+            }
+          ],
+          "codeContext": "'One-Hot Encoding' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "   Şehir_Ankara  Şehir_İstanbul  Şehir_İzmir\n0         False            True        False\n1          True           False        False\n2         False           False         True\n3         False            True        False"
+    },
+    {
+      "id": "veri_donusum-b005",
+      "title": "Label Encoding",
+      "blockExplanation": "Her benzersiz kategoriye bir tam sayı atar (0, 1, 2, ...). Alfabetik sıraya göre numaralandırır. Sınavda dikkat: Label Encoding sıralı (ordinal) kategoriler için uygundur (düşük/orta/yüksek gibi). Nominal kategorilerde kullanılırsa model yanlış sıralama ilişkisi öğrenebilir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "from sklearn.preprocessing import LabelEncoder",
+          "lineExplanation": "Scikit-learn'den LabelEncoder sınıfını içe aktarır. Kategorik değişkenleri sayısal etiketlere dönüştürür.",
+          "tokens": [
+            {
+              "token": "LabelEncoder",
+              "explanation": "Her benzersiz kategoriyi alfabetik sıraya göre 0'dan başlayan tam sayılara dönüştürür. Yalnızca tek bir sütuna uygulanabilir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "",
+          "lineExplanation": "Boş satır — kod okunabilirliği için bırakılmıştır.",
+          "tokens": [],
+          "codeContext": "'Label Encoding' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "encoder = LabelEncoder()",
+          "lineExplanation": "LabelEncoder nesnesi oluşturulur. fit_transform ile kategorileri öğrenip dönüştürecektir.",
+          "tokens": [
+            {
+              "token": "LabelEncoder()",
+              "explanation": "Etiket kodlayıcı nesnesi. classes_ niteliği ile hangi kategorilerin hangi sayılara eşlendiği görülebilir.",
+              "turkce": "Etiket Kodlama",
+              "amac": "Metinsel kategorik değerleri (örn. 'Kırmızı', 'Mavi') sayısal değerlere (0, 1) dönüştürmek.",
+              "detay": "Makine öğrenmesi modelleri metin işleyemediği için tüm sınıfların sayısallaştırılması gerekir."
+            },
+            {
+              "token": "encoder",
+              "explanation": "Kodlayıcı nesneyi tutan değişken. inverse_transform() ile sayılardan kategorilere geri dönüş de yapılabilir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Label Encoding' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "df_kategori[\"Şehir_Encoded\"] = encoder.fit_transform(df_kategori[\"Şehir\"])",
+          "lineExplanation": "Şehir sütunundaki her benzersiz değere alfabetik sıraya göre bir sayı atar: Ankara→0, İstanbul→1, İzmir→2.",
+          "tokens": [
+            {
+              "token": "fit_transform()",
+              "explanation": "Önce benzersiz kategorileri öğrenir ve sıralar (fit), sonra her kategoriyi karşılık gelen sayıya dönüştürür (transform).",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "df_kategori[\"Şehir\"]",
+              "explanation": "Tek köşeli parantez ile Series olarak alınır. LabelEncoder 1B girdi bekler, bu yüzden tek parantez yeterlidir.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            },
+            {
+              "token": "df_kategori[\"Şehir_Encoded\"]",
+              "explanation": "Sayısal kodlanmış değerlerin yazılacağı yeni sütun.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Label Encoding' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "print(df_kategori)",
+          "lineExplanation": "Orijinal Şehir sütunu ile birlikte sayısal kodlanmış Şehir_Encoded sütununu yazdırır.",
+          "tokens": [
+            {
+              "token": "print()",
+              "explanation": "DataFrame'i konsola yazdırır. Kategorik ve sayısal sütunlar yan yana görülür.",
+              "turkce": "Ekrana Yazdırma",
+              "amac": "Kodun çıktısını, mesajları veya değişken sonuçlarını konsolda gösterir."
+            }
+          ],
+          "codeContext": "'Label Encoding' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "       Şehir  Şehir_Encoded\n0  İstanbul              1\n1    Ankara              0\n2     İzmir              2\n3  İstanbul              1"
+    }
+  ]
+}

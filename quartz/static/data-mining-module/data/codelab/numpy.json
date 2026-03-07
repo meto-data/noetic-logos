@@ -1,0 +1,482 @@
+{
+  "id": "numpy",
+  "title": "NumPy Temelleri",
+  "week": 2,
+  "csvFiles": [],
+  "blocks": [
+    {
+      "id": "numpy-b001",
+      "title": "Kütüphane İçe Aktarma ve Dizi Oluşturma",
+      "blockExplanation": "Bu blok NumPy kütüphanesini projeye dahil eder ve temel dizi (array) yapılarını oluşturur. Tek boyutlu dizi bir vektör, iki boyutlu dizi ise bir matristir. NumPy dizileri Python listelerinden farklı olarak bellekte ardışık tutulur ve matematiksel işlemler için optimize edilmiştir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import numpy as np",
+          "lineExplanation": "NumPy kütüphanesini 'np' takma adıyla içe aktarır. Bu sayede her seferinde 'numpy' yazmak yerine kısa bir isim kullanılır.",
+          "tokens": [
+            {
+              "token": "import",
+              "explanation": "Python'da bir kütüphaneyi projeye dahil etmek için kullanılan anahtar kelime.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "numpy",
+              "explanation": "Numerical Python kısaltması. Çok boyutlu diziler ve matris işlemleri için temel kütüphane.",
+              "turkce": "Sayısal Hesaplama Kütüphanesi",
+              "amac": "Çok boyutlu diziler (matrisler) üzerinde yüksek performanslı matematiksel ve istatistiksel işlemler yapmak.",
+              "detay": "C dilinde yazıldığı için Python'ın standart listelerine göre çok daha hızlıdır. Vektörizasyon sayesinde döngü (for loop) kullanmadan matris işlemleri yapılmasını sağlar."
+            },
+            {
+              "token": "as np",
+              "explanation": "Kütüphaneye kısa bir takma ad (alias) verir. Topluluk standardı olarak np kullanılır.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "a = np.array([1, 5, 10])",
+          "lineExplanation": "3 elemanlı tek boyutlu (1D) bir NumPy dizisi oluşturur. Bu bir vektördür.",
+          "tokens": [
+            {
+              "token": "np.array()",
+              "explanation": "Python listesini NumPy dizisine dönüştüren fonksiyon. Dizi içindeki tüm elemanlar aynı veri tipinde olmalıdır.",
+              "turkce": "NumPy Dizisi",
+              "amac": "Python'daki standart listeyi, yüksek performanslı ve matematiksel işlemlere uygun bir vektör veya matrise dönüştürmek.",
+              "detay": "Görüntü işlemeden yapay sinir ağlarına kadar tüm veri biliminin en temel yapı taşıdır."
+            },
+            {
+              "token": "[1, 5, 10]",
+              "explanation": "Python listesi. array() fonksiyonuna girdi olarak verilir ve NumPy dizisine çevrilir.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Kütüphane İçe Aktarma ve Dizi Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "b = np.array([[1, 7, 20], [5, 8, 9]])",
+          "lineExplanation": "2 satır 3 sütunlu iki boyutlu (2D) bir NumPy dizisi oluşturur. Bu bir matristir.",
+          "tokens": [
+            {
+              "token": "[[...], [...]]",
+              "explanation": "İç içe liste yapısı. Her iç liste matrisin bir satırını temsil eder. İlk liste 1. satır, ikinci liste 2. satırdır.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'Kütüphane İçe Aktarma ve Dizi Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "[ 1  5 10]\n[[ 1  7 20]\n [ 5  8  9]]"
+    },
+    {
+      "id": "numpy-b002",
+      "title": "Dizinin Özellikleri: Boyut, Şekil, Tip",
+      "blockExplanation": "Bu blok bir dizinin temel özelliklerini sorgulamayı gösterir. ndim kaç boyutlu olduğunu, shape satır-sütun yapısını, dtype ise içindeki verilerin tipini söyler. Sınavlarda 'bu kodun çıktısı nedir?' diye sorulması çok muhtemel bir konudur.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "b.ndim",
+          "lineExplanation": "Dizinin kaç boyutlu olduğunu döndürür. b 2 satır 3 sütunlu olduğu için 2 döner.",
+          "tokens": [
+            {
+              "token": "ndim",
+              "explanation": "Number of Dimensions kısaltması. Dizinin boyut sayısını (1D, 2D, 3D...) integer olarak verir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Dizinin Özellikleri: Boyut, Şekil, Tip' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "a.ndim",
+          "lineExplanation": "a tek boyutlu bir dizi olduğu için 1 döner.",
+          "tokens": [],
+          "codeContext": "'Dizinin Özellikleri: Boyut, Şekil, Tip' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "b.shape",
+          "lineExplanation": "Dizinin şeklini (satır, sütun) Tuple olarak döndürür. b için (2, 3) döner.",
+          "tokens": [
+            {
+              "token": "shape",
+              "explanation": "Dizinin boyutlarını tuple olarak verir. (2, 3) demek 2 satır, 3 sütun demektir. Sonuç bir liste değil tuple'dır.",
+              "turkce": "Boyut Bilgisi",
+              "amac": "Veri setinde toplam kaç satır ve kaç sütun olduğunu öğrenmek.",
+              "detay": "(Satır_Sayısı, Sütun_Sayısı) şeklinde bir Tuple (demet) döndürür. shape[0] sadece satır sayısını verir."
+            }
+          ],
+          "codeContext": "'Dizinin Özellikleri: Boyut, Şekil, Tip' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "a.dtype",
+          "lineExplanation": "Dizideki elemanların veri tipini söyler. Tam sayılar için int64 döner.",
+          "tokens": [
+            {
+              "token": "dtype",
+              "explanation": "Data Type kısaltması. int64 = 64-bit tam sayı, float64 = 64-bit ondalıklı sayı.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Dizinin Özellikleri: Boyut, Şekil, Tip' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "x = np.array([1.0, 5.4, 10.42])",
+          "lineExplanation": "Ondalıklı sayılardan oluşan bir dizi oluşturur. dtype otomatik olarak float64 olur.",
+          "tokens": [],
+          "codeContext": "'Dizinin Özellikleri: Boyut, Şekil, Tip' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "x.dtype",
+          "lineExplanation": "Ondalıklı sayı içerdiği için float64 döner.",
+          "tokens": [],
+          "codeContext": "'Dizinin Özellikleri: Boyut, Şekil, Tip' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "2\n1\n(2, 3)\nint64\nfloat64"
+    },
+    {
+      "id": "numpy-b003",
+      "title": "İndeksleme ve Dilimleme (Slicing)",
+      "blockExplanation": "Bu blok dizinin belirli elemanlarına erişmeyi ve dilim almayı gösterir. Python'da indeksler 0'dan başlar, yani ilk eleman 0. indekstedir. İki boyutlu dizilerde [satır, sütun] formatı kullanılır. Dilimleme (slicing) ile belirli bir aralıktaki elemanlara erişilir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "b[0, 2]",
+          "lineExplanation": "0. satırın 2. sütunundaki elemanı getirir. Yani ilk satırın üçüncü elemanı: 20.",
+          "tokens": [
+            {
+              "token": "[0, 2]",
+              "explanation": "İlk sayı satır indeksi, ikinci sayı sütun indeksi. 0'dan başladığı için [0,2] = 1. satır, 3. sütun.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "'İndeksleme ve Dilimleme (Slicing)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "b[1, 1]",
+          "lineExplanation": "1. satırın 1. sütunundaki elemanı getirir: 8. (2. satır, 2. sütun)",
+          "tokens": [],
+          "codeContext": "'İndeksleme ve Dilimleme (Slicing)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "b[0]",
+          "lineExplanation": "Sadece satır indeksi verildiğinde o satırın tamamını getirir: [1, 7, 20].",
+          "tokens": [],
+          "codeContext": "'İndeksleme ve Dilimleme (Slicing)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "b[0, 1:]",
+          "lineExplanation": "0. satırda 1. indeksten başlayıp sonuna kadar gider: [7, 20]. İki nokta (:) dilimleme operatörüdür.",
+          "tokens": [
+            {
+              "token": "1:",
+              "explanation": "Dilimleme (slicing) notasyonu. 1'den başla, sonuna kadar git. Başlangıç dahil, bitiş belirtilmemiş = sona kadar.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'İndeksleme ve Dilimleme (Slicing)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "b[1, 1] = 18",
+          "lineExplanation": "1. satır, 1. sütundaki değeri (8) 18 ile değiştirir. NumPy dizileri değiştirilebilir (mutable) yapılardır.",
+          "tokens": [],
+          "codeContext": "'İndeksleme ve Dilimleme (Slicing)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "20\n8\n[ 1  7 20]\n[ 7 20]\n18"
+    },
+    {
+      "id": "numpy-b004",
+      "title": "Otomatik Dizi Oluşturma Fonksiyonları",
+      "blockExplanation": "Elle tek tek değer girmek yerine NumPy'ın hazır fonksiyonlarıyla hızlıca dizi oluşturulur. zeros sıfırlarla, full belirli bir değerle, random.rand rastgele ondalıklı, random.randint rastgele tam sayılarla dizi üretir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "dizi_s = np.zeros((2, 3))",
+          "lineExplanation": "2 satır 3 sütunlu, tüm elemanları 0.0 olan bir matris oluşturur.",
+          "tokens": [
+            {
+              "token": "np.zeros()",
+              "explanation": "Belirtilen boyutta sıfırlardan oluşan dizi yaratır. Varsayılan tip float64'tür.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "(2, 3)",
+              "explanation": "Tuple olarak boyut bilgisi. İlk sayı satır, ikinci sayı sütun sayısı.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Otomatik Dizi Oluşturma Fonksiyonları' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "dizi1 = np.full((4, 4), 50)",
+          "lineExplanation": "4x4 boyutunda, tüm elemanları 50 olan bir matris oluşturur.",
+          "tokens": [
+            {
+              "token": "np.full()",
+              "explanation": "Belirtilen boyutta, belirtilen değerle dolu dizi yaratır. İlk parametre boyut, ikinci parametre dolgu değeri.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Otomatik Dizi Oluşturma Fonksiyonları' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "dizi2 = np.random.rand(4, 3)",
+          "lineExplanation": "4 satır 3 sütunlu, 0 ile 1 arasında rastgele ondalıklı sayılardan oluşan matris.",
+          "tokens": [
+            {
+              "token": "np.random.rand()",
+              "explanation": "0 ile 1 arasında uniform dağılımlı rastgele float sayılar üretir. Boyutlar doğrudan parametre olarak verilir, tuple değil.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Otomatik Dizi Oluşturma Fonksiyonları' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "dizi3 = np.random.randint(0, 100, size=(5, 5))",
+          "lineExplanation": "0 ile 100 arasında rastgele tam sayılardan oluşan 5x5 matris oluşturur.",
+          "tokens": [
+            {
+              "token": "np.random.randint()",
+              "explanation": "Belirtilen aralıkta rastgele tam sayı üretir. Alt sınır dahil, üst sınır hariçtir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "size=(5, 5)",
+              "explanation": "Oluşturulacak dizinin boyutunu belirler. size parametresi ile tuple olarak verilir.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "'Otomatik Dizi Oluşturma Fonksiyonları' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "[[0. 0. 0.]\n [0. 0. 0.]]\n\n[[50 50 50 50]\n [50 50 50 50]\n [50 50 50 50]\n [50 50 50 50]]\n\n(rastgele float matris)\n\n(rastgele int matris)"
+    },
+    {
+      "id": "numpy-b005",
+      "title": "Dizi Kopyalama: Pointer Tuzağı",
+      "blockExplanation": "Bu blok NumPy'da en tehlikeli hatalardan birini gösterir. b = a yazmak yeni bir dizi oluşturmaz, sadece aynı bellek adresine ikinci bir isim verir (pointer/referans). Bu yüzden b üzerinden yapılan değişiklik a'yı da etkiler. Bağımsız kopya için .copy() kullanmak zorunludur. Sınavda sorulma olasılığı çok yüksektir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "a = np.array([1, 2, 3])",
+          "lineExplanation": "Orijinal diziyi oluşturur.",
+          "tokens": [],
+          "codeContext": "'Dizi Kopyalama: Pointer Tuzağı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "b = a",
+          "lineExplanation": "DİKKAT: Bu yeni bir dizi oluşturmaz! b, a ile aynı bellek adresini gösterir. İkisi de aynı veriye işaret eder.",
+          "tokens": [
+            {
+              "token": "b = a",
+              "explanation": "Referans ataması. Yeni bir kopya oluşturmaz, sadece aynı bellek konumuna ikinci bir isim verir. Pointer mantığıyla çalışır.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "'Dizi Kopyalama: Pointer Tuzağı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "b[0] = 90",
+          "lineExplanation": "b'nin ilk elemanını 90 yapar. Ama b ve a aynı yeri gösterdiği için a da değişir!",
+          "tokens": [],
+          "codeContext": "'Dizi Kopyalama: Pointer Tuzağı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "print(a)",
+          "lineExplanation": "a'yı yazdırır: [90, 2, 3]. Orijinal dizi de bozulmuştur!",
+          "tokens": [],
+          "codeContext": "'Dizi Kopyalama: Pointer Tuzağı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "a = np.array([1, 2, 3])",
+          "lineExplanation": "Diziyi tekrar oluşturur, doğru yöntemi göstermek için.",
+          "tokens": [],
+          "codeContext": "'Dizi Kopyalama: Pointer Tuzağı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "b = a.copy()",
+          "lineExplanation": "Tamamen bağımsız yeni bir dizi oluşturur. b artık a'dan bağımsızdır.",
+          "tokens": [
+            {
+              "token": ".copy()",
+              "explanation": "Deep copy yapar. Bellekte yeni bir alan açar ve verileri oraya kopyalar. Orijinal dizi bu kopyadan etkilenmez.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'Dizi Kopyalama: Pointer Tuzağı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "b[0] = 90",
+          "lineExplanation": "b'nin ilk elemanını 90 yapar ama bu sefer a etkilenmez.",
+          "tokens": [],
+          "codeContext": "'Dizi Kopyalama: Pointer Tuzağı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "print(a)",
+          "lineExplanation": "a hâlâ [1, 2, 3] — bozulmadı. Doğru kopyalama yöntemi budur.",
+          "tokens": [],
+          "codeContext": "'Dizi Kopyalama: Pointer Tuzağı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "[90  2  3]   ← Yanlış kopyalama (a bozuldu)\n[1 2 3]     ← Doğru kopyalama (a korundu)"
+    },
+    {
+      "id": "numpy-b006",
+      "title": "Dizilerde Matematiksel İşlemler (Vektörizasyon)",
+      "blockExplanation": "NumPy, döngü (for loop) yazmadan dizinin tüm elemanlarına aynı anda işlem yapmayı sağlar. Buna vektörizasyon denir ve Python döngülerinden kat kat hızlıdır. Aynı boyuttaki iki dizi karşılıklı eleman eleman işleme sokulabilir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "a = np.array([1, 2, 3, 4])",
+          "lineExplanation": "4 elemanlı bir dizi oluşturur.",
+          "tokens": [],
+          "codeContext": "'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "a + 4",
+          "lineExplanation": "Tüm elemanlara 4 ekler: [5, 6, 7, 8]. Döngü yazmaya gerek yoktur.",
+          "tokens": [
+            {
+              "token": "+ 4",
+              "explanation": "Skaler broadcasting. Tek bir sayı, dizinin her elemanına uygulanır. NumPy bunu otomatik yapar.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "a * 2",
+          "lineExplanation": "Tüm elemanları 2 ile çarpar: [2, 4, 6, 8].",
+          "tokens": [],
+          "codeContext": "'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "a ** 2",
+          "lineExplanation": "Tüm elemanların karesini alır: [1, 4, 9, 16].",
+          "tokens": [
+            {
+              "token": "**",
+              "explanation": "Python'da üs alma operatörü. a**2 = a'nın karesi, a**3 = a'nın küpü.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "b = np.array([1, 0, 1, 0])",
+          "lineExplanation": "İkinci bir dizi oluşturur, eleman eleman toplama için.",
+          "tokens": [],
+          "codeContext": "'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "a + b",
+          "lineExplanation": "İki diziyi karşılıklı toplar: [1+1, 2+0, 3+1, 4+0] = [2, 2, 4, 4].",
+          "tokens": [],
+          "codeContext": "'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "[5 6 7 8]\n[2 4 6 8]\n[ 1  4  9 16]\n[2 2 4 4]"
+    },
+    {
+      "id": "numpy-b007",
+      "title": "İstatistiksel İşlemler",
+      "blockExplanation": "NumPy'ın hazır istatistik fonksiyonları ile dizideki minimum, maksimum ve toplam değerler tek satırda hesaplanır. Bu fonksiyonlar tüm dizi üzerinde çalışır, axis parametresiyle satır veya sütun bazlı da çalıştırılabilir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "dizi4 = np.array([[1, 2, 3], [4, 5, 6]])",
+          "lineExplanation": "2x3 boyutunda bir matris oluşturur.",
+          "tokens": [],
+          "codeContext": "'İstatistiksel İşlemler' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "np.min(dizi4)",
+          "lineExplanation": "Dizideki en küçük değeri bulur: 1.",
+          "tokens": [
+            {
+              "token": "np.min()",
+              "explanation": "Dizideki minimum (en küçük) değeri döndürür. axis=0 ile sütun bazlı, axis=1 ile satır bazlı minimum bulunabilir.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'İstatistiksel İşlemler' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "np.max(dizi4)",
+          "lineExplanation": "Dizideki en büyük değeri bulur: 6.",
+          "tokens": [
+            {
+              "token": "np.max()",
+              "explanation": "Dizideki maximum (en büyük) değeri döndürür.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'İstatistiksel İşlemler' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "np.sum(dizi4)",
+          "lineExplanation": "Dizideki tüm elemanları toplar: 1+2+3+4+5+6 = 21.",
+          "tokens": [
+            {
+              "token": "np.sum()",
+              "explanation": "Summation. Dizideki tüm elemanların toplamını döndürür.",
+              "turkce": "Fonksiyon/Metot Çağrısı",
+              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            }
+          ],
+          "codeContext": "'İstatistiksel İşlemler' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+        }
+      ],
+      "expectedOutput": "1\n6\n21"
+    }
+  ]
+}

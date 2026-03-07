@@ -1,0 +1,2489 @@
+[
+  {
+    "id": "w1-v001",
+    "week": 1,
+    "topic": "veri-madenciligi-temel-kavramlar",
+    "type": "verbal",
+    "tags": [
+      "veri-madenciligi",
+      "tanim",
+      "kavramlar"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri madenciliğinin temel amacı göz önüne alındığında, bu kavramı en iyi açıklayan ifade aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Veri tabanlarındaki tüm verileri silinmeyecek şekilde arşivleme ve yedekleme işlemidir.",
+      "B": "Geleneksel ilişkisel veri tabanlarında (RDBMS) verilerin tablolar halinde tutulmasını sağlayan mimaridir.",
+      "C": "Büyük ölçekli veri setleri içerisinden, daha önce bilinmeyen, gizli ve potansiyel olarak yararlı örüntülerin algoritmik yöntemlerle çıkarılmasıdır.",
+      "D": "Kullanıcıların günlük olarak gerçekleştirdiği arama motoru sorgularının log kayıtlarını tutan donanımsal altyapıdır.",
+      "E": "Verilerin sadece sayısal formata dönüştürülerek bilgisayarın RAM belleklerinde geçici olarak saklanmasıdır."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Veri arşivleme ve yedekleme, veri madenciliğinin değil, veri tabanı yönetiminin (DBMS) bir işlevidir.",
+      "B": "Verilerin tablolar halinde tutulması ilişkisel veri tabanlarının (RDBMS) temel özelliğidir, veri madenciliğinin tanımı değildir.",
+      "C": "Veri madenciliği, devasa ham veriler içerisinden işe yarar, gizli ve değerli bilginin (örüntülerin) algoritmalar aracılığıyla keşfedilmesi sürecidir.",
+      "D": "Log kayıtlarının tutulması veri toplama aşamasıdır; bu verilerden anlamlı sonuçlar çıkarma işlemi veri madenciliğidir.",
+      "E": "Verilerin sayısal formata dönüştürülmesi veri ön işleme/dönüşüm (transformation) adımıdır, veri madenciliğinin genel tanımını kapsamaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "Veri Madenciliği",
+        "definition": "Büyük veri yığınları içinden anlamlı ve değerli örüntülerin keşfedilmesi süreci."
+      }
+    ]
+  },
+  {
+    "id": "w1-v002",
+    "week": 1,
+    "topic": "veri-madenciligi-temel-kavramlar",
+    "type": "verbal",
+    "tags": [
+      "dikw",
+      "veri",
+      "enformasyon"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri (Data) ve Enformasyon (Information) kavramları arasındaki temel fark aşağıdakilerden hangisinde doğru ifade edilmiştir?",
+    "code": null,
+    "options": {
+      "A": "Veri, işlenmiş ve anlamlandırılmış kayıtları ifade ederken; enformasyon, hiçbir işleme tabi tutulmamış ham gerçekliklerdir.",
+      "B": "Veri, ilişkilendirilmemiş, düzenlenmemiş ve ham haldeki kayıtlardır; enformasyon ise bu verilerin formatlanmış, yapılandırılmış ve anlam katılmış halidir.",
+      "C": "Veri yalnızca sayısal karakterlerden oluşur, enformasyon ise yalnızca metin tabanlı belgeleri kapsar.",
+      "D": "Veri, karar alma sürecinde doğrudan kullanılabilen tecrübeye dayalı kurallardır; enformasyon ise veri tabanında yer kaplayan rastgele sembollerdir.",
+      "E": "Veri ve enformasyon bilişim sistemlerinde tamamen eş anlamlıdır ve aralarında kavramsal bir fark bulunmaz."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Tam tersidir. Ham olan veridir, işlenmiş olan enformasyondur.",
+      "B": "Veri (data) esnek, işlenmemiş ve ham kayıtlardır. Bu kayıtlar ilişkilendirilip anlamlandırıldığında enformasyona dönüşür.",
+      "C": "Veri ve enformasyon sadece veri tipleri (sayısal/metin) üzerinden ayrılamaz; her ikisi de farklı formatlarda olabilir.",
+      "D": "Karar alma sürecinde kullanılan ve tecrübeye dayanan yapı 'Bilgi' (Knowledge) veya 'Bilgelik' (Wisdom) aşamasına aittir.",
+      "E": "Veri ve enformasyon DIKW hiyerarşisinde farklı basamakları temsil eder; eş anlamlı değillerdir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Veri (Data)",
+        "definition": "İşlenmemiş, ham haldeki kayıtlar bütünü."
+      },
+      {
+        "term": "Enformasyon (Information)",
+        "definition": "İlişkilendirilmiş, düzenlenmiş ve anlamlandırılmış veri."
+      }
+    ]
+  },
+  {
+    "id": "w1-v003",
+    "week": 1,
+    "topic": "kdd-sureci",
+    "type": "verbal",
+    "tags": [
+      "kdd",
+      "veri-temizleme",
+      "on-isleme"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri Tabanlarında Bilgi Keşfi (KDD) sürecinde, veri setindeki eksik değerlerin (missing values), gürültülü (noisy) verilerin ve aykırı değerlerin (outliers) tespit edilip düzeltildiği aşama aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Veri Seçme (Selection)",
+      "B": "Veri Bütünleştirme (Integration)",
+      "C": "Veri Dönüşümü (Transformation)",
+      "D": "Veri Temizleme (Cleaning)",
+      "E": "Örüntü Değerlendirme (Evaluation)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Veri seçme aşaması, yapılacak analizle ilgili olan değişkenlerin (feature) belirlenmesi ve ayıklanmasıdır.",
+      "B": "Veri bütünleştirme, farklı kaynaklardan gelen verilerin tek bir yapıda (örneğin veri ambarında) birleştirilmesidir.",
+      "C": "Veri dönüşümü, verinin kullanılacak algoritmaya uygun formata (örneğin metinden sayıya) çevrilmesidir.",
+      "D": "Veri temizleme aşaması; tutarsız, gürültülü ve eksik verilerin çıkarılarak verinin analize hazır, kaliteli hale getirilmesi işlemidir.",
+      "E": "Örüntü değerlendirme, madencilik aşamasından sonra elde edilen sonuçların (ilginçlik ölçütlerine göre) test edilmesidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Veri Temizleme",
+        "definition": "Gürültülü, eksik ve tutarsız verilerin veri setinden arındırılması süreci."
+      }
+    ]
+  },
+  {
+    "id": "w1-v004",
+    "week": 1,
+    "topic": "kdd-sureci",
+    "type": "verbal",
+    "tags": [
+      "kdd",
+      "veri-donusumu",
+      "senaryo"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir e-ticaret şirketi, müşterilerinin 'Geçti' ve 'Kaldı' şeklindeki değerlendirme durumlarını veri tabanında tutmaktadır. Analiz öncesinde 'Kaldı' durumları 0'a, 'Geçti' durumları ise 1'e çevrilmiştir.\n\nBu işlem, Bilgi Keşfi (KDD) sürecinin hangi aşamasına doğrudan bir örnektir?",
+    "code": null,
+    "options": {
+      "A": "Veri Bütünleştirme",
+      "B": "Veri Temizleme",
+      "C": "Veri Dönüşümü",
+      "D": "Örüntü Değerlendirme",
+      "E": "Bilgi Sunumu"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Bütünleştirme, farklı veri kaynaklarını bir araya getirmektir; burada tek bir değişkende değişiklik yapılmıştır.",
+      "B": "Veri temizleme gürültü ve eksik verilerle ilgilenir; burada mevcut geçerli verilerin formatı değiştirilmektedir.",
+      "C": "Bilgisayarlar ve algoritmalar sayılarla çalışır. Kategorik veya metin tabanlı verilerin sayısal değerlere (0 ve 1) çevrilmesi işlemi Veri Dönüşümü (Transformation) aşamasıdır.",
+      "D": "Değerlendirme, model kurulduktan sonra elde edilen örüntülerin başarısını ölçmektir.",
+      "E": "Bilgi sunumu, elde edilen nihai bilgilerin son kullanıcıya grafikler veya raporlar halinde gösterilmesidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Veri Dönüşümü (Transformation)",
+        "definition": "Verinin veri madenciliği yöntemlerine uygun formata (örneğin sayısal değerlere) çevrilmesi."
+      }
+    ]
+  },
+  {
+    "id": "w1-v005",
+    "week": 1,
+    "topic": "veri-ambari",
+    "type": "verbal",
+    "tags": [
+      "veri-ambari",
+      "ozellikler"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri ambarları (Data Warehouses) ile ilgili aşağıdaki ifadelerden hangisi yanlıştır?",
+    "code": null,
+    "options": {
+      "A": "Farklı kaynaklardan gelen verilerin entegrasyonu ve raporlanması için kullanılırlar.",
+      "B": "Konu odaklıdırlar; belirli bir iş alanına (satış, finans vb.) yönelik olarak tasarlanırlar.",
+      "C": "Değişken bir yapıya sahiptirler; geçmişe dönük veriler sürekli olarak silinip güncellenerek depolama alanı boşaltılır.",
+      "D": "Zamana bağlıdırlar; veriler zaman içindeki değişimleri izlemek amacıyla geçmiş kayıtlarla birlikte saklanır.",
+      "E": "Online Analytical Processing (OLAP) sistemleriyle veri analizi yapmaya uygundurlar."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Veri ambarları, farklı kaynaklardaki veriyi bütünleştiren (Integrated) sistemlerdir. Bu ifade doğrudur.",
+      "B": "Veri ambarları konu odaklı (Subject-Oriented) olarak tasarlanır. Bu ifade doğrudur.",
+      "C": "Veri ambarları 'Değişmezdir' (Non-Volatile). Kaydedilen veriler güncellenmez veya silinmez, sisteme yalnızca yeni veri eklenir (append-only). Bu nedenle ifade yanlıştır.",
+      "D": "Veri ambarları zamana bağlıdır (Time-Variant), geçmiş veriyi analiz için tutarlar. Bu ifade doğrudur.",
+      "E": "Veri ambarları analitik işlemler (OLAP) için optimize edilmiştir. Bu ifade doğrudur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Değişmezlik (Non-Volatile)",
+        "definition": "Veri ambarına giren verinin silinmemesi veya değiştirilmemesi, sadece yeni verinin eklenmesi özelliği."
+      }
+    ]
+  },
+  {
+    "id": "w1-v006",
+    "week": 1,
+    "topic": "buyuk-veri",
+    "type": "verbal",
+    "tags": [
+      "buyuk-veri",
+      "veri-boyutu",
+      "donanim"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri boyutlarının eksponansiyel büyümesi göz önüne alındığında, 2035 yılına yönelik projeksiyonlarda veri üretiminin devasa boyutlara (Yottabyte seviyelerine) ulaşması beklenmektedir.\n\nBu durumun bilişim ve donanım sektörü üzerinde yaratacağı en temel darboğaz (kısıt) aşağıdakilerden hangisi olarak öngörülmektedir?",
+    "code": null,
+    "options": {
+      "A": "Ekran kartlarının (GPU) yüksek çözünürlüklü grafikleri işleyemez hale gelmesi.",
+      "B": "Sürekli akan bu büyük veriyi depolayacak hard disk ve RAM gibi hafıza alanlarına olan ihtiyacın ve maliyetin dramatik şekilde artması.",
+      "C": "İlişkisel veri tabanlarının (RDBMS) kullanımının tamamen yasaklanması.",
+      "D": "İnternet bant genişliklerinin küçülerek fiber optik kabloların işlevini yitirmesi.",
+      "E": "Açık kaynaklı veri madenciliği yazılımlarının lisans maliyetlerinin artması."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Darboğaz grafik işleme kapasitesiyle değil, verinin nerede saklanıp işleneceğiyle ilgilidir.",
+      "B": "Veri hacmindeki bu devasa artış, işlemci hızından ziyade bu verileri tutacak devasa depolama alanları (Storage/Memory) ihtiyacını artırmakta, donanım maliyetleri ve hafıza kısıtları ana darboğaz haline gelmektedir.",
+      "C": "İlişkisel veri tabanları yasaklanmaz, sadece büyük veri senaryolarında yerini NoSQL veya veri ambarlarına bırakır, ancak küçük veri için hala kullanılırlar.",
+      "D": "Veri büyümesi bant genişliği ihtiyacını artırır ancak fiber optiğin işlevini yitirmesi beklenen asıl darboğaz nedeni değildir.",
+      "E": "Yazılım lisansları donanımsal bir darboğaz değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Büyük Veri (Big Data)",
+        "definition": "Geleneksel bilgisayar belleklerine (RAM) sığmayan, devasa hacimli ve sürekli akan veri yığınları."
+      }
+    ]
+  },
+  {
+    "id": "w1-v007",
+    "week": 1,
+    "topic": "veri-madenciligi-algoritmalari",
+    "type": "verbal",
+    "tags": [
+      "algoritmalar",
+      "siniflandirma",
+      "senaryo"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir hastane yönetimi, geçmiş yıllardaki hasta kayıtlarını, yapılan tahlilleri ve hastalara konulan 'Kanser' veya 'Sağlıklı' teşhislerini içeren bir veri setine sahiptir. Bu veriyi kullanarak yeni gelen hastaların tahlil sonuçlarına göre 'Kanser' olup olmadıklarını önceden tespit eden bir model geliştirmek istemektedirler.\n\nBu problemde kullanılması gereken en uygun veri madenciliği işlevi aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Kümeleme (Clustering)",
+      "B": "Birliktelik Kuralları (Association Rules)",
+      "C": "Sınıflandırma (Classification)",
+      "D": "Zaman Serisi Analizi (Time Series Analysis)",
+      "E": "Özetleme (Summarization)"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Kümeleme, verinin etiketleri (sonuçları) belli olmadığında benzer verileri gruplamak için kullanılır. Burada sınıflar bellidir.",
+      "B": "Birliktelik kuralları, olayların birlikte gerçekleşme frekansını (örn. sepet analizi) bulur, teşhis koymaz.",
+      "C": "Sınıflandırma, geçmişte etiketlenmiş ayrık sınıflara (Kanser / Sağlıklı) dayanarak yeni bir kaydın hangi sınıfa ait olacağını tahmin etme işlemidir. Bu senaryo için en uygun yöntemdir.",
+      "D": "Zaman serisi analizi, bir değerin zaman içindeki trendini öngörür (örn. borsa tahmini).",
+      "E": "Özetleme, verinin alt gruplarını temsil edecek genel özellikleri bulur, kestirim veya teşhis yapmaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "Sınıflandırma (Classification)",
+        "definition": "Veriyi önceden belirlenmiş ayrık sınıflardan birine dahil eden gözetimli öğrenme yöntemi."
+      }
+    ]
+  },
+  {
+    "id": "w1-v008",
+    "week": 1,
+    "topic": "veri-madenciligi-algoritmalari",
+    "type": "verbal",
+    "tags": [
+      "algoritmalar",
+      "kumeleme",
+      "senaryo"
+    ],
+    "sourceNotebook": null,
+    "question": "Büyük bir e-ticaret platformu, elindeki milyonlarca müşterinin alışveriş verisini analiz etmek istemektedir. Müşterilerin önceden belirlenmiş herhangi bir etiketi (iyi müşteri, kötü müşteri vb.) yoktur. Platform, alışveriş alışkanlıkları ve harcama tutarları birbirine benzeyen müşterileri aynı gruplarda toplayıp onlara özel promosyonlar hazırlamayı hedeflemektedir.\n\nBu senaryoda hangi veri madenciliği algoritma türü/işlevi tercih edilmelidir?",
+    "code": null,
+    "options": {
+      "A": "Eğri Uydurma (Regression)",
+      "B": "Kümeleme (Clustering)",
+      "C": "Sınıflandırma (Classification)",
+      "D": "İstisna Analizi (Outlier Analysis)",
+      "E": "Karar Ağaçları (Decision Trees)"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Regresyon, sürekli ve gerçel sayı değerlerini tahmin etmek için kullanılır.",
+      "B": "Kümeleme (Clustering), önceden belirlenmiş etiketlerin olmadığı durumlarda (danışmansız öğrenme), benzer özellikler gösteren verileri aynı grupta (kümede) toplama işlemidir. Müşteri segmentasyonu için en ideal yöntemdir.",
+      "C": "Sınıflandırma, hedef değişkeni önceden belli olan verilerde kullanılır; burada müşterilerin önceden etiketlenmiş bir durumu yoktur.",
+      "D": "İstisna analizi, genelin dışına çıkan, aykırı (fraud) durumları tespit etmek içindir.",
+      "E": "Karar ağaçları bir sınıflandırma algoritmasıdır, etiketli veriye ihtiyaç duyar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Kümeleme (Clustering)",
+        "definition": "Benzer özellikteki verilerin, önceden belli bir sınıf etiketi olmaksızın gruplandırılması (danışmansız öğrenme)."
+      }
+    ]
+  },
+  {
+    "id": "w1-v009",
+    "week": 1,
+    "topic": "veri-madenciligi-tarihcesi",
+    "type": "verbal",
+    "tags": [
+      "tarihce",
+      "kdd"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri madenciliği ve veri analitiği tarihsel süreçte belirli aşamalardan geçmiştir. 'Veri Tabanlarında Bilgi Keşfi' (KDD) kavramının temel tanım ve kavramlarının ortaya konduğu, bu alanın akademik bir zemin kazandığı IJCAI-89 Çalıştayı hangi on yıllık dönemin sonlarında gerçekleşmiştir?",
+    "code": null,
+    "options": {
+      "A": "1950'ler",
+      "B": "1960'lar",
+      "C": "1970'ler",
+      "D": "1980'ler",
+      "E": "2000'ler"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "1950'lerde ilk bilgisayarlar kullanılmış ve daha çok sayım işlemleri yapılmıştır.",
+      "B": "1960'larda hiyerarşik ve ağ veri modelleri ile veri koleksiyonları oluşturulmaya başlanmıştır.",
+      "C": "1970'lerde ilişkisel veri tabanı yönetim sistemleri (RDBMS) yaygınlaşmıştır.",
+      "D": "1989 yılında gerçekleştirilen IJCAI-89 Workshop, KDD (Veri Tabanlarında Bilgi Keşfi) kavramının temelini atmıştır. Bu olay 1980'lerin sonunda gerçekleşmiştir.",
+      "E": "2000'ler, veri ambarlarının ve veri madenciliğinin ticari olarak yaygınlaştığı dönemdir."
+    },
+    "relatedTerms": [
+      {
+        "term": "KDD (Knowledge Discovery in Databases)",
+        "definition": "Veri tabanlarından yararlı, gizli ve anlamlı bilginin keşfedilmesi sürecinin tamamı."
+      }
+    ]
+  },
+  {
+    "id": "w1-v010",
+    "week": 1,
+    "topic": "veri-boyutlari",
+    "type": "verbal",
+    "tags": [
+      "veri-birimleri",
+      "teknik-bilgi"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri depolama birimlerinin büyüklükleri birbirlerinin katları şeklinde ilerler. Bir Zettabyte'ın (ZB) bir Yottabyte'a (YB) ulaşabilmesi için 1000 yerine 1024 katı olarak hesaplanmasının temel teknik nedeni aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Hard disk üreticilerinin pazarlama stratejileri doğrultusunda belirlenmiş bir standart olması.",
+      "B": "Bilgisayarların ikilik (binary) sayı sistemini kullanması ve 1024'ün 2'nin 10. kuvveti (2^10) olması.",
+      "C": "Fiber optik kabloların veri iletim hızındaki sapma (tolerans) oranının hesaba katılması.",
+      "D": "Ondalık (decimal) sayı sisteminin sadece küçük veri gruplarında çalışabilmesi.",
+      "E": "İlk veri madenciliği yazılımlarının RAM kısıtlamaları nedeniyle bu standardı zorunlu kılması."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Bu üretici stratejisi değil, bilgisayar mimarisinin matematiksel bir sonucudur.",
+      "B": "Bilgisayarlar ikilik (binary) tabanda çalışır. Metrik sistemdeki 1000 çarpanı (10^3), bilgisayar biliminde ikilik sistemdeki en yakın karşılığı olan 1024'e (2^10) denk gelir.",
+      "C": "Veri kapasitesi hesaplamasının kablo iletim hızıyla bir ilgisi yoktur.",
+      "D": "Ondalık sayı sistemi verinin doğasıyla ilgili değildir, bilgisayarın mimarisi ikilik taban kullanır.",
+      "E": "Bu standart veri madenciliği yazılımlarından çok önce, bilgisayar biliminin temellerinden gelir."
+    },
+    "relatedTerms": [
+      {
+        "term": "İkilik Sayı Sistemi (Binary)",
+        "definition": "0 ve 1'lerden oluşan, bilgisayarların temel çalışma ve hesaplama mantığını oluşturan sayı tabanı."
+      }
+    ]
+  },
+  {
+    "id": "w1-v011",
+    "week": 1,
+    "topic": "kdd-sureci",
+    "type": "verbal",
+    "tags": [
+      "kdd",
+      "fark",
+      "veri-madenciligi"
+    ],
+    "sourceNotebook": null,
+    "question": "Teorik çerçevede 'Veri Madenciliği' ile 'Veri Tabanlarında Bilgi Keşfi (KDD)' arasındaki ilişkiyi en doğru şekilde açıklayan ifade aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Veri madenciliği, KDD sürecini kapsayan daha geniş ve genel bir kavramdır.",
+      "B": "KDD sadece veri temizleme aşamasıdır, veri madenciliği ise sadece değerlendirme aşamasıdır.",
+      "C": "KDD ve Veri Madenciliği teorikte birbirine tamamen zıt iki farklı disiplindir.",
+      "D": "Veri madenciliği, KDD (Bilgi Keşfi) sürecinin içerisinde yer alan ve örüntülerin algoritmalarla bulunduğu bir adımdır.",
+      "E": "KDD, sadece yapılandırılmamış büyük verilerde kullanılırken; veri madenciliği küçük verilerde kullanılır."
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Yanlıştır. KDD daha geniş bir süreçtir, veri madenciliği onun bir parçasıdır.",
+      "B": "KDD tüm süreci (temizleme, dönüştürme, madencilik, değerlendirme) kapsar.",
+      "C": "Zıt değillerdir, birbirlerini tamamlarlar. Pratikte ise eş anlamlı olarak bile kullanılırlar.",
+      "D": "Teoride KDD, veriden bilgi elde etme sürecinin tamamıdır. Veri madenciliği ise temizlenmiş ve dönüştürülmüş veriye algoritmaların uygulandığı spesifik adımın adıdır.",
+      "E": "Her ikisi de hem küçük hem büyük veri setlerinde uygulanabilir süreçlerdir."
+    },
+    "relatedTerms": [
+      {
+        "term": "KDD (Bilgi Keşfi)",
+        "definition": "Veriden bilgiye giden yoldaki tüm aşamaları (temizleme, bütünleştirme, dönüşüm, madencilik, değerlendirme) kapsayan süreç."
+      }
+    ]
+  },
+  {
+    "id": "w1-v012",
+    "week": 1,
+    "topic": "uygulama-alanlari",
+    "type": "verbal",
+    "tags": [
+      "senaryo",
+      "uygulama-alanlari",
+      "risk"
+    ],
+    "sourceNotebook": null,
+    "question": "Araç sigorta poliçesi düzenleyen bir şirket, müşterilerinin araç içi GPS verilerini, kullanım saatlerini ve hız limitlerini aşma sıklıklarını analiz etmektedir. Bu analiz sonucunda, gece geç saatlerde sıklıkla yüksek hız yapan bir müşterinin kaza yapma riskini %25 daha yüksek bularak poliçe primini artırmıştır.\n\nVeri madenciliğinin bu senaryodaki kullanım amacı aşağıdakilerden hangisine en uygun örnektir?",
+    "code": null,
+    "options": {
+      "A": "Birliktelik kuralları ile çapraz pazar incelemesi yapmak.",
+      "B": "Risk analizi ve öngörü ile gelecekteki davranışları tahmin etmek.",
+      "C": "Görüntü işleme teknolojileriyle tıbbi teşhis koymak.",
+      "D": "Eksik verileri doldurmak için veri temizleme işlemi yapmak.",
+      "E": "Veri ambarındaki ilişkisel veri tabanlarının mimarisini değiştirmek."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Birliktelik kuralları pazar sepeti analizi için kullanılır, risk tahmini için değil.",
+      "B": "Şirket, müşterinin geçmiş davranış (GPS, hız) verilerinden bir örüntü çıkararak gelecekteki kaza yapma ihtimalini (risk analizi/öngörü) hesaplamış ve buna göre karar vermiştir.",
+      "C": "Senaryoda sağlık veya görüntü işleme yoktur.",
+      "D": "Eksik veri doldurma bir ön işlemedir; burada analiz sonucunda alınan bir karar/kestirim söz konusudur.",
+      "E": "Bu bir analiz uygulamasıdır, veri tabanı mimarisini değiştirme işlemi değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Risk Analizi",
+        "definition": "Geçmiş verilere dayanarak gelecekte ortaya çıkabilecek olumsuz durumların olasılığını hesaplama işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w1-v013",
+    "week": 1,
+    "topic": "veri-madenciligi-algoritmalari",
+    "type": "verbal",
+    "tags": [
+      "algoritmalar",
+      "birliktelik-analizi"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir süpermarket zinciri, müşterilerinin alışveriş fişlerini analiz etmektedir. Yapılan çalışma sonucunda 'Bebek bezi satın alan müşterilerin %70 ihtimalle aynı alışverişte ıslak mendil de satın aldığı' bilgisi keşfedilmiştir. Süpermarket bu bilgiye dayanarak reyon yerleşimini değiştirmiştir.\n\nBu bilgi keşfi, aşağıdaki veri madenciliği yöntemlerinden hangisi kullanılarak elde edilmiştir?",
+    "code": null,
+    "options": {
+      "A": "Sınıflandırma (Classification)",
+      "B": "Eğri Uydurma (Regression)",
+      "C": "İstisna Analizi (Outlier Analysis)",
+      "D": "İlişkilendirme Kuralları (Association Rules)",
+      "E": "Zaman Serisi İnceleme (Time Series Analysis)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Sınıflandırma, bir verinin hangi kategoriye ait olacağını tahmin eder.",
+      "B": "Regresyon, sayısal bir değer tahmini (örn. yarınki satış tutarı) yapar.",
+      "C": "İstisna analizi, kredi kartı sahtekarlığı gibi genelin dışındaki anormal durumları bulur.",
+      "D": "İlişkilendirme (Birliktelik) kuralları, olayların birlikte gerçekleşme frekansını ölçer. 'A ürününü alan B ürününü de alır' mantığı (Pazar Sepeti Analizi) bu yöntemin temelidir.",
+      "E": "Zaman serisi, zamana bağlı trendleri inceler."
+    },
+    "relatedTerms": [
+      {
+        "term": "İlişkilendirme Kuralları (Association Rules)",
+        "definition": "Veriler veya olaylar arasındaki birlikte bulunma olasılıklarını belirleyen yöntem."
+      }
+    ]
+  },
+  {
+    "id": "w1-v014",
+    "week": 1,
+    "topic": "dikw-piramidi",
+    "type": "verbal",
+    "tags": [
+      "dikw",
+      "bilgelik",
+      "kavramlar"
+    ],
+    "sourceNotebook": null,
+    "question": "DIKW (Veri, Enformasyon, Bilgi, Bilgelik) hiyerarşisinde, bilginin (knowledge) sadece sahip olunması değil; aynı zamanda tecrübe, yetenek, sosyal ve etik faktörler dikkate alınarak en uygun kararın verilmesi ve eyleme dönüştürülmesi aşaması aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Veri (Data)",
+      "B": "Enformasyon (Information)",
+      "C": "Örüntü (Pattern)",
+      "D": "Bilgi (Knowledge)",
+      "E": "Bilgelik (Wisdom)"
+    },
+    "correct": "E",
+    "explanations": {
+      "A": "Veri işlenmemiş ham kayıtlardır.",
+      "B": "Enformasyon anlamlandırılmış veridir.",
+      "C": "Örüntü, veri içindeki tekrarlayan yapılardır, DIKW basamağı değildir.",
+      "D": "Bilgi, enformasyonun insan aklıyla algılanması ve kurallara bağlanmasıdır, ancak eyleme dökülme/karar aşaması bilgeliği gerektirir.",
+      "E": "Bilgelik (Wisdom), ulaşılan bilginin tecrübe ile harmanlanıp, en doğru kararın verilmesi ve uygulanması aşamasıdır. Kavramların zirvesidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Bilgelik (Wisdom)",
+        "definition": "Bilginin tecrübe, muhakeme ve etik değerlerle birlikte en uygun kararı vermek üzere kullanılması."
+      }
+    ]
+  },
+  {
+    "id": "w1-v015",
+    "week": 1,
+    "topic": "veri-ambari",
+    "type": "verbal",
+    "tags": [
+      "veri-ambari",
+      "karar-verme"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri madenciliğinin temel olarak operasyonel, canlı sistemler (günlük fiş kesen veya anlık kayıt alan sistemler) üzerinde değil de 'Veri Ambarları' üzerinde yapılmasının temel operasyonel nedeni aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Canlı sistemlerdeki verilerin güvenlik gerekçesiyle şifrelenmiş olması ve çözülememesi.",
+      "B": "Ağır algoritmik analizlerin, günlük işlem yapan canlı veri tabanlarını kilitleme ve sistemi durdurma riskinin bulunması.",
+      "C": "Veri ambarlarının sadece küçük veri (small data) gruplarını desteklemesi.",
+      "D": "Canlı sistemlerin geçmişe dönük verileri hiçbir zaman tutmaması.",
+      "E": "Veri madenciliği algoritmalarının sadece bulut (cloud) ortamlarında çalışabilmesi."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Veri şifreleme analiz yapılmasını engellemez, veriler analiz ortamında çözülerek işlenebilir.",
+      "B": "Veri madenciliği yoğun hesaplama gerektirir. Bu işlemler anlık alışverişin yapıldığı canlı veri tabanlarında (OLTP) çalıştırılırsa, sistem yükü kaldıramaz ve çöker/kilitlenir. Bu yüzden veriler analiz için OLAP tabanlı veri ambarlarına çekilir.",
+      "C": "Veri ambarları büyük veri setlerini desteklemek için tasarlanmıştır.",
+      "D": "Canlı sistemler geçmiş veriyi belirli bir süre tutar, ancak analiz için optimize edilmemişlerdir.",
+      "E": "Veri madenciliği lokal sistemlerde veya kendi sunucularınızda da yapılabilir, bulut zorunluluğu yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "OLAP (Online Analytical Processing)",
+        "definition": "Veri ambarlarında analiz ve raporlama yapmak için optimize edilmiş sistem mimarisi."
+      }
+    ]
+  },
+  {
+    "id": "w1-v016",
+    "week": 1,
+    "topic": "buyuk-veri",
+    "type": "verbal",
+    "tags": [
+      "buyuk-veri",
+      "kucuk-veri",
+      "veri-kaynaklari"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri kaynakları analiz edildiğinde yapısal olarak 'Küçük Veri' ve 'Büyük Veri' kavramları ortaya çıkmaktadır. \n\nAşağıdakilerden hangisi tipik bir 'Büyük Veri' (Big Data) senaryosunu veya özelliğini ifade eder?",
+    "code": null,
+    "options": {
+      "A": "Geçmişe dönük olarak birikmiş ve yerel bir bilgisayarın 32 GB RAM'inde rahatlıkla işlenebilen 10 milyon satırlık müşteri listesi.",
+      "B": "Bir eczanenin son beş yılda sattığı ilaçların günlük kayıtlarını içeren ve Microsoft Excel ile açılabilen veri dosyası.",
+      "C": "Milyonlarca kullanıcının anlık olarak fotoğraf, metin ve video yüklediği, anlık analiz edilmesi gereken sosyal medya platformu (ör. Twitter, Instagram) akışları.",
+      "D": "Sadece metin verilerinden oluşan, küçük ölçekli bir lisenin öğrenci not takip sistemi.",
+      "E": "Belli bir şirketin sadece insan kaynakları departmanında tutulan özlük dosyaları."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yerel bir makinenin RAM'ine sığabilen ve geçmişe dönük statik veriler 'küçük veri' grubuna girer.",
+      "B": "Excel'de işlenebilen, yapısal ve sınırlı hacimli veriler küçük veridir.",
+      "C": "Sosyal medya akışları (Twitter, Instagram) gibi çok yüksek hacimli (volume), anlık akan (velocity) ve farklı formatlar barındıran (variety) yapılar Büyük Veri (Big Data) kavramının temel örnekleridir.",
+      "D": "Öğrenci not sistemi hacim olarak çok küçüktür.",
+      "E": "Özlük dosyaları yapılandırılmış ve hacim olarak sınırlı veri setleridir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Büyük Veri (Big Data)",
+        "definition": "Geleneksel yöntemler veya tek bir bilgisayarla işlenmesi imkansız olan çok büyük, çeşitli ve hızlı akan veri."
+      }
+    ]
+  },
+  {
+    "id": "w1-v017",
+    "week": 1,
+    "topic": "veri-madenciligi-algoritmalari",
+    "type": "verbal",
+    "tags": [
+      "algoritmalar",
+      "regresyon",
+      "siniflandirma",
+      "fark"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri madenciliğinde kullanılan 'Sınıflandırma (Classification)' ve 'Eğri Uydurma / Regresyon (Regression)' işlevleri arasındaki temel fark aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Sınıflandırma algoritması verileri grafiklerle çizerken, Regresyon sadece tablolar üretir.",
+      "B": "Sınıflandırma kategorik (ayrık) etiketleri tahmin ederken; Regresyon sürekli, gerçel sayısal değerleri tahmin eder.",
+      "C": "Sınıflandırma danışmansız (gözetimsiz) öğrenme yöntemidir; Regresyon ise danışmanlı öğrenmedir.",
+      "D": "Sınıflandırma yalnızca geçmiş verilerde çalışır; Regresyon ise yalnızca anlık (stream) verilerde çalışır.",
+      "E": "Sınıflandırma eksik verileri tamamlamak için kullanılır; Regresyon ise aykırı değerleri silmek için kullanılır."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Her iki yöntemin de sonuçları grafiklerle veya tablolarla görselleştirilebilir; fark çıktı tipindedir.",
+      "B": "Sınıflandırma hedef değişkenin belirli sınıflara (Hasta/Sağlam, Evet/Hayır) ayrıldığı durumlarda kullanılır. Regresyon ise satış rakamı, sıcaklık derecesi gibi sürekli ve sayısal değerlerin tahmininde kullanılır.",
+      "C": "Her ikisi de çoğunlukla danışmanlı (gözetimli) öğrenme yöntemleri altındadır (çünkü hedef değişken bellidir).",
+      "D": "Her ikisi de hem geçmiş hem de anlık veriler üzerinde kurulmuş modellere uygulanabilir.",
+      "E": "Her ikisi de birer tahmin/öğrenme modelidir; veri ön işleme yöntemi (eksik veri tamamlama vs.) değillerdir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Regresyon (Regression)",
+        "definition": "Veriyi gerçel ve sürekli değerli bir fonksiyona dönüştürerek sayısal tahmin yapan yöntem."
+      }
+    ]
+  },
+  {
+    "id": "w1-v018",
+    "week": 1,
+    "topic": "veri-madenciligi-tarihcesi",
+    "type": "verbal",
+    "tags": [
+      "tarihce",
+      "yazilimlar"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri madenciliği kavramı 1990'lı yılların başında akademik alandan çıkıp ticari yazılımlara dönüşmeye başlamıştır. Bu bağlamda, 1996 yılında piyasaya sürülen ve büyük ölçekli veri analizi, karar ağaçları ve sinir ağları yapabilen IBM'e ait yazılım aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "SAS Enterprise Miner",
+      "B": "WEKA",
+      "C": "Apache Spark",
+      "D": "IBM Intelligent Miner",
+      "E": "Hadoop Ecosystem"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "SAS Enterprise Miner 1998 yılında SAS tarafından geliştirilmiştir.",
+      "B": "WEKA 1993 yılında Waikato Üniversitesi tarafından geliştirilen açık kaynaklı yazılımdır.",
+      "C": "Apache Spark büyük veri işleme çerçevesidir ve çok daha yakın tarihlerde (2010'lar) ortaya çıkmıştır.",
+      "D": "IBM tarafından 1996 yılında geliştirilen ilk ticari veri madenciliği yazılımlarından biri IBM Intelligent Miner'dır.",
+      "E": "Hadoop, dağıtık dosya sistemi ve büyük veri ekosistemidir; 90'lı yıllarda değil, 2000'lerin ortasında geliştirilmiştir."
+    },
+    "relatedTerms": [
+      {
+        "term": "IBM Intelligent Miner",
+        "definition": "1996 yılında piyasaya sürülen, karar ağaçları ve sinir ağları gibi yöntemleri destekleyen ilk ticari madencilik yazılımlarından biri."
+      }
+    ]
+  },
+  {
+    "id": "w1-v019",
+    "week": 1,
+    "topic": "dikw-piramidi",
+    "type": "verbal",
+    "tags": [
+      "bilgi",
+      "kavramlar",
+      "felsefe"
+    ],
+    "sourceNotebook": null,
+    "question": "Bilişim dilinde 'kurallardan yararlanarak kişinin veriye yönelttiği anlam' olarak tanımlanan, felsefi olarak ise 'insanların maddi ve toplumsal anlıksal etkinliğinin ürünü' şeklinde ifade edilen DIKW hiyerarşisi basamağı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Veri (Data)",
+      "B": "Enformasyon (Information)",
+      "C": "Bilgi (Knowledge)",
+      "D": "Bilgelik (Wisdom)",
+      "E": "Örüntü (Pattern)"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Veri ham gerçektir, henüz bir kural veya anlam çıkarımı içermez.",
+      "B": "Enformasyon yapılandırılmış veridir ancak henüz insan zihninde bir ilke veya kural bütününe dönüşmemiştir.",
+      "C": "Verilen tanım, enformasyonun insan algısıyla birleşip özümsendiği ve kurallar bütününe dönüştüğü 'Bilgi' (Knowledge) kavramına aittir.",
+      "D": "Bilgelik, bilginin uygulanması ve karar süreçlerinde tecrübe ile harmanlanmasıdır.",
+      "E": "Örüntü veri içindeki tekrarlardır, genel bir DIKW kavramsal basamağı değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Bilgi (Knowledge)",
+        "definition": "Enformasyonun insan zihni tarafından işlenerek algılanması, özümsenmesi ve kurallara bağlanması."
+      }
+    ]
+  },
+  {
+    "id": "w1-v020",
+    "week": 1,
+    "topic": "kdd-sureci",
+    "type": "verbal",
+    "tags": [
+      "veri-butunlestirme",
+      "kdd"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir havayolu şirketi, müşteri memnuniyetini analiz etmek için hem bilet satış sisteminden (SQL tabanlı) hem de yolcuların sosyal medyadaki şikayetlerinden (metin tabanlı) veri toplamaktadır. Analiz öncesinde bu iki farklı veri kaynağının bir araya getirilerek tek bir yapı halinde toplanması gerekmektedir.\n\nBilgi Keşfi (KDD) sürecinde bu işlem hangi adıma karşılık gelir?",
+    "code": null,
+    "options": {
+      "A": "Veri Seçme (Selection)",
+      "B": "Veri Dönüşümü (Transformation)",
+      "C": "Veri Bütünleştirme (Integration)",
+      "D": "Örüntü Değerlendirme (Evaluation)",
+      "E": "Bilgi Sunumu (Presentation)"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Veri seçme, toplanan veri havuzundan sadece analize uygun sütunların/özelliklerin seçilmesidir.",
+      "B": "Dönüşüm, verinin formatının algoritma için uygun hale getirilmesidir (ör. ölçeklendirme).",
+      "C": "Farklı formatlardaki (SQL, API, metin vb.) çok sayıda veri kaynağının tek bir havuzda (veri ambarı) birleştirilmesi işlemine Veri Bütünleştirme (Integration) adı verilir.",
+      "D": "Değerlendirme en son adımda model başarısını ölçer.",
+      "E": "Bilgi sunumu, sonuçların raporlanmasıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Veri Bütünleştirme (Integration)",
+        "definition": "Birden fazla ve farklı yapıdaki veri kaynağının tek bir sistemde birleştirilmesi."
+      }
+    ]
+  },
+  {
+    "id": "w1-v021",
+    "week": 1,
+    "topic": "uygulama-alanlari",
+    "type": "verbal",
+    "tags": [
+      "saglik",
+      "hata-orani",
+      "senaryo",
+      "yapay-zeka"
+    ],
+    "sourceNotebook": null,
+    "question": "Sağlık sektöründe veri madenciliği ve yapay zeka kullanımı giderek artmaktadır. Tıbbi görüntüler üzerinden kanser teşhisi koyan sistemler, geçmiş milyonlarca görüntüden öğrenerek doktorları asiste etmektedir.\n\nBu sistemlerin tıbbi karar süreçlerinde doktorlardan daha güvenilir bir asistan haline gelmesinin, biyolojik ve istatistiksel açıdan temel nedeni aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "İnsanın karar verirken biyolojik olarak %50 hata payına sahip olması.",
+      "B": "Yapay zekanın hiçbir zaman bakım ve onarıma ihtiyaç duymaması.",
+      "C": "İnsanın biyolojik yapısı gereği dikkat dağınıklığı vb. nedenlerle ortalama %5 hata toleransı bulunurken, eğitilmiş makinelerin bu oranı %1'lere düşürebilmesi.",
+      "D": "Doktorların teknolojik gelişmelere direnç gösterip eski cihazları kullanmak istemesi.",
+      "E": "Makinelerin teşhis koyarken hastanın sosyal durumunu ve psikolojisini de hesaba katabilmesi."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "İnsanın karar mekanizmasındaki hata payı %50 değil, yaklaşık %5 civarındadır.",
+      "B": "Yapay zeka sistemleri bakım, güncelleme ve yeni veri ile eğitime ihtiyaç duyarlar.",
+      "C": "Bilimsel olarak bir insanın en mükemmel durumunda bile %5 civarında hata toleransı vardır. Çok iyi eğitilmiş yapay zeka modelleri bu hata payını %1 seviyelerine çekebildiği için güçlü birer asistan olurlar.",
+      "D": "Bu durumun nedeni doktorların teknolojiye direnci değil, makinelerin istatistiksel hata payının düşüklüğüdür.",
+      "E": "Makineler şu anki aşamada hastanın psikolojisini veya sosyal durumunu tam anlamıyla değerlendiremez, sadece veriye dayalı istatistiksel hesap yapar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Hata Toleransı",
+        "definition": "Karar süreçlerinde veya donanımda kabul edilebilir sapma/yanlışlık oranı."
+      }
+    ]
+  },
+  {
+    "id": "w1-v022",
+    "week": 1,
+    "topic": "veri-madenciligi-algoritmalari",
+    "type": "verbal",
+    "tags": [
+      "algoritmalar",
+      "kestirim",
+      "senaryo"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir banka, müşterilerinin yaş, gelir seviyesi, medeni durum ve geçmiş kredi ödeme alışkanlıkları gibi verilerini kullanarak, yeni başvuru yapan bir müşterinin 'Krediyi Geri Ödeyebilir' veya 'Ödeyemez' şeklinde risk grubunu belirlemek istemektedir.\n\nBankanın bu işlem için kullanacağı veri madenciliği algoritması hangi temel amaca (kategoriye) hizmet etmektedir?",
+    "code": null,
+    "options": {
+      "A": "Tanımlayıcı (Descriptive)",
+      "B": "Kestirime Dayalı (Predictive)",
+      "C": "Özetleme (Summarization)",
+      "D": "Sıralı Dizi Analizi (Sequence Analysis)",
+      "E": "İstisna Analizi (Outlier Analysis)"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Tanımlayıcı modeller mevcut durumu anlamak (ör. müşteri kimdir) içindir, geleceğe yönelik risk sınıflandırması yapmaz.",
+      "B": "Kredi başvurularını risk gruplarına ayırmak, geçmiş veriden öğrenip gelecekteki durumu tahmin etmeyi içerir. Bu nedenle Kestirime Dayalı (Predictive) yöntemler sınıfına girer.",
+      "C": "Özetleme sadece veriyi sıkıştırıp genel bir bilgi verir.",
+      "D": "Sıralı dizi analizi zaman içindeki olay dizilerini inceler (ör. biyolojik veriler).",
+      "E": "İstisna analizi normalin dışındaki (ör. sahtekarlık) durumları bulur, genel müşteri risk sınıflandırması kestirimin işidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Kestirime Dayalı Model (Predictive)",
+        "definition": "Hedef değişkenin değerini mevcut verilere dayanarak geleceğe yönelik tahmin eden model."
+      }
+    ]
+  },
+  {
+    "id": "w1-v023",
+    "week": 1,
+    "topic": "veri-madenciligi-tarihcesi",
+    "type": "verbal",
+    "tags": [
+      "tarihce",
+      "weka"
+    ],
+    "sourceNotebook": null,
+    "question": "Günümüzde hala makine öğrenimi eğitimlerinde sıklıkla kullanılan, 1993 yılında Waikato Üniversitesi tarafından geliştirilmiş açık kaynaklı veri madenciliği yazılımı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "SAS Enterprise Miner",
+      "B": "IBM Intelligent Miner",
+      "C": "WEKA",
+      "D": "Hadoop",
+      "E": "Orange"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "SAS Enterprise Miner 1998'de geliştirilen ticari bir yazılımdır.",
+      "B": "IBM Intelligent Miner 1996'da geliştirilen ticari bir yazılımdır.",
+      "C": "WEKA, 1993 yılında Yeni Zelanda'daki Waikato Üniversitesi tarafından geliştirilmiş, Java tabanlı ve açık kaynaklı ünlü bir veri madenciliği platformudur.",
+      "D": "Hadoop büyük veri için bir depolama ve işleme ekosistemidir, 2000'lerde ortaya çıkmıştır.",
+      "E": "Orange da açık kaynaklı bir araçtır ancak Waikato Üniversitesi'nin 1993 tarihli yazılımı WEKA'dır."
+    },
+    "relatedTerms": [
+      {
+        "term": "WEKA",
+        "definition": "Akademik eğitimlerde ve araştırmalarda yaygın olarak kullanılan açık kaynaklı veri madenciliği yazılımı."
+      }
+    ]
+  },
+  {
+    "id": "w1-v024",
+    "week": 1,
+    "topic": "veri-madenciligi-temel-kavramlar",
+    "type": "verbal",
+    "tags": [
+      "oruntu",
+      "kavramlar"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri madenciliğinin amacı veri içindeki 'örüntüleri' bulmaktır. Veri madenciliği bağlamında 'örüntü' (pattern) kavramı en iyi nasıl tanımlanır?",
+    "code": null,
+    "options": {
+      "A": "Veri tabanında rastgele oluşan ve hiçbir matematiksel açıklaması olmayan hatalı kayıtlardır.",
+      "B": "Veri setindeki en yüksek ve en düşük değerler arasındaki farkı ifade eden tekil bir sayıdır.",
+      "C": "Sadece metin verilerinde görülen dilbilgisi kurallarıdır.",
+      "D": "Veri seti içerisindeki gizli, tekrar eden, anlamlı ve kurala bağlanabilen ilişkisel yapılardır.",
+      "E": "Verilerin hard diskte kapladığı fiziksel alanın byte cinsinden ölçüsüdür."
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Rastgele ve hatalı kayıtlar örüntü değil, 'gürültü' (noise) olarak adlandırılır.",
+      "B": "En yüksek ve en düşük değer farkı istatistikte 'açıklık' (range) olarak bilinir, örüntü değildir.",
+      "C": "Örüntüler sadece metinlerde değil, sayısal, görsel, işitsel her türlü veride bulunabilir.",
+      "D": "Örüntü (pattern), büyük veri yığınları arasında var olan, daha önce bilinmeyen ancak istatistiksel/algoritmik olarak tekrar eden anlamlı ilişki yapısıdır.",
+      "E": "Kapasite ölçüsü örüntüyle alakalı değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Örüntü (Pattern)",
+        "definition": "Veri setindeki değişkenler arasında tekrar eden, anlamlı ilişkisel yapı."
+      }
+    ]
+  },
+  {
+    "id": "w1-v025",
+    "week": 1,
+    "topic": "veri-madenciligi-temel-kavramlar",
+    "type": "verbal",
+    "tags": [
+      "basit-sorgu",
+      "fark"
+    ],
+    "sourceNotebook": null,
+    "question": "Aşağıdaki işlemlerden hangisi bir 'Veri Madenciliği' çalışması değil, basit bir veri tabanı sorgulama (Query) işlemidir?",
+    "code": null,
+    "options": {
+      "A": "Müşterilerin geçmiş alışveriş verilerine bakarak, gelecek ay hangi ürünleri satın alma ihtimallerinin yüksek olduğunu hesaplamak.",
+      "B": "Kredi kartı harcamalarındaki işlem yeri ve zamanını analiz ederek, normal harcama alışkanlıklarının dışında kalan şüpheli işlemleri (sahtekarlık) tespit etmek.",
+      "C": "Bir marketin veri tabanında, 2023 yılında toplam kaç adet ekmek satıldığını bulmak için SQL komutu çalıştırmak.",
+      "D": "Müşterileri demografik yapılarına ve harcama alışkanlıklarına göre belirli etiketler olmaksızın kendi içlerinde 5 farklı kümeye ayırmak.",
+      "E": "Bir hastanın tahlil sonuçlarını sisteme girip, geçmişteki milyonlarca kanser hastasının verisiyle karşılaştırarak tümör riskini hesaplamak."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Geleceğe yönelik tahmin (kestirim) yapmak veri madenciliğidir.",
+      "B": "Sahtekarlık tespiti (istisna analizi) veri madenciliğidir.",
+      "C": "Geçmişte ne kadar ürün satıldığını basit bir şekilde saymak veya listelemek, var olan bilinen bir kaydı çağırmaktır. Bu basit bir SQL sorgusudur, veri madenciliği (bilinmeyeni keşfetme) değildir.",
+      "D": "Etiketsiz veriyi gruplamak (kümeleme) veri madenciliğidir.",
+      "E": "Geçmiş verilerden öğrenerek yeni bir teşhis tahmini yapmak sınıflandırma (veri madenciliği) işlemidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Veri Tabanı Sorgulama (Query)",
+        "definition": "Bilinmeyen bir örüntüyü keşfetmek yerine, bilinen verileri çağırma, sayma veya listeleme işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w1-v026",
+    "week": 1,
+    "topic": "veri-ambari",
+    "type": "verbal",
+    "tags": [
+      "veri-ambari",
+      "karar-destek",
+      "olap"
+    ],
+    "sourceNotebook": null,
+    "question": "Kurumlardaki büyük ölçekli ve milyonlarca veriye sahip sistemlerden, yöneticilerin Karar Destek Sistemleri (Decision Support Systems) için anlamlı verilerin çıkarılması amacıyla kullanılan sistemlere 'Veri Ambarı' denir. \n\nAşağıdakilerden hangisi bir veri ambarı örneği veya teknolojisi değildir?",
+    "code": null,
+    "options": {
+      "A": "Amazon Redshift",
+      "B": "Google BigQuery",
+      "C": "Microsoft Azure Synapse",
+      "D": "Snowflake",
+      "E": "Microsoft Word"
+    },
+    "correct": "E",
+    "explanations": {
+      "A": "Amazon Redshift, bulut tabanlı büyük ölçekli bir veri ambarıdır.",
+      "B": "Google BigQuery, Google'ın sunduğu kurumsal veri ambarı çözümüdür.",
+      "C": "Microsoft Azure Synapse, Microsoft'un büyük veri analiz ve ambar platformudur.",
+      "D": "Snowflake, modern bulut tabanlı veri ambarı çözümüdür.",
+      "E": "Microsoft Word bir kelime işlemci (metin yazma) programıdır, veri ambarı teknolojisi değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Veri Ambarı (Data Warehouse)",
+        "definition": "Farklı kaynaklardan gelen verilerin entegre edildiği, analiz ve raporlama için kullanılan merkezi depolama sistemi."
+      }
+    ]
+  },
+  {
+    "id": "w1-v027",
+    "week": 1,
+    "topic": "veri-madenciligi-algoritmalari",
+    "type": "verbal",
+    "tags": [
+      "istisna-analizi",
+      "senaryo"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri madenciliği işlevlerinden biri olan 'İstisna Analizi (Outlier Analysis)', verinin geneline uymayan nesneleri belirlemek için kullanılır.\n\nAşağıdaki durumlardan hangisi istisna analizinin kullanılabileceği en uygun senaryodur?",
+    "code": null,
+    "options": {
+      "A": "Bir hastanın ateşinin saatlere göre değişim trendini çizmek.",
+      "B": "Borsa fiyatlarının yarın ne olacağını sayısal olarak tahmin etmek.",
+      "C": "Kredi kartı ile her zaman Türkiye'den küçük harcamalar yapan bir müşterinin kartıyla, aniden yurtdışından çok büyük miktarda bir işlem yapılmasını tespit etmek.",
+      "D": "Bir alışveriş merkezindeki müşterileri yaş gruplarına göre segmentlere ayırmak.",
+      "E": "Sıcaklık ve nem değerlerini kullanarak yarın yağmur yağıp yağmayacağını 'Evet' veya 'Hayır' olarak belirlemek."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Trend çizmek zaman serisi veya tanımlayıcı analizin işidir.",
+      "B": "Fiyat tahmini Regresyon veya Zaman Serisi analizi ile yapılır.",
+      "C": "Alışılmışın dışındaki anormal (aykırı) davranışları tespit etmek (sahtekarlık tespiti) İstisna Analizi (Outlier Analysis) yönteminin temel kullanım alanıdır.",
+      "D": "Müşteri segmentasyonu Kümeleme (Clustering) işlemidir.",
+      "E": "Evet/Hayır şeklinde tahmin yapmak Sınıflandırma (Classification) işlemidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "İstisna Analizi (Outlier Analysis)",
+        "definition": "Veri seti içerisindeki genel davranış modeline uymayan, aykırı veya anormal kayıtların tespiti."
+      }
+    ]
+  },
+  {
+    "id": "w1-v028",
+    "week": 1,
+    "topic": "kdd-sureci",
+    "type": "verbal",
+    "tags": [
+      "bilgi-kesfi",
+      "sartlar",
+      "kavramlar"
+    ],
+    "sourceNotebook": null,
+    "question": "Bilgi Keşfi sürecinde veri yığınları içerisinden ulaşılan sonucun 'Bilgi' sayılabilmesi için belirli kriterleri taşıması gerekir. \n\nAşağıdakilerden hangisi elde edilen bu bilginin taşıması gereken özelliklerden biri değildir?",
+    "code": null,
+    "options": {
+      "A": "Önceden bilinmeyen (novel) olması.",
+      "B": "Sadece uzman yazılımcılar tarafından okunabilir (kriptolu) olması.",
+      "C": "Yararlı ve karar alma sürecine katkı sağlayacak potansiyelde olması.",
+      "D": "Veri setinin içinde başlangıçta gizli halde bulunması.",
+      "E": "Şirket veya kurum için önemli/anlamlı olması."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Bilgi keşfinde amaç, zaten bilineni değil, daha önce fark edilmeyen bir ilişkiyi bulmaktır.",
+      "B": "Bulunan bilginin temel amacı anlaşılabilir (understandable) ve yorumlanabilir olmasıdır. Sadece kriptolu kalması madenciliğin amacına terstir.",
+      "C": "Bilgi, yararlı olmazsa yapılan keşfin kurumsal bir değeri olmaz.",
+      "D": "Örüntüler verinin içinde gizlidir, madencilik bunları yüzeye çıkarır.",
+      "E": "Bilginin iş hedefleri doğrultusunda önemli (significant) olması beklenir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Bilgi (Knowledge) Özellikleri",
+        "definition": "Keşfedilen örüntülerin gizli, önceden bilinmeyen, potansiyel olarak yararlı ve anlaşılabilir olması gerekliliği."
+      }
+    ]
+  },
+  {
+    "id": "w1-v029",
+    "week": 1,
+    "topic": "uygulama-alanlari",
+    "type": "verbal",
+    "tags": [
+      "web-madenciligi",
+      "is-hayati"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri madenciliğinin uygulama alanları değerlendirildiğinde; 'Haber grupları, e-postalar ve dökümanlar üzerindeki kelime/konu ilişkilerini incelemek' aşağıdaki hangi alanın temel konularından biridir?",
+    "code": null,
+    "options": {
+      "A": "Biyoinformatik",
+      "B": "Metin Madenciliği (Text Mining)",
+      "C": "CRM (Müşteri İlişkileri Yönetimi)",
+      "D": "Zaman Serisi Analizi",
+      "E": "Vergi Kaçakçılığı Analizi"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Biyoinformatik, gen dizilimleri veya ilaç keşfi gibi biyolojik verilerle uğraşır.",
+      "B": "E-postalar, haberler ve dökümanlar gibi metin (text) tabanlı yapısız verilerin analiz edilmesi 'Metin Madenciliği'nin (Text Mining / Web Mining) konusudur.",
+      "C": "CRM, müşteri satın alma alışkanlıkları ve pazarlama üzerine odaklanır.",
+      "D": "Zaman serisi sayısal trendleri inceler.",
+      "E": "Vergi kaçakçılığı analizi finansal işlem kayıtları üzerinden risk ve sahtekarlık analiziyle yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Metin Madenciliği (Text Mining)",
+        "definition": "Yapısal olmayan metin verilerinden (e-posta, haber, belge) doğal dil işleme ve algoritmalarla anlamlı bilgi çıkarımı."
+      }
+    ]
+  },
+  {
+    "id": "w1-v030",
+    "week": 1,
+    "topic": "kdd-sureci",
+    "type": "verbal",
+    "tags": [
+      "kdd",
+      "veri-secme",
+      "feature-selection"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri madenciliği projesi yürüten bir araştırmacı, veri setinde yüzlerce farklı sütun (yaş, cinsiyet, boy, göz rengi, favori filmi vb.) bulunduğunu ancak yapacağı 'Kredi Risk Tahmini' analizi için 'göz rengi' ve 'favori filmi' gibi sütunların gereksiz olduğuna karar verip bunları analiz dışında bırakmıştır.\n\nAraştırmacının yaptığı bu işlem Bilgi Keşfi (KDD) sürecinin hangi aşamasına denk gelir?",
+    "code": null,
+    "options": {
+      "A": "Veri Bütünleştirme (Integration)",
+      "B": "Veri Temizleme (Cleaning)",
+      "C": "Veri Seçme (Selection)",
+      "D": "Bilgi Sunumu (Presentation)",
+      "E": "Örüntü Değerlendirme (Evaluation)"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Bütünleştirme, farklı tabloları birleştirmektir.",
+      "B": "Temizleme eksik/hatalı satırları düzeltmektir, gereksiz sütunları seçmek değildir.",
+      "C": "Yapılacak analiz ile ilgili olan verilerin (ilgili özelliklerin/sütunların) belirlenmesi ve alakasız olanların elenmesi işlemine Veri Seçme (Selection / Feature Selection) denir.",
+      "D": "Bilgi sunumu, sonuçların kullanıcıya gösterilmesidir.",
+      "E": "Değerlendirme, model kurulduktan sonra başarısının ölçülmesidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Veri Seçme (Selection)",
+        "definition": "Hedef analiz için gerekli olan değişkenlerin (niteliklerin) belirlenerek analize dahil edilmesi."
+      }
+    ]
+  },
+  {
+    "id": "w02-q001",
+    "week": 2,
+    "topic": "numpy-temelleri",
+    "type": "code",
+    "tags": [
+      "copy",
+      "pointer",
+      "referans",
+      "kesin-cikar"
+    ],
+    "sourceNotebook": "numpy.ipynb",
+    "question": "Aşağıdaki kodun çıktısı nedir?",
+    "code": "import numpy as np\na = np.array([1, 2, 3])\nb = a\nb[0] = 90\nprint(a)",
+    "options": {
+      "A": "[1, 2, 3]",
+      "B": "[90, 2, 3]",
+      "C": "[90, 90, 90]",
+      "D": "Hata verir, dizi değiştirilemez",
+      "E": "[1, 90, 3]"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. b = a yazıldığında kopya oluşmaz, ikisi aynı bellek adresini gösterir. Bu yüzden b üzerindeki değişiklik a'yı da etkiler.",
+      "B": "Doğru. b = a bir referans atamasıdır (pointer). b ve a aynı veriyi gösterir. b[0] = 90 yazıldığında ortak veri değişir, dolayısıyla a da [90, 2, 3] olur.",
+      "C": "Yanlış. Sadece b[0] değiştirildi, tüm elemanlar değil. Yalnızca 0. indeks 90 olur.",
+      "D": "Yanlış. NumPy dizileri mutable (değiştirilebilir) yapılardır. Eleman ataması yapılabilir.",
+      "E": "Yanlış. b[0] = 90 yazılmış, yani 0. indeks değişir. 1. indeks değil."
+    },
+    "relatedTerms": [
+      {
+        "term": "Referans (Pointer)",
+        "definition": "Bir değişkenin bellekteki bir veri konumuna işaret etmesi. İki değişken aynı adresi gösterdiğinde biri değişince diğeri de değişir."
+      },
+      {
+        "term": ".copy()",
+        "definition": "Bağımsız bir kopya oluşturur (deep copy). Kopyalanan dizi orijinalden tamamen ayrıdır."
+      }
+    ]
+  },
+  {
+    "id": "w02-q002",
+    "week": 2,
+    "topic": "numpy-temelleri",
+    "type": "code",
+    "tags": [
+      "shape",
+      "ndim",
+      "boyut"
+    ],
+    "sourceNotebook": "numpy.ipynb",
+    "question": "Aşağıdaki kodun çıktısı nedir?",
+    "code": "import numpy as np\nb = np.array([[1, 7, 20], [5, 8, 9]])\nprint(b.shape)",
+    "options": {
+      "A": "(3, 2)",
+      "B": "(2, 3)",
+      "C": "[2, 3]",
+      "D": "6",
+      "E": "(6,)"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. shape (satır, sütun) sırasıyla verir. 2 satır 3 sütun var, (3, 2) değil (2, 3).",
+      "B": "Doğru. b dizisi 2 satır ve 3 sütundan oluşur. shape niteliği bunu (2, 3) tuple'ı olarak döndürür.",
+      "C": "Yanlış. shape bir tuple döndürür, liste değil. Köşeli parantez yerine normal parantez kullanılır.",
+      "D": "Yanlış. 6 toplam eleman sayısıdır (size), boyut bilgisi değildir.",
+      "E": "Yanlış. (6,) tek boyutlu 6 elemanlı bir dizinin shape'i olurdu. Bu dizi iki boyutludur."
+    },
+    "relatedTerms": [
+      {
+        "term": "shape",
+        "definition": "Dizinin boyutlarını (satır, sütun) tuple olarak döndüren nitelik. Fonksiyon değildir, parantez almaz."
+      },
+      {
+        "term": "Tuple",
+        "definition": "Python'da değiştirilemez (immutable) sıralı veri yapısı. Normal parantez ile gösterilir: (2, 3)."
+      }
+    ]
+  },
+  {
+    "id": "w02-q003",
+    "week": 2,
+    "topic": "numpy-temelleri",
+    "type": "code",
+    "tags": [
+      "indeksleme",
+      "slicing",
+      "dilimleme"
+    ],
+    "sourceNotebook": "numpy.ipynb",
+    "question": "Aşağıdaki kodun çıktısı nedir?",
+    "code": "import numpy as np\nb = np.array([[1, 7, 20], [5, 8, 9]])\nprint(b[0, 1:])",
+    "options": {
+      "A": "[1, 7]",
+      "B": "[7, 20]",
+      "C": "[5, 8]",
+      "D": "20",
+      "E": "[1, 7, 20]"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. 0. satırda 0. ve 1. indeks olurdu ama 1: kullanılmış, yani 1'den başlayıp sonuna gidiyor.",
+      "B": "Doğru. b[0, 1:] → 0. satırda 1. indeksten başlayıp sonuna kadar git. 0. satır [1, 7, 20] olduğundan 1. indeksten itibaren [7, 20] döner.",
+      "C": "Yanlış. Bu 1. satırın ilk iki elemanı olurdu (b[1, :2]). Soru 0. satırı soruyor.",
+      "D": "Yanlış. Tek bir eleman değil, dilimleme yapılıyor. b[0, 2] olsaydı sadece 20 dönerdi.",
+      "E": "Yanlış. b[0] tüm satırı getirirdi ama b[0, 1:] 1. indeksten başlıyor, 0. elemanı (1) atlar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Slicing (Dilimleme)",
+        "definition": "Bir dizinin belirli bir aralığındaki elemanları seçme işlemi. başlangıç:bitiş formatında yazılır, başlangıç dahil bitiş hariçtir."
+      }
+    ]
+  },
+  {
+    "id": "w02-q004",
+    "week": 2,
+    "topic": "numpy-temelleri",
+    "type": "code",
+    "tags": [
+      "dtype",
+      "veri-tipi",
+      "float"
+    ],
+    "sourceNotebook": "numpy.ipynb",
+    "question": "Aşağıdaki kodun çıktısı nedir?",
+    "code": "import numpy as np\nx = np.array([1.0, 5.4, 10.42])\nprint(x.dtype)",
+    "options": {
+      "A": "int64",
+      "B": "float32",
+      "C": "float64",
+      "D": "object",
+      "E": "str"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. int64 tam sayılar içindir. Dizide ondalıklı sayılar (1.0, 5.4) var.",
+      "B": "Yanlış. NumPy varsayılan olarak float64 kullanır, float32 değil. float32 açıkça belirtilmediği sürece kullanılmaz.",
+      "C": "Doğru. Dizide ondalıklı sayılar var (1.0, 5.4, 10.42). NumPy bunları varsayılan olarak 64-bit kayan noktalı sayı (float64) tipinde saklar.",
+      "D": "Yanlış. object tipi genellikle metin (string) veriler için kullanılır. Burada sayısal veri var.",
+      "E": "Yanlış. str bir NumPy dtype değildir. Metin veriler object olarak saklanır."
+    },
+    "relatedTerms": [
+      {
+        "term": "dtype",
+        "definition": "Data Type kısaltması. NumPy dizisindeki elemanların veri tipini belirtir. int64: tam sayı, float64: ondalıklı sayı."
+      }
+    ]
+  },
+  {
+    "id": "w02-q005",
+    "week": 2,
+    "topic": "numpy-temelleri",
+    "type": "code",
+    "tags": [
+      "vektorizasyon",
+      "broadcast",
+      "matematik"
+    ],
+    "sourceNotebook": "numpy.ipynb",
+    "question": "Aşağıdaki kodun çıktısı nedir?",
+    "code": "import numpy as np\na = np.array([1, 2, 3, 4])\nprint(a ** 2)",
+    "options": {
+      "A": "[2, 4, 6, 8]",
+      "B": "[1, 4, 9, 16]",
+      "C": "[1, 2, 3, 4, 1, 2, 3, 4]",
+      "D": "Hata verir",
+      "E": "30"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. a * 2 olsaydı bu sonuç çıkardı. ** üs alma operatörüdür, çarpma değil.",
+      "B": "Doğru. ** üs alma operatörüdür. a ** 2 her elemanın karesini alır: 1²=1, 2²=4, 3²=9, 4²=16. NumPy bunu vektörizasyon ile yapar.",
+      "C": "Yanlış. Bu Python listelerinde a * 2 yapıldığında olur (liste tekrarı). NumPy dizilerinde matematik uygulanır.",
+      "D": "Yanlış. NumPy dizileri üzerinde ** operatörü sorunsuz çalışır.",
+      "E": "Yanlış. 30 sayısı np.sum(a**2) olsaydı çıkardı. Burada toplama yok, sadece kare alma var."
+    },
+    "relatedTerms": [
+      {
+        "term": "Vektörizasyon",
+        "definition": "Döngü yazmadan dizinin tüm elemanlarına aynı anda işlem uygulama. NumPy'ın temel avantajıdır, for döngüsünden çok daha hızlıdır."
+      }
+    ]
+  },
+  {
+    "id": "w02-q006",
+    "week": 2,
+    "topic": "pandas-veri-manipulasyonu",
+    "type": "code",
+    "tags": [
+      "head",
+      "tail",
+      "shape"
+    ],
+    "sourceNotebook": "pandas.ipynb",
+    "question": "Aşağıdaki kodlardan hangisi DataFrame'in ilk 3 satırını gösterir?",
+    "code": null,
+    "options": {
+      "A": "df.head()",
+      "B": "df.head(3)",
+      "C": "df[:3]",
+      "D": "df.head(3) ve df[:3] ikisi de doğrudur",
+      "E": "df.first(3)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Eksik. head() parametresiz çağrılırsa varsayılan olarak 5 satır gösterir, 3 değil.",
+      "B": "Kısmen doğru. head(3) ilk 3 satırı gösterir ama tek doğru yol bu değildir.",
+      "C": "Kısmen doğru. Dilimleme ile ilk 3 satır alınabilir ama tek doğru yol bu değildir.",
+      "D": "Doğru. Hem df.head(3) hem de df[:3] ilk 3 satırı döndürür. İkisi de geçerli yöntemlerdir.",
+      "E": "Yanlış. Pandas'ta first() fonksiyonu zaman serisi indeksli verilerde kullanılır ve parametre olarak tarih aralığı alır, satır sayısı değil."
+    },
+    "relatedTerms": [
+      {
+        "term": "head()",
+        "definition": "DataFrame'in başından belirtilen sayıda satır döndürür. Varsayılan değer 5'tir."
+      }
+    ]
+  },
+  {
+    "id": "w02-q007",
+    "week": 2,
+    "topic": "pandas-veri-manipulasyonu",
+    "type": "code",
+    "tags": [
+      "loc",
+      "filtreleme",
+      "boolean-maskeleme"
+    ],
+    "sourceNotebook": "pandas.ipynb",
+    "question": "Aşağıdaki kodun amacı nedir?",
+    "code": "df.loc[(df['IMDB_Rating']>=8) & (df['No_of_Votes']>=100000)]",
+    "options": {
+      "A": "IMDB puanı 8'den büyük VEYA oy sayısı 100.000'den fazla olan filmleri getirir",
+      "B": "IMDB puanı 8 ve üstü VE oy sayısı 100.000 ve üstü olan filmleri getirir",
+      "C": "Tüm filmlerin IMDB puanına 8, oy sayısına 100.000 ekler",
+      "D": "İlk 8 satır ve ilk 100.000 sütunu seçer",
+      "E": "Hata verir çünkü iki koşul aynı anda kullanılamaz"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. & operatörü AND (VE) anlamına gelir. VEYA için | operatörü kullanılır.",
+      "B": "Doğru. & operatörü iki koşulun da aynı anda sağlanmasını gerektirir. >= operatörü 'büyük eşit' demektir, yani 8 ve üstü dahildir.",
+      "C": "Yanlış. loc filtreleme yapar, değer eklemez. == karşılaştırma operatörüdür.",
+      "D": "Yanlış. loc etiket tabanlı erişim sağlar ama burada boolean maske kullanılmış, satır/sütun numarası değil.",
+      "E": "Yanlış. Pandas'ta birden fazla koşul & veya | ile birleştirilebilir. Her koşulun parantez içinde olması gerekir."
+    },
+    "relatedTerms": [
+      {
+        "term": "loc",
+        "definition": "Label-based access. Etiket veya boolean maske ile satır/sütun seçimi yapar."
+      },
+      {
+        "term": "Boolean Maskeleme",
+        "definition": "Her satır için True/False üreten bir koşul. True olan satırlar seçilir, False olanlar filtrelenir."
+      }
+    ]
+  },
+  {
+    "id": "w02-q008",
+    "week": 2,
+    "topic": "pandas-veri-manipulasyonu",
+    "type": "code",
+    "tags": [
+      "value_counts",
+      "groupby",
+      "sayim"
+    ],
+    "sourceNotebook": "pandas.ipynb",
+    "question": "Aşağıdaki kodun çıktısı ne tür bir veri yapısıdır?",
+    "code": "df[\"Released_Year\"].value_counts()",
+    "options": {
+      "A": "DataFrame",
+      "B": "Series",
+      "C": "Liste (list)",
+      "D": "Sözlük (dict)",
+      "E": "Tuple"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. value_counts() tek bir sütun üzerinde çalışır ve tek sütunluk sonuç döndürür. DataFrame iki boyutlu tablodur.",
+      "B": "Doğru. value_counts() bir Series döndürür. İndekste benzersiz değerler, değerlerde ise tekrar sayıları bulunur. Azalan sırada sıralanmıştır.",
+      "C": "Yanlış. Python listesi döndürmez. Sonuçta hem değerler hem de indeks bilgisi vardır.",
+      "D": "Yanlış. Sözlüğe benzer ama tip olarak pandas Series'tir. .to_dict() ile sözlüğe çevrilebilir.",
+      "E": "Yanlış. Tuple değiştirilemez bir veri yapısıdır. value_counts() sonucu ise bir Series nesnesidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "value_counts()",
+        "definition": "Bir sütundaki her benzersiz değerin kaç kez tekrar ettiğini sayan fonksiyon. Sonuç azalan sırada sıralanmış bir Series'tir."
+      },
+      {
+        "term": "Series",
+        "definition": "Pandas'ın tek boyutlu veri yapısı. DataFrame'in tek bir sütunu veya satırıdır. İndeks + değer çiftlerinden oluşur."
+      }
+    ]
+  },
+  {
+    "id": "w02-q009",
+    "week": 2,
+    "topic": "pandas-veri-manipulasyonu",
+    "type": "code",
+    "tags": [
+      "str",
+      "replace",
+      "to_numeric",
+      "tip-donusumu"
+    ],
+    "sourceNotebook": "pandas.ipynb",
+    "question": "CSV'den okunan 'Gross' sütunu '1,000,000' gibi virgüllü değerler içeriyor. Bu sütunu sayısal tipe çevirmek için doğru sıralama hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Önce pd.to_numeric(), sonra str.replace()",
+      "B": "Önce str.replace(',', ''), sonra pd.to_numeric()",
+      "C": "Sadece int() fonksiyonu yeterlidir",
+      "D": "astype(float) direkt çalışır",
+      "E": "Virgüller otomatik temizlenir, müdahale gerekmez"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. Virgüller temizlenmeden to_numeric() çağrılırsa hata verir çünkü '1,000,000' geçerli bir sayı formatı değildir.",
+      "B": "Doğru. Önce str.replace(',', '') ile virgüller temizlenir ('1000000' olur), sonra pd.to_numeric() ile sayıya çevrilir. Bu sıralama zorunludur.",
+      "C": "Yanlış. int() Python'un yerleşik fonksiyonudur ve sütun bazlı çalışmaz. Ayrıca virgüllü string'i dönüştüremez.",
+      "D": "Yanlış. astype(float) da virgüllü string'i dönüştüremez. Önce virgüllerin temizlenmesi gerekir.",
+      "E": "Yanlış. Pandas virgülleri otomatik temizlemez. CSV'deki virgüllü sayılar object (metin) tipi olarak okunur."
+    },
+    "relatedTerms": [
+      {
+        "term": "str.replace()",
+        "definition": "String accessor üzerinden çalışan metin değiştirme fonksiyonu. Sütundaki tüm metinlere uygulanır."
+      },
+      {
+        "term": "pd.to_numeric()",
+        "definition": "Metin veya karışık tipteki veriyi sayısal tipe dönüştürür. errors='coerce' ile dönüştürülemeyen değerler NaN yapılabilir."
+      }
+    ]
+  },
+  {
+    "id": "w02-q011",
+    "week": 2,
+    "topic": "eksik-veri-tamamlama",
+    "type": "code",
+    "tags": [
+      "fillna",
+      "mean",
+      "eksik-veri"
+    ],
+    "sourceNotebook": "veri_tamamlama.ipynb",
+    "question": "Aşağıdaki kodun işlevi nedir?",
+    "code": "df['Gelir'] = df['Gelir'].fillna(df['Gelir'].mean())",
+    "options": {
+      "A": "Gelir sütunundaki tüm değerleri ortalamayla değiştirir",
+      "B": "Gelir sütunundaki eksik (NaN) değerleri sütunun ortalamasıyla doldurur",
+      "C": "Gelir sütununun ortalamasını hesaplar ve yazdırır",
+      "D": "Gelir sütunundaki 0 değerlerini ortalamayla değiştirir",
+      "E": "Hata verir çünkü fillna sayısal değer alamaz"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. fillna() sadece NaN olan hücreleri değiştirir, dolu hücrelere dokunmaz.",
+      "B": "Doğru. fillna() sadece NaN (boş) değerleri hedefler. mean() sütunun ortalamasını hesaplar (NaN'ları atlayarak). Sonuç: eksik hücreler ortalama ile doldurulur, dolu hücreler aynen kalır.",
+      "C": "Yanlış. mean() ortalaması hesaplar ama fillna() bunu eksik hücrelere yazar. Sadece yazdırma yapmaz.",
+      "D": "Yanlış. fillna() 0 değerlerini değil, NaN değerlerini hedefler. 0 geçerli bir değerdir.",
+      "E": "Yanlış. fillna() sayısal değer, metin, sözlük gibi birçok türde parametre alabilir."
+    },
+    "relatedTerms": [
+      {
+        "term": "fillna()",
+        "definition": "NaN (boş) değerlerin yerine belirtilen değeri yazar. Orijinal veriyi değiştirmez, yeni bir sonuç döndürür."
+      },
+      {
+        "term": "mean()",
+        "definition": "Aritmetik ortalamayı hesaplar. NaN değerler varsayılan olarak atlanır (skipna=True)."
+      }
+    ]
+  },
+  {
+    "id": "w02-q012",
+    "week": 2,
+    "topic": "eksik-veri-tamamlama",
+    "type": "code",
+    "tags": [
+      "groupby",
+      "transform",
+      "fillna",
+      "kesin-cikar"
+    ],
+    "sourceNotebook": "veri_tamamlama.ipynb",
+    "question": "Aşağıdaki kodun çıktısı / işlevi nedir?",
+    "code": "df.groupby('Kategori')['Gelir'].transform(lambda x: x.fillna(x.mean()))",
+    "options": {
+      "A": "Tüm veri setinin gelir ortalamasıyla eksik değerleri doldurur",
+      "B": "Her kategorinin kendi gelir ortalamasıyla eksik değerleri doldurur",
+      "C": "Eksik gelir değerlerini sıfırla doldurur",
+      "D": "Sadece eksik olmayan gelir değerlerini döndürür",
+      "E": "Hata verir, transform lambda alamaz"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. groupby('Kategori') kullanıldığı için her grup kendi ortalamasını kullanır, tüm veri setinin ortalamasını değil.",
+      "B": "Doğru. groupby() önce Kategori'ye göre gruplar, transform() her gruba lambda fonksiyonunu uygular. Her grup içindeki NaN'lar o grubun kendi ortalamasıyla doldurulur. Bu yöntem genel ortalamadan daha doğru sonuç verir.",
+      "C": "Yanlış. fillna(0) değil fillna(x.mean()) yazılmış. Sıfır yerine grubun ortalaması kullanılır.",
+      "D": "Yanlış. transform() orijinal DataFrame ile aynı boyutta sonuç döndürür. Satır silmez, eksikleri doldurur.",
+      "E": "Yanlış. transform() lambda fonksiyonu alabilir. Bu yaygın bir kullanım kalıbıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "groupby()",
+        "definition": "DataFrame'i belirtilen sütuna göre gruplara ayırır. Sonuçta bir GroupBy nesnesi döner, henüz hesaplama yapmaz."
+      },
+      {
+        "term": "transform()",
+        "definition": "Gruplama sonrası her gruba bir fonksiyon uygular; orijinal DataFrame ile aynı boyutta sonuç döndürür. agg()'den farkı budur."
+      }
+    ]
+  },
+  {
+    "id": "w02-q013",
+    "week": 2,
+    "topic": "eksik-veri-tamamlama",
+    "type": "code",
+    "tags": [
+      "isnull",
+      "sum",
+      "eksik-veri-analizi"
+    ],
+    "sourceNotebook": "veri_tamamlama.ipynb",
+    "question": "Aşağıdaki kodun çıktısı ne anlama gelir?",
+    "code": "df.isnull().sum()",
+    "options": {
+      "A": "Her satırdaki toplam değer sayısını verir",
+      "B": "DataFrame'deki toplam hücre sayısını verir",
+      "C": "Her sütundaki eksik (NaN) değer sayısını verir",
+      "D": "Sadece True olan hücrelerin toplamını verir",
+      "E": "Her sütundaki dolu (NaN olmayan) değer sayısını verir"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. sum() varsayılan olarak sütun bazlı (axis=0) çalışır, satır bazlı değil.",
+      "B": "Yanlış. Toplam hücre sayısı df.size ile bulunur. isnull().sum() sadece NaN olanları sayar.",
+      "C": "Doğru. isnull() her hücreyi NaN mı diye kontrol eder (True/False). sum() True'ları (1 olarak) toplar. Sonuç: her sütundaki eksik değer sayısı.",
+      "D": "Kısmen doğru ama belirsiz. isnull() bağlamında True olan hücreler NaN olanlardır. Sonuç her sütundaki NaN sayısıdır.",
+      "E": "Yanlış. Dolu değer sayısı için df.notnull().sum() veya df.count() kullanılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "isnull()",
+        "definition": "Her hücreyi NaN kontrolü yapar. NaN ise True, değilse False döner. isna() ile eşanlamlıdır."
+      },
+      {
+        "term": "NaN",
+        "definition": "Not a Number. Eksik veya tanımsız değerleri temsil eder. Pandas'ta eksik veri NaN olarak saklanır."
+      }
+    ]
+  },
+  {
+    "id": "w02-q014",
+    "week": 2,
+    "topic": "eksik-veri-tamamlama",
+    "type": "code",
+    "tags": [
+      "mode",
+      "fillna",
+      "kategorik"
+    ],
+    "sourceNotebook": "veri_tamamlama.ipynb",
+    "question": "Aşağıdaki kodda [0] ne işe yarar?",
+    "code": "df['Kategori'] = df['Kategori'].fillna(df['Kategori'].mode()[0])",
+    "options": {
+      "A": "İlk satırı seçer",
+      "B": "İlk sütunu seçer",
+      "C": "mode() birden fazla değer dönebileceği için ilk (en sık) değeri seçer",
+      "D": "Sıfır indeksli elemanı siler",
+      "E": "Hata önleme amaçlı yazılmış, işlevi yoktur"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. mode() satır seçmez, en sık tekrar eden değer(ler)i döndürür. [0] bu değerlerden ilkini seçer.",
+      "B": "Yanlış. Sütun seçimi ile ilgisi yoktur.",
+      "C": "Doğru. mode() bir Series döndürür çünkü birden fazla değer eşit frekansta olabilir (bimodal, multimodal). [0] ile en sık tekrar eden ilk değer seçilir. Onsuz fillna() çalışmaz çünkü Series beklemez.",
+      "D": "Yanlış. Silme yapmaz, sadece indeksle erişim sağlar.",
+      "E": "Yanlış. [0] olmadan kod hata verir çünkü fillna() skaler bir değer bekler, mode() ise Series döndürür."
+    },
+    "relatedTerms": [
+      {
+        "term": "mode()",
+        "definition": "En sık tekrar eden değer(ler)i döndürür. Birden fazla mod olabilir, bu yüzden Series döner."
+      }
+    ]
+  },
+  {
+    "id": "w02-q016",
+    "week": 2,
+    "topic": "pandas-veri-manipulasyonu",
+    "type": "code",
+    "tags": [
+      "isnull",
+      "any",
+      "axis"
+    ],
+    "sourceNotebook": "veri_tamamlama.ipynb",
+    "question": "Aşağıdaki kodun amacı nedir?",
+    "code": "df[df.isnull().any(axis=1)]",
+    "options": {
+      "A": "Tüm sütunları NaN olan satırları getirir",
+      "B": "Herhangi bir sütununda en az bir NaN olan satırları getirir",
+      "C": "NaN içermeyen satırları getirir",
+      "D": "Her sütundaki NaN sayısını hesaplar",
+      "E": "Sadece ilk NaN olan satırı getirir"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. Tümü NaN olan satırlar için df[df.isnull().all(axis=1)] kullanılır. any() en az bir tane yeterli der.",
+      "B": "Doğru. isnull() her hücreyi kontrol eder. any(axis=1) satır bazlı çalışır: o satırda en az bir True varsa True döner. Sonuç: herhangi bir hücresinde NaN olan tüm satırlar.",
+      "C": "Yanlış. NaN içermeyenleri getirmek için df[df.notnull().all(axis=1)] veya df.dropna() kullanılır.",
+      "D": "Yanlış. NaN sayısı için isnull().sum() kullanılır. Bu kod satırları filtreler, sayım yapmaz.",
+      "E": "Yanlış. Tüm NaN içeren satırları getirir, sadece ilkini değil."
+    },
+    "relatedTerms": [
+      {
+        "term": "any()",
+        "definition": "En az bir True değer varsa True döner. axis=0 sütun bazlı, axis=1 satır bazlı çalışır."
+      },
+      {
+        "term": "axis",
+        "definition": "İşlemin hangi yönde yapılacağını belirler. axis=0 sütun yönünde (yukarıdan aşağı), axis=1 satır yönünde (soldan sağa)."
+      }
+    ]
+  },
+  {
+    "id": "w02-q017",
+    "week": 2,
+    "topic": "numpy-temelleri",
+    "type": "code",
+    "tags": [
+      "zeros",
+      "full",
+      "random",
+      "dizi-olusturma"
+    ],
+    "sourceNotebook": "numpy.ipynb",
+    "question": "np.zeros((2, 3)) fonksiyonunun çıktısı nedir?",
+    "code": null,
+    "options": {
+      "A": "2 satır 3 sütunlu sıfırlardan oluşan matris (float)",
+      "B": "3 satır 2 sütunlu sıfırlardan oluşan matris",
+      "C": "[0, 0, 0, 0, 0, 0] tek boyutlu dizi",
+      "D": "2 satır 3 sütunlu birlerden oluşan matris",
+      "E": "Hata verir, tuple parametre almaz"
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Doğru. np.zeros((2, 3)) 2 satır, 3 sütunlu sıfır matrisi oluşturur. Varsayılan veri tipi float64'tür, yani 0. değil 0.0 olarak gösterilir.",
+      "B": "Yanlış. (2, 3) tuple'ında ilk sayı satır, ikinci sayı sütun sayısıdır. (2, 3) = 2 satır 3 sütun.",
+      "C": "Yanlış. (2, 3) iki boyutlu matris oluşturur. Tek boyutlu dizi için np.zeros(6) yazılır.",
+      "D": "Yanlış. Birlerden oluşan matris için np.ones((2, 3)) kullanılır. zeros sıfırlarla doldurur.",
+      "E": "Yanlış. zeros() tuple parametre alır. Boyut bilgisi tuple olarak verilmelidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "np.zeros()",
+        "definition": "Belirtilen boyutta sıfırlardan oluşan dizi yaratır. Varsayılan tip float64'tür."
+      }
+    ]
+  },
+  {
+    "id": "w02-q019",
+    "week": 2,
+    "topic": "matplotlib-gorsellestrirme",
+    "type": "code",
+    "tags": [
+      "savefig",
+      "show",
+      "sıralama",
+      "kesin-cikar"
+    ],
+    "sourceNotebook": "matplotlib.ipynb",
+    "question": "Aşağıdaki kodda plt.savefig() neden boş bir dosya kaydeder?",
+    "code": "import matplotlib.pyplot as plt\n\nplt.plot([1, 2, 3], [4, 5, 6])\nplt.title('Grafik')\nplt.show()\nplt.savefig('grafik.png')",
+    "options": {
+      "A": "plt.title() yanlış kullanılmış, dosya adıyla çakışıyor",
+      "B": "plt.show() çağrıldıktan sonra figür temizlenir, bu yüzden savefig() boş figür kaydeder",
+      "C": "savefig() .png formatını desteklemez",
+      "D": "plt.plot() parametreleri hatalı, grafik oluşmamış",
+      "E": "savefig() dosya yolunu string olarak almaz, Path nesnesi gerekir"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. plt.title() grafik başlığı ekler, dosya adıyla hiçbir ilişkisi yoktur.",
+      "B": "Doğru. plt.show() çağrıldığında figür ekrana çizilir ve ardından mevcut figür temizlenir. Bu yüzden savefig() boş bir canvas kaydeder. Çözüm: plt.savefig() her zaman plt.show()'dan ÖNCE çağrılmalıdır.",
+      "C": "Yanlış. savefig() PNG, PDF, SVG gibi birçok formatı destekler. .png en yaygın kullanılan formattır.",
+      "D": "Yanlış. plt.plot([1,2,3], [4,5,6]) geçerli bir çizim komutudur. x ve y listeleri aynı uzunlukta.",
+      "E": "Yanlış. savefig() string olarak dosya yolu alabilir. Path nesnesi de kabul eder ama zorunlu değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "plt.savefig()",
+        "definition": "Mevcut figürü dosyaya kaydeder. plt.show()'dan ÖNCE çağrılmalıdır, aksi halde figür temizlenmiş olur ve boş dosya kaydedilir."
+      },
+      {
+        "term": "plt.show()",
+        "definition": "Figürü ekranda gösterir ve ardından mevcut figürü temizler. Bu yüzden show() sonrası figür üzerinde işlem yapılamaz."
+      }
+    ]
+  },
+  {
+    "id": "w02-q020",
+    "week": 2,
+    "topic": "matplotlib-gorsellestrirme",
+    "type": "code",
+    "tags": [
+      "subplots",
+      "axes",
+      "fig",
+      "kesin-cikar"
+    ],
+    "sourceNotebook": "matplotlib.ipynb",
+    "question": "Aşağıdaki kodda neden sadece ikinci alt grafiğe çizim yapılır?",
+    "code": "import matplotlib.pyplot as plt\n\nfig, (ax1, ax2) = plt.subplots(2, 1)\nplt.plot([1, 2, 3], [4, 5, 6])\nax1.set_title('Grafik 1')\nax2.set_title('Grafik 2')\nplt.show()",
+    "options": {
+      "A": "fig nesnesi kullanılmadığı için hata oluşur",
+      "B": "plt.plot() her zaman ilk alt grafiğe çizer",
+      "C": "plt.plot() aktif (son oluşturulan) axes'e çizer, bu da ax2'dir; ax1'e çizmek için ax1.plot() kullanılmalıdır",
+      "D": "subplots(2, 1) sadece tek grafik oluşturur, iki grafik için subplots(1, 2) gerekir",
+      "E": "plt.plot() ile ax.plot() arasında hiçbir fark yoktur, ikisi de aynı yere çizer"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. fig nesnesi oluşturulmuş durumda. Kullanılmasa bile hata vermez, sadece figür düzeyi ayarları yapılamaz.",
+      "B": "Yanlış. plt.plot() her zaman aktif (current) axes'e çizer. subplots ile birden fazla axes oluşturulduğunda aktif axes son oluşturulan olur.",
+      "C": "Doğru. plt.subplots(2,1) iki axes oluşturur. plt.plot() 'current axes' kavramını kullanır ve bu son oluşturulan ax2'dir. Belirli bir alt grafiğe çizmek için ax1.plot() veya ax2.plot() gibi nesne tabanlı (object-oriented) yöntem kullanılmalıdır.",
+      "D": "Yanlış. subplots(2, 1) dikey olarak 2 alt grafik oluşturur (2 satır, 1 sütun). subplots(1, 2) ise yatay olarak 2 alt grafik oluşturur.",
+      "E": "Yanlış. plt.plot() global state kullanır ve aktif axes'e çizer. ax.plot() ise belirtilen axes nesnesine çizer. Subplots kullanırken bu fark kritiktir."
+    },
+    "relatedTerms": [
+      {
+        "term": "plt.subplots()",
+        "definition": "Birden fazla alt grafik içeren bir figür oluşturur. fig (figür) ve axes (grafik alanları) nesneleri döndürür."
+      },
+      {
+        "term": "Object-Oriented API",
+        "definition": "Matplotlib'de ax.plot() gibi axes nesnesi üzerinden çizim yapma yöntemi. Birden fazla alt grafik varken plt.plot() yerine tercih edilmelidir."
+      }
+    ]
+  },
+  {
+    "id": "w02-q021",
+    "week": 2,
+    "topic": "matplotlib-gorsellestrirme",
+    "type": "code",
+    "tags": [
+      "histogram",
+      "bins",
+      "veri-dagilimi"
+    ],
+    "sourceNotebook": "matplotlib.ipynb",
+    "question": "Aşağıdaki iki kodun çıktıları nasıl farklılık gösterir?",
+    "code": "import matplotlib.pyplot as plt\nimport numpy as np\n\nveri = np.random.randn(1000)\n\n# Kod 1\nplt.hist(veri, bins=5)\n\n# Kod 2\nplt.hist(veri, bins=50)",
+    "options": {
+      "A": "bins=5 daha ayrıntılı grafik üretir, bins=50 daha genel bir görünüm verir",
+      "B": "bins=5 veriyi 5 aralığa böler (az detay), bins=50 veriyi 50 aralığa böler (çok detay)",
+      "C": "İkisi de aynı grafiği üretir, bins parametresi sadece rengi etkiler",
+      "D": "bins=50 hata verir çünkü 50'den fazla aralık oluşturulamaz",
+      "E": "bins parametresi y eksenindeki maksimum değeri belirler"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. Tam tersi doğrudur. bins sayısı arttıkça ayrıntı artar, azaldıkça genel görünüm elde edilir.",
+      "B": "Doğru. bins parametresi histogramda veri aralığının kaç parçaya (çubuğa) bölüneceğini belirler. bins=5 geniş aralıklar oluşturur ve genel dağılımı gösterir. bins=50 dar aralıklar oluşturur ve verinin ince yapısını ortaya koyar.",
+      "C": "Yanlış. bins parametresi grafiğin yapısını tamamen değiştirir. Renk ile ilgisi yoktur; renk için color parametresi kullanılır.",
+      "D": "Yanlış. bins herhangi bir pozitif tam sayı olabilir. 50, 100, hatta 500 bile geçerlidir.",
+      "E": "Yanlış. bins x eksenindeki aralık sayısını belirler. Y ekseni her aralıktaki frekansı (eleman sayısını) gösterir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Histogram",
+        "definition": "Sürekli verinin dağılımını gösteren grafik türü. Veri belirli aralıklara (bins) bölünür ve her aralıktaki frekans çubukla gösterilir."
+      },
+      {
+        "term": "bins",
+        "definition": "Histogramda veri aralığının kaç parçaya bölüneceğini belirler. Az bins = genel görünüm, çok bins = detaylı görünüm."
+      }
+    ]
+  },
+  {
+    "id": "w02-q023",
+    "week": 2,
+    "topic": "matplotlib-gorsellestrirme",
+    "type": "code",
+    "tags": [
+      "pie",
+      "autopct",
+      "format-string"
+    ],
+    "sourceNotebook": "matplotlib.ipynb",
+    "question": "Aşağıdaki kodda autopct='%1.1f%%' ifadesi ne işe yarar?",
+    "code": "import matplotlib.pyplot as plt\n\netiketler = ['Python', 'Java', 'C++', 'JavaScript']\nboyutlar = [40, 25, 20, 15]\n\nplt.pie(boyutlar, labels=etiketler, autopct='%1.1f%%')\nplt.show()",
+    "options": {
+      "A": "Her dilimin rengini yüzdeye göre belirler",
+      "B": "Her dilimin üzerine yüzde değerini bir ondalık basamakla yazdırır (örn: 40.0%)",
+      "C": "Etiketlerin font boyutunu %1.1 olarak ayarlar",
+      "D": "Dilimler arasına %1.1 oranında boşluk bırakır",
+      "E": "Sadece %1'den büyük dilimleri gösterir, küçükleri gizler"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. Renk ayarı colors parametresiyle yapılır. autopct sadece yüzde yazısını kontrol eder.",
+      "B": "Doğru. autopct parametresi her dilimin üzerine yüzde değerini yazdırır. '%1.1f%%' format string'inde %1.1f bir ondalık basamaklı float sayı, %% ise literal '%' işareti anlamına gelir. Sonuç: 40.0%, 25.0% gibi gösterim.",
+      "C": "Yanlış. Font boyutu için textprops={'fontsize': 12} gibi parametreler kullanılır. autopct yüzde gösterimi içindir.",
+      "D": "Yanlış. Dilimler arası boşluk için explode parametresi kullanılır. autopct yazı gösterimi ile ilgilidir.",
+      "E": "Yanlış. autopct filtreleme yapmaz, tüm dilimlere yüzde değeri yazar. Küçük dilimleri gizleme özelliği yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "autopct",
+        "definition": "Pasta grafiğinde her dilimin üzerine yüzde değerini yazdıran parametre. Python format string söz dizimi kullanır."
+      },
+      {
+        "term": "Format String",
+        "definition": "%1.1f gibi gösterimler. 1.1f: toplam en az 1 basamak, ondalık kısmı 1 basamak, float tipinde. %% ise literal % işareti."
+      }
+    ]
+  },
+  {
+    "id": "w02-q024",
+    "week": 2,
+    "topic": "veri-birlestirme",
+    "type": "code",
+    "tags": [
+      "concat",
+      "axis",
+      "NaN",
+      "kesin-cikar"
+    ],
+    "sourceNotebook": "veri_birlestir.ipynb",
+    "question": "Aşağıdaki kodun çıktısında hangi hücrelerde NaN değeri oluşur?",
+    "code": "import pandas as pd\n\ndf1 = pd.DataFrame({'Ad': ['Ali', 'Veli'], 'Yaş': [25, 30]})\ndf2 = pd.DataFrame({'Ad': ['Ayşe'], 'Şehir': ['Ankara']})\n\nsonuc = pd.concat([df1, df2], ignore_index=True)\nprint(sonuc)",
+    "options": {
+      "A": "Hiçbir yerde NaN oluşmaz, ortak olmayan sütunlar silinir",
+      "B": "Ali ve Veli'nin Şehir sütununda, Ayşe'nin Yaş sütununda NaN olur",
+      "C": "Tüm Yaş sütunu NaN olur",
+      "D": "Hata verir çünkü farklı sütunlu DataFrame'ler birleştirilemez",
+      "E": "Ayşe satırı tamamen silinir çünkü Yaş bilgisi eksiktir"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. concat() varsayılan olarak tüm sütunları korur (outer join). Ortak olmayan sütunları silmez, NaN ile doldurur.",
+      "B": "Doğru. df1'de Şehir sütunu yok, df2'de Yaş sütunu yok. concat() tüm sütunları birleştirir: Ad, Yaş, Şehir. Ali ve Veli'nin Şehir değeri, Ayşe'nin Yaş değeri NaN olur.",
+      "C": "Yanlış. Sadece Ayşe'nin Yaş değeri NaN olur. Ali (25) ve Veli (30) Yaş değerleri korunur.",
+      "D": "Yanlış. concat() farklı sütunlu DataFrame'leri birleştirebilir. Eksik sütunlar NaN ile doldurulur.",
+      "E": "Yanlış. concat() satır silmez. Eksik bilgiler NaN olarak korunur."
+    },
+    "relatedTerms": [
+      {
+        "term": "pd.concat()",
+        "definition": "DataFrame'leri alt alta (axis=0) veya yan yana (axis=1) birleştirir. Varsayılan: axis=0 ve outer join (tüm sütunlar korunur)."
+      },
+      {
+        "term": "NaN (Not a Number)",
+        "definition": "Eksik veri göstergesi. Birleştirme sırasında karşılığı olmayan hücreler NaN ile doldurulur."
+      }
+    ]
+  },
+  {
+    "id": "w02-q025",
+    "week": 2,
+    "topic": "veri-birlestirme",
+    "type": "code",
+    "tags": [
+      "merge",
+      "inner-join",
+      "key"
+    ],
+    "sourceNotebook": "veri_birlestir.ipynb",
+    "question": "Aşağıdaki kodun çıktısında kaç satır bulunur?",
+    "code": "import pandas as pd\n\ndf1 = pd.DataFrame({'ID': [1, 2, 3], 'Ad': ['Ali', 'Veli', 'Ayşe']})\ndf2 = pd.DataFrame({'ID': [2, 3, 4], 'Puan': [85, 90, 75]})\n\nsonuc = pd.merge(df1, df2, on='ID')\nprint(sonuc)",
+    "options": {
+      "A": "4 satır (tüm ID'ler birleştirilir)",
+      "B": "3 satır (df1'deki tüm satırlar korunur)",
+      "C": "2 satır (sadece ortak ID'ler: 2 ve 3)",
+      "D": "1 satır (sadece ilk ortak ID: 2)",
+      "E": "Hata verir çünkü ID sayıları eşit değil"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. Tüm ID'lerin birleşmesi için how='outer' parametresi gerekir. Varsayılan inner join sadece ortak olanları alır.",
+      "B": "Yanlış. df1'deki tüm satırların korunması için how='left' parametresi gerekir.",
+      "C": "Doğru. pd.merge() varsayılan olarak inner join yapar. Sadece her iki DataFrame'de de bulunan ID'ler (2 ve 3) sonuçta yer alır. ID=1 (sadece df1'de) ve ID=4 (sadece df2'de) dahil edilmez.",
+      "D": "Yanlış. Inner join tüm ortak değerleri alır, sadece ilkini değil. ID=2 ve ID=3 ikisi de ortaktır.",
+      "E": "Yanlış. merge() farklı satır sayılarıyla sorunsuz çalışır. Anahtar sütundaki eşleşmelere göre birleştirir."
+    },
+    "relatedTerms": [
+      {
+        "term": "pd.merge()",
+        "definition": "SQL'deki JOIN gibi çalışır. İki DataFrame'i ortak bir sütun (key) üzerinden birleştirir. Varsayılan: inner join."
+      },
+      {
+        "term": "Inner Join",
+        "definition": "Sadece her iki tabloda da bulunan anahtar değerleri içeren birleştirme türü. Eşleşmeyen satırlar sonuçtan çıkarılır."
+      }
+    ]
+  },
+  {
+    "id": "w02-q027",
+    "week": 2,
+    "topic": "veri-birlestirme",
+    "type": "code",
+    "tags": [
+      "concat",
+      "ignore_index",
+      "index"
+    ],
+    "sourceNotebook": "veri_birlestir.ipynb",
+    "question": "Aşağıdaki iki kodun çıktısındaki fark nedir?",
+    "code": "import pandas as pd\n\ndf1 = pd.DataFrame({'Ad': ['Ali', 'Veli']})   # index: 0, 1\ndf2 = pd.DataFrame({'Ad': ['Ayşe', 'Fatma']}) # index: 0, 1\n\n# Kod 1\nsonuc1 = pd.concat([df1, df2])\n\n# Kod 2\nsonuc2 = pd.concat([df1, df2], ignore_index=True)",
+    "options": {
+      "A": "Kod 1'de indeks [0,1,0,1], Kod 2'de indeks [0,1,2,3] olur",
+      "B": "İkisinin çıktısı tamamen aynıdır",
+      "C": "Kod 1 hata verir çünkü indeksler çakışıyor",
+      "D": "Kod 2'de veriler karışık sıraya girer",
+      "E": "Kod 1'de indeks [0,1,2,3], Kod 2'de indeks sıfırlanır"
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Doğru. ignore_index=False (varsayılan) olduğunda orijinal indeksler korunur: [0,1,0,1]. ignore_index=True olduğunda indeks sıfırdan başlayarak yeniden numaralandırılır: [0,1,2,3].",
+      "B": "Yanlış. Veri içeriği aynıdır ama indeksler farklıdır. Bu fark satır erişiminde önemli sorunlara yol açabilir.",
+      "C": "Yanlış. Pandas çakışan indekslere izin verir, hata vermez. Ancak bu durum loc/iloc ile erişimde karışıklığa neden olabilir.",
+      "D": "Yanlış. ignore_index sıralamayı değiştirmez, sadece indeks numaralarını sıfırdan başlatır. Veri sırası korunur.",
+      "E": "Yanlış. Tam tersi: Kod 1'de indeksler korunur [0,1,0,1], Kod 2'de sıfırlanır [0,1,2,3]."
+    },
+    "relatedTerms": [
+      {
+        "term": "ignore_index",
+        "definition": "True olduğunda birleştirme sonrası indeks 0'dan başlayarak yeniden numaralandırılır. Orijinal indeksler korunmaz."
+      },
+      {
+        "term": "Index (İndeks)",
+        "definition": "DataFrame satırlarının etiketidir. Varsayılan olarak 0'dan başlayan tam sayılardır. Satır erişiminde kullanılır."
+      }
+    ]
+  },
+  {
+    "id": "w02-q028",
+    "week": 2,
+    "topic": "veri-birlestirme",
+    "type": "code",
+    "tags": [
+      "concat",
+      "axis",
+      "NaN",
+      "yan-yana"
+    ],
+    "sourceNotebook": "veri_birlestir.ipynb",
+    "question": "Aşağıdaki kodun çıktısı nedir?",
+    "code": "import pandas as pd\n\ndf1 = pd.DataFrame({'Ad': ['Ali', 'Veli', 'Ayşe']})\ndf2 = pd.DataFrame({'Puan': [85, 90]})\n\nsonuc = pd.concat([df1, df2], axis=1)\nprint(sonuc)",
+    "options": {
+      "A": "3 satır 2 sütun, tüm hücreler dolu",
+      "B": "2 satır 2 sütun, Ayşe satırı silinir",
+      "C": "3 satır 2 sütun, Ayşe'nin Puan değeri NaN olur",
+      "D": "Hata verir çünkü satır sayıları eşit değil",
+      "E": "3 satır 2 sütun, eksik Puan değeri 0 ile doldurulur"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. df2'de sadece 2 satır var, 3. satır için Puan değeri mevcut olmadığından NaN olur.",
+      "B": "Yanlış. concat() axis=1 ile yan yana birleştirirken satır silmez. Eşleşmeyen indeksteki hücreler NaN olur.",
+      "C": "Doğru. axis=1 DataFrame'leri yan yana birleştirir. df1'de 3 satır (indeks 0,1,2), df2'de 2 satır (indeks 0,1) var. İndeks 2'de df2'nin Puan değeri olmadığından NaN atanır.",
+      "D": "Yanlış. concat() farklı satır sayılarında da çalışır. Eksik değerler NaN ile tamamlanır.",
+      "E": "Yanlış. Eksik değerler 0 ile değil NaN ile doldurulur. 0 ile doldurmak için ek işlem (fillna(0)) gerekir."
+    },
+    "relatedTerms": [
+      {
+        "term": "axis=1",
+        "definition": "concat() içinde axis=1 kullanıldığında DataFrame'ler yan yana (sütun yönünde) birleştirilir. Varsayılan axis=0 alt alta birleştirir."
+      },
+      {
+        "term": "Outer Join",
+        "definition": "concat() varsayılan olarak outer join yapar: tüm indeksleri korur ve eşleşmeyen yerlere NaN koyar."
+      }
+    ]
+  },
+  {
+    "id": "w02-q029",
+    "week": 2,
+    "topic": "veri-donusum",
+    "type": "code",
+    "tags": [
+      "minmaxscaler",
+      "normalizasyon",
+      "hesaplama",
+      "kesin-cikar"
+    ],
+    "sourceNotebook": "veri_donusum.ipynb",
+    "question": "Aşağıdaki kodda 50 değerinin MinMaxScaler dönüşümünden sonraki değeri nedir?",
+    "code": "from sklearn.preprocessing import MinMaxScaler\nimport pandas as pd\nimport numpy as np\n\ndf = pd.DataFrame({'Gelir': [0, 50, 100]})\nscaler = MinMaxScaler()\ndf[['Gelir']] = scaler.fit_transform(df[['Gelir']])\nprint(df)",
+    "options": {
+      "A": "50",
+      "B": "0.25",
+      "C": "0.5",
+      "D": "1.0",
+      "E": "0.0"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. MinMaxScaler orijinal değerleri korumaz, 0-1 aralığına dönüştürür.",
+      "B": "Yanlış. Formül: (x - min) / (max - min) = (50 - 0) / (100 - 0) = 50/100 = 0.5. 0.25 değil.",
+      "C": "Doğru. MinMaxScaler formülü: (x - min) / (max - min). Değerler: min=0, max=100. 50 için: (50-0)/(100-0) = 0.5. Sonuç: 0→0.0, 50→0.5, 100→1.0.",
+      "D": "Yanlış. 1.0 değeri maksimum olan 100'e karşılık gelir. 50, min ile max arasında ortada olduğundan 0.5 olur.",
+      "E": "Yanlış. 0.0 değeri minimum olan 0'a karşılık gelir. 50, minimum değer değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "MinMaxScaler",
+        "definition": "Değerleri 0-1 aralığına ölçekler. Formül: (x - min) / (max - min). Minimum 0, maksimum 1 olur."
+      },
+      {
+        "term": "Normalizasyon",
+        "definition": "Verileri belirli bir aralığa (genellikle 0-1) dönüştürme işlemi. Farklı ölçeklerdeki özellikleri karşılaştırılabilir kılar."
+      }
+    ]
+  },
+  {
+    "id": "w02-q031",
+    "week": 2,
+    "topic": "veri-donusum",
+    "type": "code",
+    "tags": [
+      "get_dummies",
+      "one-hot",
+      "encoding"
+    ],
+    "sourceNotebook": "veri_donusum.ipynb",
+    "question": "Aşağıdaki kodun çıktısında kaç sütun bulunur?",
+    "code": "import pandas as pd\n\ndf = pd.DataFrame({'Renk': ['Kırmızı', 'Mavi', 'Yeşil', 'Mavi']})\nsonuc = pd.get_dummies(df, columns=['Renk'])\nprint(sonuc.columns.tolist())",
+    "options": {
+      "A": "1 sütun: ['Renk']",
+      "B": "2 sütun: ['Renk', 'Kod']",
+      "C": "3 sütun: ['Renk_Kırmızı', 'Renk_Mavi', 'Renk_Yeşil']",
+      "D": "4 sütun: ['Renk_Kırmızı', 'Renk_Mavi', 'Renk_Yeşil', 'Renk_Mavi']",
+      "E": "4 sütun: her satır için bir sütun oluşturulur"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. get_dummies() orijinal kategorik sütunu kaldırır ve yerine binary sütunlar oluşturur.",
+      "B": "Yanlış. get_dummies() otomatik olarak 'Kod' adlı sütun oluşturmaz. Her benzersiz değer için ayrı sütun yaratır.",
+      "C": "Doğru. Renk sütununda 3 benzersiz değer var: Kırmızı, Mavi, Yeşil. get_dummies() her benzersiz değer için bir binary sütun oluşturur: Renk_Kırmızı, Renk_Mavi, Renk_Yeşil. Mavi 2 kez geçse de tek sütun oluşur; o satırlarda değer 1 olur.",
+      "D": "Yanlış. Mavi 2 kez tekrar etse de tek bir Renk_Mavi sütunu oluşturulur. Sütun sayısı benzersiz değer sayısına eşittir.",
+      "E": "Yanlış. Sütun sayısı satır sayısına değil, benzersiz kategori sayısına göre belirlenir."
+    },
+    "relatedTerms": [
+      {
+        "term": "One-Hot Encoding",
+        "definition": "Kategorik değişkenleri binary (0/1) sütunlara dönüştürme yöntemi. Her benzersiz değer için yeni bir sütun oluşturulur."
+      },
+      {
+        "term": "pd.get_dummies()",
+        "definition": "Pandas'ın One-Hot Encoding fonksiyonu. Kategorik sütunu binary sütunlara dönüştürür. Orijinal sütun kaldırılır."
+      }
+    ]
+  },
+  {
+    "id": "w02-q032",
+    "week": 2,
+    "topic": "veri-donusum",
+    "type": "code",
+    "tags": [
+      "fit_transform",
+      "2D-input",
+      "bracket",
+      "kesin-cikar"
+    ],
+    "sourceNotebook": "veri_donusum.ipynb",
+    "question": "Aşağıdaki kodda neden hata oluşur?",
+    "code": "from sklearn.preprocessing import MinMaxScaler\nimport pandas as pd\n\ndf = pd.DataFrame({'Gelir': [1000, 2000, 3000]})\nscaler = MinMaxScaler()\ndf['Gelir'] = scaler.fit_transform(df['Gelir'])",
+    "options": {
+      "A": "MinMaxScaler sadece NumPy dizileriyle çalışır, Pandas desteklemez",
+      "B": "fit_transform() yalnızca 2D (iki boyutlu) girdi alır; df['Gelir'] 1D Series döndürür, df[['Gelir']] kullanılmalıdır",
+      "C": "Gelir sütununda string değerler olduğu için dönüşüm yapılamaz",
+      "D": "fit_transform() yerine sadece transform() kullanılmalıdır",
+      "E": "MinMaxScaler import edilemiyor, doğru import sklearn.MinMaxScaler'dır"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. MinMaxScaler hem NumPy dizileri hem de Pandas DataFrame/Series ile çalışabilir. Ancak 2D girdi bekler.",
+      "B": "Doğru. df['Gelir'] tek köşeli parantez 1D Series döndürür (shape: (3,)). fit_transform() 2D girdi bekler (shape: (n, 1)). df[['Gelir']] çift köşeli parantez 2D DataFrame döndürür (shape: (3, 1)). Bu yüzden df[['Gelir']] kullanılmalıdır.",
+      "C": "Yanlış. Gelir sütununda sayısal değerler (1000, 2000, 3000) var, string yok.",
+      "D": "Yanlış. İlk kez kullanırken fit_transform() doğru seçimdir. transform() yalnızca daha önce fit() yapılmışsa çalışır.",
+      "E": "Yanlış. from sklearn.preprocessing import MinMaxScaler doğru import yoludur."
+    },
+    "relatedTerms": [
+      {
+        "term": "fit_transform()",
+        "definition": "fit() ve transform() işlemlerini tek adımda yapar. fit() veriyi öğrenir (min, max vb.), transform() dönüşümü uygular."
+      },
+      {
+        "term": "2D Girdi (İki Boyutlu)",
+        "definition": "Sklearn scaler'ları (n_samples, n_features) şeklinde 2D girdi bekler. Tek sütun için df[['col']] (DataFrame) kullanılmalıdır, df['col'] (Series) değil."
+      }
+    ]
+  },
+  {
+    "id": "w02-q034",
+    "week": 2,
+    "topic": "gurultu-temizleme",
+    "type": "code",
+    "tags": [
+      "rolling",
+      "moving-average",
+      "NaN",
+      "kesin-cikar"
+    ],
+    "sourceNotebook": "gurultu_temizleme.ipynb",
+    "question": "Aşağıdaki kodun çıktısında ilk kaç değer NaN olur?",
+    "code": "import pandas as pd\nimport numpy as np\n\ndf = pd.DataFrame({'Olcum': [10, 12, 8, 15, 20, 18, 25, 22]})\ndf['MA'] = df['Olcum'].rolling(window=4).mean()\nprint(df['MA'].isna().sum())",
+    "options": {
+      "A": "0 — rolling her satır için ortalama hesaplar",
+      "B": "1 — yalnızca ilk değer NaN olur",
+      "C": "3 — ilk 3 değer NaN olur çünkü 4 elemanlı pencere dolana kadar hesaplama yapılamaz",
+      "D": "4 — pencere boyutu kadar NaN oluşur",
+      "E": "Hata verir — rolling() fonksiyonu mean() ile zincirlenemez"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. rolling(window=4) ilk satırlardan itibaren 4 elemanlık pencere dolana kadar hesaplama yapamaz. Bu yüzden bazı değerler NaN olur.",
+      "B": "Yanlış. window=4 olduğunda pencere dolması için en az 4 eleman gerekir. İlk eleman tek başına kaldığı, 2. eleman 2 elemanla, 3. eleman 3 elemanla yetersiz kaldığı için 3 adet NaN oluşur.",
+      "C": "Doğru. rolling(window=4).mean() hesaplaması için pencerede 4 eleman olması gerekir. 0. indekste 1, 1. indekste 2, 2. indekste 3 eleman vardır — hepsi yetersiz. 3. indekste ilk kez 4 eleman birikir ve ortalama hesaplanır. Dolayısıyla ilk 3 değer (indeks 0, 1, 2) NaN olur.",
+      "D": "Yanlış. NaN sayısı window-1 = 3 adettir, window boyutunun kendisi değil. 4. elemanda (indeks 3) pencere tam dolu olduğu için ortalama hesaplanır.",
+      "E": "Yanlış. rolling() bir Rolling nesnesi döndürür ve .mean(), .sum() gibi toplama fonksiyonlarıyla zincirlenebilir. Bu standart bir Pandas kullanımıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Rolling (Hareketli Pencere)",
+        "definition": "Belirli bir pencere boyutunda veri üzerinde kayan bir hesaplama yapma yöntemi. rolling(window=n) ile n elemanlık pencere tanımlanır."
+      },
+      {
+        "term": "Hareketli Ortalama (Moving Average)",
+        "definition": "Gürültülü verileri düzleştirmek için kullanılan yöntem. Her nokta, kendisi ve önceki (window-1) noktanın ortalaması ile değiştirilir."
+      }
+    ]
+  },
+  {
+    "id": "w02-q036",
+    "week": 2,
+    "topic": "gurultu-temizleme",
+    "type": "code",
+    "tags": [
+      "pd-cut",
+      "labels",
+      "binning"
+    ],
+    "sourceNotebook": "gurultu_temizleme.ipynb",
+    "question": "Aşağıdaki kodda labels=False parametresinin etkisi nedir?",
+    "code": "import pandas as pd\nimport numpy as np\n\nveriler = [5, 15, 25, 35, 45, 55, 65, 75, 85, 95]\nsonuc = pd.cut(veriler, bins=5, labels=False)\nprint(sonuc)",
+    "options": {
+      "A": "Aralık etiketleri (Interval) yerine tam sayı bin indeksleri döndürür: [0 0 1 1 2 2 3 3 4 4]",
+      "B": "Etiketleri tamamen kaldırır ve boş bir dizi döndürür",
+      "C": "labels=False yazılamaz, hata verir",
+      "D": "Her elemanın hangi aralığa düştüğünü string olarak döndürür",
+      "E": "False yazıldığında binning işlemi yapılmaz, orijinal veri döner"
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Doğru. labels=False olduğunda pd.cut() her verinin ait olduğu bin'in tam sayı indeksini (0'dan başlayarak) döndürür. Interval nesneleri yerine integer etiketler gelir, bu da sayısal analiz ve modelleme için daha kullanışlıdır.",
+      "B": "Yanlış. labels=False etiketleri kaldırmaz, kategorik Interval etiketleri yerine tam sayı indeksleri koyar.",
+      "C": "Yanlış. labels=False geçerli bir parametredir ve sıkça kullanılır.",
+      "D": "Yanlış. String etiketler labels parametresine bir liste verildiğinde oluşur (örn: labels=['düşük','orta','yüksek']). labels=False tam sayı döndürür.",
+      "E": "Yanlış. labels=False binning işlemini iptal etmez, yalnızca çıktı formatını değiştirir."
+    },
+    "relatedTerms": [
+      {
+        "term": "labels=False",
+        "definition": "pd.cut() ve pd.qcut() fonksiyonlarında Interval etiketleri yerine 0'dan başlayan tam sayı bin indeksleri döndürülmesini sağlar."
+      },
+      {
+        "term": "Binning (Gruplama)",
+        "definition": "Sürekli sayısal verileri belirli aralıklara (bin) bölerek kategorik hale getirme işlemi. Gürültü azaltma tekniklerinden biridir."
+      }
+    ]
+  },
+  {
+    "id": "w02-q038",
+    "week": 2,
+    "topic": "gurultu-temizleme",
+    "type": "code",
+    "tags": [
+      "linear-regression",
+      "spline",
+      "overfitting",
+      "underfitting"
+    ],
+    "sourceNotebook": "gurultu_temizleme.ipynb",
+    "question": "Gürültülü verilere LinearRegression ve UnivariateSpline(s=500) uygulandığında iki yöntem arasındaki temel fark nedir?",
+    "code": "from sklearn.linear_model import LinearRegression\nfrom scipy.interpolate import UnivariateSpline\n\n# LinearRegression: düz çizgi fit eder\nmodel = LinearRegression().fit(X, y)\n\n# UnivariateSpline: esnek eğri fit eder\nspline = UnivariateSpline(x, y, s=500)",
+    "options": {
+      "A": "İkisi de aynı sonucu verir, sadece kütüphane farkı vardır",
+      "B": "LinearRegression yalnızca kategorik, Spline yalnızca sayısal verilerle çalışır",
+      "C": "LinearRegression genel eğilimi yakalayan düz bir çizgi çizerken, Spline verinin yerel dalgalanmalarını da takip eden esnek bir eğri oluşturur",
+      "D": "Spline her zaman daha iyi sonuç verir çünkü tüm veri noktalarından geçer",
+      "E": "LinearRegression gürültüyü tamamen temizler, Spline ise gürültüyü artırır"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. LinearRegression doğrusal bir model (düz çizgi), Spline ise eğrisel bir model. Çıktıları farklıdır.",
+      "B": "Yanlış. Her iki yöntem de sayısal verilerle çalışır. Kategorik verilerle doğrudan kullanılamazlar.",
+      "C": "Doğru. LinearRegression veri noktalarına en iyi uyan tek bir düz çizgi (y=ax+b) çizer — genel trendi yakalar ama yerel değişimleri kaçırır. UnivariateSpline ise esnek parçalı polinom eğrileri kullanarak verinin yerel dalgalanmalarını da takip eder. s parametresi düzleştirme faktörüdür; küçük s değerleri daha esnek (overfitting riski), büyük s değerleri daha düz eğriler üretir.",
+      "D": "Yanlış. Spline her zaman daha iyi değildir; s parametresi küçükse gürültüyü de öğrenerek overfitting yapabilir. Ayrıca s=500 gibi bir düzleştirme faktörü tüm noktalardan geçmeyi engelleyebilir.",
+      "E": "Yanlış. LinearRegression gürültüyü tamamen temizlemez, sadece genel eğilimi gösterir. Spline ise gürültüyü artırmaz, uygun s değeri ile gürültülü veriyi düzleştirir."
+    },
+    "relatedTerms": [
+      {
+        "term": "LinearRegression (Doğrusal Regresyon)",
+        "definition": "Veriye en iyi uyan düz çizgiyi (y = ax + b) bulan yöntem. Basit ve yorumlanabilir, ama karmaşık ilişkileri yakalayamaz."
+      },
+      {
+        "term": "UnivariateSpline",
+        "definition": "Parçalı polinom eğrileri ile veri noktalarına esnek bir eğri uydurma yöntemi. s parametresi düzleştirme derecesini kontrol eder."
+      },
+      {
+        "term": "Smoothing Factor (s)",
+        "definition": "Spline'ın ne kadar düz veya esnek olacağını belirleyen parametre. s=0 tüm noktalardan geçer (interpolasyon), büyük s değerleri daha düz eğri üretir."
+      }
+    ]
+  },
+  {
+    "id": "w03-q039",
+    "week": 3,
+    "topic": "siniflandirma-eda-bank",
+    "type": "code",
+    "tags": [
+      "describe",
+      "transpose",
+      "istatistik"
+    ],
+    "sourceNotebook": "hafta_3_cls1.ipynb",
+    "question": "Aşağıdaki kodda .T ne işe yarar ve describe() hangi istatistikleri döndürür?",
+    "code": "import pandas as pd\n\ndf = pd.read_csv('bank.csv', sep=';')\nprint(df.describe().T)",
+    "options": {
+      "A": ".T veriyi siler, describe() sadece ortalama döndürür",
+      "B": ".T satır ve sütunları yer değiştirir (transpose); describe() count, mean, std, min, 25%, 50%, 75%, max istatistiklerini döndürür",
+      "C": ".T veriyi sıralar, describe() sadece eksik değer sayısını gösterir",
+      "D": ".T son 5 satırı gösterir, describe() tüm satırları listeler",
+      "E": ".T yalnızca string sütunları seçer, describe() kategorik özet verir"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. .T (transpose) veriyi silmez, satır ve sütunları yer değiştirir. describe() 8 farklı istatistik hesaplar.",
+      "B": "Doğru. describe() sayısal sütunlar için count, mean, std, min, %25, %50 (medyan), %75 ve max değerlerini hesaplar. Normalde sütunlar üstte, istatistikler yanda olur. .T (transpose) uygulandığında sütun adları satırlara, istatistikler sütunlara geçer — bu çok sütunlu veri setlerinde okunabilirliği artırır.",
+      "C": "Yanlış. .T sıralama yapmaz (sorting için sort_values() kullanılır). describe() eksik değer sayısı için değil istatistiksel özet içindir.",
+      "D": "Yanlış. Son 5 satır için tail() kullanılır. describe() satırları listelemez, istatistik hesaplar.",
+      "E": "Yanlış. .T tüm veri tiplerinde çalışır, sadece string seçmez. describe() varsayılan olarak sayısal sütunlar için çalışır."
+    },
+    "relatedTerms": [
+      {
+        "term": "describe()",
+        "definition": "Sayısal sütunların temel istatistiklerini (count, mean, std, min, quartiles, max) özetleyen Pandas fonksiyonu."
+      },
+      {
+        "term": "Transpose (.T)",
+        "definition": "Bir DataFrame'in satır ve sütunlarını yer değiştiren işlem. Satırlar sütun, sütunlar satır olur."
+      }
+    ]
+  },
+  {
+    "id": "w03-q040",
+    "week": 3,
+    "topic": "siniflandirma-eda-bank",
+    "type": "code",
+    "tags": [
+      "value_counts",
+      "normalize",
+      "oran"
+    ],
+    "sourceNotebook": "hafta_3_cls1.ipynb",
+    "question": "Aşağıdaki iki kod arasındaki fark nedir?",
+    "code": "# Kod 1\nprint(df['y'].value_counts())\n\n# Kod 2\nprint(df['y'].value_counts(normalize=True))",
+    "options": {
+      "A": "İkisi de aynı çıktıyı verir",
+      "B": "Kod 1 frekans (sayı) döndürür, Kod 2 oranları (0-1 arası) döndürür",
+      "C": "Kod 1 oranları, Kod 2 frekansları döndürür",
+      "D": "normalize=True veriyi 0-1 arasına ölçekler (Min-Max normalizasyonu uygular)",
+      "E": "normalize=True yalnızca eksik değerleri sayar"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. normalize parametresi çıktıyı doğrudan etkiler. Varsayılan False olduğunda sayılar, True olduğunda oranlar döner.",
+      "B": "Doğru. value_counts() varsayılan olarak her benzersiz değerin kaç kez geçtiğini (frekans) döndürür. normalize=True eklendiğinde frekanslar toplam gözlem sayısına bölünerek 0-1 arasında oranlar (proportion) haline getirilir. Örneğin 4521 veri, 4000 'no' ve 521 'yes' ise: normalize=False → no:4000, yes:521; normalize=True → no:0.885, yes:0.115.",
+      "C": "Yanlış. Tam tersi söylenmiş. Varsayılan (normalize=False) frekans, normalize=True oran döndürür.",
+      "D": "Yanlış. Bu MinMaxScaler ile yapılan normalizasyon ile karıştırılmamalıdır. value_counts(normalize=True) sadece frekansları orana çevirir, veri dönüşümü yapmaz.",
+      "E": "Yanlış. Eksik değerleri saymak için isnull().sum() kullanılır. value_counts() varsayılan olarak NaN değerleri saymaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "value_counts()",
+        "definition": "Bir sütundaki benzersiz değerlerin frekanslarını azalan sırada döndüren Pandas fonksiyonu."
+      },
+      {
+        "term": "normalize=True",
+        "definition": "value_counts() parametresi. Frekanslar yerine toplam gözleme göre oranları (0-1 arası) döndürür."
+      }
+    ]
+  },
+  {
+    "id": "w03-q041",
+    "week": 3,
+    "topic": "siniflandirma-eda-bank",
+    "type": "code",
+    "tags": [
+      "map",
+      "encoding",
+      "binary",
+      "kesin-cikar"
+    ],
+    "sourceNotebook": "hafta_3_cls1.ipynb",
+    "question": "Aşağıdaki kodun çıktısı nedir?",
+    "code": "import pandas as pd\n\ndf = pd.DataFrame({'y': ['yes', 'no', 'no', 'yes', 'no']})\ndf['y_binary'] = df['y'].map({'no': 0, 'yes': 1})\nprint(df['y_binary'].tolist())",
+    "options": {
+      "A": "[0, 1, 1, 0, 1]",
+      "B": "[1, 0, 0, 1, 0]",
+      "C": "['yes', 'no', 'no', 'yes', 'no']",
+      "D": "Hata verir — map() sözlük kabul etmez",
+      "E": "[NaN, NaN, NaN, NaN, NaN]"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. Sözlükte 'yes' → 1, 'no' → 0 şeklinde eşleme yapılmış. İlk eleman 'yes' olduğu için 1 olur, 0 değil.",
+      "B": "Doğru. map() fonksiyonu verilen sözlüğe göre her değeri eşler: 'yes' → 1, 'no' → 0. Sırasıyla: yes→1, no→0, no→0, yes→1, no→0 → [1, 0, 0, 1, 0].",
+      "C": "Yanlış. map() orijinal değerleri döndürmez, sözlükteki karşılıklarıyla değiştirir.",
+      "D": "Yanlış. map() bir sözlük, fonksiyon veya Series kabul edebilir. Sözlük kullanımı en yaygın yöntemlerden biridir.",
+      "E": "Yanlış. NaN ancak sözlükte karşılığı olmayan bir değer bulunursa oluşur. Burada tüm değerler ('yes' ve 'no') sözlükte tanımlıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": ".map()",
+        "definition": "Pandas Series üzerinde her elemanı bir sözlük veya fonksiyon aracılığıyla başka bir değere dönüştüren metot. Kategorik → sayısal dönüşümde sıkça kullanılır."
+      },
+      {
+        "term": "Binary Encoding",
+        "definition": "İki kategorili (binary) hedef değişkeni 0 ve 1 olarak kodlama. Sınıflandırma problemlerinde hedef değişken hazırlamak için kullanılır."
+      }
+    ]
+  },
+  {
+    "id": "w03-q042",
+    "week": 3,
+    "topic": "siniflandirma-eda-bank",
+    "type": "code",
+    "tags": [
+      "log1p",
+      "negatif-deger",
+      "shift",
+      "kesin-cikar"
+    ],
+    "sourceNotebook": "hafta_3_cls1.ipynb",
+    "question": "Aşağıdaki kodda neden balance sütununa önce shift (kaydırma) uygulanıp sonra np.log1p kullanılmıştır?",
+    "code": "import numpy as np\nimport pandas as pd\n\ndf = pd.DataFrame({'balance': [-500, -100, 0, 200, 1500]})\nshift = abs(df['balance'].min()) + 1\ndf['balance_log'] = np.log1p(df['balance'] + shift)\nprint(df['balance_log'])",
+    "options": {
+      "A": "Shift zorunlu değildir, np.log1p() negatif değerlerle de çalışır",
+      "B": "Shift uygulanmasının nedeni verinin ortalamasını sıfır yapmaktır",
+      "C": "Negatif değerlerin logaritması tanımsızdır; shift ile tüm değerler pozitif yapılır, ardından log1p (log(1+x)) güvenle uygulanabilir",
+      "D": "np.log1p() yalnızca tam sayılarla çalışır, shift ondalık sayıları tam sayıya çevirir",
+      "E": "Shift işlemi veriyi normalize eder, log1p ile ilgisi yoktur"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. log() ve log1p() fonksiyonları negatif veya -1'den küçük değerler için NaN veya hata üretir. Logaritma yalnızca pozitif sayılar için tanımlıdır.",
+      "B": "Yanlış. Shift işlemi ortalamayı sıfır yapmak için değil, minimum değeri pozitif yapmak için uygulanır. Ortalama sıfırlama StandardScaler ile yapılır.",
+      "C": "Doğru. balance sütununda negatif değerler (-500, -100) vardır. log(x) fonksiyonu x ≤ 0 için tanımsızdır. shift = abs(min) + 1 = 501 eklenerek tüm değerler pozitif yapılır (1, 401, 501, 701, 2001). Sonra np.log1p(x) = log(1+x) güvenle uygulanabilir. Bu yöntem sağa çarpık dağılımları normalleştirmek için kullanılır.",
+      "D": "Yanlış. np.log1p() tam sayı ve ondalık sayılarla çalışır. Veri tipi kısıtlaması yoktur.",
+      "E": "Yanlış. Shift normalizasyon değildir, veriyi pozitif bölgeye taşıma işlemidir. Normalizasyon 0-1 aralığına ölçeklendirmedir."
+    },
+    "relatedTerms": [
+      {
+        "term": "np.log1p(x)",
+        "definition": "log(1 + x) hesaplar. x=0 olduğunda log(1)=0 döner, böylece sıfır değerleri için de güvenle çalışır. Sağa çarpık dağılımları düzeltmek için kullanılır."
+      },
+      {
+        "term": "Shift (Kaydırma)",
+        "definition": "Negatif değerler içeren verilere logaritma uygulanabilmesi için tüm değerlere sabit bir sayı eklenerek veriyi pozitif bölgeye taşıma işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w03-q044",
+    "week": 3,
+    "topic": "siniflandirma-eda-adult",
+    "type": "code",
+    "tags": [
+      "read_csv",
+      "names",
+      "skipinitialspace"
+    ],
+    "sourceNotebook": "hafta_3_cls2.ipynb",
+    "question": "Aşağıdaki kodda names ve skipinitialspace parametrelerinin rolü nedir?",
+    "code": "import pandas as pd\n\ncolumns = ['age', 'workclass', 'fnlwgt', 'education', 'education_num',\n           'marital_status', 'occupation', 'relationship', 'race',\n           'sex', 'capital_gain', 'capital_loss', 'hours_per_week',\n           'native_country', 'income']\n\ndf = pd.read_csv('adult.data', names=columns, skipinitialspace=True)",
+    "options": {
+      "A": "names sütunları siler, skipinitialspace satırları atlar",
+      "B": "names CSV'deki mevcut başlık satırını yeniden adlandırır, skipinitialspace dosya başındaki boşlukları siler",
+      "C": "names başlık satırı olmayan dosyaya sütun adları atar, skipinitialspace her hücredeki başlangıç boşluklarını temizler",
+      "D": "names yalnızca ilk 5 sütunu seçer, skipinitialspace NaN değerleri siler",
+      "E": "İkisi de opsiyoneldir ve hiçbir etkisi yoktur"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. names sütunları silmez, aksine sütun adları tanımlar. skipinitialspace satır atlama değil boşluk temizleme yapar.",
+      "B": "Yanlış. names parametresi mevcut başlığı yeniden adlandırmak için değil, başlığı olmayan dosyalara sütun adları vermek için kullanılır. skipinitialspace dosya başındaki değil, her hücre değerindeki başlangıç boşluklarını temizler.",
+      "C": "Doğru. adult.data dosyasında başlık satırı yoktur, names parametresi ile sütun adları manuel olarak atanır. CSV'de virgülden sonra boşluk olabilir (örn: ' Private' yerine 'Private'). skipinitialspace=True bu başlangıç boşluklarını otomatik temizler, böylece ' Private' yerine 'Private' okunur.",
+      "D": "Yanlış. names tüm sütunlara ad verir, sütun seçimi yapmaz. skipinitialspace NaN ile ilgili değildir.",
+      "E": "Yanlış. Her ikisi de önemli parametrelerdir. names olmadan sütun adları olmaz, skipinitialspace olmadan string değerlerin başında istenmeyen boşluklar kalır."
+    },
+    "relatedTerms": [
+      {
+        "term": "names (read_csv parametresi)",
+        "definition": "Başlık satırı olmayan CSV dosyalarına sütun adları atamak için kullanılan parametre. Bir liste olarak verilir."
+      },
+      {
+        "term": "skipinitialspace",
+        "definition": "CSV okurken ayırıcıdan (delimiter) sonra gelen başlangıç boşluklarını otomatik temizleyen parametre. True olduğunda ' value' → 'value' olur."
+      }
+    ]
+  },
+  {
+    "id": "w03-q045",
+    "week": 3,
+    "topic": "siniflandirma-eda-adult",
+    "type": "code",
+    "tags": [
+      "missing-value",
+      "soru-isareti",
+      "replace",
+      "kesin-cikar"
+    ],
+    "sourceNotebook": "hafta_3_cls2.ipynb",
+    "question": "Aşağıdaki kodda '?' değerleri neden isnull() ile yakalanamaz ve nasıl temizlenir?",
+    "code": "import pandas as pd\nimport numpy as np\n\ndf = pd.DataFrame({'job': ['Private', '?', 'Gov', '?', 'Self']})\n\n# Bu 0 döndürür!\nprint(df.isnull().sum())\n\n# Çözüm:\ndf.replace('?', np.nan, inplace=True)\ndf.dropna(inplace=True)\nprint(len(df))",
+    "options": {
+      "A": "isnull() '?' karakterini tanır ve 2 döndürür; son print 3 yazar",
+      "B": "isnull() yalnızca NaN/None değerleri tanır, '?' bir string olduğu için yakalanamaz; replace ile NaN'a çevrilip dropna ile silinir, son print 3 yazar",
+      "C": "replace() '?' değerlerini 0 ile değiştirir, son print 5 yazar",
+      "D": "isnull() tüm string değerleri eksik sayar, son print 0 yazar",
+      "E": "dropna() yalnızca sayısal sütunlardaki NaN'ları siler, son print 5 yazar"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. isnull() yalnızca NaN, None ve NaT değerlerini tanır. '?' bir string değerdir ve eksik veri olarak algılanmaz, bu yüzden isnull().sum() 0 döndürür.",
+      "B": "Doğru. '?' karakteri Pandas tarafından geçerli bir string değer olarak kabul edilir, eksik veri (NaN) değildir. Bu yüzden isnull() onu yakalayamaz. replace('?', np.nan) ile '?' değerleri NaN'a çevrilir, ardından dropna() ile NaN içeren satırlar silinir. 5 satırdan 2'si '?' içeriyordu, bunlar silinince 3 satır kalır.",
+      "C": "Yanlış. Kodda replace('?', np.nan) yazılmış, 0 ile değil NaN ile değiştirilir.",
+      "D": "Yanlış. isnull() string değerleri eksik saymaz. Yalnızca Python'ın None ve NumPy'ın NaN/NaT değerlerini tespit eder.",
+      "E": "Yanlış. dropna() tüm veri tiplerindeki NaN değerleri olan satırları siler, sadece sayısal sütunlarla sınırlı değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Gizli Eksik Değer",
+        "definition": "Veri setinde NaN yerine '?', 'N/A', '-', '999' gibi placeholder değerlerle temsil edilen eksik veriler. isnull() ile yakalanamaz, replace() ile NaN'a çevrilmelidir."
+      },
+      {
+        "term": "replace()",
+        "definition": "DataFrame veya Series'teki belirli değerleri başka değerlerle değiştiren Pandas metodu. Gizli eksik değerleri NaN'a çevirmek için kullanılır."
+      }
+    ]
+  },
+  {
+    "id": "w03-q046",
+    "week": 3,
+    "topic": "siniflandirma-eda-adult",
+    "type": "code",
+    "tags": [
+      "crosstab",
+      "normalize",
+      "index"
+    ],
+    "sourceNotebook": "hafta_3_cls2.ipynb",
+    "question": "Aşağıdaki kodda normalize='index' parametresi ne anlama gelir?",
+    "code": "import pandas as pd\n\ndf = pd.DataFrame({\n    'education': ['Bachelors', 'HS-grad', 'Bachelors', 'HS-grad', 'HS-grad'],\n    'income': ['>50K', '<=50K', '>50K', '<=50K', '>50K']\n})\nprint(pd.crosstab(df['education'], df['income'], normalize='index'))",
+    "options": {
+      "A": "Her hücreyi genel toplama böler (tüm tablodaki oranlar)",
+      "B": "Her sütundaki değerleri o sütunun toplamına böler",
+      "C": "Her satırdaki değerleri o satırın toplamına böler — her satırın toplamı 1.0 olur",
+      "D": "Sadece indeks sütununu normalleştirir (0-1 aralığına ölçekler)",
+      "E": "normalize='index' geçerli bir parametre değildir, hata verir"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. Genel toplama bölmek için normalize='all' kullanılır. normalize='index' satır bazında normalizasyon yapar.",
+      "B": "Yanlış. Sütun bazında normalizasyon için normalize='columns' kullanılır. 'index' satır bazında çalışır.",
+      "C": "Doğru. normalize='index' her satırdaki (her eğitim düzeyindeki) değerleri o satırın toplamına böler. Örneğin Bachelors satırında 2 kişi var, 2'si de >50K ise oran 1.0 olur. HS-grad satırında 3 kişi var, 1'i >50K ise >50K oranı 0.33, <=50K oranı 0.67 olur. Her satırın toplamı 1.0'dır. Bu, her eğitim düzeyindeki gelir dağılımını karşılaştırmak için kullanılır.",
+      "D": "Yanlış. normalize='index' indeks sütununu ölçeklemez, çapraz tablodaki frekansları satır bazında orana çevirir.",
+      "E": "Yanlış. normalize='index' geçerli bir parametredir. 'index', 'columns' ve 'all' seçenekleri mevcuttur."
+    },
+    "relatedTerms": [
+      {
+        "term": "pd.crosstab()",
+        "definition": "İki veya daha fazla kategorik değişken arasındaki frekans dağılımını gösteren çapraz tablo oluşturur."
+      },
+      {
+        "term": "normalize='index'",
+        "definition": "crosstab'de her satırın (indeks değerinin) toplamını 1.0 yapacak şekilde oranlar hesaplar. Satır bazında yüzde dağılımı verir."
+      }
+    ]
+  },
+  {
+    "id": "w03-q048",
+    "week": 3,
+    "topic": "siniflandirma-eda-adult",
+    "type": "code",
+    "tags": [
+      "lambda",
+      "string-matching",
+      "target-encoding",
+      "kesin-cikar"
+    ],
+    "sourceNotebook": "hafta_3_cls2.ipynb",
+    "question": "Aşağıdaki kodun çıktısı nedir?",
+    "code": "import pandas as pd\n\ndf = pd.DataFrame({'income': ['>50K', '<=50K', '>50K', '<=50K', '>50K']})\ndf['income_binary'] = df['income'].apply(lambda x: 1 if '>' in x else 0)\nprint(df['income_binary'].tolist())",
+    "options": {
+      "A": "[0, 1, 0, 1, 0]",
+      "B": "[1, 1, 1, 1, 1]",
+      "C": "[1, 0, 1, 0, 1]",
+      "D": "Hata verir — lambda içinde if kullanılamaz",
+      "E": "[0, 0, 0, 0, 0] — '>' hiçbir değerde bulunmaz"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. '>50K' değerinde '>' karakteri bulunur, bu yüzden 1 döner (0 değil). Eşleme ters düşünülmüş.",
+      "B": "Yanlış. '<=50K' değerinde de '>' var gibi düşünülmüş ama dikkatli bakılırsa '<=50K' string'inde '>' karakteri '<=' içinde yer almaz. Aslında '<=50K' string'inde '>' karakteri yoktur. Ancak dikkat: '<=' iki ayrı karakterdir ('<' ve '='), '>' bunlardan farklıdır.",
+      "C": "Doğru. lambda fonksiyonu her income değerinde '>' karakterini arar. '>50K' → '>' bulunur → 1; '<=50K' → '>' bulunmaz (yalnızca '<' ve '=' var) → 0. Sırasıyla: >50K→1, <=50K→0, >50K→1, <=50K→0, >50K→1 → [1, 0, 1, 0, 1].",
+      "D": "Yanlış. Python lambda fonksiyonlarında tek satırlık (ternary) if-else ifadesi kullanılabilir: value_if_true if condition else value_if_false.",
+      "E": "Yanlış. '>50K' stringinde '>' karakteri açıkça mevcuttur. 'in' operatörü substring araması yapar ve '>' bulunur."
+    },
+    "relatedTerms": [
+      {
+        "term": "lambda",
+        "definition": "Python'da tek satırlık anonim (isimsiz) fonksiyon tanımlamak için kullanılır. apply() ile birlikte her satıra uygulanabilir."
+      },
+      {
+        "term": "apply()",
+        "definition": "Pandas Series veya DataFrame'in her elemanına bir fonksiyon uygulayan metot. lambda veya tanımlı fonksiyonlarla kullanılır."
+      },
+      {
+        "term": "'in' operatörü",
+        "definition": "Python'da bir string'in başka bir string içinde bulunup bulunmadığını kontrol eder. True/False döndürür."
+      }
+    ]
+  }
+]
