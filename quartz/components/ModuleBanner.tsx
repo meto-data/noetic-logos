@@ -28,6 +28,14 @@ const MODULE_CONFIGS: ModuleConfig[] = [
         iconType: "oop"
     },
     {
+        slugPattern: "turk-dili-2|türk-dili-2|turk-dili-ii|türk-dili-ii",
+        title: "Türk Dili II",
+        buttonText: "Türk Dili II Modülüne Git",
+        moduleUrl: "static/turk-dili-2-module/index.html",
+        iconType: "language",
+        warningNote: "(Yanlış cevaplardaki dönütler hoşunuza gitmeyebilir... Ancak eğlenceli olduğunu düşünüyorum :D)"
+    },
+    {
         slugPattern: "turk-dili|türk-dili|turk-dili-1",
         title: "Türk Dili",
         buttonText: "Türk Dili Modülüne Git",
@@ -48,14 +56,6 @@ const MODULE_CONFIGS: ModuleConfig[] = [
         buttonText: "Finans Modülüne Git",
         moduleUrl: "static/finance-module/index.html",
         iconType: "finance",
-        warningNote: "(Yanlış cevaplardaki dönütler hoşunuza gitmeyebilir... Ancak eğlenceli olduğunu düşünüyorum :D)"
-    },
-    {
-        slugPattern: "turk-dili-2|türk-dili-2|turk-dili-ii|türk-dili-ii",
-        title: "Türk Dili II",
-        buttonText: "Türk Dili II Modülüne Git",
-        moduleUrl: "static/turk-dili-2-module/index.html",
-        iconType: "language",
         warningNote: "(Yanlış cevaplardaki dönütler hoşunuza gitmeyebilir... Ancak eğlenceli olduğunu düşünüyorum :D)"
     },
     {
@@ -122,7 +122,7 @@ const ModuleBanner: QuartzComponent = ({ fileData, displayClass }: QuartzCompone
                         <span class="module-banner-warning">{matchingModule.warningNote}</span>
                     )}
                 </div>
-                <a href="#" class="module-banner-button" data-module-link>
+                <a href="#" class="module-banner-button" data-module-link target="_blank" rel="noopener noreferrer">
                     {matchingModule.buttonText}
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14M12 5l7 7-7 7" />
