@@ -75,11 +75,6 @@ graph LR
     C --> D(İkinci Temizleme)
     D --> E(Veri Dönüşümü)
     E --> F((Modelleme))
-    
-    style B fill:#ffcccc,stroke:#333,stroke-width:2px
-    style C fill:#ccffcc,stroke:#333,stroke-width:2px
-    style D fill:#ffcccc,stroke:#333,stroke-width:2px
-    style E fill:#ccccff,stroke:#333,stroke-width:2px
 ```
 
 >[!warning] Dikkat!

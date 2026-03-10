@@ -1,7 +1,7 @@
 ---
 title: Veri Madenciliği - 3
 created: 2026-03-03
-draft: true
+draft: false
 tags: akademi/dersler/veri-madenciligi
 slug: veri-madenciligi-3
 ---
@@ -181,11 +181,6 @@ Aşağıdaki tablo, iki veri setinin kavramsal zorluk derecelerini özetlemekted
 | **Öğretim Kolaylığı**             | Orta                     | Yüksek                               |
 | **Feature Redundancy (Tekrar)**   | Az                       | Var (`education` vs `education_num`) |
 
-<div style="background-color: #e9ecef; padding: 10px; border-left: 4px solid #495057; color: #212529;">
-<strong>📌 Sonuç Özeti:</strong><br>
-- <strong>Bank Dataset:</strong> Tam bir gerçek dünya karmaşasıdır. Outlier, Leakage ve aşırı dengesizlik barındırır. Özel müdahaleler gerektirir.<br>
-- <strong>Adult Dataset:</strong> Daha temiz, daha stabildir. Model öğretmek ve temel EDA mantığını kavramak için çok daha idealdir.
-</div>
 
 
 >[!important] Sonuç Özeti

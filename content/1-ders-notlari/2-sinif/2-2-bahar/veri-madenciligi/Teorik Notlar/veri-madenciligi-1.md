@@ -16,9 +16,6 @@ slug: veri-madenciligi-1
 
 ---
 
-[[hafta_1_giris_110819.pdf]]
-
-
 
 ## 1. Veri Madenciliği Nedir?
 
