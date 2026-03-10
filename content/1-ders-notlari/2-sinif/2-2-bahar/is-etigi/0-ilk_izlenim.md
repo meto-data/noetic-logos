@@ -1,5 +1,5 @@
 ---
-title: 0- İlk İzlenim
+title: İlk İzlenim (I. Kritik)
 created: 2026-02-20
 draft: true
 tags:

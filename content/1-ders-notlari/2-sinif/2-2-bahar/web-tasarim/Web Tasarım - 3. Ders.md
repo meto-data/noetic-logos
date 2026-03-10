@@ -7,8 +7,6 @@ tags:
 slug: web-tasarim-3
 ---
 
----
-
 ## Bürokrasi falan
 
 > [!WARNING] **YENİ ÖDEV: 3 SAYFALI WEB SİTESİ**
@@ -162,7 +160,7 @@ Tarayıcı sekmesinde sayfa başlığının yanında duran küçük ikondur. `<h
 
 ## Derse Aşkın
 
-Hocanın üzerinde durduğu ve sınavlarda (veya ileride iş mülakatlarında) karşına kesin çıkacak kritik detaylar:
+Hocanın üzerinde durduğu veya sınavda çıkabilecek sorular.
 
 1.  **`alt` Özelliğinin Önemi (Sınav Sorusu Adayı):**
     * *Soru:* `<img>` etiketindeki `alt` özelliği neden kullanılır?
