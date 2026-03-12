@@ -1,479 +1,688 @@
 {
   "id": "veri_birlestir",
-  "title": "Veri Birleştirme (Concat & Merge)",
+  "title": "Veri Birleştirme İşlemleri",
   "week": 2,
   "csvFiles": [],
   "blocks": [
     {
       "id": "veri_birlestir-b001",
-      "title": "Kütüphane ve Veri Seti Oluşturma",
-      "blockExplanation": "Bu blok NumPy ve Pandas kütüphanelerini içe aktarır, ardından rastgele verilerle iki farklı DataFrame oluşturur. np.random.seed() ile tohum değeri sabitlenir, böylece her çalıştırmada aynı rastgele veriler üretilir. Sınavlarda veri birleştirme işlemlerinden önce farklı yapıdaki veri setlerinin nasıl oluşturulduğunu anlamak kritiktir.",
+      "title": "Kütüphaneleri İçe Aktarma ve Seed Ayarı",
+      "blockExplanation": "Rastgele veri üretimi için NumPy ve Pandas'ı hazırlar; aynı sonuçları tekrar görebilmek için seed sabitler.",
       "lines": [
         {
           "lineNumber": 1,
           "code": "import numpy as np",
-          "lineExplanation": "NumPy kütüphanesini 'np' takma adıyla içe aktarır. Rastgele sayı üretimi ve matematiksel işlemler için kullanılır.",
+          "lineExplanation": "NumPy kütüphanesini içe aktarır; rastgele sayı üretimi ve sayısal vektörler için kullanılacaktır.",
           "tokens": [
             {
               "token": "numpy",
-              "explanation": "Numerical Python kısaltması. Çok boyutlu diziler (ndarray) ve matematiksel işlemler için temel bilimsel hesaplama kütüphanesidir.",
-              "turkce": "Sayısal Hesaplama Kütüphanesi",
-              "amac": "Çok boyutlu diziler (matrisler) üzerinde yüksek performanslı matematiksel ve istatistiksel işlemler yapmak.",
-              "detay": "C dilinde yazıldığı için Python'ın standart listelerine göre çok daha hızlıdır. Vektörizasyon sayesinde döngü (for loop) kullanmadan matris işlemleri yapılmasını sağlar."
-            },
-            {
-              "token": "as np",
-              "explanation": "Topluluk standardı takma ad. NumPy her yerde np olarak kullanılır.",
-              "turkce": "Kod Sözdizimi",
-              "amac": "Sözdizimsel bir işlemdir."
+              "explanation": "Sayısal hesaplama ve log gibi matematiksel işlemler için kullanılan kütüphanedir.",
+              "turkce": "Sayısal Hesaplama",
+              "amac": "Log dönüşümü ve rastgele üretim yapmak.",
+              "detay": "Bu satır farklı bloklarda aynı kütüphaneyi farklı amaçlarla kullanır."
             }
           ],
-          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+          "codeContext": "Bu satır, birazdan sentetik maaş verisi üretmek için gerekli sayısal aracı yükler."
         },
         {
           "lineNumber": 2,
           "code": "import pandas as pd",
-          "lineExplanation": "Pandas kütüphanesini 'pd' takma adıyla içe aktarır. DataFrame yapısıyla tablo benzeri veriler üzerinde işlem yapmak için kullanılır.",
+          "lineExplanation": "Pandas kütüphanesini içe aktarır; üretilecek sözlükleri tabloya dönüştürmek için kullanılacaktır.",
           "tokens": [
             {
               "token": "pandas",
-              "explanation": "Panel Data kısaltması. DataFrame ve Series veri yapıları üzerinde veri manipülasyonu yapmak için kullanılan ana kütüphanedir.",
-              "turkce": "Veri Analizi Kütüphanesi",
-              "amac": "Tablolu veri setlerini (CSV, Excel, SQL) okumak, temizlemek, dönüştürmek ve analiz etmek için kullanılır.",
-              "detay": "Pandas, DataFrame (2 boyutlu tablo) ve Series (1 boyutlu sütun) veri yapıları sunar. Veri biliminde eksik veri işleme ve gruplama (groupby) gibi operasyonların kalbidir."
-            },
-            {
-              "token": "as pd",
-              "explanation": "Topluluk standardı takma ad. Pandas her yerde pd olarak kullanılır.",
-              "turkce": "Kod Sözdizimi",
-              "amac": "Sözdizimsel bir işlemdir."
+              "explanation": "DataFrame tabanlı veri okuma ve tablo işlemleri için kullanılan ana kütüphanedir.",
+              "turkce": "Veri Analizi",
+              "amac": "CSV dosyalarını tabloya almak ve sütun bazlı işlem yapmak.",
+              "detay": "Bu projedeki çoğu veri manipülasyonu pandas üzerinden yürür."
             }
           ],
-          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+          "codeContext": "Bu satır, rastgele üretilen verileri DataFrame halinde birleştirebilmek için gerekli tablo aracını hazırlar."
         },
         {
           "lineNumber": 3,
           "code": "np.random.seed(3)",
-          "lineExplanation": "Rastgele sayı üretecinin tohum değerini 3 olarak sabitler. Bu sayede her çalıştırmada aynı rastgele sayılar üretilir, sonuçlar tekrarlanabilir olur.",
+          "lineExplanation": "NumPy rastgele üretecini 3 değeriyle sabitler.",
           "tokens": [
             {
-              "token": "np.random.seed()",
-              "explanation": "Rastgele sayı üretecinin başlangıç durumunu belirler. Aynı seed değeri verildiğinde her seferinde aynı rastgele sayı dizisi üretilir. Tekrarlanabilirlik (reproducibility) için kritiktir.",
-              "turkce": "Fonksiyon/Metot Çağrısı",
-              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
-            },
-            {
-              "token": "3",
-              "explanation": "Tohum değeri. Herhangi bir tam sayı olabilir; aynı değer aynı rastgele diziyi garanti eder.",
-              "turkce": "Kod Sözdizimi",
-              "amac": "Sözdizimsel bir işlemdir."
+              "token": "np.random.seed(3)",
+              "explanation": "NumPy rastgele üreticisini 3 değeriyle sabitler.",
+              "turkce": "Seed",
+              "amac": "Her çalıştırmada aynı rastgele sayıların gelmesini sağlamak.",
+              "detay": "Bu sayede örnek çıktılar tekrar üretilebilir olur."
             }
           ],
-          "codeContext": "'Kütüphane ve Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, sentetik örnekler her çalıştırmada aynı sayılarla gelsin diye rastgeleliği tekrarlanabilir hale getirir."
         },
         {
           "lineNumber": 4,
-          "code": "data1 = {",
-          "lineExplanation": "İkinci DataFrame için kullanılacak sözlük (dictionary) tanımının başlangıcı.",
+          "code": "np.random.randint(0, 10, size=5)",
+          "lineExplanation": "Seed ayarının deterministik çalıştığını göstermek için 0-9 arası 5 örnek sayı üretir.",
           "tokens": [
             {
-              "token": "data1",
-              "explanation": "İkinci veri setini tutacak sözlük değişkeni. Anahtar-değer çiftleriyle sütun adı ve verilerini içerir.",
-              "turkce": "Kod Sözdizimi",
-              "amac": "Sözdizimsel bir işlemdir."
+              "token": "np.random.randint(0, 10, size=5)",
+              "explanation": "0 ile 9 arasında 5 tam sayı üretir.",
+              "turkce": "Rastgele Tamsayı",
+              "amac": "Seed ayarının gerçekten çalıştığını kısa bir örnekle göstermek."
             }
           ],
-          "codeContext": "'Kütüphane ve Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
-        },
-        {
-          "lineNumber": 5,
-          "code": "    \"ID\": range(1, 51),",
-          "lineExplanation": "ID sütununu 1'den 50'ye kadar ardışık tam sayılarla oluşturur. Bu DataFrame 50 satırlıktır.",
-          "tokens": [
-            {
-              "token": "range(1, 51)",
-              "explanation": "1'den başlayıp 51'e kadar (51 hariç) tam sayı dizisi üretir. Yani 1, 2, 3, ..., 50 değerlerini verir.",
-              "turkce": "Kod Sözdizimi",
-              "amac": "Sözdizimsel bir işlemdir."
-            }
-          ],
-          "codeContext": "'Kütüphane ve Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
-        },
-        {
-          "lineNumber": 6,
-          "code": "    \"Maas\": np.random.randint(100, 1000, size=50) + np.random.normal(0, 50),",
-          "lineExplanation": "Maas sütununu oluşturur: 100-999 arası rastgele tam sayılar üretir, ardından ortalaması 0, standart sapması 50 olan normal dağılım gürültüsü ekler.",
-          "tokens": [
-            {
-              "token": "np.random.randint()",
-              "explanation": "Belirtilen aralıkta rastgele tam sayılar üretir. İlk parametre alt sınır (dahil), ikinci parametre üst sınır (hariç), size ise kaç adet üretileceğini belirler.",
-              "turkce": "Fonksiyon/Metot Çağrısı",
-              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
-            },
-            {
-              "token": "np.random.normal()",
-              "explanation": "Normal (Gauss) dağılımından rastgele sayılar üretir. İlk parametre ortalama (mean), ikinci parametre standart sapma (std) değeridir.",
-              "turkce": "Fonksiyon/Metot Çağrısı",
-              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
-            },
-            {
-              "token": "size=50",
-              "explanation": "Üretilecek rastgele sayı adedi. DataFrame'deki satır sayısıyla eşleşmelidir.",
-              "turkce": "Atama İşlemi",
-              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
-            }
-          ],
-          "codeContext": "'Kütüphane ve Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
-        },
-        {
-          "lineNumber": 7,
-          "code": "}",
-          "lineExplanation": "data1 sözlüğünün kapanış parantezi.",
-          "tokens": [],
-          "codeContext": "'Kütüphane ve Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
-        },
-        {
-          "lineNumber": 8,
-          "code": "data = { \"ID\": range(1, 41),",
-          "lineExplanation": "Birinci DataFrame için sözlük tanımının başlangıcı. ID sütunu 1'den 40'a kadar ardışık sayılardan oluşur. Bu DataFrame 40 satırlıktır.",
-          "tokens": [
-            {
-              "token": "range(1, 41)",
-              "explanation": "1'den 40'a kadar tam sayı dizisi üretir. df1'in 40 satırdan oluşacağı anlamına gelir.",
-              "turkce": "Kod Sözdizimi",
-              "amac": "Sözdizimsel bir işlemdir."
-            }
-          ],
-          "codeContext": "'Kütüphane ve Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
-        },
-        {
-          "lineNumber": 9,
-          "code": "         \"Kategori\": np.random.choice([\"A\", \"B\", \"C\", \"D\", \"E\"], size=40),",
-          "lineExplanation": "Kategori sütununu oluşturur: A, B, C, D, E harflerinden rastgele seçim yaparak 40 elemanlı bir dizi üretir.",
-          "tokens": [
-            {
-              "token": "np.random.choice()",
-              "explanation": "Verilen listeden rastgele seçim yapar. Varsayılan olarak yerine koymalı (with replacement) seçim yapar, yani aynı eleman birden fazla kez seçilebilir.",
-              "turkce": "Fonksiyon/Metot Çağrısı",
-              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
-            },
-            {
-              "token": "[\"A\", \"B\", \"C\", \"D\", \"E\"]",
-              "explanation": "Seçim yapılacak değerler listesi. Kategorik veri üretmek için kullanılır.",
-              "turkce": "Veri Seçimi/Dilimleme",
-              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
-            },
-            {
-              "token": "size=40",
-              "explanation": "Kaç adet rastgele seçim yapılacağını belirtir.",
-              "turkce": "Atama İşlemi",
-              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
-            }
-          ],
-          "codeContext": "'Kütüphane ve Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
-        },
-        {
-          "lineNumber": 10,
-          "code": "}",
-          "lineExplanation": "data sözlüğünün kapanış parantezi.",
-          "tokens": [],
-          "codeContext": "'Kütüphane ve Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
-        },
-        {
-          "lineNumber": 11,
-          "code": "df1 = pd.DataFrame(data)",
-          "lineExplanation": "data sözlüğünden bir DataFrame oluşturur. df1, ID ve Kategori sütunlarına sahip 40 satırlık bir tablodur.",
-          "tokens": [
-            {
-              "token": "pd.DataFrame()",
-              "explanation": "Sözlük, liste veya NumPy dizisinden DataFrame nesnesi oluşturur. Sözlükteki anahtarlar sütun adları, değerler ise sütun verileri olur.",
-              "turkce": "Fonksiyon/Metot Çağrısı",
-              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
-            }
-          ],
-          "codeContext": "'Kütüphane ve Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
-        },
-        {
-          "lineNumber": 12,
-          "code": "df2 = pd.DataFrame(data1)",
-          "lineExplanation": "data1 sözlüğünden ikinci bir DataFrame oluşturur. df2, ID ve Maas sütunlarına sahip 50 satırlık bir tablodur.",
-          "tokens": [
-            {
-              "token": "df2",
-              "explanation": "İkinci DataFrame değişkeni. df1'den farklı sütunlara (Maas) ve farklı satır sayısına (50) sahiptir.",
-              "turkce": "Kod Sözdizimi",
-              "amac": "Sözdizimsel bir işlemdir."
-            }
-          ],
-          "codeContext": "'Kütüphane ve Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
-        },
-        {
-          "lineNumber": 13,
-          "code": "print(df1.head(5))",
-          "lineExplanation": "df1'in ilk 5 satırını ekrana yazdırır. Veri setinin yapısını hızlıca kontrol etmek için kullanılır.",
-          "tokens": [
-            {
-              "token": "head(5)",
-              "explanation": "DataFrame'in ilk 5 satırını döndürür. Parametre verilmezse varsayılan olarak 5 satır gösterir.",
-              "turkce": "Kod Sözdizimi",
-              "amac": "Sözdizimsel bir işlemdir."
-            }
-          ],
-          "codeContext": "'Kütüphane ve Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
-        },
-        {
-          "lineNumber": 14,
-          "code": "print(df2.head(5))",
-          "lineExplanation": "df2'nin ilk 5 satırını ekrana yazdırır.",
-          "tokens": [],
-          "codeContext": "'Kütüphane ve Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, seed sayesinde her çalıştırmada aynı kısa örnek dizinin üretildiğini somut olarak gösterir."
         }
       ],
-      "expectedOutput": "   ID Kategori\n0   1        E\n1   2        D\n2   3        A\n3   4        A\n4   5        D\n   ID        Maas\n0   1  839.776586\n1   2  220.710968\n2   3  375.617165\n3   4  411.945053\n4   5  300.919498"
+      "expectedOutput": "array([8, 9, 3, 8, 8])"
     },
     {
       "id": "veri_birlestir-b002",
-      "title": "Dikey Birleştirme — concat axis=0",
-      "blockExplanation": "pd.concat() fonksiyonu ile axis=0 kullanılarak DataFrame'ler alt alta (dikey olarak) birleştirilir. ignore_index=True parametresi yeni bir ardışık indeks oluşturur. Sınavlarda concat ile merge arasındaki farkı, axis parametresinin etkisini ve ignore_index kullanımını bilmek önemlidir.",
+      "title": "Maaş Verisi Sözlüğünü Oluşturma",
+      "blockExplanation": "ID ve maaş değerlerinden oluşan ikinci veri kaynağını kurar ve önizler.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "np.random.seed(3)",
+          "lineExplanation": "Maaş verisini üretmeden önce seed'i tekrar 3 yaparak sayıların aynı kalmasını garanti eder.",
+          "tokens": [
+            {
+              "token": "np.random.seed(3)",
+              "explanation": "NumPy rastgele üreticisini 3 değeriyle sabitler.",
+              "turkce": "Seed",
+              "amac": "Her çalıştırmada aynı rastgele sayıların gelmesini sağlamak.",
+              "detay": "Bu sayede örnek çıktılar tekrar üretilebilir olur."
+            }
+          ],
+          "codeContext": "Bu satır, ilk blokta yapılan örnek üretimin rastgele durumu etkilemesini sıfırlayıp maaş verisini beklenen şekilde yeniden üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "data1 = {",
+          "lineExplanation": "Maaş veri kaynağını tutacak sözlük yapısını başlatır.",
+          "tokens": [
+            {
+              "token": "data1",
+              "explanation": "Maaş verisini tutacak sözlüğün adıdır.",
+              "turkce": "Sözlük",
+              "amac": "ID ve maaş alanlarını tek yapıda toplamak."
+            }
+          ],
+          "codeContext": "Bu satır, birazdan ID ve maaş alanlarını içine yerleştireceğimiz ikinci veri kaynağının kabını açar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    \"ID\": range(1, 51),",
+          "lineExplanation": "1'den 50'ye kadar uzanan ID alanını tanımlar.",
+          "tokens": [
+            {
+              "token": "range(1, 51)",
+              "explanation": "1'den 50'ye kadar ardışık ID üretir.",
+              "turkce": "ID Aralığı",
+              "amac": "Her kayıt için benzersiz kimlik oluşturmak."
+            }
+          ],
+          "codeContext": "Bu satır, maaş veri setindeki her kayda benzersiz bir kimlik verir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    \"Maas\": np.random.randint(100, 1000, size=50) + np.random.normal(0, 50, size=50),",
+          "lineExplanation": "100-999 arası temel maaş değerlerine normal dağılımlı gürültü ekleyerek 50 gözlem üretir.",
+          "tokens": [
+            {
+              "token": "np.random.randint(100, 1000, size=50)",
+              "explanation": "100 ile 999 arasında 50 temel maaş değeri üretir.",
+              "turkce": "Taban Maaşlar",
+              "amac": "Sentetik maaş sütununun ana gövdesini oluşturmak."
+            },
+            {
+              "token": "np.random.normal(0, 50, size=50)",
+              "explanation": "Ortalaması 0, standart sapması 50 olan gürültü üretir.",
+              "turkce": "Gürültü",
+              "amac": "Maaş değerlerini daha gerçekçi dalgalandırmak."
+            },
+            {
+              "token": "+",
+              "explanation": "Temel maaşlarla gürültüyü toplayarak son maaş dizisini oluşturur.",
+              "turkce": "Toplama",
+              "amac": "Sentetik veriye varyasyon eklemek."
+            }
+          ],
+          "codeContext": "Bu satır, tamamen sabit olmayan, gerçek hayata daha benzeyen sentetik maaş değerleri oluşturur."
+        },
+        {
+          "lineNumber": 5,
+          "code": "}",
+          "lineExplanation": "Sözlük tanımını kapatır.",
+          "tokens": [
+            {
+              "token": "}",
+              "explanation": "Açılmış sözlük tanımını kapatır.",
+              "turkce": "Kapanış",
+              "amac": "Yapı tanımını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, maaş veri kaynağının alan tanımını tamamlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "pd.DataFrame(data1).head()",
+          "lineExplanation": "Oluşturulan maaş sözlüğünü geçici olarak tabloya çevirip ilk 5 satırı gösterir.",
+          "tokens": [
+            {
+              "token": "pd.DataFrame(data1)",
+              "explanation": "Sözlüğü tabloya dönüştürür.",
+              "turkce": "DataFrame",
+              "amac": "Sözlük yapısını satır-sütun biçiminde görmek."
+            },
+            {
+              "token": "head()",
+              "explanation": "İlk 5 satırı gösterir.",
+              "turkce": "Önizleme",
+              "amac": "Üretilen veri yapısını hızlıca doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, birazdan birleştireceğimiz maaş kaynağının gerçekten beklenen sütunlarla üretildiğini önizleme çıktısıyla doğrular."
+        }
+      ],
+      "expectedOutput": "ID         Maas\n0   1  1024.962496\n1   2   735.181640\n2   3   278.829732\n3   4   648.870075\n4   5   424.488491"
+    },
+    {
+      "id": "veri_birlestir-b003",
+      "title": "Kategori Verisi Sözlüğünü Oluşturma",
+      "blockExplanation": "ID ve kategori değerlerinden oluşan ilk veri kaynağını kurar ve önizler.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "data = {\"ID\": range(1, 41),",
+          "lineExplanation": "İlk veri kaynağını tutacak sözlüğü başlatır ve 1-40 arası ID alanını ekler.",
+          "tokens": [
+            {
+              "token": "range(1, 41)",
+              "explanation": "1'den 40'a kadar ID üretir.",
+              "turkce": "ID Aralığı",
+              "amac": "Kategori veri kaynağındaki kayıtları numaralamak."
+            }
+          ],
+          "codeContext": "Bu satır, kategori verisini içerecek ilk kaynağın anahtar sütununu sözlük yapısında oluşturmaya başlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    \"Kategori\": np.random.choice([\"A\", \"B\", \"C\", \"D\", \"E\"], size=40),",
+          "lineExplanation": "A-E kategorilerinden 40 adet rastgele sınıf etiketi üretir.",
+          "tokens": [
+            {
+              "token": "np.random.choice([...], size=40)",
+              "explanation": "A-E kategorilerinden 40 seçim yapar.",
+              "turkce": "Rastgele Kategori",
+              "amac": "Her ID'ye bir kategori etiketi atamak."
+            }
+          ],
+          "codeContext": "Bu satır, her ID için bir kategori atanmasını sağlayan sentetik sınıf bilgilerini üretir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "}",
+          "lineExplanation": "Kategori sözlüğünü kapatır.",
+          "tokens": [
+            {
+              "token": "}",
+              "explanation": "Açılmış sözlük tanımını kapatır.",
+              "turkce": "Kapanış",
+              "amac": "Yapı tanımını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, ilk veri kaynağının alan tanımını tamamlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "pd.DataFrame(data).head()",
+          "lineExplanation": "Kategori sözlüğünü tabloya çevirip ilk 5 satırı gösterir.",
+          "tokens": [
+            {
+              "token": "pd.DataFrame(data)",
+              "explanation": "Kategori sözlüğünü tabloya çevirir.",
+              "turkce": "DataFrame",
+              "amac": "Kategori veri kaynağını tablo halinde görmek."
+            },
+            {
+              "token": "head()",
+              "explanation": "İlk 5 satırı gösterir.",
+              "turkce": "Önizleme",
+              "amac": "İlk kategori kayıtlarını doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, kategori veri kaynağının beklenen iki sütunla üretildiğini örnek kayıtlar üzerinden doğrular."
+        }
+      ],
+      "expectedOutput": "ID Kategori\n0   1        A\n1   2        E\n2   3        A\n3   4        A\n4   5        E"
+    },
+    {
+      "id": "veri_birlestir-b004",
+      "title": "DataFrame'leri Üretme ve Önizleme",
+      "blockExplanation": "Oluşturulan iki sözlüğü DataFrame'e çevirip ilk satırlarını birlikte inceler.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df1 = pd.DataFrame(data)",
+          "lineExplanation": "Kategori sözlüğünü `df1` isimli DataFrame'e dönüştürür.",
+          "tokens": [
+            {
+              "token": "pd.DataFrame(data)",
+              "explanation": "Kategori sözlüğünü `df1` DataFrame'ine dönüştürür.",
+              "turkce": "DataFrame Üretimi",
+              "amac": "İlk tabloyu oluşturmak."
+            },
+            {
+              "token": "df1",
+              "explanation": "Kategori bilgisini tutan ilk tablo adıdır.",
+              "turkce": "Tablo Adı",
+              "amac": "Birleştirme işlemlerinde ilk kaynak olarak kullanılmak."
+            }
+          ],
+          "codeContext": "Bu satır, ilk veri kaynağını artık Pandas tablosu olarak birleştirme işlemlerine uygun hale getirir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df2 = pd.DataFrame(data1)",
+          "lineExplanation": "Maaş sözlüğünü `df2` isimli DataFrame'e dönüştürür.",
+          "tokens": [
+            {
+              "token": "pd.DataFrame(data1)",
+              "explanation": "Maaş sözlüğünü `df2` DataFrame'ine dönüştürür.",
+              "turkce": "DataFrame Üretimi",
+              "amac": "İkinci tabloyu oluşturmak."
+            },
+            {
+              "token": "df2",
+              "explanation": "Maaş bilgisini tutan ikinci tablo adıdır.",
+              "turkce": "Tablo Adı",
+              "amac": "Birleştirme işlemlerinde ikinci kaynak olarak kullanılmak."
+            }
+          ],
+          "codeContext": "Bu satır, ikinci veri kaynağını da tablo formuna getirerek concat ve merge işlemleri için hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df1.head()",
+          "lineExplanation": "Kategori tablosunun ilk 5 satırını gösterir.",
+          "tokens": [
+            {
+              "token": "df1.head()",
+              "explanation": "Kategori tablosunun ilk 5 satırını gösterir.",
+              "turkce": "Önizleme",
+              "amac": "İlk tablonun yapısını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, `df1` içinde ID ve Kategori sütunlarının nasıl yerleştiğini ekranda görünür kılar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "df2.head()",
+          "lineExplanation": "Maaş tablosunun ilk 5 satırını gösterir.",
+          "tokens": [
+            {
+              "token": "df2.head()",
+              "explanation": "Maaş tablosunun ilk 5 satırını gösterir.",
+              "turkce": "Önizleme",
+              "amac": "İkinci tablonun yapısını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, `df2` içinde ID ve Maas sütunlarının ilk kayıtlarını incelememizi sağlar."
+        }
+      ],
+      "expectedOutput": "ID Kategori\n0   1        A\n1   2        E\n2   3        A\n3   4        A\n4   5        E\n\n   ID         Maas\n0   1  1024.962496\n1   2   735.181640\n2   3   278.829732\n3   4   648.870075\n4   5   424.488491"
+    },
+    {
+      "id": "veri_birlestir-b005",
+      "title": "Dikey Birleştirme: Farklı Şemalar",
+      "blockExplanation": "Kolonları farklı iki tabloyu alt alta ekler; ortak olmayan kolonlarda boşluk oluştuğunu gösterir.",
       "lines": [
         {
           "lineNumber": 1,
           "code": "df_concat = pd.concat([df1, df2], axis=0, ignore_index=True)",
-          "lineExplanation": "df1 (40 satır) ve df2 (50 satır) DataFrame'lerini alt alta birleştirir. Farklı sütunlarda NaN değerleri oluşur. ignore_index=True ile 0'dan başlayan yeni indeks atanır.",
+          "lineExplanation": "df1 ve df2 tablolarını satır ekseninde alt alta ekleyip yeni indeksi baştan oluşturur.",
           "tokens": [
             {
-              "token": "pd.concat()",
-              "explanation": "Birden fazla DataFrame'i birleştiren fonksiyon. axis=0 alt alta (dikey), axis=1 yan yana (yatay) birleştirme yapar.",
-              "turkce": "Fonksiyon/Metot Çağrısı",
-              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
-            },
-            {
-              "token": "[df1, df2]",
-              "explanation": "Birleştirilecek DataFrame'lerin listesi. İkiden fazla DataFrame de listeye eklenebilir.",
-              "turkce": "Veri Seçimi/Dilimleme",
-              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
-            },
-            {
-              "token": "axis=0",
-              "explanation": "Birleştirme yönü. 0 = satır bazında (alt alta), 1 = sütun bazında (yan yana). Varsayılan değer 0'dır.",
-              "turkce": "Atama İşlemi",
-              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+              "token": "pd.concat([df1, df2], axis=0)",
+              "explanation": "İki tabloyu satır ekseninde alt alta ekler.",
+              "turkce": "Dikey Concat",
+              "amac": "Farklı kaynakları tek uzun tabloda toplamak."
             },
             {
               "token": "ignore_index=True",
-              "explanation": "Orijinal indeksleri yok sayar ve 0'dan başlayan yeni ardışık indeks oluşturur. False olsaydı orijinal indeksler korunurdu.",
-              "turkce": "Atama İşlemi",
-              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+              "explanation": "Eski indeksleri atıp yeni sıralı indeks oluşturur.",
+              "turkce": "Yeni İndeks",
+              "amac": "Birleşik tabloda temiz sıra numarası kullanmak."
             }
           ],
-          "codeContext": "'Dikey Birleştirme — concat axis=0' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, farklı şemalı iki tabloyu tek bir büyük tabloya dönüştürür; ortak olmayan sütunlarda NaN oluşmasının temel sebebi budur."
         },
         {
           "lineNumber": 2,
-          "code": "print(df_concat)",
-          "lineExplanation": "Birleştirilmiş DataFrame'i ekrana yazdırır. df1'de olmayan Maas sütununda NaN, df2'de olmayan Kategori sütununda NaN değerleri görülür.",
-          "tokens": [],
-          "codeContext": "'Dikey Birleştirme — concat axis=0' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
-        },
+          "code": "pd.concat([df_concat.head(3), df_concat.tail(3)])",
+          "lineExplanation": "Birleşik tablonun ilk 3 ve son 3 satırını birlikte göstererek üstte kategori, altta maaş tarafını görünür kılar.",
+          "tokens": [
+            {
+              "token": "head(3)",
+              "explanation": "Birleşik tablonun ilk 3 satırını alır.",
+              "turkce": "İlk Kayıtlar",
+              "amac": "Üst taraftaki kategori bölümünü görmek."
+            },
+            {
+              "token": "tail(3)",
+              "explanation": "Birleşik tablonun son 3 satırını alır.",
+              "turkce": "Son Kayıtlar",
+              "amac": "Alt taraftaki maaş bölümünü görmek."
+            },
+            {
+              "token": "pd.concat([...])",
+              "explanation": "İlk ve son bölümü tekrar tek çıktı halinde birleştirir.",
+              "turkce": "Örnek Çıktı Birleştirme",
+              "amac": "Uzun tabloyu kısaltılmış biçimde göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, dikey birleştirme sonrası üst bölümde `Kategori`, alt bölümde `Maas` bulunan iki farklı şemanın tek tabloda nasıl durduğunu örnek satırlarla gösterir."
+        }
+      ],
+      "expectedOutput": "ID Kategori        Maas\n0    1        A         NaN\n1    2        E         NaN\n2    3        A         NaN\n87  48      NaN  490.151220\n88  49      NaN  532.570893\n89  50      NaN  827.271973"
+    },
+    {
+      "id": "veri_birlestir-b006",
+      "title": "Dikey Birleştirme: Aynı Kolon Yapısı",
+      "blockExplanation": "Aynı sütun yapısına sahip iki küçük tabloyu sorunsuz biçimde alt alta birleştirir.",
+      "lines": [
         {
-          "lineNumber": 3,
+          "lineNumber": 1,
           "code": "d1 = pd.DataFrame({'ID': [1, 2, 3], 'Ad': ['Ali', 'Ayşe', 'Mehmet'], 'Yaş': [25, 30, 22]})",
-          "lineExplanation": "3 kişilik basit bir DataFrame oluşturur. ID, Ad ve Yaş sütunlarını içerir.",
+          "lineExplanation": "İlk küçük örnek tabloyu ID, Ad ve Yaş sütunlarıyla oluşturur.",
           "tokens": [
             {
               "token": "pd.DataFrame({...})",
-              "explanation": "Sözlükten doğrudan DataFrame oluşturma. Anahtarlar sütun adları, değer listeleri ise satır verileridir.",
-              "turkce": "Kod Sözdizimi",
-              "amac": "Sözdizimsel bir işlemdir."
+              "explanation": "ID, Ad ve Yaş sütunlarından oluşan ilk küçük tabloyu üretir.",
+              "turkce": "Örnek Tablo",
+              "amac": "Aynı şemalı veriyle temiz concat örneği kurmak."
             }
           ],
-          "codeContext": "'Dikey Birleştirme — concat axis=0' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, şeması tamamen aynı olan iki küçük örnek tablodan ilkini üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "d2 = pd.DataFrame({'ID': [4, 5, 6], 'Ad': ['Fatma', 'Hasan', 'Zeynep'], 'Yaş': [27, 24, 29]})",
+          "lineExplanation": "İkinci küçük örnek tabloyu aynı sütun yapısıyla oluşturur.",
+          "tokens": [
+            {
+              "token": "pd.DataFrame({...})",
+              "explanation": "Aynı sütun yapısına sahip ikinci küçük tabloyu üretir.",
+              "turkce": "Örnek Tablo",
+              "amac": "Şema uyumlu ikinci veri kaynağını hazırlamak."
+            }
+          ],
+          "codeContext": "Bu satır, dikey birleştirmede NaN oluşmayan ikinci uyumlu tabloyu üretir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "d_concat = pd.concat([d1, d2], axis=0, ignore_index=True)",
+          "lineExplanation": "İki uyumlu tabloyu satır ekseninde alt alta ekler.",
+          "tokens": [
+            {
+              "token": "pd.concat([d1, d2], axis=0)",
+              "explanation": "İki uyumlu tabloyu alt alta ekler.",
+              "turkce": "Dikey Concat",
+              "amac": "Aynı şemada NaN oluşturmayan birleştirme yapmak."
+            },
+            {
+              "token": "ignore_index=True",
+              "explanation": "Birleşik tabloda indeksleri 0'dan yeniden başlatır.",
+              "turkce": "Yeni İndeks",
+              "amac": "Temiz sıra numarası elde etmek."
+            }
+          ],
+          "codeContext": "Bu satır, kolon yapıları aynı olduğu için eksik sütun oluşturmadan tek bir düzgün tablo elde edilmesini sağlar."
         },
         {
           "lineNumber": 4,
-          "code": "d2 = pd.DataFrame({'ID': [4, 5, 6], 'Ad': ['Fatma', 'Hasan', 'Zeynep'], 'Yaş': [27, 24, 29]})",
-          "lineExplanation": "3 kişilik ikinci bir DataFrame oluşturur. d1 ile aynı sütun yapısına sahiptir; ID'ler 4'ten başlar.",
-          "tokens": [],
-          "codeContext": "'Dikey Birleştirme — concat axis=0' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
-        },
-        {
-          "lineNumber": 5,
-          "code": "d_concat = pd.concat([d1, d2], axis=0, ignore_index=True)",
-          "lineExplanation": "Aynı sütun yapısındaki d1 ve d2'yi alt alta birleştirir. Sütunlar aynı olduğu için NaN oluşmaz, toplam 6 satırlık temiz bir tablo elde edilir.",
+          "code": "d_concat",
+          "lineExplanation": "Birleştirilmiş sonucu tablo olarak gösterir.",
           "tokens": [
             {
-              "token": "ignore_index=True",
-              "explanation": "Her iki DataFrame'in kendi indekslerini sıfırlar ve 0'dan 5'e kadar yeni indeks atar.",
-              "turkce": "Atama İşlemi",
-              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+              "token": "d_concat",
+              "explanation": "Birleştirilmiş küçük tabloyu çıktıda gösterir.",
+              "turkce": "Sonuç Tablosu",
+              "amac": "Uyumlu şemalı concat sonucunu görmek."
             }
           ],
-          "codeContext": "'Dikey Birleştirme — concat axis=0' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
-        },
-        {
-          "lineNumber": 6,
-          "code": "print(d_concat)",
-          "lineExplanation": "Birleştirilmiş 6 satırlık DataFrame'i ekrana yazdırır.",
-          "tokens": [],
-          "codeContext": "'Dikey Birleştirme — concat axis=0' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, alt alta eklenen iki küçük tablonun tek bir 6 satırlık kayıt listesi hâlinde çıktısını verir."
         }
       ],
-      "expectedOutput": "    ID Kategori        Maas\n0    1        E         NaN\n1    2        D         NaN\n...\n39  40        C         NaN\n40   1      NaN  839.776586\n41   2      NaN  220.710968\n...\n89  50      NaN  687.925498\n\n[90 rows x 3 columns]\n\n   ID      Ad  Yaş\n0   1     Ali   25\n1   2    Ayşe   30\n2   3  Mehmet   22\n3   4   Fatma   27\n4   5   Hasan   24\n5   6  Zeynep   29"
+      "expectedOutput": "ID      Ad  Yaş\n0   1     Ali   25\n1   2    Ayşe   30\n2   3  Mehmet   22\n3   4   Fatma   27\n4   5   Hasan   24\n5   6  Zeynep   29"
     },
     {
-      "id": "veri_birlestir-b003",
-      "title": "Yatay Birleştirme — concat axis=1",
-      "blockExplanation": "pd.concat() fonksiyonunda axis=1 kullanılarak DataFrame'ler yan yana (yatay olarak) birleştirilir. Farklı satır sayılarına sahip DataFrame'ler birleştirildiğinde eksik satırlarda NaN oluşur. Sınavlarda axis=0 ve axis=1 arasındaki farkı tablo çizerek göstermeniz istenebilir.",
+      "id": "veri_birlestir-b007",
+      "title": "Yatay Birleştirme",
+      "blockExplanation": "İki tabloyu aynı satır indekslerine göre yan yana getirir.",
       "lines": [
         {
           "lineNumber": 1,
           "code": "df_concat = pd.concat([df1, df2], axis=1)",
-          "lineExplanation": "df1 (40 satır, 2 sütun) ve df2 (50 satır, 2 sütun) yan yana birleştirilir. Toplam 4 sütun oluşur. df1'in 40 satır, df2'nin 50 satır olması nedeniyle 41-50 arası satırlarda df1 sütunlarında NaN oluşur.",
+          "lineExplanation": "df1 ve df2 tablolarını sütun ekseninde yan yana ekler.",
           "tokens": [
             {
               "token": "axis=1",
-              "explanation": "Sütun bazında (yatay) birleştirme yapar. DataFrame'ler yan yana eklenir. Satır sayıları farklıysa kısa olan DataFrame'in eksik satırları NaN ile doldurulur.",
-              "turkce": "Atama İşlemi",
-              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+              "explanation": "Tabloları satır satır yan yana ekler.",
+              "turkce": "Yatay Concat",
+              "amac": "Aynı indeks sırasındaki kolonları aynı satıra getirmek."
+            },
+            {
+              "token": "pd.concat([df1, df2], axis=1)",
+              "explanation": "Kategori ve maaş tablolarını sütun bazında birleştirir.",
+              "turkce": "Yan Yana Birleştirme",
+              "amac": "Kolonları tek satırda görmek."
             }
           ],
-          "codeContext": "'Yatay Birleştirme — concat axis=1' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, aynı sıra numarasındaki satırları bir araya getirerek kategori ve maaş bilgilerini yan yana görmek için yatay birleştirme yapar."
         },
         {
           "lineNumber": 2,
-          "code": "print(df_concat)",
-          "lineExplanation": "Yan yana birleştirilmiş DataFrame'i ekrana yazdırır. Her iki DataFrame'de de ID sütunu olduğundan çıktıda iki ayrı ID sütunu görülür.",
-          "tokens": [],
-          "codeContext": "'Yatay Birleştirme — concat axis=1' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "code": "df_concat.head(8)",
+          "lineExplanation": "Yatay birleştirme sonucunun ilk 8 satırını gösterir.",
+          "tokens": [
+            {
+              "token": "head(8)",
+              "explanation": "Yatay birleştirme sonucunun ilk 8 satırını gösterir.",
+              "turkce": "İlk 8 Satır",
+              "amac": "Yan yana gelen kolon yapısını örnek satırlarda görmek."
+            }
+          ],
+          "codeContext": "Bu satır, ID-Kategori ve ID-Maas sütunlarının aynı satırda yan yana geldiğini örnek kayıtlarla görünür kılar."
         }
       ],
-      "expectedOutput": "      ID Kategori  ID        Maas\n0    1.0        E   1  839.776586\n1    2.0        D   2  220.710968\n2    3.0        A   3  375.617165\n...\n39  40.0        C  40  361.688288\n40   NaN      NaN  41  595.493938\n41   NaN      NaN  42  767.194880\n...\n49   NaN      NaN  50  687.925498\n\n[50 rows x 4 columns]"
+      "expectedOutput": "ID Kategori  ID         Maas\n0  1.0        A   1  1024.962496\n1  2.0        E   2   735.181640\n2  3.0        A   3   278.829732\n3  4.0        A   4   648.870075\n4  5.0        E   5   424.488491\n5  6.0        D   6   868.420116\n6  7.0        E   7   790.326175\n7  8.0        B   8   722.056417"
     },
     {
-      "id": "veri_birlestir-b004",
-      "title": "Merge ile Birleştirme",
-      "blockExplanation": "pd.merge() fonksiyonu SQL'deki JOIN işlemine benzer şekilde iki DataFrame'i ortak bir sütun (anahtar) üzerinden birleştirir. Varsayılan olarak inner join yapar, yani sadece her iki tabloda da eşleşen satırları döndürür. Sınavlarda merge ile concat arasındaki fark ve join türleri (inner, left, right, outer) sıkça sorulur.",
+      "id": "veri_birlestir-b008",
+      "title": "Merge ile Ortak Anahtar Üzerinden Birleştirme",
+      "blockExplanation": "İki tabloyu ortak ID alanı üzerinden inner join mantığıyla birleştirir.",
       "lines": [
         {
           "lineNumber": 1,
           "code": "df_merge = pd.merge(df1, df2, on=\"ID\")",
-          "lineExplanation": "df1 ve df2'yi ID sütunu üzerinden birleştirir. Varsayılan olarak inner join uygulanır: sadece her iki DataFrame'de de bulunan ID değerleri (1-40) sonuca dahil edilir.",
+          "lineExplanation": "df1 ve df2 tablolarını ortak `ID` sütunu üzerinden eşleştirir.",
           "tokens": [
             {
-              "token": "pd.merge()",
-              "explanation": "SQL JOIN benzeri birleştirme yapar. İki DataFrame'i ortak sütun üzerinden eşleştirir. concat'ten farklı olarak veriyi mantıksal ilişki üzerinden birleştirir.",
-              "turkce": "Fonksiyon/Metot Çağrısı",
-              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+              "token": "pd.merge(df1, df2, on=\"ID\")",
+              "explanation": "İki tabloyu ortak `ID` anahtarı üzerinden eşleştirir.",
+              "turkce": "Merge",
+              "amac": "Aynı kimliğe ait kategori ve maaş bilgilerini tek satırda toplamak."
             },
             {
               "token": "on=\"ID\"",
-              "explanation": "Birleştirme anahtarı olarak kullanılacak sütun adı. Her iki DataFrame'de de bu sütun bulunmalıdır.",
-              "turkce": "Atama İşlemi",
-              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+              "explanation": "Eşleşmenin yapılacağı ortak sütunu belirtir.",
+              "turkce": "Ortak Anahtar",
+              "amac": "Join işleminin hangi kolon üzerinden kurulacağını seçmek."
             }
           ],
-          "codeContext": "'Merge ile Birleştirme' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, aynı ID'ye sahip kayıtları tek satırda toplayarak SQL'deki inner join mantığına benzer bir birleşim üretir."
         },
         {
           "lineNumber": 2,
-          "code": "print(df_merge)",
-          "lineExplanation": "Birleştirilmiş DataFrame'i yazdırır. df1'den Kategori, df2'den Maas sütunu gelir. Ortak anahtar olan ID sütunu tek sütun olarak kalır. df2'deki 41-50 arası ID'ler df1'de olmadığı için sonuçta yer almaz (inner join).",
-          "tokens": [],
-          "codeContext": "'Merge ile Birleştirme' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "code": "df_merge.head(10)",
+          "lineExplanation": "Merge sonucunun ilk 10 eşleşen kaydını gösterir.",
+          "tokens": [
+            {
+              "token": "head(10)",
+              "explanation": "Merge sonucunun ilk 10 kaydını gösterir.",
+              "turkce": "İlk 10 Satır",
+              "amac": "Eşleşmiş kayıtları örnek olarak görmek."
+            }
+          ],
+          "codeContext": "Bu satır, kategori ve maaş bilgisinin aynı ID altında nasıl birleştiğini örnek kayıtlar üzerinden görünür kılar."
         }
       ],
-      "expectedOutput": "    ID Kategori        Maas\n0    1        E  839.776586\n1    2        D  220.710968\n2    3        A  375.617165\n3    4        A  411.945053\n4    5        D  300.919498\n...\n35  36        B  476.218498\n36  37        B  649.498541\n37  38        A  697.753498\n38  39        E  523.476498\n39  40        C  361.688288\n\n[40 rows x 3 columns]"
+      "expectedOutput": "ID Kategori         Maas\n0   1        A  1024.962496\n1   2        E   735.181640\n2   3        A   278.829732\n3   4        A   648.870075\n4   5        E   424.488491\n5   6        D   868.420116\n6   7        E   790.326175\n7   8        B   722.056417\n8   9        C  1006.596126\n9  10        C   852.524827"
     },
     {
-      "id": "veri_birlestir-b005",
-      "title": "Sütun Silme — drop",
-      "blockExplanation": "DataFrame'den gereksiz veya sabit değer içeren sütunları drop() metodu ile kaldırabiliriz. Veri ön işleme aşamasında, model performansına katkı sağlamayan sütunların temizlenmesi önemlidir. Sınavlarda drop fonksiyonunun axis parametresi ve inplace kullanımı sorulabilir.",
+      "id": "veri_birlestir-b009",
+      "title": "Silinecek Sütunları İçeren Örnek Tabloyu Kurma",
+      "blockExplanation": "Gereksiz sütun temizliğini göstermek için küçük bir örnek tablo üretir.",
       "lines": [
         {
           "lineNumber": 1,
           "code": "df = pd.DataFrame({",
-          "lineExplanation": "Yeni bir DataFrame oluşturma işleminin başlangıcı. Sözlük yapısı ile sütun adları ve verileri tanımlanır.",
-          "tokens": [],
-          "codeContext": "'Sütun Silme — drop' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "lineExplanation": "Yeni bir örnek DataFrame oluşturacak sözlük tanımını başlatır.",
+          "tokens": [
+            {
+              "token": "pd.DataFrame({",
+              "explanation": "Yeni örnek tablonun sözlük tabanlı DataFrame tanımını başlatır.",
+              "turkce": "DataFrame Tanımı",
+              "amac": "Sütun silme örneği için küçük tablo kurmak."
+            }
+          ],
+          "codeContext": "Bu satır, birazdan gereksiz sütun sileceğimiz küçük örnek tablonun temel yapısını açar."
         },
         {
           "lineNumber": 2,
           "code": "    \"ID\": [101, 102, 103, 104],",
-          "lineExplanation": "ID sütununu 101'den 104'e kadar değerlerle oluşturur.",
-          "tokens": [],
-          "codeContext": "'Sütun Silme — drop' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "lineExplanation": "Örnek tablodaki ID sütununun değerlerini tanımlar.",
+          "tokens": [
+            {
+              "token": "\"ID\": [101, 102, 103, 104]",
+              "explanation": "Örnek tablonun kimlik sütunu değerlerini tanımlar.",
+              "turkce": "ID Sütunu",
+              "amac": "Her kayda benzersiz kimlik vermek."
+            }
+          ],
+          "codeContext": "Bu satır, her kayda benzersiz kimlik sağlayacak ID alanını örnek tabloya ekler."
         },
         {
           "lineNumber": 3,
           "code": "    \"Ad\": [\"Ali\", \"Ayşe\", \"Mehmet\", \"Fatma\"],",
-          "lineExplanation": "Ad sütununu 4 kişinin adlarıyla oluşturur.",
-          "tokens": [],
-          "codeContext": "'Sütun Silme — drop' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "lineExplanation": "Örnek tablodaki isim sütununu tanımlar.",
+          "tokens": [
+            {
+              "token": "\"Ad\": [...]",
+              "explanation": "Örnek tablonun isim sütununu tanımlar.",
+              "turkce": "Ad Sütunu",
+              "amac": "Tabloya metinsel kimlik bilgisi eklemek."
+            }
+          ],
+          "codeContext": "Bu satır, tabloya insan tarafından okunabilir kişi adlarını ekler."
         },
         {
           "lineNumber": 4,
           "code": "    \"Yaş\": [25, 30, 22, 27],",
-          "lineExplanation": "Yaş sütununu tam sayı değerlerle oluşturur.",
-          "tokens": [],
-          "codeContext": "'Sütun Silme — drop' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "lineExplanation": "Örnek tablodaki yaş sütununu tanımlar.",
+          "tokens": [
+            {
+              "token": "\"Yaş\": [25, 30, 22, 27]",
+              "explanation": "Örnek tablonun yaş sütununu tanımlar.",
+              "turkce": "Yaş Sütunu",
+              "amac": "Tabloya sayısal bilgi eklemek."
+            }
+          ],
+          "codeContext": "Bu satır, analizde tutulabilecek sayısal bilgi örneği olarak yaş değerlerini ekler."
         },
         {
           "lineNumber": 5,
           "code": "    \"Sabit_Değişken\": [\"Sabit\", \"Sabit\", \"Sabit\", \"Sabit\"]",
-          "lineExplanation": "Tüm değerleri aynı olan bir sütun oluşturur. Bu tür sabit (constant) sütunlar analiz için bilgi taşımaz.",
+          "lineExplanation": "Her satırda aynı kalan gereksiz sabit sütunu tanımlar.",
           "tokens": [
             {
-              "token": "Sabit_Değişken",
-              "explanation": "Tüm satırlarda aynı değeri alan sütun. Varyansı sıfır olduğu için modele katkı sağlamaz ve genellikle silinir.",
-              "turkce": "Kod Sözdizimi",
-              "amac": "Sözdizimsel bir işlemdir."
+              "token": "\"Sabit_Değişken\": [...]",
+              "explanation": "Her satırda aynı olan sabit sütunu oluşturur.",
+              "turkce": "Sabit Sütun",
+              "amac": "Birazdan silinecek gereksiz kolonu örneklemek."
             }
           ],
-          "codeContext": "'Sütun Silme — drop' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, biraz sonra drop ile kaldırılacak, bilgi taşımayan sabit kolonu tabloya bilerek ekler."
         },
         {
           "lineNumber": 6,
           "code": "})",
-          "lineExplanation": "DataFrame oluşturma sözlüğünün ve pd.DataFrame() çağrısının kapanış parantezleri.",
-          "tokens": [],
-          "codeContext": "'Sütun Silme — drop' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "lineExplanation": "DataFrame sözlük tanımını kapatır.",
+          "tokens": [
+            {
+              "token": "})",
+              "explanation": "DataFrame sözlük tanımını kapatır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, örnek tablonun alan listesini tamamlar."
+            }
+          ],
+          "codeContext": "Bu satır, örnek tablonun alan listesini tamamlar."
         },
         {
           "lineNumber": 7,
-          "code": "print(df)",
-          "lineExplanation": "Oluşturulan 4 satır 4 sütunluk DataFrame'i ekrana yazdırır.",
-          "tokens": [],
-          "codeContext": "'Sütun Silme — drop' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
-        },
-        {
-          "lineNumber": 8,
-          "code": "df = df.drop(columns=[\"ID\", \"Sabit_Değişken\"])",
-          "lineExplanation": "df'den ID ve Sabit_Değişken sütunlarını siler. Sonucu tekrar df'ye atayarak değişikliği kalıcı hale getirir. Geriye sadece Ad ve Yaş sütunları kalır.",
+          "code": "df",
+          "lineExplanation": "Oluşturulan örnek tabloyu ekrana basar.",
           "tokens": [
             {
-              "token": "drop()",
-              "explanation": "DataFrame'den satır veya sütun silmek için kullanılır. columns parametresi ile sütun, index parametresi ile satır silinir. Orijinal DataFrame'i değiştirmez, yeni bir kopya döndürür.",
-              "turkce": "Fonksiyon/Metot Çağrısı",
-              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
-            },
-            {
-              "token": "columns=[\"ID\", \"Sabit_Değişken\"]",
-              "explanation": "Silinecek sütunların listesi. Birden fazla sütun bir liste içinde belirtilir. Alternatif olarak axis=1 ile de sütun silinebilir: df.drop([\"ID\"], axis=1).",
-              "turkce": "Atama İşlemi",
-              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+              "token": "df",
+              "explanation": "O anki `df` DataFrame'ini notebook çıktısı olarak gösterir.",
+              "turkce": "Tablo Çıktısı",
+              "amac": "İşlem öncesi veya sonrası tabloyu görmek."
             }
           ],
-          "codeContext": "'Sütun Silme — drop' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
-        },
-        {
-          "lineNumber": 9,
-          "code": "print(df)",
-          "lineExplanation": "Sütunlar silindikten sonraki DataFrame'i yazdırır. Artık sadece Ad ve Yaş sütunları görülür.",
-          "tokens": [],
-          "codeContext": "'Sütun Silme — drop' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, gereksiz sütunlar henüz silinmeden önce ham tablonun nasıl göründüğünü çıktı olarak gösterir."
         }
       ],
-      "expectedOutput": "    ID      Ad  Yaş Sabit_Değişken\n0  101     Ali   25          Sabit\n1  102    Ayşe   30          Sabit\n2  103  Mehmet   22          Sabit\n3  104   Fatma   27          Sabit\n\n       Ad  Yaş\n0     Ali   25\n1    Ayşe   30\n2  Mehmet   22\n3   Fatma   27"
+      "expectedOutput": "ID      Ad  Yaş Sabit_Değişken\n0  101     Ali   25          Sabit\n1  102    Ayşe   30          Sabit\n2  103  Mehmet   22          Sabit\n3  104   Fatma   27          Sabit"
+    },
+    {
+      "id": "veri_birlestir-b010",
+      "title": "drop ile Gereksiz Sütunları Silme",
+      "blockExplanation": "Bilgi taşımayan sütunları drop ile kaldırır ve temiz sonucu gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df = df.drop(columns=[\"ID\", \"Sabit_Değişken\"])",
+          "lineExplanation": "ID ve Sabit_Değişken sütunlarını tablodan kaldırır.",
+          "tokens": [
+            {
+              "token": "drop(columns=[\"ID\", \"Sabit_Değişken\"])",
+              "explanation": "Belirtilen iki sütunu tablodan kaldırır.",
+              "turkce": "Sütun Silme",
+              "amac": "Gereksiz bilgi taşıyan kolonları temizlemek."
+            },
+            {
+              "token": "columns=[...]",
+              "explanation": "Silinecek sütunların adlarını açıkça belirtir.",
+              "turkce": "Hedef Kolonlar",
+              "amac": "Hangi alanların tablodan çıkarılacağını seçmek."
+            }
+          ],
+          "codeContext": "Bu satır, analiz için gereksiz görülen kimlik ve sabit bilgi sütunlarını silerek daha sade bir tablo bırakır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df",
+          "lineExplanation": "Sadece anlamlı sütunların kaldığı son tabloyu gösterir.",
+          "tokens": [
+            {
+              "token": "df",
+              "explanation": "O anki `df` DataFrame'ini notebook çıktısı olarak gösterir.",
+              "turkce": "Tablo Çıktısı",
+              "amac": "İşlem öncesi veya sonrası tabloyu görmek."
+            }
+          ],
+          "codeContext": "Bu satır, drop işlemi sonrası elde kalan Ad ve Yaş sütunlarını nihai çıktı olarak görünür kılar."
+        }
+      ],
+      "expectedOutput": "Ad  Yaş\n0     Ali   25\n1    Ayşe   30\n2  Mehmet   22\n3   Fatma   27"
     }
   ]
 }

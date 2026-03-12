@@ -7,374 +7,724 @@
   ],
   "blocks": [
     {
-      "id": "vtam-b001",
-      "title": "Kütüphaneler ve Veri Yükleme",
-      "blockExplanation": "Bu blok temel veri bilimi kütüphanelerini yükler ve CSV dosyasını okur. .copy() ile orijinal verinin bir kopyası alınır ki ileride yapılacak değişiklikler ham veriyi bozmasın. Ardından eksik değer içeren sütunlar tespit edilir.",
+      "id": "veri_tamamlama-b001",
+      "title": "Kütüphaneleri ve Veri Setini Hazırlama",
+      "blockExplanation": "Eksik veri örneğini çalıştırmak için gerekli kütüphaneleri içe aktarır, veri setini okur ve ilk satırlarıyla kontrol eder.",
       "lines": [
         {
           "lineNumber": 1,
           "code": "import pandas as pd",
-          "lineExplanation": "Pandas kütüphanesini içe aktarır.",
-          "tokens": [],
-          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+          "lineExplanation": "Pandas kütüphanesini içe aktarır; tablo biçimindeki verileri DataFrame olarak yöneteceğiz.",
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "DataFrame tabanlı veri okuma ve tablo işlemleri için kullanılan ana kütüphanedir.",
+              "turkce": "Veri Analizi",
+              "amac": "CSV dosyalarını tabloya almak ve sütun bazlı işlem yapmak.",
+              "detay": "Bu projedeki çoğu veri manipülasyonu pandas üzerinden yürür."
+            }
+          ],
+          "codeContext": "Bu satır, örnek veri setini CSV dosyasından okuyup sütun bazlı işlemler yapabilmek için gerekli ana aracı yükler."
         },
         {
           "lineNumber": 2,
           "code": "import numpy as np",
-          "lineExplanation": "NumPy kütüphanesini içe aktarır. Matematiksel işlemler için.",
-          "tokens": [],
-          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+          "lineExplanation": "NumPy kütüphanesini içe aktarır; eksik veri doldurma işlemlerinde sayısal hesaplar için kullanılacaktır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "Sayısal hesaplama ve log gibi matematiksel işlemler için kullanılan kütüphanedir.",
+              "turkce": "Sayısal Hesaplama",
+              "amac": "Log dönüşümü ve rastgele üretim yapmak.",
+              "detay": "Bu satır farklı bloklarda aynı kütüphaneyi farklı amaçlarla kullanır."
+            }
+          ],
+          "codeContext": "Bu satır, özellikle ortalama ve NaN tabanlı işlemlerde kullanılacak sayısal altyapıyı hazırlar."
         },
         {
           "lineNumber": 3,
           "code": "import seaborn as sns",
-          "lineExplanation": "Seaborn görselleştirme kütüphanesini içe aktarır.",
+          "lineExplanation": "Seaborn kütüphanesini içe aktarır; birazdan eksik veri matrisini görselleştirmede kullanılacaktır.",
           "tokens": [
             {
               "token": "seaborn",
-              "explanation": "Matplotlib üzerine inşa edilmiş istatistiksel grafik kütüphanesi. Daha estetik grafikler üretir.",
-              "turkce": "İstatistiksel Görselleştirme",
-              "amac": "Daha estetik ve istatistiksel odaklı karmaşık grafikleri tek satır kodla çizebilmek.",
-              "detay": "Matplotlib üzerine inşa edilmiştir. Özellikle ısı haritaları (heatmap), dağılım matrisleri (pairplot) ve kategorik veri çizimleri için idealdir."
+              "explanation": "İstatistiksel grafik üretimini kolaylaştıran görselleştirme kütüphanesidir.",
+              "turkce": "Görselleştirme",
+              "amac": "Heatmap ve diğer grafiklerde daha hızlı ve estetik çıktı üretmek.",
+              "detay": "Matplotlib üzerine kurulu çalışır."
             }
           ],
-          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+          "codeContext": "Bu satır, eksik hücre desenini grafik olarak gösterebilmek için görselleştirme aracını hazırlar."
         },
         {
           "lineNumber": 4,
           "code": "hitters = pd.read_csv(\"example_dataset.csv\")",
-          "lineExplanation": "CSV dosyasını okur ve hitters değişkenine atar.",
-          "tokens": [],
-          "codeContext": "Veri bilimi sürecinin ilk adımı olan 'Veri Toplama ve Yükleme' aşamasıdır."
+          "lineExplanation": "example_dataset.csv dosyasını okuyup ham tabloyu `hitters` değişkenine alır.",
+          "tokens": [
+            {
+              "token": "pd.read_csv(\"example_dataset.csv\")",
+              "explanation": "example_dataset.csv dosyasını okuyup tablo biçiminde belleğe alır.",
+              "turkce": "CSV Okuma",
+              "amac": "Yerel veri setini DataFrame olarak çalışmaya hazırlamak.",
+              "detay": "Dosya yolundaki veri fiziksel diskten okunur ve belleğe yüklenir."
+            },
+            {
+              "token": "hitters",
+              "explanation": "Okunan ham veri setini tutan değişken adıdır.",
+              "turkce": "Değişken",
+              "amac": "Ham veri ile çalışma kopyasını ayırmak.",
+              "detay": "Bir sonraki satırda bu veri kopyalanır."
+            }
+          ],
+          "codeContext": "Bu satır, yerel veri setini belleğe çekerek eksik veri örneğinin üzerinde çalışılacak kaynak tabloyu oluşturur."
         },
         {
           "lineNumber": 5,
           "code": "df = hitters.copy()",
-          "lineExplanation": "Orijinal veriyi bozmamak için bağımsız bir kopya oluşturur.",
+          "lineExplanation": "Orijinal tabloyu bozmamak için `hitters` DataFrame'inin bağımsız bir kopyasını `df` içine alır.",
           "tokens": [
             {
-              "token": ".copy()",
-              "explanation": "Deep copy. Orijinal DataFrame'den bağımsız yeni bir DataFrame oluşturur. Üzerinde yapılan değişiklikler orijinali etkilemez.",
-              "turkce": "Fonksiyon/Metot Çağrısı",
-              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+              "token": "hitters.copy()",
+              "explanation": "Ham DataFrame'in bağımsız bir kopyasını üretir.",
+              "turkce": "Kopyalama",
+              "amac": "Orijinal veri setini bozmadan yeni çalışma alanı oluşturmak.",
+              "detay": "Kopya alınmazsa aynı obje üzerinde değişiklik yapılabilir."
+            },
+            {
+              "token": "df",
+              "explanation": "Üzerinde tüm tamamlama yöntemlerini deneyeceğimiz çalışma DataFrame'idir.",
+              "turkce": "Çalışma Tablosu",
+              "amac": "Temel işlem tablosu olarak kullanılmak."
             }
           ],
-          "codeContext": "'Kütüphaneler ve Veri Yükleme' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, sonraki doldurma denemelerinde ham veri setini koruyup çalışma kopyası üzerinde ilerlemeyi sağlar."
         },
         {
           "lineNumber": 6,
-          "code": "missing_columns = df.columns[df.isnull().sum() > 0]",
-          "lineExplanation": "Eksik değer içeren sütunların isimlerini bulur ve bir listeye atar.",
+          "code": "df.head()",
+          "lineExplanation": "Veri setinin ilk 5 satırını göstererek sütunları ve ilk eksik değer örneklerini görünür kılar.",
           "tokens": [
             {
-              "token": "df.isnull().sum()",
-              "explanation": "Her sütundaki NaN sayısını hesaplar. isnull() True/False üretir, sum() True'ları (1) toplar.",
-              "turkce": "Fonksiyon/Metot Çağrısı",
-              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
-            },
+              "token": "head()",
+              "explanation": "Tablonun ilk 5 satırını gösterir.",
+              "turkce": "Önizleme",
+              "amac": "Veri setinin ilk görünümünü hızlıca kontrol etmek.",
+              "detay": "Varsayılan olarak ilk 5 kayıt döner."
+            }
+          ],
+          "codeContext": "Bu satır, daha işleme başlamadan veri setinin yapısını hızlıca gözle doğrulamamızı sağlar."
+        }
+      ],
+      "expectedOutput": "ID Kategori   Gelir   Gider     Kar  Memnuniyet\n0   1        D  5099.0  8392.0  1369.0           5\n1   2        E  8278.0  8986.0  3730.0           5\n2   3        C  2200.0  6353.0 -1738.0           3\n3   4        E  7959.0  5779.0     NaN           4\n4   5        E  6875.0  1663.0  4287.0           1"
+    },
+    {
+      "id": "veri_tamamlama-b002",
+      "title": "Eksik Değer İçeren Sütunları Belirleme",
+      "blockExplanation": "Eksik değer bulunan sütun isimlerini tek yerde toplayarak sonraki doldurma yöntemlerinde yeniden kullanır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "missing_columns = df.columns[df.isnull().sum() > 0]",
+          "lineExplanation": "En az bir NaN içeren sütun adlarını filtreleyip `missing_columns` dizisine toplar.",
+          "tokens": [
             {
-              "token": "> 0",
-              "explanation": "Eksik değer sayısı 0'dan büyük olan sütunları filtreler.",
-              "turkce": "Koşullu Filtreleme",
-              "amac": "Belirtilen koşulun doğru (True) veya yanlış (False) olmasını sınar."
+              "token": "df.isnull().sum() > 0",
+              "explanation": "Her sütunda en az bir eksik değer olup olmadığını boole olarak test eder.",
+              "turkce": "Eksik Filtre",
+              "amac": "Sorunlu kolonları tespit etmek.",
+              "detay": "NaN sayısı 0'dan büyük olan sütunlar seçilir."
             },
             {
               "token": "df.columns[...]",
-              "explanation": "Boolean maskeyle sütun isimlerini filtreler. Sadece koşula uyan sütun isimleri döner.",
-              "turkce": "Veri Seçimi/Dilimleme",
-              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+              "explanation": "Koşulu sağlayan sütun adlarını kolon indeksinden seçer.",
+              "turkce": "Sütun Seçimi",
+              "amac": "Eksik veri içeren kolon isimlerini listelemek.",
+              "detay": "Bu veri setinde Gelir, Gider ve Kar sütunları döner."
+            },
+            {
+              "token": "missing_columns",
+              "explanation": "Bulunan problemli sütun adlarını tutan değişkendir.",
+              "turkce": "Kolon Listesi",
+              "amac": "Doldurma döngülerinde aynı sütunları yeniden kullanmak."
             }
           ],
-          "codeContext": "'Kütüphaneler ve Veri Yükleme' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, eksik veri problemi olan kolonları tek hamlede çıkararak sonraki döngülerde aynı sütun listesini kullanmamızı sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "missing_columns",
+          "lineExplanation": "Bulunan eksik sütun listesini notebook çıktısı olarak gösterir.",
+          "tokens": [
+            {
+              "token": "missing_columns",
+              "explanation": "Eksik veri taşıyan sütun adlarının listesini çıktı olarak gösterir.",
+              "turkce": "Kolon Listesi",
+              "amac": "Hangi sütunlarda işlem yapılacağını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, hangi kolonlarda doldurma yapılacağını açıkça doğrular; bu veri setinde Gelir, Gider ve Kar sütunları görünür."
         }
       ],
-      "expectedOutput": "(Veri seti yüklendi, eksik sütunlar tespit edildi)"
+      "expectedOutput": "Index(['Gelir', 'Gider', 'Kar'], dtype='object')"
     },
     {
-      "id": "vtam-b002",
-      "title": "Eksik Veri Analizi",
-      "blockExplanation": "Veri setinin genel yapısını ve eksik değerlerin dağılımını inceler. info() sütun tiplerini ve dolu kayıt sayılarını gösterir. isnull().sum() her sütundaki eksik sayısını verir. any(axis=1) ile eksik değer içeren satırlar filtrelenir.",
+      "id": "veri_tamamlama-b003",
+      "title": "info() ile Veri Yapısını İnceleme",
+      "blockExplanation": "Sütun tiplerini, dolu hücre sayılarını ve bellek kullanımını yapısal olarak okur.",
       "lines": [
         {
           "lineNumber": 1,
           "code": "df.info()",
-          "lineExplanation": "DataFrame'in özet bilgisini gösterir: sütun isimleri, veri tipleri, dolu (non-null) kayıt sayıları ve bellek kullanımı.",
+          "lineExplanation": "DataFrame'in tüm sütunları için veri tipi, non-null sayısı ve bellek kullanımını özetler.",
           "tokens": [
             {
               "token": "info()",
-              "explanation": "DataFrame hakkında teknik özet verir. Non-Null Count sütunu eksik olmayan kayıt sayısını gösterir.",
-              "turkce": "Veri Seti Özeti",
-              "amac": "Veri setindeki sütun isimlerini, eksik değer (null) sayısını ve veri tiplerini (int, float, object) tek seferde görmek.",
-              "detay": "Makine öğrenmesi modellemesine geçmeden önce hangi sütunların temizlenmesi veya dönüştürülmesi gerektiğini anlamak için ilk bakılan fonksiyondur."
+              "explanation": "Sütun tipleri, dolu hücre sayıları ve bellek kullanımını tablo özeti olarak verir.",
+              "turkce": "Yapı Özeti",
+              "amac": "Veri setinin şemasını ve eksik yoğunluğunu anlamak.",
+              "detay": "Sayısal ve kategorik kolon ayrımını burada açıkça görürsün."
             }
           ],
-          "codeContext": "'Eksik Veri Analizi' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
-        },
+          "codeContext": "Bu satır, hangi sütunların sayısal, hangilerinin kategorik olduğunu ve eksik değerlerin hangi kolonlarda yoğunlaştığını yapısal olarak görmemizi sağlar."
+        }
+      ],
+      "expectedOutput": "<class 'pandas.core.frame.DataFrame'>\nRangeIndex: 100 entries, 0 to 99\nData columns (total 6 columns):\n #   Column      Non-Null Count  Dtype  \n---  ------      --------------  -----  \n 0   ID          100 non-null    int64  \n 1   Kategori    100 non-null    object \n 2   Gelir       90 non-null     float64\n 3   Gider       90 non-null     float64\n 4   Kar         90 non-null     float64\n 5   Memnuniyet  100 non-null    int64  \ndtypes: float64(3), int64(2), object(1)\nmemory usage: 4.8+ KB"
+    },
+    {
+      "id": "veri_tamamlama-b004",
+      "title": "Eksik Değerli Satırları Listeleme",
+      "blockExplanation": "En az bir eksik değer içeren satırları filtreleyip örnek problemli kayıtları gösterir.",
+      "lines": [
         {
-          "lineNumber": 2,
-          "code": "df[df.isnull().any(axis=1)]",
-          "lineExplanation": "Herhangi bir sütununda eksik değer bulunan satırları gösterir.",
+          "lineNumber": 1,
+          "code": "df[df.isnull().any(axis=1)].head(10)",
+          "lineExplanation": "Satır bazında en az bir NaN bulunan kayıtları seçer ve ilk 10 problemli satırı listeler.",
           "tokens": [
             {
-              "token": "isnull().any(axis=1)",
-              "explanation": "Her satırda en az bir NaN var mı kontrol eder. axis=1 satır bazlı çalışır. En az bir True varsa o satır için True döner.",
-              "turkce": "Fonksiyon/Metot Çağrısı",
-              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+              "token": "df.isnull().any(axis=1)",
+              "explanation": "Bir satırda en az bir NaN varsa o satırı True olarak işaretler.",
+              "turkce": "Satır Filtresi",
+              "amac": "Eksik veri taşıyan kayıtları satır bazında seçmek."
             },
             {
-              "token": "df[...]",
-              "explanation": "Boolean maskeleme. True olan satırları filtreler.",
-              "turkce": "Veri Seçimi/Dilimleme",
-              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+              "token": "head(10)",
+              "explanation": "Seçilen problemli kayıtlardan ilk 10 tanesini gösterir.",
+              "turkce": "İlk 10 Kayıt",
+              "amac": "Çıktıyı kısa ve okunabilir tutmak."
             }
           ],
-          "codeContext": "'Eksik Veri Analizi' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
-        },
+          "codeContext": "Bu satır, eksik veri taşıyan örnek kayıtları tek tek görüp hangi sütunların boş kaldığını satır bağlamında incelememizi sağlar."
+        }
+      ],
+      "expectedOutput": "ID Kategori   Gelir   Gider     Kar  Memnuniyet\n3    4        E  7959.0  5779.0     NaN           4\n5    6        B     NaN  2998.0  4489.0           5\n14  15        D     NaN     NaN  2548.0           5\n29  30        D     NaN  3160.0  1991.0           1\n33  34        A  7134.0     NaN  3539.0           2\n35  36        E     NaN  6855.0  2199.0           3\n40  41        D     NaN  6249.0  3592.0           2\n41  42        A  4790.0  6172.0     NaN           1\n47  48        E  3757.0     NaN  2433.0           3\n50  51        D  8374.0  1202.0     NaN           2"
+    },
+    {
+      "id": "veri_tamamlama-b005",
+      "title": "Sütun Bazında Eksik Değer Sayısı",
+      "blockExplanation": "Her sütunda kaç eksik gözlem bulunduğunu sayar.",
+      "lines": [
         {
-          "lineNumber": 3,
+          "lineNumber": 1,
           "code": "df.isnull().sum()",
-          "lineExplanation": "Her sütundaki toplam eksik (NaN) değer sayısını gösterir.",
+          "lineExplanation": "Her sütundaki NaN hücre sayısını hesaplayıp sütun adıyla birlikte gösterir.",
           "tokens": [
             {
               "token": "isnull()",
-              "explanation": "Her hücre için NaN mı değil mi kontrol eder. NaN ise True döner.",
-              "turkce": "Eksik Değer Kontrolü",
-              "amac": "Verideki hücrelerin boş (NaN/None) olup olmadığını satır satır denetlemek.",
-              "detay": "Her bir veri hücresi için True (boş) veya False (dolu) döndürür. Genellikle sum() ile birlikte kullanılır."
+              "explanation": "Her hücre için boş olup olmadığını True/False olarak üretir.",
+              "turkce": "Eksik Kontrolü",
+              "amac": "NaN hücreleri tespit etmek."
             },
             {
               "token": "sum()",
-              "explanation": "True değerlerini toplar (True=1, False=0). Sonuç: her sütundaki eksik değer sayısı.",
-              "turkce": "Toplama",
-              "amac": "Sayısal verilerin toplamını bulmak. True değerleri 1, False değerleri 0 saydığı için koşullu sayım yapar.",
-              "detay": "isnull().sum() kombinasyonu, her sütunda toplam kaç adet eksik veri olduğunu doğrudan verir."
+              "explanation": "True değerlerini toplayarak sütun bazında eksik sayılarını verir.",
+              "turkce": "Sayıma Çevirme",
+              "amac": "Eksik veri miktarını sayısal olarak özetlemek."
             }
           ],
-          "codeContext": "'Eksik Veri Analizi' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, eksik veri probleminin büyüklüğünü kolon bazında sayısal olarak özetler; hangi sütunda kaç boşluk olduğunu tek tabloda verir."
         }
       ],
-      "expectedOutput": "<class 'pandas.core.frame.DataFrame'>\nRangeIndex: 100 entries, 0 to 99\nData columns (total 6 columns):\n...\n\nID              0\nKategori        5\nGelir           8\nGider           7\nKar             6\nMemnuniyet      4\ndtype: int64"
+      "expectedOutput": "ID             0\nKategori       0\nGelir         10\nGider         10\nKar           10\nMemnuniyet     0\ndtype: int64"
     },
     {
-      "id": "vtam-b003",
-      "title": "Yöntem 1: Global Değişken ile Doldurma",
-      "blockExplanation": "En basit eksik veri doldurma yöntemidir. Tüm eksik hücrelere sabit bir değer (örn: 'Unknown') yazılır. Kategorik veriler için uygundur ama sayısal veriler için uygun değildir çünkü istatistiksel yapıyı bozar.",
+      "id": "veri_tamamlama-b006",
+      "title": "Eksik Veri Matrisi",
+      "blockExplanation": "Eksik ve dolu hücrelerin satırlar boyunca nasıl dağıldığını hem görsel olarak hem de sayısal özetle gösterir.",
+      "plotImage": "veri_tamamlama-b006.png",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "Matplotlib'in pyplot modülünü içe aktarır; eksik veri matrisini çizeceğimiz figürü bununla yöneteceğiz.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "Grafik figürü açma, başlık verme ve ekrana basma işlerini yöneten çizim modülüdür.",
+              "turkce": "Çizim Modülü",
+              "amac": "Eksik veri matrisi gibi görselleri üretmek ve yönetmek.",
+              "detay": "Genelde `plt` takma adıyla kullanılır."
+            }
+          ],
+          "codeContext": "Bu satır, eksik hücre desenini grafik olarak üretebilmek için çizim arayüzünü hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.figure(figsize=(11,5))",
+          "lineExplanation": "Eksik veri matrisinin rahat okunabilmesi için 11x5 boyutunda yeni bir figür açar.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir figür nesnesi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Grafiği önceki çizimlerden bağımsız başlatmak."
+            },
+            {
+              "token": "figsize=(11,5)",
+              "explanation": "Grafik alanının genişlik ve yüksekliğini belirler.",
+              "turkce": "Boyut",
+              "amac": "Matrisin satır ve sütunlarını rahat okunur göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, satır ve sütun desenlerinin sıkışmadan görüntüleneceği çizim alanını oluşturur."
+        },
+        {
+          "lineNumber": 3,
+          "code": "sns.heatmap(df.isnull(), cbar=False, cmap=[\"#83a598\", \"#fbf1c7\"])",
+          "lineExplanation": "DataFrame'deki boşluk haritasını 0-1 mantığında ısı haritasına çevirir; dolu ve eksik hücreleri farklı renklerle boyar.",
+          "tokens": [
+            {
+              "token": "df.isnull()",
+              "explanation": "Boş hücre haritasını True/False matrisine çevirir.",
+              "turkce": "Boşluk Matrisi",
+              "amac": "Eksik veri desenini görsel girdiye dönüştürmek."
+            },
+            {
+              "token": "sns.heatmap(...)",
+              "explanation": "Bu boole matrisini renkli ısı haritası olarak çizer.",
+              "turkce": "Isı Haritası",
+              "amac": "Hangi satır ve sütunlarda boşluk kümelendiğini göstermek."
+            },
+            {
+              "token": "cbar=False",
+              "explanation": "Sağ taraftaki renk ölçeğini gizler.",
+              "turkce": "Renk Ölçeği",
+              "amac": "Grafiği sadeleştirmek."
+            },
+            {
+              "token": "cmap=[\"#83a598\", \"#fbf1c7\"]",
+              "explanation": "Dolu ve boş hücreler için kullanılacak iki rengi belirler.",
+              "turkce": "Renk Paleti",
+              "amac": "Eksik ve dolu alanları gözle ayırmayı kolaylaştırmak."
+            }
+          ],
+          "codeContext": "Bu satır, eksik değerlerin satırlar boyunca kümelenip kümelenmediğini insan gözüyle hemen fark edilebilir bir matrise dönüştürür."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.title(\"Eksik Veri Matrisi\")",
+          "lineExplanation": "Grafiğe eksik veri matrisini anlattığını belirten başlık ekler.",
+          "tokens": [
+            {
+              "token": "title(\"Eksik Veri Matrisi\")",
+              "explanation": "Grafiğe üst başlık ekler.",
+              "turkce": "Başlık",
+              "amac": "Grafiğin neyi gösterdiğini açıkça belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, üretilen görselin neyi gösterdiğini başlıktan doğrudan okunur hale getirir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.xlabel(\"Sütunlar\")",
+          "lineExplanation": "X ekseninin sütunları temsil ettiğini belirtir.",
+          "tokens": [
+            {
+              "token": "xlabel(\"Sütunlar\")",
+              "explanation": "X eksenine sütun bilgisini temsil eden etiketi yazar.",
+              "turkce": "X Etiketi",
+              "amac": "Yatay eksenin kolonlara ait olduğunu göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, matrisin yatay ekseninin kolon adlarına karşılık geldiğini netleştirir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.ylabel(\"Satırlar\")",
+          "lineExplanation": "Y ekseninin satır numaralarını temsil ettiğini belirtir.",
+          "tokens": [
+            {
+              "token": "ylabel(\"Satırlar\")",
+              "explanation": "Y eksenine satır bilgisini temsil eden etiketi yazar.",
+              "turkce": "Y Etiketi",
+              "amac": "Dikey eksenin gözlemleri temsil ettiğini göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, görseldeki her yatay çizginin bir gözleme ait olduğunu açıklar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.show()",
+          "lineExplanation": "Eksik veri matrisi grafiğini ekranda gösterir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+              "turkce": "Grafiği Göster",
+              "amac": "Üretilen figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, az önce hazırlanan ısı haritasını çıktı panelindeki görsel olarak görünür kılar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "df.isnull().sum()",
+          "lineExplanation": "Grafiğin altında ayrıca sütun bazında eksik değer sayısını metinsel çıktı olarak verir.",
+          "tokens": [
+            {
+              "token": "isnull()",
+              "explanation": "Her hücre için boş olup olmadığını True/False olarak üretir.",
+              "turkce": "Eksik Kontrolü",
+              "amac": "NaN hücreleri tespit etmek."
+            },
+            {
+              "token": "sum()",
+              "explanation": "True değerlerini toplayarak sütun bazında eksik sayılarını verir.",
+              "turkce": "Sayıma Çevirme",
+              "amac": "Eksik veri miktarını sayısal olarak özetlemek."
+            }
+          ],
+          "codeContext": "Bu satır, görsel çıktıyı sayısal özetle destekleyerek hangi sütunda kaç eksik bulunduğunu terminal kısmında da gösterir."
+        }
+      ],
+      "expectedOutput": "Grafik çıktısı aşağıda görünür.\n\nID             0\nKategori       0\nGelir         10\nGider         10\nKar           10\nMemnuniyet     0\ndtype: int64"
+    },
+    {
+      "id": "veri_tamamlama-b007",
+      "title": "Yöntem 1: Sabit Metinle Doldurma",
+      "blockExplanation": "Eksik hücreleri ortak bir metin değeriyle doldurur ve değişen satırları gösterir.",
       "lines": [
         {
           "lineNumber": 1,
           "code": "df_global = df.copy()",
-          "lineExplanation": "Orijinal veriyi bozmamak için yeni bir kopya oluşturur. Her yöntem kendi kopyası üzerinde çalışır.",
-          "tokens": [],
-          "codeContext": "'Yöntem 1: Global Değişken ile Doldurma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "lineExplanation": "Orijinal veri setinin yeni bir kopyasını `df_global` adıyla oluşturur.",
+          "tokens": [
+            {
+              "token": "df.copy()",
+              "explanation": "Çalışma tablosunun yeni bir bağımsız kopyasını üretir.",
+              "turkce": "Kopya Alma",
+              "amac": "Sabit metinle doldurma yöntemini diğer yöntemlerden ayırmak."
+            },
+            {
+              "token": "df_global",
+              "explanation": "Sabit metin yöntemi için kullanılacak ayrı çalışma DataFrame'idir.",
+              "turkce": "Yeni Tablo",
+              "amac": "Bu yöntemle oluşan çıktıyı ayrı tutmak."
+            }
+          ],
+          "codeContext": "Bu satır, sabit metinle doldurma yöntemini diğer yöntemlerden bağımsız deneyebilmek için ayrı bir çalışma kopyası üretir."
         },
         {
           "lineNumber": 2,
           "code": "df_global[missing_columns] = df_global[missing_columns].fillna(\"Unknown\")",
-          "lineExplanation": "Eksik değer içeren tüm sütunlardaki NaN'ları 'Unknown' metniyle doldurur.",
+          "lineExplanation": "Eksik bulunan Gelir, Gider ve Kar hücrelerini `Unknown` metniyle doldurur.",
           "tokens": [
             {
-              "token": "fillna()",
-              "explanation": "NaN (boş) değerlerin yerine belirtilen değeri yazar. Orijinal veriyi değiştirmez, yeni bir sonuç döndürür (inplace=True ile değiştirir).",
-              "turkce": "Eksik Veri Doldurma",
-              "amac": "Boş (NaN) olan hücrelere belirli bir değer (örn. sıfır, ortalama veya medyan) atamak.",
-              "detay": "Veri kaybını önlemek için dropna() yerine tercih edilir. Makine öğrenmesi algoritmaları boş değerlerle çalışamadığı için bu adım zorunludur."
-            },
-            {
-              "token": "\"Unknown\"",
-              "explanation": "Eksik değerlerin yerine yazılacak sabit değer. Kategorik veriler için yaygın bir seçimdir.",
-              "turkce": "Kod Sözdizimi",
-              "amac": "Sözdizimsel bir işlemdir."
-            },
-            {
               "token": "df_global[missing_columns]",
-              "explanation": "Sadece eksik değer içeren sütunları seçer. Diğer sütunlara dokunmaz.",
-              "turkce": "Veri Seçimi/Dilimleme",
-              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+              "explanation": "Sadece eksik veri taşıyan Gelir, Gider ve Kar sütunlarını hedefler.",
+              "turkce": "Sütun Dilimi",
+              "amac": "İşlemi sadece problemli kolonlara uygulamak."
+            },
+            {
+              "token": "fillna(\"Unknown\")",
+              "explanation": "Bu sütunlardaki NaN hücreleri `Unknown` metniyle doldurur.",
+              "turkce": "Sabit Metin Doldurma",
+              "amac": "Boşlukları tek tip etiketle görünür hale getirmek.",
+              "detay": "Sayısal kolonlar metin içerdiği için tipleri object'e dönebilir."
             }
           ],
-          "codeContext": "Makine öğrenmesi modelleri null değerleri işleyemediği için yapılan kritik 'Veri Temizleme / Ön İşleme' adımıdır."
+          "codeContext": "Bu satır, NaN görünen hücreleri ortak bir etikete çevirerek artık boşluk yerine açıkça işaretlenmiş değerler bırakır; sayısal sütunlar object tipine kayabilir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df_global[df.isnull().any(axis=1)].head(10)",
+          "lineExplanation": "Orijinalde eksik olan satırları, artık `Unknown` ile doldurulmuş halleriyle birlikte gösterir.",
+          "tokens": [
+            {
+              "token": "df.isnull().any(axis=1)",
+              "explanation": "Orijinal tabloda eksik olan satırları referans olarak seçer.",
+              "turkce": "Orijinal Eksik Satırlar",
+              "amac": "Hangi kayıtların değiştiğini takip etmek."
+            },
+            {
+              "token": "df_global[...]",
+              "explanation": "Seçilen satırların doldurulmuş hâlini yeni tabloda gösterir.",
+              "turkce": "Doldurulmuş Kayıtlar",
+              "amac": "Yöntem sonrası sonuçları örnek satırlarda görmek."
+            }
+          ],
+          "codeContext": "Bu satır, sabit metinle doldurma sonrası problemli kayıtların nasıl değiştiğini somut örnek satırlar üzerinden gösterir."
         }
       ],
-      "expectedOutput": "Global Değişken ile Doldurulmuş Veri:\n(Tüm NaN'lar 'Unknown' ile doldurulmuş tablo)"
+      "expectedOutput": "ID Kategori    Gelir    Gider      Kar  Memnuniyet\n3    4        E   7959.0   5779.0  Unknown           4\n5    6        B  Unknown   2998.0   4489.0           5\n14  15        D  Unknown  Unknown   2548.0           5\n29  30        D  Unknown   3160.0   1991.0           1\n33  34        A   7134.0  Unknown   3539.0           2\n35  36        E  Unknown   6855.0   2199.0           3\n40  41        D  Unknown   6249.0   3592.0           2\n41  42        A   4790.0   6172.0  Unknown           1\n47  48        E   3757.0  Unknown   2433.0           3\n50  51        D   8374.0   1202.0  Unknown           2"
     },
     {
-      "id": "vtam-b004",
+      "id": "veri_tamamlama-b008",
       "title": "Yöntem 2: Ortalama ile Doldurma",
-      "blockExplanation": "Sayısal sütunlardaki eksik değerler, o sütunun ortalamasıyla doldurulur. Bu yöntem verinin genel dağılımını bozmadan eksikleri tamamlar. Ancak aykırı değerler (outlier) varsa ortalama yanıltıcı olabilir; bu durumda medyan tercih edilebilir.",
+      "blockExplanation": "Sayısal sütunlardaki eksikleri ilgili sütunun genel ortalamasıyla tamamlar.",
       "lines": [
         {
           "lineNumber": 1,
           "code": "df_mean = df.copy()",
-          "lineExplanation": "Yeni bir kopya oluşturur.",
-          "tokens": [],
-          "codeContext": "'Yöntem 2: Ortalama ile Doldurma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "lineExplanation": "Orijinal veri setini ortalama ile doldurma deneyi için ayrı bir kopyaya alır.",
+          "tokens": [
+            {
+              "token": "df.copy()",
+              "explanation": "Veri setinin ortalama yöntemi için ayrı kopyasını üretir.",
+              "turkce": "Kopya Alma",
+              "amac": "Ortalama ile doldurma sonucunu bağımsız tutmak."
+            }
+          ],
+          "codeContext": "Bu satır, diğer yöntemleri etkilemeden sadece ortalama tabanlı tamamlama üzerinde çalışılacak yeni bir DataFrame üretir."
         },
         {
           "lineNumber": 2,
           "code": "for col in missing_columns:",
-          "lineExplanation": "Eksik değer içeren her sütun üzerinde döngü başlatır.",
+          "lineExplanation": "Eksik değer taşıyan sütun adlarını tek tek dolaşmaya başlar.",
           "tokens": [
             {
-              "token": "for col in",
-              "explanation": "Döngü. missing_columns listesindeki her sütun ismini sırayla col değişkenine atar.",
-              "turkce": "Kod Sözdizimi",
-              "amac": "Sözdizimsel bir işlemdir."
+              "token": "for col in missing_columns",
+              "explanation": "Eksik veri taşıyan her sütun adı üzerinde sırayla döngü kurar.",
+              "turkce": "Döngü",
+              "amac": "Aynı doldurma mantığını tüm problemli kolonlara uygulamak.",
+              "detay": "Bu veri setinde Gelir, Gider ve Kar sütunları tek tek dolaşılır."
             }
           ],
-          "codeContext": "'Yöntem 2: Ortalama ile Doldurma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, Gelir, Gider ve Kar sütunlarının her biri için aynı doldurma mantığını sırayla uygulayan döngüyü açar."
         },
         {
           "lineNumber": 3,
           "code": "    if df_mean[col].dtype in ['float64', 'int64']:",
-          "lineExplanation": "Sadece sayısal sütunları kontrol eder. Kategorik (object) sütunlarda ortalama hesaplanamaz.",
+          "lineExplanation": "Sadece sayısal tipteki sütunlarda ortalama alma işlemini çalıştırır.",
           "tokens": [
             {
-              "token": "dtype",
-              "explanation": "Sütunun veri tipi. float64 ve int64 sayısal tiplerdir.",
-              "turkce": "Kod Sözdizimi",
-              "amac": "Sözdizimsel bir işlemdir."
+              "token": "df_mean[col].dtype",
+              "explanation": "O an işlenen sütunun veri tipini okur.",
+              "turkce": "Veri Tipi",
+              "amac": "Ortalama alınabilecek sayısal sütunları ayırt etmek."
             },
             {
-              "token": "in ['float64', 'int64']",
-              "explanation": "Veri tipinin bu iki sayısal tipten biri olup olmadığını kontrol eder.",
-              "turkce": "Veri Seçimi/Dilimleme",
-              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+              "token": "['float64', 'int64']",
+              "explanation": "İzin verilen sayısal veri tiplerini belirtir.",
+              "turkce": "Sayısal Tip Listesi",
+              "amac": "Yalnızca numerik kolonlarda ortalama ile doldurma yapmak."
             }
           ],
-          "codeContext": "'Yöntem 2: Ortalama ile Doldurma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, kategorik bir sütunda anlamsız olacak ortalama hesabını engelleyip sadece numerik kolonlarda ilerlemeyi sağlar."
         },
         {
           "lineNumber": 4,
           "code": "        df_mean[col] = df_mean[col].fillna(df_mean[col].mean())",
-          "lineExplanation": "Sütundaki NaN'ları o sütunun ortalamasıyla doldurur.",
+          "lineExplanation": "İlgili sayısal sütundaki NaN hücreleri o sütunun ortalamasıyla doldurur.",
           "tokens": [
             {
-              "token": ".mean()",
-              "explanation": "Sütunun aritmetik ortalamasını hesaplar. NaN değerler otomatik olarak atlanır.",
-              "turkce": "Ortalama Hesaplama",
-              "amac": "Sayısal değerlerin aritmetik ortalamasını alır."
+              "token": "df_mean[col].mean()",
+              "explanation": "İlgili sütunun ortalama değerini hesaplar.",
+              "turkce": "Ortalama Hesabı",
+              "amac": "NaN yerine kullanılacak temsil değeri üretmek."
             },
             {
-              "token": "fillna(df_mean[col].mean())",
-              "explanation": "Eksik değerleri sütunun kendi ortalamasıyla değiştirir.",
-              "turkce": "Ortalama Hesaplama",
-              "amac": "Sayısal değerlerin aritmetik ortalamasını alır."
+              "token": "fillna(...)",
+              "explanation": "Sütundaki boş hücreleri hesaplanan ortalama ile doldurur.",
+              "turkce": "Ortalama ile Doldurma",
+              "amac": "Eksik sayısal değerleri genel eğilime göre tamamlamak."
             }
           ],
-          "codeContext": "Makine öğrenmesi modelleri null değerleri işleyemediği için yapılan kritik 'Veri Temizleme / Ön İşleme' adımıdır."
+          "codeContext": "Bu satır, örneğin Gelir sütunundaki boşlukları Gelir ortalamasıyla, Gider sütunundakileri Gider ortalamasıyla tamamlayarak sütun içi genel eğilimi korur."
+        },
+        {
+          "lineNumber": 5,
+          "code": "df_mean[df.isnull().any(axis=1)].head(10)",
+          "lineExplanation": "Eksik olan satırların ortalama ile doldurulmuş yeni hallerini ilk 10 kayıt için gösterir.",
+          "tokens": [
+            {
+              "token": "df_mean[...]",
+              "explanation": "Ortalama ile doldurulmuş örnek problemli satırları gösterir.",
+              "turkce": "Sonuç Önizleme",
+              "amac": "NaN yerine hangi ortalama değerlerin yazıldığını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, ortalama tabanlı tamamlama sonucunda NaN hücrelerin hangi sayılarla değiştirildiğini doğrudan örnek kayıtlar üzerinde görünür kılar."
         }
       ],
-      "expectedOutput": "Ortalama Değer ile Doldurulmuş Veri:\n(Sayısal NaN'lar sütun ortalamasıyla doldurulmuş tablo)"
+      "expectedOutput": "ID Kategori        Gelir        Gider     Kar  Memnuniyet\n3    4        E  7959.000000  5779.000000  1796.0           4\n5    6        B  6417.577778  2998.000000  4489.0           5\n14  15        D  6417.577778  5026.177778  2548.0           5\n29  30        D  6417.577778  3160.000000  1991.0           1\n33  34        A  7134.000000  5026.177778  3539.0           2\n35  36        E  6417.577778  6855.000000  2199.0           3\n40  41        D  6417.577778  6249.000000  3592.0           2\n41  42        A  4790.000000  6172.000000  1796.0           1\n47  48        E  3757.000000  5026.177778  2433.0           3\n50  51        D  8374.000000  1202.000000  1796.0           2"
     },
     {
-      "id": "vtam-b005",
-      "title": "Yöntem 3: Sınıf Ortalaması ile Doldurma (groupby + transform)",
-      "blockExplanation": "En akıllı yöntemlerden biridir. Eksik değerler tüm veri setinin ortalamasıyla değil, aynı sınıfa (gruba) ait kayıtların ortalamasıyla doldurulur. Örneğin bir sporcunun eksik maaşı, aynı takımdaki oyuncuların ortalama maaşıyla tamamlanır. Bu, Veri Sızıntısı (Data Leakage) riskini azaltır.",
+      "id": "veri_tamamlama-b009",
+      "title": "Yöntem 3: Grup Ortalaması ile Doldurma",
+      "blockExplanation": "Her kategorinin kendi ortalamasını kullanarak daha bağlamsal bir tamamlama yapar.",
       "lines": [
         {
           "lineNumber": 1,
           "code": "df_class_mean = df.copy()",
-          "lineExplanation": "Yeni bir kopya oluşturur.",
-          "tokens": [],
-          "codeContext": "'Yöntem 3: Sınıf Ortalaması ile Doldurma (groupby + transform)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "lineExplanation": "Veri setinin grup ortalaması yöntemi için yeni bir kopyasını üretir.",
+          "tokens": [
+            {
+              "token": "df.copy()",
+              "explanation": "Veri setinin grup ortalaması yöntemi için ayrı kopyasını üretir.",
+              "turkce": "Kopya Alma",
+              "amac": "Kategori bazlı doldurma sonucunu ayrı tutmak."
+            }
+          ],
+          "codeContext": "Bu satır, kategori bazlı ortalama doldurma denemesini ayrı bir çalışma alanında yürütmek için bağımsız DataFrame oluşturur."
         },
         {
           "lineNumber": 2,
           "code": "for col in missing_columns:",
-          "lineExplanation": "Eksik değer içeren sütunlar üzerinde döngü.",
-          "tokens": [],
-          "codeContext": "'Yöntem 3: Sınıf Ortalaması ile Doldurma (groupby + transform)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "lineExplanation": "Eksik değer taşıyan sütunları tek tek dolaşır.",
+          "tokens": [
+            {
+              "token": "for col in missing_columns",
+              "explanation": "Eksik veri taşıyan her sütun adı üzerinde sırayla döngü kurar.",
+              "turkce": "Döngü",
+              "amac": "Aynı doldurma mantığını tüm problemli kolonlara uygulamak.",
+              "detay": "Bu veri setinde Gelir, Gider ve Kar sütunları tek tek dolaşılır."
+            }
+          ],
+          "codeContext": "Bu satır, her problemli sayısal kolonda aynı grup ortalaması mantığını sırayla uygulayacak döngüyü başlatır."
         },
         {
           "lineNumber": 3,
           "code": "    if df_class_mean[col].dtype in ['float64', 'int64']:",
-          "lineExplanation": "Sadece sayısal sütunları işler.",
-          "tokens": [],
-          "codeContext": "'Yöntem 3: Sınıf Ortalaması ile Doldurma (groupby + transform)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "lineExplanation": "Yalnızca sayısal sütunlarda grup ortalaması hesabı yapılmasını sağlar.",
+          "tokens": [
+            {
+              "token": "df_class_mean[col].dtype",
+              "explanation": "İşlenen sütunun numerik olup olmadığını kontrol eder.",
+              "turkce": "Tip Kontrolü",
+              "amac": "Grup ortalamasını sadece sayısal kolonlarda kullanmak."
+            },
+            {
+              "token": "['float64', 'int64']",
+              "explanation": "Grup ortalaması uygulanacak sayısal tip listesidir.",
+              "turkce": "Numerik Tipler",
+              "amac": "Kategorik kolonları bu işlemden dışarıda bırakmak."
+            }
+          ],
+          "codeContext": "Bu satır, ortalama işlemini sadece numerik kolonlarla sınırlar; kategorik alanlar bu yöntemin dışında bırakılır."
         },
         {
           "lineNumber": 4,
           "code": "        df_class_mean[col] = df_class_mean.groupby(\"Kategori\")[col].transform(lambda x: x.fillna(x.mean()))",
-          "lineExplanation": "Veriyi Kategori sütununa göre gruplar, her gruptaki eksikleri o grubun kendi ortalamasıyla doldurur.",
+          "lineExplanation": "Her NaN hücreyi kendi `Kategori` grubunun ortalamasıyla doldurur.",
           "tokens": [
             {
               "token": "groupby(\"Kategori\")",
-              "explanation": "DataFrame'i Kategori sütunundaki benzersiz değerlere (A, B, C, D, E) göre gruplara ayırır.",
-              "turkce": "Kod Sözdizimi",
-              "amac": "Sözdizimsel bir işlemdir."
+              "explanation": "Satırları Kategori değerine göre gruplar.",
+              "turkce": "Gruplama",
+              "amac": "Her grubun kendi ortalamasını ayrı hesaplamak."
             },
             {
-              "token": "[col]",
-              "explanation": "Gruplanan veriden sadece işlenen sütunu seçer.",
-              "turkce": "Veri Seçimi/Dilimleme",
-              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+              "token": "transform(...)",
+              "explanation": "Hesaplanan grup sonucunu tekrar satır seviyesine yayar.",
+              "turkce": "Satıra Yayma",
+              "amac": "Her kayıt için uygun grup ortalamasını aynı boyutta geri yazmak."
             },
             {
-              "token": "transform()",
-              "explanation": "Her gruba bir fonksiyon uygular ve orijinal DataFrame ile aynı boyutta sonuç döndürür. agg()'den farkı budur.",
-              "turkce": "Fonksiyon/Metot Çağrısı",
-              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
-            },
-            {
-              "token": "lambda x: x.fillna(x.mean())",
-              "explanation": "Anonim fonksiyon. x o gruptaki değerler. x.mean() grubun ortalaması. x.fillna() eksikleri bu ortalamayla doldurur.",
-              "turkce": "Ortalama Hesaplama",
-              "amac": "Sayısal değerlerin aritmetik ortalamasını alır."
+              "token": "x.fillna(x.mean())",
+              "explanation": "Her grup içindeki boş hücreleri o grubun ortalamasıyla doldurur.",
+              "turkce": "Grup Ortalaması",
+              "amac": "Genel ortalama yerine bağlamsal ortalama kullanmak."
             }
           ],
-          "codeContext": "Makine öğrenmesi modelleri null değerleri işleyemediği için yapılan kritik 'Veri Temizleme / Ön İşleme' adımıdır."
+          "codeContext": "Bu satır, örneğin Kategori=`E` olan bir satırdaki Gelir boşluğunu tüm `E` grubunun Gelir ortalamasıyla tamamlayarak genel ortalamadan daha bağlama duyarlı bir sonuç üretir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "df_class_mean[df.isnull().any(axis=1)].head(10)",
+          "lineExplanation": "Eksik olan satırların grup ortalaması ile doldurulmuş ilk 10 örneğini gösterir.",
+          "tokens": [
+            {
+              "token": "df_class_mean[...]",
+              "explanation": "Kategori bazlı ortalama ile doldurulmuş örnek satırları gösterir.",
+              "turkce": "Sonuç Önizleme",
+              "amac": "Her grubun farklı ortalama değerleriyle nasıl dolduğunu görmek."
+            }
+          ],
+          "codeContext": "Bu satır, kategoriye göre farklı ortalama değerlerinin satırlara nasıl yansıdığını somut kayıtlar üzerinden görünür kılar."
         }
       ],
-      "expectedOutput": "Sınıf Ortalaması ile Doldurulmuş Veri:\n(Her kategorinin kendi ortalamasıyla doldurulmuş tablo)"
+      "expectedOutput": "ID Kategori        Gelir        Gider          Kar  Memnuniyet\n3    4        E  7959.000000  5779.000000  2262.944444           4\n5    6        B  7073.550000  2998.000000  4489.000000           5\n14  15        D  6744.000000  4645.416667  2548.000000           5\n29  30        D  6744.000000  3160.000000  1991.000000           1\n33  34        A  7134.000000  3786.437500  3539.000000           2\n35  36        E  5460.058824  6855.000000  2199.000000           3\n40  41        D  6744.000000  6249.000000  3592.000000           2\n41  42        A  4790.000000  6172.000000  1588.812500           1\n47  48        E  3757.000000  5579.941176  2433.000000           3\n50  51        D  8374.000000  1202.000000  1872.190476           2"
     },
     {
-      "id": "vtam-b006",
-      "title": "Yöntem 4: Mod (En Sık Tekrar Eden Değer) ile Doldurma",
-      "blockExplanation": "Eksik değerler, o sütundaki en sık tekrar eden (mod) değerle doldurulur. Özellikle kategorik veriler için uygundur. Sayısal verilerde de kullanılabilir ama genellikle ortalama veya medyan tercih edilir.",
+      "id": "veri_tamamlama-b010",
+      "title": "Yöntem 4: Mod ile Doldurma",
+      "blockExplanation": "Eksik değerleri o sütunun en sık görülen değeriyle doldurur ve sonucu gösterir.",
       "lines": [
         {
           "lineNumber": 1,
           "code": "df_mode = df.copy()",
-          "lineExplanation": "Yeni bir kopya oluşturur.",
-          "tokens": [],
-          "codeContext": "'Yöntem 4: Mod (En Sık Tekrar Eden Değer) ile Doldurma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "lineExplanation": "Veri setinin mod ile doldurma yöntemi için yeni bir kopyasını üretir.",
+          "tokens": [
+            {
+              "token": "df.copy()",
+              "explanation": "Veri setinin mod yöntemi için ayrı kopyasını üretir.",
+              "turkce": "Kopya Alma",
+              "amac": "En sık görülen değerle doldurma sonucunu bağımsız tutmak."
+            }
+          ],
+          "codeContext": "Bu satır, en sık görülen değerle doldurma denemesini ayrı bir çalışma kopyasında uygulamak için başlangıç yapar."
         },
         {
           "lineNumber": 2,
           "code": "for col in missing_columns:",
-          "lineExplanation": "Eksik değer içeren sütunlar üzerinde döngü.",
-          "tokens": [],
-          "codeContext": "'Yöntem 4: Mod (En Sık Tekrar Eden Değer) ile Doldurma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "lineExplanation": "Eksik değer taşıyan her sütunu sırayla dolaşır.",
+          "tokens": [
+            {
+              "token": "for col in missing_columns",
+              "explanation": "Eksik veri taşıyan her sütun adı üzerinde sırayla döngü kurar.",
+              "turkce": "Döngü",
+              "amac": "Aynı doldurma mantığını tüm problemli kolonlara uygulamak.",
+              "detay": "Bu veri setinde Gelir, Gider ve Kar sütunları tek tek dolaşılır."
+            }
+          ],
+          "codeContext": "Bu satır, problemli tüm kolonlara mod tabanlı doldurmanın aynı mantıkla tek tek uygulanmasını sağlar."
         },
         {
           "lineNumber": 3,
           "code": "    df_mode[col] = df_mode[col].fillna(df_mode[col].mode()[0])",
-          "lineExplanation": "Sütundaki NaN'ları en sık tekrar eden değerle doldurur.",
+          "lineExplanation": "Her sütundaki NaN hücreyi o sütunun en sık görülen ilk mod değeriyle doldurur.",
           "tokens": [
             {
-              "token": "mode()",
-              "explanation": "Sütundaki en sık tekrar eden değer(ler)i döndürür. Birden fazla mod olabilir, bu yüzden Series döner.",
-              "turkce": "Fonksiyon/Metot Çağrısı",
-              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+              "token": "mode()[0]",
+              "explanation": "Sütundaki en sık görülen ilk değeri alır.",
+              "turkce": "Mod Değeri",
+              "amac": "Boşluk yerine en çok tekrar eden değeri kullanmak."
             },
             {
-              "token": "[0]",
-              "explanation": "mode() birden fazla değer dönebilir (eşit frekanslı). [0] ile ilk (en sık) değer seçilir.",
-              "turkce": "Veri Seçimi/Dilimleme",
-              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
-            },
-            {
-              "token": "fillna()",
-              "explanation": "NaN değerleri bu mod değeriyle değiştirir.",
-              "turkce": "Eksik Veri Doldurma",
-              "amac": "Boş (NaN) olan hücrelere belirli bir değer (örn. sıfır, ortalama veya medyan) atamak.",
-              "detay": "Veri kaybını önlemek için dropna() yerine tercih edilir. Makine öğrenmesi algoritmaları boş değerlerle çalışamadığı için bu adım zorunludur."
+              "token": "fillna(...)",
+              "explanation": "NaN hücreleri bu mod değeriyle doldurur.",
+              "turkce": "Mod ile Doldurma",
+              "amac": "Eksik veriyi en yaygın değerle tamamlamak."
             }
           ],
-          "codeContext": "Makine öğrenmesi modelleri null değerleri işleyemediği için yapılan kritik 'Veri Temizleme / Ön İşleme' adımıdır."
+          "codeContext": "Bu satır, örneğin Gelir sütunundaki boşlukları Gelir'de en çok tekrar eden değerle tamamlayarak özellikle tekrar eden verilerde kullanılan mod yaklaşımını uygular."
+        },
+        {
+          "lineNumber": 4,
+          "code": "df_mode[df.isnull().any(axis=1)].head(10)",
+          "lineExplanation": "Orijinalde eksik olan satırların mod ile doldurulmuş ilk 10 örneğini gösterir.",
+          "tokens": [
+            {
+              "token": "df_mode[...]",
+              "explanation": "Mod ile doldurulmuş örnek eksik satırları gösterir.",
+              "turkce": "Sonuç Önizleme",
+              "amac": "Boş hücrelerin hangi tekrar eden değerlerle kapandığını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, mod yönteminin boş hücreleri hangi tekrar eden değerlerle doldurduğunu örnek satırlar üzerinden açıkça gösterir."
         }
       ],
-      "expectedOutput": "En Fazla Olasılığa Sahip Değer ile Doldurulmuş Veri:\n(NaN'lar mod değeriyle doldurulmuş tablo)"
+      "expectedOutput": "ID Kategori   Gelir   Gider     Kar  Memnuniyet\n3    4        E  7959.0  5779.0  2548.0           4\n5    6        B  2200.0  2998.0  4489.0           5\n14  15        D  2200.0  8392.0  2548.0           5\n29  30        D  2200.0  3160.0  1991.0           1\n33  34        A  7134.0  8392.0  3539.0           2\n35  36        E  2200.0  6855.0  2199.0           3\n40  41        D  2200.0  6249.0  3592.0           2\n41  42        A  4790.0  6172.0  2548.0           1\n47  48        E  3757.0  8392.0  2433.0           3\n50  51        D  8374.0  1202.0  2548.0           2"
     }
   ]
 }

@@ -1,4 +1,6 @@
-
+---
+draft: true
+---
 
 ### Ahlâkın Değişken Doğası ve İrade Terbiyesi
 

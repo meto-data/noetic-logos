@@ -32,8 +32,6 @@ flowchart LR
     A[Tohumlama / Seeding] -->|İlk Kullanıcı Başlatır| B(Erken Benimseyenler)
     B -->|Paylaşım Zinciri| C{Sosyal Bulaşma}
     C -->|Virüs Etkisi| D[Milyonlarca Kullanıcı / Üstel Büyüme]
-    style A fill:#f9d0c4,stroke:#333,stroke-width:2px
-    style D fill:#d4f1f4,stroke:#333,stroke-width:2px
 ```
 
 - **[[Sosyal Bulaşma]] (Social Contagion):** Ağ üyelerinin yeniliklerle ilgili tutum ve davranışlara diğer üyeler aracılığıyla maruz kalmasıdır. Virüs gibidir bir nevi. Bilgi doğru da olsa yanlış da olsa hızla yayılır.
@@ -77,11 +75,6 @@ graph TD
     A[A - Attention <br> Dikkat Çekme] --> B[I - Interest <br> İlgi Uyandırma]
     B --> C[D - Desire <br> Arzu Yaratma]
     C --> D[A - Action <br> Eyleme Geçme]
-    
-    style A fill:#ff9999,stroke:#333,stroke-width:2px
-    style B fill:#ffcc99,stroke:#333,stroke-width:2px
-    style C fill:#ffff99,stroke:#333,stroke-width:2px
-    style D fill:#99ff99,stroke:#333,stroke-width:2px
 ```
 
 ### 3. Ağızdan Ağza Pazarlama (WOMM) ve Güven
@@ -140,8 +133,7 @@ Tüketicilerin sadece bir ürünü satın almakla kalmayıp, o marka etrafında 
 - **Influencer**: Etkileyici
 
 ### 🔗 Bağlantılar: Derse Aşkın
-Bağlantı kurmak önemli demişti hoca, her ne kadar kendisi tam bir bağlantı kuramasa bile. Ördek sendromu diyoruz, amenna ama, yahu bunu Debord'a da Baudrillard'a da bağlayabilirsin sen. Han'a bile bağlayabilirsin yani. Bu bağlantılar kısımları derste dile getirilmeyen ancak konunun daha iyi anlaşılması ve pekiştirilmesi için kendi kurduğum bağlantılardan oluşacak. 
 
-1. [[Ördek Sendromu - Bağlantı]]
+1. **[[Ördek Sendromu - Bağlantı]]**
 2. **[[Marka Toplulukları - Bağlantı]]**
 

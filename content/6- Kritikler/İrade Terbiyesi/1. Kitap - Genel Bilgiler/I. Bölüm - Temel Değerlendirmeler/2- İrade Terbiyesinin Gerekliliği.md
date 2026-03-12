@@ -1,3 +1,6 @@
+---
+draft: true
+---
 
 ### Süreklilik ve Tefekkür
 
