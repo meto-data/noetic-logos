@@ -22,14 +22,22 @@
               "detay": "C dilinde yazıldığı için Python'ın standart listelerine göre çok daha hızlıdır. Vektörizasyon sayesinde döngü (for loop) kullanmadan matris işlemleri yapılmasını sağlar."
             }
           ],
-          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+          "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
         },
         {
           "lineNumber": 2,
           "code": "import pandas as pd",
           "lineExplanation": "Pandas kütüphanesini içe aktarır. Tablo şeklinde veri yapıları (DataFrame) için kullanılır.",
-          "tokens": [],
-          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "Tablolu verileri okumak, temizlemek ve analiz etmek için kullanilir.",
+              "turkce": "Veri Analizi Kütüphanesi",
+              "amac": "Tablolu verileri okumak, temizlemek ve analiz etmek için kullanilir.",
+              "detay": "Pandas adi panel data ifadesinden gelir. DataFrame yapısı, satır ve sütunlardan olusan tablo mantigini Python'a tasir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
         },
         {
           "lineNumber": 3,
@@ -41,16 +49,23 @@
               "explanation": "Rastgele sayı üretecini belirli bir başlangıç noktasına sabitler. 3 değeri tohum değeridir; aynı tohum aynı sayı dizisini üretir.",
               "turkce": "Kod Sözdizimi",
               "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "random.seed()",
+              "explanation": "Rastgele sayi uretimini tekrar edilebilir hale getirir.",
+              "turkce": "Rastgelelik Tohumu",
+              "amac": "Rastgele sayi uretimini tekrar edilebilir hale getirir.",
+              "detay": "Seed aynı kaldiginda aynı rastgele dizi tekrar oluşur; bu da ders ve testlerde aynı sonucu korur."
             }
           ],
-          "codeContext": "'Gürültülü Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunda analizin kullanacagi sayisal ekseni veya ornek veriyi hazırlar."
         },
         {
           "lineNumber": 4,
           "code": "data_noisy = {",
-          "lineExplanation": "Gürültülü veri setinin sütunlarını tanımlayan bir Python sözlüğü (dictionary) oluşturmaya başlar.",
+          "lineExplanation": "Gürültülü veri setinin sütunlarını tanımlayan bir Python sözlüğü (diçtionary) oluşturmaya başlar.",
           "tokens": [],
-          "codeContext": "'Gürültülü Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 5,
@@ -64,7 +79,7 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "'Gürültülü Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 6,
@@ -90,7 +105,7 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "'Gürültülü Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunda analizin kullanacagi sayisal ekseni veya ornek veriyi hazırlar."
         },
         {
           "lineNumber": 7,
@@ -104,14 +119,14 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "'Gürültülü Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunda analizin kullanacagi sayisal ekseni veya ornek veriyi hazırlar."
         },
         {
           "lineNumber": 8,
           "code": "}",
           "lineExplanation": "Sözlük tanımını kapatır.",
           "tokens": [],
-          "codeContext": "'Gürültülü Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 9,
@@ -119,13 +134,14 @@
           "lineExplanation": "Sözlüğü bir Pandas DataFrame'e dönüştürür. Her anahtar bir sütun, her değer listesi o sütunun verileri olur.",
           "tokens": [
             {
-              "token": "pd.DataFrame()",
-              "explanation": "Sözlük, liste veya NumPy dizisinden tablo yapısında bir DataFrame oluşturur.",
-              "turkce": "Fonksiyon/Metot Çağrısı",
-              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+              "token": "DataFrame()",
+              "explanation": "Sozluk, liste veya dizi verilerinden tablo yapısı kurar.",
+              "turkce": "DataFrame Olusturma",
+              "amac": "Sozluk, liste veya dizi verilerinden tablo yapısı kurar.",
+              "detay": "DataFrame ismi, veriyi cerceveleyen iki boyutlu bir yapi oldugunu anlatir; satır-sütun mantigi sunar."
             }
           ],
-          "codeContext": "'Gürültülü Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 10,
@@ -137,9 +153,16 @@
               "explanation": "Varsayılan olarak ilk 5 satırı döndürür. Parametre verilerek satır sayısı değiştirilebilir.",
               "turkce": "Fonksiyon/Metot Çağrısı",
               "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "head()",
+              "explanation": "Veri setinin basindaki ornek satırları hizliça gostermek için kullanilir.",
+              "turkce": "İlk Satırları Gosterme",
+              "amac": "Veri setinin basindaki ornek satırları hizliça gostermek için kullanilir.",
+              "detay": "head kelimesi tablonun basi anlamina gelir; genelde ilk 5 satıri dondurur."
             }
           ],
-          "codeContext": "'Gürültülü Veri Seti Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
       "expectedOutput": "   ID      Ölçüm_1      Ölçüm_2\n0   1   637.284512   438.127643\n1   2   854.932178   712.549831\n2   3   203.718294   567.832104\n3   4   491.056723   289.413567\n4   5   728.391045   845.672318"
@@ -159,9 +182,16 @@
               "explanation": "Deep copy oluşturur. Yeni DataFrame üzerindeki değişiklikler orijinal df_noisy'yi etkilemez.",
               "turkce": "Fonksiyon/Metot Çağrısı",
               "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "copy()",
+              "explanation": "Orijinal veriyi bozmadan bagimsiz bir kopya ile calismayi saglar.",
+              "turkce": "Kopya Olusturma",
+              "amac": "Orijinal veriyi bozmadan bagimsiz bir kopya ile calismayi saglar.",
+              "detay": "copy kullanimi, aynı nesne referansini paylasma hatalarini engellemek için kritik bir guvenlik adimidir."
             }
           ],
-          "codeContext": "'Hareketli Ortalama (Moving Average)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Hareketli Ortalama (Moving Average)' bloğunda orijinal veriyi bozmamak için guvenli bir kopya uretir."
         },
         {
           "lineNumber": 2,
@@ -187,14 +217,14 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "'Hareketli Ortalama (Moving Average)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Hareketli Ortalama (Moving Average)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 3,
           "code": "df_moving_avg[\"Ölçüm_2_MA\"] = df_noisy[\"Ölçüm_2\"].rolling(window=4).mean()",
           "lineExplanation": "Ölçüm_2 sütununa da aynı şekilde 4 elemanlı hareketli ortalama uygular.",
           "tokens": [],
-          "codeContext": "'Hareketli Ortalama (Moving Average)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Hareketli Ortalama (Moving Average)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 4,
@@ -206,9 +236,16 @@
               "explanation": "İlk 10 satırı döndürür. Varsayılan 5'tir, burada 10 verilmiş. NaN oluşumunu görmek için daha fazla satır gösterilir.",
               "turkce": "Kod Sözdizimi",
               "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "head()",
+              "explanation": "Veri setinin basindaki ornek satırları hizliça gostermek için kullanilir.",
+              "turkce": "İlk Satırları Gosterme",
+              "amac": "Veri setinin basindaki ornek satırları hizliça gostermek için kullanilir.",
+              "detay": "head kelimesi tablonun basi anlamina gelir; genelde ilk 5 satıri dondurur."
             }
           ],
-          "codeContext": "'Hareketli Ortalama (Moving Average)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Hareketli Ortalama (Moving Average)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
       "expectedOutput": "   ID      Ölçüm_1      Ölçüm_2  Ölçüm_1_MA  Ölçüm_2_MA\n0   1   637.284512   438.127643         NaN         NaN\n1   2   854.932178   712.549831         NaN         NaN\n2   3   203.718294   567.832104         NaN         NaN\n3   4   491.056723   289.413567  546.747927  501.980786\n4   5   728.391045   845.672318  569.524560  603.866955\n5   6   312.847291   421.305872  434.003338  531.055965\n6   7   567.123894   634.218493  524.854738  547.652563\n7   8   445.672138   378.941267  513.508592  570.034488\n8   9   891.234567   723.456789  554.219473  539.480605\n9  10   234.567891   512.345678  534.649623  562.240557",
@@ -231,21 +268,29 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 2,
           "code": "df_binned1 = df_noisy.copy()",
           "lineExplanation": "Orijinal veriyi bozmamak için bağımsız bir kopya oluşturur.",
-          "tokens": [],
-          "codeContext": "'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "tokens": [
+            {
+              "token": "copy()",
+              "explanation": "Orijinal veriyi bozmadan bagimsiz bir kopya ile calismayi saglar.",
+              "turkce": "Kopya Olusturma",
+              "amac": "Orijinal veriyi bozmadan bagimsiz bir kopya ile calismayi saglar.",
+              "detay": "copy kullanimi, aynı nesne referansini paylasma hatalarini engellemek için kritik bir guvenlik adimidir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bloğunda orijinal veriyi bozmamak için guvenli bir kopya uretir."
         },
         {
           "lineNumber": 3,
           "code": "for col in [\"Ölçüm_1\", \"Ölçüm_2\"]:",
           "lineExplanation": "İki ölçüm sütunu üzerinde döngü başlatır. Her iki sütuna da aynı bölmeleme işlemi uygulanacak.",
           "tokens": [],
-          "codeContext": "'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 4,
@@ -271,14 +316,22 @@
               "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
             }
           ],
-          "codeContext": "'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 5,
           "code": "df_binned1.head(7)",
           "lineExplanation": "Bölmelenmiş verinin ilk 7 satırını gösterir. Orijinal sürekli değerler yerine 0-3 arası bölme etiketleri görülecektir.",
-          "tokens": [],
-          "codeContext": "'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "tokens": [
+            {
+              "token": "head()",
+              "explanation": "Veri setinin basindaki ornek satırları hizliça gostermek için kullanilir.",
+              "turkce": "İlk Satırları Gosterme",
+              "amac": "Veri setinin basindaki ornek satırları hizliça gostermek için kullanilir.",
+              "detay": "head kelimesi tablonun basi anlamina gelir; genelde ilk 5 satıri dondurur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
       "expectedOutput": "   ID  Ölçüm_1  Ölçüm_2\n0   1        2        1\n1   2        3        2\n2   3        0        2\n3   4        1        0\n4   5        2        3\n5   6        1        1\n6   7        2        2",
@@ -301,21 +354,29 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 2,
           "code": "df_binned2 = df_noisy.copy()",
           "lineExplanation": "Orijinal veriyi bozmamak için bağımsız bir kopya oluşturur.",
-          "tokens": [],
-          "codeContext": "'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "tokens": [
+            {
+              "token": "copy()",
+              "explanation": "Orijinal veriyi bozmadan bagimsiz bir kopya ile calismayi saglar.",
+              "turkce": "Kopya Olusturma",
+              "amac": "Orijinal veriyi bozmadan bagimsiz bir kopya ile calismayi saglar.",
+              "detay": "copy kullanimi, aynı nesne referansini paylasma hatalarini engellemek için kritik bir guvenlik adimidir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bloğunda orijinal veriyi bozmamak için guvenli bir kopya uretir."
         },
         {
           "lineNumber": 3,
           "code": "for col in [\"Ölçüm_1\", \"Ölçüm_2\"]:",
           "lineExplanation": "İki ölçüm sütunu üzerinde döngü başlatır.",
           "tokens": [],
-          "codeContext": "'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 4,
@@ -341,14 +402,22 @@
               "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
             }
           ],
-          "codeContext": "'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 5,
           "code": "df_binned2.head(7)",
           "lineExplanation": "Eşit frekanslı bölmelenmiş verinin ilk 7 satırını gösterir. Etiketler 0-3 arası olacak ama aralık sınırları pd.cut()'tan farklıdır.",
-          "tokens": [],
-          "codeContext": "'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "tokens": [
+            {
+              "token": "head()",
+              "explanation": "Veri setinin basindaki ornek satırları hizliça gostermek için kullanilir.",
+              "turkce": "İlk Satırları Gosterme",
+              "amac": "Veri setinin basindaki ornek satırları hizliça gostermek için kullanilir.",
+              "detay": "head kelimesi tablonun basi anlamina gelir; genelde ilk 5 satıri dondurur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
       "expectedOutput": "   ID  Ölçüm_1  Ölçüm_2\n0   1        2        1\n1   2        3        3\n2   3        0        1\n3   4        1        0\n4   5        3        3\n5   6        0        1\n6   7        2        2"
@@ -374,16 +443,23 @@
               "explanation": "Sonuçları değer yerine indekse (etiket numarasına) göre küçükten büyüğe sıralar. 0, 1, 2, 3 sırasıyla gösterir.",
               "turkce": "Fonksiyon/Metot Çağrısı",
               "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "value_counts()",
+              "explanation": "Her benzersiz değerin kac kez gectigini sayar.",
+              "turkce": "Frekans Sayimi",
+              "amac": "Her benzersiz değerin kac kez gectigini sayar.",
+              "detay": "value_counts, sınıf dengesizligi ve kategorik dağılım analizi için en pratik araclarin basindadir."
             }
           ],
-          "codeContext": "'Frekans Dağılımı Kontrolü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Frekans Dağılımı Kontrolü' bloğunda veri setinin yapısıni veya dağılımini okuyarak kesif asamasini ilerletir."
         },
         {
           "lineNumber": 2,
           "code": "print(frekanslar)",
           "lineExplanation": "Her bölmedeki eleman sayısını yazdırır. qcut kullanıldığı için 4 bölmede de yaklaşık 25'er eleman olması beklenir.",
           "tokens": [],
-          "codeContext": "'Frekans Dağılımı Kontrolü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Frekans Dağılımı Kontrolü' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
       "expectedOutput": "Ölçüm_1\n0    25\n1    25\n2    25\n3    25\nName: count, dtype: int64"
@@ -411,7 +487,7 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+          "codeContext": "Bu satır, 'Eğri Uydurma (Curve Fitting)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 2,
@@ -431,14 +507,22 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+          "codeContext": "Bu satır, 'Eğri Uydurma (Curve Fitting)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 3,
           "code": "df_fitted = df_noisy.copy()",
           "lineExplanation": "Orijinal veriyi bozmamak için bağımsız bir kopya oluşturur.",
-          "tokens": [],
-          "codeContext": "'Eğri Uydurma (Curve Fitting)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "tokens": [
+            {
+              "token": "copy()",
+              "explanation": "Orijinal veriyi bozmadan bagimsiz bir kopya ile calismayi saglar.",
+              "turkce": "Kopya Olusturma",
+              "amac": "Orijinal veriyi bozmadan bagimsiz bir kopya ile calismayi saglar.",
+              "detay": "copy kullanimi, aynı nesne referansini paylasma hatalarini engellemek için kritik bir guvenlik adimidir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğri Uydurma (Curve Fitting)' bloğunda orijinal veriyi bozmamak için guvenli bir kopya uretir."
         },
         {
           "lineNumber": 4,
@@ -458,7 +542,7 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "'Eğri Uydurma (Curve Fitting)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Eğri Uydurma (Curve Fitting)' bloğunda analizin kullanacagi sayisal ekseni veya ornek veriyi hazırlar."
         },
         {
           "lineNumber": 5,
@@ -478,7 +562,7 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "'Eğri Uydurma (Curve Fitting)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Eğri Uydurma (Curve Fitting)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 6,
@@ -492,7 +576,7 @@
               "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
             }
           ],
-          "codeContext": "'Eğri Uydurma (Curve Fitting)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Eğri Uydurma (Curve Fitting)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 7,
@@ -506,7 +590,7 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "Modelin veriyi öğrenme ve örüntü çıkarma (eğitim) aşamasının tam merkezidir."
+          "codeContext": "Bu satır, 'Eğri Uydurma (Curve Fitting)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 8,
@@ -526,7 +610,7 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "Eğitilmiş modelin dış dünya veya test verileri üzerinde bilgisini test ettiği karar aşamasıdır."
+          "codeContext": "Bu satır, 'Eğri Uydurma (Curve Fitting)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 9,
@@ -552,7 +636,7 @@
               "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
             }
           ],
-          "codeContext": "'Eğri Uydurma (Curve Fitting)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Eğri Uydurma (Curve Fitting)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 10,
@@ -566,14 +650,22 @@
               "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
             }
           ],
-          "codeContext": "'Eğri Uydurma (Curve Fitting)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Eğri Uydurma (Curve Fitting)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 11,
           "code": "print(df_fitted.head())",
           "lineExplanation": "İlk 5 satırı yazdırır. Orijinal gürültülü değerler ile uydurulmuş (temizlenmiş) değerler yan yana görülür.",
-          "tokens": [],
-          "codeContext": "'Eğri Uydurma (Curve Fitting)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "tokens": [
+            {
+              "token": "head()",
+              "explanation": "Veri setinin basindaki ornek satırları hizliça gostermek için kullanilir.",
+              "turkce": "İlk Satırları Gosterme",
+              "amac": "Veri setinin basindaki ornek satırları hizliça gostermek için kullanilir.",
+              "detay": "head kelimesi tablonun basi anlamina gelir; genelde ilk 5 satıri dondurur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğri Uydurma (Curve Fitting)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
       "expectedOutput": "   ID      Ölçüm_1      Ölçüm_2  Ölçüm_1_Fitted  Ölçüm_2_Fitted\n0   1   637.284512   438.127643      548.231456      523.148723\n1   2   854.932178   712.549831      548.017234      524.561238\n2   3   203.718294   567.832104      547.803012      525.973754\n3   4   491.056723   289.413567      547.588790      527.386269\n4   5   728.391045   845.672318      547.374568      528.798785",

@@ -22,7 +22,7 @@
             },
             {
               "token": "numpy",
-              "explanation": "Numerical Python kısaltması. Çok boyutlu diziler ve matris işlemleri için temel kütüphane.",
+              "explanation": "Numeriçal Python kısaltması. Çok boyutlu diziler ve matris işlemleri için temel kütüphane.",
               "turkce": "Sayısal Hesaplama Kütüphanesi",
               "amac": "Çok boyutlu diziler (matrisler) üzerinde yüksek performanslı matematiksel ve istatistiksel işlemler yapmak.",
               "detay": "C dilinde yazıldığı için Python'ın standart listelerine göre çok daha hızlıdır. Vektörizasyon sayesinde döngü (for loop) kullanmadan matris işlemleri yapılmasını sağlar."
@@ -34,7 +34,7 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+          "codeContext": "Bu satır, 'Kütüphane İçe Aktarma ve Dizi Oluşturma' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
         },
         {
           "lineNumber": 2,
@@ -55,7 +55,7 @@
               "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
             }
           ],
-          "codeContext": "'Kütüphane İçe Aktarma ve Dizi Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Kütüphane İçe Aktarma ve Dizi Oluşturma' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 3,
@@ -69,7 +69,7 @@
               "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
             }
           ],
-          "codeContext": "'Kütüphane İçe Aktarma ve Dizi Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Kütüphane İçe Aktarma ve Dizi Oluşturma' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         }
       ],
       "expectedOutput": "[ 1  5 10]\n[[ 1  7 20]\n [ 5  8  9]]"
@@ -91,14 +91,14 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "'Dizinin Özellikleri: Boyut, Şekil, Tip' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizinin Özellikleri: Boyut, Şekil, Tip' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 2,
           "code": "a.ndim",
           "lineExplanation": "a tek boyutlu bir dizi olduğu için 1 döner.",
           "tokens": [],
-          "codeContext": "'Dizinin Özellikleri: Boyut, Şekil, Tip' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizinin Özellikleri: Boyut, Şekil, Tip' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 3,
@@ -113,7 +113,7 @@
               "detay": "(Satır_Sayısı, Sütun_Sayısı) şeklinde bir Tuple (demet) döndürür. shape[0] sadece satır sayısını verir."
             }
           ],
-          "codeContext": "'Dizinin Özellikleri: Boyut, Şekil, Tip' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizinin Özellikleri: Boyut, Şekil, Tip' bloğunda veri setinin yapısıni veya dağılımini okuyarak kesif asamasini ilerletir."
         },
         {
           "lineNumber": 4,
@@ -127,29 +127,29 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "'Dizinin Özellikleri: Boyut, Şekil, Tip' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizinin Özellikleri: Boyut, Şekil, Tip' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 5,
           "code": "x = np.array([1.0, 5.4, 10.42])",
           "lineExplanation": "Ondalıklı sayılardan oluşan bir dizi oluşturur. dtype otomatik olarak float64 olur.",
           "tokens": [],
-          "codeContext": "'Dizinin Özellikleri: Boyut, Şekil, Tip' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizinin Özellikleri: Boyut, Şekil, Tip' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 6,
           "code": "x.dtype",
           "lineExplanation": "Ondalıklı sayı içerdiği için float64 döner.",
           "tokens": [],
-          "codeContext": "'Dizinin Özellikleri: Boyut, Şekil, Tip' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizinin Özellikleri: Boyut, Şekil, Tip' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
       "expectedOutput": "2\n1\n(2, 3)\nint64\nfloat64"
     },
     {
       "id": "numpy-b003",
-      "title": "İndeksleme ve Dilimleme (Slicing)",
-      "blockExplanation": "Bu blok dizinin belirli elemanlarına erişmeyi ve dilim almayı gösterir. Python'da indeksler 0'dan başlar, yani ilk eleman 0. indekstedir. İki boyutlu dizilerde [satır, sütun] formatı kullanılır. Dilimleme (slicing) ile belirli bir aralıktaki elemanlara erişilir.",
+      "title": "İndeksleme ve Dilimleme (Sliçing)",
+      "blockExplanation": "Bu blok dizinin belirli elemanlarına erişmeyi ve dilim almayı gösterir. Python'da indeksler 0'dan başlar, yani ilk eleman 0. indekstedir. İki boyutlu dizilerde [satır, sütun] formatı kullanılır. Dilimleme (sliçing) ile belirli bir aralıktaki elemanlara erişilir.",
       "lines": [
         {
           "lineNumber": 1,
@@ -163,21 +163,21 @@
               "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
             }
           ],
-          "codeContext": "'İndeksleme ve Dilimleme (Slicing)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'İndeksleme ve Dilimleme (Sliçing)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 2,
           "code": "b[1, 1]",
           "lineExplanation": "1. satırın 1. sütunundaki elemanı getirir: 8. (2. satır, 2. sütun)",
           "tokens": [],
-          "codeContext": "'İndeksleme ve Dilimleme (Slicing)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'İndeksleme ve Dilimleme (Sliçing)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 3,
           "code": "b[0]",
           "lineExplanation": "Sadece satır indeksi verildiğinde o satırın tamamını getirir: [1, 7, 20].",
           "tokens": [],
-          "codeContext": "'İndeksleme ve Dilimleme (Slicing)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'İndeksleme ve Dilimleme (Sliçing)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 4,
@@ -186,19 +186,19 @@
           "tokens": [
             {
               "token": "1:",
-              "explanation": "Dilimleme (slicing) notasyonu. 1'den başla, sonuna kadar git. Başlangıç dahil, bitiş belirtilmemiş = sona kadar.",
+              "explanation": "Dilimleme (sliçing) notasyonu. 1'den başla, sonuna kadar git. Başlangıç dahil, bitiş belirtilmemiş = sona kadar.",
               "turkce": "Kod Sözdizimi",
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "'İndeksleme ve Dilimleme (Slicing)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'İndeksleme ve Dilimleme (Sliçing)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 5,
           "code": "b[1, 1] = 18",
           "lineExplanation": "1. satır, 1. sütundaki değeri (8) 18 ile değiştirir. NumPy dizileri değiştirilebilir (mutable) yapılardır.",
           "tokens": [],
-          "codeContext": "'İndeksleme ve Dilimleme (Slicing)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'İndeksleme ve Dilimleme (Sliçing)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         }
       ],
       "expectedOutput": "20\n8\n[ 1  7 20]\n[ 7 20]\n18"
@@ -226,7 +226,7 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "'Otomatik Dizi Oluşturma Fonksiyonları' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Otomatik Dizi Oluşturma Fonksiyonları' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 2,
@@ -240,7 +240,7 @@
               "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
             }
           ],
-          "codeContext": "'Otomatik Dizi Oluşturma Fonksiyonları' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Otomatik Dizi Oluşturma Fonksiyonları' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 3,
@@ -254,7 +254,7 @@
               "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
             }
           ],
-          "codeContext": "'Otomatik Dizi Oluşturma Fonksiyonları' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Otomatik Dizi Oluşturma Fonksiyonları' bloğunda analizin kullanacagi sayisal ekseni veya ornek veriyi hazırlar."
         },
         {
           "lineNumber": 4,
@@ -274,7 +274,7 @@
               "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
             }
           ],
-          "codeContext": "'Otomatik Dizi Oluşturma Fonksiyonları' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Otomatik Dizi Oluşturma Fonksiyonları' bloğunda analizin kullanacagi sayisal ekseni veya ornek veriyi hazırlar."
         }
       ],
       "expectedOutput": "[[0. 0. 0.]\n [0. 0. 0.]]\n\n[[50 50 50 50]\n [50 50 50 50]\n [50 50 50 50]\n [50 50 50 50]]\n\n(rastgele float matris)\n\n(rastgele int matris)"
@@ -289,7 +289,7 @@
           "code": "a = np.array([1, 2, 3])",
           "lineExplanation": "Orijinal diziyi oluşturur.",
           "tokens": [],
-          "codeContext": "'Dizi Kopyalama: Pointer Tuzağı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 2,
@@ -303,28 +303,28 @@
               "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
             }
           ],
-          "codeContext": "'Dizi Kopyalama: Pointer Tuzağı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 3,
           "code": "b[0] = 90",
           "lineExplanation": "b'nin ilk elemanını 90 yapar. Ama b ve a aynı yeri gösterdiği için a da değişir!",
           "tokens": [],
-          "codeContext": "'Dizi Kopyalama: Pointer Tuzağı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 4,
           "code": "print(a)",
           "lineExplanation": "a'yı yazdırır: [90, 2, 3]. Orijinal dizi de bozulmuştur!",
           "tokens": [],
-          "codeContext": "'Dizi Kopyalama: Pointer Tuzağı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 5,
           "code": "a = np.array([1, 2, 3])",
           "lineExplanation": "Diziyi tekrar oluşturur, doğru yöntemi göstermek için.",
           "tokens": [],
-          "codeContext": "'Dizi Kopyalama: Pointer Tuzağı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 6,
@@ -336,23 +336,30 @@
               "explanation": "Deep copy yapar. Bellekte yeni bir alan açar ve verileri oraya kopyalar. Orijinal dizi bu kopyadan etkilenmez.",
               "turkce": "Fonksiyon/Metot Çağrısı",
               "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+            },
+            {
+              "token": "copy()",
+              "explanation": "Orijinal veriyi bozmadan bagimsiz bir kopya ile calismayi saglar.",
+              "turkce": "Kopya Olusturma",
+              "amac": "Orijinal veriyi bozmadan bagimsiz bir kopya ile calismayi saglar.",
+              "detay": "copy kullanimi, aynı nesne referansini paylasma hatalarini engellemek için kritik bir guvenlik adimidir."
             }
           ],
-          "codeContext": "'Dizi Kopyalama: Pointer Tuzağı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda orijinal veriyi bozmamak için guvenli bir kopya uretir."
         },
         {
           "lineNumber": 7,
           "code": "b[0] = 90",
           "lineExplanation": "b'nin ilk elemanını 90 yapar ama bu sefer a etkilenmez.",
           "tokens": [],
-          "codeContext": "'Dizi Kopyalama: Pointer Tuzağı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 8,
           "code": "print(a)",
           "lineExplanation": "a hâlâ [1, 2, 3] — bozulmadı. Doğru kopyalama yöntemi budur.",
           "tokens": [],
-          "codeContext": "'Dizi Kopyalama: Pointer Tuzağı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
       "expectedOutput": "[90  2  3]   ← Yanlış kopyalama (a bozuldu)\n[1 2 3]     ← Doğru kopyalama (a korundu)"
@@ -367,7 +374,7 @@
           "code": "a = np.array([1, 2, 3, 4])",
           "lineExplanation": "4 elemanlı bir dizi oluşturur.",
           "tokens": [],
-          "codeContext": "'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 2,
@@ -381,14 +388,14 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 3,
           "code": "a * 2",
           "lineExplanation": "Tüm elemanları 2 ile çarpar: [2, 4, 6, 8].",
           "tokens": [],
-          "codeContext": "'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 4,
@@ -402,21 +409,21 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 5,
           "code": "b = np.array([1, 0, 1, 0])",
           "lineExplanation": "İkinci bir dizi oluşturur, eleman eleman toplama için.",
           "tokens": [],
-          "codeContext": "'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 6,
           "code": "a + b",
           "lineExplanation": "İki diziyi karşılıklı toplar: [1+1, 2+0, 3+1, 4+0] = [2, 2, 4, 4].",
           "tokens": [],
-          "codeContext": "'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
       "expectedOutput": "[5 6 7 8]\n[2 4 6 8]\n[ 1  4  9 16]\n[2 2 4 4]"
@@ -431,7 +438,7 @@
           "code": "dizi4 = np.array([[1, 2, 3], [4, 5, 6]])",
           "lineExplanation": "2x3 boyutunda bir matris oluşturur.",
           "tokens": [],
-          "codeContext": "'İstatistiksel İşlemler' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'İstatistiksel İşlemler' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 2,
@@ -445,7 +452,7 @@
               "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
             }
           ],
-          "codeContext": "'İstatistiksel İşlemler' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'İstatistiksel İşlemler' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 3,
@@ -459,7 +466,7 @@
               "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
             }
           ],
-          "codeContext": "'İstatistiksel İşlemler' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'İstatistiksel İşlemler' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 4,
@@ -473,7 +480,7 @@
               "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
             }
           ],
-          "codeContext": "'İstatistiksel İşlemler' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'İstatistiksel İşlemler' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
       "expectedOutput": "1\n6\n21"

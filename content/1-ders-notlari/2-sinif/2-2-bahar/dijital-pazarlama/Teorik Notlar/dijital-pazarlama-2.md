@@ -36,10 +36,6 @@ graph LR
     A[Web 1.0] -->|Statik, Tek Yönlü| B(Web 2.0)
     B -->|Dinamik, Etkileşimli, Sosyal Ağlar| C{Web 3.0 / 4.0 / 5.0}
     C -->|Yapay Zekâ, Kişiselleştirme, Semantik| D[Gelecek]
-    
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#bbf,stroke:#333,stroke-width:2px
-    style C fill:#bfb,stroke:#333,stroke-width:2px
 ```
 
 ### Web 2.0: Küresel İnsan Ağı ve Etkileşim

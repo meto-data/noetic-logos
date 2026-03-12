@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 
 ### Fikir, Fiil ve İradenin Doğası
 

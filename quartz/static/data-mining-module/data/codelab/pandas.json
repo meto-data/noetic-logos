@@ -30,7 +30,7 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+          "codeContext": "Bu satır, 'Kütüphane ve Veri Seti Yükleme' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
         },
         {
           "lineNumber": 2,
@@ -38,11 +38,11 @@
           "lineExplanation": "CSV dosyasını okur ve df adlı bir DataFrame değişkenine atar.",
           "tokens": [
             {
-              "token": "pd.read_csv()",
-              "explanation": "Comma-Separated Values dosyasını okuyup DataFrame'e dönüştürür. Varsayılan ayırıcı virgüldür, sep parametresiyle değiştirilebilir.",
+              "token": "read_csv()",
+              "explanation": "CSV dosyasini DataFrame olarak bellege yukler.",
               "turkce": "CSV Okuma Fonksiyonu",
-              "amac": "Virgülle ayrılmış (CSV) metin dosyalarındaki veriyi belleğe (DataFrame formatına) yüklemek.",
-              "detay": "Sadece virgül değil, 'sep' parametresi ile noktalı virgül veya tab ile ayrılmış dosyaları da okuyabilir."
+              "amac": "CSV dosyasini DataFrame olarak bellege yukler.",
+              "detay": "read_csv ismi 'comma-separated values oku' ifadesinden gelir. Farklı ayiriçilar da sep parametresiyle verilebilir."
             },
             {
               "token": "df",
@@ -52,7 +52,7 @@
               "detay": "Excel çalışma sayfasına benzer. Sütunlar farklı veri tiplerinde (sayı, metin, tarih) olabilir."
             }
           ],
-          "codeContext": "Veri bilimi sürecinin ilk adımı olan 'Veri Toplama ve Yükleme' aşamasıdır."
+          "codeContext": "Bu satır, 'Kütüphane ve Veri Seti Yükleme' bloğunda kullanilacak ham veriyi dis kaynaktan DataFrame'e cekerek veri girisini yapar."
         }
       ],
       "expectedOutput": "(DataFrame yüklendi)"
@@ -81,7 +81,7 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "'Veri Setine İlk Bakış: head, tail, shape' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Veri Setine İlk Bakış: head, tail, shape' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 2,
@@ -96,7 +96,7 @@
               "detay": "Özellikle zaman serisi verilerinde en güncel kayıtları hızlıca kontrol etmek için faydalıdır."
             }
           ],
-          "codeContext": "'Veri Setine İlk Bakış: head, tail, shape' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Veri Setine İlk Bakış: head, tail, shape' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 3,
@@ -111,7 +111,7 @@
               "detay": "(Satır_Sayısı, Sütun_Sayısı) şeklinde bir Tuple (demet) döndürür. shape[0] sadece satır sayısını verir."
             }
           ],
-          "codeContext": "'Veri Setine İlk Bakış: head, tail, shape' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Veri Setine İlk Bakış: head, tail, shape' bloğunda veri setinin yapısıni veya dağılımini okuyarak kesif asamasini ilerletir."
         },
         {
           "lineNumber": 4,
@@ -125,7 +125,7 @@
               "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
             }
           ],
-          "codeContext": "'Veri Setine İlk Bakış: head, tail, shape' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Veri Setine İlk Bakış: head, tail, shape' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
       "expectedOutput": "(ilk 3 satır IMDB veri seti)\n(son 5 satır)\n(1000, 16)\n1000"
@@ -147,7 +147,7 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "'Sütun Bilgileri ve Eksik Veri Kontrolü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Sütun Bilgileri ve Eksik Veri Kontrolü' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 2,
@@ -161,7 +161,7 @@
               "amac": "Sözdizimsel bir işlemdir."
             }
           ],
-          "codeContext": "'Sütun Bilgileri ve Eksik Veri Kontrolü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Sütun Bilgileri ve Eksik Veri Kontrolü' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 3,
@@ -176,7 +176,7 @@
               "detay": "Her bir veri hücresi için True (boş) veya False (dolu) döndürür. Genellikle sum() ile birlikte kullanılır."
             }
           ],
-          "codeContext": "'Sütun Bilgileri ve Eksik Veri Kontrolü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Sütun Bilgileri ve Eksik Veri Kontrolü' bloğunda veri setinin yapısıni veya dağılımini okuyarak kesif asamasini ilerletir."
         }
       ],
       "expectedOutput": "Index(['Poster_Link', 'Series_Title', 'Released_Year', ...], dtype='object')\n\nPoster_Link      object\nSeries_Title     object\n...\ndtype: object\n\n(True/False tablosu)"
@@ -198,12 +198,12 @@
               "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
             }
           ],
-          "codeContext": "'Sütun Seçimi ve Yeni DataFrame Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Sütun Seçimi ve Yeni DataFrame Oluşturma' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 2,
           "code": "df[\"Series_Title\"][:5]",
-          "lineExplanation": "Series_Title sütununun ilk 5 elemanını (0-4 indeks) getirir. Dilimleme (slicing) burada da çalışır.",
+          "lineExplanation": "Series_Title sütununun ilk 5 elemanını (0-4 indeks) getirir. Dilimleme (sliçing) burada da çalışır.",
           "tokens": [
             {
               "token": "[:5]",
@@ -212,7 +212,7 @@
               "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
             }
           ],
-          "codeContext": "'Sütun Seçimi ve Yeni DataFrame Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Sütun Seçimi ve Yeni DataFrame Oluşturma' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 3,
@@ -226,7 +226,7 @@
               "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
             }
           ],
-          "codeContext": "'Sütun Seçimi ve Yeni DataFrame Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Sütun Seçimi ve Yeni DataFrame Oluşturma' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         }
       ],
       "expectedOutput": "0                  The Shawshank Redemption\n1                            The Godfather\n...\nName: Series_Title, dtype: object"
@@ -249,7 +249,7 @@
               "detay": "ascending=False parametresi eklenerek büyükten küçüğe sıralama yapılabilir."
             }
           ],
-          "codeContext": "'Sıralama ve Değer Sayımı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Sıralama ve Değer Sayımı' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 2,
@@ -264,7 +264,7 @@
               "detay": "Sınıflandırma problemlerinde sınıfların dengeli dağılıp dağılmadığını (class imbalance) kontrol etmek için vazgeçilmezdir."
             }
           ],
-          "codeContext": "'Sıralama ve Değer Sayımı' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Sıralama ve Değer Sayımı' bloğunda veri setinin yapısıni veya dağılımini okuyarak kesif asamasini ilerletir."
         }
       ],
       "expectedOutput": "2014    68\n2013    56\n2015    51\n...\nName: Released_Year, dtype: int64"
@@ -286,7 +286,7 @@
               "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
             }
           ],
-          "codeContext": "'Veri Filtreleme: loc ile Koşullu Erişim' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Veri Filtreleme: loc ile Koşullu Erişim' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 2,
@@ -306,7 +306,7 @@
               "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
             }
           ],
-          "codeContext": "'Veri Filtreleme: loc ile Koşullu Erişim' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Veri Filtreleme: loc ile Koşullu Erişim' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 3,
@@ -320,7 +320,7 @@
               "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
             }
           ],
-          "codeContext": "'Veri Filtreleme: loc ile Koşullu Erişim' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Veri Filtreleme: loc ile Koşullu Erişim' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 4,
@@ -340,7 +340,7 @@
               "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
             }
           ],
-          "codeContext": "'Veri Filtreleme: loc ile Koşullu Erişim' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Veri Filtreleme: loc ile Koşullu Erişim' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         }
       ],
       "expectedOutput": "3    The Godfather    9.2\n...\n(filtrelenmiş DataFrame)"
@@ -348,7 +348,7 @@
     {
       "id": "pandas-b007",
       "title": "Veri Tipi Dönüşümü",
-      "blockExplanation": "Bazen CSV'den okunan sayısal veriler metin (object) olarak gelir. Özellikle virgül içeren sayılar (örn: '1,000,000') Pandas tarafından sayı olarak algılanmaz. Önce virgüller temizlenir, sonra to_numeric() ile sayıya dönüştürülür. Bu yapılmadan filtreleme ve hesaplamalar hata verir.",
+      "blockExplanation": "Bazen CSV'den okunan sayısal veriler metin (object) olarak gelir. Özellikle virgül içeren sayılar (örn: '1,000,000') Pandas tarafından sayı olarak algılanmaz. Önce virgüller temizlenir, sonra to_numeriç() ile sayıya dönüştürülür. Bu yapılmadan filtreleme ve hesaplamalar hata verir.",
       "lines": [
         {
           "lineNumber": 1,
@@ -366,9 +366,16 @@
               "explanation": "Virgül karakterini boş string ile değiştirir, yani siler.",
               "turkce": "Kod Sözdizimi",
               "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "replace()",
+              "explanation": "Belirli bir değeri baska bir değerle sistematik olarak degistirir.",
+              "turkce": "Değer Değiştirme",
+              "amac": "Belirli bir değeri baska bir değerle sistematik olarak degistirir.",
+              "detay": "replace, '?' gibi sembolik eksik veri gostergelerini gerçek NaN'a cevirmek için sik kullanilir."
             }
           ],
-          "codeContext": "'Veri Tipi Dönüşümü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Veri Tipi Dönüşümü' bloğunda eksik veya kirli veriyi temizleyen on isleme adimidir."
         },
         {
           "lineNumber": 2,
@@ -382,14 +389,14 @@
               "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
             }
           ],
-          "codeContext": "'Veri Tipi Dönüşümü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Veri Tipi Dönüşümü' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 3,
           "code": "df.loc[(df['IMDB_Rating']>=8.0) & (df['Gross']>=800000000)]",
           "lineExplanation": "Artık Gross sayısal olduğu için büyüklük karşılaştırması yapılabilir. 800 milyon üstü gişe yapan 8+ puanlı filmler.",
           "tokens": [],
-          "codeContext": "'Veri Tipi Dönüşümü' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Veri Tipi Dönüşümü' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         }
       ],
       "expectedOutput": "(IMDB >= 8.0 ve Gross >= 800M olan filmler)"
@@ -397,14 +404,14 @@
     {
       "id": "pandas-b008",
       "title": "Manuel DataFrame Oluşturma",
-      "blockExplanation": "Herhangi bir dosya okumadan, Python sözlüğü (dictionary) veya listelerden sıfırdan DataFrame oluşturulabilir. index parametresi satır etiketlerini, columns parametresi sütun isimlerini belirler. Test ve prototipleme için çok kullanılır.",
+      "blockExplanation": "Herhangi bir dosya okumadan, Python sözlüğü (diçtionary) veya listelerden sıfırdan DataFrame oluşturulabilir. index parametresi satır etiketlerini, columns parametresi sütun isimlerini belirler. Test ve prototipleme için çok kullanılır.",
       "lines": [
         {
           "lineNumber": 1,
           "code": "import random",
           "lineExplanation": "Python'un yerleşik rastgele sayı kütüphanesini içe aktarır.",
           "tokens": [],
-          "codeContext": "En başta kütüphanelerin yüklenmesi aşamasıdır. Projenin bağımlılıklarını hazırlar."
+          "codeContext": "Bu satır, 'Manuel DataFrame Oluşturma' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
         },
         {
           "lineNumber": 2,
@@ -422,16 +429,23 @@
               "explanation": "15'ten 24'e kadar (25 hariç) sayı aralığı oluşturur.",
               "turkce": "Kod Sözdizimi",
               "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "sample()",
+              "explanation": "Veriden rastgele alt kume secmek için kullanilir.",
+              "turkce": "Ornekleme",
+              "amac": "Veriden rastgele alt kume secmek için kullanilir.",
+              "detay": "Pairplot gibi agir görsellerde tum veri yerine ornek kullanmak performansi ciddi biçimde iyilestirir."
             }
           ],
-          "codeContext": "'Manuel DataFrame Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Manuel DataFrame Oluşturma' bloğunda analizin kullanacagi sayisal ekseni veya ornek veriyi hazırlar."
         },
         {
           "lineNumber": 3,
           "code": "columns = [\"Sıcaklık 1.gün\", \"Sıcaklık 2.gün\"]",
           "lineExplanation": "Sütun isimlerini bir liste olarak tanımlar.",
           "tokens": [],
-          "codeContext": "'Manuel DataFrame Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Manuel DataFrame Oluşturma' bloğunda sonraki adimlarin kullanacagi semayi veya eksen etiketlerini tanimlar."
         },
         {
           "lineNumber": 4,
@@ -439,10 +453,11 @@
           "lineExplanation": "Listelerden sıfırdan bir DataFrame oluşturur. Satır etiketleri şehir isimleri, sütunlar sıcaklık günleri.",
           "tokens": [
             {
-              "token": "pd.DataFrame()",
-              "explanation": "DataFrame constructor. Liste, sözlük veya NumPy dizisinden tablo yapısı oluşturur.",
-              "turkce": "Fonksiyon/Metot Çağrısı",
-              "amac": "Belirtilen işlemi yürütmek için çağrılan fonksiyon."
+              "token": "DataFrame()",
+              "explanation": "Sozluk, liste veya dizi verilerinden tablo yapısı kurar.",
+              "turkce": "DataFrame Olusturma",
+              "amac": "Sozluk, liste veya dizi verilerinden tablo yapısı kurar.",
+              "detay": "DataFrame ismi, veriyi cerceveleyen iki boyutlu bir yapi oldugunu anlatir; satır-sütun mantigi sunar."
             },
             {
               "token": "index=",
@@ -457,7 +472,7 @@
               "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
             }
           ],
-          "codeContext": "'Manuel DataFrame Oluşturma' bağlamında çalışan bu satır, algoritmanın ilgili aşamasının uygulanmasını sağlar."
+          "codeContext": "Bu satır, 'Manuel DataFrame Oluşturma' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         }
       ],
       "expectedOutput": "        Sıcaklık 1.gün  Sıcaklık 2.gün\nDüzce              18              22\nSakarya            16              20"
