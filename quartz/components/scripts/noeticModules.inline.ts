@@ -28,6 +28,22 @@ function getBasePath(): string {
 
 let cleanupNoeticModules = () => {}
 
+const MODULE_ICONS: Record<string, string> = {
+  oop: `<svg class="noetic-modules-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg>`,
+  language: `<svg class="noetic-modules-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg>`,
+  ybs: `<svg class="noetic-modules-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>`,
+  finance: `<svg class="noetic-modules-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>`,
+}
+
+type NoeticModule = {
+  id: string
+  title: string
+  subtitle: string
+  moduleUrl: string
+  iconType: string
+  warningNote?: string
+}
+
 function setupNoeticModules() {
   cleanupNoeticModules()
   cleanupNoeticModules = () => {}
@@ -40,12 +56,52 @@ function setupNoeticModules() {
   ) as HTMLButtonElement | null
   const overlay = root.querySelector(".noetic-modules-overlay") as HTMLElement | null
   const panel = root.querySelector(".noetic-modules-panel") as HTMLElement | null
+  const grid = root.querySelector("[data-noetic-modules-grid]") as HTMLElement | null
   const closeButton = root.querySelector(".noetic-modules-panel__close") as HTMLButtonElement | null
-  if (!overlay || !panel) return
+  if (!overlay || !panel || !grid) return
+
+  document.body.appendChild(overlay)
+  document.body.appendChild(panel)
+
+  const moduleData = JSON.parse(root.dataset.noeticModules ?? "[]") as NoeticModule[]
+
+  const renderModulesIfNeeded = () => {
+    if (grid.childElementCount > 0) return
+
+    const basePath = getBasePath()
+    const fragment = document.createDocumentFragment()
+
+    moduleData.forEach((module) => {
+      const card = document.createElement("a")
+      card.className = "noetic-modules-card"
+      card.dataset.noeticModuleLink = ""
+      card.dataset.moduleUrl = module.moduleUrl
+      card.target = "_blank"
+      card.rel = "noopener noreferrer"
+      card.href = new URL(module.moduleUrl, basePath).toString()
+      card.innerHTML = `
+        <span class="noetic-modules-card__icon">${MODULE_ICONS[module.iconType] ?? MODULE_ICONS.ybs}</span>
+        <span class="noetic-modules-card__body">
+          <span class="noetic-modules-card__title">${module.title}</span>
+          <span class="noetic-modules-card__subtitle">${module.subtitle}</span>
+          ${module.warningNote ? `<span class="noetic-modules-card__note">${module.warningNote}</span>` : ""}
+        </span>
+        <span class="noetic-modules-card__arrow" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 17L17 7" />
+            <path d="M7 7h10v10" />
+          </svg>
+        </span>
+      `
+      fragment.appendChild(card)
+    })
+
+    grid.appendChild(fragment)
+  }
 
   const syncLinks = () => {
     const basePath = getBasePath()
-    root.querySelectorAll("[data-noetic-module-link]").forEach((node) => {
+    panel.querySelectorAll("[data-noetic-module-link]").forEach((node) => {
       const link = node as HTMLAnchorElement
       const moduleUrl = link.dataset.moduleUrl
       if (!moduleUrl) return
@@ -75,9 +131,12 @@ function setupNoeticModules() {
   }
 
   const openPanel = (source: "desktop" | "mobile") => {
+    renderModulesIfNeeded()
     syncLinks()
     markSeen()
     root.classList.add("open")
+    overlay.classList.add("visible")
+    panel.classList.add("visible")
     panel.setAttribute("aria-hidden", "false")
 
     if (source === "desktop" && window.innerWidth >= 800) {
@@ -89,6 +148,8 @@ function setupNoeticModules() {
 
   const closePanel = () => {
     root.classList.remove("open")
+    overlay.classList.remove("visible")
+    panel.classList.remove("visible")
     panel.setAttribute("aria-hidden", "true")
   }
 
@@ -116,6 +177,11 @@ function setupNoeticModules() {
   const onResize = () => {
     if (root.classList.contains("open") && window.innerWidth >= 800) {
       positionDesktopPanel()
+      return
+    }
+
+    if (root.classList.contains("open")) {
+      panel.style.left = "12px"
     }
   }
 
@@ -146,6 +212,8 @@ function setupNoeticModules() {
     document.removeEventListener("keydown", onKeydown)
     window.removeEventListener("resize", onResize)
     window.removeEventListener("noetic-modules-toggle", onToggleEvent as EventListener)
+    root.appendChild(overlay)
+    root.appendChild(panel)
   }
 }
 
