@@ -33,7 +33,6 @@ import Resize from "./Resize"
 import Hamburger from "./Hamburger"
 import ThemeCanvas from "./ThemeCanvas"
 import ModuleBanner from "./ModuleBanner"
-import SelectionAssistant from "./SelectionAssistant"
 
 export {
   ArticleTitle,
@@ -70,5 +69,4 @@ export {
   Hamburger,
   ThemeCanvas,
   ModuleBanner,
-  SelectionAssistant,
 }
