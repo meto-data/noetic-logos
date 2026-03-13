@@ -73,7 +73,10 @@ $theme-transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
 // Root seviyesinde CSS değişkenlerinin geçişi
 :root {
-  transition: all $theme-transition;
+  transition:
+    background-color $theme-transition,
+    color $theme-transition,
+    border-color $theme-transition;
 }
 
 // Tüm ana elemanlar
@@ -151,19 +154,25 @@ img {
   transition: none !important;
 }
 
-// ===== MOBİLDE TEMA GEÇİŞ EFEKTİNİ KAPAT =====
-// Mobilde performans için anında geçiş - EN YÜKSEK ÖNCELİK
+// ===== MOBİLDE TEMA GEÇİŞ EFEKTİ =====
+// Ağır bileşenlerde geçişi kapat, renk geçişini ise koru
 @media all and (max-width: 799px) {
-  // Root ve tüm elementler için geçişi kapat
-  :root,
-  html,
-  body,
-  *,
-  *::before,
-  *::after {
+  :root {
+    transition-duration: 0.28s !important;
+  }
+
+  #theme-canvas,
+  canvas,
+  .katex,
+  code,
+  pre,
+  .mermaid,
+  video,
+  img,
+  #mermaid-space,
+  #mermaid-space *,
+  .graph canvas {
     transition: none !important;
-    transition-duration: 0s !important;
-    transition-delay: 0s !important;
     animation-duration: 0s !important;
   }
 }
