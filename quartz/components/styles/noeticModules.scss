@@ -75,6 +75,7 @@
   display: flex;
   flex-direction: column;
   padding: 0.9rem;
+  padding-top: 3rem;
   border-radius: 20px;
   border: 1px solid color-mix(in srgb, var(--lightgray) 84%, transparent);
   background: color-mix(in srgb, var(--light) 94%, transparent);
@@ -100,36 +101,6 @@
   transform: translate(-50%, 0);
 }
 
-.noetic-modules-panel__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.8rem;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  padding-bottom: 0.7rem;
-  background: color-mix(in srgb, var(--light) 96%, transparent);
-  backdrop-filter: blur(16px);
-}
-
-.noetic-modules-panel__eyebrow {
-  display: inline-block;
-  margin-bottom: 0.35rem;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--secondary);
-}
-
-.noetic-modules-panel__heading h3 {
-  margin: 0;
-  color: var(--dark);
-  font-size: 1rem;
-}
-
 .noetic-modules-panel__close {
   appearance: none;
   border: 1px solid var(--lightgray);
@@ -142,6 +113,10 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  z-index: 2;
 
   &:hover {
     color: var(--secondary);
@@ -226,26 +201,15 @@
 .noetic-modules-card__body {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
   min-width: 0;
   flex: 1;
+  justify-content: center;
 }
 
 .noetic-modules-card__title {
   color: var(--dark);
   font-size: 0.9rem;
   font-weight: 700;
-}
-
-.noetic-modules-card__subtitle {
-  color: var(--darkgray);
-  font-size: 0.78rem;
-}
-
-.noetic-modules-card__note {
-  color: var(--gray);
-  font-size: 0.68rem;
-  line-height: 1.4;
 }
 
 .noetic-modules-card__arrow {
@@ -267,6 +231,7 @@
     max-height: none;
     padding: 0.85rem;
     border-radius: 18px;
+    padding-top: 3rem;
   }
 
   .noetic-modules-section__grid {
@@ -281,10 +246,6 @@
   .noetic-modules-card__icon {
     width: 40px;
     height: 40px;
-  }
-
-  .noetic-modules-panel__header {
-    padding-bottom: 0.65rem;
   }
 }
 

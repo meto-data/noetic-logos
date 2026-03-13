@@ -105,28 +105,22 @@ const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
       <div class="noetic-modules-overlay"></div>
 
       <section class="noetic-modules-panel" aria-hidden="true" role="dialog">
-        <div class="noetic-modules-panel__header">
-          <div class="noetic-modules-panel__heading">
-            <span class="noetic-modules-panel__eyebrow">Noetic Modüller</span>
-            <h3>Tüm modüller tek yerde</h3>
-          </div>
-          <button type="button" class="noetic-modules-panel__close" aria-label="Kapat">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-        </div>
+        <button type="button" class="noetic-modules-panel__close" aria-label="Kapat">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
 
         <div class="noetic-modules-panel__grid" data-noetic-modules-grid></div>
       </section>
