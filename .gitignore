@@ -12,6 +12,8 @@ android/app/build/
 android/.idea/
 android/capacitor-cordova-android-plugins/
 android/.cxx/
+.android-sdk/
+.gradle-home/
 
 # === Quartz Build ===
 public/
