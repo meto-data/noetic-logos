@@ -128,6 +128,7 @@ const OFFLINE_URL = toScopedUrl("offline.html");
 const PRECACHE_URLS = [
   OFFLINE_URL,
   toScopedUrl("manifest.webmanifest"),
+  toScopedUrl("static/contentIndex.json"),
   toScopedUrl("static/icon-192.png"),
   toScopedUrl("static/icon.png"),
 ];
@@ -190,6 +191,27 @@ const networkFirst = async (request) => {
     return (await cache.match(request)) || (await caches.match(OFFLINE_URL));
   }
 };
+
+const cacheUrls = async (urls) => {
+  const cache = await caches.open(RUNTIME_CACHE);
+
+  for (const rawUrl of urls) {
+    try {
+      const url = new URL(rawUrl, self.location.origin);
+      if (url.origin !== self.location.origin) continue;
+      const request = new Request(url.toString(), { credentials: "same-origin" });
+      const response = await fetch(request);
+      if (response && response.ok) {
+        await cache.put(request, response.clone());
+      }
+    } catch (error) {}
+  }
+};
+
+self.addEventListener("message", (event) => {
+  if (event.data?.type !== "CACHE_URLS" || !Array.isArray(event.data.urls)) return;
+  event.waitUntil(cacheUrls(event.data.urls));
+});
 
 self.addEventListener("fetch", (event) => {
   const request = event.request;
