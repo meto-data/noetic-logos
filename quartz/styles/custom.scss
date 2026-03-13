@@ -1003,6 +1003,7 @@ body {
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
+    touch-action: pan-y;
     transform: translateX(-100%) !important;
     transition: transform 0.3s ease !important;
 
@@ -1066,6 +1067,9 @@ body {
       color: var(--text) !important;
       font-size: 0.9rem !important;
       padding: 0.5rem 0.75rem !important;
+      display: block !important;
+      width: 100% !important;
+      touch-action: pan-y !important;
 
       &:hover {
         color: var(--secondary) !important;
@@ -1074,6 +1078,22 @@ body {
     }
 
     .folder-container {
+      display: flex !important;
+      width: 100% !important;
+      touch-action: pan-y !important;
+
+      > div {
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+
+      div > a,
+      div > button {
+        display: flex !important;
+        width: 100% !important;
+        touch-action: pan-y !important;
+      }
+
       div > a,
       div > button span {
         color: var(--text) !important;
