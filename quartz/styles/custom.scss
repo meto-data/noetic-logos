@@ -1198,7 +1198,7 @@ body {
 
   .mobile-search {
     flex: 1;
-    min-width: 80px;
+    min-width: 56px;
     max-width: none;
     height: 36px;
     background-color: var(--light);
@@ -1207,7 +1207,7 @@ body {
     padding: 0 12px;
     color: var(--text);
     font-size: 0.875rem;
-    margin: 0 10px;
+    margin: 0 8px;
     cursor: pointer;
 
     &::placeholder {
@@ -1226,6 +1226,7 @@ body {
   }
 
   .mobile-font-btn,
+  .mobile-modules-btn,
   .mobile-darkmode {
     width: 36px;
     height: 36px;
@@ -1254,6 +1255,28 @@ body {
         fill: var(--secondary) !important;
       }
     }
+  }
+
+  .mobile-modules-btn.is-attention {
+    animation: noetic-modules-pulse 1.4s ease-in-out infinite;
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--secondary) 38%, transparent);
+  }
+}
+
+@keyframes noetic-modules-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--secondary) 34%, transparent);
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 9px color-mix(in srgb, var(--secondary) 0%, transparent);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--secondary) 0%, transparent);
   }
 }
 
