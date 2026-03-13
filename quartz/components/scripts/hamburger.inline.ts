@@ -1,7 +1,30 @@
 // Mobile Menu & Header Script
 // Mobil görünümde: tam ekran koyu menü + header (logo + arama + darkmode)
 
-document.addEventListener("nav", () => {
+interface Window {
+  __noeticMobileNav?: { cleanup: () => void }
+  __noeticSyncSettingsInputs?: () => void
+  closeThemePanel?: () => void
+}
+
+window.__noeticMobileNav?.cleanup()
+
+let cleanupMobileChrome = () => {}
+
+const isElementVisible = (element: HTMLElement | null) =>
+  !!element && window.getComputedStyle(element).display !== "none"
+
+const closeMobileFontPanel = () => {
+  const panel = document.getElementById("mobile-font-panel")
+  if (panel) {
+    panel.style.display = "none"
+  }
+}
+
+const setupMobileChrome = () => {
+  cleanupMobileChrome()
+  cleanupMobileChrome = () => {}
+
   const leftSidebar = document.querySelector(".sidebar.left") as HTMLElement
   if (!leftSidebar) return
 
@@ -11,10 +34,11 @@ document.addEventListener("nav", () => {
   document.querySelector(".mobile-header")?.remove()
 
   // ===== MOBİL HEADER =====
+  const pageTitleLink = leftSidebar.querySelector(".page-title a") as HTMLAnchorElement | null
   const mobileHeader = document.createElement("div")
   mobileHeader.className = "mobile-header"
   mobileHeader.innerHTML = `
-    <a href="/" class="mobile-logo">Noetic Logos</a>
+    <a href="${pageTitleLink?.getAttribute("href") ?? "/"}" class="mobile-logo">Noetic Logos</a>
     <input type="text" class="mobile-search" placeholder="Arama..." readonly />
     <div class="mobile-buttons">
       <button class="mobile-font-btn" aria-label="Yazı Tipi">
@@ -77,19 +101,22 @@ document.addEventListener("nav", () => {
   }
 
   // ===== EVENT LISTENERS =====
-  hamburger.addEventListener("click", toggleMenu)
-  overlay.addEventListener("click", closeMenu)
-
-  // Menüdeki linklere tıklandığında kapat
-  leftSidebar.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
+  const onHamburgerClick = () => toggleMenu()
+  const onOverlayClick = () => closeMenu()
+  const onSidebarClick = (e: MouseEvent) => {
+    const target = e.target as HTMLElement | null
+    if (target?.closest("a")) {
       setTimeout(closeMenu, 100)
-    })
-  })
+    }
+  }
+
+  hamburger.addEventListener("click", onHamburgerClick)
+  overlay.addEventListener("click", onOverlayClick)
+  leftSidebar.addEventListener("click", onSidebarClick)
 
   // Mobil arama textbox'ı - tıklandığında Quartz arama modalını aç
   const mobileSearchInput = mobileHeader.querySelector(".mobile-search") as HTMLInputElement
-  mobileSearchInput?.addEventListener("click", (e) => {
+  const onMobileSearchClick = (e: MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
 
@@ -102,14 +129,15 @@ document.addEventListener("nav", () => {
     // Eğer container zaten taşınmışsa, body'deki wrapper içindedir
     if (!searchContainer) {
       // Belki wrapper içindedir, tekrar ara
-      searchContainer = document.querySelector(".mobile-search-wrapper .search-container") as HTMLElement
+      searchContainer = document.querySelector(
+        ".mobile-search-wrapper .search-container",
+      ) as HTMLElement
     }
 
     // Arama barı container içindeyse oradan bul
     if (searchContainer && !searchBar) {
       searchBar = searchContainer.querySelector(".search-bar") as HTMLInputElement
     }
-
 
     if (searchContainer) {
       // 1. Container'ı Body'ye taşı (Transform sorununu aşmak için)
@@ -135,7 +163,8 @@ document.addEventListener("nav", () => {
     } else {
       // HATA: Arama container bulunamadı!
     }
-  })
+  }
+  mobileSearchInput?.addEventListener("click", onMobileSearchClick)
 
   // Mobil darkmode - darkmode.inline.ts tarafından yönetiliyor
 
@@ -160,49 +189,16 @@ document.addEventListener("nav", () => {
     panel.style.display = "none"
     panel.innerHTML = fontDropdownContent.innerHTML
     document.body.appendChild(panel)
-
-    // Event listener'ları ekle
-    const radios = panel.querySelectorAll("input[type='radio']") as NodeListOf<HTMLInputElement>
-    radios.forEach(radio => {
-      radio.addEventListener("change", () => {
-        const originalRadio = document.querySelector(`.font-dropdown-content input[value="${radio.value}"][name="${radio.name}"]`) as HTMLInputElement
-        if (originalRadio) {
-          originalRadio.checked = true
-          originalRadio.dispatchEvent(new Event("change", { bubbles: true }))
-        }
-      })
-    })
-
-    // Diğer Fontlar toggle
-    const showMore = panel.querySelector(".font-show-more") as HTMLElement
-    const fontHidden = panel.querySelector(".font-hidden") as HTMLElement
-    showMore?.addEventListener("click", (e) => {
-      e.stopPropagation()
-      fontHidden?.classList.toggle("expanded")
-      showMore?.classList.toggle("expanded")
-
-      // İkon değiştir
-      const svg = showMore.querySelector("svg")
-      if (svg) {
-        if (fontHidden?.classList.contains("expanded")) {
-          svg.innerHTML = '<line x1="5" y1="12" x2="19" y2="12"></line>'
-        } else {
-          svg.innerHTML = '<line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line>'
-        }
-      }
-    })
+    window.__noeticSyncSettingsInputs?.()
 
     return panel
   }
 
-  let fontPanelOpen = false
-
-  mobileFontBtn?.addEventListener("click", (e) => {
+  const onMobileFontClick = (e: MouseEvent) => {
     e.stopPropagation()
 
     // Tema panelini kapat
-    const themePanel = document.getElementById("theme-selector-panel")
-    if (themePanel) themePanel.style.display = "none"
+    window.closeThemePanel?.()
 
     // Font paneli
     let panel = document.getElementById("mobile-font-panel")
@@ -211,36 +207,61 @@ document.addEventListener("nav", () => {
     }
 
     if (panel) {
-      fontPanelOpen = !fontPanelOpen
-      panel.style.display = fontPanelOpen ? "block" : "none"
+      panel.style.display = isElementVisible(panel) ? "none" : "block"
+      if (panel.style.display === "block") {
+        window.__noeticSyncSettingsInputs?.()
+      }
     }
-  })
+  }
+  mobileFontBtn?.addEventListener("click", onMobileFontClick)
 
   // Dışarı tıklayınca mobil font panelini kapat
-  document.addEventListener("click", (e) => {
+  const onDocumentClick = (e: MouseEvent) => {
     const panel = document.getElementById("mobile-font-panel")
     const target = e.target as Node
-    if (panel && fontPanelOpen && !panel.contains(target) && !mobileFontBtn?.contains(target)) {
-      panel.style.display = "none"
-      fontPanelOpen = false
+    if (
+      panel &&
+      isElementVisible(panel) &&
+      !panel.contains(target) &&
+      !mobileFontBtn?.contains(target)
+    ) {
+      closeMobileFontPanel()
     }
-  })
+  }
+  document.addEventListener("click", onDocumentClick)
 
   // Tema paneli açıldığında font panelini kapat
-  document.querySelectorAll(".mobile-darkmode").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const fontPanel = document.getElementById("mobile-font-panel")
-      if (fontPanel) {
-        fontPanel.style.display = "none"
-        fontPanelOpen = false
-      }
-    })
-  })
+  const mobileDarkmodeBtn = mobileHeader.querySelector(
+    ".mobile-darkmode",
+  ) as HTMLButtonElement | null
+  const onMobileDarkmodeClick = () => closeMobileFontPanel()
+  mobileDarkmodeBtn?.addEventListener("click", onMobileDarkmodeClick)
 
-  // ===== CLEANUP =====
-  window.addCleanup(() => {
+  cleanupMobileChrome = () => {
+    closeMenu()
+    closeMobileFontPanel()
+    mobileSearchInput?.removeEventListener("click", onMobileSearchClick)
+    mobileFontBtn?.removeEventListener("click", onMobileFontClick)
+    mobileDarkmodeBtn?.removeEventListener("click", onMobileDarkmodeClick)
+    document.removeEventListener("click", onDocumentClick)
+    leftSidebar.removeEventListener("click", onSidebarClick)
+    overlay.removeEventListener("click", onOverlayClick)
+    hamburger.removeEventListener("click", onHamburgerClick)
+    document.getElementById("mobile-font-panel")?.remove()
     hamburger.remove()
     overlay.remove()
     mobileHeader.remove()
-  })
-})
+  }
+
+  // ===== CLEANUP =====
+  window.addCleanup?.(() => cleanupMobileChrome())
+}
+
+document.addEventListener("nav", setupMobileChrome)
+
+window.__noeticMobileNav = {
+  cleanup: () => {
+    document.removeEventListener("nav", setupMobileChrome)
+    cleanupMobileChrome()
+  },
+}

@@ -1,13 +1,8 @@
-
 // @ts-ignore
 import settingsScript from "./scripts/settings.inline"
-// @ts-ignore
-import darkmodeScript from "./scripts/darkmode.inline"
 import styles from "./styles/settings.scss"
-import darkmodeStyles from "./styles/darkmode.scss"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { classNames } from "../util/lang"
-import { concatenateResources } from "../util/resources"
 
 const Settings: QuartzComponent = (props: QuartzComponentProps) => {
   const { displayClass } = props
@@ -16,7 +11,13 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
       {/* Font Dropdown */}
       <div class="font-dropdown" id="font-dropdown">
         <button class="dropdown-button font-button" aria-label="Yazı Tipi" type="button">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            width="18"
+            height="18"
+          >
             <path d="M9.93 13.5h4.14L12 7.98zM20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-4.05 16.5l-1.14-3H9.17l-1.12 3H5.96l5.11-13h1.86l5.11 13h-2.09z" />
           </svg>
         </button>
@@ -50,7 +51,18 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
           {/* Diğer Fontlar - Tema seçici gibi */}
           <div class="font-show-more">
             <span>Diğer Fontlar</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="plus-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="plus-icon"
+            >
               <line x1="12" y1="5" x2="12" y2="19"></line>
               <line x1="5" y1="12" x2="19" y2="12"></line>
             </svg>
@@ -98,8 +110,7 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
   )
 }
 
-
-Settings.afterDOMLoaded = concatenateResources([settingsScript, darkmodeScript])
-Settings.css = concatenateResources([styles, darkmodeStyles])
+Settings.afterDOMLoaded = settingsScript
+Settings.css = styles
 
 export default (() => Settings) satisfies QuartzComponentConstructor
