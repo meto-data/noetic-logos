@@ -56,8 +56,8 @@
 .noetic-modules-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(2, 6, 23, 0.52);
-  backdrop-filter: blur(7px);
+  background: rgba(2, 6, 23, 0.62);
+  backdrop-filter: blur(8px) brightness(0.72);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.18s ease;
@@ -68,10 +68,12 @@
   position: fixed;
   z-index: 1201;
   top: 88px;
-  left: max(16px, 2vw);
+  left: 50%;
   width: min(560px, calc(100vw - 32px));
   max-height: min(72vh, 760px);
-  overflow: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   padding: 0.9rem;
   border-radius: 20px;
   border: 1px solid color-mix(in srgb, var(--lightgray) 84%, transparent);
@@ -80,10 +82,11 @@
   box-shadow: 0 32px 90px rgba(2, 6, 23, 0.28);
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-8px);
+  transform: translate(-50%, -8px);
   transition:
     opacity 0.18s ease,
     transform 0.18s ease;
+  overscroll-behavior: contain;
 }
 
 .noetic-modules-overlay.visible {
@@ -94,7 +97,7 @@
 .noetic-modules-panel.visible {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(0);
+  transform: translate(-50%, 0);
 }
 
 .noetic-modules-panel__header {
@@ -103,6 +106,12 @@
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 0.8rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding-bottom: 0.7rem;
+  background: color-mix(in srgb, var(--light) 96%, transparent);
+  backdrop-filter: blur(16px);
 }
 
 .noetic-modules-panel__eyebrow {
@@ -144,6 +153,11 @@
   display: flex;
   flex-direction: column;
   gap: 0.95rem;
+  overflow: auto;
+  padding-right: 0.15rem;
+  padding-bottom: 0.2rem;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .noetic-modules-section {
@@ -247,9 +261,10 @@
 
   .noetic-modules-panel {
     top: 72px;
-    left: 12px !important;
+    bottom: 12px;
+    left: 50% !important;
     width: calc(100vw - 24px);
-    max-height: calc(100vh - 84px);
+    max-height: none;
     padding: 0.85rem;
     border-radius: 18px;
   }
@@ -266,6 +281,10 @@
   .noetic-modules-card__icon {
     width: 40px;
     height: 40px;
+  }
+
+  .noetic-modules-panel__header {
+    padding-bottom: 0.65rem;
   }
 }
 

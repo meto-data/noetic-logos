@@ -140,18 +140,15 @@ function setupNoeticModules() {
     window.dispatchEvent(new CustomEvent("noetic-modules-seen"))
   }
 
-  const positionDesktopPanel = () => {
-    if (!trigger) return
-    const rect = trigger.getBoundingClientRect()
-    const panelRect = panel.getBoundingClientRect()
-    const top = Math.max(76, rect.bottom + 10)
-    const left = Math.min(
-      window.innerWidth - panelRect.width - 16,
-      Math.max(16, rect.right - panelRect.width),
-    )
+  const positionPanel = (source: "desktop" | "mobile") => {
+    if (source === "desktop" && window.innerWidth >= 800) {
+      panel.style.top = "88px"
+      panel.style.left = "50%"
+      return
+    }
 
-    panel.style.top = `${top}px`
-    panel.style.left = `${left}px`
+    panel.style.top = "72px"
+    panel.style.left = "50%"
   }
 
   const openPanel = (source: "desktop" | "mobile") => {
@@ -162,12 +159,7 @@ function setupNoeticModules() {
     overlay.classList.add("visible")
     panel.classList.add("visible")
     panel.setAttribute("aria-hidden", "false")
-
-    if (source === "desktop" && window.innerWidth >= 800) {
-      positionDesktopPanel()
-    } else {
-      panel.style.left = "12px"
-    }
+    positionPanel(source)
   }
 
   const closePanel = () => {
@@ -199,13 +191,8 @@ function setupNoeticModules() {
   }
 
   const onResize = () => {
-    if (root.classList.contains("open") && window.innerWidth >= 800) {
-      positionDesktopPanel()
-      return
-    }
-
     if (root.classList.contains("open")) {
-      panel.style.left = "12px"
+      positionPanel(window.innerWidth >= 800 ? "desktop" : "mobile")
     }
   }
 
