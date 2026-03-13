@@ -38,6 +38,8 @@ const MODULE_ICONS: Record<string, string> = {
 type NoeticModule = {
   id: string
   title: string
+  periodLabel: string
+  periodOrder: number
   subtitle: string
   moduleUrl: string
   iconType: string
@@ -71,29 +73,51 @@ function setupNoeticModules() {
     const basePath = getBasePath()
     const fragment = document.createDocumentFragment()
 
-    moduleData.forEach((module) => {
-      const card = document.createElement("a")
-      card.className = "noetic-modules-card"
-      card.dataset.noeticModuleLink = ""
-      card.dataset.moduleUrl = module.moduleUrl
-      card.target = "_blank"
-      card.rel = "noopener noreferrer"
-      card.href = new URL(module.moduleUrl, basePath).toString()
-      card.innerHTML = `
-        <span class="noetic-modules-card__icon">${MODULE_ICONS[module.iconType] ?? MODULE_ICONS.ybs}</span>
-        <span class="noetic-modules-card__body">
-          <span class="noetic-modules-card__title">${module.title}</span>
-          <span class="noetic-modules-card__subtitle">${module.subtitle}</span>
-          ${module.warningNote ? `<span class="noetic-modules-card__note">${module.warningNote}</span>` : ""}
-        </span>
-        <span class="noetic-modules-card__arrow" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M7 17L17 7" />
-            <path d="M7 7h10v10" />
-          </svg>
-        </span>
-      `
-      fragment.appendChild(card)
+    const groupedModules = moduleData
+      .slice()
+      .sort((a, b) => a.periodOrder - b.periodOrder || a.title.localeCompare(b.title, "tr"))
+      .reduce((acc, module) => {
+        const key = `${module.periodOrder}-${module.periodLabel}`
+        if (!acc.has(key)) {
+          acc.set(key, { label: module.periodLabel, items: [] as NoeticModule[] })
+        }
+        acc.get(key)!.items.push(module)
+        return acc
+      }, new Map<string, { label: string; items: NoeticModule[] }>())
+
+    groupedModules.forEach((group) => {
+      const section = document.createElement("section")
+      section.className = "noetic-modules-section"
+      section.innerHTML = `<h4 class="noetic-modules-section__title">${group.label}</h4><div class="noetic-modules-section__grid"></div>`
+
+      const sectionGrid = section.querySelector(".noetic-modules-section__grid") as HTMLElement
+
+      group.items.forEach((module) => {
+        const card = document.createElement("a")
+        card.className = "noetic-modules-card"
+        card.dataset.noeticModuleLink = ""
+        card.dataset.moduleUrl = module.moduleUrl
+        card.target = "_blank"
+        card.rel = "noopener noreferrer"
+        card.href = new URL(module.moduleUrl, basePath).toString()
+        card.innerHTML = `
+          <span class="noetic-modules-card__icon">${MODULE_ICONS[module.iconType] ?? MODULE_ICONS.ybs}</span>
+          <span class="noetic-modules-card__body">
+            <span class="noetic-modules-card__title">${module.title}</span>
+            <span class="noetic-modules-card__subtitle">${module.subtitle}</span>
+            ${module.warningNote ? `<span class="noetic-modules-card__note">${module.warningNote}</span>` : ""}
+          </span>
+          <span class="noetic-modules-card__arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17L17 7" />
+              <path d="M7 7h10v10" />
+            </svg>
+          </span>
+        `
+        sectionGrid.appendChild(card)
+      })
+
+      fragment.appendChild(section)
     })
 
     grid.appendChild(fragment)
