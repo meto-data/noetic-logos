@@ -2,7 +2,7 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 import styles from "./styles/noeticModules.scss"
 // @ts-ignore
 import script from "./scripts/noeticModules.inline"
-import { NOETIC_MODULES, NoeticModuleDefinition, NoeticModuleIcon } from "./data/noeticModules"
+import { NOETIC_MODULES, NoeticModuleIcon } from "./data/noeticModules"
 
 const ICONS: Record<NoeticModuleIcon, JSX.Element> = {
   oop: (
@@ -77,43 +77,9 @@ const ICONS: Record<NoeticModuleIcon, JSX.Element> = {
   ),
 }
 
-const ModuleCard = ({ module }: { module: NoeticModuleDefinition }) => (
-  <a
-    href="#"
-    class="noetic-modules-card"
-    data-noetic-module-link
-    data-module-url={module.moduleUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <span class="noetic-modules-card__icon">{ICONS[module.iconType]}</span>
-    <span class="noetic-modules-card__body">
-      <span class="noetic-modules-card__title">{module.title}</span>
-      <span class="noetic-modules-card__subtitle">{module.subtitle}</span>
-      {module.warningNote && <span class="noetic-modules-card__note">{module.warningNote}</span>}
-    </span>
-    <span class="noetic-modules-card__arrow" aria-hidden="true">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M7 17L17 7" />
-        <path d="M7 7h10v10" />
-      </svg>
-    </span>
-  </a>
-)
-
 const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
   return (
-    <div class="noetic-modules-root">
+    <div class="noetic-modules-root" data-noetic-modules={JSON.stringify(NOETIC_MODULES)}>
       <button type="button" class="noetic-modules-trigger" data-noetic-modules-trigger="desktop">
         <span class="noetic-modules-trigger__icon" aria-hidden="true">
           <svg
@@ -162,11 +128,7 @@ const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
           </button>
         </div>
 
-        <div class="noetic-modules-panel__grid">
-          {NOETIC_MODULES.map((module) => (
-            <ModuleCard module={module} />
-          ))}
-        </div>
+        <div class="noetic-modules-panel__grid" data-noetic-modules-grid></div>
       </section>
     </div>
   )

@@ -49,6 +49,10 @@
   }
 }
 
+.noetic-modules-trigger__label {
+  display: inline;
+}
+
 .noetic-modules-overlay {
   position: fixed;
   inset: 0;
@@ -82,17 +86,15 @@
     transform 0.18s ease;
 }
 
-.noetic-modules-root.open {
-  .noetic-modules-overlay {
-    opacity: 1;
-    pointer-events: auto;
-  }
+.noetic-modules-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
 
-  .noetic-modules-panel {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
+.noetic-modules-panel.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .noetic-modules-panel__header {
@@ -242,5 +244,18 @@
   .noetic-modules-card__icon {
     width: 44px;
     height: 44px;
+  }
+}
+
+@media all and (max-width: 1205px) {
+  .noetic-modules-trigger {
+    width: 42px;
+    min-width: 42px;
+    padding-inline: 0;
+    justify-content: center;
+  }
+
+  .noetic-modules-trigger__label {
+    display: none;
   }
 }
