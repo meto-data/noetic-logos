@@ -14,6 +14,26 @@ let cleanupMobileChrome = () => {}
 const isElementVisible = (element: HTMLElement | null) =>
   !!element && window.getComputedStyle(element).display !== "none"
 
+const getBasePath = () => {
+  const baseElement = document.querySelector("base")
+  if (baseElement?.href) {
+    return baseElement.href.endsWith("/") ? baseElement.href : `${baseElement.href}/`
+  }
+
+  const pathname = window.location.pathname
+  const segments = pathname.split("/").filter(Boolean)
+
+  if (segments.length > 0 && window.location.hostname.endsWith(".github.io")) {
+    return `${window.location.origin}/${segments[0]}/`
+  }
+
+  const currentDir = pathname.endsWith("/")
+    ? pathname
+    : `${pathname.slice(0, pathname.lastIndexOf("/") + 1) || "/"}`
+
+  return new URL(currentDir, window.location.origin).toString()
+}
+
 const closeMobileFontPanel = () => {
   const panel = document.getElementById("mobile-font-panel")
   if (panel) {
@@ -38,7 +58,7 @@ const setupMobileChrome = () => {
   const mobileHeader = document.createElement("div")
   mobileHeader.className = "mobile-header"
   mobileHeader.innerHTML = `
-    <a href="${pageTitleLink?.getAttribute("href") ?? "/"}" class="mobile-logo">Noetic Logos</a>
+    <a href="${pageTitleLink?.getAttribute("href") ?? getBasePath()}" class="mobile-logo">Noetic Logos</a>
     <input type="text" class="mobile-search" placeholder="Arama..." readonly />
     <div class="mobile-buttons">
       <button class="mobile-font-btn" aria-label="Yazı Tipi">

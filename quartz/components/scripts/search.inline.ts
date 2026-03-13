@@ -103,8 +103,9 @@ function highlight(searchTerm: string, text: string, trim?: boolean) {
     })
     .join(" ")
 
-  return `${startIndex === 0 ? "" : "..."}${slice}${endIndex === tokenizedText.length - 1 ? "" : "..."
-    }`
+  return `${startIndex === 0 ? "" : "..."}${slice}${
+    endIndex === tokenizedText.length - 1 ? "" : "..."
+  }`
 }
 
 function highlightHTML(searchTerm: string, el: HTMLElement) {
@@ -215,8 +216,11 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
       }
     }
 
-    // For root deployments (like Cloudflare Pages), just use origin
-    return window.location.origin + "/"
+    const currentDir = pathname.endsWith("/")
+      ? pathname
+      : `${pathname.slice(0, pathname.lastIndexOf("/") + 1) || "/"}`
+
+    return new URL(currentDir, window.location.origin).toString()
   }
 
   const idDataMap = Object.keys(data) as FullSlug[]
