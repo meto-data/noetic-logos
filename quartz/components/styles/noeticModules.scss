@@ -159,14 +159,13 @@
 
 .noetic-modules-card {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.9rem;
   padding: 0.85rem;
   border-radius: 16px;
   border: 1px solid color-mix(in srgb, var(--lightgray) 88%, transparent);
   background: color-mix(in srgb, var(--secondary) 4%, var(--light));
   text-decoration: none !important;
-  min-height: 98px;
   transition:
     transform 0.18s ease,
     border-color 0.18s ease,
@@ -215,7 +214,7 @@
 .noetic-modules-card__arrow {
   flex-shrink: 0;
   color: var(--gray);
-  margin-top: 0.1rem;
+  align-self: center;
 }
 
 @media all and (max-width: 799px) {
