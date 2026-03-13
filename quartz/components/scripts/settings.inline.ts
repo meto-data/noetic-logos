@@ -1,139 +1,183 @@
-// Apply settings IMMEDIATELY to prevent flicker (before DOM loads)
-const savedFont = localStorage.getItem("font-family") || "";
-const savedSize = localStorage.getItem("font-size") || "1rem";
-
-// Apply font size immediately
-if (savedSize) {
-  document.documentElement.style.setProperty("--baseFontSize", savedSize);
+interface Window {
+  __noeticSettings?: { cleanup: () => void }
+  __noeticSyncSettingsInputs?: () => void
+  closeThemePanel?: () => void
 }
 
-// Apply custom font immediately (if set)
-if (savedFont && savedFont !== "") {
-  const fontName = savedFont.replace(/ /g, "+");
-  const link = document.createElement("link");
-  link.id = "dynamic-google-font";
-  link.rel = "stylesheet";
-  link.href = `https://fonts.googleapis.com/css2?family=${fontName}:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap`;
-  document.head.appendChild(link);
-  document.documentElement.style.setProperty("--bodyFont", `"${savedFont}", system-ui, sans-serif`);
-  document.documentElement.style.setProperty("--headerFont", `"${savedFont}", system-ui, sans-serif`);
+window.__noeticSettings?.cleanup()
+
+const getSavedFont = () => localStorage.getItem("font-family") || ""
+const getSavedSize = () => localStorage.getItem("font-size") || "1rem"
+
+const applySavedFontSizeImmediately = () => {
+  const savedSize = getSavedSize()
+  if (savedSize) {
+    document.documentElement.style.setProperty("--baseFontSize", savedSize)
+  }
 }
 
-// Preload fonts for preview
-const fontPreloadList = ['Poppins', 'Lato', 'Roboto', 'Open+Sans', 'Quicksand', 'Montserrat', 'Merriweather', 'Source+Sans+Pro'];
-fontPreloadList.forEach(font => {
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = `https://fonts.googleapis.com/css2?family=${font}:wght@400;500&display=swap`;
-  document.head.appendChild(link);
-});
+const applySavedFontFamilyImmediately = () => {
+  const savedFont = getSavedFont()
+  if (!savedFont) return
 
-document.addEventListener("DOMContentLoaded", () => {
-  const settingsRoots = document.querySelectorAll(".settings");
-  if (settingsRoots.length === 0) return;
+  const fontName = savedFont.replace(/ /g, "+")
+  const link = document.createElement("link")
+  link.id = "dynamic-google-font"
+  link.rel = "stylesheet"
+  link.href = `https://fonts.googleapis.com/css2?family=${fontName}:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap`
+  document.head.appendChild(link)
+  document.documentElement.style.setProperty("--bodyFont", `"${savedFont}", system-ui, sans-serif`)
+  document.documentElement.style.setProperty(
+    "--headerFont",
+    `"${savedFont}", system-ui, sans-serif`,
+  )
+}
 
-  function applyFontFamily(name: string) {
-    const linkId = "dynamic-google-font";
-    let existingLink = document.getElementById(linkId) as HTMLLinkElement | null;
-    if (existingLink) existingLink.remove();
+applySavedFontSizeImmediately()
+applySavedFontFamilyImmediately()
 
-    if (name && name !== "") {
-      const fontName = name.replace(/ /g, "+");
-      const link = document.createElement("link");
-      link.id = linkId;
-      link.rel = "stylesheet";
-      link.href = `https://fonts.googleapis.com/css2?family=${fontName}:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap`;
-      document.head.appendChild(link);
-      document.documentElement.style.setProperty("--bodyFont", `"${name}", system-ui, sans-serif`);
-      document.documentElement.style.setProperty("--headerFont", `"${name}", system-ui, sans-serif`);
-    } else {
-      document.documentElement.style.removeProperty("--bodyFont");
-      document.documentElement.style.removeProperty("--headerFont");
+const fontPreloadList = [
+  "Poppins",
+  "Lato",
+  "Roboto",
+  "Open+Sans",
+  "Quicksand",
+  "Montserrat",
+  "Merriweather",
+  "Source+Sans+Pro",
+]
+
+fontPreloadList.forEach((font) => {
+  const link = document.createElement("link")
+  link.rel = "stylesheet"
+  link.href = `https://fonts.googleapis.com/css2?family=${font}:wght@400;500&display=swap`
+  document.head.appendChild(link)
+})
+
+function applyFontFamily(name: string) {
+  const linkId = "dynamic-google-font"
+  const existingLink = document.getElementById(linkId) as HTMLLinkElement | null
+  existingLink?.remove()
+
+  if (name) {
+    const fontName = name.replace(/ /g, "+")
+    const link = document.createElement("link")
+    link.id = linkId
+    link.rel = "stylesheet"
+    link.href = `https://fonts.googleapis.com/css2?family=${fontName}:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap`
+    document.head.appendChild(link)
+    document.documentElement.style.setProperty("--bodyFont", `"${name}", system-ui, sans-serif`)
+    document.documentElement.style.setProperty("--headerFont", `"${name}", system-ui, sans-serif`)
+  } else {
+    document.documentElement.style.removeProperty("--bodyFont")
+    document.documentElement.style.removeProperty("--headerFont")
+  }
+
+  localStorage.setItem("font-family", name)
+}
+
+function applyFontSize(size: string) {
+  document.documentElement.style.setProperty("--baseFontSize", size)
+  localStorage.setItem("font-size", size)
+}
+
+function closeFontDropdown() {
+  document.querySelectorAll(".font-dropdown.open").forEach((dropdown) => {
+    dropdown.classList.remove("open")
+  })
+}
+
+function syncSettingsInputs() {
+  const savedFont = getSavedFont()
+  const savedSize = getSavedSize()
+
+  document.querySelectorAll("input[name='font-choice']").forEach((input) => {
+    const radio = input as HTMLInputElement
+    radio.checked = savedFont === "" ? radio.value === "" : radio.value === savedFont
+  })
+
+  document.querySelectorAll("input[name='font-size-choice']").forEach((input) => {
+    const radio = input as HTMLInputElement
+    radio.checked = radio.value === savedSize
+  })
+}
+
+function handleDocumentClick(e: MouseEvent) {
+  const target = e.target as HTMLElement | null
+  if (!target) return
+
+  const showMoreButton = target.closest(".font-show-more") as HTMLElement | null
+  if (showMoreButton) {
+    e.stopPropagation()
+    const panelRoot = showMoreButton.parentElement
+    const fontHidden = panelRoot?.querySelector(".font-hidden") as HTMLElement | null
+    fontHidden?.classList.toggle("expanded")
+    showMoreButton.classList.toggle("expanded", fontHidden?.classList.contains("expanded") ?? false)
+    return
+  }
+
+  const fontButton = target.closest(".font-button") as HTMLButtonElement | null
+  if (fontButton) {
+    e.stopPropagation()
+    const dropdown = fontButton.closest(".font-dropdown") as HTMLElement | null
+    const willOpen = !dropdown?.classList.contains("open")
+    closeFontDropdown()
+    window.closeThemePanel?.()
+    if (willOpen) {
+      dropdown?.classList.add("open")
     }
-    localStorage.setItem("font-family", name);
+    return
   }
 
-  function applyFontSize(size: string) {
-    document.documentElement.style.setProperty("--baseFontSize", size);
-    localStorage.setItem("font-size", size);
+  if (target.closest(".font-dropdown")) {
+    return
   }
 
-  // Font dropdown'u kapat
-  function closeFontDropdown() {
-    document.querySelectorAll(".font-dropdown").forEach(d => d.classList.remove("open"));
+  closeFontDropdown()
+}
+
+function handleDocumentChange(e: Event) {
+  const target = e.target as HTMLInputElement | null
+  if (!target) return
+
+  if (target.matches("input[name='font-choice']")) {
+    applyFontFamily(target.value)
+    syncSettingsInputs()
+    return
   }
 
-  // Tema panelini kapat (Darkmode'un paneli)
-  function closeThemePanel() {
-    const themePanel = document.getElementById("theme-selector-panel");
-    if (themePanel) themePanel.style.display = "none";
+  if (target.matches("input[name='font-size-choice']")) {
+    applyFontSize(target.value)
+    syncSettingsInputs()
   }
+}
 
-  settingsRoots.forEach(settingsRoot => {
-    const fontDropdown = settingsRoot.querySelector(".font-dropdown") as HTMLElement | null;
-    const fontButton = settingsRoot.querySelector(".font-button") as HTMLButtonElement | null;
-    const showMoreBtn = settingsRoot.querySelector(".font-show-more") as HTMLElement | null;
-    const fontHidden = settingsRoot.querySelector(".font-hidden") as HTMLElement | null;
-    const fontRadios = settingsRoot.querySelectorAll("input[name='font-choice']") as NodeListOf<HTMLInputElement>;
-    const fontSizeRadios = settingsRoot.querySelectorAll("input[name='font-size-choice']") as NodeListOf<HTMLInputElement>;
+function handleDocumentKeydown(e: KeyboardEvent) {
+  if (e.key === "Escape") {
+    closeFontDropdown()
+  }
+}
 
-    // Load saved values
-    fontRadios.forEach(radio => {
-      if (radio.value === savedFont) radio.checked = true;
-      if (savedFont === "" && radio.value === "") radio.checked = true;
-    });
+function handleSettingsNav() {
+  requestAnimationFrame(syncSettingsInputs)
+}
 
-    fontSizeRadios.forEach(radio => {
-      if (radio.value === savedSize) radio.checked = true;
-    });
+document.addEventListener("click", handleDocumentClick)
+document.addEventListener("change", handleDocumentChange)
+document.addEventListener("keydown", handleDocumentKeydown)
+document.addEventListener("nav", handleSettingsNav)
+syncSettingsInputs()
 
-    // Font dropdown toggle - tema panelini de kapat
-    fontButton?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const isOpen = fontDropdown?.classList.contains("open");
-      closeFontDropdown();
-      closeThemePanel(); // Tema panelini kapat
-      if (!isOpen) fontDropdown?.classList.add("open");
-    });
-
-    // Diğer Fontlar toggle
-    showMoreBtn?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if (fontHidden) {
-        const isExpanded = fontHidden.classList.contains("expanded");
-        fontHidden.classList.toggle("expanded");
-        showMoreBtn.classList.toggle("expanded");
-      }
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener("click", (e) => {
-      const target = e.target as Node;
-      if (!fontDropdown?.contains(target)) {
-        closeFontDropdown();
-      }
-    });
-
-    // Font selection
-    fontRadios.forEach(radio => {
-      radio.addEventListener("change", () => applyFontFamily(radio.value));
-    });
-
-    // Font size selection
-    fontSizeRadios.forEach(radio => {
-      radio.addEventListener("change", () => applyFontSize(radio.value));
-    });
-
-    // ESC to close
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeFontDropdown();
-    });
-  });
-
-  // Darkmode butonu tıklandığında font dropdown'u kapat
-  document.querySelectorAll(".darkmode").forEach(btn => {
-    btn.addEventListener("click", () => {
-      closeFontDropdown();
-    });
-  });
-});
+window.__noeticSyncSettingsInputs = syncSettingsInputs
+window.__noeticSettings = {
+  cleanup: () => {
+    closeFontDropdown()
+    document.removeEventListener("click", handleDocumentClick)
+    document.removeEventListener("change", handleDocumentChange)
+    document.removeEventListener("keydown", handleDocumentKeydown)
+    document.removeEventListener("nav", handleSettingsNav)
+    if (window.__noeticSyncSettingsInputs === syncSettingsInputs) {
+      delete window.__noeticSyncSettingsInputs
+    }
+  },
+}

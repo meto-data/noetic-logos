@@ -7,51 +7,52 @@
 
 // Material Icons Fix - @font-face ile doğrudan font yükleme
 @font-face {
-    font-family: 'Material Icons Outlined';
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v109/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2) format('woff2');
+  font-family: "Material Icons Outlined";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v109/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2)
+    format("woff2");
 }
 
 .material-icons-outlined {
-    font-family: 'Material Icons Outlined';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
+  font-family: "Material Icons Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga";
 }
 
 // ----- RENK PALETİ -----
 :root {
-    --light: #f8fafc !important;
-    --lightgray: #e5e7eb !important;
-    --gray: #64748b !important;
-    --darkgray: #334155 !important;
-    --dark: #1e293b !important;
-    --secondary: #3b82f6 !important;
-    --tertiary: #2563eb !important;
-    --highlight: rgba(224, 242, 254, 0.4) !important;
+  --light: #f8fafc !important;
+  --lightgray: #e5e7eb !important;
+  --gray: #64748b !important;
+  --darkgray: #334155 !important;
+  --dark: #1e293b !important;
+  --secondary: #3b82f6 !important;
+  --tertiary: #2563eb !important;
+  --highlight: rgba(224, 242, 254, 0.4) !important;
 
-    --surface: #ffffff;
-    --greek-blue: #e0f2fe;
-    --greek-blue-border: #bae6fd;
-    --border-color: #e5e7eb;
-    --muted: #64748b;
-    --text: #334155;
+  --surface: #ffffff;
+  --greek-blue: #e0f2fe;
+  --greek-blue-border: #bae6fd;
+  --border-color: #e5e7eb;
+  --muted: #64748b;
+  --text: #334155;
 
-    // Font Variables (Default)
-    --base-font-family: 'Inter', sans-serif;
-    --base-font-size: 1rem; // Normal
+  // Font Variables (Default)
+  --base-font-family: "Inter", sans-serif;
+  --base-font-size: 1rem; // Normal
 }
 
 // ===== TEMA GEÇİŞ EFEKTİ - SENKRONİZE =====
@@ -61,18 +62,18 @@ $theme-transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
 // Ana renk geçişleri için mixin
 @mixin theme-transition {
-    transition:
-        background-color $theme-transition,
-        color $theme-transition,
-        border-color $theme-transition,
-        fill $theme-transition,
-        stroke $theme-transition,
-        box-shadow $theme-transition !important;
+  transition:
+    background-color $theme-transition,
+    color $theme-transition,
+    border-color $theme-transition,
+    fill $theme-transition,
+    stroke $theme-transition,
+    box-shadow $theme-transition !important;
 }
 
 // Root seviyesinde CSS değişkenlerinin geçişi
 :root {
-    transition: all $theme-transition;
+  transition: all $theme-transition;
 }
 
 // Tüm ana elemanlar
@@ -123,7 +124,7 @@ li,
 .content-meta,
 .meta-item,
 .breadcrumb-container {
-    @include theme-transition;
+  @include theme-transition;
 }
 
 // SVG elemanları için
@@ -132,7 +133,10 @@ svg path,
 svg circle,
 svg line,
 svg rect {
-    transition: fill $theme-transition, stroke $theme-transition, color $theme-transition;
+  transition:
+    fill $theme-transition,
+    stroke $theme-transition,
+    color $theme-transition;
 }
 
 // Performans için animasyonlu öğeleri hariç tut
@@ -144,1775 +148,1796 @@ pre,
 .mermaid,
 video,
 img {
-    transition: none !important;
+  transition: none !important;
 }
 
 // ===== MOBİLDE TEMA GEÇİŞ EFEKTİNİ KAPAT =====
 // Mobilde performans için anında geçiş - EN YÜKSEK ÖNCELİK
 @media all and (max-width: 799px) {
-
-    // Root ve tüm elementler için geçişi kapat
-    :root,
-    html,
-    body,
-    *,
-    *::before,
-    *::after {
-        transition: none !important;
-        transition-duration: 0s !important;
-        transition-delay: 0s !important;
-        animation-duration: 0s !important;
-    }
+  // Root ve tüm elementler için geçişi kapat
+  :root,
+  html,
+  body,
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+    animation-duration: 0s !important;
+  }
 }
 
-
 [saved-theme="dark"] {
-    --light: #111827 !important;
-    --lightgray: #374151 !important;
-    --gray: #9ca3af !important;
-    --darkgray: #f3f4f6 !important;
-    --dark: #f9fafb !important;
-    --secondary: #3b82f6 !important;
-    --tertiary: #2563eb !important;
-    --highlight: rgba(59, 130, 246, 0.2) !important;
+  --light: #111827 !important;
+  --lightgray: #374151 !important;
+  --gray: #9ca3af !important;
+  --darkgray: #f3f4f6 !important;
+  --dark: #f9fafb !important;
+  --secondary: #3b82f6 !important;
+  --tertiary: #2563eb !important;
+  --highlight: rgba(59, 130, 246, 0.2) !important;
 
-    --surface: #1f2937;
-    --greek-blue: rgba(59, 130, 246, 0.2);
-    --greek-blue-border: #1e3a8a;
-    --border-color: #374151;
-    --muted: #9ca3af;
-    --text: #f3f4f6;
+  --surface: #1f2937;
+  --greek-blue: rgba(59, 130, 246, 0.2);
+  --greek-blue-border: #1e3a8a;
+  --border-color: #374151;
+  --muted: #9ca3af;
+  --text: #f3f4f6;
 }
 
 // OLIVE LIGHT TEMA - Beyaz Arka Plan, Zeytin Yeşili Vurgu
 [saved-theme="olive-light"] {
-    --light: #f8fafc !important;
-    --lightgray: #e5e7eb !important;
-    --gray: #6b7280 !important;
-    --darkgray: #374151 !important;
-    --dark: #374151 !important;
-    --secondary: #82A370 !important;
-    --tertiary: #6C8B5E !important;
-    --highlight: rgba(130, 163, 112, 0.15) !important;
+  --light: #f8fafc !important;
+  --lightgray: #e5e7eb !important;
+  --gray: #6b7280 !important;
+  --darkgray: #374151 !important;
+  --dark: #374151 !important;
+  --secondary: #82a370 !important;
+  --tertiary: #6c8b5e !important;
+  --highlight: rgba(130, 163, 112, 0.15) !important;
 
-    --surface: #ffffff;
-    --greek-blue: #C4DCC1;
-    --greek-blue-border: #A0B098;
-    --border-color: #e5e7eb;
-    --muted: #6b7280;
-    --text: #374151;
+  --surface: #ffffff;
+  --greek-blue: #c4dcc1;
+  --greek-blue-border: #a0b098;
+  --border-color: #e5e7eb;
+  --muted: #6b7280;
+  --text: #374151;
 }
 
 // OLIVE DARK TEMA - Koyu Arka Plan, Zeytin Yeşili Vurgu
 [saved-theme="olive-dark"] {
-    --light: #1A1D1A !important;
-    --lightgray: #3A403A !important;
-    --gray: #A0B098 !important;
-    --darkgray: #D0E0C8 !important;
-    --dark: #D0E0C8 !important;
-    --secondary: #82A370 !important;
-    --tertiary: #6C8B5E !important;
-    --highlight: rgba(130, 163, 112, 0.2) !important;
+  --light: #1a1d1a !important;
+  --lightgray: #3a403a !important;
+  --gray: #a0b098 !important;
+  --darkgray: #d0e0c8 !important;
+  --dark: #d0e0c8 !important;
+  --secondary: #82a370 !important;
+  --tertiary: #6c8b5e !important;
+  --highlight: rgba(130, 163, 112, 0.2) !important;
 
-    --surface: #2A302A;
-    --greek-blue: rgba(130, 163, 112, 0.15);
-    --greek-blue-border: #4A584A;
-    --border-color: #3A403A;
-    --muted: #A0B098;
-    --text: #D0E0C8;
+  --surface: #2a302a;
+  --greek-blue: rgba(130, 163, 112, 0.15);
+  --greek-blue-border: #4a584a;
+  --border-color: #3a403a;
+  --muted: #a0b098;
+  --text: #d0e0c8;
 }
 
 // Noise Texture Mixin
 @mixin noise($opacity: 0.05) {
-    position: relative;
+  position: relative;
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 1000;
-        opacity: $opacity;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    }
-}
-
-// LIBRARY LIGHT TEMA - Revize (Krem Arka Plan)
-[saved-theme="library-light"] {
-    --light: #FAF7F2 !important;
-    --lightgray: #E8E2D9 !important;
-    --gray: #A09080 !important;
-    --darkgray: #5C4D3C !important;
-    --dark: #4A3C2A !important;
-    --secondary: #8B7355 !important;
-    --tertiary: #6B5344 !important;
-    --highlight: rgba(139, 115, 85, 0.15) !important;
-
-    --surface: #FAF7F2;
-    --greek-blue: #F0E8DC;
-    --greek-blue-border: #D4C4B0;
-    --border-color: #E0D8CC;
-    --muted: #8C7B68;
-    --text: #5C4D3C;
-    --panel-bg: #FAF7F2;
-}
-
-// STONE DARK TEMA - Bazalt ve Volkanik Kaya
-[saved-theme="stone-dark"] {
-    --light: #0A0A0C !important;
-    --lightgray: #121214 !important;
-    --gray: #232326 !important;
-    --darkgray: #9A9A9F !important;
-    --dark: #E5E5E7 !important;
-    --secondary: #C0C0C5 !important;
-    --tertiary: #9A9A9F !important;
-    --highlight: rgba(192, 192, 197, 0.1) !important;
-
-    --surface: #1A1A1D;
-    --greek-blue: rgba(255, 255, 255, 0.05);
-    --greek-blue-border: #232326;
-    --border-color: #232326;
-    --muted: #9A9A9F;
-    --text: #E5E5E7;
-    --panel-bg: #121214;
-
-    // Bulanıklık/noise YOK - Düz renk
-
-    // Tarih/Meta Rengi Düzeltmesi - GÜÇLENDİRİLMİŞ
-    .content-meta,
-    .content-meta *,
-    .meta-item,
-    .meta-item *,
-    .meta,
-    .meta *,
-    span.meta,
-    time,
-    time[datetime],
-    .content-meta time,
-    .meta time {
-        color: #e4e4e7 !important; // Zinc-200 (daha açık)
-    }
-
-    // Font Dropdown Stilleri - Daha Okunabilir
-    .dropdown-content {
-        background: #0a0a0c !important;
-        border-color: #232326 !important;
-    }
-
-    .section-header {
-        color: #e5e5e7 !important;
-        border-bottom-color: #232326 !important;
-    }
-
-    .font-item span,
-    .size-item span {
-        color: #d4d4d8 !important;
-    }
-
-    .font-item:has(input:checked) span,
-    .size-item:has(input:checked) span {
-        color: #c0c0c5 !important;
-    }
-
-    .font-show-more {
-        color: #9a9a9f !important;
-        border-color: #3a3a3e !important;
-
-        &:hover {
-            color: #e5e5e7 !important;
-            border-color: #c0c0c5 !important;
-        }
-    }
-
-    .dropdown-button {
-        background: #0a0a0c !important;
-        border-color: #232326 !important;
-
-        svg {
-            fill: #e5e5e7 !important;
-        }
-
-        &:hover {
-            border-color: #c0c0c5 !important;
-        }
-    }
-}
-
-// NORD LIGHT TEMA
-[saved-theme="nord-light"] {
-    --light: #ECEFF4 !important;
-    --lightgray: #E5E9F0 !important;
-    --gray: #D8DEE9 !important;
-    --darkgray: #4C566A !important;
-    --dark: #2E3440 !important;
-    --secondary: #5E81AC !important;
-    --tertiary: #81A1C1 !important;
-    --highlight: rgba(94, 129, 172, 0.15) !important;
-
-    --surface: #ECEFF4;
-    --greek-blue: #E5E9F0;
-    --greek-blue-border: #D8DEE9;
-    --border-color: #D8DEE9;
-    --muted: #4C566A;
-    --text: #2E3440;
-    --panel-bg: #ECEFF4;
-
-    // Meta/Tarih bilgisi - Koyu ve Okunabilir
-    .meta,
-    .meta *,
-    span.meta,
-    time,
-    time[datetime],
-    .content-meta,
-    .content-meta *,
-    .meta-item,
-    .meta-item * {
-        color: #4C566A !important; // Nord Polar Night (koyu gri)
-    }
-
-    // Diğer Fontlar butonu - Koyu ve Okunabilir
-    .font-show-more {
-        color: #4C566A !important; // Nord Polar Night
-        border-color: #D8DEE9 !important;
-
-        &:hover {
-            color: #2E3440 !important;
-            border-color: #5E81AC !important;
-        }
-
-        svg {
-            stroke: #4C566A !important;
-        }
-    }
-}
-
-// DEEP SEA TEMA - Okyanus Derinliği
-[saved-theme="deep-sea"] {
-    --light: #010C15 !important;
-    --lightgray: #000810 !important;
-    --gray: #1E293B !important;
-    --darkgray: #7dd3fc !important; // Sky-300 (Çok daha açık)
-    --dark: #bae6fd !important; // Sky-200 (Ana metin rengi - Açık mavi)
-    --secondary: #00D2FF !important;
-    --tertiary: #0EA5E9 !important;
-    --highlight: rgba(0, 210, 255, 0.1) !important;
-
-    --surface: #051A2C;
-    --greek-blue: rgba(5, 26, 44, 0.5);
-    --greek-blue-border: #051A2C;
-    --border-color: #051A2C;
-    --muted: #7dd3fc; // Sky-300
-    --text: #e0f2fe; // Sky-50 (En açık)
-    --panel-bg: #000810;
-
-    // Metin Seçimi (Selection) - Düzeltilmiş kontrast
-    ::selection {
-        background: #0ea5e9 !important; // Sky-500
-        color: #f0f9ff !important; // Sky-50 (Çok açık)
-    }
-
-    // Listeler ve paragraflar için ÇOK AÇIK renk
-    p,
-    li,
-    span:not(.material-icons-outlined) {
-        color: #bae6fd !important; // Sky-200
-    }
-
-    // Bold metinler beyaz
-    strong,
-    b {
-        color: #cee7ea !important;
-    }
-
-    // Tarih/Meta Rengi Düzeltmesi - GÜÇLENDİRİLMİŞ
-    .content-meta,
-    .content-meta *,
-    .meta-item,
-    .meta-item *,
-    .meta,
-    .meta *,
-    span.meta,
-    time,
-    time[datetime],
-    .content-meta time,
-    .meta time {
-        color: #7dd3fc !important; // Sky-300 (daha açık, daha okunur)
-    }
-}
-
-// Deep Sea çift katmanlı dalga animasyonu
-@keyframes deep-sea-wave {
-    0% {
-        background-position-x: 0;
-    }
-
-    100% {
-        background-position-x: 200%;
-    }
-}
-
-@keyframes deep-sea-wave-reverse {
-    0% {
-        background-position-x: 200%;
-    }
-
-    100% {
-        background-position-x: 0;
-    }
-}
-
-// Deep Sea dalga efekti - Katman 1 (ön, hızlı)
-[saved-theme="deep-sea"] body::after {
+  &::before {
     content: "";
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40vh;
-    pointer-events: none;
-    z-index: 1;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%2300d2ff' fill-opacity='0.05' d='M0,192L30,186.7C60,181,120,171,180,181.3C240,192,300,224,360,213.3C420,203,480,149,540,128C600,107,660,117,720,138.7C780,160,840,192,900,197.3C960,203,1020,181,1080,165.3C1140,149,1200,139,1260,154.7C1320,171,1380,213,1410,234.7L1440,256L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-    background-size: 200% 100%;
-    animation: deep-sea-wave 15s linear infinite;
-}
-
-// Deep Sea dalga efekti - Katman 2 (arka, yavaş, ters yön)
-[saved-theme="deep-sea"] body::before {
-    content: "";
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50vh;
-    pointer-events: none;
-    z-index: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%2300d2ff' fill-opacity='0.03' d='M0,96L40,112C80,128,160,160,240,165.3C320,171,400,149,480,133.3C560,117,640,107,720,122.7C800,139,880,181,960,197.3C1040,213,1120,203,1200,176C1280,149,1360,107,1400,85.3L1440,64L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-    background-size: 200% 100%;
-    animation: deep-sea-wave-reverse 25s linear infinite;
-}
-
-// TOC Progress Bar Stili (Tüm Temalar İçin)
-// TOC başlığını Grafik Görünümü ile aynı stile getir
-.toc>.toc-header h3,
-.toc-header h3 {
-    font-family: var(--headerFont) !important;
-    font-size: 1rem !important;
-    font-weight: 400 !important;
-    margin: 0 !important;
-    color: var(--dark) !important;
-}
-
-.toc-content {
-    ul {
-        list-style: none;
-        padding-left: 10px;
-        margin: 0;
-        border-left: 2px solid var(--lightgray);
-
-        li {
-            margin: 0;
-            padding: 0;
-
-            a {
-                display: block;
-                padding: 4px 0 4px 15px;
-                color: var(--muted);
-                text-decoration: none;
-                transition: all 0.2s ease;
-                border-left: 2px solid transparent;
-                margin-left: -2px;
-                cursor: pointer;
-
-                &:hover {
-                    color: var(--text);
-                }
-
-                // Quartz .in-view class'ını kullan
-                &.in-view {
-                    color: var(--secondary);
-                    font-weight: 600;
-                    border-left-color: var(--secondary);
-                }
-            }
-        }
-    }
-}
-
-// VOID TEMA - Mutlak Boşluk (Mat Zinc Tonları)
-[saved-theme="void"] {
-    --light: #000000 !important;
-    --lightgray: #000000 !important;
-    --gray: #1A1A1A !important;
-    --darkgray: #A1A1AA !important; // Zinc-400 (Yardımcı metin)
-    --dark: #E4E4E7 !important; // Zinc-200 (Başlıklar - Mat)
-    --secondary: #D4D4D8 !important; // Zinc-300 (Vurgular)
-    --tertiary: #3F3F46 !important; // Zinc-700 (Koyu mat gri)
-    --highlight: rgba(244, 244, 245, 0.1) !important;
-
-    --surface: #0A0A0A;
-    --greek-blue: #0A0A0A;
-    --greek-blue-border: #1A1A1A;
-    --border-color: #1A1A1A;
-    --muted: #71717A; // Zinc-500 (Silik metin)
-    --text: #D4D4D8; // Zinc-300 (Ana metin - mat)
-    --panel-bg: #000000;
-
-    // Grayscale filtresi KALDIRILDI - tema seçicideki renkleri etkiliyordu
-
-    // OPAK PANELLERİ ZORLA
-    .sidebar.left,
-    .left.sidebar {
-        background-color: #000000 !important;
-        border-right: 1px solid #1A1A1A !important;
-    }
-
-    .sidebar.right,
-    .right.sidebar,
-    .right-sidebar {
-        background-color: #000000 !important;
-        border-left: 1px solid #1A1A1A !important;
-    }
-
-    // Ana içerik alanı
-    .center,
-    article {
-        background-color: #050505 !important;
-    }
-
-    // Arama kutusu ve inputlar
-    input,
-    .search-bar,
-    .search input {
-        background-color: #0A0A0A !important;
-        border: 1px solid #1A1A1A !important;
-        color: #D4D4D8 !important;
-    }
-
-    // Grafik kutusu
-    .graph-outer,
-    .graph {
-        background-color: #0A0A0A !important;
-        border: 1px solid #1A1A1A !important;
-    }
-
-    // Başlıklar mat Zinc-200
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        color: #E4E4E7 !important;
-    }
-
-    // Vurgulu/kalın yazılar Zinc-100
-    strong,
-    b {
-        color: #F4F4F5 !important;
-    }
-
-    // İkonları ve çizgileri koyu mat gri yap
-    svg {
-        color: #3F3F46 !important;
-        stroke: #3F3F46 !important;
-    }
-
-    // Linkleri belirgin yap - altı çizili ve açık renk
-    a {
-        color: #E4E4E7 !important;
-        text-decoration: underline !important;
-        text-decoration-color: #3F3F46 !important;
-        text-underline-offset: 3px !important;
-        transition: all 0.2s ease !important;
-
-        &:hover {
-            color: #F4F4F5 !important;
-            text-decoration-color: #71717A !important;
-        }
-    }
-
-    // Ana başlıklardaki linkler için özel (altı çizili olmasın)
-    h1 a,
-    h2 a,
-    h3 a {
-        color: #E4E4E7 !important;
-        text-decoration: none !important;
-    }
-
-    // Grafik Görünümü - Void Estetiği
-    .graph-outer {
-        background-color: #000000 !important;
-        border: 1px solid #27272A !important;
-        border-radius: 8px !important;
-    }
-
-    .graph {
-        background-color: #000000 !important;
-        border: none !important;
-
-        // Grafik içindeki noktalar ve çizgiler
-        circle {
-            fill: #52525B !important;
-            stroke: #71717A !important;
-        }
-
-        line {
-            stroke: #27272A !important;
-        }
-
-        text {
-            fill: #A1A1AA !important;
-        }
-
-        // Aktif/hover durumu
-        .node:hover circle {
-            fill: #A1A1AA !important;
-        }
-
-        .node.active circle {
-            fill: #E4E4E7 !important;
-            stroke: #F4F4F5 !important;
-        }
-    }
-
-    // Graph header
-    .graph-outer>h3,
-    .backlinks>h3 {
-        color: #71717A !important;
-        border-bottom: 1px solid #27272A !important;
-    }
-
-    // Noise efekti (şeffaf pikseller)
-    // Noise efekti (şeffaf pikseller)
-    @include noise(0.08);
-
-    // Tarih/Meta Rengi Düzeltmesi - GÜÇLENDİRİLMİŞ
-    .content-meta,
-    .content-meta *,
-    .meta-item,
-    .meta-item *,
-    .meta,
-    .meta *,
-    span.meta,
-    time,
-    time[datetime],
-    .content-meta time,
-    .meta time {
-        color: #e4e4e7 !important; // Zinc-200 (daha açık)
-    }
-
-    // Font Dropdown Stilleri - Daha Okunabilir
-    .dropdown-content {
-        background: #0a0a0a !important;
-        border-color: #27272A !important;
-    }
-
-    .section-header {
-        color: #e4e4e7 !important;
-        border-bottom-color: #27272A !important;
-    }
-
-    .font-item span,
-    .size-item span {
-        color: #d4d4d8 !important;
-    }
-
-    .font-item:has(input:checked) span,
-    .size-item:has(input:checked) span {
-        color: #71717A !important;
-    }
-
-    .font-show-more {
-        color: #a1a1aa !important;
-        border-color: #3f3f46 !important;
-
-        &:hover {
-            color: #e4e4e7 !important;
-            border-color: #71717A !important;
-        }
-    }
-
-    .dropdown-button {
-        background: #0a0a0a !important;
-        border-color: #27272A !important;
-
-        svg {
-            fill: #d4d4d8 !important; // Biraz karartıldı
-        }
-
-        &:hover {
-            border-color: #52525b !important;
-            background: rgba(82, 82, 91, 0.2) !important;
-        }
-    }
-
-    // Tema butonu da aynı stil
-    .darkmode {
-        background: #0a0a0a !important;
-        border-color: #27272A !important;
-
-        svg {
-            fill: #d4d4d8 !important; // Biraz karartıldı
-        }
-
-        &:hover {
-            border-color: #52525b !important;
-            background: rgba(82, 82, 91, 0.2) !important;
-        }
-    }
-}
-
-// ===== CANVAS TEMA EFEKTLERİ =====
-#theme-canvas {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1;
+    z-index: 1000;
+    opacity: $opacity;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+}
+
+// LIBRARY LIGHT TEMA - Revize (Krem Arka Plan)
+[saved-theme="library-light"] {
+  --light: #faf7f2 !important;
+  --lightgray: #e8e2d9 !important;
+  --gray: #a09080 !important;
+  --darkgray: #5c4d3c !important;
+  --dark: #4a3c2a !important;
+  --secondary: #8b7355 !important;
+  --tertiary: #6b5344 !important;
+  --highlight: rgba(139, 115, 85, 0.15) !important;
+
+  --surface: #faf7f2;
+  --greek-blue: #f0e8dc;
+  --greek-blue-border: #d4c4b0;
+  --border-color: #e0d8cc;
+  --muted: #8c7b68;
+  --text: #5c4d3c;
+  --panel-bg: #faf7f2;
+}
+
+// STONE DARK TEMA - Bazalt ve Volkanik Kaya
+[saved-theme="stone-dark"] {
+  --light: #0a0a0c !important;
+  --lightgray: #121214 !important;
+  --gray: #232326 !important;
+  --darkgray: #9a9a9f !important;
+  --dark: #e5e5e7 !important;
+  --secondary: #c0c0c5 !important;
+  --tertiary: #9a9a9f !important;
+  --highlight: rgba(192, 192, 197, 0.1) !important;
+
+  --surface: #1a1a1d;
+  --greek-blue: rgba(255, 255, 255, 0.05);
+  --greek-blue-border: #232326;
+  --border-color: #232326;
+  --muted: #9a9a9f;
+  --text: #e5e5e7;
+  --panel-bg: #121214;
+
+  // Bulanıklık/noise YOK - Düz renk
+
+  // Tarih/Meta Rengi Düzeltmesi - GÜÇLENDİRİLMİŞ
+  .content-meta,
+  .content-meta *,
+  .meta-item,
+  .meta-item *,
+  .meta,
+  .meta *,
+  span.meta,
+  time,
+  time[datetime],
+  .content-meta time,
+  .meta time {
+    color: #e4e4e7 !important; // Zinc-200 (daha açık)
+  }
+
+  // Font Dropdown Stilleri - Daha Okunabilir
+  .dropdown-content {
+    background: #0a0a0c !important;
+    border-color: #232326 !important;
+  }
+
+  .section-header {
+    color: #e5e5e7 !important;
+    border-bottom-color: #232326 !important;
+  }
+
+  .font-item span,
+  .size-item span {
+    color: #d4d4d8 !important;
+  }
+
+  .font-item:has(input:checked) span,
+  .size-item:has(input:checked) span {
+    color: #c0c0c5 !important;
+  }
+
+  .font-show-more {
+    color: #9a9a9f !important;
+    border-color: #3a3a3e !important;
+
+    &:hover {
+      color: #e5e5e7 !important;
+      border-color: #c0c0c5 !important;
+    }
+  }
+
+  .dropdown-button {
+    background: #0a0a0c !important;
+    border-color: #232326 !important;
+
+    svg {
+      fill: #e5e5e7 !important;
+    }
+
+    &:hover {
+      border-color: #c0c0c5 !important;
+    }
+  }
+}
+
+// NORD LIGHT TEMA
+[saved-theme="nord-light"] {
+  --light: #eceff4 !important;
+  --lightgray: #e5e9f0 !important;
+  --gray: #d8dee9 !important;
+  --darkgray: #4c566a !important;
+  --dark: #2e3440 !important;
+  --secondary: #5e81ac !important;
+  --tertiary: #81a1c1 !important;
+  --highlight: rgba(94, 129, 172, 0.15) !important;
+
+  --surface: #eceff4;
+  --greek-blue: #e5e9f0;
+  --greek-blue-border: #d8dee9;
+  --border-color: #d8dee9;
+  --muted: #4c566a;
+  --text: #2e3440;
+  --panel-bg: #eceff4;
+
+  // Meta/Tarih bilgisi - Koyu ve Okunabilir
+  .meta,
+  .meta *,
+  span.meta,
+  time,
+  time[datetime],
+  .content-meta,
+  .content-meta *,
+  .meta-item,
+  .meta-item * {
+    color: #4c566a !important; // Nord Polar Night (koyu gri)
+  }
+
+  // Diğer Fontlar butonu - Koyu ve Okunabilir
+  .font-show-more {
+    color: #4c566a !important; // Nord Polar Night
+    border-color: #d8dee9 !important;
+
+    &:hover {
+      color: #2e3440 !important;
+      border-color: #5e81ac !important;
+    }
+
+    svg {
+      stroke: #4c566a !important;
+    }
+  }
+}
+
+// DEEP SEA TEMA - Okyanus Derinliği
+[saved-theme="deep-sea"] {
+  --light: #010c15 !important;
+  --lightgray: #000810 !important;
+  --gray: #1e293b !important;
+  --darkgray: #7dd3fc !important; // Sky-300 (Çok daha açık)
+  --dark: #bae6fd !important; // Sky-200 (Ana metin rengi - Açık mavi)
+  --secondary: #00d2ff !important;
+  --tertiary: #0ea5e9 !important;
+  --highlight: rgba(0, 210, 255, 0.1) !important;
+
+  --surface: #051a2c;
+  --greek-blue: rgba(5, 26, 44, 0.5);
+  --greek-blue-border: #051a2c;
+  --border-color: #051a2c;
+  --muted: #7dd3fc; // Sky-300
+  --text: #e0f2fe; // Sky-50 (En açık)
+  --panel-bg: #000810;
+
+  // Metin Seçimi (Selection) - Düzeltilmiş kontrast
+  ::selection {
+    background: #0ea5e9 !important; // Sky-500
+    color: #f0f9ff !important; // Sky-50 (Çok açık)
+  }
+
+  // Listeler ve paragraflar için ÇOK AÇIK renk
+  p,
+  li,
+  span:not(.material-icons-outlined) {
+    color: #bae6fd !important; // Sky-200
+  }
+
+  // Bold metinler beyaz
+  strong,
+  b {
+    color: #cee7ea !important;
+  }
+
+  // Tarih/Meta Rengi Düzeltmesi - GÜÇLENDİRİLMİŞ
+  .content-meta,
+  .content-meta *,
+  .meta-item,
+  .meta-item *,
+  .meta,
+  .meta *,
+  span.meta,
+  time,
+  time[datetime],
+  .content-meta time,
+  .meta time {
+    color: #7dd3fc !important; // Sky-300 (daha açık, daha okunur)
+  }
+}
+
+// Deep Sea çift katmanlı dalga animasyonu
+@keyframes deep-sea-wave {
+  0% {
+    background-position-x: 0;
+  }
+
+  100% {
+    background-position-x: 200%;
+  }
+}
+
+@keyframes deep-sea-wave-reverse {
+  0% {
+    background-position-x: 200%;
+  }
+
+  100% {
+    background-position-x: 0;
+  }
+}
+
+// Deep Sea dalga efekti - Katman 1 (ön, hızlı)
+[saved-theme="deep-sea"] body::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40vh;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%2300d2ff' fill-opacity='0.05' d='M0,192L30,186.7C60,181,120,171,180,181.3C240,192,300,224,360,213.3C420,203,480,149,540,128C600,107,660,117,720,138.7C780,160,840,192,900,197.3C960,203,1020,181,1080,165.3C1140,149,1200,139,1260,154.7C1320,171,1380,213,1410,234.7L1440,256L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: 200% 100%;
+  animation: deep-sea-wave 15s linear infinite;
+}
+
+// Deep Sea dalga efekti - Katman 2 (arka, yavaş, ters yön)
+[saved-theme="deep-sea"] body::before {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%2300d2ff' fill-opacity='0.03' d='M0,96L40,112C80,128,160,160,240,165.3C320,171,400,149,480,133.3C560,117,640,107,720,122.7C800,139,880,181,960,197.3C1040,213,1120,203,1200,176C1280,149,1360,107,1400,85.3L1440,64L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: 200% 100%;
+  animation: deep-sea-wave-reverse 25s linear infinite;
+}
+
+// TOC Progress Bar Stili (Tüm Temalar İçin)
+// TOC başlığını Grafik Görünümü ile aynı stile getir
+.toc > .toc-header h3,
+.toc-header h3 {
+  font-family: var(--headerFont) !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+  color: var(--dark) !important;
+}
+
+.toc-content {
+  ul {
+    list-style: none;
+    padding-left: 10px;
+    margin: 0;
+    border-left: 2px solid var(--lightgray);
+
+    li {
+      margin: 0;
+      padding: 0;
+
+      a {
+        display: block;
+        padding: 4px 0 4px 15px;
+        color: var(--muted);
+        text-decoration: none;
+        transition: all 0.2s ease;
+        border-left: 2px solid transparent;
+        margin-left: -2px;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--text);
+        }
+
+        // Quartz .in-view class'ını kullan
+        &.in-view {
+          color: var(--secondary);
+          font-weight: 600;
+          border-left-color: var(--secondary);
+        }
+      }
+    }
+  }
+}
+
+// VOID TEMA - Mutlak Boşluk (Mat Zinc Tonları)
+[saved-theme="void"] {
+  --light: #000000 !important;
+  --lightgray: #000000 !important;
+  --gray: #1a1a1a !important;
+  --darkgray: #a1a1aa !important; // Zinc-400 (Yardımcı metin)
+  --dark: #e4e4e7 !important; // Zinc-200 (Başlıklar - Mat)
+  --secondary: #d4d4d8 !important; // Zinc-300 (Vurgular)
+  --tertiary: #3f3f46 !important; // Zinc-700 (Koyu mat gri)
+  --highlight: rgba(244, 244, 245, 0.1) !important;
+
+  --surface: #0a0a0a;
+  --greek-blue: #0a0a0a;
+  --greek-blue-border: #1a1a1a;
+  --border-color: #1a1a1a;
+  --muted: #71717a; // Zinc-500 (Silik metin)
+  --text: #d4d4d8; // Zinc-300 (Ana metin - mat)
+  --panel-bg: #000000;
+
+  // Grayscale filtresi KALDIRILDI - tema seçicideki renkleri etkiliyordu
+
+  // OPAK PANELLERİ ZORLA
+  .sidebar.left,
+  .left.sidebar {
+    background-color: #000000 !important;
+    border-right: 1px solid #1a1a1a !important;
+  }
+
+  .sidebar.right,
+  .right.sidebar,
+  .right-sidebar {
+    background-color: #000000 !important;
+    border-left: 1px solid #1a1a1a !important;
+  }
+
+  // Ana içerik alanı
+  .center,
+  article {
+    background-color: #050505 !important;
+  }
+
+  // Arama kutusu ve inputlar
+  input,
+  .search-bar,
+  .search input {
+    background-color: #0a0a0a !important;
+    border: 1px solid #1a1a1a !important;
+    color: #d4d4d8 !important;
+  }
+
+  // Grafik kutusu
+  .graph-outer,
+  .graph {
+    background-color: #0a0a0a !important;
+    border: 1px solid #1a1a1a !important;
+  }
+
+  // Başlıklar mat Zinc-200
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #e4e4e7 !important;
+  }
+
+  // Vurgulu/kalın yazılar Zinc-100
+  strong,
+  b {
+    color: #f4f4f5 !important;
+  }
+
+  // İkonları ve çizgileri koyu mat gri yap
+  svg {
+    color: #3f3f46 !important;
+    stroke: #3f3f46 !important;
+  }
+
+  // Linkleri belirgin yap - altı çizili ve açık renk
+  a {
+    color: #e4e4e7 !important;
+    text-decoration: underline !important;
+    text-decoration-color: #3f3f46 !important;
+    text-underline-offset: 3px !important;
+    transition: all 0.2s ease !important;
+
+    &:hover {
+      color: #f4f4f5 !important;
+      text-decoration-color: #71717a !important;
+    }
+  }
+
+  // Ana başlıklardaki linkler için özel (altı çizili olmasın)
+  h1 a,
+  h2 a,
+  h3 a {
+    color: #e4e4e7 !important;
+    text-decoration: none !important;
+  }
+
+  // Grafik Görünümü - Void Estetiği
+  .graph-outer {
+    background-color: #000000 !important;
+    border: 1px solid #27272a !important;
+    border-radius: 8px !important;
+  }
+
+  .graph {
+    background-color: #000000 !important;
+    border: none !important;
+
+    // Grafik içindeki noktalar ve çizgiler
+    circle {
+      fill: #52525b !important;
+      stroke: #71717a !important;
+    }
+
+    line {
+      stroke: #27272a !important;
+    }
+
+    text {
+      fill: #a1a1aa !important;
+    }
+
+    // Aktif/hover durumu
+    .node:hover circle {
+      fill: #a1a1aa !important;
+    }
+
+    .node.active circle {
+      fill: #e4e4e7 !important;
+      stroke: #f4f4f5 !important;
+    }
+  }
+
+  // Graph header
+  .graph-outer > h3,
+  .backlinks > h3 {
+    color: #71717a !important;
+    border-bottom: 1px solid #27272a !important;
+  }
+
+  // Noise efekti (şeffaf pikseller)
+  // Noise efekti (şeffaf pikseller)
+  @include noise(0.08);
+
+  // Tarih/Meta Rengi Düzeltmesi - GÜÇLENDİRİLMİŞ
+  .content-meta,
+  .content-meta *,
+  .meta-item,
+  .meta-item *,
+  .meta,
+  .meta *,
+  span.meta,
+  time,
+  time[datetime],
+  .content-meta time,
+  .meta time {
+    color: #e4e4e7 !important; // Zinc-200 (daha açık)
+  }
+
+  // Font Dropdown Stilleri - Daha Okunabilir
+  .dropdown-content {
+    background: #0a0a0a !important;
+    border-color: #27272a !important;
+  }
+
+  .section-header {
+    color: #e4e4e7 !important;
+    border-bottom-color: #27272a !important;
+  }
+
+  .font-item span,
+  .size-item span {
+    color: #d4d4d8 !important;
+  }
+
+  .font-item:has(input:checked) span,
+  .size-item:has(input:checked) span {
+    color: #71717a !important;
+  }
+
+  .font-show-more {
+    color: #a1a1aa !important;
+    border-color: #3f3f46 !important;
+
+    &:hover {
+      color: #e4e4e7 !important;
+      border-color: #71717a !important;
+    }
+  }
+
+  .dropdown-button {
+    background: #0a0a0a !important;
+    border-color: #27272a !important;
+
+    svg {
+      fill: #d4d4d8 !important; // Biraz karartıldı
+    }
+
+    &:hover {
+      border-color: #52525b !important;
+      background: rgba(82, 82, 91, 0.2) !important;
+    }
+  }
+
+  // Tema butonu da aynı stil
+  .darkmode {
+    background: #0a0a0a !important;
+    border-color: #27272a !important;
+
+    svg {
+      fill: #d4d4d8 !important; // Biraz karartıldı
+    }
+
+    &:hover {
+      border-color: #52525b !important;
+      background: rgba(82, 82, 91, 0.2) !important;
+    }
+  }
+}
+
+// ===== CANVAS TEMA EFEKTLERİ =====
+#theme-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
 // Deep Sea - Main alanını şeffaf yap, balina görünsün
 [saved-theme="deep-sea"] .center {
-    background: transparent !important;
+  background: transparent !important;
 }
 
 html,
 body {
-    background-color: var(--light) !important;
-    overflow-x: hidden !important;
+  background-color: var(--light) !important;
+  overflow-x: hidden !important;
 }
 
 * {
-    scrollbar-color: var(--lightgray) var(--light);
-    box-sizing: border-box !important;
+  scrollbar-color: var(--lightgray) var(--light);
+  box-sizing: border-box !important;
 }
 
 // ===== CUSTOM SCROLLBAR =====
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--light);
-    border-radius: 4px;
+  background: var(--light);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--lightgray);
-    border-radius: 4px;
+  background: var(--lightgray);
+  border-radius: 4px;
 
-    &:hover {
-        background: var(--gray);
-    }
+  &:hover {
+    background: var(--gray);
+  }
 }
 
 // ==========================================
 // GENEL SAYFA
 // ==========================================
 .page {
-    max-width: 100vw !important;
-    overflow-x: hidden !important;
-    margin: 0 !important;
-    min-height: 100vh !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  margin: 0 !important;
+  min-height: 100vh !important;
 }
 
 // ==========================================
 // DESKTOP (min-width: 1200px) - FIXED SIDEBARS
 // ==========================================
 @media all and (min-width: 1200px) {
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
 
-    html,
-    body {
-        overflow-x: hidden !important;
-    }
+  .page > #quartz-body {
+    display: block !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    padding-left: 345px !important;
+    padding-right: 280px !important;
+  }
 
-    .page>#quartz-body {
-        display: block !important;
-        width: 100% !important;
-        min-height: 100vh !important;
-        padding-left: 345px !important;
-        padding-right: 280px !important;
-    }
+  // SOL PANEL - FIXED (SABİT)
+  .sidebar.left {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 345px !important;
+    height: 100vh !important;
+    background-color: var(--surface) !important;
+    border-right: 1px solid var(--border-color) !important;
+    padding: 2rem 1.5rem !important;
+    overflow-y: auto !important;
+    z-index: 100 !important;
+  }
 
-    // SOL PANEL - FIXED (SABİT)
-    .sidebar.left {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 345px !important;
-        height: 100vh !important;
-        background-color: var(--surface) !important;
-        border-right: 1px solid var(--border-color) !important;
-        padding: 2rem 1.5rem !important;
-        overflow-y: auto !important;
-        z-index: 100 !important;
-    }
+  // SAĞ PANEL - FIXED (SABİT)
+  .sidebar.right {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 280px !important;
+    height: 100vh !important;
+    background-color: var(--light) !important;
+    padding: 2rem 1rem !important;
+    overflow-y: auto !important;
+    z-index: 100 !important;
+  }
 
-    // SAĞ PANEL - FIXED (SABİT)
-    .sidebar.right {
-        position: fixed !important;
-        top: 0 !important;
-        right: 0 !important;
-        width: 280px !important;
-        height: 100vh !important;
-        background-color: var(--light) !important;
-        padding: 2rem 1rem !important;
-        overflow-y: auto !important;
-        z-index: 100 !important;
-    }
+  // ORTA İÇERİK - SCROLL EDİLEBİLİR
+  .center {
+    max-width: 100% !important;
+    padding: 1rem 50px 2rem 50px !important;
+    margin: 0 auto !important;
+  }
 
-    // ORTA İÇERİK - SCROLL EDİLEBİLİR
-    .center {
-        max-width: 100% !important;
-        padding: 1rem 50px 2rem 50px !important;
-        margin: 0 auto !important;
-    }
-
-    .hamburger-menu,
-    .mobile-header {
-        display: none !important;
-    }
+  .hamburger-menu,
+  .mobile-header {
+    display: none !important;
+  }
 }
 
 // ==========================================
 // TABLET (800px - 1199px) - FIXED SIDEBAR
 // ==========================================
 @media all and (min-width: 800px) and (max-width: 1199px) {
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
 
-    html,
-    body {
-        overflow-x: hidden !important;
-    }
+  .page > #quartz-body {
+    display: block !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    padding-left: 285px !important; // Sol panel için boşluk
+    padding-right: 0 !important;
+  }
 
-    .page>#quartz-body {
-        display: block !important;
-        width: 100% !important;
-        min-height: 100vh !important;
-        padding-left: 285px !important; // Sol panel için boşluk
-        padding-right: 0 !important;
-    }
+  // SOL PANEL - FIXED (SABİT) - Desktop gibi
+  .sidebar.left {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 285px !important;
+    height: 100vh !important;
+    background-color: var(--surface) !important;
+    border-right: 1px solid var(--border-color) !important;
+    padding: 2rem 1rem !important;
+    overflow-y: auto !important;
+    z-index: 100 !important;
+  }
 
-    // SOL PANEL - FIXED (SABİT) - Desktop gibi
-    .sidebar.left {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 285px !important;
-        height: 100vh !important;
-        background-color: var(--surface) !important;
-        border-right: 1px solid var(--border-color) !important;
-        padding: 2rem 1rem !important;
-        overflow-y: auto !important;
-        z-index: 100 !important;
-    }
+  .sidebar.right {
+    display: none !important;
+  }
 
-    .sidebar.right {
-        display: none !important;
-    }
+  .center {
+    max-width: 100% !important;
+    padding: 1rem 40px 2rem 40px !important;
+    margin: 0 auto !important;
+  }
 
-    .center {
-        max-width: 100% !important;
-        padding: 1rem 40px 2rem 40px !important;
-        margin: 0 auto !important;
-    }
-
-    .hamburger-menu,
-    .mobile-header {
-        display: none !important;
-    }
+  .hamburger-menu,
+  .mobile-header {
+    display: none !important;
+  }
 }
 
 // ==========================================
 // TABLET + MOBILE (max-width: 1199px) - SAĞ PANEL İÇERİĞİN ALTINDA
 // ==========================================
 @media all and (max-width: 1199px) {
-    .sidebar.right {
-        display: flex !important;
-        flex-direction: column !important;
-        position: static !important;
-        width: 100% !important;
-        order: 3 !important;
-        padding: 1rem !important;
-        margin-top: 2rem !important;
-        border-left: none !important;
-        background-color: transparent !important;
+  .sidebar.right {
+    display: flex !important;
+    flex-direction: column !important;
+    position: static !important;
+    width: 100% !important;
+    order: 3 !important;
+    padding: 1rem !important;
+    margin-top: 2rem !important;
+    border-left: none !important;
+    background-color: transparent !important;
 
-        // TOC gizli
-        .toc {
-            display: none !important;
-        }
-
-        // Graph görünür
-        .graph,
-        .graph-outer {
-            display: block !important;
-            width: 100% !important;
-        }
-
-        // Backlinks görünür
-        .backlinks {
-            display: block !important;
-            width: 100% !important;
-        }
+    // TOC gizli
+    .toc {
+      display: none !important;
     }
+
+    // Graph görünür
+    .graph,
+    .graph-outer {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    // Backlinks görünür
+    .backlinks {
+      display: block !important;
+      width: 100% !important;
+    }
+  }
 }
 
 // ==========================================
 // MOBILE (max-width: 799px)
 // ==========================================
 @media all and (max-width: 799px) {
-    .page {
-        padding: 0 !important;
-        overflow-x: hidden !important;
+  .page {
+    padding: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  .page > #quartz-body {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0 !important;
+    padding: 0 !important;
+  }
+
+  // ===== MOBİL MENÜ - TEMA UYUMLU (AÇIK RENK) =====
+  .sidebar.left {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: var(--surface) !important; // Beyaz arka plan
+    border-right: none !important;
+    padding: 70px 1.5rem 1.5rem 1.5rem !important;
+    z-index: 1000 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s ease !important;
+
+    &.mobile-open {
+      transform: translateX(0) !important;
     }
 
-    .page>#quartz-body {
-        display: flex !important;
-        flex-direction: column !important;
-        width: 100% !important;
-        gap: 0 !important;
-        padding: 0 !important;
+    // Menüde logo/arama gizle
+    .page-title,
+    .flex-component,
+    .darkmode {
+      display: none !important;
     }
 
-    // ===== MOBİL MENÜ - TEMA UYUMLU (AÇIK RENK) =====
-    .sidebar.left {
+    // Arama butonu gizli ama modal her zaman görünür olmalı
+    .search {
+      display: none !important;
+
+      // Arama modalı açıkken her zaman görünür olmalı
+      .search-container.active {
+        display: inline-block !important;
         position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        background-color: var(--surface) !important; // Beyaz arka plan
-        border-right: none !important;
-        padding: 70px 1.5rem 1.5rem 1.5rem !important;
-        z-index: 1000 !important;
-        overflow-y: auto !important;
-        transform: translateX(-100%) !important;
-        transition: transform 0.3s ease !important;
-
-        &.mobile-open {
-            transform: translateX(0) !important;
-        }
-
-        // Menüde logo/arama gizle
-        .page-title,
-        .flex-component,
-        .darkmode {
-            display: none !important;
-        }
-
-        // Arama butonu gizli ama modal her zaman görünür olmalı
-        .search {
-            display: none !important;
-
-            // Arama modalı açıkken her zaman görünür olmalı
-            .search-container.active {
-                display: inline-block !important;
-                position: fixed !important;
-                z-index: 9999 !important;
-            }
-        }
-
-        // Explorer - tema renkleri (okunabilir)
-        .explorer button h2 {
-            color: var(--text) !important;
-            font-weight: 600 !important;
-        }
-
-        .explorer-content ul li>a {
-            color: var(--text) !important;
-            font-size: 0.9rem !important;
-            padding: 0.5rem 0.75rem !important;
-
-            &:hover {
-                color: var(--secondary) !important;
-                background-color: var(--greek-blue) !important;
-            }
-        }
-
-        .folder-container {
-
-            div>a,
-            div>button span {
-                color: var(--text) !important;
-                font-size: 0.9rem !important;
-            }
-
-            button svg {
-                color: var(--muted) !important;
-            }
-
-            &:hover {
-                background-color: var(--greek-blue) !important;
-            }
-        }
-
-        li:has(> .folder-outer.open)>.folder-container {
-
-            div>a,
-            div>button span {
-                color: var(--secondary) !important;
-                font-weight: 600 !important;
-            }
-        }
-
-        // FOOTER sidebar içinde değil, gizleme
+        z-index: 9999 !important;
+      }
     }
 
-    // ===== CENTER =====
-    .center {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-        padding: 70px 1rem 1rem 1rem !important;
-        order: 2 !important; // Center ortada
+    // Explorer - tema renkleri (okunabilir)
+    .explorer,
+    .explorer.collapsed,
+    .explorer:not(.collapsed) {
+      flex: 1 1 auto !important;
+      width: 100% !important;
+      align-self: stretch !important;
+      margin: 0 !important;
+      overflow: visible !important;
     }
 
-    // ===== SAĞ PANEL - İÇERİĞİN ALTINDA =====
-    .sidebar.right {
-        display: block !important;
-        position: static !important;
-        width: 100% !important;
-        order: 3 !important; // Center'dan sonra
-        padding: 1rem !important;
-        border-left: none !important;
-        margin-top: 2rem !important;
-        background-color: transparent !important;
-
-        // TOC mobilde gizli
-        .toc {
-            display: none !important;
-        }
-
-        // Graph görünür
-        .graph {
-            display: block !important;
-        }
-
-        // Backlinks görünür
-        .backlinks {
-            display: block !important;
-        }
-    }
-
-    .page>#quartz-body .page-header {
-        display: none !important;
-    }
-
-    // Quartz'ın kendi mobile-explorer butonunu gizle
-    .explorer-toggle.mobile-explorer {
-        display: none !important;
-    }
-
-    // Explorer içeriği her zaman açık olsun mobilde
     .explorer-content {
-        display: block !important;
-        max-height: none !important;
-        opacity: 1 !important;
+      position: static !important;
+      top: auto !important;
+      left: auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      max-height: none !important;
+      padding: 0 !important;
+      margin-top: 0.75rem !important;
+      transform: none !important;
+      visibility: visible !important;
+      overflow: visible !important;
+      z-index: auto !important;
+      background-color: transparent !important;
     }
 
-    .explorer .fold {
-        display: none !important;
+    .explorer button h2 {
+      color: var(--text) !important;
+      font-weight: 600 !important;
     }
 
-    // FOOTER EN SONA - Body içinde flexbox order
-    footer {
-        order: 99 !important; // En sona
-        width: 100% !important;
-        margin-top: 2rem !important;
+    .explorer-content ul li > a {
+      color: var(--text) !important;
+      font-size: 0.9rem !important;
+      padding: 0.5rem 0.75rem !important;
+
+      &:hover {
+        color: var(--secondary) !important;
+        background-color: var(--greek-blue) !important;
+      }
     }
+
+    .folder-container {
+      div > a,
+      div > button span {
+        color: var(--text) !important;
+        font-size: 0.9rem !important;
+      }
+
+      button svg {
+        color: var(--muted) !important;
+      }
+
+      &:hover {
+        background-color: var(--greek-blue) !important;
+      }
+    }
+
+    li:has(> .folder-outer.open) > .folder-container {
+      div > a,
+      div > button span {
+        color: var(--secondary) !important;
+        font-weight: 600 !important;
+      }
+    }
+
+    // FOOTER sidebar içinde değil, gizleme
+  }
+
+  // ===== CENTER =====
+  .center {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    padding: 70px 1rem 1rem 1rem !important;
+    order: 2 !important; // Center ortada
+  }
+
+  // ===== SAĞ PANEL - İÇERİĞİN ALTINDA =====
+  .sidebar.right {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    order: 3 !important; // Center'dan sonra
+    padding: 1rem !important;
+    border-left: none !important;
+    margin-top: 2rem !important;
+    background-color: transparent !important;
+
+    // TOC mobilde gizli
+    .toc {
+      display: none !important;
+    }
+
+    // Graph görünür
+    .graph {
+      display: block !important;
+    }
+
+    // Backlinks görünür
+    .backlinks {
+      display: block !important;
+    }
+  }
+
+  .page > #quartz-body .page-header {
+    display: none !important;
+  }
+
+  // Quartz'ın kendi mobile-explorer butonunu gizle
+  .explorer-toggle.mobile-explorer {
+    display: none !important;
+  }
+
+  // Explorer içeriği her zaman açık olsun mobilde
+  .explorer-content {
+    display: block !important;
+    max-height: none !important;
+    opacity: 1 !important;
+  }
+
+  .explorer .fold {
+    display: none !important;
+  }
+
+  // FOOTER EN SONA - Body içinde flexbox order
+  footer {
+    order: 99 !important; // En sona
+    width: 100% !important;
+    margin-top: 2rem !important;
+  }
 }
 
 // ==========================================
 // MOBİL HEADER - TAM GENİŞLİK RESPONSİVE
 // ==========================================
 .mobile-header {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100% !important;
-    height: 55px;
-    background-color: var(--surface);
-    border-bottom: 1px solid var(--border-color);
-    z-index: 1002;
-    padding: 0 15px 0 50px; // Sol: hamburger için boşluk
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100% !important;
+  height: 55px;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1002;
+  padding: 0 15px 0 50px; // Sol: hamburger için boşluk
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  .mobile-logo {
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .mobile-search {
+    flex: 1;
+    min-width: 80px;
+    max-width: none;
+    height: 36px;
+    background-color: var(--light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0 12px;
+    color: var(--text);
+    font-size: 0.875rem;
+    margin: 0 10px;
+    cursor: pointer;
+
+    &::placeholder {
+      color: var(--muted);
+    }
+
+    &:hover {
+      border-color: var(--secondary);
+    }
+  }
+
+  .mobile-buttons {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .mobile-font-btn,
+  .mobile-darkmode {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    background-color: var(--light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
 
-    .mobile-logo {
-        color: var(--secondary);
-        text-decoration: none;
-        font-size: 1rem;
-        font-weight: 700;
-        white-space: nowrap;
-        flex-shrink: 0;
-
-        &:hover {
-            opacity: 0.8;
-        }
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--text) !important;
+      transition: fill 0.2s ease;
     }
 
-    .mobile-search {
-        flex: 1;
-        min-width: 80px;
-        max-width: none;
-        height: 36px;
-        background-color: var(--light);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        padding: 0 12px;
-        color: var(--text);
-        font-size: 0.875rem;
-        margin: 0 10px;
-        cursor: pointer;
+    &:hover {
+      border-color: var(--secondary);
 
-        &::placeholder {
-            color: var(--muted);
-        }
-
-        &:hover {
-            border-color: var(--secondary);
-        }
+      svg {
+        fill: var(--secondary) !important;
+      }
     }
-
-    .mobile-buttons {
-        display: flex;
-        gap: 8px;
-        flex-shrink: 0;
-    }
-
-    .mobile-font-btn,
-    .mobile-darkmode {
-        width: 36px;
-        height: 36px;
-        min-width: 36px;
-        background-color: var(--light);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        flex-shrink: 0;
-        transition: all 0.2s ease;
-
-        svg {
-            width: 18px;
-            height: 18px;
-            fill: var(--text) !important;
-            transition: fill 0.2s ease;
-        }
-
-        &:hover {
-            border-color: var(--secondary);
-
-            svg {
-                fill: var(--secondary) !important;
-            }
-        }
-    }
+  }
 }
 
 @media all and (max-width: 799px) {
-    .mobile-header {
-        display: flex !important;
-    }
+  .mobile-header {
+    display: flex !important;
+  }
 }
 
 // ==========================================
 // HAMBURGER BUTTON - ÇERÇEVESİZ
 // ==========================================
 .hamburger-menu {
-    display: none;
-    position: fixed;
-    top: 12px;
-    left: 12px;
-    z-index: 1003;
-    width: 32px;
-    height: 32px;
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    outline: none !important;
-    cursor: pointer;
-    padding: 0;
+  display: none;
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1003;
+  width: 32px;
+  height: 32px;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  cursor: pointer;
+  padding: 0;
 
+  .menu-icon {
+    display: block;
+    color: var(--text);
+  }
+
+  .close-icon {
+    display: none;
+    color: var(--text); // Açık temada koyu renk
+  }
+
+  &.active {
     .menu-icon {
-        display: block;
-        color: var(--text);
+      display: none;
     }
 
     .close-icon {
-        display: none;
-        color: var(--text); // Açık temada koyu renk
+      display: block;
     }
+  }
 
-    &.active {
-        .menu-icon {
-            display: none;
-        }
-
-        .close-icon {
-            display: block;
-        }
+  &:hover {
+    .menu-icon,
+    .close-icon {
+      color: var(--secondary);
     }
+  }
 
-    &:hover {
-
-        .menu-icon,
-        .close-icon {
-            color: var(--secondary);
-        }
-    }
-
-    // Çerçeve kaldır
-    &:focus,
-    &:active {
-        outline: none !important;
-        box-shadow: none !important;
-    }
+  // Çerçeve kaldır
+  &:focus,
+  &:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
 }
 
 @media all and (max-width: 799px) {
-    .hamburger-menu {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-    }
+  .hamburger-menu {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .mobile-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    z-index: 999;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 999;
 
-    &.active {
-        display: block;
-    }
+  &.active {
+    display: block;
+  }
 }
 
 // ----- ARAMA + DARKMODE -----
 .flex-component {
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
-    margin-bottom: 1.5rem;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  margin-bottom: 1.5rem;
 
-    >div:first-child {
-        flex-grow: 1 !important;
-    }
+  > div:first-child {
+    flex-grow: 1 !important;
+  }
 }
 
 .search-button {
-    width: 100% !important;
-    height: 2.5rem !important;
-    padding: 0.5rem 0.75rem !important;
-    background-color: var(--light) !important;
-    border: 1px solid var(--border-color) !important;
-    border-radius: 0.5rem !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
+  width: 100% !important;
+  height: 2.5rem !important;
+  padding: 0.5rem 0.75rem !important;
+  background-color: var(--light) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 0.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
 
-    svg .search-path {
-        stroke: var(--muted) !important;
-    }
+  svg .search-path {
+    stroke: var(--muted) !important;
+  }
 
-    p {
-        color: var(--muted) !important;
-        font-size: 0.875rem !important;
-    }
+  p {
+    color: var(--muted) !important;
+    font-size: 0.875rem !important;
+  }
 }
 
 .darkmode {
-    width: 2.5rem !important;
-    height: 2.5rem !important;
-    min-width: 2.5rem !important;
-    padding: 0 !important;
-    background-color: var(--light) !important;
-    border: 1px solid var(--border-color) !important;
-    border-radius: 0.5rem !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  min-width: 2.5rem !important;
+  padding: 0 !important;
+  background-color: var(--light) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 0.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  svg {
+    position: static !important;
+    width: 18px !important;
+    height: 18px !important;
+    fill: var(--text) !important;
+  }
+
+  &:hover {
+    border-color: var(--secondary) !important;
 
     svg {
-        position: static !important;
-        width: 18px !important;
-        height: 18px !important;
-        fill: var(--text) !important;
+      fill: var(--secondary) !important;
     }
-
-    &:hover {
-        border-color: var(--secondary) !important;
-
-        svg {
-            fill: var(--secondary) !important;
-        }
-    }
+  }
 }
 
 // ----- PAGE TITLE -----
 .page-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--secondary);
-    margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
 
-    a {
-        color: var(--secondary) !important;
-        background-color: transparent !important;
-    }
+  a {
+    color: var(--secondary) !important;
+    background-color: transparent !important;
+  }
 }
 
 // ===== EXPLORER =====
 .explorer {
-    button h2 {
-        color: var(--text) !important;
-        font-weight: 600 !important;
-    }
+  button h2 {
+    color: var(--text) !important;
+    font-weight: 600 !important;
+  }
 }
 
 .explorer-content {
-    ul li>a {
-        color: var(--muted) !important;
-        font-size: 0.875rem;
-        padding: 0.25rem 0.5rem;
-        border-radius: 0.25rem;
-        background-color: transparent !important;
-
-        &:hover {
-            color: var(--secondary) !important;
-            background-color: var(--greek-blue) !important;
-        }
-    }
-}
-
-.folder-container {
+  ul li > a {
+    color: var(--muted) !important;
+    font-size: 0.875rem;
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
     background-color: transparent !important;
 
-    div>a,
-    div>button span {
-        color: var(--muted) !important;
-        font-weight: 500;
-        font-size: 0.875rem;
-    }
-
-    button svg {
-        color: var(--muted) !important;
-    }
-
     &:hover {
-        background-color: var(--greek-blue) !important;
-
-        div>a,
-        div>button span {
-            color: var(--secondary) !important;
-        }
+      color: var(--secondary) !important;
+      background-color: var(--greek-blue) !important;
     }
+  }
 }
 
-li:has(> .folder-outer.open)>.folder-container {
-    background-color: transparent !important;
+.folder-container {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: transparent !important;
 
-    div>a,
-    div>button span {
-        color: var(--secondary) !important;
-        font-weight: 600;
+  div > a,
+  div > button span {
+    color: var(--muted) !important;
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+
+  button svg {
+    color: var(--muted) !important;
+  }
+
+  &:hover {
+    background-color: var(--greek-blue) !important;
+
+    div > a,
+    div > button span {
+      color: var(--secondary) !important;
     }
+  }
 }
 
-.explorer-content .folder-outer>ul {
-    border-left: 1px solid var(--border-color);
-    margin-left: 0.5rem;
-    padding-left: 0.75rem;
+li:has(> .folder-outer.open) > .folder-container {
+  background-color: transparent !important;
+
+  div > a,
+  div > button span {
+    color: var(--secondary) !important;
+    font-weight: 600;
+  }
+}
+
+.explorer-content .folder-outer > ul {
+  border-left: 1px solid var(--border-color);
+  margin-left: 0.5rem;
+  padding-left: 0.75rem;
 }
 
 // ===== BREADCRUMBS =====
 .breadcrumb-container {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.375rem;
-    margin-bottom: 1.25rem;
-    font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
 
-    a {
-        color: var(--muted) !important;
-        background-color: transparent !important;
+  a {
+    color: var(--muted) !important;
+    background-color: transparent !important;
 
-        &:hover {
-            color: var(--secondary) !important;
-        }
+    &:hover {
+      color: var(--secondary) !important;
     }
+  }
 
-    .breadcrumb-element:last-child a {
-        color: var(--text) !important;
-        font-weight: 500 !important;
-    }
+  .breadcrumb-element:last-child a {
+    color: var(--text) !important;
+    font-weight: 500 !important;
+  }
 }
 
 // ===== ARTICLE =====
-article>h1,
+article > h1,
 .article-title {
-    font-size: 2.25rem !important;
-    font-weight: 700 !important;
-    color: var(--text) !important;
+  font-size: 2.25rem !important;
+  font-weight: 700 !important;
+  color: var(--text) !important;
 }
 
 @media all and (max-width: 799px) {
-
-    article>h1,
-    .article-title {
-        font-size: 1.5rem !important;
-    }
+  article > h1,
+  .article-title {
+    font-size: 1.5rem !important;
+  }
 }
 
 // ===== CONTENT META - KÜÇÜK İKONLAR =====
 .content-meta {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  color: var(--muted) !important;
+  font-size: 0.8125rem !important; // Küçültüldü
+  margin-bottom: 1.5rem !important;
+
+  .meta-item {
     display: flex !important;
     align-items: center !important;
-    gap: 0.5rem !important;
-    color: var(--muted) !important;
-    font-size: 0.8125rem !important; // Küçültüldü
-    margin-bottom: 1.5rem !important;
+    gap: 0.25rem !important;
 
-    .meta-item {
-        display: flex !important;
-        align-items: center !important;
-        gap: 0.25rem !important;
-
-        &:first-child::after {
-            content: "•" !important;
-            margin-left: 0.5rem !important;
-        }
+    &:first-child::after {
+      content: "•" !important;
+      margin-left: 0.5rem !important;
     }
+  }
 
-    .meta-icon {
-        font-size: 0.875rem !important; // İkon boyutu küçültüldü
-    }
+  .meta-icon {
+    font-size: 0.875rem !important; // İkon boyutu küçültüldü
+  }
 }
 
 // ===== GRAPH =====
 .graph {
-    >h3 {
-        font-size: 0.6875rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--muted);
-        font-weight: 700;
-    }
+  > h3 {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    font-weight: 700;
+  }
 
-    >.graph-outer {
-        background-color: var(--light) !important;
-        border: 1px solid var(--border-color) !important;
-        border-radius: 0.5rem !important;
-        height: 250px !important;
-    }
+  > .graph-outer {
+    background-color: var(--light) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 0.5rem !important;
+    height: 250px !important;
+  }
 }
 
 // ===== TOC =====
-ul.toc-content.overflow>li>a {
-    color: var(--muted) !important;
-    font-size: 0.8125rem !important;
-    background-color: transparent !important;
-    cursor: pointer !important;
+ul.toc-content.overflow > li > a {
+  color: var(--muted) !important;
+  font-size: 0.8125rem !important;
+  background-color: transparent !important;
+  cursor: pointer !important;
 
-    &:hover {
-        color: var(--secondary) !important;
-    }
+  &:hover {
+    color: var(--secondary) !important;
+  }
 
-    &.in-view {
-        color: var(--secondary) !important;
-        font-weight: 500;
-    }
+  &.in-view {
+    color: var(--secondary) !important;
+    font-weight: 500;
+  }
 }
 
 // ===== BACKLINKS =====
 .backlinks ul li a {
-    color: var(--secondary) !important;
-    background-color: transparent !important;
+  color: var(--secondary) !important;
+  background-color: transparent !important;
 }
 
 // ===== DOSYA KARTLARI =====
 ul.section-ul {
-    list-style: none !important;
-    padding: 0 !important;
-    margin-top: 2rem !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0.75rem !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin-top: 2rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
 }
 
 li.section-li {
-    background-color: var(--surface) !important;
-    border: 1px solid var(--border-color) !important;
-    border-radius: 0.75rem !important;
+  background-color: var(--surface) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 0.75rem !important;
 
-    &:hover {
-        transform: translateY(-2px);
-        border-color: color-mix(in srgb, var(--secondary) 50%, transparent) !important;
-        box-shadow: 0 4px 12px color-mix(in srgb, var(--secondary) 15%, transparent);
-    }
+  &:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--secondary) 50%, transparent) !important;
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--secondary) 15%, transparent);
+  }
 
-    >a.section-link {
-        display: block !important;
-        padding: 1rem 1.25rem !important;
+  > a.section-link {
+    display: block !important;
+    padding: 1rem 1.25rem !important;
 
-        >.section {
-            display: flex !important;
-            justify-content: space-between !important;
+    > .section {
+      display: flex !important;
+      justify-content: space-between !important;
 
-            >.desc h3 {
-                margin: 0 !important;
-                display: flex !important;
-                align-items: center !important;
-                gap: 0.5rem !important;
+      > .desc h3 {
+        margin: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
 
-                .folder-icon {
-                    color: var(--secondary) !important;
-                }
-
-                .title-text {
-                    color: var(--secondary) !important;
-                    font-weight: 600 !important;
-                }
-            }
-
-            >.meta {
-                color: var(--gray) !important;
-                font-size: 0.8125rem !important;
-            }
+        .folder-icon {
+          color: var(--secondary) !important;
         }
+
+        .title-text {
+          color: var(--secondary) !important;
+          font-weight: 600 !important;
+        }
+      }
+
+      > .meta {
+        color: var(--gray) !important;
+        font-size: 0.8125rem !important;
+      }
     }
+  }
 }
 
 // ===== FOOTER - EN ALTTA =====
 footer {
-    border-top: 1px solid var(--border-color);
-    padding: 2rem 1rem;
-    margin-top: 3rem;
-    text-align: center;
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  text-align: center;
 
-    .footer-links {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
 
-        li a {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--muted) !important;
-            background-color: transparent !important;
-            font-size: 0.875rem;
+    li a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted) !important;
+      background-color: transparent !important;
+      font-size: 0.875rem;
 
-            &:hover {
-                color: var(--secondary) !important;
-            }
+      &:hover {
+        color: var(--secondary) !important;
+      }
 
-            .footer-icon {
-                width: 18px;
-                height: 18px;
-            }
-        }
+      .footer-icon {
+        width: 18px;
+        height: 18px;
+      }
     }
+  }
 }
 
 // ===== LINKS =====
 a.internal {
-    background-color: transparent !important;
+  background-color: transparent !important;
 
-    &:hover {
-        background-color: var(--highlight) !important;
-    }
+  &:hover {
+    background-color: var(--highlight) !important;
+  }
 }
 
 // ===== TEMA SEÇİCİ PANEL =====
 .theme-selector-panel {
-    display: none;
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    background-color: var(--surface);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 8px;
-    min-width: 180px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background-color: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 8px;
+  min-width: 180px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
 
-    .theme-panel-header {
-        font-size: 0.7rem;
+  .theme-panel-header {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 6px 10px 4px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .theme-list-primary,
+  .theme-list-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .theme-list-secondary {
+    border-top: 1px solid var(--border-color);
+    margin-top: 4px;
+    padding-top: 4px;
+  }
+
+  .theme-show-more {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    margin-top: 7px;
+
+    &:hover {
+      background-color: var(--greek-blue);
+      color: var(--secondary);
+    }
+
+    &.expanded {
+      background-color: var(--highlight);
+      color: var(--secondary);
+    }
+
+    svg {
+      opacity: 0.7;
+    }
+  }
+
+  .theme-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: var(--greek-blue);
+    }
+
+    &.active {
+      background-color: var(--highlight);
+
+      .theme-name {
+        color: var(--secondary);
         font-weight: 600;
-        color: var(--muted);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        padding: 6px 10px 4px;
-        margin-bottom: 4px;
-        border-bottom: 1px solid var(--border-color);
+      }
     }
 
-    .theme-list-primary,
-    .theme-list-secondary {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
+    .theme-color {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid var(--border-color);
+      flex-shrink: 0;
     }
 
-    .theme-list-secondary {
-        border-top: 1px solid var(--border-color);
-        margin-top: 4px;
-        padding-top: 4px;
+    .theme-name {
+      font-size: 0.85rem;
+      color: var(--text);
+      white-space: nowrap;
     }
-
-    .theme-show-more {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 8px 10px;
-        cursor: pointer;
-        color: var(--muted);
-        font-size: 0.75rem;
-        font-weight: 600;
-        border-radius: 8px;
-        transition: all 0.2s ease;
-        margin-top: 7px;
-
-        &:hover {
-            background-color: var(--greek-blue);
-            color: var(--secondary);
-        }
-
-        &.expanded {
-            background-color: var(--highlight);
-            color: var(--secondary);
-        }
-
-        svg {
-            opacity: 0.7;
-        }
-    }
-
-    .theme-option {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 8px 10px;
-        cursor: pointer;
-        border-radius: 8px;
-        transition: all 0.2s ease;
-
-        &:hover {
-            background-color: var(--greek-blue);
-        }
-
-        &.active {
-            background-color: var(--highlight);
-
-            .theme-name {
-                color: var(--secondary);
-                font-weight: 600;
-            }
-        }
-
-        .theme-color {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            border: 2px solid var(--border-color);
-            flex-shrink: 0;
-        }
-
-        .theme-name {
-            font-size: 0.85rem;
-            color: var(--text);
-            white-space: nowrap;
-        }
-    }
+  }
 }
 
 // Darkmode button pozisyon için relative
 .flex-component {
-    position: relative;
+  position: relative;
 }
 
 // ===== TEMA SEÇİCİ PANEL =====
 // ===== TEMA SEÇİCİ PANEL =====
 .theme-selector-panel {
-    display: none;
-    position: absolute;
-    top: calc(100% + 12px);
-    right: 0;
-    min-width: 200px;
-    background-color: var(--surface);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 8px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-    z-index: 9999;
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  min-width: 200px;
+  background-color: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  z-index: 9999;
 
-    .theme-panel-header {
-        font-size: 0.7rem;
+  .theme-panel-header {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 6px 10px 4px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .theme-list-primary,
+  .theme-list-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .theme-list-secondary {
+    border-top: 1px solid var(--border-color);
+    margin-top: 4px;
+    padding-top: 4px;
+  }
+
+  .theme-show-more {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    margin-top: 4px;
+
+    &:hover {
+      background-color: var(--greek-blue);
+      color: var(--secondary);
+    }
+
+    &.expanded {
+      background-color: var(--highlight);
+      color: var(--secondary);
+    }
+
+    svg {
+      opacity: 0.7;
+    }
+  }
+
+  .theme-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: var(--greek-blue);
+    }
+
+    &.active {
+      background-color: var(--highlight);
+
+      .theme-name {
+        color: var(--secondary);
         font-weight: 600;
-        color: var(--muted);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        padding: 6px 10px 4px;
-        margin-bottom: 4px;
-        border-bottom: 1px solid var(--border-color);
+      }
     }
 
-    .theme-list-primary,
-    .theme-list-secondary {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
+    .theme-color {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid var(--border-color);
+      flex-shrink: 0;
     }
 
-    .theme-list-secondary {
-        border-top: 1px solid var(--border-color);
-        margin-top: 4px;
-        padding-top: 4px;
+    .theme-name {
+      font-size: 0.85rem;
+      color: var(--text);
+      white-space: nowrap;
     }
-
-    .theme-show-more {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 8px 10px;
-        cursor: pointer;
-        color: var(--muted);
-        font-size: 0.75rem;
-        font-weight: 600;
-        border-radius: 8px;
-        transition: all 0.2s ease;
-        margin-top: 4px;
-
-        &:hover {
-            background-color: var(--greek-blue);
-            color: var(--secondary);
-        }
-
-        &.expanded {
-            background-color: var(--highlight);
-            color: var(--secondary);
-        }
-
-        svg {
-            opacity: 0.7;
-        }
-    }
-
-    .theme-option {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 8px 10px;
-        cursor: pointer;
-        border-radius: 8px;
-        transition: all 0.2s ease;
-
-        &:hover {
-            background-color: var(--greek-blue);
-        }
-
-        &.active {
-            background-color: var(--highlight);
-
-            .theme-name {
-                color: var(--secondary);
-                font-weight: 600;
-            }
-        }
-
-        .theme-color {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            border: 2px solid var(--border-color);
-            flex-shrink: 0;
-        }
-
-        .theme-name {
-            font-size: 0.85rem;
-            color: var(--text);
-            white-space: nowrap;
-        }
-    }
+  }
 }
 
 // Mobil için tema seçici panel pozisyonu - Sadece telefonlar için
 @media all and (max-width: 550px) {
-    .theme-selector-panel {
-        position: fixed !important;
-        top: auto !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        width: 100%;
-        max-width: 100%;
-        border-radius: 12px 12px 0 0;
-        border: 1px solid var(--border-color);
-        border-bottom: none;
-        max-height: 70vh;
-        overflow-y: auto;
-        padding-bottom: 20px;
-        animation: slideUp 0.3s ease-out;
-    }
+  .theme-selector-panel {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px 12px 0 0;
+    border: 1px solid var(--border-color);
+    border-bottom: none;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-bottom: 20px;
+    animation: slideUp 0.3s ease-out;
+  }
 }
 
 @keyframes slideUp {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
 
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 // ===== CANVAS TEMA EFEKTLERİ =====
 #theme-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
 // Deep Sea - Main alanını şeffaf yap, balina görünsün
 [saved-theme="deep-sea"] .center {
-    background: transparent !important;
+  background: transparent !important;
 }
 
 // Sidebar ve Panellerin Arka Planını Eşitle
 .sidebar,
 .center,
 .right-sidebar {
-    background-color: var(--panel-bg, var(--light)) !important;
-    transition: background-color 0.3s ease;
+  background-color: var(--panel-bg, var(--light)) !important;
+  transition: background-color 0.3s ease;
 }
 
 // Sağ Panel Border (Koyu temalar için belirgin ayrım)
@@ -1920,237 +1945,237 @@ a.internal {
 [saved-theme="void"] .right-sidebar,
 [saved-theme="stone-dark"] .right-sidebar,
 [saved-theme="deep-void"] .right-sidebar {
-    border-left: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
 }
 
 // ===== DEEP VOID TEMA - Saf Siyah + Beyaz (UYGULA.MD'ye göre) =====
 [saved-theme="deep-void"] {
-    --light: #000000 !important;
-    /* Saf Siyah */
-    --lightgray: #000000 !important;
-    /* Saf Siyah */
-    --gray: #1a1a1a !important;
-    /* Border */
-    --darkgray: #71717a !important;
-    /* Muted Text (Zinc-500) */
-    --dark: #e5e5e7 !important;
-    /* Main Text (Zinc-200) */
-    --secondary: #ffffff !important;
-    /* Saf Beyaz Vurgu */
-    --tertiary: #cccccc !important;
-    /* Hover */
-    --highlight: rgba(255, 255, 255, 0.15) !important;
+  --light: #000000 !important;
+  /* Saf Siyah */
+  --lightgray: #000000 !important;
+  /* Saf Siyah */
+  --gray: #1a1a1a !important;
+  /* Border */
+  --darkgray: #71717a !important;
+  /* Muted Text (Zinc-500) */
+  --dark: #e5e5e7 !important;
+  /* Main Text (Zinc-200) */
+  --secondary: #ffffff !important;
+  /* Saf Beyaz Vurgu */
+  --tertiary: #cccccc !important;
+  /* Hover */
+  --highlight: rgba(255, 255, 255, 0.15) !important;
 
-    --surface: #080808;
-    --greek-blue: rgba(255, 255, 255, 0.1);
-    --greek-blue-border: #1a1a1a;
-    --border-color: #1a1a1a;
-    --muted: #71717a;
-    --text: #e5e5e7;
-    --panel-bg: #000000;
+  --surface: #080808;
+  --greek-blue: rgba(255, 255, 255, 0.1);
+  --greek-blue-border: #1a1a1a;
+  --border-color: #1a1a1a;
+  --muted: #71717a;
+  --text: #e5e5e7;
+  --panel-bg: #000000;
 
-    // Sol sidebar
-    .sidebar.left,
-    .left.sidebar {
-        background-color: #000000 !important;
-        border-right: 1px solid #333333 !important; // Daha belirgin border
-    }
+  // Sol sidebar
+  .sidebar.left,
+  .left.sidebar {
+    background-color: #000000 !important;
+    border-right: 1px solid #333333 !important; // Daha belirgin border
+  }
 
-    // Sağ sidebar - Belirgin Ayrım + AÇIK YAZILAR
-    .sidebar.right,
-    .right.sidebar,
-    .right-sidebar {
-        background-color: #030303 !important; // Çok hafif fark
-        border-left: 1px solid #333333 !important; // Belirgin border
+  // Sağ sidebar - Belirgin Ayrım + AÇIK YAZILAR
+  .sidebar.right,
+  .right.sidebar,
+  .right-sidebar {
+    background-color: #030303 !important; // Çok hafif fark
+    border-left: 1px solid #333333 !important; // Belirgin border
 
-        // Sağ panel yazıları daha açık
-        color: #e5e5e7 !important;
+    // Sağ panel yazıları daha açık
+    color: #e5e5e7 !important;
 
-        // TOC, Backlinks, Graph başlıkları
-        h3,
-        .toc-header,
-        .backlinks h3 {
-            color: #f4f4f5 !important; // Zinc-100
-        }
-
-        // TOC linkleri - NEREDEYSE BEYAZ (Sadece Deep Void için)
-        a {
-            color: #f4f4f5 !important; // Zinc-100 (neredeyse beyaz)
-
-            &:hover {
-                color: #ffffff !important;
-            }
-
-            &.in-view {
-                color: #a78bfa !important; // Mor vurgu
-            }
-        }
-
-        // Tüm metinler
-        span,
-        p,
-        li {
-            color: #d4d4d8 !important; // Zinc-300
-        }
-    }
-
-    // Ana içerik alanı - Transparan (Partiküller görünsün)
-    .center,
-    article {
-        background-color: transparent !important;
-        border-color: #333333 !important;
-    }
-
-    // Başlıklar beyaz/gri
-    h1,
-    h2,
+    // TOC, Backlinks, Graph başlıkları
     h3,
-    h4,
-    h5,
-    h6,
-    a,
-    .page-title,
-    .page-title a {
+    .toc-header,
+    .backlinks h3 {
+      color: #f4f4f5 !important; // Zinc-100
+    }
+
+    // TOC linkleri - NEREDEYSE BEYAZ (Sadece Deep Void için)
+    a {
+      color: #f4f4f5 !important; // Zinc-100 (neredeyse beyaz)
+
+      &:hover {
         color: #ffffff !important;
+      }
+
+      &.in-view {
+        color: #a78bfa !important; // Mor vurgu
+      }
     }
 
-    // Bold Yazılar (Mavimsi)
-    strong,
-    b {
-        color: #60a5fa !important; // Blue-400
-    }
-
-    // Bold Yazılar (Mavimsi)
-    strong,
-    b {
-        color: #60a5fa !important; // Blue-400
-    }
-
-    // Metin zinc-200 -> Daha Açık Yapıldı (#f8fafc / Slate-50)
-    // Sadece p ve li hedeflendi, span kaldırıldı (ikonları bozmamak için)
+    // Tüm metinler
+    span,
     p,
     li {
-        color: #f8fafc !important;
+      color: #d4d4d8 !important; // Zinc-300
+    }
+  }
+
+  // Ana içerik alanı - Transparan (Partiküller görünsün)
+  .center,
+  article {
+    background-color: transparent !important;
+    border-color: #333333 !important;
+  }
+
+  // Başlıklar beyaz/gri
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  .page-title,
+  .page-title a {
+    color: #ffffff !important;
+  }
+
+  // Bold Yazılar (Mavimsi)
+  strong,
+  b {
+    color: #60a5fa !important; // Blue-400
+  }
+
+  // Bold Yazılar (Mavimsi)
+  strong,
+  b {
+    color: #60a5fa !important; // Blue-400
+  }
+
+  // Metin zinc-200 -> Daha Açık Yapıldı (#f8fafc / Slate-50)
+  // Sadece p ve li hedeflendi, span kaldırıldı (ikonları bozmamak için)
+  p,
+  li {
+    color: #f8fafc !important;
+  }
+
+  // Metin Seçimi (Selection) - Açık Mor (Partiküllerle uyumlu)
+  ::selection {
+    background: #a78bfa !important; // Violet-400
+    color: #1e1b4b !important; // Indigo-950 (Koyu arka plan için)
+  }
+
+  // Tarih/meta - GÜÇLENDİRİLMİŞ
+  .content-meta,
+  .content-meta *,
+  .meta-item,
+  .meta-item *,
+  .meta,
+  .meta *,
+  span.meta,
+  time,
+  time[datetime],
+  .content-meta time,
+  .meta time {
+    color: #cbd5e1 !important; // Slate-300 (daha açık, daha okunur)
+  }
+
+  // Link hover
+  a:hover {
+    color: #cccccc !important;
+  }
+
+  // Arama ve Inputlar
+  input,
+  .search-bar,
+  .search input,
+  .search-button {
+    background-color: #080808 !important;
+    border: 1px solid #1a1a1a !important;
+    color: #e5e5e7 !important;
+  }
+
+  // Darkmode butonu
+  .darkmode {
+    border-color: #1a1a1a !important;
+
+    svg {
+      fill: #e5e5e7 !important;
     }
 
-    // Metin Seçimi (Selection) - Açık Mor (Partiküllerle uyumlu)
-    ::selection {
-        background: #a78bfa !important; // Violet-400
-        color: #1e1b4b !important; // Indigo-950 (Koyu arka plan için)
+    &:hover svg {
+      fill: #ffffff !important;
+    }
+  }
+
+  // Kart stilleri
+  li.section-li {
+    background-color: #080808 !important;
+    border-color: #1a1a1a !important;
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.3) !important;
+    }
+  }
+
+  // Font Dropdown Stilleri - Daha Okunabilir
+  .dropdown-content {
+    background: #0a0a0a !important;
+    border-color: #2a2a2a !important;
+  }
+
+  .section-header {
+    color: #e5e5e7 !important;
+    border-bottom-color: #2a2a2a !important;
+  }
+
+  .font-item span,
+  .size-item span {
+    color: #d4d4d8 !important;
+  }
+
+  .font-item:has(input:checked) span,
+  .size-item:has(input:checked) span {
+    color: #a78bfa !important;
+  }
+
+  .font-show-more {
+    color: #a1a1aa !important;
+    border-color: #3a3a3a !important;
+
+    &:hover {
+      color: #a78bfa !important;
+      border-color: #a78bfa !important;
+    }
+  }
+
+  .dropdown-button {
+    background: #0a0a0a !important;
+    border-color: #2a2a2a !important;
+
+    svg {
+      fill: #e5e5e7 !important;
     }
 
-    // Tarih/meta - GÜÇLENDİRİLMİŞ
-    .content-meta,
-    .content-meta *,
-    .meta-item,
-    .meta-item *,
-    .meta,
-    .meta *,
-    span.meta,
-    time,
-    time[datetime],
-    .content-meta time,
-    .meta time {
-        color: #cbd5e1 !important; // Slate-300 (daha açık, daha okunur)
+    &:hover {
+      border-color: #a78bfa !important;
+      background: rgba(167, 139, 250, 0.15) !important;
+    }
+  }
+
+  // Tema butonu da mor hover efekti
+  .darkmode {
+    background: #0a0a0a !important;
+    border-color: #2a2a2a !important;
+
+    svg {
+      fill: #e5e5e7 !important;
     }
 
-    // Link hover
-    a:hover {
-        color: #cccccc !important;
+    &:hover {
+      border-color: #a78bfa !important;
+      background: rgba(167, 139, 250, 0.15) !important;
     }
-
-    // Arama ve Inputlar
-    input,
-    .search-bar,
-    .search input,
-    .search-button {
-        background-color: #080808 !important;
-        border: 1px solid #1a1a1a !important;
-        color: #e5e5e7 !important;
-    }
-
-    // Darkmode butonu
-    .darkmode {
-        border-color: #1a1a1a !important;
-
-        svg {
-            fill: #e5e5e7 !important;
-        }
-
-        &:hover svg {
-            fill: #ffffff !important;
-        }
-    }
-
-    // Kart stilleri
-    li.section-li {
-        background-color: #080808 !important;
-        border-color: #1a1a1a !important;
-
-        &:hover {
-            border-color: rgba(255, 255, 255, 0.3) !important;
-        }
-    }
-
-    // Font Dropdown Stilleri - Daha Okunabilir
-    .dropdown-content {
-        background: #0a0a0a !important;
-        border-color: #2a2a2a !important;
-    }
-
-    .section-header {
-        color: #e5e5e7 !important;
-        border-bottom-color: #2a2a2a !important;
-    }
-
-    .font-item span,
-    .size-item span {
-        color: #d4d4d8 !important;
-    }
-
-    .font-item:has(input:checked) span,
-    .size-item:has(input:checked) span {
-        color: #a78bfa !important;
-    }
-
-    .font-show-more {
-        color: #a1a1aa !important;
-        border-color: #3a3a3a !important;
-
-        &:hover {
-            color: #a78bfa !important;
-            border-color: #a78bfa !important;
-        }
-    }
-
-    .dropdown-button {
-        background: #0a0a0a !important;
-        border-color: #2a2a2a !important;
-
-        svg {
-            fill: #e5e5e7 !important;
-        }
-
-        &:hover {
-            border-color: #a78bfa !important;
-            background: rgba(167, 139, 250, 0.15) !important;
-        }
-    }
-
-    // Tema butonu da mor hover efekti
-    .darkmode {
-        background: #0a0a0a !important;
-        border-color: #2a2a2a !important;
-
-        svg {
-            fill: #e5e5e7 !important;
-        }
-
-        &:hover {
-            border-color: #a78bfa !important;
-            background: rgba(167, 139, 250, 0.15) !important;
-        }
-    }
+  }
 }
 
 // ==========================================
@@ -2160,33 +2185,33 @@ a.internal {
 [saved-theme="olive-light"],
 [saved-theme="nord-light"],
 [saved-theme="library-light"] {
-    .dropdown-button {
-        background: var(--light) !important;
-        border-color: var(--lightgray) !important;
+  .dropdown-button {
+    background: var(--light) !important;
+    border-color: var(--lightgray) !important;
 
-        svg {
-            fill: #374151 !important; // Koyu gri - okunabilir
-        }
-
-        &:hover {
-            border-color: var(--secondary) !important;
-            background: color-mix(in srgb, var(--secondary) 10%, transparent) !important;
-        }
+    svg {
+      fill: #374151 !important; // Koyu gri - okunabilir
     }
 
-    .darkmode {
-        background: var(--light) !important;
-        border-color: var(--lightgray) !important;
-
-        svg {
-            fill: #374151 !important; // Koyu gri - okunabilir
-        }
-
-        &:hover {
-            border-color: var(--secondary) !important;
-            background: color-mix(in srgb, var(--secondary) 10%, transparent) !important;
-        }
+    &:hover {
+      border-color: var(--secondary) !important;
+      background: color-mix(in srgb, var(--secondary) 10%, transparent) !important;
     }
+  }
+
+  .darkmode {
+    background: var(--light) !important;
+    border-color: var(--lightgray) !important;
+
+    svg {
+      fill: #374151 !important; // Koyu gri - okunabilir
+    }
+
+    &:hover {
+      border-color: var(--secondary) !important;
+      background: color-mix(in srgb, var(--secondary) 10%, transparent) !important;
+    }
+  }
 }
 
 // ==========================================
@@ -2198,63 +2223,61 @@ a.internal {
 
 // KaTeX inline formüller (paragraf içi)
 .katex {
-    font-size: calc(var(--baseFontSize, 1rem) * 1.0) !important;
+  font-size: calc(var(--baseFontSize, 1rem) * 1) !important;
 }
 
-// KaTeX display formüller (merkezi blok formüller)  
+// KaTeX display formüller (merkezi blok formüller)
 .katex-display {
-    font-size: calc(var(--baseFontSize, 1rem) * 1.05) !important;
+  font-size: calc(var(--baseFontSize, 1rem) * 1.05) !important;
 
-    .katex {
-        font-size: inherit !important;
-    }
+  .katex {
+    font-size: inherit !important;
+  }
 }
 
 // Article title (makale başlığı) - dinamik boyut
 .article-title {
-    font-size: calc(var(--baseFontSize, 1rem) * 2) !important;
+  font-size: calc(var(--baseFontSize, 1rem) * 2) !important;
 }
 
 // İçerik başlıkları için hiyerarşi garantisi
 // (base.scss'deki değerler zaten --baseFontSize kullanıyor)
 article h1 {
-    font-size: calc(var(--baseFontSize, 1rem) * 1.75) !important;
+  font-size: calc(var(--baseFontSize, 1rem) * 1.75) !important;
 }
 
 article h2 {
-    font-size: calc(var(--baseFontSize, 1rem) * 1.4) !important;
+  font-size: calc(var(--baseFontSize, 1rem) * 1.4) !important;
 }
 
 article h3 {
-    font-size: calc(var(--baseFontSize, 1rem) * 1.15) !important;
+  font-size: calc(var(--baseFontSize, 1rem) * 1.15) !important;
 }
 
 // ==========================================
 // DEEP-VOID TEMASI - KaTeX BEYAZ RENK
 // ==========================================
 [saved-theme="deep-void"] {
+  // KaTeX formülleri beyaz olmalı
+  .katex,
+  .katex * {
+    color: #ffffff !important;
+  }
 
-    // KaTeX formülleri beyaz olmalı
-    .katex,
-    .katex * {
-        color: #ffffff !important;
-    }
-
-    // KaTeX içindeki özel renkler korunsun (eğer varsa)
-    .katex .mord.text {
-        color: #e5e5e7 !important;
-    }
+  // KaTeX içindeki özel renkler korunsun (eğer varsa)
+  .katex .mord.text {
+    color: #e5e5e7 !important;
+  }
 }
 
 // ==========================================
-// VOID TEMASI - KaTeX RENK DÜZELTMESİ  
+// VOID TEMASI - KaTeX RENK DÜZELTMESİ
 // ==========================================
 [saved-theme="void"] {
-
-    .katex,
-    .katex * {
-        color: #E4E4E7 !important;
-    }
+  .katex,
+  .katex * {
+    color: #e4e4e7 !important;
+  }
 }
 
 // ==========================================
@@ -2264,9 +2287,8 @@ article h3 {
 [saved-theme="stone-dark"],
 [saved-theme="olive-dark"],
 [saved-theme="deep-sea"] {
-
-    .katex,
-    .katex * {
-        color: var(--dark) !important;
-    }
+  .katex,
+  .katex * {
+    color: var(--dark) !important;
+  }
 }
