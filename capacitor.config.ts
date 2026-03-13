@@ -3,12 +3,12 @@ import type { CapacitorConfig } from "@capacitor/cli"
 const config: CapacitorConfig = {
   appId: "dev.noetic.logos",
   appName: "Noetic Logos",
-  webDir: "public",
+  webDir: "capacitor-shell",
   server: {
-    url: "https://noetic-logos.pages.dev",
+    url: "https://meto-data.github.io/noetic-logos",
     cleartext: false,
     allowNavigation: [
-      "noetic-logos.pages.dev",
+      "meto-data.github.io",
       "*.googleapis.com",
       "*.gstatic.com",
       "cdnjs.cloudflare.com",
