@@ -186,7 +186,7 @@ const config: QuartzConfig = {
     enablePopovers: true,
     analytics: analyticsConfig,
     locale: "tr-TR",
-    baseUrl: "noetic-logos.pages.dev",
+    baseUrl: "meto-data.github.io/noetic-logos",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
     features: {
