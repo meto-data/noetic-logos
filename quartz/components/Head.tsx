@@ -26,6 +26,9 @@ export default (() => {
     const path = url.pathname as FullSlug
     const baseDir = fileData.slug === "404" ? path : pathToRoot(fileData.slug!)
     const iconPath = joinSegments(baseDir, "static/icon.png")
+    const touchIconPath = joinSegments(baseDir, "static/icon-192.png")
+    const manifestPath = joinSegments(baseDir, "manifest.webmanifest")
+    const serviceWorkerPath = joinSegments(baseDir, "sw.js")
 
     // Url of current page
     const socialUrl =
@@ -57,6 +60,11 @@ export default (() => {
           href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content={cfg.pageTitle} />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8fafc" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a" />
 
         <meta name="og:site_name" content={cfg.pageTitle}></meta>
         <meta property="og:title" content={title} />
@@ -88,6 +96,8 @@ export default (() => {
         )}
 
         <link rel="icon" href={iconPath} />
+        <link rel="apple-touch-icon" href={touchIconPath} />
+        <link rel="manifest" href={manifestPath} />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
 
@@ -102,6 +112,11 @@ export default (() => {
             return resource
           }
         })}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if ("serviceWorker" in navigator) { window.addEventListener("load", () => { navigator.serviceWorker.register("${serviceWorkerPath}").catch(() => undefined) }) }`,
+          }}
+        />
         <script src={joinSegments(baseDir, "static/scripts/core.min.js")} defer></script>
       </head>
     )

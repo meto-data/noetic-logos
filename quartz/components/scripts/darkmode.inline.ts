@@ -52,11 +52,21 @@ const themeColors: Record<Theme, string> = {
 const currentTheme = (localStorage.getItem("theme") as Theme) ?? "light"
 document.documentElement.setAttribute("saved-theme", currentTheme)
 
+let pendingThemeChangeEvent: number | null = null
+
 const emitThemeChangeEvent = (theme: Theme) => {
+  if (pendingThemeChangeEvent !== null) {
+    window.clearTimeout(pendingThemeChangeEvent)
+  }
+
   const event = new CustomEvent("themechange", {
     detail: { theme },
   }) as any
-  document.dispatchEvent(event)
+
+  pendingThemeChangeEvent = window.setTimeout(() => {
+    document.dispatchEvent(event)
+    pendingThemeChangeEvent = null
+  }, 140)
 }
 
 const isThemePanelVisible = () => {

@@ -1,6 +1,6 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
-import { defaultFeatures, type FeatureConfig } from "./quartz/config/features"
+import { defaultFeatures } from "./quartz/config/features"
 import { defaultStudyChatConfig } from "./quartz/config/studyChat"
 
 const folderSortCollator = new Intl.Collator("tr", {
@@ -15,10 +15,10 @@ const cloudflareBeaconToken = process.env.CLOUDFLARE_BEACON_TOKEN?.trim()
 const analyticsConfig =
   cloudflareBeaconToken && cloudflareBeaconToken.length > 0
     ? ({
-      provider: "cloudflare",
-      beaconToken: cloudflareBeaconToken,
-      spaMode: true,
-    } as const)
+        provider: "cloudflare",
+        beaconToken: cloudflareBeaconToken,
+        spaMode: true,
+      } as const)
     : null
 
 /**
@@ -186,7 +186,7 @@ const config: QuartzConfig = {
     enablePopovers: true,
     analytics: analyticsConfig,
     locale: "tr-TR",
-    baseUrl: "https://noetic-logos.pages.dev",
+    baseUrl: "noetic-logos.pages.dev",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
     features: {
@@ -245,6 +245,7 @@ const config: QuartzConfig = {
         enableSiteMap: true,
         enableRSS: true,
       }),
+      Plugin.PWA(),
       Plugin.Assets(),
       Plugin.Static(),
       Plugin.NotFoundPage(),
