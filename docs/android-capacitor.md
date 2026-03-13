@@ -41,15 +41,8 @@ android/app/build/outputs/apk/debug/app-debug.apk
 
 ## Notlar
 
-- APK build icin Android SDK gerekli.
+- APK build icin Android SDK ve Java 21+ gerekli.
 - `local.properties` ve Gradle cache dosyalari git'e dahil edilmez.
 - Release APK/AAB icin ayri signing ayari gerekir.
-
-## Bu makinede kalan blokaj
-
-Su an debug APK build'i buraya kadar geldi ve sadece Android SDK lisans/paket eksiginde duruyor:
-
-- `build-tools;35.0.0`
-- `platforms;android-36`
-
-SDK yolu olarak `/opt/android-sdk` kullaniliyor. Bu paketler Android Studio SDK Manager ile kurulup lisanslari kabul edilince `npm run android:apk:debug` dogrudan APK uretir.
+- Bu makinede lokal SDK kurulumu `.android-sdk/` altina alindi; script debug APK build ederken bunu otomatik kullanir.
+- Bu makinede Java 25 bulundu ve debug script onu otomatik tercih eder.
