@@ -16,6 +16,11 @@
     "build": "rm -rf .quartz-cache && npx quartz build",
     "build:serve": "rm -rf .quartz-cache && npx quartz build --serve",
     "docs": "npx quartz build --serve -d docs",
+    "android:add": "npx cap add android",
+    "android:sync": "npx cap sync android",
+    "android:open": "npx cap open android",
+    "android:run": "npx cap run android",
+    "android:apk:debug": "node scripts/build-android-debug.mjs",
     "check": "tsc --noEmit && npx prettier . --check",
     "dates:check": "node scripts/manage-created-dates.mjs",
     "dates:write": "node scripts/manage-created-dates.mjs --write",
@@ -40,6 +45,9 @@
     "quartz": "./quartz/bootstrap-cli.mjs"
   },
   "dependencies": {
+    "@capacitor/android": "^8.2.0",
+    "@capacitor/cli": "^8.2.0",
+    "@capacitor/core": "^8.2.0",
     "@clack/prompts": "^0.11.0",
     "@floating-ui/dom": "^1.7.4",
     "@myriaddreamin/rehype-typst": "^0.6.0",
