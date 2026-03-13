@@ -33,6 +33,7 @@ import Resize from "./Resize"
 import Hamburger from "./Hamburger"
 import ThemeCanvas from "./ThemeCanvas"
 import ModuleBanner from "./ModuleBanner"
+import SelectionAssistant from "./SelectionAssistant"
 
 export {
   ArticleTitle,
@@ -64,10 +65,10 @@ export {
   ScrollRestore,
   PrerequisiteBanner,
   ProgressDashboard,
-
   Chat,
   Resize,
   Hamburger,
   ThemeCanvas,
   ModuleBanner,
+  SelectionAssistant,
 }

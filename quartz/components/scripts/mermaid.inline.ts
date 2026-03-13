@@ -293,7 +293,9 @@ const setupMermaids = async () => {
 
   const textMapping: WeakMap<HTMLElement, string> = new WeakMap()
   for (const node of nodes) {
-    textMapping.set(node, node.innerText)
+    const source = node.innerText
+    textMapping.set(node, source)
+    node.dataset.mermaidSource = source
   }
 
   async function renderMermaid() {
