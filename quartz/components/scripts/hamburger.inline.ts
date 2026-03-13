@@ -9,6 +9,8 @@ interface Window {
 
 window.__noeticMobileNav?.cleanup()
 
+const NOETIC_MODULES_SEEN_KEY = "noetic-modules-seen"
+
 let cleanupMobileChrome = () => {}
 
 const isElementVisible = (element: HTMLElement | null) =>
@@ -61,6 +63,14 @@ const setupMobileChrome = () => {
     <a href="${pageTitleLink?.getAttribute("href") ?? getBasePath()}" class="mobile-logo">Noetic Logos</a>
     <input type="text" class="mobile-search" placeholder="Arama..." readonly />
     <div class="mobile-buttons">
+      <button class="mobile-modules-btn ${localStorage.getItem(NOETIC_MODULES_SEEN_KEY) ? "" : "is-attention"}" aria-label="Noetic Modüller">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+          <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+        </svg>
+      </button>
       <button class="mobile-font-btn" aria-label="Yazı Tipi">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
           <path d="M9.93 13.5h4.14L12 7.98zM20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-4.05 16.5l-1.14-3H9.17l-1.12 3H5.96l5.11-13h1.86l5.11 13h-2.09z" />
@@ -188,6 +198,30 @@ const setupMobileChrome = () => {
 
   // Mobil darkmode - darkmode.inline.ts tarafından yönetiliyor
 
+  const mobileModulesBtn = mobileHeader.querySelector(
+    ".mobile-modules-btn",
+  ) as HTMLButtonElement | null
+  const markModulesSeen = () => {
+    localStorage.setItem(NOETIC_MODULES_SEEN_KEY, "true")
+    mobileModulesBtn?.classList.remove("is-attention")
+  }
+
+  const onModulesSeen = () => markModulesSeen()
+  window.addEventListener("noetic-modules-seen", onModulesSeen as EventListener)
+
+  const onMobileModulesClick = (e: MouseEvent) => {
+    e.stopPropagation()
+    closeMobileFontPanel()
+    window.closeThemePanel?.()
+    markModulesSeen()
+    window.dispatchEvent(
+      new CustomEvent("noetic-modules-toggle", {
+        detail: { source: "mobile" },
+      }),
+    )
+  }
+  mobileModulesBtn?.addEventListener("click", onMobileModulesClick)
+
   // Mobil font butonu - font dropdown'ı aç/kapat
   const mobileFontBtn = mobileHeader.querySelector(".mobile-font-btn") as HTMLButtonElement
 
@@ -261,8 +295,10 @@ const setupMobileChrome = () => {
     closeMenu()
     closeMobileFontPanel()
     mobileSearchInput?.removeEventListener("click", onMobileSearchClick)
+    mobileModulesBtn?.removeEventListener("click", onMobileModulesClick)
     mobileFontBtn?.removeEventListener("click", onMobileFontClick)
     mobileDarkmodeBtn?.removeEventListener("click", onMobileDarkmodeClick)
+    window.removeEventListener("noetic-modules-seen", onModulesSeen as EventListener)
     document.removeEventListener("click", onDocumentClick)
     leftSidebar.removeEventListener("click", onSidebarClick)
     overlay.removeEventListener("click", onOverlayClick)

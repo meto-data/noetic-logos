@@ -33,6 +33,7 @@ import Resize from "./Resize"
 import Hamburger from "./Hamburger"
 import ThemeCanvas from "./ThemeCanvas"
 import ModuleBanner from "./ModuleBanner"
+import NoeticModules from "./NoeticModules"
 
 export {
   ArticleTitle,
@@ -69,4 +70,5 @@ export {
   Hamburger,
   ThemeCanvas,
   ModuleBanner,
+  NoeticModules,
 }
