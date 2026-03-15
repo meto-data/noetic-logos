@@ -83,13 +83,26 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
                 <div class="toggle-row"><span>Satır Numaraları</span><label class="toggle-switch"><input type="checkbox" name="code-line-numbers" /><span class="toggle-slider" /></label></div>
                 <div class="toggle-row"><span>Katlanabilir Bloklar</span><label class="toggle-switch"><input type="checkbox" name="code-collapsible" /><span class="toggle-slider" /></label></div>
 
-                <div class="section-header size-header">Veri Aktarımı</div>
+                <div class="section-header size-header">Senkronizasyon Anahtarı</div>
                 <div class="sync-key-section">
                   <p class="sync-key-info">
-                    Ayarlarınızı, vurgularınızı ve modül verilerinizi dışa aktarın.
-                    Başka tarayıcı veya cihazda içe aktararak tüm tercihlerinizi geri yükleyin.
+                    Bir anahtar oluşturun veya girin. Anahtarı kaydettikten sonra tercihleriniz,
+                    vurgularınız ve modül verileriniz bu anahtara bağlanır. Başka tarayıcı veya
+                    cihazda aynı anahtarı kullanmak için "Dışa Aktar" ile dosya indirin,
+                    diğer cihazda "İçe Aktar" ile yükleyin.
                   </p>
+                  <div class="sync-key-input-row">
+                    <input type="text" class="sync-key-input" placeholder="Anahtar girin veya oluşturun" />
+                    <button type="button" class="sync-key-generate" aria-label="Yeni anahtar oluştur" title="Yeni Anahtar">⟳</button>
+                    <button type="button" class="sync-key-copy" aria-label="Anahtarı kopyala" title="Kopyala">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    </button>
+                  </div>
                   <div class="sync-key-actions">
+                    <button type="button" class="sync-key-save">Anahtarı Kaydet</button>
+                    <button type="button" class="sync-key-clear">Anahtarı Sil</button>
+                  </div>
+                  <div class="sync-key-actions" style="margin-top: 0.3rem;">
                     <button type="button" class="sync-export-btn">Dışa Aktar</button>
                     <label class="sync-import-btn">
                       İçe Aktar

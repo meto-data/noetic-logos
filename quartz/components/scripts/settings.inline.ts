@@ -165,10 +165,29 @@ function syncSettingsInputs() {
     })
   }
 
+  updateSyncKeyUI()
+}
+
+function updateSyncKeyUI() {
+  const savedKey = localStorage.getItem("noetic-sync-key") || ""
+  const input = document.querySelector(".sync-key-input") as HTMLInputElement | null
+  if (!input) return
+  input.value = savedKey
+  const isLocked = !!savedKey
+  input.disabled = isLocked
+  input.classList.toggle("locked", isLocked)
+}
+
+function generateSyncKey(): string {
+  const c = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789"
+  let k = ""
+  for (let i = 0; i < 16; i++) k += c.charAt(Math.floor(Math.random() * c.length))
+  return k
 }
 
 function exportPreferences() {
   const data = collectAllPreferences()
+  data["noetic-sync-key"] = localStorage.getItem("noetic-sync-key") || ""
   const json = JSON.stringify(data, null, 2)
   const blob = new Blob([json], { type: "application/json" })
   const url = URL.createObjectURL(blob)
@@ -188,14 +207,11 @@ function importPreferences(file: File) {
     try {
       const data = JSON.parse(reader.result as string)
       if (typeof data !== "object" || data === null) throw new Error("Geçersiz dosya")
+      const importedKey = data["noetic-sync-key"]
+      if (importedKey) localStorage.setItem("noetic-sync-key", importedKey)
       restoreAllPreferences(data)
+      updateSyncKeyUI()
       syncSettingsInputs()
-      const status = document.querySelector(".sync-key-status") as HTMLElement | null
-      if (status) {
-        status.textContent = "Tercihler başarıyla yüklendi."
-        status.className = "sync-key-status saved"
-        setTimeout(() => { status.textContent = ""; status.className = "sync-key-status" }, 4000)
-      }
       window.__noeticToast?.("Tercihler içe aktarıldı ve uygulandı", "success")
     } catch {
       window.__noeticToast?.("Dosya okunamadı veya geçersiz", "warning")
@@ -257,6 +273,34 @@ function handleDocumentClick(e: MouseEvent) {
     return
   }
 
+  if (target.closest(".sync-key-generate")) {
+    e.stopPropagation()
+    const inp = document.querySelector(".sync-key-input") as HTMLInputElement | null
+    if (inp && !inp.disabled) inp.value = generateSyncKey()
+    return
+  }
+  if (target.closest(".sync-key-copy")) {
+    e.stopPropagation()
+    const inp = document.querySelector(".sync-key-input") as HTMLInputElement | null
+    if (inp?.value) navigator.clipboard.writeText(inp.value).then(() => window.__noeticToast?.("Anahtar kopyalandı", "success"))
+    return
+  }
+  if (target.closest(".sync-key-save")) {
+    e.stopPropagation()
+    const inp = document.querySelector(".sync-key-input") as HTMLInputElement | null
+    if (!inp?.value.trim()) return
+    localStorage.setItem("noetic-sync-key", inp.value.trim())
+    updateSyncKeyUI()
+    window.__noeticToast?.("Anahtar kaydedildi", "success")
+    return
+  }
+  if (target.closest(".sync-key-clear")) {
+    e.stopPropagation()
+    localStorage.removeItem("noetic-sync-key")
+    updateSyncKeyUI()
+    window.__noeticToast?.("Anahtar silindi", "info")
+    return
+  }
   if (target.closest(".sync-export-btn")) {
     e.stopPropagation()
     exportPreferences()
