@@ -254,19 +254,31 @@ function removeHighlight(text: string) {
   window.__noeticToast?.("Vurgu kaldırıldı", "info")
 }
 
-function handleMouseUp(e: MouseEvent) {
-  if ((e.target as HTMLElement)?.closest(".noetic-highlight-toolbar")) return
-
+function tryShowToolbar() {
   const selection = window.getSelection()
   const text = selection?.toString()?.trim()
-  if (text && text.length > 1) {
-    const range = selection!.getRangeAt(0)
-    const rect = range.getBoundingClientRect()
-    setTimeout(() => {
-      if (window.getSelection()?.toString()?.trim()) {
-        showHighlightToolbar(rect.left + rect.width / 2, rect.top)
-      }
-    }, 200)
+  if (!text || text.length < 2 || !selection || selection.rangeCount === 0) return
+  const range = selection.getRangeAt(0)
+  const rect = range.getBoundingClientRect()
+  if (rect.width === 0 && rect.height === 0) return
+  showHighlightToolbar(rect.left + rect.width / 2, rect.top)
+}
+
+function handleMouseUp(e: MouseEvent) {
+  if ((e.target as HTMLElement)?.closest(".noetic-highlight-toolbar")) return
+  setTimeout(tryShowToolbar, 200)
+}
+
+function handleTouchEnd(e: TouchEvent) {
+  if ((e.target as HTMLElement)?.closest(".noetic-highlight-toolbar")) return
+  setTimeout(tryShowToolbar, 400)
+}
+
+function handleSelectionChange() {
+  const selection = window.getSelection()
+  const text = selection?.toString()?.trim()
+  if (!text || text.length < 2) {
+    removeToolbar()
   }
 }
 
@@ -282,6 +294,8 @@ function handleNav() {
 }
 
 document.addEventListener("mouseup", handleMouseUp)
+document.addEventListener("touchend", handleTouchEnd)
+document.addEventListener("selectionchange", handleSelectionChange)
 document.addEventListener("click", handleClick)
 document.addEventListener("nav", handleNav)
 handleNav()
@@ -290,6 +304,8 @@ window.__noeticAnnotation = {
   cleanup: () => {
     removeToolbar()
     document.removeEventListener("mouseup", handleMouseUp)
+    document.removeEventListener("touchend", handleTouchEnd)
+    document.removeEventListener("selectionchange", handleSelectionChange)
     document.removeEventListener("click", handleClick)
     document.removeEventListener("nav", handleNav)
   },
