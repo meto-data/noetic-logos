@@ -18,7 +18,7 @@ let searchType: SearchType = "basic"
 let currentSearchTerm: string = ""
 const encoder = (str: string) => {
   return str
-    .toLowerCase()
+    .toLocaleLowerCase("tr-TR")
     .split(/\s+/)
     .filter((token) => token.length > 0)
 }
@@ -71,7 +71,7 @@ function highlight(searchTerm: string, text: string, trim?: boolean) {
   let endIndex = tokenizedText.length - 1
   if (trim) {
     const includesCheck = (tok: string) =>
-      tokenizedTerms.some((term) => tok.toLowerCase().startsWith(term.toLowerCase()))
+      tokenizedTerms.some((term) => tok.toLocaleLowerCase("tr-TR").startsWith(term.toLocaleLowerCase("tr-TR")))
     const occurrencesIndices = tokenizedText.map(includesCheck)
 
     let bestSum = 0
@@ -94,8 +94,8 @@ function highlight(searchTerm: string, text: string, trim?: boolean) {
     .map((tok) => {
       // see if this tok is prefixed by any search terms
       for (const searchTok of tokenizedTerms) {
-        if (tok.toLowerCase().includes(searchTok.toLowerCase())) {
-          const regex = new RegExp(searchTok.toLowerCase(), "gi")
+        if (tok.toLocaleLowerCase("tr-TR").includes(searchTok.toLocaleLowerCase("tr-TR"))) {
+          const regex = new RegExp(searchTok.toLocaleLowerCase("tr-TR"), "gi")
           return tok.replace(regex, `<span class="highlight">$&</span>`)
         }
       }
@@ -123,7 +123,7 @@ function highlightHTML(searchTerm: string, el: HTMLElement) {
   const highlightTextNodes = (node: Node, term: string) => {
     if (node.nodeType === Node.TEXT_NODE) {
       const nodeText = node.nodeValue ?? ""
-      const regex = new RegExp(term.toLowerCase(), "gi")
+      const regex = new RegExp(term.toLocaleLowerCase("tr-TR"), "gi")
       const matches = nodeText.match(regex)
       if (!matches || matches.length === 0) return
       const spanContainer = document.createElement("span")
@@ -251,11 +251,54 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     searchButton.focus()
   }
 
+  function getSearchHistory(): string[] {
+    try {
+      return JSON.parse(localStorage.getItem("noetic-search-history") || "[]")
+    } catch { return [] }
+  }
+
+  function saveSearchTerm(term: string) {
+    const trimmed = term.trim()
+    if (!trimmed || trimmed.length < 2) return
+    const history = getSearchHistory().filter(h => h !== trimmed)
+    history.unshift(trimmed)
+    localStorage.setItem("noetic-search-history", JSON.stringify(history.slice(0, 10)))
+  }
+
+  function showSearchHistory() {
+    const history = getSearchHistory()
+    if (history.length === 0) return
+    removeAllChildren(results)
+    const header = document.createElement("div")
+    header.className = "search-history-header"
+    header.innerHTML = `<span>Son Aramalar</span><button class="clear-history" type="button">Temizle</button>`
+    results.appendChild(header)
+    header.querySelector(".clear-history")?.addEventListener("click", (e) => {
+      e.stopPropagation()
+      localStorage.removeItem("noetic-search-history")
+      removeAllChildren(results)
+    })
+    for (const term of history) {
+      const item = document.createElement("a")
+      item.className = "result-card search-history-item"
+      item.innerHTML = `<span class="history-icon">↻</span> <span>${term}</span>`
+      item.addEventListener("click", () => {
+        searchBar.value = term
+        searchBar.dispatchEvent(new Event("input"))
+      })
+      results.appendChild(item)
+    }
+    searchLayout.classList.add("display-results")
+  }
+
   function showSearch(searchTypeNew: SearchType) {
     searchType = searchTypeNew
     if (sidebar) sidebar.style.zIndex = "1"
     container.classList.add("active")
     searchBar.focus()
+    if (!searchBar.value.trim()) {
+      showSearchHistory()
+    }
   }
 
   function redirectToSecretModule(targetPath: string) {
@@ -350,7 +393,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
 
     return tags
       .map((tag) => {
-        if (tag.toLowerCase().includes(term.toLowerCase())) {
+        if (tag.toLocaleLowerCase("tr-TR").includes(term.toLocaleLowerCase("tr-TR"))) {
           return `<li><p class="match-tag">#${tag}</p></li>`
         } else {
           return `<li><p>#${tag}</p></li>`
@@ -376,6 +419,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     `
     itemTile.addEventListener("click", (event) => {
       if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
+      saveSearchTerm(currentSearchTerm)
       hideSearch()
     })
 
@@ -402,8 +446,8 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     removeAllChildren(results)
     if (finalResults.length === 0) {
       results.innerHTML = `<a class="result-card no-match">
-          <h3>No results.</h3>
-          <p>Try another search term?</p>
+          <h3>Sonuç bulunamadı.</h3>
+          <p>Farklı bir arama terimi deneyin.</p>
       </a>`
     } else {
       results.append(...finalResults.map(resultToHTML))
@@ -463,7 +507,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
   async function onType(e: HTMLElementEventMap["input"]) {
     if (!searchLayout || !index) return
     currentSearchTerm = (e.target as HTMLInputElement).value
-    const normalizedTerm = currentSearchTerm.trim().toLowerCase()
+    const normalizedTerm = currentSearchTerm.trim().toLocaleLowerCase("tr-TR")
 
     // Check for event commands first
     const eventName = eventCommands[normalizedTerm]

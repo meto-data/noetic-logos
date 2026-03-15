@@ -175,6 +175,45 @@
         & > .results-container {
           overflow-y: auto;
 
+          & .search-history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6em 1em;
+            border-bottom: 1px solid var(--lightgray);
+            font-size: 0.8rem;
+            color: var(--gray);
+            font-weight: 600;
+
+            .clear-history {
+              background: none;
+              border: none;
+              color: var(--secondary);
+              cursor: pointer;
+              font-size: 0.75rem;
+              padding: 0.2em 0.5em;
+              border-radius: 4px;
+              transition: background 0.15s ease;
+
+              &:hover {
+                background: color-mix(in srgb, var(--secondary) 10%, transparent);
+              }
+            }
+          }
+
+          & .search-history-item {
+            display: flex !important;
+            align-items: center;
+            gap: 0.5em;
+            color: var(--darkgray);
+            text-decoration: none;
+
+            .history-icon {
+              color: var(--gray);
+              font-size: 1.1em;
+            }
+          }
+
           & .result-card {
             overflow: hidden;
             padding: 1em;
