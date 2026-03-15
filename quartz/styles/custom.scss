@@ -57,11 +57,16 @@
 }
 
 // ===== AYAR DEĞİŞKENLERİ =====
-article {
-  line-height: var(--noetic-line-height, 1.6);
+article p,
+article li,
+article td,
+article th,
+article blockquote,
+article .callout-content {
+  line-height: var(--noetic-line-height, 1.6) !important;
 }
 
-article .center > .article-content {
+.center > article {
   max-width: var(--noetic-content-max-width, none);
 }
 
@@ -73,15 +78,6 @@ html.noetic-custom-typo article {
 
   h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.01em;
-  }
-}
-
-// Gece Okuma Modu
-html.noetic-night-reading {
-  filter: sepia(15%) saturate(85%);
-
-  img, video, canvas, svg {
-    filter: brightness(0.85);
   }
 }
 

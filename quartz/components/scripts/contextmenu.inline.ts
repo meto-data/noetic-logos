@@ -1,11 +1,22 @@
 interface Window {
   __noeticContextMenu?: { cleanup: () => void }
   __noeticToast?: (message: string, type?: "info" | "success" | "warning") => void
+  toggleThemePanel?: () => void
 }
 
 window.__noeticContextMenu?.cleanup()
 
 const MENU_ID = "noetic-context-menu"
+
+const ICONS = {
+  copy: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`,
+  search: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+  paragraph: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4v16"/><path d="M17 4v16"/><path d="M19 4H9.5a4.5 4.5 0 1 0 0 9H13"/></svg>`,
+  page: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`,
+  zen: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>`,
+  zenOff: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
+  menu: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>`,
+}
 
 function getMenu(): HTMLElement | null {
   return document.getElementById(MENU_ID)
@@ -114,88 +125,51 @@ function buildMenuItems(e: MouseEvent): MenuItem[] {
   const items: MenuItem[] = []
 
   if (selectedText) {
-    items.push({
-      label: "Kopyala",
-      icon: "📋",
-      action: () => copyToClipboard(selectedText),
-    })
-    items.push({
-      label: "Sitede Ara",
-      icon: "🔍",
-      action: () => searchInSite(selectedText),
-    })
+    items.push({ label: "Kopyala", icon: ICONS.copy, action: () => copyToClipboard(selectedText) })
+    items.push({ label: "Sitede Ara", icon: ICONS.search, action: () => searchInSite(selectedText) })
     items.push({ type: "separator" })
   }
 
   items.push({
     label: "Paragrafı Kopyala",
-    icon: "📄",
-    action: () => {
-      const text = getClosestParagraph(target)
-      if (text) copyToClipboard(text)
-    },
+    icon: ICONS.paragraph,
+    action: () => { const t = getClosestParagraph(target); if (t) copyToClipboard(t) },
   })
 
   items.push({
     label: "Tüm Sayfayı Kopyala",
-    icon: "📝",
-    action: () => {
-      const text = getPageContent()
-      if (text) copyToClipboard(text)
-    },
+    icon: ICONS.page,
+    action: () => { const t = getPageContent(); if (t) copyToClipboard(t) },
   })
 
   items.push({ type: "separator" })
 
-  items.push({
-    label: "Tema Değiştir",
-    icon: "🎨",
-    action: () => {
-      window.toggleThemePanel?.()
-    },
-  })
-
   const isZen = document.documentElement.classList.contains("noetic-zen-mode")
   items.push({
     label: isZen ? "Zen Modunu Kapat" : "Zen Modu",
-    icon: "🧘",
+    icon: isZen ? ICONS.zenOff : ICONS.zen,
     action: toggleZenMode,
   })
 
   items.push({ type: "separator" })
 
-  items.push({
-    label: "Varsayılan Menü",
-    icon: "⋯",
-    action: () => {
-      /* do nothing, browser handles it */
-    },
-  })
+  items.push({ label: "Varsayılan Menü", icon: ICONS.menu, action: () => {} })
 
   return items
 }
 
 function handleContextMenu(e: MouseEvent) {
-  if ((e.target as HTMLElement)?.closest("input, textarea, [contenteditable], pre, code")) {
-    return
-  }
+  const target = e.target as HTMLElement
+  if (target.closest("input, textarea, [contenteditable]")) return
 
   e.preventDefault()
   const items = buildMenuItems(e)
   showMenu(e.clientX, e.clientY, items)
 }
 
-function handleClick() {
-  hideMenu()
-}
-
-function handleKeydown(e: KeyboardEvent) {
-  if (e.key === "Escape") hideMenu()
-}
-
-function handleScroll() {
-  hideMenu()
-}
+function handleClick() { hideMenu() }
+function handleKeydown(e: KeyboardEvent) { if (e.key === "Escape") hideMenu() }
+function handleScroll() { hideMenu() }
 
 document.addEventListener("contextmenu", handleContextMenu)
 document.addEventListener("click", handleClick)
