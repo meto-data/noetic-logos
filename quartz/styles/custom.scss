@@ -1713,6 +1713,24 @@ footer {
   }
 }
 
+// ===== ANCHOR HIGHLIGHT =====
+@keyframes anchor-highlight-pulse {
+  0% {
+    background-color: color-mix(in srgb, var(--secondary) 25%, transparent);
+    box-shadow: 0 0 12px color-mix(in srgb, var(--secondary) 20%, transparent);
+  }
+  100% {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+:target {
+  animation: anchor-highlight-pulse 2s ease-out;
+  border-radius: 4px;
+  scroll-margin-top: 1rem;
+}
+
 // ===== LINKS =====
 a.internal {
   background-color: transparent !important;
@@ -2231,12 +2249,165 @@ a.internal {
 }
 
 // ==========================================
+// SAF BEYAZ TEMA - Mint/Sage, Glassmorphism, Rounded
+// ==========================================
+[saved-theme="pure-white"] {
+  --light: #f0f4f3 !important;
+  --lightgray: #e2e8e6 !important;
+  --gray: #94a3b8 !important;
+  --darkgray: #475569 !important;
+  --dark: #334155 !important;
+  --secondary: #7ca982 !important;
+  --tertiary: #6c8b5e !important;
+  --highlight: rgba(124, 169, 130, 0.15) !important;
+
+  --surface: rgba(255, 255, 255, 0.7);
+  --greek-blue: #e6f4f1;
+  --greek-blue-border: #c4dcc1;
+  --border-color: rgba(255, 255, 255, 0.5);
+  --muted: #64748b;
+  --text: #475569;
+  --panel-bg: rgba(255, 255, 255, 0.4);
+
+  // Scrollbar
+  * {
+    scrollbar-color: rgba(124, 169, 130, 0.2) transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(124, 169, 130, 0.2);
+  }
+
+  // Ana kapsayıcı — yuvarlatılmış köşeli glassmorphism
+  .page {
+    max-width: 1778px !important;
+    margin: 1rem auto !important;
+    min-height: calc(100vh - 2rem) !important;
+    background: #f8fafc !important;
+    border-radius: 2.5rem !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.03), 0 4px 15px -5px rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  }
+
+  body {
+    background-color: #f0f4f3 !important;
+  }
+
+  // Sol panel — glassmorphism
+  .sidebar.left,
+  .left.sidebar {
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border-right: 1px solid rgba(226, 232, 230, 0.6) !important;
+  }
+
+  // Sağ panel — glassmorphism
+  .sidebar.right,
+  .right.sidebar {
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border-left: 1px solid rgba(226, 232, 230, 0.6) !important;
+  }
+
+  // Orta içerik — saf beyaz
+  .center,
+  article {
+    background-color: #ffffff !important;
+  }
+
+  // Graph — soft, rounded
+  .graph-outer {
+    background: rgba(255, 255, 255, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 1.5rem !important;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.03) !important;
+  }
+
+  // TOC — sage tonu
+  .toc-content ul li a {
+    &.in-view {
+      color: #7ca982 !important;
+      border-left-color: #7ca982 !important;
+    }
+  }
+
+  // Backlinks — sage tonu
+  .backlinks ul li a,
+  .outgoing-links ul li a {
+    color: #7ca982 !important;
+  }
+
+  // Arama ve butonlar
+  .search-button {
+    background: rgba(255, 255, 255, 0.6) !important;
+    border: none !important;
+    border-radius: 0.75rem !important;
+  }
+
+  .darkmode {
+    background: rgba(255, 255, 255, 0.6) !important;
+    border: none !important;
+    border-radius: 0.75rem !important;
+  }
+
+  // Page title — sage renk
+  .page-title a {
+    color: #7ca982 !important;
+  }
+
+  // Explorer — sage vurgulu
+  li:has(> .folder-outer.open) > .folder-container {
+    div > a,
+    div > button span {
+      color: #7ca982 !important;
+    }
+  }
+
+  .explorer-content .folder-outer > ul {
+    border-left-color: rgba(124, 169, 130, 0.2) !important;
+  }
+
+  // Dosya kartları
+  li.section-li {
+    background: rgba(255, 255, 255, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.03) !important;
+
+    &:hover {
+      border-color: rgba(124, 169, 130, 0.4) !important;
+    }
+  }
+
+  // Çözüm callout benzeri bölümler
+  .callout {
+    border-radius: 1.5rem !important;
+  }
+
+  // Breadcrumbs
+  .breadcrumb-container a:hover {
+    color: #7ca982 !important;
+  }
+
+  // Settings button
+  .settings-button {
+    background: rgba(255, 255, 255, 0.6) !important;
+    border: none !important;
+    border-radius: 0.75rem !important;
+  }
+}
+
+// ==========================================
 // AYDINLIK TEMALAR - İKON VE BUTON STİLLERİ
 // ==========================================
 [saved-theme="light"],
 [saved-theme="olive-light"],
 [saved-theme="nord-light"],
-[saved-theme="library-light"] {
+[saved-theme="library-light"],
+[saved-theme="pure-white"] {
   .dropdown-button {
     background: var(--light) !important;
     border-color: var(--lightgray) !important;
