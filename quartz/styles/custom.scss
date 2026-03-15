@@ -52,7 +52,282 @@
 
   // Font Variables (Default)
   --base-font-family: "Inter", sans-serif;
-  --base-font-size: 1rem; // Normal
+  --base-font-size: 1rem;
+  --noetic-line-height: 1.6;
+}
+
+// ===== AYAR DEĞİŞKENLERİ =====
+article {
+  line-height: var(--noetic-line-height, 1.6);
+}
+
+article .center > .article-content {
+  max-width: var(--noetic-content-max-width, none);
+}
+
+// Özel Tipografi
+html.noetic-custom-typo article {
+  p {
+    margin-bottom: 1.25em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.01em;
+  }
+}
+
+// Gece Okuma Modu
+html.noetic-night-reading {
+  filter: sepia(15%) saturate(85%);
+
+  img, video, canvas, svg {
+    filter: brightness(0.85);
+  }
+}
+
+// Efektler kapalı
+html.noetic-no-effects {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// Kod Satır Numaraları
+html.noetic-code-line-numbers pre > code {
+  counter-reset: line;
+
+  & > .line::before,
+  & > span[class]::before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    width: 2.5em;
+    margin-right: 1em;
+    text-align: right;
+    color: var(--gray);
+    opacity: 0.5;
+    font-size: 0.85em;
+    user-select: none;
+    border-right: 1px solid var(--lightgray);
+    padding-right: 0.75em;
+  }
+}
+
+// Kod Dil Etiketi
+html.noetic-code-lang-label pre[data-language]::before {
+  content: attr(data-language);
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--gray);
+  background: color-mix(in srgb, var(--lightgray) 50%, transparent);
+  border-bottom-left-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 1;
+}
+
+html.noetic-code-lang-label pre[data-language] {
+  position: relative;
+}
+
+// Katlanabilir Kod Blokları
+html.noetic-code-collapsible pre > code {
+  max-height: 300px;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  transition: max-height 0.3s ease;
+}
+
+html.noetic-code-collapsible pre.code-expanded > code {
+  max-height: none;
+}
+
+html.noetic-code-collapsible pre > .code-expand-btn {
+  display: block;
+  width: 100%;
+  padding: 0.3rem;
+  text-align: center;
+  background: color-mix(in srgb, var(--lightgray) 40%, transparent);
+  border: none;
+  border-top: 1px solid var(--lightgray);
+  color: var(--secondary);
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 0 0 6px 6px;
+}
+
+html:not(.noetic-code-collapsible) pre > .code-expand-btn {
+  display: none;
+}
+
+// Baskı Dostu Stiller
+@media print {
+  .sidebar,
+  .hamburger-menu,
+  .mobile-overlay,
+  .mobile-header,
+  .mobile-search-icon,
+  .search,
+  .darkmode,
+  .graph,
+  .backlinks,
+  .theme-selector-panel,
+  .noetic-toast-container,
+  .noetic-context-menu,
+  #noetic-toast-container,
+  footer,
+  .toc,
+  .explorer,
+  .settings,
+  .breadcrumbs nav,
+  canvas {
+    display: none !important;
+  }
+
+  body, article, .page, .center {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+    word-break: break-word;
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
+  }
+}
+
+// Sayfa Geçiş Animasyonu
+html:not(.noetic-no-effects) {
+  article {
+    animation: noeticFadeIn 0.3s ease-out;
+  }
+}
+
+@keyframes noeticFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Yumuşak Kaydırma
+html:not(.noetic-no-effects) {
+  scroll-behavior: smooth;
+}
+
+// Akıcı Genişletme/Daraltma
+html:not(.noetic-no-effects) {
+  .explorer details[open] > ul {
+    animation: noeticSlideDown 0.2s ease-out;
+  }
+
+  .callout:not(.is-collapsed) > .callout-content {
+    animation: noeticSlideDown 0.2s ease-out;
+  }
+}
+
+@keyframes noeticSlideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 2000px;
+  }
+}
+
+// Görsel Lazy Loading - lightbox
+.noetic-lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  animation: noeticLightboxIn 0.2s ease;
+
+  img {
+    max-width: 92vw;
+    max-height: 92vh;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    object-fit: contain;
+  }
+}
+
+@keyframes noeticLightboxIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+article img:not(.no-lightbox) {
+  cursor: zoom-in;
+  transition: transform 0.15s ease;
+}
+
+// Erişilebilirlik: prefers-reduced-motion
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// Erişilebilirlik: İçeriğe Atla
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.75rem 1.5rem;
+  background: var(--secondary);
+  color: #fff;
+  border-radius: 0 0 8px 8px;
+  z-index: 10002;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.15s ease;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+// Erişilebilirlik: Odak göstergesi düzeltmesi
+*:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
 }
 
 // ===== TEMA GEÇİŞ EFEKTİ - SENKRONİZE =====
@@ -1354,7 +1629,6 @@ li.section-li {
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  outline: none !important;
   cursor: pointer;
   padding: 0;
 
@@ -1385,11 +1659,8 @@ li.section-li {
     }
   }
 
-  // Çerçeve kaldır
-  &:focus,
-  &:active {
-    outline: none !important;
-    box-shadow: none !important;
+  &:focus:not(:focus-visible) {
+    outline: none;
   }
 }
 

@@ -33,11 +33,9 @@
   svg {
     width: 18px;
     height: 18px;
-    fill: rgb(249, 250, 251) !important;
+    fill: currentColor;
     transition: fill 0.2s ease;
   }
-
-  // Hover'da ikon rengi değişmiyor
 }
 
 .dropdown-content {
@@ -48,8 +46,8 @@
   border: 1px solid var(--lightgray);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  min-width: 200px;
-  max-height: 400px;
+  min-width: 230px;
+  max-height: 70vh;
   overflow-y: auto;
   z-index: 9999;
   opacity: 0;
@@ -98,8 +96,8 @@
   }
 }
 
-// Diğer Fontlar - Tema seçici gibi
-.font-show-more {
+.font-show-more,
+.settings-show-more {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -164,42 +162,16 @@
   }
 }
 
-// Her font kendi stilinde
-.font-item[data-font="Inter"] span {
-  font-family: 'Inter', system-ui, sans-serif !important;
-}
-
-.font-item[data-font="Poppins"] span {
-  font-family: 'Poppins', sans-serif !important;
-}
-
-.font-item[data-font="Lato"] span {
-  font-family: 'Lato', sans-serif !important;
-}
-
-.font-item[data-font="Roboto"] span {
-  font-family: 'Roboto', sans-serif !important;
-}
-
-.font-item[data-font="Open Sans"] span {
-  font-family: 'Open Sans', sans-serif !important;
-}
-
-.font-item[data-font="Quicksand"] span {
-  font-family: 'Quicksand', sans-serif !important;
-}
-
-.font-item[data-font="Montserrat"] span {
-  font-family: 'Montserrat', sans-serif !important;
-}
-
-.font-item[data-font="Merriweather"] span {
-  font-family: 'Merriweather', serif !important;
-}
-
-.font-item[data-font="Source Sans Pro"] span {
-  font-family: 'Source Sans Pro', sans-serif !important;
-}
+.font-item[data-font="Inter"] span { font-family: 'Inter', system-ui, sans-serif !important; }
+.font-item[data-font="Poppins"] span { font-family: 'Poppins', sans-serif !important; }
+.font-item[data-font="Lato"] span { font-family: 'Lato', sans-serif !important; }
+.font-item[data-font="Roboto"] span { font-family: 'Roboto', sans-serif !important; }
+.font-item[data-font="Open Sans"] span { font-family: 'Open Sans', sans-serif !important; }
+.font-item[data-font="Quicksand"] span { font-family: 'Quicksand', sans-serif !important; }
+.font-item[data-font="Montserrat"] span { font-family: 'Montserrat', sans-serif !important; }
+.font-item[data-font="Merriweather"] span { font-family: 'Merriweather', serif !important; }
+.font-item[data-font="Source Sans Pro"] span { font-family: 'Source Sans Pro', sans-serif !important; }
+.font-item[data-font="Atkinson Hyperlegible"] span { font-family: 'Atkinson Hyperlegible', sans-serif !important; }
 
 // ===== BOYUT SEÇENEKLERİ =====
 .size-options {
@@ -244,6 +216,164 @@
   }
 }
 
+// ===== TOGGLE SWİTCH =====
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 2px;
+
+  & > span {
+    font-size: 0.85rem;
+    color: var(--darkgray);
+  }
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  flex-shrink: 0;
+  margin: 0 !important;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--lightgray);
+    border-radius: 20px;
+    transition: background-color 0.2s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 16px;
+      width: 16px;
+      left: 2px;
+      bottom: 2px;
+      background-color: var(--light);
+      border-radius: 50%;
+      transition: transform 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  input:checked + .toggle-slider {
+    background-color: var(--secondary);
+
+    &::before {
+      transform: translateX(16px);
+    }
+  }
+
+  input:focus-visible + .toggle-slider {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+  }
+}
+
+// ===== SYNC KEY =====
+.sync-key-section {
+  padding: 0.5rem 0.75rem 0.75rem;
+}
+
+.sync-key-info {
+  font-size: 0.75rem;
+  color: var(--gray);
+  line-height: 1.45;
+  margin: 0 0 0.5rem;
+}
+
+.sync-key-input-row {
+  display: flex;
+  gap: 0.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.sync-key-input {
+  flex: 1;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: var(--dark);
+  background: var(--light);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.5px;
+}
+
+.sync-key-generate {
+  background: none;
+  border: 1px solid var(--lightgray);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0.35rem 0.5rem;
+  font-size: 1rem;
+  color: var(--darkgray);
+  transition: all 0.15s ease;
+
+  &:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+  }
+}
+
+.sync-key-actions {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.sync-key-save,
+.sync-key-clear {
+  flex: 1;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: var(--light);
+  color: var(--darkgray);
+
+  &:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+  }
+}
+
+.sync-key-status {
+  font-size: 0.75rem;
+  margin-top: 0.3rem;
+  min-height: 1.1em;
+
+  &.saved {
+    color: #16a34a;
+  }
+
+  &.cleared {
+    color: var(--gray);
+  }
+}
+
+// ===== DİĞER AYARLAR =====
+.settings-extra-options {
+  border-top: 1px solid var(--lightgray);
+  padding-top: 0.5rem;
+  margin-top: 0.25rem;
+}
+
 // ===== MOBİL =====
 @media all and (max-width: 800px) {
   .dropdown-button {
@@ -258,7 +388,6 @@
   }
 }
 
-// Mobil Font Wrapper - Body'e eklenen dropdown
 .mobile-font-wrapper {
   position: fixed;
   top: 60px;
@@ -308,7 +437,8 @@
     }
   }
 
-  .font-show-more {
+  .font-show-more,
+  .settings-show-more {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -364,5 +494,22 @@
       border-color: var(--secondary);
       background: color-mix(in srgb, var(--secondary) 15%, transparent);
     }
+  }
+
+  .toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+
+    & > span {
+      font-size: 0.85rem;
+      color: var(--darkgray);
+    }
+  }
+
+  .settings-extra-options {
+    border-top: 1px solid var(--lightgray);
+    padding-top: 0.5rem;
   }
 }
