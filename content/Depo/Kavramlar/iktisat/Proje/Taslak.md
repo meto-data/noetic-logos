@@ -1,7 +1,3 @@
----
-created: 2026-02-27
----
-
 
 **Proje Adı:** Çilimli - Dijital Zimem Projesi
 

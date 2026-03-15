@@ -12,3 +12,14 @@ Hoca derste defalarca **"Ezberlemeyin, mantığını kavrayın, ilişki kurun"**
 Eğer sınavda *"Bir ürünün viral olması için ne gerekir?"* diye sorarsa, sadece "komik olmalı" deme.
 Şu terminolojiyi kullan: *"Öncelikle hedeflenen **[[Marka Toplulukları|kabileye]]** uygun bir **tohum atma (seeding)** işlemi yapılmalıdır. İçerik, izleyicide hedonik bir fayda veya yüksek bir uyarılma (duygu sömürüsü, komedi) yaratmalı ve **[[Sosyal Bulaşma]]** dinamiğini tetiklemelidir. Tüketiciler üzerindeki **normatif baskı** sayesinde içerik **AIDA modelindeki** 'Action' (paylaşma) evresine hızlıca geçip üstel bir büyüme yakalar."*
 Böyle bir cevapla hocadan tam puanı alıp dersin yıldızı olursun!
+
+---
+
+### Sınav Radarındaki Potansiyel Mayınlar
+- **Kişiler ve Yıllar:** Hoca açıkça "Ben kişilere takılırım" dedi. 
+  - *Makine Öğrenimi* $\rightarrow$ Arthur Samuel (1956). 
+  - *Yapay Zekâ* $\rightarrow$ John McCarthy (1956). 
+  - *Seri Üretim / Endüstri 2.0* $\rightarrow$ Henry Ford. Bunları bir köşeye not et.
+- **Dinamik Fiyatlandırma ve Makine Öğrenimi Bağlantısı:** Bir e-ticaret sitesinin anlık fiyat değiştirmesinin ardındaki sistemin **"Gözetimli Öğrenme (Supervised Learning)"** (geçmiş veriye/etikete dayanarak) ve **Takviyeli Öğrenme** (rakibin fiyatına göre anlık ödül-ceza maksimizasyonu) olduğu ilişkisini kurarsan sınavda kâğıdın parlar.
+- **Endüstri 4.0'ın Pazarlamaya Etkisi:** Hocanın verdiği "Akıllı Aynalar (Smart Mirrors)" örneği üzerinden "Zamandan tasarruf ve fonksiyonel/hedonik tüketimin kolaylaşması" bağlamını mutlaka kullan.
+

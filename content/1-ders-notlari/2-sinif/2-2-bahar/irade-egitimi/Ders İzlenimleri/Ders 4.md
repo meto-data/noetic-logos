@@ -1,3 +1,8 @@
+---
+created: 2026-03-03
+title: "İrade Eğitimi: 3. Hafta"
+---
+
 Bu ders işlenilen sayfalar üzerine 'kritik ' yapıldı birisi tarafından. Nitekim pek mesnetli bir kritik değil bu; güya Payot'un cinselliği ele almasıyla irade eğitiminin alakası yokmuş, ayrıca ele alış biçimi itibariyle de haksızmış. 
 
 Bir kere, bir imge üzerinde yoğun duygular eşliğinde sürekli düşünüldüğü vakit, o imge artık düşünüldüğü duygu ile sürdürecektir kendini. Sürekli cinsel arzu içeren imgelenimlerle vaktini geçiren özne, düşüncesini de o imgeye harcamış olacak, cinsel arzuyla beraber gelen o yoğun duyguları da ilgili imge nezdinde tüketecektir. 

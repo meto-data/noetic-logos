@@ -250,12 +250,11 @@ tags:
 - Düzgün bir trendin çizilebilmesi için **5 yıla ihtiyaç var.**
 
 <br>
+
 $$
 \boxed{\text{Trend Yüzdesi} = \frac{\text{İlgili Kalemin Cari Yıl Tutarı}}{\text{İlgili Kalemin Baz Yıl Tutarı}} \times 100 }
 $$
 
-<br>
-- **Tıkla**: [[3- İşletme Finansı Dikey Analiz, Trend Analizi.pdf#page=11|3- İşletme Finansı Dikey Analiz, Trend Analizi, s.11-13]]
 
 - Baz yılı seçerken dikkatli olmak lazım. Firmanın yeni kurulduğu, acayip enflasyonun olduğu, büyük yatırım yaptığı veya sel felaketi, firma birleşmesi gibi olağandışı bir durum yaşadığı yılı baz almayacağız. Normal, stabil bir faaliyet dönemi olmalı.
 ###### **Ne işe yarıyor bu trend analizi?**

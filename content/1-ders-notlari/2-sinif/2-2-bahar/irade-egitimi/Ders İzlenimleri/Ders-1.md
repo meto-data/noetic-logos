@@ -1,7 +1,7 @@
 ---
 date: 2026-02-18
 created: 2026-02-18
-draft: true
+draft: false
 ---
 [[Olabildiğince şeffaf.]]'ın son cümlesine bakıyorum da, sahi, neydi sarsılmazlık? Bugün sarsılınca tekrar aklıma geldi; alet, ortadan kaybolduğunda anımsatırmış meğer aslolan değerini.
 
