@@ -4,4 +4,4 @@ compatibility_date = "2024-01-01"
 
 [[kv_namespaces]]
 binding = "SYNC_DATA"
-id = ""  # Cloudflare Dashboard'tan KV namespace oluşturup ID'yi buraya yapıştır
+id = "f87b3f4d7c2d44eaa7ecb85fb584f3cf"
