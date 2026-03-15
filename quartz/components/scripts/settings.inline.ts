@@ -117,7 +117,11 @@ function applyContentWidth(val: string) {
 
 function openSettingsModal() {
   const overlay = document.getElementById("settings-overlay")
-  overlay?.classList.add("active")
+  if (!overlay) return
+  if (overlay.parentElement !== document.body) {
+    document.body.appendChild(overlay)
+  }
+  overlay.classList.add("active")
   syncSettingsInputs()
 }
 
