@@ -48,6 +48,10 @@ OOP/
 ReadyForWeb/
 
 # === Yapılandırma (Hassas) ===
+.env
+.env.*
+.env.local
+.env.production
 analytics/
 private/
 dates.config.json

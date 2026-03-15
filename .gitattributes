@@ -1,5 +1,9 @@
 * text=auto eol=lf
-quartz/static/**/*.png filter=lfs diff=lfs merge=lfs -text
-quartz/static/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+quartz/static/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
+quartz/static/**/*.svg filter=lfs diff=lfs merge=lfs -text
+quartz/static/**/*.woff filter=lfs diff=lfs merge=lfs -text
 quartz/static/**/*.woff2 filter=lfs diff=lfs merge=lfs -text
 quartz/static/**/*.ttf filter=lfs diff=lfs merge=lfs -text
+quartz/static/**/*.wasm filter=lfs diff=lfs merge=lfs -text
+quartz/static/**/*.png filter=lfs diff=lfs merge=lfs -text
+quartz/static/**/*.jpg filter=lfs diff=lfs merge=lfs -text
