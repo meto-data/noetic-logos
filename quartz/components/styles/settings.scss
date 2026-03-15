@@ -288,7 +288,7 @@
   }
 }
 
-// ===== SYNC KEY =====
+// ===== VERİ AKTARIMI =====
 .sync-key-section { padding: 0.4rem 0.25rem 0.5rem; }
 
 .sync-key-info {
@@ -298,64 +298,26 @@
   margin: 0 0 0.5rem;
 }
 
-.sync-key-input-row {
-  display: flex;
-  gap: 0.3rem;
-  margin-bottom: 0.4rem;
-}
-
-.sync-key-input {
-  flex: 1;
-  padding: 0.35rem 0.5rem;
-  border: 1px solid var(--lightgray);
-  border-radius: 4px;
-  font-size: 0.8rem;
-  color: var(--dark);
-  background: var(--light);
-  font-family: 'JetBrains Mono', monospace;
-  letter-spacing: 0.5px;
-
-  &:disabled, &.locked {
-    opacity: 0.7;
-    background: color-mix(in srgb, var(--lightgray) 30%, var(--light));
-  }
-}
-
-.sync-key-generate,
-.sync-key-copy {
-  background: none;
-  border: 1px solid var(--lightgray);
-  border-radius: 4px;
-  cursor: pointer;
-  padding: 0.35rem 0.5rem;
-  font-size: 1rem;
-  color: var(--darkgray);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.15s ease;
-
-  &:hover { border-color: var(--secondary); color: var(--secondary); }
-
-  svg { stroke: currentColor; }
-}
-
 .sync-key-actions {
   display: flex;
   gap: 0.3rem;
 }
 
-.sync-key-save,
-.sync-key-clear {
+.sync-export-btn,
+.sync-import-btn {
   flex: 1;
-  padding: 0.35rem 0.5rem;
+  padding: 0.45rem 0.5rem;
   border: 1px solid var(--lightgray);
   border-radius: 4px;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   cursor: pointer;
   transition: all 0.15s ease;
   background: var(--light);
   color: var(--darkgray);
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover { border-color: var(--secondary); color: var(--secondary); }
 }
@@ -383,5 +345,9 @@
 
   .settings-columns {
     grid-template-columns: 1fr;
+  }
+
+  .zen-mode-row {
+    display: none;
   }
 }
