@@ -165,8 +165,28 @@ function syncSettingsInputs() {
     })
   }
 
-  const syncInput = document.querySelector(".sync-key-input") as HTMLInputElement | null
-  if (syncInput) syncInput.value = localStorage.getItem("noetic-sync-key") || ""
+  updateSyncUI()
+}
+
+function updateSyncUI() {
+  const key = localStorage.getItem("noetic-sync-key") || ""
+  const unlocked = document.querySelector(".sync-unlocked") as HTMLElement | null
+  const locked = document.querySelector(".sync-locked") as HTMLElement | null
+  const confirm = document.querySelector(".sync-confirm") as HTMLElement | null
+  const display = document.querySelector(".sync-key-display") as HTMLElement | null
+  const input = document.querySelector(".sync-key-input") as HTMLInputElement | null
+
+  if (confirm) confirm.style.display = "none"
+
+  if (key) {
+    if (unlocked) unlocked.style.display = "none"
+    if (locked) locked.style.display = "block"
+    if (display) display.textContent = key
+  } else {
+    if (unlocked) unlocked.style.display = "block"
+    if (locked) locked.style.display = "none"
+    if (input) input.value = ""
+  }
 }
 
 const SYNC_API = "https://noetic-sync.mselayet.workers.dev"
@@ -190,9 +210,15 @@ function generateSyncKey(): string {
   return k
 }
 
-async function syncSaveToServer() {
+function getCurrentKey(): string {
+  const saved = localStorage.getItem("noetic-sync-key")
+  if (saved) return saved
   const input = document.querySelector(".sync-key-input") as HTMLInputElement | null
-  const key = input?.value.trim()
+  return input?.value.trim() || ""
+}
+
+async function syncSaveToServer() {
+  const key = getCurrentKey()
   if (!key || key.length < 4) {
     window.__noeticToast?.("Anahtar en az 4 karakter olmalı", "warning")
     return
@@ -207,6 +233,7 @@ async function syncSaveToServer() {
       body: JSON.stringify(data),
     })
     if (!res.ok) throw new Error(await res.text())
+    updateSyncUI()
     showSyncStatus("Kaydedildi!", "saved")
     window.__noeticToast?.("Tercihler sunucuya kaydedildi", "success")
   } catch {
@@ -216,8 +243,7 @@ async function syncSaveToServer() {
 }
 
 async function syncLoadFromServer() {
-  const input = document.querySelector(".sync-key-input") as HTMLInputElement | null
-  const key = input?.value.trim()
+  const key = getCurrentKey()
   if (!key || key.length < 4) {
     window.__noeticToast?.("Anahtar en az 4 karakter olmalı", "warning")
     return
@@ -234,6 +260,7 @@ async function syncLoadFromServer() {
     const data = await res.json()
     localStorage.setItem("noetic-sync-key", key)
     restoreAllPreferences(data)
+    updateSyncUI()
     syncSettingsInputs()
     showSyncStatus("Tercihler yüklendi!", "saved")
     window.__noeticToast?.("Tercihler sunucudan yüklendi ve uygulandı", "success")
@@ -301,6 +328,18 @@ function handleDocumentClick(e: MouseEvent) {
     if (inp) inp.value = generateSyncKey()
     return
   }
+  if (target.closest(".sync-key-generate-new")) {
+    e.stopPropagation()
+    const inp = document.querySelector(".sync-key-new-input") as HTMLInputElement | null
+    if (inp) inp.value = generateSyncKey()
+    return
+  }
+  if (target.closest(".sync-key-copy-btn")) {
+    e.stopPropagation()
+    const key = localStorage.getItem("noetic-sync-key")
+    if (key) navigator.clipboard.writeText(key).then(() => window.__noeticToast?.("Anahtar kopyalandı", "success"))
+    return
+  }
   if (target.closest(".sync-key-save")) {
     e.stopPropagation()
     syncSaveToServer()
@@ -309,6 +348,31 @@ function handleDocumentClick(e: MouseEvent) {
   if (target.closest(".sync-key-load")) {
     e.stopPropagation()
     syncLoadFromServer()
+    return
+  }
+  if (target.closest(".sync-key-change")) {
+    e.stopPropagation()
+    const confirm = document.querySelector(".sync-confirm") as HTMLElement | null
+    if (confirm) confirm.style.display = "block"
+    return
+  }
+  if (target.closest(".sync-key-confirm-yes")) {
+    e.stopPropagation()
+    const inp = document.querySelector(".sync-key-new-input") as HTMLInputElement | null
+    const newKey = inp?.value.trim()
+    if (!newKey || newKey.length < 4) {
+      window.__noeticToast?.("Anahtar en az 4 karakter olmalı", "warning")
+      return
+    }
+    localStorage.setItem("noetic-sync-key", newKey)
+    updateSyncUI()
+    window.__noeticToast?.("Anahtar değiştirildi", "success")
+    return
+  }
+  if (target.closest(".sync-key-confirm-cancel")) {
+    e.stopPropagation()
+    const confirm = document.querySelector(".sync-confirm") as HTMLElement | null
+    if (confirm) confirm.style.display = "none"
     return
   }
 }
