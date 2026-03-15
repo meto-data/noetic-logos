@@ -170,7 +170,6 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     türkdili2: "static/turk-dili-2-module/index.html",
     finance: "static/finance-module/index.html",
     oop1: "static/oop1-module/index.html",
-    database: "static/database-module/index.html",
     nlp: "static/nlp/index.html",
     "ybs-module": "static/ybs-module/index.html",
     ybsmodule: "static/ybs-module/index.html",
@@ -182,9 +181,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
   }
 
   // Special commands that trigger events instead of redirects
-  const eventCommands: Record<string, string> = {
-    chat: "noetic-chat-activate",
-  }
+  const eventCommands: Record<string, string> = {}
 
   // Get base path from the current page (works for both root and subdirectory deployments)
   function getBasePath(): string {

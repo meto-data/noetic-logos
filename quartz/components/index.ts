@@ -28,7 +28,6 @@ import ScrollRestore from "./ScrollRestore"
 import PrerequisiteBanner from "./PrerequisiteBanner"
 import ProgressDashboard from "./ProgressDashboard"
 
-import Chat from "./Chat"
 import Resize from "./Resize"
 import Hamburger from "./Hamburger"
 import ThemeCanvas from "./ThemeCanvas"
@@ -65,7 +64,6 @@ export {
   ScrollRestore,
   PrerequisiteBanner,
   ProgressDashboard,
-  Chat,
   Resize,
   Hamburger,
   ThemeCanvas,

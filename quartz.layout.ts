@@ -7,7 +7,6 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   afterBody: [
     Component.ScrollRestore(),
-    Component.Chat(),
     Component.Hamburger(), // Mobil menü
     Component.ThemeCanvas(), // Tema efektleri (Balina)
     Component.MobileOnly(Component.ModuleBanner()), // Mobilde içerik sonunda banner

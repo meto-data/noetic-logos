@@ -77,14 +77,6 @@ export interface FeatureConfig {
    */
   spacedRepetition: boolean
 
-  /**
-   * Sayfa bazlı chat
-   * - WebRTC P2P veya signaling server
-   * - Her sayfa için ayrı chat room
-   * - Rastgele anonim nickler
-   * - Mobil uyumlu
-   */
-  pageBasedChat: boolean
 }
 
 /**
@@ -105,7 +97,6 @@ export const defaultFeatures: FeatureConfig = {
   readingProgressBar: false,
   gamification: false,
   spacedRepetition: false,
-  pageBasedChat: false,
 }
 
 /**
