@@ -165,24 +165,43 @@ function syncSettingsInputs() {
     })
   }
 
-  updateSyncKeyUI()
 }
 
-function updateSyncKeyUI() {
-  const savedKey = localStorage.getItem("noetic-sync-key") || ""
-  const input = document.querySelector(".sync-key-input") as HTMLInputElement | null
-  if (!input) return
-  input.value = savedKey
-  const isLocked = !!savedKey
-  input.disabled = isLocked
-  input.classList.toggle("locked", isLocked)
+function exportPreferences() {
+  const data = collectAllPreferences()
+  const json = JSON.stringify(data, null, 2)
+  const blob = new Blob([json], { type: "application/json" })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement("a")
+  a.href = url
+  a.download = `noetic-logos-ayarlar-${new Date().toISOString().slice(0, 10)}.json`
+  document.body.appendChild(a)
+  a.click()
+  a.remove()
+  URL.revokeObjectURL(url)
+  window.__noeticToast?.("Ayarlar dışa aktarıldı", "success")
 }
 
-function generateSyncKey(): string {
-  const c = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789"
-  let k = ""
-  for (let i = 0; i < 16; i++) k += c.charAt(Math.floor(Math.random() * c.length))
-  return k
+function importPreferences(file: File) {
+  const reader = new FileReader()
+  reader.onload = () => {
+    try {
+      const data = JSON.parse(reader.result as string)
+      if (typeof data !== "object" || data === null) throw new Error("Geçersiz dosya")
+      restoreAllPreferences(data)
+      syncSettingsInputs()
+      const status = document.querySelector(".sync-key-status") as HTMLElement | null
+      if (status) {
+        status.textContent = "Tercihler başarıyla yüklendi."
+        status.className = "sync-key-status saved"
+        setTimeout(() => { status.textContent = ""; status.className = "sync-key-status" }, 4000)
+      }
+      window.__noeticToast?.("Tercihler içe aktarıldı ve uygulandı", "success")
+    } catch {
+      window.__noeticToast?.("Dosya okunamadı veya geçersiz", "warning")
+    }
+  }
+  reader.readAsText(file)
 }
 
 function collectAllPreferences(): Record<string, unknown> {
@@ -220,10 +239,7 @@ function restoreAllPreferences(prefs: Record<string, unknown>) {
   if (t) document.documentElement.setAttribute("saved-theme", t)
 }
 
-function savePrefsToCurrent() {
-  const key = localStorage.getItem("noetic-sync-key")
-  if (key) localStorage.setItem(`noetic-sync-data-${key}`, JSON.stringify(collectAllPreferences()))
-}
+function savePrefsToCurrent() {}
 
 function handleDocumentClick(e: MouseEvent) {
   const target = e.target as HTMLElement | null
@@ -241,36 +257,9 @@ function handleDocumentClick(e: MouseEvent) {
     return
   }
 
-  if (target.closest(".sync-key-generate")) {
+  if (target.closest(".sync-export-btn")) {
     e.stopPropagation()
-    const inp = document.querySelector(".sync-key-input") as HTMLInputElement | null
-    if (inp && !inp.disabled) inp.value = generateSyncKey()
-    return
-  }
-  if (target.closest(".sync-key-copy")) {
-    e.stopPropagation()
-    const inp = document.querySelector(".sync-key-input") as HTMLInputElement | null
-    if (inp?.value) navigator.clipboard.writeText(inp.value).then(() => window.__noeticToast?.("Anahtar kopyalandı", "success"))
-    return
-  }
-  if (target.closest(".sync-key-save")) {
-    e.stopPropagation()
-    const inp = document.querySelector(".sync-key-input") as HTMLInputElement | null
-    if (!inp?.value.trim()) return
-    const key = inp.value.trim()
-    localStorage.setItem("noetic-sync-key", key)
-    localStorage.setItem(`noetic-sync-data-${key}`, JSON.stringify(collectAllPreferences()))
-    updateSyncKeyUI()
-    window.__noeticToast?.("Anahtar kaydedildi ve tercihler aktarıldı", "success")
-    return
-  }
-  if (target.closest(".sync-key-clear")) {
-    e.stopPropagation()
-    const ck = localStorage.getItem("noetic-sync-key")
-    if (ck) localStorage.removeItem(`noetic-sync-data-${ck}`)
-    localStorage.removeItem("noetic-sync-key")
-    updateSyncKeyUI()
-    window.__noeticToast?.("Anahtar silindi", "info")
+    exportPreferences()
     return
   }
 }
@@ -304,6 +293,12 @@ function handleDocumentChange(e: Event) {
     localStorage.setItem("noetic-notifications", t.checked ? "on" : "off")
     if (t.checked) window.__noeticToast?.("Bildirimler etkinleştirildi", "success")
     savePrefsToCurrent(); return
+  }
+
+  if (t.matches(".sync-import-file")) {
+    const file = t.files?.[0]
+    if (file) { importPreferences(file); t.value = "" }
+    return
   }
 }
 
