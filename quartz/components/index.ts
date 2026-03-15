@@ -33,6 +33,10 @@ import Hamburger from "./Hamburger"
 import ThemeCanvas from "./ThemeCanvas"
 import ModuleBanner from "./ModuleBanner"
 import NoeticModules from "./NoeticModules"
+import Toast from "./Toast"
+import Enhancements from "./Enhancements"
+import Annotation from "./Annotation"
+import MobileGestures from "./MobileGestures"
 
 export {
   ArticleTitle,
@@ -69,4 +73,8 @@ export {
   ThemeCanvas,
   ModuleBanner,
   NoeticModules,
+  Toast,
+  Enhancements,
+  Annotation,
+  MobileGestures,
 }
