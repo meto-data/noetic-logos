@@ -60,7 +60,7 @@ const setupMobileChrome = () => {
   const mobileHeader = document.createElement("div")
   mobileHeader.className = "mobile-header"
   mobileHeader.innerHTML = `
-    <a href="${pageTitleLink?.getAttribute("href") ?? getBasePath()}" class="mobile-logo">Noetic Logos</a>
+    <a href="${getBasePath()}" class="mobile-logo">Noetic Logos</a>
     <input type="text" class="mobile-search" placeholder="Arama..." readonly />
     <div class="mobile-buttons">
       <button class="mobile-modules-btn ${localStorage.getItem(NOETIC_MODULES_SEEN_KEY) ? "" : "is-attention"}" aria-label="Noetic Modüller">
