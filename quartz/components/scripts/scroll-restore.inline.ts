@@ -42,8 +42,12 @@ function saveScrollPosition() {
 
 /**
  * Kaydedilmiş scroll pozisyonunu geri yükle
+ * URL'de hash (#başlık) varsa geri yükleme YAPMA — tarayıcının
+ * anchor'a scroll etmesine izin ver.
  */
 function restoreScrollPosition() {
+  if (window.location.hash) return
+
   const path = window.location.pathname
 
   try {
@@ -52,20 +56,17 @@ function restoreScrollPosition() {
 
     const position: ScrollPosition = JSON.parse(saved)
 
-    // 5 dakikadan eski kayıtları yoksay
     if (Date.now() - position.timestamp > EXPIRY_TIME) {
       sessionStorage.removeItem(`${STORAGE_KEY_PREFIX}${path}`)
       return
     }
 
-    // Sayfa tam yüklendikten sonra scroll pozisyonunu geri yükle
-    // requestAnimationFrame kullanarak DOM'un hazır olmasını bekle
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         window.scrollTo({
           top: position.scrollY,
           left: 0,
-          behavior: "instant" as ScrollBehavior, // Smooth değil, instant
+          behavior: "instant" as ScrollBehavior,
         })
       })
     })
@@ -114,22 +115,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // SPA navigation olduğunda (Quartz "nav" event'i)
 document.addEventListener("nav", () => {
-  // Yeni sayfaya geçmeden önce mevcut pozisyonu kaydet
   saveScrollPosition()
 
-  // Yeni sayfanın scroll pozisyonunu geri yükle
-  // Kısa bir delay ile (DOM güncellenene kadar bekle)
-  setTimeout(() => {
-    restoreScrollPosition()
-  }, 50)
+  if (!window.location.hash) {
+    setTimeout(() => {
+      restoreScrollPosition()
+    }, 50)
+  }
 })
 
 // Tarayıcı back/forward butonları için
 window.addEventListener("popstate", () => {
-  // popstate sonrası scroll pozisyonunu geri yükle
-  setTimeout(() => {
-    restoreScrollPosition()
-  }, 50)
+  if (!window.location.hash) {
+    setTimeout(() => {
+      restoreScrollPosition()
+    }, 50)
+  }
 })
 
 // Sayfa kapatılırken veya yenilenmeden önce mevcut pozisyonu kaydet
