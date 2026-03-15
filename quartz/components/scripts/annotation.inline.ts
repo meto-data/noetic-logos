@@ -43,41 +43,96 @@ function saveHighlights(highlights: HighlightData[]) {
   localStorage.setItem(getStorageKey(), JSON.stringify(highlights))
 }
 
-function findTextNode(root: Node, searchText: string, context: string): Range | null {
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT)
+function getTextNodesIn(range: Range): Text[] {
+  const nodes: Text[] = []
+  const container = range.commonAncestorContainer
+
+  if (container.nodeType === Node.TEXT_NODE) {
+    nodes.push(container as Text)
+    return nodes
+  }
+
+  const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT)
   let node: Node | null
   while ((node = walker.nextNode())) {
-    const text = node.textContent || ""
-    const idx = text.indexOf(searchText)
-    if (idx !== -1) {
-      const parentText = node.parentElement?.textContent || ""
-      if (context && !parentText.includes(context.slice(0, 30))) continue
-      const range = document.createRange()
-      range.setStart(node, idx)
-      range.setEnd(node, idx + searchText.length)
-      return range
+    if (range.intersectsNode(node)) {
+      nodes.push(node as Text)
     }
   }
-  return null
+  return nodes
 }
 
-function applyHighlight(range: Range, color: string, text: string, context: string): HTMLElement | null {
-  try {
+function wrapTextNodes(range: Range, color: string, fullText: string, context: string): HTMLElement[] {
+  const textNodes = getTextNodesIn(range)
+  const spans: HTMLElement[] = []
+
+  for (const textNode of textNodes) {
+    const text = textNode.textContent || ""
+    if (!text.trim()) continue
+
+    let startOffset = 0
+    let endOffset = text.length
+
+    if (textNode === range.startContainer) startOffset = range.startOffset
+    if (textNode === range.endContainer) endOffset = range.endOffset
+
+    if (startOffset >= endOffset) continue
+
+    const before = text.slice(0, startOffset)
+    const selected = text.slice(startOffset, endOffset)
+    const after = text.slice(endOffset)
+
+    const parent = textNode.parentNode
+    if (!parent) continue
+
     const span = document.createElement("span")
     span.className = "noetic-highlight"
     span.setAttribute("data-color", color)
-    span.setAttribute("data-text", text)
-    range.surroundContents(span)
-
+    span.setAttribute("data-hl-id", fullText.slice(0, 40))
+    span.textContent = selected
     span.addEventListener("click", (e) => {
       e.stopPropagation()
-      showHighlightToolbar(e.clientX, e.clientY, span, text, context)
+      showHighlightToolbar(e.clientX, e.clientY, fullText, color, context)
     })
 
-    return span
-  } catch {
-    return null
+    if (before) parent.insertBefore(document.createTextNode(before), textNode)
+    parent.insertBefore(span, textNode)
+    if (after) parent.insertBefore(document.createTextNode(after), textNode)
+    parent.removeChild(textNode)
+
+    spans.push(span)
   }
+  return spans
+}
+
+function findAndHighlightText(root: Node, searchText: string, color: string, context: string): boolean {
+  const fullText = root.textContent || ""
+  const idx = fullText.indexOf(searchText)
+  if (idx === -1) return false
+
+  const range = document.createRange()
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT)
+  let charCount = 0
+  let startSet = false
+  let node: Node | null
+
+  while ((node = walker.nextNode())) {
+    const len = (node.textContent || "").length
+    if (!startSet && charCount + len > idx) {
+      range.setStart(node, idx - charCount)
+      startSet = true
+    }
+    if (startSet && charCount + len >= idx + searchText.length) {
+      range.setEnd(node, idx + searchText.length - charCount)
+      break
+    }
+    charCount += len
+  }
+
+  if (!startSet) return false
+
+  const spans = wrapTextNodes(range, color, searchText, context)
+  return spans.length > 0
 }
 
 function restoreHighlights() {
@@ -86,10 +141,7 @@ function restoreHighlights() {
 
   const highlights = loadHighlights()
   for (const hl of highlights) {
-    const range = findTextNode(article, hl.text, hl.context)
-    if (range) {
-      applyHighlight(range, hl.color, hl.text, hl.context)
-    }
+    findAndHighlightText(article, hl.text, hl.color, hl.context)
   }
 }
 
@@ -100,7 +152,7 @@ function removeToolbar() {
   activeToolbar = null
 }
 
-function showHighlightToolbar(x: number, y: number, existingSpan?: HTMLElement, text?: string, context?: string) {
+function showHighlightToolbar(x: number, y: number, fullText?: string, currentColor?: string, context?: string) {
   removeToolbar()
 
   const toolbar = document.createElement("div")
@@ -114,9 +166,11 @@ function showHighlightToolbar(x: number, y: number, existingSpan?: HTMLElement, 
     btn.title = c.name
     btn.addEventListener("click", (e) => {
       e.stopPropagation()
-      if (existingSpan) {
-        existingSpan.setAttribute("data-color", c.name)
-        updateHighlightColor(text || "", c.name)
+      if (fullText && currentColor) {
+        updateHighlightColor(fullText, c.name)
+        document.querySelectorAll(`.noetic-highlight[data-hl-id="${fullText.slice(0, 40)}"]`).forEach(el => {
+          el.setAttribute("data-color", c.name)
+        })
       } else {
         createHighlightFromSelection(c.name)
       }
@@ -125,7 +179,7 @@ function showHighlightToolbar(x: number, y: number, existingSpan?: HTMLElement, 
     toolbar.appendChild(btn)
   }
 
-  if (existingSpan) {
+  if (fullText && currentColor) {
     const removeBtn = document.createElement("button")
     removeBtn.className = "hl-remove"
     removeBtn.type = "button"
@@ -133,7 +187,7 @@ function showHighlightToolbar(x: number, y: number, existingSpan?: HTMLElement, 
     removeBtn.title = "Vurguyu Kaldır"
     removeBtn.addEventListener("click", (e) => {
       e.stopPropagation()
-      removeHighlight(existingSpan, text || "")
+      removeHighlight(fullText)
       removeToolbar()
     })
     toolbar.appendChild(removeBtn)
@@ -160,11 +214,12 @@ function createHighlightFromSelection(color: string) {
   const text = selection.toString().trim()
   if (!text) return
 
-  const parentEl = range.commonAncestorContainer.parentElement
+  const ancestor = range.commonAncestorContainer
+  const parentEl = ancestor.nodeType === Node.TEXT_NODE ? ancestor.parentElement : ancestor as HTMLElement
   const context = parentEl?.textContent?.slice(0, 60) || ""
 
-  const span = applyHighlight(range, color, text, context)
-  if (span) {
+  const spans = wrapTextNodes(range, color, text, context)
+  if (spans.length > 0) {
     const highlights = loadHighlights()
     highlights.push({ text, color, slug: getSlug(), context })
     saveHighlights(highlights)
@@ -183,15 +238,16 @@ function updateHighlightColor(text: string, newColor: string) {
   }
 }
 
-function removeHighlight(span: HTMLElement, text: string) {
-  const parent = span.parentNode
-  if (parent) {
-    while (span.firstChild) {
-      parent.insertBefore(span.firstChild, span)
+function removeHighlight(text: string) {
+  const id = text.slice(0, 40)
+  document.querySelectorAll(`.noetic-highlight[data-hl-id="${id}"]`).forEach(span => {
+    const parent = span.parentNode
+    if (parent) {
+      while (span.firstChild) parent.insertBefore(span.firstChild, span)
+      parent.removeChild(span)
+      parent.normalize()
     }
-    parent.removeChild(span)
-    parent.normalize()
-  }
+  })
 
   const highlights = loadHighlights().filter(h => h.text !== text)
   saveHighlights(highlights)
@@ -199,7 +255,7 @@ function removeHighlight(span: HTMLElement, text: string) {
 }
 
 function handleMouseUp(e: MouseEvent) {
-  if ((e.target as HTMLElement)?.closest(".noetic-highlight-toolbar, .noetic-context-menu")) return
+  if ((e.target as HTMLElement)?.closest(".noetic-highlight-toolbar")) return
 
   const selection = window.getSelection()
   const text = selection?.toString()?.trim()

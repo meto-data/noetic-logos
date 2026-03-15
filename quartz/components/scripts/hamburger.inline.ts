@@ -71,9 +71,9 @@ const setupMobileChrome = () => {
           <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
         </svg>
       </button>
-      <button class="mobile-font-btn" aria-label="Yazı Tipi">
+      <button class="mobile-settings-btn" aria-label="Ayarlar">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-          <path d="M9.93 13.5h4.14L12 7.98zM20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-4.05 16.5l-1.14-3H9.17l-1.12 3H5.96l5.11-13h1.86l5.11 13h-2.09z" />
+          <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
         </svg>
       </button>
       <button class="mobile-darkmode" aria-label="Tema değiştir">
@@ -222,88 +222,32 @@ const setupMobileChrome = () => {
   }
   mobileModulesBtn?.addEventListener("click", onMobileModulesClick)
 
-  // Mobil font butonu - font dropdown'ı aç/kapat
-  const mobileFontBtn = mobileHeader.querySelector(".mobile-font-btn") as HTMLButtonElement
-
-  // Mobil font paneli oluştur (tema paneli gibi)
-  const createMobileFontPanel = () => {
-    let panel = document.getElementById("mobile-font-panel")
-    if (panel) panel.remove()
-
-    const fontDropdownContent = document.querySelector(".font-dropdown-content") as HTMLElement
-    if (!fontDropdownContent) return null
-
-    panel = document.createElement("div")
-    panel.id = "mobile-font-panel"
-    panel.className = "theme-selector-panel" // Tema paneli ile aynı stil
-    panel.style.position = "fixed"
-    panel.style.top = "65px"
-    panel.style.right = "60px"
-    panel.style.left = "auto"
-    panel.style.display = "none"
-    panel.innerHTML = fontDropdownContent.innerHTML
-    document.body.appendChild(panel)
-    window.__noeticSyncSettingsInputs?.()
-
-    return panel
-  }
-
-  const onMobileFontClick = (e: MouseEvent) => {
+  // Mobil ayarlar butonu - settings modal aç
+  const mobileSettingsBtn = mobileHeader.querySelector(".mobile-settings-btn") as HTMLButtonElement
+  const onMobileSettingsClick = (e: MouseEvent) => {
     e.stopPropagation()
-
-    // Tema panelini kapat
     window.closeThemePanel?.()
-
-    // Font paneli
-    let panel = document.getElementById("mobile-font-panel")
-    if (!panel) {
-      panel = createMobileFontPanel()
-    }
-
-    if (panel) {
-      panel.style.display = isElementVisible(panel) ? "none" : "block"
-      if (panel.style.display === "block") {
-        window.__noeticSyncSettingsInputs?.()
-      }
+    const overlay = document.getElementById("settings-overlay")
+    if (overlay) {
+      if (overlay.parentElement !== document.body) document.body.appendChild(overlay)
+      overlay.classList.add("active")
+      window.__noeticSyncSettingsInputs?.()
     }
   }
-  mobileFontBtn?.addEventListener("click", onMobileFontClick)
+  mobileSettingsBtn?.addEventListener("click", onMobileSettingsClick)
 
-  // Dışarı tıklayınca mobil font panelini kapat
-  const onDocumentClick = (e: MouseEvent) => {
-    const panel = document.getElementById("mobile-font-panel")
-    const target = e.target as Node
-    if (
-      panel &&
-      isElementVisible(panel) &&
-      !panel.contains(target) &&
-      !mobileFontBtn?.contains(target)
-    ) {
-      closeMobileFontPanel()
-    }
-  }
-  document.addEventListener("click", onDocumentClick)
-
-  // Tema paneli açıldığında font panelini kapat
-  const mobileDarkmodeBtn = mobileHeader.querySelector(
-    ".mobile-darkmode",
-  ) as HTMLButtonElement | null
-  const onMobileDarkmodeClick = () => closeMobileFontPanel()
-  mobileDarkmodeBtn?.addEventListener("click", onMobileDarkmodeClick)
+  // Tema paneli
+  const mobileDarkmodeBtn = mobileHeader.querySelector(".mobile-darkmode") as HTMLButtonElement | null
 
   cleanupMobileChrome = () => {
     closeMenu()
-    closeMobileFontPanel()
     mobileSearchInput?.removeEventListener("click", onMobileSearchClick)
     mobileModulesBtn?.removeEventListener("click", onMobileModulesClick)
-    mobileFontBtn?.removeEventListener("click", onMobileFontClick)
-    mobileDarkmodeBtn?.removeEventListener("click", onMobileDarkmodeClick)
+    mobileSettingsBtn?.removeEventListener("click", onMobileSettingsClick)
     window.removeEventListener("noetic-modules-seen", onModulesSeen as EventListener)
-    document.removeEventListener("click", onDocumentClick)
     leftSidebar.removeEventListener("click", onSidebarClick)
     overlay.removeEventListener("click", onOverlayClick)
     hamburger.removeEventListener("click", onHamburgerClick)
-    document.getElementById("mobile-font-panel")?.remove()
     hamburger.remove()
     overlay.remove()
     mobileHeader.remove()
