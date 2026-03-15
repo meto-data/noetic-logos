@@ -169,7 +169,7 @@ function syncSettingsInputs() {
   if (syncInput) syncInput.value = localStorage.getItem("noetic-sync-key") || ""
 }
 
-const SYNC_API = "https://noetic-sync.meto-data.workers.dev"
+const SYNC_API = "https://noetic-sync.mselayet.workers.dev"
 
 function getSyncStatus(): HTMLElement | null {
   return document.querySelector(".sync-key-status")

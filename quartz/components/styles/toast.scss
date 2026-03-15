@@ -91,13 +91,11 @@
   }
 
   &.noetic-toast-success {
-    border-left: 3px solid #22c55e;
-    background: color-mix(in srgb, #22c55e 6%, var(--light));
+    border-left: 3px solid var(--tertiary, var(--secondary));
   }
 
   &.noetic-toast-warning {
-    border-left: 3px solid #f59e0b;
-    background: color-mix(in srgb, #f59e0b 6%, var(--light));
+    border-left: 3px solid var(--gray);
   }
 }
 
