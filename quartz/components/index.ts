@@ -34,6 +34,10 @@ import ThemeCanvas from "./ThemeCanvas"
 import ModuleBanner from "./ModuleBanner"
 import NoeticModules from "./NoeticModules"
 import Toast from "./Toast"
+import Enhancements from "./Enhancements"
+import ContextMenu from "./ContextMenu"
+import Annotation from "./Annotation"
+import MobileGestures from "./MobileGestures"
 
 export {
   ArticleTitle,
@@ -71,4 +75,8 @@ export {
   ModuleBanner,
   NoeticModules,
   Toast,
+  Enhancements,
+  ContextMenu,
+  Annotation,
+  MobileGestures,
 }
