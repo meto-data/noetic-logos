@@ -75,16 +75,44 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
                 <div class="section-header size-header">Senkronizasyon</div>
                 <div class="sync-key-section">
                   <p class="sync-key-info">
-                    Bir anahtar girin veya oluşturun. Kaydet'e basınca tercihleriniz sunucuya kaydedilir.
-                    Başka cihazda aynı anahtarı girip Yükle'ye basınca tüm ayarlarınız geri gelir.
+                    Anahtar oluşturup kaydedin. Başka cihazda aynı anahtarı girip Yükle'ye basın.
                   </p>
-                  <div class="sync-key-input-row">
-                    <input type="text" class="sync-key-input" placeholder="Anahtarınız" />
-                    <button type="button" class="sync-key-generate" title="Rastgele Anahtar">⟳</button>
+                  {/* Anahtar yokken: giriş modu */}
+                  <div class="sync-unlocked">
+                    <div class="sync-key-input-row">
+                      <input type="text" class="sync-key-input" placeholder="Anahtar girin veya oluşturun" />
+                      <button type="button" class="sync-key-generate" title="Rastgele Anahtar">⟳</button>
+                    </div>
+                    <div class="sync-key-actions">
+                      <button type="button" class="sync-key-save">Kaydet</button>
+                      <button type="button" class="sync-key-load">Yükle</button>
+                    </div>
                   </div>
-                  <div class="sync-key-actions">
-                    <button type="button" class="sync-key-save">Kaydet</button>
-                    <button type="button" class="sync-key-load">Yükle</button>
+                  {/* Anahtar varken: kilitli mod */}
+                  <div class="sync-locked" style="display:none">
+                    <div class="sync-key-display-row">
+                      <span class="sync-key-display" />
+                      <button type="button" class="sync-key-copy-btn" title="Kopyala">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                      </button>
+                    </div>
+                    <div class="sync-key-actions">
+                      <button type="button" class="sync-key-save">Kaydet</button>
+                      <button type="button" class="sync-key-load">Yükle</button>
+                      <button type="button" class="sync-key-change">Değiştir</button>
+                    </div>
+                  </div>
+                  {/* Değiştirme onay kutusu */}
+                  <div class="sync-confirm" style="display:none">
+                    <p class="sync-confirm-text">Anahtarı değiştirmek istediğinize emin misiniz?</p>
+                    <div class="sync-key-input-row">
+                      <input type="text" class="sync-key-new-input" placeholder="Yeni anahtar girin" />
+                      <button type="button" class="sync-key-generate-new" title="Rastgele">⟳</button>
+                    </div>
+                    <div class="sync-key-actions">
+                      <button type="button" class="sync-key-confirm-yes">Onayla</button>
+                      <button type="button" class="sync-key-confirm-cancel">İptal</button>
+                    </div>
                   </div>
                   <div class="sync-key-status" />
                 </div>

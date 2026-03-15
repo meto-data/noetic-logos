@@ -321,7 +321,55 @@
   }
 }
 
-.sync-key-generate {
+.sync-key-display-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+  padding: 0.4rem 0.5rem;
+  background: color-mix(in srgb, var(--lightgray) 30%, var(--light));
+  border: 1px solid var(--lightgray);
+  border-radius: 4px;
+}
+
+.sync-key-display {
+  flex: 1;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  color: var(--dark);
+  user-select: all;
+}
+
+.sync-key-copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  color: var(--darkgray);
+  display: flex;
+  align-items: center;
+  transition: color 0.15s ease;
+
+  &:hover { color: var(--secondary); }
+  svg { stroke: currentColor; }
+}
+
+.sync-confirm {
+  margin-top: 0.4rem;
+  padding: 0.5rem;
+  border: 1px dashed var(--lightgray);
+  border-radius: 6px;
+}
+
+.sync-confirm-text {
+  font-size: 0.75rem;
+  color: var(--gray);
+  margin: 0 0 0.4rem;
+}
+
+.sync-key-generate,
+.sync-key-generate-new {
   background: none;
   border: 1px solid var(--lightgray);
   border-radius: 4px;
@@ -344,7 +392,10 @@
 }
 
 .sync-key-save,
-.sync-key-load {
+.sync-key-load,
+.sync-key-change,
+.sync-key-confirm-yes,
+.sync-key-confirm-cancel {
   flex: 1;
   padding: 0.45rem 0.5rem;
   border: 1px solid var(--lightgray);
