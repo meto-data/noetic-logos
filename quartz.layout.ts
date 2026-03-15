@@ -12,7 +12,6 @@ export const sharedPageComponents: SharedLayout = {
     Component.MobileOnly(Component.ModuleBanner()), // Mobilde içerik sonunda banner
     Component.Toast(),
     Component.Enhancements(),
-    Component.ContextMenu(),
     Component.Annotation(),
     Component.MobileGestures(),
   ],

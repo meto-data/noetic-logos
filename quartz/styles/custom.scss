@@ -83,11 +83,16 @@ html.noetic-custom-typo article {
 
 // Efektler kapalı
 html.noetic-no-effects {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  scroll-behavior: auto !important;
+
+  article,
+  .explorer,
+  .sidebar,
+  .center,
+  .page,
+  .callout {
+    animation: none !important;
+    transition: none !important;
   }
 }
 
@@ -178,7 +183,6 @@ html:not(.noetic-code-collapsible) pre > .code-expand-btn {
   .backlinks,
   .theme-selector-panel,
   .noetic-toast-container,
-  .noetic-context-menu,
   #noetic-toast-container,
   footer,
   .toc,
@@ -211,21 +215,14 @@ html:not(.noetic-code-collapsible) pre > .code-expand-btn {
 }
 
 // Sayfa Geçiş Animasyonu
-html:not(.noetic-no-effects) {
-  article {
-    animation: noeticFadeIn 0.3s ease-out;
-  }
+html:not(.noetic-no-effects) article {
+  animation: noeticFadeIn 0.2s ease-out;
+  will-change: opacity;
 }
 
 @keyframes noeticFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 // Yumuşak Kaydırma
@@ -236,52 +233,34 @@ html:not(.noetic-no-effects) {
 // Akıcı Genişletme/Daraltma
 html:not(.noetic-no-effects) {
   .explorer details[open] > ul {
-    animation: noeticSlideDown 0.2s ease-out;
-  }
-
-  .callout:not(.is-collapsed) > .callout-content {
-    animation: noeticSlideDown 0.2s ease-out;
+    animation: noeticSlideDown 0.15s ease-out;
   }
 }
 
 @keyframes noeticSlideDown {
-  from {
-    opacity: 0;
-    max-height: 0;
-  }
-  to {
-    opacity: 1;
-    max-height: 2000px;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-// Görsel Lazy Loading - lightbox
+// Görsel Lightbox
 .noetic-lightbox-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
   background: rgba(0, 0, 0, 0.85);
   z-index: 10001;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: zoom-out;
-  animation: noeticLightboxIn 0.2s ease;
+  opacity: 1;
+  contain: layout style;
 
   img {
     max-width: 92vw;
     max-height: 92vh;
     border-radius: 8px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     object-fit: contain;
   }
-}
-
-@keyframes noeticLightboxIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
 article img:not(.no-lightbox) {
@@ -291,11 +270,11 @@ article img:not(.no-lightbox) {
 
 // Erişilebilirlik: prefers-reduced-motion
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  html {
     scroll-behavior: auto !important;
+  }
+  article, .explorer, .callout, .page-footer {
+    animation: none !important;
   }
 }
 
@@ -2678,7 +2657,6 @@ html.noetic-zen-mode {
   .backlinks,
   .explorer,
   .search,
-  .settings,
   .darkmode,
   .tag-list,
   footer,
@@ -2690,8 +2668,15 @@ html.noetic-zen-mode {
     display: none !important;
   }
 
+  .settings > .settings-trigger {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 1005;
+  }
+
   .page-footer {
-    & > *:not(.noetic-context-menu):not(.noetic-toast-container):not(#noetic-context-menu):not(#noetic-toast-container) {
+    & > *:not(.noetic-toast-container):not(#noetic-toast-container) {
       display: none !important;
     }
   }
