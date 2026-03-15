@@ -51,7 +51,6 @@ const applyClass = (cls: string, key: string, fallback = false) =>
 const applyCustomTypography = () => applyClass("noetic-custom-typo", "custom-typography")
 const applyEffects = () => document.documentElement.classList.toggle("noetic-no-effects", !getToggle("effects-enabled", true))
 const applyCodeLineNumbers = () => applyClass("noetic-code-line-numbers", "code-line-numbers")
-const applyCodeLangLabel = () => applyClass("noetic-code-lang-label", "code-lang-label", true)
 const applyCodeCollapsible = () => applyClass("noetic-code-collapsible", "code-collapsible")
 const applyZenMode = () => applyClass("noetic-zen-mode", "zen-mode")
 
@@ -62,9 +61,9 @@ applySavedContentWidth()
 applyCustomTypography()
 applyEffects()
 applyCodeLineNumbers()
-applyCodeLangLabel()
 applyCodeCollapsible()
 applyZenMode()
+if (getToggle("zen-mode")) createZenExitButton()
 
 requestIdleCallback(() => {
   const fonts = ["Poppins","Lato","Roboto","Open+Sans","Quicksand","Montserrat","Merriweather","Source+Sans+Pro","Atkinson+Hyperlegible"]
@@ -150,7 +149,6 @@ function syncSettingsInputs() {
     "custom-typography": { key: "custom-typography", fallback: false },
     "effects-enabled": { key: "effects-enabled", fallback: true },
     "code-line-numbers": { key: "code-line-numbers", fallback: false },
-    "code-lang-label": { key: "code-lang-label", fallback: true },
     "code-collapsible": { key: "code-collapsible", fallback: false },
     "notifications-enabled": { key: "noetic-notifications", fallback: true },
     "zen-mode": { key: "zen-mode", fallback: false },
@@ -185,7 +183,7 @@ function generateSyncKey(): string {
 
 function collectAllPreferences(): Record<string, unknown> {
   const prefs: Record<string, unknown> = {}
-  for (const k of ["font-family","font-size","line-height","content-width","custom-typography","effects-enabled","code-line-numbers","code-lang-label","code-collapsible","noetic-notifications","theme","zen-mode"]) {
+  for (const k of ["font-family","font-size","line-height","content-width","custom-typography","effects-enabled","code-line-numbers","code-collapsible","noetic-notifications","theme","zen-mode"]) {
     const v = localStorage.getItem(k)
     if (v !== null) prefs[k] = v
   }
@@ -213,7 +211,7 @@ function restoreAllPreferences(prefs: Record<string, unknown>) {
   }
   applySavedFontSizeImmediately(); applySavedFontFamilyImmediately()
   applySavedLineHeight(); applySavedContentWidth()
-  applyCustomTypography(); applyEffects(); applyCodeLineNumbers(); applyCodeLangLabel(); applyCodeCollapsible(); applyZenMode()
+  applyCustomTypography(); applyEffects(); applyCodeLineNumbers(); applyCodeCollapsible(); applyZenMode()
   const t = localStorage.getItem("theme")
   if (t) document.documentElement.setAttribute("saved-theme", t)
 }
@@ -286,9 +284,8 @@ function handleDocumentChange(e: Event) {
     "custom-typography": { apply: applyCustomTypography, onMsg: "Özel tipografi etkinleştirildi", offMsg: "Özel tipografi devre dışı" },
     "effects-enabled": { apply: applyEffects, onMsg: "Efektler etkinleştirildi", offMsg: "Efektler devre dışı" },
     "code-line-numbers": { apply: applyCodeLineNumbers, onMsg: "Satır numaraları açıldı", offMsg: "Satır numaraları kapatıldı" },
-    "code-lang-label": { apply: applyCodeLangLabel, onMsg: "Dil etiketi açıldı", offMsg: "Dil etiketi kapatıldı" },
     "code-collapsible": { apply: applyCodeCollapsible, onMsg: "Katlanabilir bloklar açıldı", offMsg: "Katlanabilir bloklar kapatıldı" },
-    "zen-mode": { apply: applyZenMode, onMsg: "Zen modu açıldı", offMsg: "Zen modu kapatıldı" },
+    "zen-mode": { apply: () => { applyZenMode(); if (getToggle("zen-mode")) createZenExitButton(); else removeZenExitButton() }, onMsg: "Zen modu açıldı", offMsg: "Zen modu kapatıldı" },
   }
 
   for (const [name, { apply, onMsg, offMsg }] of Object.entries(toggleActions)) {
@@ -306,8 +303,39 @@ function handleDocumentChange(e: Event) {
   }
 }
 
+function exitZenMode() {
+  if (!document.documentElement.classList.contains("noetic-zen-mode")) return
+  setToggle("zen-mode", false)
+  applyZenMode()
+  removeZenExitButton()
+  window.__noeticToast?.("Zen modu kapatıldı", "info")
+  savePrefsToCurrent()
+}
+
+function createZenExitButton() {
+  if (document.getElementById("zen-exit-btn")) return
+  const btn = document.createElement("button")
+  btn.id = "zen-exit-btn"
+  btn.className = "zen-exit-btn"
+  btn.type = "button"
+  btn.title = "Zen Modundan Çık (ESC)"
+  btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`
+  btn.addEventListener("click", exitZenMode)
+  document.body.appendChild(btn)
+}
+
+function removeZenExitButton() {
+  document.getElementById("zen-exit-btn")?.remove()
+}
+
 function handleDocumentKeydown(e: KeyboardEvent) {
-  if (e.key === "Escape") closeSettingsModal()
+  if (e.key === "Escape") {
+    if (document.getElementById("settings-overlay")?.classList.contains("active")) {
+      closeSettingsModal()
+    } else if (document.documentElement.classList.contains("noetic-zen-mode")) {
+      exitZenMode()
+    }
+  }
 }
 
 function handleSettingsNav() {

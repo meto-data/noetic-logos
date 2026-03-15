@@ -117,27 +117,6 @@ html.noetic-code-line-numbers pre > code {
   }
 }
 
-// Kod Dil Etiketi
-html.noetic-code-lang-label pre[data-language]::before {
-  content: attr(data-language);
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0.15rem 0.5rem;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--gray);
-  background: color-mix(in srgb, var(--lightgray) 50%, transparent);
-  border-bottom-left-radius: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  z-index: 1;
-}
-
-html.noetic-code-lang-label pre[data-language] {
-  position: relative;
-}
-
 // Katlanabilir Kod Blokları
 html.noetic-code-collapsible pre > code {
   max-height: 300px;
@@ -2706,6 +2685,38 @@ html.noetic-zen-mode {
     text-align: center;
     margin-bottom: 2rem;
   }
+}
+
+.zen-exit-btn {
+  position: fixed;
+  top: 12px;
+  right: 56px;
+  z-index: 1005;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--darkgray);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s ease, color 0.15s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+  }
+
+  svg {
+    stroke: currentColor;
+  }
+}
+
+html:not(.noetic-zen-mode) .zen-exit-btn {
+  display: none;
 }
 
 // ==========================================
