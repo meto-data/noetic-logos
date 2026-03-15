@@ -33,6 +33,7 @@ import Hamburger from "./Hamburger"
 import ThemeCanvas from "./ThemeCanvas"
 import ModuleBanner from "./ModuleBanner"
 import NoeticModules from "./NoeticModules"
+import Toast from "./Toast"
 
 export {
   ArticleTitle,
@@ -69,4 +70,5 @@ export {
   ThemeCanvas,
   ModuleBanner,
   NoeticModules,
+  Toast,
 }

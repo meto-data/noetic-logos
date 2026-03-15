@@ -10,6 +10,7 @@ export const sharedPageComponents: SharedLayout = {
     Component.Hamburger(), // Mobil menü
     Component.ThemeCanvas(), // Tema efektleri (Balina)
     Component.MobileOnly(Component.ModuleBanner()), // Mobilde içerik sonunda banner
+    Component.Toast(),
   ],
   footer: Component.Footer({
     links: {

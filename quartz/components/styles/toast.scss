@@ -1,0 +1,127 @@
+.noetic-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+  max-width: 320px;
+
+  @media (max-width: 800px) {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 16px;
+    width: calc(100% - 32px);
+  }
+}
+
+@keyframes toast-slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes toast-slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toast-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.noetic-toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  max-width: 320px;
+  width: max-content;
+  margin-left: auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  background: var(--light);
+  color: var(--dark);
+  border: 1px solid var(--lightgray);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  &.noetic-toast-enter {
+    opacity: 1;
+    animation: toast-slide-in-right 0.3s ease forwards;
+
+    @media (max-width: 800px) {
+      animation: toast-slide-in-up 0.3s ease forwards;
+    }
+  }
+
+  &.noetic-toast-exit {
+    animation: toast-fade-out 0.3s ease forwards;
+  }
+
+  &.noetic-toast-info {
+    border-left: 3px solid var(--secondary);
+  }
+
+  &.noetic-toast-success {
+    border-left: 3px solid #22c55e;
+    background: color-mix(in srgb, #22c55e 6%, var(--light));
+  }
+
+  &.noetic-toast-warning {
+    border-left: 3px solid #f59e0b;
+    background: color-mix(in srgb, #f59e0b 6%, var(--light));
+  }
+}
+
+.noetic-toast-message {
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.noetic-toast-close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--dark);
+  opacity: 0.5;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: opacity 0.15s ease, background 0.15s ease;
+
+  &:hover {
+    opacity: 1;
+    background: color-mix(in srgb, var(--dark) 8%, transparent);
+  }
+}
