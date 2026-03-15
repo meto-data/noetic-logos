@@ -153,16 +153,40 @@ function buildMenuItems(e: MouseEvent): MenuItem[] {
 
   items.push({ type: "separator" })
 
-  items.push({ label: "Varsayılan Menü", icon: ICONS.menu, action: () => {} })
+  items.push({ label: "Varsayılan Menü", icon: ICONS.menu, action: triggerNativeContextMenu })
 
   return items
 }
 
+let allowNativeNext = false
+let lastContextEvent: MouseEvent | null = null
+
+function triggerNativeContextMenu() {
+  if (!lastContextEvent) return
+  allowNativeNext = true
+  const evt = new MouseEvent("contextmenu", {
+    bubbles: true,
+    cancelable: true,
+    clientX: lastContextEvent.clientX,
+    clientY: lastContextEvent.clientY,
+    screenX: lastContextEvent.screenX,
+    screenY: lastContextEvent.screenY,
+    button: 2,
+  })
+  ;(lastContextEvent.target as HTMLElement)?.dispatchEvent(evt)
+}
+
 function handleContextMenu(e: MouseEvent) {
+  if (allowNativeNext) {
+    allowNativeNext = false
+    return
+  }
+
   const target = e.target as HTMLElement
   if (target.closest("input, textarea, [contenteditable]")) return
 
   e.preventDefault()
+  lastContextEvent = e
   const items = buildMenuItems(e)
   showMenu(e.clientX, e.clientY, items)
 }

@@ -2681,7 +2681,6 @@ html.noetic-zen-mode {
   .settings,
   .darkmode,
   .tag-list,
-  .page-footer,
   footer,
   .noetic-modules,
   .module-banner,
@@ -2689,6 +2688,12 @@ html.noetic-zen-mode {
   .content-meta,
   canvas {
     display: none !important;
+  }
+
+  .page-footer {
+    & > *:not(.noetic-context-menu):not(.noetic-toast-container):not(#noetic-context-menu):not(#noetic-toast-container) {
+      display: none !important;
+    }
   }
 
   body {
