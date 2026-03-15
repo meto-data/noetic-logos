@@ -18,6 +18,7 @@ const themes = [
   "deep-sea",
   "void",
   "deep-void",
+  "pure-white",
 ] as const
 
 type Theme = (typeof themes)[number]
@@ -33,6 +34,7 @@ const themeNames: Record<Theme, string> = {
   "deep-sea": "Okyanus",
   void: "Boşluk",
   "deep-void": "Uzay",
+  "pure-white": "Saf Beyaz",
 }
 
 const themeColors: Record<Theme, string> = {
@@ -46,6 +48,7 @@ const themeColors: Record<Theme, string> = {
   "deep-sea": "#0F172A",
   void: "#0d0101eb",
   "deep-void": "rgba(5, 0, 7, 1)",
+  "pure-white": "#7ca982",
 }
 
 // Mevcut temayı al ve uygula
