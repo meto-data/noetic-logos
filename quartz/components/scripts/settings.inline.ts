@@ -165,59 +165,82 @@ function syncSettingsInputs() {
     })
   }
 
-  updateSyncKeyUI()
+  const syncInput = document.querySelector(".sync-key-input") as HTMLInputElement | null
+  if (syncInput) syncInput.value = localStorage.getItem("noetic-sync-key") || ""
 }
 
-function updateSyncKeyUI() {
-  const savedKey = localStorage.getItem("noetic-sync-key") || ""
-  const input = document.querySelector(".sync-key-input") as HTMLInputElement | null
-  if (!input) return
-  input.value = savedKey
-  const isLocked = !!savedKey
-  input.disabled = isLocked
-  input.classList.toggle("locked", isLocked)
+const SYNC_API = "https://noetic-sync.meto-data.workers.dev"
+
+function getSyncStatus(): HTMLElement | null {
+  return document.querySelector(".sync-key-status")
+}
+
+function showSyncStatus(msg: string, type: "saved" | "cleared" | "" = "") {
+  const el = getSyncStatus()
+  if (!el) return
+  el.textContent = msg
+  el.className = `sync-key-status ${type}`
+  if (type) setTimeout(() => { el.textContent = ""; el.className = "sync-key-status" }, 4000)
 }
 
 function generateSyncKey(): string {
   const c = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789"
   let k = ""
-  for (let i = 0; i < 16; i++) k += c.charAt(Math.floor(Math.random() * c.length))
+  for (let i = 0; i < 12; i++) k += c.charAt(Math.floor(Math.random() * c.length))
   return k
 }
 
-function exportPreferences() {
-  const data = collectAllPreferences()
-  data["noetic-sync-key"] = localStorage.getItem("noetic-sync-key") || ""
-  const json = JSON.stringify(data, null, 2)
-  const blob = new Blob([json], { type: "application/json" })
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement("a")
-  a.href = url
-  a.download = `noetic-logos-ayarlar-${new Date().toISOString().slice(0, 10)}.json`
-  document.body.appendChild(a)
-  a.click()
-  a.remove()
-  URL.revokeObjectURL(url)
-  window.__noeticToast?.("Ayarlar dışa aktarıldı", "success")
+async function syncSaveToServer() {
+  const input = document.querySelector(".sync-key-input") as HTMLInputElement | null
+  const key = input?.value.trim()
+  if (!key || key.length < 4) {
+    window.__noeticToast?.("Anahtar en az 4 karakter olmalı", "warning")
+    return
+  }
+  localStorage.setItem("noetic-sync-key", key)
+  showSyncStatus("Kaydediliyor...")
+  try {
+    const data = collectAllPreferences()
+    const res = await fetch(`${SYNC_API}/${encodeURIComponent(key)}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+    if (!res.ok) throw new Error(await res.text())
+    showSyncStatus("Kaydedildi!", "saved")
+    window.__noeticToast?.("Tercihler sunucuya kaydedildi", "success")
+  } catch {
+    showSyncStatus("Sunucuya ulaşılamadı", "cleared")
+    window.__noeticToast?.("Sunucuya bağlanılamadı — Worker deploy edilmemiş olabilir", "warning")
+  }
 }
 
-function importPreferences(file: File) {
-  const reader = new FileReader()
-  reader.onload = () => {
-    try {
-      const data = JSON.parse(reader.result as string)
-      if (typeof data !== "object" || data === null) throw new Error("Geçersiz dosya")
-      const importedKey = data["noetic-sync-key"]
-      if (importedKey) localStorage.setItem("noetic-sync-key", importedKey)
-      restoreAllPreferences(data)
-      updateSyncKeyUI()
-      syncSettingsInputs()
-      window.__noeticToast?.("Tercihler içe aktarıldı ve uygulandı", "success")
-    } catch {
-      window.__noeticToast?.("Dosya okunamadı veya geçersiz", "warning")
-    }
+async function syncLoadFromServer() {
+  const input = document.querySelector(".sync-key-input") as HTMLInputElement | null
+  const key = input?.value.trim()
+  if (!key || key.length < 4) {
+    window.__noeticToast?.("Anahtar en az 4 karakter olmalı", "warning")
+    return
   }
-  reader.readAsText(file)
+  showSyncStatus("Yükleniyor...")
+  try {
+    const res = await fetch(`${SYNC_API}/${encodeURIComponent(key)}`)
+    if (res.status === 404) {
+      showSyncStatus("Bu anahtara ait veri bulunamadı", "cleared")
+      window.__noeticToast?.("Anahtar bulunamadı", "warning")
+      return
+    }
+    if (!res.ok) throw new Error(await res.text())
+    const data = await res.json()
+    localStorage.setItem("noetic-sync-key", key)
+    restoreAllPreferences(data)
+    syncSettingsInputs()
+    showSyncStatus("Tercihler yüklendi!", "saved")
+    window.__noeticToast?.("Tercihler sunucudan yüklendi ve uygulandı", "success")
+  } catch {
+    showSyncStatus("Sunucuya ulaşılamadı", "cleared")
+    window.__noeticToast?.("Sunucuya bağlanılamadı — Worker deploy edilmemiş olabilir", "warning")
+  }
 }
 
 function collectAllPreferences(): Record<string, unknown> {
@@ -255,7 +278,6 @@ function restoreAllPreferences(prefs: Record<string, unknown>) {
   if (t) document.documentElement.setAttribute("saved-theme", t)
 }
 
-function savePrefsToCurrent() {}
 
 function handleDocumentClick(e: MouseEvent) {
   const target = e.target as HTMLElement | null
@@ -276,34 +298,17 @@ function handleDocumentClick(e: MouseEvent) {
   if (target.closest(".sync-key-generate")) {
     e.stopPropagation()
     const inp = document.querySelector(".sync-key-input") as HTMLInputElement | null
-    if (inp && !inp.disabled) inp.value = generateSyncKey()
-    return
-  }
-  if (target.closest(".sync-key-copy")) {
-    e.stopPropagation()
-    const inp = document.querySelector(".sync-key-input") as HTMLInputElement | null
-    if (inp?.value) navigator.clipboard.writeText(inp.value).then(() => window.__noeticToast?.("Anahtar kopyalandı", "success"))
+    if (inp) inp.value = generateSyncKey()
     return
   }
   if (target.closest(".sync-key-save")) {
     e.stopPropagation()
-    const inp = document.querySelector(".sync-key-input") as HTMLInputElement | null
-    if (!inp?.value.trim()) return
-    localStorage.setItem("noetic-sync-key", inp.value.trim())
-    updateSyncKeyUI()
-    window.__noeticToast?.("Anahtar kaydedildi", "success")
+    syncSaveToServer()
     return
   }
-  if (target.closest(".sync-key-clear")) {
+  if (target.closest(".sync-key-load")) {
     e.stopPropagation()
-    localStorage.removeItem("noetic-sync-key")
-    updateSyncKeyUI()
-    window.__noeticToast?.("Anahtar silindi", "info")
-    return
-  }
-  if (target.closest(".sync-export-btn")) {
-    e.stopPropagation()
-    exportPreferences()
+    syncLoadFromServer()
     return
   }
 }
@@ -329,19 +334,13 @@ function handleDocumentChange(e: Event) {
     if (t.matches(`input[name='${name}']`)) {
       setToggle(name, t.checked); apply()
       window.__noeticToast?.(t.checked ? onMsg : offMsg, "info")
-      savePrefsToCurrent(); return
+      return
     }
   }
 
   if (t.matches("input[name='notifications-enabled']")) {
     localStorage.setItem("noetic-notifications", t.checked ? "on" : "off")
     if (t.checked) window.__noeticToast?.("Bildirimler etkinleştirildi", "success")
-    savePrefsToCurrent(); return
-  }
-
-  if (t.matches(".sync-import-file")) {
-    const file = t.files?.[0]
-    if (file) { importPreferences(file); t.value = "" }
     return
   }
 }
@@ -352,7 +351,6 @@ function exitZenMode() {
   applyZenMode()
   removeZenExitButton()
   window.__noeticToast?.("Zen modu kapatıldı", "info")
-  savePrefsToCurrent()
 }
 
 function createZenExitButton() {
