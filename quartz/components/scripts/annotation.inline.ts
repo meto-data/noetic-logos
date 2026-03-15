@@ -266,20 +266,22 @@ function tryShowToolbar() {
 
 function handleMouseUp(e: MouseEvent) {
   if ((e.target as HTMLElement)?.closest(".noetic-highlight-toolbar")) return
-  setTimeout(tryShowToolbar, 200)
+  setTimeout(tryShowToolbar, 250)
 }
 
-function handleTouchEnd(e: TouchEvent) {
-  if ((e.target as HTMLElement)?.closest(".noetic-highlight-toolbar")) return
-  setTimeout(tryShowToolbar, 400)
-}
+let selectionDebounce: ReturnType<typeof setTimeout> | null = null
 
 function handleSelectionChange() {
-  const selection = window.getSelection()
-  const text = selection?.toString()?.trim()
-  if (!text || text.length < 2) {
-    removeToolbar()
-  }
+  if (selectionDebounce) clearTimeout(selectionDebounce)
+  selectionDebounce = setTimeout(() => {
+    const selection = window.getSelection()
+    const text = selection?.toString()?.trim()
+    if (text && text.length >= 2) {
+      tryShowToolbar()
+    } else if (!text) {
+      removeToolbar()
+    }
+  }, 500)
 }
 
 function handleClick(e: MouseEvent) {
@@ -294,7 +296,6 @@ function handleNav() {
 }
 
 document.addEventListener("mouseup", handleMouseUp)
-document.addEventListener("touchend", handleTouchEnd)
 document.addEventListener("selectionchange", handleSelectionChange)
 document.addEventListener("click", handleClick)
 document.addEventListener("nav", handleNav)
@@ -303,8 +304,8 @@ handleNav()
 window.__noeticAnnotation = {
   cleanup: () => {
     removeToolbar()
+    if (selectionDebounce) clearTimeout(selectionDebounce)
     document.removeEventListener("mouseup", handleMouseUp)
-    document.removeEventListener("touchend", handleTouchEnd)
     document.removeEventListener("selectionchange", handleSelectionChange)
     document.removeEventListener("click", handleClick)
     document.removeEventListener("nav", handleNav)

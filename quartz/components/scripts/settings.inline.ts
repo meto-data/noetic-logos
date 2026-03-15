@@ -262,8 +262,9 @@ async function syncLoadFromServer() {
     restoreAllPreferences(data)
     updateSyncUI()
     syncSettingsInputs()
-    showSyncStatus("Tercihler yüklendi!", "saved")
-    window.__noeticToast?.("Tercihler sunucudan yüklendi ve uygulandı", "success")
+    showSyncStatus("Tercihler yüklendi! Sayfa yenileniyor...", "saved")
+    window.__noeticToast?.("Tercihler yüklendi, sayfa yenileniyor...", "success")
+    setTimeout(() => window.location.reload(), 1000)
   } catch {
     showSyncStatus("Sunucuya ulaşılamadı", "cleared")
     window.__noeticToast?.("Sunucuya bağlanılamadı — Worker deploy edilmemiş olabilir", "warning")
