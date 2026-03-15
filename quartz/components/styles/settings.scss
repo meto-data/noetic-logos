@@ -321,8 +321,7 @@
   }
 }
 
-.sync-key-generate,
-.sync-key-copy {
+.sync-key-generate {
   background: none;
   border: 1px solid var(--lightgray);
   border-radius: 4px;
@@ -345,9 +344,7 @@
 }
 
 .sync-key-save,
-.sync-key-clear,
-.sync-export-btn,
-.sync-import-btn {
+.sync-key-load {
   flex: 1;
   padding: 0.45rem 0.5rem;
   border: 1px solid var(--lightgray);
