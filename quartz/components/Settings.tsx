@@ -55,12 +55,6 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
                   <label class="size-item"><input type="radio" name="line-height-choice" value="1.6" /><span>Normal</span></label>
                   <label class="size-item"><input type="radio" name="line-height-choice" value="1.85" /><span>Geniş</span></label>
                 </div>
-                <div class="section-header size-header">İçerik Genişliği</div>
-                <div class="size-options">
-                  <label class="size-item"><input type="radio" name="content-width-choice" value="55ch" /><span>Dar</span></label>
-                  <label class="size-item"><input type="radio" name="content-width-choice" value="none" /><span>Normal</span></label>
-                  <label class="size-item"><input type="radio" name="content-width-choice" value="80ch" /><span>Geniş</span></label>
-                </div>
               </div>
               <div class="settings-col">
                 <div class="section-header">Görünüm</div>
