@@ -12,7 +12,7 @@ export const sharedPageComponents: SharedLayout = {
     Component.MobileOnly(Component.ModuleBanner()), // Mobilde içerik sonunda banner
     Component.Toast(),
     Component.Enhancements(),
-    Component.Annotation(),
+    // Component.Annotation(), // deaktif
     Component.MobileGestures(),
   ],
   footer: Component.Footer({
