@@ -62,46 +62,46 @@ Makine öğrenmesi, bilgisayarların açıkça programlanmadan verilerden öğre
 ```mermaid
 graph TD
     %% Ana Başlık
-    A[MAKİNE ÖĞRENMESİ]
+    A["MAKİNE ÖĞRENMESİ"]
 
     %% İki Ana Dal
-    A --> B[Denetimli Öğrenme <br> Supervised Learning]
-    A --> C[Denetimsiz Öğrenme <br> Unsupervised Learning]
+    A --> B["Denetimli Öğrenme <br> Supervised Learning"]
+    A --> C["Denetimsiz Öğrenme <br> Unsupervised Learning"]
 
     %% Açıklama Kutuları (Güvenli Format)
-    B -.-> B_desc[Label / Etiket bulunan verilerle <br>yapılan öğrenmedir. <br>Amaç: Tahmin yapmak]
-    C -.-> C_desc[Label / Etiket bulunmayan verilerle <br>yapılan öğrenmedir. <br>Amaç: Verideki yapıyı keşfetmek]
+    B -.-> B_desc["Label / Etiket bulunan verilerle <br>yapılan öğrenmedir. <br>Amaç: Tahmin yapmak"]
+    C -.-> C_desc["Label / Etiket bulunmayan verilerle <br>yapılan öğrenmedir. <br>Amaç: Verideki yapıyı keşfetmek"]
 
     %% Denetimli Alt Dalları
-    B --> D([SINIFLANDIRMA <br> Classification])
-    B --> E([REGRESYON <br> Regression])
+    B --> D(["SINIFLANDIRMA <br> Classification"])
+    B --> E(["REGRESYON <br> Regression"])
 
     %% Sınıflandırma Algoritmaları (Numaralar kaldırıldı)
-    D --> D1(Decision Tree / Karar Ağacı)
-    D --> D2(Random Forest)
-    D --> D3(KNN / K-Nearest Neighbors)
-    D --> D4(Naive Bayes)
-    D --> D5(SVM / Destek Vektör Makineleri)
-    D --> D6(Lojistik Regresyon)
+    D --> D1("Decision Tree / Karar Ağacı")
+    D --> D2("Random Forest")
+    D --> D3("KNN / K-Nearest Neighbors")
+    D --> D4("Naive Bayes")
+    D --> D5("SVM / Destek Vektör Makineleri")
+    D --> D6("Lojistik Regresyon")
 
     %% Regresyon Algoritmaları
-    E --> E1(Lineer Regresyon)
-    E --> E2(Ridge / Lasso)
-    E --> E3(Decision Tree Regressor)
+    E --> E1("Lineer Regresyon")
+    E --> E2("Ridge / Lasso")
+    E --> E3("Decision Tree Regressor")
 
     %% Denetimsiz Alt Dalları
-    C --> F([KÜMELEME <br> Clustering])
-    C --> G([BİRLİKTELİK KURALLARI <br> Association Rules])
+    C --> F(["KÜMELEME <br> Clustering"])
+    C --> G(["BİRLİKTELİK KURALLARI <br> Association Rules"])
 
     %% Kümeleme Algoritmaları
-    F --> F1(K-Means)
-    F --> F2(Hiyerarşik Kümeleme)
-    F --> F3(DBSCAN)
+    F --> F1("K-Means")
+    F --> F2("Hiyerarşik Kümeleme")
+    F --> F3("DBSCAN")
 
     %% Birliktelik Algoritmaları
-    G --> G1(Apriori)
-    G --> G2(Eclat)
-    G --> G3(FP-Growth)
+    G --> G1("Apriori")
+    G --> G2("Eclat")
+    G --> G3("FP-Growth")
 
     %% Renklendirmeler ve Stiller
     style B fill:#d4edda,stroke:#28a745,stroke-width:2px
@@ -109,7 +109,7 @@ graph TD
     style D fill:#17a2b8,stroke:#fff,stroke-width:2px,color:#fff
     style E fill:#17a2b8,stroke:#fff,stroke-width:2px,color:#fff
     style F fill:#fd7e14,stroke:#fff,stroke-width:2px,color:#fff
-    style G fill:#fd7e14,stroke:#fff,stroke-wid
+    style G fill:#fd7e14,stroke:#fff,stroke-width:2px,color:#fff
 ```
 
 
@@ -192,27 +192,27 @@ graph TD
 ```mermaid
 graph TD
     %% Kök Düğüm
-    A([Maaş 50.000 dolardan fazla mı? <br> Ağacın Kökü])
+    A(["Maaş 50.000 dolardan fazla mı? <br> Ağacın Kökü"])
 
     %% İç Düğümler
-    B([Ulaşım 1 saatten fazla mı sürüyor?])
-    C([Kahve ücretsiz mi?])
+    B(["Ulaşım 1 saatten fazla mı sürüyor?"])
+    C(["Kahve ücretsiz mi?"])
 
     %% Yapraklar (Tahmin/Karar)
-    L1((Teklifi reddet.))
-    L2((Teklifi reddet.))
-    L3((Teklifi reddet.))
-    L4((Teklifi kabul et.))
+    L1(("Teklifi reddet."))
+    L2(("Teklifi reddet."))
+    L3(("Teklifi reddet."))
+    L4(("Teklifi kabul et."))
 
     %% Bağlantılar (Edge'ler / Dallanmalar)
-    A -->|Evet| B
-    A -->|Hayır| L1
+    A -->|"Evet"| B
+    A -->|"Hayır"| L1
     
-    B -->|Hayır| C
-    B -->|Evet| L2
+    B -->|"Hayır"| C
+    B -->|"Evet"| L2
     
-    C -->|Hayır| L3
-    C -->|Evet| L4 
+    C -->|"Hayır"| L3
+    C -->|"Evet"| L4 
 ```    
 
 
@@ -278,4 +278,3 @@ y_pred = dt_model.predict(X_test)
 
 >[!tip] Roadmap.sh
 >Ders esnasında makine öğrenmesi yahut veri analisti gibi birçok kariyer planı için bir yol haritası sitesi önerildi: [Roadmap.sh](https://www.roadmap.sh)
-
