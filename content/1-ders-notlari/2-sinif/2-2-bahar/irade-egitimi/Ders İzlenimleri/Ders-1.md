@@ -1,7 +1,8 @@
 ---
 date: 2026-02-18
 created: 2026-02-18
-draft: false
+draft: true
+title: "İrade Eğitimi: 1. Hafta (İzlenim)"
 ---
 [[Olabildiğince şeffaf.]]'ın son cümlesine bakıyorum da, sahi, neydi sarsılmazlık? Bugün sarsılınca tekrar aklıma geldi; alet, ortadan kaybolduğunda anımsatırmış meğer aslolan değerini.
 
@@ -13,7 +14,7 @@ Bir başkasının etkisi altına girmek istemiyordum, kendim dışında olan bü
 
 Zor. Sahi diyorum, zor. Beni bırakmayan, *anlatıyı* ve **anlatımı** paramparça eden, bütün *ivme*yi sekteye uğratan, sesimi baskılayan görünmez bir el adeta bu. 
 
-Ders **İrade Eğitimi** idi. Neden seçtim ki bu dersi? Payot'un İrade Eğitimi'ni 4 defa okuduğum için mi, bu bir sebepti tabii. Kitabı yapısökümcü bir perspektiften ele almak, "başarı" diye pompalanan o mefhumun art alanlarını ifşa etmek için mi? Bunlar da bir sebepti tabii. Normalimden çıkmak da sebeplerdendi.
+Ders **İrade Eğitimi** idi. Neden seçtim ki bu dersi? Payot'un İrade Eğitimi'ni 4 defa okuduğum için mi, bu bir sebepti tabii. Kitabı sökücü bir perspektiften ele almak, "başarı" diye pompalanan o mefhumun art alanlarını ifşa etmek için mi? Bunlar da bir sebepti tabii. Normalimden çıkmak da sebeplerdendi.
 
 Geçen dönemlerin derslerini hatırlıyorum, öğretmenin sorduğu sorulara verilen yanıtların sığlığını bırak, öğretim elemanları dahi konuyu sığ bir şekilde anlatıyordu. Ne hadle bunu söylüyorum, değil mi? Kimim ki ben *eleştireceğim* onları? Eh, sorun da bu ya zaten, kim olduğumu açığa çıkaramıyorum bu kekemelik yüzünden. Sessiz olmak zor iş, gerçekten zor. Bir yanım bu durumu hazmedemiyorken diğer yanım ses çıkarmayı bir şımarıklık olarak, kendini başkalarına kanıtlama isteği güden bir gösteri deliliği olarak görüyor. 
 
