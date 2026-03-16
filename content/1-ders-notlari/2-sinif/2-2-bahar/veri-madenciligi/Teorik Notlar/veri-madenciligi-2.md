@@ -187,7 +187,7 @@ Farklı kaynaklardan gelen `.csv` verilerini tek potada eritmektir. Excel değil
 ---
 
 # 5. Veri Dönüşümü (Transformation)
-Makinenin matemqtiği doğru yapabilmesi için elzemdir.
+Makinenin matematiği doğru yapabilmesi için elzemdir.
 
 ## 5.1. Normalizasyon
 - İncelenecek veriyileri normalden sapmayan bir ölçüy egöre inceleme, **aynı seviyeye getirme** işlemidir. 

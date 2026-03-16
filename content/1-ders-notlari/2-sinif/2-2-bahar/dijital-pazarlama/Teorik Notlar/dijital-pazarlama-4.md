@@ -20,8 +20,9 @@ Bu veri, yani ham gerçekler; sayılar, metinler yahut görseller formunda karş
 - **Yarı Yapılandırılmış (Semi-structured) Veri**: Hem hazırlıklı soruların hem de spontane gelişen diyalogların harmanı.
 - **Yapılandırılmamış (Unstructured) Veri**: Tamamen spontane, o anki akıştan elde edilen, kategorize edilmesi en zor olan veri havuzu.
 
+### Makine Öğrenmesi 
 
-Gelgelelim insanın öğrenme süreci nasıl ki geçmiş deneyimlerin zihinde tortulaşıp geleceğe dair bir projeksiyon sunmasına dayanıyorsa, makine öğrenimi de tam olarak bu zemine oturur. Arthur Samuel'in açıkça "*programlanmaksızın bilgisayarla öğrenme yetisi kazandıran alan*" olarak tanımladığı bu sistem, elimizdeki devasa veri yığınlarından geçmiş deneyimleri devşirerek geleceğe dair isabetli öngörülerde bulunur. Yapay zekânın şemsiyesi altındaki bir daldır **makine öğrenimi**.
+Gelgelelim insanın öğrenme süreci nasıl ki geçmiş deneyimlerin zihinde tortulaşıp geleceğe dair bir projeksiyon sunmasına dayanıyorsa, makine öğrenimi de tam olarak bu zemine oturur. Arthur Samuel'in açıkça "*programlanmaksızın bilgisayarla öğrenme yetisi kazandıran alan*" olarak tanımladığı bu sistem, **elimizdeki devasa veri yığınlarından geçmiş deneyimleri devşirerek geleceğe dair isabetli öngörülerde bulunur**. Yapay zekânın şemsiyesi altındaki bir daldır **makine öğrenimi**.
 
 Makine öğrenmesi üç temel kolon üzerine bina edilir:
 

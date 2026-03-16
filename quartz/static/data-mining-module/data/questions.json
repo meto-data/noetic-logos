@@ -6340,5 +6340,1265 @@
         "definition": "Eğitilmiş modelin yeni veriler için sınıf veya değer tahmini üretmesini sağlayan metod."
       }
     ]
+  },
+  {
+    "id": "w4-v002",
+    "week": 4,
+    "topic": "model-optimizasyonu",
+    "type": "verbal",
+    "tags": [
+      "optimizasyon",
+      "bilimsel-surec",
+      "raporlama"
+    ],
+    "sourceNotebook": null,
+    "question": "Makine öğrenmesi modelinin geliştirilme sürecinde yapılan parametre değişikliklerinin raporlanmasıyla ilgili en değerli yaklaşım aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Sadece modelin doğruluğunu artıran başarılı parametre değişikliklerinin rapora dâhil edilmesi.",
+      "B": "Başarısız denemelerin ve bu hataların nedenlerinin de bilimsel sürecin bir parçası olarak sunulması.",
+      "C": "Parametre değişikliklerinin gizli tutularak sadece ulaşılan en yüksek doğruluk oranının yazılması.",
+      "D": "Modelin ilk hâlinin tamamen silinip sadece optimize edilmiş son sürümünün detaylandırılması.",
+      "E": "Veri setindeki tüm aykırı değerlerin silindiğinin varsayılarak algoritmik hataların gizlenmesi."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Sadece başarılı sonuçları yazmak, modelin hangi durumlarda neden çalışmadığını anlama fırsatını yok eder.",
+      "B": "Bilimsel süreçte hatalardan ders çıkarmak önemlidir. 'Bunu yaptım kötüleşti, nedenleri şunlar' şeklindeki raporlar, sürece tam hâkimiyeti gösterir.",
+      "C": "Sürecin şeffaflığı esastır. Hangi parametrelerin nasıl bir etki yarattığı açıklanmalıdır.",
+      "D": "Modelin ilk hâli (zemin) ile son hâli arasındaki fark, gelişimi ölçmek için kritik bir referans noktasıdır.",
+      "E": "Aykırı değerlerin (outliers) nasıl işlendiği şeffaf bir şekilde EDA sürecinde belirtilmelidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Optimizasyon (Model Tuning)",
+        "definition": "Bir makine öğrenmesi modelinin performansını artırmak amacıyla hiperparametrelerinin ve veri işleme adımlarının yapılandırılması."
+      }
+    ]
+  },
+  {
+    "id": "w4-v003",
+    "week": 4,
+    "topic": "gercek-hayat-uygulamalari",
+    "type": "verbal",
+    "tags": [
+      "sepet-analizi",
+      "oruntu",
+      "birliktelik"
+    ],
+    "sourceNotebook": null,
+    "question": "Marketlerde bebek bezi ile alkol ürünlerinin veya cips ile kola ürünlerinin birbirine yakın reyonlarda konumlandırılması, veri madenciliğinin hangi temel uygulamasına örnektir?",
+    "code": null,
+    "options": {
+      "A": "Zaman Serisi Analizi (Time Series Analysis)",
+      "B": "Doğal Dil İşleme (Natural Language Processing)",
+      "C": "İstisna Tespiti (Outlier Detection)",
+      "D": "Sepet Analizi (Market Basket Analysis)",
+      "E": "Görüntü Sınıflandırma (Image Classification)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Zaman serisi analizi, verilerin zamana bağlı değişimini ve gelecekteki trendlerini tahmin etmek için kullanılır.",
+      "B": "Doğal dil işleme, metin ve konuşma verilerinin bilgisayarlar tarafından anlaşılmasıyla ilgilidir.",
+      "C": "İstisna tespiti, kredi kartı dolandırıcılığı gibi normalin dışındaki anormallikleri bulmaya yarar.",
+      "D": "Sepet Analizi, müşterilerin birlikte satın alma eğiliminde olduğu ürünleri (örüntüleri) keşfederek ürün yerleşimi veya kampanya stratejileri geliştirmeyi sağlar.",
+      "E": "Görüntü sınıflandırma, piksellerden oluşan görsellerin hangi kategoriye ait olduğunu belirler."
+    },
+    "relatedTerms": [
+      {
+        "term": "Sepet Analizi (Market Basket Analysis)",
+        "definition": "Müşterilerin satın alma geçmişlerine bakarak hangi ürünlerin sıklıkla birlikte alındığını ortaya çıkaran veri madenciliği tekniği."
+      }
+    ]
+  },
+  {
+    "id": "w4-v004",
+    "week": 4,
+    "topic": "makine-ogrenmesi-turleri",
+    "type": "verbal",
+    "tags": [
+      "denetimli-ogrenme",
+      "etiket",
+      "tahmin"
+    ],
+    "sourceNotebook": null,
+    "question": "Makine öğrenmesi modellerinden Denetimli Öğrenme (Supervised Learning) yaklaşımını, Denetimsiz Öğrenme (Unsupervised Learning) yaklaşımından ayıran en temel özellik aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Veri setinde modelin öğrenmesi için önceden belirlenmiş bir hedef (etiket) sütununun bulunması.",
+      "B": "Sadece sayısal verilerle çalışabilmesi ve kategorik verileri kesinlikle işleyememesi.",
+      "C": "Modelin hiçbir geçmiş veriye ihtiyaç duymadan kendi kendine yeni kurallar üretebilmesi.",
+      "D": "Veriler arasındaki gizli gruplaşmaları bulmak için kümeleme algoritmalarını temel alması.",
+      "E": "Eğitim sürecinde veri setinin test ve eğitim olarak ikiye bölünmesine ihtiyaç duymaması."
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Denetimli öğrenmede, modelin girdilerle (X) neyi bulması gerektiğini gösteren bir çıktı/etiket (Y) bulunur. Amaç bu etiketi tahmin etmektir.",
+      "B": "Denetimli öğrenme hem sayısal (Regresyon) hem de kategorik (Sınıflandırma) verilerle çalışabilir.",
+      "C": "Geçmiş verilere ihtiyaç duymadan hareket etme durumu pekiştirmeli öğrenmeye daha yakındır; denetimli öğrenme geçmiş etiketli veriye muhtaçtır.",
+      "D": "Gizli gruplaşmaları bulmak ve kümeleme yapmak Denetimsiz Öğrenme'nin temel amacıdır.",
+      "E": "Tüm makine öğrenmesi süreçlerinde modelin ezberleyip ezberlemediğini görmek için veri setinin bölünmesi standart bir uygulamadır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Etiket (Label - Y)",
+        "definition": "Denetimli öğrenmede tahmin edilmeye çalışılan, veri setindeki bilinen sonuç veya hedef değişken."
+      }
+    ]
+  },
+  {
+    "id": "w4-v005",
+    "week": 4,
+    "topic": "algoritma-siniflandirmasi",
+    "type": "verbal",
+    "tags": [
+      "regresyon",
+      "siniflandirma",
+      "denetimli-ogrenme"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir emlak şirketinin, evlerin oda sayısı, bulunduğu semt ve bina yaşı gibi özelliklerine (X) bakarak evin piyasa satış fiyatını (Y) tahmin etmesi gerekmektedir. Bu problem için kullanılması gereken makine öğrenmesi türü aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Birliktelik Kuralları (Association Rules)",
+      "B": "Kümeleme (Clustering)",
+      "C": "Sınıflandırma (Classification)",
+      "D": "Regresyon (Regression)",
+      "E": "Boyut İndirgeme (Dimensionality Reduction)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Birliktelik kuralları, ürünlerin birlikte satılma olasılıklarını bulur (örn: Apriori).",
+      "B": "Kümeleme, verileri benzerliklerine göre gruplandırır, sayısal bir hedef tahmini yapmaz.",
+      "C": "Sınıflandırma, kategorik (evet/hayır, kırmızı/mavi) çıktıları tahmin etmek için kullanılır.",
+      "D": "Regresyon, sürekli ve sayısal değerlerin (ev fiyatı, maaş, sıcaklık vb.) tahmin edilmesinde kullanılan denetimli öğrenme türüdür.",
+      "E": "Boyut indirgeme, çok sayıdaki değişkenin (sütunun) en önemlilerini seçerek veri setini sadeleştirme işlemidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Regresyon (Regression)",
+        "definition": "Bağımsız değişkenler ile sürekli ve sayısal olan bağımlı değişken (hedef) arasındaki ilişkiyi modelleyen denetimli öğrenme yöntemi."
+      }
+    ]
+  },
+  {
+    "id": "w4-v006",
+    "week": 4,
+    "topic": "denetimsiz-ogrenme",
+    "type": "verbal",
+    "tags": [
+      "kumeleme",
+      "denetimsiz-ogrenme",
+      "oruntu"
+    ],
+    "sourceNotebook": null,
+    "question": "Öğrencilerin sınav notlarına göre önceden belirlenmiş bir 'Geçti/Kaldı' etiketi olmaksızın, salt not benzerliklerine göre kendi içlerinde gruplara ayrılması işlemi hangi öğrenme türüne ve algoritmaya örnektir?",
+    "code": null,
+    "options": {
+      "A": "Denetimli Öğrenme - Lojistik Regresyon",
+      "B": "Denetimli Öğrenme - Karar Ağaçları",
+      "C": "Denetimsiz Öğrenme - Kümeleme (Clustering)",
+      "D": "Denetimsiz Öğrenme - Birliktelik Kuralları",
+      "E": "Yarı Denetimli Öğrenme - Destek Vektör Makineleri"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Lojistik regresyon bir sınıflandırma algoritmasıdır ve önceden etiketlenmiş veriye ihtiyaç duyar.",
+      "B": "Karar ağaçları denetimli öğrenme sınıflandırıcısıdır, verinin etiketli olması zorunludur.",
+      "C": "Etiketin (Y) olmaması ve verinin sadece içsel yapısına (benzerliklerine) göre gruplandırılması işlemi Denetimsiz Öğrenme altındaki Kümeleme (Clustering) yöntemidir.",
+      "D": "Birliktelik kuralları gruplama yapmaktan ziyade 'A olayından sonra B olayı gerçekleşir' şeklindeki örüntüleri arar.",
+      "E": "Destek Vektör Makineleri (SVM) genellikle denetimli öğrenmede sınıflandırma amaçlı kullanılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Kümeleme (Clustering)",
+        "definition": "Etiketsiz verilerin, birbirleriyle olan benzerlik özelliklerine göre homojen alt gruplara (kümelere) ayrılması işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w4-v007",
+    "week": 4,
+    "topic": "karar-agaclari-yapisi",
+    "type": "verbal",
+    "tags": [
+      "karar-agaci",
+      "kok-dugum",
+      "yaprak"
+    ],
+    "sourceNotebook": null,
+    "question": "Karar Ağaçları (Decision Trees) algoritmasının yapısında, veriyi en iyi bölen, en saf özelliğin bulunduğu ve bölünme işleminin başladığı ilk hücreye ne ad verilir?",
+    "code": null,
+    "options": {
+      "A": "Yaprak Düğüm (Leaf Node)",
+      "B": "Kök Düğüm (Root Node)",
+      "C": "Ara Düğüm (Internal Node)",
+      "D": "Kenar (Edge)",
+      "E": "Ağırlık Noktası (Weight Node)"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yaprak düğüm, bölünmenin sona erdiği ve nihai tahminin (kararın) verildiği en alt hücrelerdir.",
+      "B": "Kök düğüm, ağacın en tepesinde yer alan, veri setindeki belirsizliği (impurity) en çok azaltan özelliğin sorulduğu başlangıç noktasıdır.",
+      "C": "Ara düğümler, kök ile yapraklar arasında kalan, alt soruların sorulduğu hücrelerdir.",
+      "D": "Kenarlar (Edges), düğümler arasındaki mantıksal bağlantıları (evet/hayır yolları) ifade eder.",
+      "E": "Karar ağaçlarında 'ağırlık noktası' diye yapısal bir terim bulunmaz; ağırlıklar daha çok yapay sinir ağları veya regresyon denklemlerinde geçer."
+    },
+    "relatedTerms": [
+      {
+        "term": "Kök Düğüm (Root Node)",
+        "definition": "Tüm veri setini temsil eden ve veriyi en yüksek bilgi kazancıyla iki veya daha fazla alt gruba bölen başlangıç noktası."
+      }
+    ]
+  },
+  {
+    "id": "w4-v008",
+    "week": 4,
+    "topic": "karar-agaclari-avantajlari",
+    "type": "verbal",
+    "tags": [
+      "karar-agaci",
+      "yorumlanabilirlik",
+      "avantajlar"
+    ],
+    "sourceNotebook": null,
+    "question": "Karar Ağaçları (Decision Trees) algoritmasının diğer birçok karmaşık makine öğrenmesi modeline kıyasla sunduğu en büyük avantaj aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Veri setindeki tüm aykırı değerleri otomatik olarak silerek hatasız çalışması.",
+      "B": "Aşırı öğrenme (overfitting) problemine karşı tamamen bağışık bir yapıda olması.",
+      "C": "İnsan mantığına uygun 'Eğer-Değilse' yapısı sayesinde kararların kolayca yorumlanabilmesi.",
+      "D": "Sadece sayısal ve sürekli verilerle çalışarak işlemci gücünden tasarruf sağlaması.",
+      "E": "Eğitim sürecinde eğitim/test bölünmesine kesinlikle ihtiyaç duymaması."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Hiçbir algoritma aykırı değerleri 'otomatik' silmez, bu işlem ön işleme (EDA) aşamasında veri bilimci tarafından yapılır.",
+      "B": "Tam aksine, Karar Ağaçları aşırı öğrenmeye (overfitting) en yatkın algoritmaların başında gelir.",
+      "C": "Karar ağaçlarının en güçlü yönü 'White-box' (beyaz kutu) modeli olmasıdır. Alınan bir kararın hangi sorular (if-else) sonucunda alındığı görsel olarak çok net açıklanabilir.",
+      "D": "Karar ağaçları hem sayısal hem de kategorik (metinsel) verilerle çalışabilir.",
+      "E": "Modelin başarısını ölçmek için her algoritma eğitim ve test olarak bölünmüş verilere ihtiyaç duyar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Yorumlanabilirlik (Interpretability)",
+        "definition": "Bir makine öğrenmesi modelinin ulaştığı sonucun arkasındaki nedenlerin insanlar tarafından anlaşılabilir olma derecesi."
+      }
+    ]
+  },
+  {
+    "id": "w4-v009",
+    "week": 4,
+    "topic": "overfitting-kavrami",
+    "type": "verbal",
+    "tags": [
+      "overfitting",
+      "asiri-ogrenme",
+      "ezberleme"
+    ],
+    "sourceNotebook": null,
+    "question": "Makine öğrenmesi modellerinin eğitim sürecinde, modelin verideki genel örüntüyü öğrenmek yerine eğitim verisini birebir ezberlemesi durumuna ne ad verilir?",
+    "code": null,
+    "options": {
+      "A": "Eksik Öğrenme (Underfitting)",
+      "B": "Boyut Laneti (Curse of Dimensionality)",
+      "C": "Çapraz Doğrulama (Cross Validation)",
+      "D": "Aşırı Öğrenme (Overfitting)",
+      "E": "Veri Sızıntısı (Data Leakage)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Eksik öğrenme, modelin çok basit kalıp eğitim verisindeki temel örüntüleri bile yakalayamaması durumudur.",
+      "B": "Boyut laneti, veri setindeki sütun (özellik) sayısının çok artmasıyla algoritmaların performansının dramatik şekilde düşmesidir.",
+      "C": "Çapraz doğrulama, modelin performansını daha güvenilir ölçmek için veriyi farklı parçalara bölerek test etme yöntemidir.",
+      "D": "Aşırı öğrenme (Overfitting), modelin eğitim verisindeki detayları ve gürültüleri ezberleyerek, yeni ve hiç görmediği verilerde başarısız olması durumudur.",
+      "E": "Veri sızıntısı, modelin eğitim sırasında test verisine ait bilgileri bir şekilde önceden görmesi hatasıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Overfitting (Aşırı Öğrenme)",
+        "definition": "Modelin esnekliğinin çok yüksek olması nedeniyle eğitim verisini ezberlemesi ve genelleme yeteneğini kaybetmesi."
+      }
+    ]
+  },
+  {
+    "id": "w4-v010",
+    "week": 4,
+    "topic": "overfitting-cozumu",
+    "type": "verbal",
+    "tags": [
+      "random-forest",
+      "karar-agaci",
+      "cozum"
+    ],
+    "sourceNotebook": null,
+    "question": "Karar Ağaçları'nın (Decision Trees) en büyük problemi olan ezberleme (Overfitting) sorununu aşmak için, birden fazla ağacın bir araya getirilerek ortak karar almasını sağlayan algoritma aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "K-En Yakın Komşu (KNN)",
+      "B": "Destek Vektör Makineleri (SVM)",
+      "C": "Rassal Orman (Random Forest)",
+      "D": "Lojistik Regresyon (Logistic Regression)",
+      "E": "K-Ortalamalar (K-Means)"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "KNN, verilerin birbirine olan uzaklıklarını (öklid vb.) hesaplayarak sınıflandırma yapan farklı bir algoritmadır.",
+      "B": "SVM, sınıflar arasına en geniş marjlı bir hiperdüzlem çizerek ayrım yapmaya çalışan bir algoritmadır.",
+      "C": "Rassal Orman (Random Forest), çok sayıda Karar Ağacı oluşturup bunların tahminlerinin ortalamasını (veya çoğunluk oyunu) alarak tek bir ağacın ezberleme zafiyetini ortadan kaldıran ensemble (topluluk) algoritmasıdır.",
+      "D": "Lojistik regresyon, olasılık temelli ikili sınıflandırma yapan doğrusal bir modeldir.",
+      "E": "K-Means, etiketli verilerle değil, etiketsiz verilerle kümeleme yapan denetimsiz bir algoritmadır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Ensemble Learning (Topluluk Öğrenmesi)",
+        "definition": "Birden fazla zayıf makine öğrenmesi modelinin bir araya getirilerek daha güçlü ve genellenebilir tek bir model oluşturulması."
+      }
+    ]
+  },
+  {
+    "id": "w4-v011",
+    "week": 4,
+    "topic": "overfitting-tespiti",
+    "type": "verbal",
+    "tags": [
+      "grafik",
+      "loss",
+      "zaman"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir makine öğrenmesi modelinin eğitim sürecinde çizilen Zaman (Time) ve Hata (Loss) grafiği incelendiğinde, modelin Aşırı Öğrenmeye (Overfitting) başladığı kırılma noktası nasıl tespit edilir?",
+    "code": null,
+    "options": {
+      "A": "Hata çizgisinin sıfıra ulaştıktan sonra tamamen yatay bir seyir izlemeye başladığı noktada.",
+      "B": "Hata miktarının düşüş trendini bitirip aniden yukarı doğru (artmaya) başladığı dip noktada.",
+      "C": "Eğitim süresinin başlangıcında hatanın en yüksek olduğu tepe noktasında.",
+      "D": "Zaman ve Hata çizgilerinin birbirini keserek çapraz bir şekilde ilerlediği noktada.",
+      "E": "Hata oranının negatif değerlere düşerek eksili sayılara ulaştığı ilk noktada."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Hata sıfırda yatay kalıyorsa model mükemmel öğrenmiş (veya test verisi sızmış) olabilir, ancak bu overfitting'in standart göstergesi değildir.",
+      "B": "Eğitim ilerledikçe hata azalır. Ancak bir noktadan sonra model veriyi ezberlemeye başladığında, yeni/test verilerindeki genelleme yeteneği kaybolur ve test hatası (Loss) tekrar yükselişe geçer. Bu dip nokta, eğitimin kesilmesi gereken yerdir.",
+      "C": "Başlangıçta hatanın yüksek olması doğaldır, model henüz hiçbir şey öğrenmemiştir.",
+      "D": "Zaman ve hata aynı eksenlerde ölçülen kıyaslanabilir iki bağımsız metrik değildir, kesişimleri anlamsızdır.",
+      "E": "Kayıp (Loss) fonksiyonları mutlak veya karesel hataları ölçtüğü için negatif değer almazlar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Loss Function (Kayıp Fonksiyonu)",
+        "definition": "Modelin yaptığı tahminler ile gerçek değerler arasındaki farkı hesaplayan ve minimize edilmeye çalışılan matematiksel fonksiyon."
+      }
+    ]
+  },
+  {
+    "id": "w4-v012",
+    "week": 4,
+    "topic": "karar-agaci-olcutleri",
+    "type": "verbal",
+    "tags": [
+      "entropy",
+      "gini",
+      "saflik"
+    ],
+    "sourceNotebook": null,
+    "question": "Karar Ağaçları algoritmasında, veri setini bölecek en iyi özelliğin (Kök Düğüm) seçilmesi için 'Saflık' ve 'Karışıklık' hesaplamaları yapılır. Bu hesaplamalarda sıklıkla kullanılan ve Scikit-learn kütüphanesinin de varsayılan olarak kabul ettiği ölçüm yöntemi aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Öklid Uzaklığı (Euclidean Distance)",
+      "B": "Korelasyon Katsayısı (Correlation Coefficient)",
+      "C": "Gini İndeksi (Gini Index)",
+      "D": "Bilgi Kazancı (Entropy)",
+      "E": "Standart Sapma (Standard Deviation)"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Öklid uzaklığı, verilerin uzaysal düzlemdeki mesafelerini ölçer; Karar Ağaçları mesafe tabanlı değil kural tabanlıdır.",
+      "B": "Korelasyon, iki değişken arasındaki doğrusal ilişkinin yönünü ve gücünü ölçer.",
+      "C": "Gini İndeksi, bir düğümdeki rastgele seçilmiş bir elemanın yanlış sınıflandırılma olasılığını ölçen karesel bir saflık ölçütüdür ve Scikit-learn'de Karar Ağaçları için varsayılan (default) parametredir.",
+      "D": "Entropy (Bilgi Kazancı) de bir saflık ölçütüdür ancak logaritmik hesaplandığı için Gini'ye göre daha yavaştır ve varsayılan parametre değildir.",
+      "E": "Standart sapma, verilerin ortalamaya göre ne kadar yayıldığını ölçen istatistiksel bir metrik olup düğüm saflığı için doğrudan kullanılmaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "Gini İndeksi",
+        "definition": "Veri setindeki sınıfların karışıklığını karesel olarak ölçen ve 0'a (tam saflık) yaklaştıkça iyi kabul edilen ayrıştırma metriği."
+      }
+    ]
+  },
+  {
+    "id": "w4-v013",
+    "week": 4,
+    "topic": "entropy-kavrami",
+    "type": "verbal",
+    "tags": [
+      "entropy",
+      "bilgi-kazanci",
+      "karisiklik"
+    ],
+    "sourceNotebook": null,
+    "question": "Karar Ağaçlarında kullanılan Entropy (Bilgi Kazancı) ölçümünde, hesaplanan değerin tam olarak '1' çıkması ne anlama gelmektedir?",
+    "code": null,
+    "options": {
+      "A": "Düğümdeki verilerin tamamen saf olduğunu ve bölünmenin tamamlandığını.",
+      "B": "Düğümdeki verilerin eşit şekilde iki farklı sınıfa dağıldığını ve maksimum belirsizlik olduğunu.",
+      "C": "Modelin aşırı öğrenme (overfitting) problemine yakalandığını.",
+      "D": "Hedef değişkenin (Y) sayısal değil kategorik olduğunu.",
+      "E": "Eğitim sürecinin başarıyla sonlandığını ve doğruluğun %100 olduğunu."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Veriler tamamen saf ise (hepsi aynı sınıfa aitse) belirsizlik yoktur ve Entropy değeri '0' çıkar.",
+      "B": "Entropy 0 ile 1 arasında değer alır. Değerin 1 çıkması, düğüm içindeki sınıfların tam yarı yarıya (Örn: 50 Evet, 50 Hayır) olduğu, yani belirsizliğin ve karışıklığın maksimum zirvede olduğu anlamına gelir.",
+      "C": "Entropy'nin 1 çıkması o anki düğümün durumuyla ilgilidir, modelin genel ezberleme durumuyla doğrudan ilişkili değildir.",
+      "D": "Entropy zaten kategorik sınıfların ayrıştırılmasında kullanılır, ancak 1 çıkmasının anlamı sınıf dağılımının eşitliğidir.",
+      "E": "Entropy bir doğruluk (accuracy) ölçütü değil, verinin bölünmeden önceki veya sonraki karışıklık ölçütüdür."
+    },
+    "relatedTerms": [
+      {
+        "term": "Entropy",
+        "definition": "Termodinamikten ödünç alınan bir terim olup, veri madenciliğinde bir sistemin (veya veri kümesinin) içerdiği belirsizlik ve düzensizlik miktarını ifade eder."
+      }
+    ]
+  },
+  {
+    "topic": "kok-dugum-secimi",
+    "type": "verbal",
+    "tags": [
+      "karar-agaci",
+      "kok-dugum",
+      "saflik"
+    ],
+    "sourceNotebook": null,
+    "question": "Karar ağacında kök düğümde hangi özelliğin yer alacağına karar verilirken temel olarak hangi ilke dikkate alınır?",
+    "code": null,
+    "options": {
+      "A": "Veri setindeki sütunların alfabetik sırası esas alınır.",
+      "B": "En çok eksik veri içeren sütun seçilir ki önce o sorun çözülsün.",
+      "C": "Veriyi en saf alt gruplara ayıran, yani karışıklığı en fazla azaltan özellik seçilir.",
+      "D": "Sadece sayısal sütunlar kök olabilir; kategorik sütunlar kesinlikle kullanılamaz.",
+      "E": "İlk olarak hedef değişkenle aynı isim kök düğüme yazılır."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. Karar ağacı alfabetik sıraya göre değil, ayrıştırma başarısına göre bölme yapar.",
+      "B": "Yanlış. Eksik veri oranı veri temizliğinde önemlidir; kök düğüm seçiminde doğrudan ana kriter değildir.",
+      "C": "Doğru. Kök düğüm, veriyi en iyi bölen yani saflığı artırıp impurity değerini düşüren özellikten seçilir. Bu karar genellikle Gini veya Entropy gibi ölçütlerle verilir.",
+      "D": "Yanlış. Karar ağaçları uygun şekilde işlendiğinde kategorik değişkenlerle de çalışabilir.",
+      "E": "Yanlış. Hedef değişken tahmin edilmek istenen çıktıdır; kök düğüm ise girdilerden seçilir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Kök Düğüm (Root Node)",
+        "definition": "Karar ağacının en üstünde yer alan ve veriyi ilk kez en iyi şekilde bölen başlangıç düğümü."
+      }
+    ],
+    "id": "w4-v014",
+    "week": 4
+  },
+  {
+    "id": "w4-v015",
+    "week": 4,
+    "topic": "ml-pipeline",
+    "type": "verbal",
+    "tags": [
+      "pipeline",
+      "denklem",
+      "agirlik"
+    ],
+    "sourceNotebook": null,
+    "question": "Makine öğrenmesi eğitim süreci temel olarak 'f(x) = Y' denklemi etrafında şekillenir. Bu denklemde, modelin eğitim aşamasında (fit) bulmaya ve optimize etmeye çalıştığı temel unsur aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "X (Girdi Değişkenleri)",
+      "B": "Y (Hedef Değişken)",
+      "C": "W (Ağırlıklar / Weights)",
+      "D": "C (Sabit Korelasyon Katsayısı)",
+      "E": "P (Tahmin Edilen Doğruluk)"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "X, veri setimizde zaten var olan ve modele sunduğumuz girdi sütunlarıdır (Örn: Yaş, maaş). Model bunları bulmaya çalışmaz.",
+      "B": "Y, zaten geçmiş verilerde bildiğimiz ve modele öğrettiğimiz hedef sonuçlardır.",
+      "C": "Modelin asıl görevi, X girdilerini matematiksel işleme sokup Y'ye en yakın sonucu verecek olan W (Weight - Ağırlık) katsayılarını bulmaktır. Eğitimin amacı bu W'leri optimize etmektir.",
+      "D": "Makine öğrenmesi denkleminde optimize edilen ana parametre korelasyon sabiti değil, özelliklerin ağırlıklarıdır.",
+      "E": "Doğruluk (Accuracy) eğitim sonucunda hesaplanan bir metriktir, optimize edilen içsel bir matematiksel parametre değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Ağırlık (Weight - W)",
+        "definition": "Her bir bağımsız değişkenin (özelliğin), hedef değişken üzerindeki etkisini veya önem derecesini belirleyen matematiksel katsayı."
+      }
+    ]
+  },
+  {
+    "id": "w4-v016",
+    "week": 4,
+    "topic": "train-test-ayrimi",
+    "type": "verbal",
+    "tags": [
+      "veri-ayrimi",
+      "test",
+      "egitim"
+    ],
+    "sourceNotebook": null,
+    "question": "Makine öğrenmesi projelerinde veri setinin tamamının eğitime sokulmayıp genellikle %80 Eğitim (Train) ve %20 Test olarak ikiye bölünmesinin temel amacı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Veri setinin bilgisayarın RAM kapasitesini aşmasını engellemek.",
+      "B": "Modelin eğitim süresini kısaltarak projeyi daha hızlı teslim edebilmek.",
+      "C": "Modelin hiç görmediği veriler üzerindeki performansını ölçerek ezberleyip ezberlemediğini anlamak.",
+      "D": "Test verilerini kullanarak eksik verilerin (NaN) nasıl doldurulacağına karar vermek.",
+      "E": "Veri setindeki dengesiz sınıf dağılımını (Imbalanced Data) otomatik olarak dengelemek."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Veri bölme işleminin RAM veya donanım kapasitesiyle hiçbir ilgisi yoktur.",
+      "B": "Eğitim süresini kısaltmak bir yan etki olabilir ancak asıl bilimsel amaç bu değildir.",
+      "C": "Eğer model tüm veriyi görürse, o verileri ezberleyebilir. Modelin gerçekten genel bir kural öğrenip öğrenmediğini test etmek için ona daha önce hiç görmediği (%20'lik) bir veri seti sunulur.",
+      "D": "Eksik verilerin doldurulması veri ön işleme (EDA) adımıdır, test ayırımıyla ilgili değildir.",
+      "E": "Sınıf dengesizliği SMOTE gibi farklı tekniklerle çözülür, veriyi ikiye bölmek denge sağlamaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "Train/Test Split",
+        "definition": "Veri setinin modelin öğrenmesi ve ardından bağımsız olarak değerlendirilmesi amacıyla genellikle 80/20 veya 70/30 oranlarında bölünmesi işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w4-v017",
+    "week": 4,
+    "topic": "confusion-matrix",
+    "type": "verbal",
+    "tags": [
+      "degerlendirme",
+      "hata-matrisi",
+      "matris"
+    ],
+    "sourceNotebook": null,
+    "question": "Sınıflandırma algoritmalarının değerlendirilmesinde kullanılan 'Confusion Matrix' (Karmaşıklık Matrisi) modelin hangi yönünü analiz etmek için kullanılır?",
+    "code": null,
+    "options": {
+      "A": "Modelin eğitim süresince ne kadar bellek (RAM) tükettiğini görselleştirmek.",
+      "B": "Gerçek değerler ile tahmin edilen değerleri çapraz kıyaslayarak modelin nerede kafasının karıştığını görmek.",
+      "C": "Veri setindeki bağımsız değişkenlerin birbirleriyle olan korelasyon şiddetini ölçmek.",
+      "D": "Karar ağaçlarındaki kök düğümün hangi Gini indeksine sahip olduğunu hesaplamak.",
+      "E": "Eksik ve aykırı değerlerin veri setine ne kadar zarar verdiğini oranlamak."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Karmaşıklık matrisi sistem kaynaklarını değil, tahmin doğruluğunu ölçer.",
+      "B": "Confusion Matrix, modelin 'Gerçekte A olanı A tahmin ettikleri', 'Gerçekte A olanı B tahmin ettikleri (hata)' şeklinde gerçek ve tahmin değerlerini matris üzerinde çapraz göstererek modelin tam olarak hangi sınıflarda hata yaptığını (kafasının karıştığını) gösterir.",
+      "C": "Değişkenlerin birbiriyle ilişkisi Korelasyon Matrisi (Heatmap) ile incelenir, Karmaşıklık Matrisi ile değil.",
+      "D": "Gini indeksi ağacın eğitim sürecindeki içsel bir metriktir, tahmin sonrası değerlendirme metriği değildir.",
+      "E": "Aykırı ve eksik değer analizi veri ön işleme aşamasında yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Confusion Matrix",
+        "definition": "Bir sınıflandırma modelinin performansını Gerçek Pozitif, Yanlış Pozitif, Gerçek Negatif ve Yanlış Negatif değerleriyle özetleyen tablo."
+      }
+    ]
+  },
+  {
+    "id": "w4-v018",
+    "week": 4,
+    "topic": "data-leakage",
+    "type": "verbal",
+    "tags": [
+      "veri-sizintisi",
+      "on-isleme",
+      "pipeline"
+    ],
+    "sourceNotebook": null,
+    "question": "Makine Öğrenmesi Boru Hattında (ML Pipeline), veri ön işleme (preprocessing) adımlarının veri 'Train' ve 'Test' olarak ikiye ayrıldıktan SONRA yapılmasının temel nedeni nedir?",
+    "code": null,
+    "options": {
+      "A": "Eğitim verisinin bellekte kapladığı alanı minimize ederek süreci hızlandırmak.",
+      "B": "Karar ağaçlarının derinliğini otomatik olarak ayarlayarak ezberlemeyi önlemek.",
+      "C": "Test verisindeki istatistiksel bilgilerin (ortalama vb.) eğitim sürecine sızmasını (Data Leakage) engellemek.",
+      "D": "Bağımsız değişkenler arasındaki korelasyonu artırarak modelin doğruluğunu yükseltmek.",
+      "E": "Makine öğrenmesi algoritmalarının kategorik verileri tanımasını kolaylaştırmak."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Bu işlemin sıralaması bellek optimizasyonu için değil, modelin güvenilirliği içindir.",
+      "B": "Ağaç derinliği (max_depth) modelin hiperparametresidir, veri bölme sırasıyla ilgisi yoktur.",
+      "C": "Eğer veri seti bölünmeden önce tüm verinin ortalaması alınarak eksik değerler doldurulursa veya ölçeklendirme yapılırsa, test verisinin bilgisi eğitim verisine karışmış olur. Buna Gelecekten Bilgi Sızması (Data Leakage) denir ve modelin başarısını yanıltıcı şekilde yüksek gösterir.",
+      "D": "Veri ön işleme sırası korelasyonu yapay olarak artırmak için kullanılmaz.",
+      "E": "Kategorik veri dönüşümü (Encoding) her iki durumda da yapılmalıdır, sıranın asıl nedeni sızıntıyı önlemektir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Data Leakage (Veri Sızıntısı)",
+        "definition": "Modelin eğitim aşamasında normalde erişememesi gereken test verisine ait bilgileri bir şekilde kullanması ve bu yüzden performansının gerçek dışı yüksek çıkması durumu."
+      }
+    ]
+  },
+  {
+    "id": "w4-v019",
+    "week": 4,
+    "topic": "kod-mantigi-fit",
+    "type": "verbal",
+    "tags": [
+      "python",
+      "scikit-learn",
+      "fit"
+    ],
+    "sourceNotebook": null,
+    "question": "Scikit-learn kütüphanesinde kullanılan `dt_model.fit(X_train, Y_train)` komutunun makine öğrenmesi sürecindeki işlevi aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Modelin daha önce hiç görmediği veriler üzerinde tahmin yapmasını sağlamak.",
+      "B": "Eğitim verilerini (X_train) ve hedefleri (Y_train) kullanarak modelin matematiksel ağırlıkları (örüntüyü) öğrenmesini sağlamak.",
+      "C": "Veri setindeki eksik değerleri ortalama değerler ile otomatik olarak doldurmak.",
+      "D": "Modelin doğruluk oranını (Accuracy) yüzdelik bir değer olarak ekrana yazdırmak.",
+      "E": "Veri setini %80 eğitim ve %20 test olacak şekilde rastgele iki parçaya bölmek."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Tahmin yapma işlemi `predict()` fonksiyonu ile gerçekleştirilir.",
+      "B": "`fit()` kelime anlamı olarak uydurmak/oturtmak demektir. Algoritmanın X verilerini Y sonuçlarına götürecek katsayıları/ağırlıkları bularak öğrenme (eğitim) işlemini gerçekleştirdiği komuttur.",
+      "C": "Eksik değer doldurma işlemi `SimpleImputer` veya `fillna()` gibi ön işleme komutlarıyla yapılır.",
+      "D": "Doğruluk oranı yazdırmak için `accuracy_score` gibi değerlendirme metrikleri kullanılır.",
+      "E": "Veriyi bölme işlemi `train_test_split` fonksiyonu ile yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "fit()",
+        "definition": "Makine öğrenmesi modelinin verilen veriler üzerinden eğitim sürecini başlatıp tamamlayan ve modelin iç parametrelerini ayarlayan fonksiyon."
+      }
+    ]
+  },
+  {
+    "id": "w4-v020",
+    "week": 4,
+    "topic": "kod-mantigi-predict",
+    "type": "verbal",
+    "tags": [
+      "python",
+      "scikit-learn",
+      "predict"
+    ],
+    "sourceNotebook": null,
+    "question": "Eğitimi tamamlanmış bir makine öğrenmesi modelinde, `y_pred = dt_model.predict(X_test)` komutu çalıştırıldığında arka planda gerçekleşen olay nedir?",
+    "code": null,
+    "options": {
+      "A": "Model, test verilerinin girdi özelliklerine (X_test) bakarak öğrendiği kurallar çerçevesinde hedef sonuçları (Y) tahmin eder.",
+      "B": "Model, test verilerini kullanarak kendi içindeki hiperparametreleri yeniden günceller ve öğrenmeye devam eder.",
+      "C": "Eğitim verisi ile test verisi arasındaki istatistiksel farklar hesaplanarak bir hata matrisi oluşturulur.",
+      "D": "Veri setindeki kategorik değişkenler makinenin anlayabileceği sayısal değerlere (0 ve 1) dönüştürülür.",
+      "E": "Modelin aşırı öğrenme (overfitting) yapıp yapmadığını anlamak için zaman/kayıp grafiği çizilir."
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "`predict()` fonksiyonu, önceden eğitilmiş (fit edilmiş) modelin, hiç görmediği X_test girdilerini alıp, f(x) denklemini uygulayarak tahmin sonuçları (y_pred) üretmesini sağlar.",
+      "B": "Öğrenme işlemi sadece `fit()` fonksiyonunda olur. `predict()` aşamasında model yeni bir şey öğrenmez, sadece öğrendiklerini uygular.",
+      "C": "Hata matrisi (Confusion Matrix) tahminler yapıldıktan sonra ayrı bir fonksiyonla oluşturulur.",
+      "D": "Kategorik dönüştürme veri ön işleme aşamasında yapılır.",
+      "E": "Grafik çizimi matplotlib veya seaborn gibi kütüphanelerle manuel olarak yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "predict()",
+        "definition": "Eğitilmiş bir modelin, yeni ve etiketleri bilinmeyen veriler için tahmin edilen çıktı değerlerini ürettiği fonksiyon."
+      }
+    ]
+  },
+  {
+    "id": "w4-v022",
+    "week": 4,
+    "topic": "karar-agaci-durma-kriteri",
+    "type": "verbal",
+    "tags": [
+      "karar-agaci",
+      "dallanma",
+      "max_depth"
+    ],
+    "sourceNotebook": null,
+    "question": "Karar Ağaçları (Decision Trees) algoritmasında, ağacın dallanma ve alt gruplara ayrılma işlemi hangi koşul gerçekleştiğinde doğal olarak durur?",
+    "code": null,
+    "options": {
+      "A": "Veri setindeki satır sayısı 100'ün altına düştüğünde.",
+      "B": "Algoritmanın çalışma süresi 1 dakikayı aştığında.",
+      "C": "Oluşan düğümdeki veriler tamamen saf hâle geldiğinde (herkes aynı sınıfta olduğunda).",
+      "D": "Eğitim verisindeki tüm sayısal değerler kategorik değerlere dönüştüğünde.",
+      "E": "Ağacın kök düğümü Gini indeksi hesaplamasında 1 sonucunu verdiğinde."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Dallanmanın durması satır sayısına değil, o satırların sınıfsal saflığına bağlıdır (dışarıdan min_samples_split verilmediği sürece).",
+      "B": "Zaman kısıtlaması Karar Ağaçlarının doğal bir durma kriteri değildir.",
+      "C": "Karar ağacı, bir yapraktaki (node) tüm veriler aynı sınıfa (örn: hepsi 'Evet') ait olana kadar, yani veri tamamen saf olana kadar dallanmaya devam eder. Bu doğal durma kriteridir.",
+      "D": "Algoritma veriyi dönüştürmez, sadece veriyi böler.",
+      "E": "Gini indeksinin 1 olması durumu ağacın durmasını değil, maksimum karışıklığı ifade eder."
+    },
+    "relatedTerms": [
+      {
+        "term": "Durdurma Kriteri (Stopping Criterion)",
+        "definition": "Bir Karar Ağacının gereksiz yere büyümesini (overfitting) engellemek için dışarıdan verilen (örn: max_depth) veya doğal olarak oluşan (tam saflık) kurallar bütünü."
+      }
+    ]
+  },
+  {
+    "id": "w4-v023",
+    "week": 4,
+    "topic": "veri-on-isleme-eda",
+    "type": "verbal",
+    "tags": [
+      "eda",
+      "kesifsel-analiz",
+      "veri-on-isleme"
+    ],
+    "sourceNotebook": null,
+    "question": "Keşifsel Veri Analizi (EDA) sürecinde yapılan temel işlemlerden biri aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Seçilen algoritmanın matematiksel formüllerini rapora detaylıca yazmak.",
+      "B": "Veri setindeki eksikleri silmek veya doldurmak ve gerekli dönüşümleri (Encoding) yapmak.",
+      "C": "Eğitim verisini farklı makine öğrenmesi algoritmalarıyla aynı anda test etmek.",
+      "D": "Veri setini başka bir veri setiyle birleştirerek satır sayısını 100.000'e çıkarmak.",
+      "E": "Modelin tahmin sonuçlarını bir web sitesi arayüzüne (Deploy) entegre etmek."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Bu işlem model bilgisini teorik olarak açıklamakla ilgilidir; EDA ise verinin kendisini anlamaya odaklanır.",
+      "B": "Keşifsel Veri Analizi (EDA), ham verinin incelenmesi, eksik verilerin (NaN) giderilmesi, aykırı değerlerin temizlenmesi ve kategorik verilerin sayısal değerlere dönüştürülmesi (Encoding) işlemlerini kapsar.",
+      "C": "Farklı algoritmaları test etmek model seçimi aşamasıdır.",
+      "D": "Veri büyütmek EDA amacı değildir; burada amaç veriyi temizlemek ve anlamlandırmaktır.",
+      "E": "Deploy (Canlıya alma) işlemi pipeline'ın en son adımıdır, veri ön işleme (EDA) adımı değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "EDA (Exploratory Data Analysis)",
+        "definition": "Veri setinin temel özelliklerini özetlemek, anormallikleri tespit etmek ve veriyi modellemeye hazır hale getirmek için yapılan ilk inceleme süreci."
+      }
+    ]
+  },
+  {
+    "id": "w4-v024",
+    "week": 4,
+    "topic": "optimizasyon-parametreleri",
+    "type": "verbal",
+    "tags": [
+      "parametre",
+      "optimizasyon",
+      "ayar"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir makine öğrenmesi modelinin başarısını artırmak için yapılabilecek geçerli ayarlama örneği aşağıdakilerden hangisi DEĞİLDİR?",
+    "code": null,
+    "options": {
+      "A": "Eğitim ve Test (Train/Test) veri ayırma oranını değiştirmek.",
+      "B": "Karar ağacının maksimum derinlik (max_depth) ayarını sınırlandırmak.",
+      "C": "Bölünme ölçütü olarak 'Gini' yerine 'Entropy' kullanmak.",
+      "D": "Veri setindeki aykırı değerleri (outliers) tespit edip temizlemek.",
+      "E": "Kullanılan programlama dilini Python'dan C++ diline çevirmek."
+    },
+    "correct": "E",
+    "explanations": {
+      "A": "Train/Test ayrım oranını (örn: 80/20'den 70/30'a) değiştirmek modelin performansını etkileyebilecek bir müdahaledir.",
+      "B": "Ağacın derinliğini (max_depth) değiştirmek doğrudan bir hiperparametre optimizasyonudur.",
+      "C": "Matematiksel ölçütü (Gini/Entropy) değiştirmek standart bir model ayarıdır.",
+      "D": "Veri ön işleme adımlarında aykırı değerleri silmek veri kaynaklı bir model optimizasyonudur.",
+      "E": "Programlama dilini değiştirmek modelin matematiksel performansını veya öğrenme mantığını değiştirmez, bu bir algoritma parametresi değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Hiperparametre (Hyperparameter)",
+        "definition": "Modelin kendi kendine öğrenemediği, veri bilimci tarafından eğitim öncesinde dışarıdan manuel olarak ayarlanan yapılandırma değerleri."
+      }
+    ]
+  },
+  {
+    "id": "w4-v025",
+    "week": 4,
+    "topic": "tavsiye-sistemleri",
+    "type": "verbal",
+    "tags": [
+      "tavsiye-sistemleri",
+      "netflix",
+      "trendyol"
+    ],
+    "sourceNotebook": null,
+    "question": "Netflix'in 'Bunu izleyenler şunu da izledi' şeklindeki önerileri veya e-ticaret sitelerinin alışveriş sepeti aşamasında sunduğu alternatif ürünler, makine öğrenmesinin hangi pratik uygulamasının bir sonucudur?",
+    "code": null,
+    "options": {
+      "A": "Regresyon ile Fiyat Tahmini",
+      "B": "Tavsiye Sistemleri (Recommendation Systems)",
+      "C": "Doğal Dil İşleme (NLP) ile Duygu Analizi",
+      "D": "İstisna Analizi (Outlier Detection)",
+      "E": "Görüntü İşleme ve Nesne Tanıma"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Regresyon, sayısal bir değerin (örn: ev fiyatı) tahmin edilmesidir.",
+      "B": "Tavsiye Sistemleri, kullanıcıların geçmiş davranışlarındaki örüntüleri (pattern) keşfederek onlara ilgilerini çekebilecek yeni ürün veya içerikler sunan yapay zeka sistemleridir.",
+      "C": "Duygu analizi, metinlerin olumlu/olumsuz olarak sınıflandırılmasıdır.",
+      "D": "İstisna analizi, kredi kartı dolandırıcılığı gibi normal dışı hareketleri yakalar.",
+      "E": "Nesne tanıma, görsellerin içindeki arabayı, insanı vb. tespit etmektir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Tavsiye Sistemleri (Recommendation Systems)",
+        "definition": "Kullanıcı tercihlerini ve geçmiş verilerini analiz ederek kişiselleştirilmiş ürün, hizmet veya içerik önerileri sunan bilgi filtreleme sistemleri."
+      }
+    ]
+  },
+  {
+    "id": "w4-v026",
+    "week": 4,
+    "topic": "siniflandirma-algoritmalari-listesi",
+    "type": "verbal",
+    "tags": [
+      "siniflandirma",
+      "algoritmalar",
+      "denetimli"
+    ],
+    "sourceNotebook": null,
+    "question": "Aşağıdaki algoritmalardan hangisi, Denetimli Öğrenme (Supervised Learning) çatısı altında yer alan bir 'Sınıflandırma (Classification)' algoritması DEĞİLDİR?",
+    "code": null,
+    "options": {
+      "A": "Karar Ağaçları (Decision Tree)",
+      "B": "K-En Yakın Komşu (KNN)",
+      "C": "Naive Bayes",
+      "D": "K-Ortalamalar (K-Means)",
+      "E": "Destek Vektör Makineleri (SVM)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Karar ağaçları temel bir sınıflandırma algoritmasıdır.",
+      "B": "KNN, etiketli verilerle çalışan bir sınıflandırma algoritmasıdır.",
+      "C": "Naive Bayes, olasılık tabanlı bir sınıflandırma algoritmasıdır.",
+      "D": "K-Means, hedef değişkeni (etiketi) olmayan verilerde kullanılan, Denetimsiz Öğrenme çatısı altındaki bir Kümeleme (Clustering) algoritmasıdır.",
+      "E": "SVM, verileri hiperdüzlemlerle ayıran güçlü bir sınıflandırma algoritmasıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Sınıflandırma (Classification)",
+        "definition": "Girdi verilerini önceden tanımlanmış ayrık sınıflara veya kategorilere atamayı amaçlayan denetimli öğrenme türü."
+      }
+    ]
+  },
+  {
+    "id": "w4-v027",
+    "week": 4,
+    "topic": "denetimsiz-ogrenme-amaci",
+    "type": "verbal",
+    "tags": [
+      "denetimsiz-ogrenme",
+      "oruntu",
+      "yapi"
+    ],
+    "sourceNotebook": null,
+    "question": "Denetimsiz Öğrenme (Unsupervised Learning) algoritmalarının temel amacı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Gelecekteki sayısal değerlerin ne olacağını yüksek doğrulukla tahmin etmek.",
+      "B": "Önceden etiketlenmiş geçmiş verilere bakarak yeni verilerin hangi sınıfa ait olduğuna karar vermek.",
+      "C": "Verinin içindeki gizli yapıyı, desenleri ve doğal gruplaşmaları (örüntüleri) keşfetmek.",
+      "D": "Modelin eğitim süresince yaptığı hataları minimuma indirerek bir denklem katsayısı bulmak.",
+      "E": "Eksik verileri istatistiksel yöntemlerle doldurarak veri setini temizlemek."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Sayısal değer tahmini Denetimli Öğrenme olan Regresyonun amacıdır.",
+      "B": "Etiketli verilerle yeni sınıf atamak Denetimli Öğrenme olan Sınıflandırmanın amacıdır.",
+      "C": "Denetimsiz öğrenmede etiket (hedef) yoktur. Amaç, verinin kendi içindeki doğal yapısını, benzerliklerini ve örüntülerini (pattern) ortaya çıkarmaktır.",
+      "D": "Hata minimize ederek katsayı (ağırlık) bulmak genellikle denetimli öğrenme eğitim süreçlerinin (özellikle regresyon ve yapay sinir ağları) temelidir.",
+      "E": "Veri temizleme algoritmik bir öğrenme değil, ön işleme (EDA) adımıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Örüntü (Pattern)",
+        "definition": "Veriler arasında var olan, ilk bakışta fark edilemeyen ancak algoritmalarla ortaya çıkarılabilen anlamlı ilişki ve kurallar bütünü."
+      }
+    ]
+  },
+  {
+    "id": "w4-v028",
+    "week": 4,
+    "topic": "x-ve-y-ayrimi",
+    "type": "verbal",
+    "tags": [
+      "girdi",
+      "hedef",
+      "x-y"
+    ],
+    "sourceNotebook": null,
+    "question": "Makine öğrenmesi eğitim süreci (Pipeline) adımlarından 'Segregation' (X ve Y Ayrımı) aşamasında ayrıştırılan X ve Y kavramlarının doğru tanımı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "X test verilerini, Y ise eğitim verilerini temsil eder.",
+      "B": "X tahmin edilmek istenen sonuç sütununu, Y ise girdi özelliklerini temsil eder.",
+      "C": "X modelin doğru tahminlerini, Y ise modelin hatalı tahminlerini temsil eder.",
+      "D": "X tahmin yapmak için kullanılacak girdi sütunlarını (Features), Y ise tahmin edilmek istenen hedef sütununu (Label) temsil eder.",
+      "E": "X sayısal veri tiplerini, Y ise metinsel (kategorik) veri tiplerini temsil eder."
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Test ve eğitim verileri Train ve Test olarak adlandırılır.",
+      "B": "Bu tanım tam tersidir. X girdiler, Y sonuçtur.",
+      "C": "Doğru ve hatalı tahminler Confusion Matrix üzerinde incelenir.",
+      "D": "Matematiksel f(x)=Y denkleminde olduğu gibi; X (Girdiler/Features) modele verilen özelliklerdir (yaş, eğitim vb.), Y (Hedef/Label) ise modelin bulmaya çalıştığı sonuçtur (maaş, kredi onayı vb.).",
+      "E": "X ve Y ayrımının veri tipleriyle (sayısal/metinsel) ilgisi yoktur, işlevleriyle (girdi/çıktı) ilgisi vardır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Feature (Özellik - X)",
+        "definition": "Bir makine öğrenmesi modeline tahmin yapabilmesi için sunulan, veri setindeki bağımsız değişkenlerin her biri."
+      }
+    ]
+  },
+  {
+    "id": "w4-v029",
+    "week": 4,
+    "topic": "cocuk-soba-analojisi",
+    "type": "verbal",
+    "tags": [
+      "analoji",
+      "denetimli-ogrenme",
+      "etiketleme"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir çocuğun sobaya dokunduğunda elinin yanacağını veya koştuğunda düşeceğini büyüklerinden duyarak (uyarılarak) öğrenmesi süreci, makine öğrenmesindeki hangi kavrama analoji (benzetme) olarak kullanılmıştır?",
+    "code": null,
+    "options": {
+      "A": "Denetimsiz Öğrenme (Unsupervised Learning)",
+      "B": "Denetimli Öğrenme (Supervised Learning)",
+      "C": "Boyut İndirgeme (Dimensionality Reduction)",
+      "D": "K-Ortalamalar Kümelemesi (K-Means Clustering)",
+      "E": "Birliktelik Kuralları (Association Rules)"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Denetimsiz öğrenmede yönlendiren veya uyaran bir dış etken (etiket) yoktur.",
+      "B": "Büyüklerin çocuğu 'sobaya dokunma yanarsın' diyerek önceden uyarması, verilerin önceden 'etiketlenmesi' (Label) sürecini temsil eder. Bu durum Denetimli Öğrenme yaklaşımının en net analojisidir.",
+      "C": "Boyut indirgeme, veri setindeki sütun sayısını azaltma işlemidir.",
+      "D": "K-Means etiket olmadan verileri gruplamaya yarar.",
+      "E": "Birliktelik kuralları, ürünlerin birlikte satın alınma olasılıklarını inceler."
+    },
+    "relatedTerms": [
+      {
+        "term": "Denetimli Öğrenme (Supervised Learning)",
+        "definition": "Modelin, girdi verileri ile birlikte doğru çıktıların (etiketlerin) da sağlandığı bir veri seti üzerinde eğitildiği makine öğrenmesi yöntemi."
+      }
+    ]
+  },
+  {
+    "id": "w4-v030",
+    "week": 4,
+    "topic": "karar-agaci-yaprak-dugum",
+    "type": "verbal",
+    "tags": [
+      "yaprak",
+      "karar-agaci",
+      "sonuc"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir karar ağacında 'Maaşı 50.000 dolardan fazla mı?' ve 'Ulaşım 1 saatten fazla mı sürüyor?' gibi soruları geçtikten sonra ulaşılan 'Teklifi reddet' hücresi, ağacın anatomisinde hangi yapısal terimle ifade edilir?",
+    "code": null,
+    "options": {
+      "A": "Kök Düğüm (Root Node)",
+      "B": "Ara Düğüm (Internal Node)",
+      "C": "Kenar Çizgisi (Edge)",
+      "D": "Yaprak Düğüm (Leaf Node)",
+      "E": "Ağırlık Vektörü (Weight Vector)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Kök düğüm, ağacın en başındaki ilk sorudur.",
+      "B": "Ara düğümler, kök ile son karar arasında kalan diğer sorulardır.",
+      "C": "Kenarlar, hücreleri birbirine bağlayan oklar/çizgilerdir.",
+      "D": "Yaprak düğüm (Leaf Node), bölünmenin bittiği ve nihai kararın (Örn: Teklifi reddet) verildiği en son hücredir.",
+      "E": "Ağırlık vektörü, Karar Ağaçlarının kullandığı bir yapı değil, doğrusal cebir tabanlı algoritmaların terimidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Yaprak Düğüm (Leaf Node)",
+        "definition": "Karar ağacı yapısında alt dalları olmayan, sınıflandırma veya regresyon işleminin nihai sonucunu barındıran uç noktalar."
+      }
+    ]
+  },
+  {
+    "id": "w4-v031",
+    "week": 4,
+    "topic": "regresyon-algoritmalari",
+    "type": "verbal",
+    "tags": [
+      "regresyon",
+      "algoritmalar",
+      "denetimli"
+    ],
+    "sourceNotebook": null,
+    "question": "Aşağıdakilerden hangisi Denetimli Öğrenme çatısı altında yer alan ve sayısal (sürekli) çıktıları tahmin etmek için kullanılan 'Regresyon' algoritmalarından biridir?",
+    "code": null,
+    "options": {
+      "A": "Naive Bayes",
+      "B": "Apriori",
+      "C": "Ridge / Lasso",
+      "D": "DBSCAN",
+      "E": "Eclat"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Naive Bayes bir sınıflandırma algoritmasıdır.",
+      "B": "Apriori bir birliktelik kuralı (denetimsiz) algoritmasıdır.",
+      "C": "Ridge ve Lasso, Lineer Regresyonun aşırı öğrenmeyi (overfitting) engellemek için ceza katsayıları eklenmiş düzenlileştirilmiş (regularized) regresyon algoritmalarıdır.",
+      "D": "DBSCAN, yoğunluk tabanlı bir kümeleme (denetimsiz) algoritmasıdır.",
+      "E": "Eclat, sepet analizi için kullanılan bir birliktelik algoritmasıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Ridge / Lasso Regression",
+        "definition": "Doğrusal regresyon modellerinde çoklu bağlantı sorununu çözmek ve modelin karmaşıklığını cezalandırarak aşırı öğrenmeyi önlemek için kullanılan yöntemler."
+      }
+    ]
+  },
+  {
+    "id": "w4-v032",
+    "week": 4,
+    "topic": "kumeleme-algoritmalari",
+    "type": "verbal",
+    "tags": [
+      "kumeleme",
+      "algoritmalar",
+      "denetimsiz"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri setinde herhangi bir hedef değişken (Y) bulunmadığı durumlarda, verileri birbirlerine olan benzerliklerine göre gruplara ayırmak için aşağıdaki algoritmalardan hangisi tercih edilmelidir?",
+    "code": null,
+    "options": {
+      "A": "Lojistik Regresyon",
+      "B": "K-Means",
+      "C": "Karar Ağaçları (Decision Tree)",
+      "D": "K-En Yakın Komşu (KNN)",
+      "E": "Rassal Orman (Random Forest)"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Lojistik regresyon etiketli veri gerektiren bir sınıflandırıcıdır.",
+      "B": "K-Means, etiket bulunmayan veri setlerinde noktaların birbirine olan uzaklıklarına bakarak onları K adet kümeye ayıran en popüler Denetimsiz Öğrenme (Kümeleme) algoritmasıdır.",
+      "C": "Karar ağaçları denetimli öğrenme modelidir.",
+      "D": "KNN isim benzerliğine rağmen etiketli verilerle sınıflandırma yapan denetimli bir algoritmadır.",
+      "E": "Rassal Orman, etiketli verilerle çalışan ensemble bir algoritmadır."
+    },
+    "relatedTerms": [
+      {
+        "term": "K-Means",
+        "definition": "Veri noktalarını özelliklerine göre önceden belirlenmiş K sayısındaki merkeze (centroid) en yakın olacak şekilde kümelere ayıran algoritma."
+      }
+    ]
+  },
+  {
+    "id": "w4-v033",
+    "week": 4,
+    "topic": "pipeline-siralamasi",
+    "type": "verbal",
+    "tags": [
+      "pipeline",
+      "siralama",
+      "surec"
+    ],
+    "sourceNotebook": null,
+    "question": "Profesyonel bir Makine Öğrenmesi Boru Hattında (ML Pipeline), verinin yüklenmesi ve Keşifsel Analiz (EDA) adımlarından hemen sonra gelmesi gereken EN KRİTİK aşama aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Modelin Canlıya Alınması (Deploy)",
+      "B": "X (Girdi) ve Y (Hedef) Değişkenlerinin Ayrıştırılması",
+      "C": "Modelin Başarısının Ölçülmesi (Evaluation)",
+      "D": "Test Verisi Üzerinde Tahmin Yapılması (Predict)",
+      "E": "Aşırı Öğrenme Grafiğinin Çizilmesi"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Canlıya alma süreci (Deploy), tüm işlemler bitip model onaylandıktan sonraki en son adımdır.",
+      "B": "Veri yüklendikten ve temel yapısı anlaşıldıktan (EDA) sonra yapılacak ilk teknik adım, nelerin girdi (X) ve neyin tahmin edilecek hedef (Y) olduğunu makineye anlatmak için bu sütunları birbirinden ayırmaktır (Segregation).",
+      "C": "Başarı ölçümü eğitim bittikten sonra yapılır.",
+      "D": "Tahmin yapmak için önce modelin X ve Y ile eğitilmiş olması gerekir.",
+      "E": "Grafik çizimi eğitim sürecinin ortasında veya sonunda değerlendirme amaçlı yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "ML Pipeline",
+        "definition": "Verinin ham halden alınıp, işlenmesi, eğitilmesi ve nihai bir tahmin modeline dönüşmesine kadar geçen otomatikleştirilmiş adımlar silsilesi."
+      }
+    ]
+  },
+  {
+    "id": "w4-v034",
+    "week": 4,
+    "topic": "birliktelik-kurallari",
+    "type": "verbal",
+    "tags": [
+      "apriori",
+      "birliktelik",
+      "denetimsiz"
+    ],
+    "sourceNotebook": null,
+    "question": "Aşağıdaki algoritmalardan hangisi Denetimsiz Öğrenme (Unsupervised Learning) yaklaşımının 'Birliktelik Kuralları' alt dalında yer alan ve özellikle sepet analizi için kullanılan yöntemlerden biridir?",
+    "code": null,
+    "options": {
+      "A": "Apriori",
+      "B": "Hiyerarşik Kümeleme",
+      "C": "DBSCAN",
+      "D": "Lojistik Regresyon",
+      "E": "Lineer Regresyon"
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Apriori algoritması, veri tabanlarında sık geçen öğe kümelerini bulmak ve ürünler arasındaki birliktelik kurallarını (A'yı alan B'yi de alır) çıkarmak için kullanılan temel bir denetimsiz öğrenme yöntemidir.",
+      "B": "Hiyerarşik kümeleme bir birliktelik kuralı değil, kümeleme (clustering) algoritmasıdır.",
+      "C": "DBSCAN yoğunluk tabanlı bir kümeleme algoritmasıdır.",
+      "D": "Lojistik regresyon denetimli bir sınıflandırma algoritmasıdır.",
+      "E": "Lineer regresyon denetimli bir sayısal tahmin algoritmasıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Apriori Algoritması",
+        "definition": "Veri madenciliğinde sık öğe kümelerini bulmak ve boolean (var/yok) birliktelik kurallarını öğrenmek için kullanılan klasik bir algoritma."
+      }
+    ]
+  },
+  {
+    "id": "w4-v036",
+    "week": 4,
+    "topic": "karar-agaci-yorumlama",
+    "type": "verbal",
+    "tags": [
+      "gorsellestirme",
+      "karar-agaci",
+      "avantaj"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir veri bilimci, banka yöneticilerine müşterilerin kredi onay sürecini hangi kurallara göre belirlediklerini açıklamak zorundadır. Yöneticiler karmaşık matematiksel formüller yerine sürecin mantığını görmek istemektedir. Bu senaryoda veri bilimcinin aşağıdaki algoritmalardan hangisini kullanması sunum açısından en avantajlıdır?",
+    "code": null,
+    "options": {
+      "A": "Yapay Sinir Ağları (Deep Learning)",
+      "B": "Destek Vektör Makineleri (SVM)",
+      "C": "Karar Ağaçları (Decision Trees)",
+      "D": "K-Means Kümelemesi",
+      "E": "Ridge Regresyonu"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yapay sinir ağları 'Black-box' (kara kutu) modellerdir. Kararın neden alındığını insanlara açıklamak neredeyse imkânsızdır.",
+      "B": "SVM, verileri çok boyutlu uzayda ayırdığı için görselleştirilmesi ve iş yöneticilerine anlatılması zordur.",
+      "C": "Karar Ağaçları, insan mantığına en yakın şekilde (Eğer maaşı şu kadarsa -> Yaşı bu kadarsa -> Krediyi onayla) görselleştirilebilir bir akış şeması sunduğu için iş dünyasında açıklanabilirliği en yüksek modeldir.",
+      "D": "K-Means etiketli bir onay/red tahmini yapmaz, sadece gruplar.",
+      "E": "Ridge regresyonu kredi onayı gibi sınıflandırma (evet/hayır) süreçlerinden ziyade sayısal tahminler için kullanılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "White-box Model (Beyaz Kutu Modeli)",
+        "definition": "İç mekanizması, karar alma süreci ve parametrelerin sonuca etkisi kullanıcılar tarafından kolayca anlaşılabilen ve izlenebilen makine öğrenmesi modelleri."
+      }
+    ]
+  },
+  {
+    "id": "w4-v037",
+    "week": 4,
+    "topic": "model-ezberleme-yorumu",
+    "type": "verbal",
+    "tags": [
+      "ezberleme",
+      "test-verisi",
+      "genelleme"
+    ],
+    "sourceNotebook": null,
+    "question": "Eğitim verisi üzerinde %98 doğruluk (accuracy) ile çalışan bir model, test verisi üzerinde çalıştırıldığında doğruluk oranı aniden %60'a düşmektedir. Bu durum veri madenciliği terminolojisinde nasıl açıklanır?",
+    "code": null,
+    "options": {
+      "A": "Model, veri setindeki örüntüleri mükemmel bir şekilde genelleştirmiştir.",
+      "B": "Model, eğitim verisindeki bilgileri ezberlemiş ancak yeni durumlara yorum yapma yeteneğini kaybetmiştir.",
+      "C": "Test verisi ile eğitim verisi tamamen aynı kayıtlardan oluşmaktadır.",
+      "D": "Model, eksik öğrenme (underfitting) problemi yaşamaktadır.",
+      "E": "Kullanılan algoritma sadece denetimsiz öğrenme problemlerine uygundur."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Genelleştirme başarılı olsaydı, test verisinde de %98'e yakın bir sonuç alınırdı.",
+      "B": "Eğitim başarısı çok yüksekken, test başarısının çok düşük olması Aşırı Öğrenme'nin (Overfitting) klasik belirtisidir. Model soruları ve cevapları ezberlemiş, ancak mantığı (örüntüyü) öğrenmediği için yeni sorularda çuvallamıştır.",
+      "C": "Kayıtlar aynı olsaydı test skoru da %98 çıkardı.",
+      "D": "Eksik öğrenmede eğitim başarısı da çok düşük (%50-%60 gibi) çıkar.",
+      "E": "Doğruluk (accuracy) ölçümü denetimli öğrenmede yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Genelleme (Generalization)",
+        "definition": "Bir makine öğrenmesi modelinin, eğitim sırasında gördüğü verilerden çıkardığı kuralları, daha önce hiç görmediği yeni verilere başarılı bir şekilde uygulayabilme yeteneği."
+      }
+    ]
+  },
+  {
+    "id": "w4-v039",
+    "week": 4,
+    "topic": "degerlendirme-metrikleri",
+    "type": "verbal",
+    "tags": [
+      "metrik",
+      "evaluation",
+      "accuracy"
+    ],
+    "sourceNotebook": null,
+    "question": "Makine öğrenmesinde 'Model Evaluation' (Değerlendirme) aşamasında, modelin performansını ölçmek için sadece Accuracy (Doğruluk) metriğine bakmak her zaman yeterli değildir. Aşağıdakilerden hangisi bu aşamada kullanılan diğer değerlendirme metriklerinden biri DEĞİLDİR?",
+    "code": null,
+    "options": {
+      "A": "Precision (Kesinlik)",
+      "B": "Recall (Duyarlılık)",
+      "C": "F1 Score",
+      "D": "Confusion Matrix (Karmaşıklık Matrisi)",
+      "E": "Train/Test Split (Eğitim/Test Ayrımı)"
+    },
+    "correct": "E",
+    "explanations": {
+      "A": "Precision, modelin pozitif olarak tahmin ettiklerinin ne kadarının gerçekten pozitif olduğunu ölçen bir başarı metriğidir.",
+      "B": "Recall, gerçekte pozitif olanların ne kadarını modelin doğru yakalayabildiğini ölçen metriktir.",
+      "C": "F1 Score, Precision ve Recall değerlerinin harmonik ortalaması olan bir metriktir.",
+      "D": "Confusion Matrix, modelin yaptığı doğru ve yanlış tahminlerin tamamını gösteren temel değerlendirme aracıdır.",
+      "E": "Train/Test Split bir değerlendirme metriği değil, modeli eğitime hazırlamak için uygulanan bir veri hazırlama (bölme) işlemidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "F1 Score",
+        "definition": "Özellikle dengesiz (imbalanced) veri setlerinde, modelin performansını daha dengeli ölçmek için Kesinlik (Precision) ve Duyarlılık (Recall) metriklerinin harmonik ortalaması."
+      }
+    ]
+  },
+  {
+    "id": "w4-v040",
+    "week": 4,
+    "topic": "genel-kavram-sentezi",
+    "type": "verbal",
+    "tags": [
+      "sentez",
+      "veri-madenciligi",
+      "oruntu"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri madenciliğinin genel tanımı dikkate alındığında, bu disiplini geleneksel veri tabanı yönetiminden (sadece tablo oluşturup sorgu yazmaktan) ayıran en temel unsur aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Verilerin sadece bulut (cloud) sunucularda depolanmasını sağlaması.",
+      "B": "SQL sorguları yerine sadece Python programlama dilini zorunlu kılması.",
+      "C": "Tablolardaki verilerden makine öğrenmesi algoritmalarıyla anlamlı kurallar ve örüntüler (pattern) çıkarması.",
+      "D": "Veri setlerini görselleştirmek için her zaman üç boyutlu grafikler kullanması.",
+      "E": "Yalnızca yapılandırılmamış (metin, ses, video) veriler üzerinde çalışabilmesi."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Veri madenciliği yerel makinelerde de yapılabilir, bulut zorunluluğu yoktur.",
+      "B": "SQL veri madenciliği süreçlerinde de (özellikle veri çekme aşamasında) sıklıkla kullanılır, sadece Python zorunlu değildir.",
+      "C": "Geleneksel veri tabanları veriyi depolar ve basitçe listeler. Veri madenciliğinin farkı, bu yığınların içine dalıp makine öğrenmesi algoritmaları kullanarak gizli örüntüleri (pattern), trendleri ve tahminleme kurallarını keşfetmesidir.",
+      "D": "Görselleştirme boyutu analizin türüne göre değişir, üç boyut zorunluluğu yoktur.",
+      "E": "Veri madenciliği hem yapılandırılmış (tablosal) hem de yapılandırılmamış veriler üzerinde çalışır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Veri Madenciliği (Data Mining)",
+        "definition": "Büyük ölçekli veriler içerisinden, gelecekle ilgili tahmin yapmamızı sağlayacak gizli, anlamlı ve işe yarar örüntüleri algoritmalar vasıtasıyla keşfetme süreci."
+      }
+    ]
   }
 ]
