@@ -1,5 +1,5 @@
 ---
-created: 2026-03-103
+created: 2026-03-03
 title: "İrade Eğitimi: 3. Hafta (İzlenim)"
 ---
 Derste çokluğun kötü olduğu ima edildi. Çokluk, stoacıların fark yaratmayan dediği, ne iyi ne de kötü olan arasında oysa. Algılayana bağlıdır bunların neliği. Çok fazla seçenek olması, bunların iyi yahut kötü olduğu anlamına gelmiyor. Kötü olması da iyi olması da **evet**leyen ya da **hayır**layan faille kaim oysa.
