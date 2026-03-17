@@ -38,7 +38,7 @@ Nitekim Epiktetos, kuvvetle muhtemel hocanın kitaplarla meşgul olma arzusu iç
 
 Oyalanma amacıyla, bir şeyler öğrenmek amacıyla okunulan kitap Epiktetos'a göre köleliktir. Erdemin bilgisini vermeyecekse, erdemleri geliştirmem için teorik bir çerçeve sunmayacaksa Epiktetos'a göre yararsızdır nitekim o. Benzer bir biçimde Seneca'da da çok kişiden okumak yerine, az sayıda kişiden yapılan okumaları sürekli tekrarlamak gerektiğini, sürekli o az ama nitelikli kitap arasında okumalar yapmamız gerektiğini görüyoruz.
 
-Gelgelelim Kant'a. Hocanın Payot'un 20-30 kelimesi ile "Kant'a katılmıyorum, mantıklı bulmuyorum teorisini." demesine şaşırdım açıkçası. Nitekim ders boyunca yüzeysel eleştiri yapıyoruz diyerek eleştirimizin yüzeysel olmaması gerektiğini söyledikten sonra bu denli yüzeysel bir eleştiri yapmak epey çelişkili. Hocanın Kant'ı okuyup okumadığını da merak ediyorum açıkçası, umarım yalnızca Payot'un bağlamından koparılmış Kant yorumu ile söylemiyordur bunları.
+Gelgelelim Kant'a. Hocanın Payot'un 20-30 kelimesi ile "Kant'a katılmıyorum, mantıklı bulmuyorum teorisini." demesine şaşırdım açıkçası. Nitekim ders boyunca yüzeysel eleştiri yapıyoruz diyerek eleştirimizin yüzeysel olmaması gerektiğini söyledikten sonra bu denli yüzeysel bir eleştiri yapmak epey çelişkili. 
 
 Kant gibi bir filozofu birkaç cümlede çürütmek mümkün değil. Kaldı ki, Kant tamamıyla karakter değişmez diyen birisi de değil, hele Kant kaderci hiç değil. Bir kere, numenal alanda "önceden/sonradan seçti" diye bir şey söz konusu değil, nitekim numenal alanda zaman ve mekân gibi kavramlar söz konusu değil. Numenal benlik zamanın akışına tâbi değildir. Fenomenal dünyadaki eylemlerimizin nedenidir tabii, ancak kendisi bir neden tarafından belirlenmemiştir. Bu sebeple bu seçim geçmişte olup bitmiş ve bizi dondurmuş bir kader olarak değil, aklımızın her an gerçekleştirdiği, zaman-üstü bir ilk neden olma durumudur. Akıl, zaman içinde değişen duruma düşmez, belirlenen değil belirleyendir akıl. Benliğimizi seçmek dediğimiz şey Kant'ta ampirik karakterin (huy ve mizaç sahibi, görünen benlik) intelligible karakter (akıl sahibi benlik) tarafından belirlenmesidir. Huylarımız ve davranışlarımız bu numenal karakterin bir görünüşü yahut şemasıdır. Daha fazla konuşmayacağım bu hususta, zaten [[irade-egitimi-3|2. Kritik]] yazısında değindim bu mevzulara yüzeysel de olsa.
 
@@ -52,3 +52,6 @@ Benim itirazım tam da burada başlıyor: karakterin değişip değişmediği me
 
 
 
+### Kaynakça
+
+Epiktetos. (2013). Söylevler, (Çeviri: Birdal Akar). İstanbul: Divan Kitap.
