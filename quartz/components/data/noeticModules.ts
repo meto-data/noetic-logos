@@ -22,7 +22,7 @@ export const NOETIC_MODULES: NoeticModuleDefinition[] = [
   },
   {
     id: "turk-dili",
-    slugPattern: "turk-dili|türk-dili|turk-dili-1",
+    slugPattern: "turk-dili-1|türk-dili-1|/turk-dili$|/türk-dili$",
     title: "Türk Dili",
     periodLabel: "2. Sınıf • Güz",
     periodOrder: 1,
