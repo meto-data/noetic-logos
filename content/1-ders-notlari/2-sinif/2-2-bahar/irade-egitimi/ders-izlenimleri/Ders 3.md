@@ -36,7 +36,7 @@ Nitekim Epiktetos, kuvvetle muhtemel hocanın kitaplarla meşgul olma arzusu iç
 
 "Daha açık konuşmak gerekirse, dış dünyadaki şeylere duyduğumuz saygı bizi başkalarının boyunduruğu altına sokar. öyleyse bir senatör olmayı arzulamakla arzulamamak arasındaki fark nedir? Güç elde etmeyi arzulamakla arzulamamak arasındaki fark nedir? "Mutsuzum, yapabilecek hiçbir şeyim yok, tıpkı bir ceset gibi bu kitaplara bağlanıp kaldım." demekle "Mutsuzum çünkü kitap okumak için zaman bulamıyorum." demek arasındaki fark nedir? **Tıpkı saygınlık ve güç dış dünyamızda bulunan irademizden bağımsız şeyler olduğu gibi; okumak da dış dünyamızda ve irademizden bağımsızdır. Ne amaçla kitap okursunuz? Bana söyleyin. Eğer yalnızca oyalanmak ya da birşeyler öğrenmek için okuyorsanız, ahmak ve çabasız bir adamdan başka nesiniz?** Fakat okumaktaki amacınızın doğru bir amaç olduğunu söylüyorsanız, dingin ve mutlu bir yaşam sürmekten başka ne olabilir? Okumak size sağlam ve dingin bir yaşam vermeyecekse hiçbir faydası yok demektir." (Epiktetos, 2013: 377)
 
-Oyalanma amacıyla, bir şeyler öğrenmek amacıyla okunulan kitap Epiktetos'a göre köleliktir. Erdemin bilgisini vermeyecekse, erdemleri geliştirmem için teorik bir çerçeve sunmayacaksa Epiktetos'a göre yararsızdır nitekim o. Benzer bir biçimde Seneca'da da çok kişiden okumak yerine, az sayıda kişiden yapılan okumaları sürekli tekrarlamak gerektiğini, sürekli o az ama nitelikli kitap arasında okumalar yapmamız gerektiğini görüyoruz.
+Oyalanma amacıyla, bir şeyler öğrenmek amacıyla okunulan kitap Epiktetos'a göre köleliktir. Erdemin bilgisini vermeyecekse, erdemleri geliştirmem için teorik bir çerçeve sunmayacaksa Epiktetos'a göre yararsızdır nitekim o. Benzer bir biçimde Seneca'da da çok kişiden okumak yerine, az sayıda kişiden yapılan okumaları sürekli tekrarlamak gerektiğini, sürekli o az ama nitelikli kitap arasında okumalar yapmamız gerektiğini görüyoruz (Seneca, 2018: 35, 151-152).
 
 Gelgelelim Kant'a. Hocanın Payot'un 20-30 kelimesi ile "Kant'a katılmıyorum, mantıklı bulmuyorum teorisini." demesine şaşırdım açıkçası. Nitekim ders boyunca yüzeysel eleştiri yapıyoruz diyerek eleştirimizin yüzeysel olmaması gerektiğini söyledikten sonra bu denli yüzeysel bir eleştiri yapmak epey çelişkili. 
 
@@ -54,4 +54,6 @@ Benim itirazım tam da burada başlıyor: karakterin değişip değişmediği me
 
 ### Kaynakça
 
-Epiktetos. (2013). Söylevler, (Çeviri: Birdal Akar). İstanbul: Divan Kitap.
+Epiktetos. (2013). *Söylevler*, (Çeviri: Birdal Akar). İstanbul: Divan Kitap.
+
+Seneca. (2018). *Ahlak Mektupları*, (Çeviri: Türkân Uzel). İstanbul: Jaguar Kitap
