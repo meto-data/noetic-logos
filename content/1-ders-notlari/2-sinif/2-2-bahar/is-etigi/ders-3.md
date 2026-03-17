@@ -1,7 +1,9 @@
 ---
-title: 2. Kritik
-draft: true
-created: 2026-03-10
+title: "II. Kritik: 3. Ders"
+draft: false
+created: 2026-03-06
+tags:
+  - akademi/dersler/is-etigi
 ---
 Susayım susayım diyorum da mümkün değil ya. Nereden tutsan elinde kalacak bir ders anlatımı süregeliyor. Kinizmin ideali sadelik değil, stoacıların ideali düzen değil, epikürcülerin ideali sadelik hiç değil. Kinizmin kurucu Diogenes de değil, Antisthenes. Diogenes ise Antisthenes'in öğrencisi. 
 

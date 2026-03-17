@@ -1,7 +1,9 @@
 ---
-title: 2. Kritik
-draft: true
-created: 2026-03-15
+title: "III. Kritik (Tramvay ve Etik): 4. Ders"
+draft: false
+created: 2026-03-13
+tags:
+  - akademi/dersler/is-etigi
 ---
 Etik söz konusu olduğunda gayet de değişmeyen bir sonuca varmak mümkündür. Tramvay problemi bağlamında ele aldığımızda, bir kere burada bir bağlam eksikliği vardır. Gerçek hayatta determinizmden yalıtık bir biçimde tramvay içerisinde aniden belirip karşımızda bir topluluğu yahut bir kişiyi *seçmek* gibi bir durumun söz konusu olması mümkün değil. Bunlar bir bağlam içerisinde belli olur.
 

@@ -1,7 +1,7 @@
 ---
-title: İlk İzlenim (I. Kritik)
+title: "I. Kritik: İlk İzlenim"
 created: 2026-02-20
-draft: true
+draft: false
 tags:
   - akademi/dersler/is-etigi
 ---
