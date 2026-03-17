@@ -15,6 +15,9 @@ android/.cxx/
 .android-sdk/
 .gradle-home/
 
+# Others
+yaptiklarim.md
+KOD_TABAN_INCELEMESI.md
 # === Quartz Build ===
 public/
 .quartz-cache/
