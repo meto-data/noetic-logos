@@ -162,7 +162,7 @@ Veriyi **ardışık kararlar vererek** bölme mantığıyla (if-else tarzı) ça
 >[!info] 📉 Eğitim Grafiği (Time vs. Loss) ve Overfitting'in Tespiti
 >Makine öğrenirken arka planda bir **Zaman (Time)** ve **Hata/Kayıp (Loss)** grafiği oluşur. Eğitim ilerledikçe hata oranı sıfıra doğru yaklaşır. 
 >Ancak bir noktadan (minimum loss) sonra hata çizgisi **tekrar yukarı doğru çıkmaya başlarsa**, işte o kırılma noktası modelin öğrenmeyi bırakıp **ezberlemeye (Overfitting)** başladığı yerdir. Eğitimi tam o dip noktada (Best Weight) kesmek veya `max_depth` gibi kısıtlamalar getirmek gerekir.
-#### Kök Hücre (Root) Neye Göre Seçilir?
+#### Kök Hücre (Root) Neye Göre Seçilir
 Elimizde 15 sütun (özellik) varsa, en tepeye (köke) hangisini sorarak başlayacağız? Buna **Saflık (*Purity*)** ve **Karışıklık (*Impurity*)** ölçümüyle karar verilir.
 
 En yaygın kullanılan iki matematiksel ölçüm şunlardır:
