@@ -11,7 +11,7 @@ window.__noeticMobileNav?.cleanup()
 
 const NOETIC_MODULES_SEEN_KEY = "noetic-modules-seen"
 
-let cleanupMobileChrome = () => {}
+let cleanupMobileChrome = () => { }
 
 const isElementVisible = (element: HTMLElement | null) =>
   !!element && window.getComputedStyle(element).display !== "none"
@@ -45,7 +45,7 @@ const closeMobileFontPanel = () => {
 
 const setupMobileChrome = () => {
   cleanupMobileChrome()
-  cleanupMobileChrome = () => {}
+  cleanupMobileChrome = () => { }
 
   const leftSidebar = document.querySelector(".sidebar.left") as HTMLElement
   if (!leftSidebar) return
@@ -248,6 +248,7 @@ const setupMobileChrome = () => {
     leftSidebar.removeEventListener("click", onSidebarClick)
     overlay.removeEventListener("click", onOverlayClick)
     hamburger.removeEventListener("click", onHamburgerClick)
+
     hamburger.remove()
     overlay.remove()
     mobileHeader.remove()

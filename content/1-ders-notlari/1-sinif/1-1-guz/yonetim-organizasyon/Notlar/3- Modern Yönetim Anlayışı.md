@@ -12,7 +12,7 @@ Bir sistemin özelliklerini 3 temel öge ile açıklamak mümkündür:
 	2. Bu bileşenler arasında karşılıklı ilişkiler mevcuttur.
 	3. Bu bileşenler aynı zamanda dış çevreyle ilişkisi olan bir bütündür.
 #### Sistemin Ögeleri
-- Sistemin 4 temel ögesi vardır:
+- Sistemin 3 temel ögesi vardır, 2 tanesi de ilavedir:
 	1. Girdi (Input): Sisteme dışarıdan giren kaynaklar, bilgiler.
 	2. Süreç (Process): Girdilerin sistem içinde işlenme aşaması.
 	3. Çıktı (Output): İşlenen girdilerin sistemden çıkan sonuçları.

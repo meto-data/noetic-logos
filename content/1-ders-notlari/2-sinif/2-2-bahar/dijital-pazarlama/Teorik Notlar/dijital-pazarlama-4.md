@@ -81,7 +81,6 @@ Pazarlama ekosisteminde yapay zekâ, e-ticaret platformlarının dinamik fiyatla
 - **Artificial Intelligence (AI)**: Yapay Zekâ
 - **Augmented Realıty (AR)**: Artırılmış Gerçeklik
 - **Mass Production / Mass Customization**: Seri Üretim / Kitlesel Kişiselleştirme
-- 
 
 ---
 
