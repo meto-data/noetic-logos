@@ -1,3 +1,3 @@
-:HL["/noetic-logos/static/turk-dili-2-module/_next/static/css/f91c45d0b16de33a.css","style"]
+:HL["/noetic-logos/static/turk-dili-2-module/_next/static/css/fbaa0c09774d9169.css","style"]
 :HL["https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap","style"]
-0:{"buildId":"L90E9aeqy7QDoFoOzH69s","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"M_tl7Wk0guf7tGZTxHdRy","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

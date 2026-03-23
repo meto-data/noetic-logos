@@ -7600,5 +7600,2622 @@
         "definition": "Büyük ölçekli veriler içerisinden, gelecekle ilgili tahmin yapmamızı sağlayacak gizli, anlamlı ve işe yarar örüntüleri algoritmalar vasıtasıyla keşfetme süreci."
       }
     ]
+  },
+  {
+    "id": "w5-v001",
+    "week": 5,
+    "topic": "ensemble-learning-temelleri",
+    "type": "verbal",
+    "tags": [
+      "ensemble-learning",
+      "random-forest",
+      "karar-agaci"
+    ],
+    "sourceNotebook": null,
+    "question": "Makine öğrenmesinde 'Ensemble Learning' (Topluluk Öğrenmesi) yaklaşımının temel amacı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Eğitim süresini kısaltmak için veri setini küçültmek",
+      "B": "Birden fazla modelin birlikte çalışmasını sağlayarak daha güçlü ve kararlı tahminler üretmek",
+      "C": "Sadece tek bir karar ağacının derinliğini artırarak ezberlemeyi teşvik etmek",
+      "D": "Gözlemler arasındaki matematiksel mesafeleri hesaplayarak en yakın komşuyu bulmak",
+      "E": "Sınıflandırma problemlerini regresyon problemlerine dönüştürmek"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Ensemble Learning veri setini küçültmeyi değil, birden fazla modeli bir araya getirmeyi hedefler. Eğitim süresi genellikle uzar.",
+      "B": "Doğru. Ensemble Learning, tek bir modelin yanılma payını düşürmek ve daha kararlı sonuçlar elde etmek için birden fazla sınıflandırıcıyı birleştirme sürecidir.",
+      "C": "Karar ağacının derinliğini artırmak overfitting'e (aşırı öğrenmeye) yol açar; Ensemble Learning bunu önlemek için kullanılır.",
+      "D": "Bu tanım Ensemble Learning'e değil, K-Nearest Neighbors (KNN) algoritmasına aittir.",
+      "E": "Ensemble Learning problem türünü değiştirmez, mevcut problemi çözme gücünü artırır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Ensemble Learning",
+        "definition": "Birden fazla modelin birlikte çalışarak daha güçlü bir tahmin üretmesi süreci."
+      }
+    ]
+  },
+  {
+    "id": "w5-v002",
+    "week": 5,
+    "topic": "random-forest-ve-overfitting",
+    "type": "verbal",
+    "tags": [
+      "random-forest",
+      "overfitting",
+      "decision-tree"
+    ],
+    "sourceNotebook": null,
+    "question": "Decision Tree (Karar Ağacı) algoritması ile karşılaştırıldığında, Random Forest algoritmasının en belirgin üstünlüğü aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Çok daha hızlı eğitim süresine sahip olması",
+      "B": "Overfitting (aşırı öğrenme) problemine karşı çok daha dayanıklı olması",
+      "C": "Tüm modelin tek bir şema üzerinden kolayca yorumlanabilmesi",
+      "D": "Ölçekleme (scaling) işlemine kesinlikle ihtiyaç duyması",
+      "E": "Sadece küçük veri setlerinde çalışabilmesi"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Random Forest birden fazla ağaç kurduğu için eğitim süresi Decision Tree'ye göre daha uzundur.",
+      "B": "Doğru. Decision Tree kolayca ezberleyebilirken (overfitting), Random Forest çok sayıda ağacın birleşimi olduğu için ezberlemeye karşı daha dayanıklıdır.",
+      "C": "Decision Tree'nin yorumlanması çok kolaydır ancak Random Forest (bir orman) karmaşık olduğu için tüm modeli tek şemada yorumlamak zordur.",
+      "D": "Random Forest kural tabanlıdır ve genellikle mesafe tabanlı algoritmalar gibi ölçeklemeye ihtiyaç duymaz.",
+      "E": "Random Forest büyük ve karmaşık veri setlerinde çok daha etkili sonuçlar verir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Overfitting",
+        "definition": "Modelin eğitim verisini ezberleyip yeni verilerde başarısız olması durumu."
+      }
+    ]
+  },
+  {
+    "id": "w5-v003",
+    "week": 5,
+    "topic": "majority-voting-kavrami",
+    "type": "verbal",
+    "tags": [
+      "majority-voting",
+      "random-forest",
+      "senaryo"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir kurula sunulan bir problemde, kurul üyelerinden 7'si 'Kabul', 3'ü ise 'Ret' oyu vermiştir. Kurulun nihai kararı 'Kabul' olarak kayıtlara geçmiştir. Bu karar alma mekanizması, Random Forest algoritmasındaki hangi temel kavramı temsil etmektedir?",
+    "code": null,
+    "options": {
+      "A": "Feature Importance (Özellik Önemi)",
+      "B": "Lazy Learning (Tembel Öğrenme)",
+      "C": "Data Leakage (Veri Sızıntısı)",
+      "D": "Majority Voting (Çoğunluk Oylaması)",
+      "E": "Distance Measurement (Mesafe Ölçümü)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Feature Importance, hangi değişkenin tahminde daha etkili olduğunu ölçer, karar birleştirme mekanizması değildir.",
+      "B": "Lazy Learning, KNN algoritmasının eğitim aşamasında model kurmama özelliğidir.",
+      "C": "Data Leakage, test verisinin eğitim aşamasında modele sızması hatasıdır.",
+      "D": "Doğru. Random Forest'ta her ağaç kendi tahminini üretir ve nihai karar en çok oyu alan sınıfa göre belirlenir. Buna Majority Voting denir.",
+      "E": "Mesafe ölçümü KNN gibi algoritmaların temelidir, kural tabanlı ağaçların oylama sistemiyle ilgisi yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Majority Voting",
+        "definition": "Birden fazla modelin tahminlerinin oylamaya sunularak en çok tekrar edenin nihai karar seçilmesi."
+      }
+    ]
+  },
+  {
+    "id": "w5-v004",
+    "week": 5,
+    "topic": "random-forest-veri-cesitliligi",
+    "type": "verbal",
+    "tags": [
+      "veri-cesitliligi",
+      "random-forest",
+      "subset"
+    ],
+    "sourceNotebook": null,
+    "question": "Random Forest algoritmasında, oluşturulan her bir karar ağacına eğitim verisinin tamamı yerine rastgele seçilmiş farklı alt kümelerinin (subset) verilmesinin temel nedeni nedir?",
+    "code": null,
+    "options": {
+      "A": "Bilgisayarın bellek (RAM) tüketimini en aza indirmek",
+      "B": "Ağaçların birebir aynı kararları üretmesini engelleyerek modelde çeşitlilik sağlamak",
+      "C": "Verideki aykırı değerleri otomatik olarak silmek",
+      "D": "Algoritmanın mesafe hesaplamalarını daha hızlı yapmasını sağlamak",
+      "E": "Özellik ölçekleme (scaling) ihtiyacını ortadan kaldırmak"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Temel amaç donanım tasarrufu değil, modelin istatistiksel başarısını ve genelleme yeteneğini artırmaktır.",
+      "B": "Doğru. Eğer her ağaca aynı eğitim verisi verilirse, hepsi aynı kuralları çıkarır ve oylamanın bir anlamı kalmaz. Çeşitlilik, overfitting'i önler.",
+      "C": "Rastgele veri seçimi aykırı değerleri silmez, sadece farklı ağaçların farklı veri dilimlerini görmesini sağlar.",
+      "D": "Random Forest mesafe hesaplaması yapmaz, kural tabanlı çalışır.",
+      "E": "Ağaç tabanlı algoritmalar zaten doğası gereği ölçeklemeye ihtiyaç duymaz, bu durumun alt küme seçimiyle ilgisi yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Random Forest",
+        "definition": "Çok sayıda karar ağacının rastgele veri alt kümeleriyle eğitilip birleştirildiği model."
+      }
+    ]
+  },
+  {
+    "id": "w5-v005",
+    "week": 5,
+    "topic": "model-degerlendirme-accuracy",
+    "type": "verbal",
+    "tags": [
+      "accuracy",
+      "train",
+      "test",
+      "genelleme"
+    ],
+    "sourceNotebook": null,
+    "question": "Makine öğrenmesinde bir modelin 'öğrendiği' (ezberlemediği) sonucuna varmak için temel ölçüt nedir?",
+    "code": null,
+    "options": {
+      "A": "Eğitim verisindeki (Train Accuracy) başarısının 1.00 olması",
+      "B": "Eğitim sürecini çok kısa sürede tamamlaması",
+      "C": "Hiç görmediği test verisi üzerinde mantıklı ve yüksek isabetli tahminler yapabilmesi (genelleme)",
+      "D": "Veri setindeki tüm özellikleri (features) modelde kullanması",
+      "E": "Karmaşıklık matrisindeki tüm değerlerin sıfır çıkması"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Train Accuracy'nin 1.00 olması genellikle ezberlemeye (overfitting) işarettir, öğrenmeye değil.",
+      "B": "Eğitim süresinin kısalığı algoritmanın yapısıyla ilgilidir, modelin öğrenme kalitesini göstermez.",
+      "C": "Doğru. Öğrenmek, tümevarım (genelleme) yapabilmek demektir. Modelin başarısı, daha önce görmediği test verisindeki performansı ile ölçülür.",
+      "D": "Tüm özellikleri kullanmak iyi bir şey olmayabilir, gereksiz özellikler modeli yanıltabilir.",
+      "E": "Karmaşıklık matrisinin tüm değerlerinin sıfır olması matematiksel olarak imkansızdır ve bir başarı ölçütü değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Test Accuracy",
+        "definition": "Modelin eğitim sırasında hiç görmediği veri üzerindeki tahmin başarısı."
+      }
+    ]
+  },
+  {
+    "id": "w5-v006",
+    "week": 5,
+    "topic": "overfitting-tablo-yorumlama",
+    "type": "verbal",
+    "tags": [
+      "overfitting",
+      "tablo-yorumlama",
+      "train-accuracy",
+      "test-accuracy"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir makine öğrenmesi uzmanı kurduğu modelin sonuçlarını incelemektedir. \nModelin Train Accuracy (Eğitim Başarısı) değeri 1.00, Test Accuracy (Test Başarısı) değeri ise 0.70 olarak ölçülmüştür. \nBu tabloya göre modelin durumu için en uygun yorum aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Model mükemmel öğrenmiş ve çok iyi genelleme yapmıştır.",
+      "B": "Model veriyi tamamen ezberlemiş (overfitting) ancak yeni verilerde çuvallamaktadır.",
+      "C": "Model aşırı genelleme (underfitting) yapmış, eğitim verisini bile öğrenememiştir.",
+      "D": "Test verisi çok kolay olduğu için test başarısı düşük çıkmıştır.",
+      "E": "Modelin güvenilirliği mükemmele yakındır, gerçek hayatta hemen kullanılabilir."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Eğer mükemmel genelleme yapsaydı Test Accuracy değeri de 1.00'a çok yakın (örn: 0.94) olurdu.",
+      "B": "Doğru. Eğitim başarısının kusursuz (1.00) olup test başarısının çok düşük (0.70) olması, modelin veriyi ezberlediğinin en net göstergesidir.",
+      "C": "Underfitting durumunda eğitim başarısı da çok düşük (örn: 0.40) çıkardı.",
+      "D": "Test verisinin kolaylığıyla başarının düşük çıkması arasında mantıksal bir terslik vardır.",
+      "E": "Bu durumda model kesinlikle güvenilmezdir ve gerçek hayatta kullanılamaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "Overfitting",
+        "definition": "Eğitim verisinde yüksek, test verisinde düşük başarı gösteren, ezberci model durumu."
+      }
+    ]
+  },
+  {
+    "id": "w5-v007",
+    "week": 5,
+    "topic": "model-basarisi-yorumlama",
+    "type": "verbal",
+    "tags": [
+      "accuracy",
+      "karar-verme",
+      "genelleme"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir projenin sonucunda Train Accuracy 0.95, Test Accuracy ise 0.94 olarak hesaplanmıştır. Bu sonuçlar ışığında aşağıdakilerden hangisi söylenebilir?",
+    "code": null,
+    "options": {
+      "A": "Modelde çok ciddi bir overfitting (aşırı öğrenme) sorunu vardır.",
+      "B": "Model hiçbir şey öğrenememiştir, tamamen rastgele tahmin yapmaktadır.",
+      "C": "Model çok iyi öğrenmiş ve genelleme yapabilmiştir, mükemmele yakın dengelidir.",
+      "D": "Eğitim verisi yetersiz olduğu için sonuçlar yanıltıcıdır.",
+      "E": "Test başarısının %95'in altında olması bu modelin kesinlikle reddedilmesini gerektirir."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Overfitting olması için Train ve Test değerleri arasında büyük bir uçurum olmalıdır.",
+      "B": "Değerlerin 0.90'ın üzerinde olması modelin çok başarılı olduğunu gösterir.",
+      "C": "Doğru. Eğitim ve test başarılarının birbirine çok yakın ve yüksek olması, modelin hem iyi öğrendiğini hem de başarılı bir tümevarım (genelleme) yaptığını gösterir.",
+      "D": "Bu yüksek sonuçlar eğitim verisinin yetersiz olduğunu değil, aksine kaliteli olduğunu gösterir.",
+      "E": "Test başarısının %75'in altında olması genelde kabul edilemezdir; 0.94 oldukça başarılı bir orandır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Genelleme (Tümevarım)",
+        "definition": "Modelin eğitimde gördüğü örüntüleri yeni ve görülmemiş verilere başarıyla uygulayabilmesi."
+      }
+    ]
+  },
+  {
+    "id": "w5-v008",
+    "week": 5,
+    "topic": "knn-temel-kavramlar",
+    "type": "verbal",
+    "tags": [
+      "knn",
+      "lazy-learner",
+      "siniflandirma"
+    ],
+    "sourceNotebook": null,
+    "question": "K-Nearest Neighbors (KNN) algoritmasının diğer birçok makine öğrenmesi algoritmasından ayrılan en temel çalışma mantığı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Arka planda karmaşık bir öğrenme denklemi kurarak veriyi özetlemesi",
+      "B": "Yalnızca denetimsiz (unsupervised) öğrenme problemlerinde kullanılabilmesi",
+      "C": "Eğitim aşamasında model kurmak yerine veriyi hafızasında tutması ve kararı tahmin anında vermesi",
+      "D": "Sadece kategorik değişkenlerle çalışabilmesi, sayısal verileri reddetmesi",
+      "E": "Aykırı değerleri otomatik olarak tespit edip veri setinden çıkarması"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "KNN karmaşık bir denklem kurmaz, sadece mesafe hesaplar.",
+      "B": "KNN etiketli verilerle çalışan denetimli (supervised) bir algoritmadır.",
+      "C": "Doğru. KNN bir 'Lazy Learner'dır. Eğitimde model inşa etmez, veriyi saklar ve yeni veri geldiğinde mesafeleri anlık olarak hesaplar.",
+      "D": "KNN aksine sayısal verilerle mesafe hesaplayarak çalışır.",
+      "E": "KNN'in aykırı değerleri otomatik temizleme gibi bir özelliği yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Lazy Learner",
+        "definition": "Eğitim aşamasında model kurmayan, tüm hesaplamayı tahmin aşamasına bırakan algoritma türü."
+      }
+    ]
+  },
+  {
+    "id": "w5-v009",
+    "week": 5,
+    "topic": "knn-lazy-learner",
+    "type": "verbal",
+    "tags": [
+      "knn",
+      "lazy-learner",
+      "dezavantaj"
+    ],
+    "sourceNotebook": null,
+    "question": "KNN algoritmasının 'Lazy Learner' (Tembel Öğrenici) olarak adlandırılmasının, büyük veri setlerinde yarattığı en büyük dezavantaj aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Eğitim (fit) aşamasının günlerce sürmesi",
+      "B": "Tahmin (predict) anında yeni verinin sistemdeki tüm verilere olan mesafesini tek tek hesaplamak zorunda kalması ve çok yavaşlaması",
+      "C": "Sürekli olarak overfitting (aşırı öğrenme) hatasına düşmesi",
+      "D": "Sadece tek sayılarla çalışabildiği için veri kaybına yol açması",
+      "E": "Görselleştirilmesinin imkansız hale gelmesi"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Lazy learner olduğu için eğitim aşaması kısadır, çünkü model kurmaz sadece veriyi kaydeder.",
+      "B": "Doğru. Asıl işi tahmin aşamasında yaptığı için, milyonlarca satırlık bir veride yeni gelen bir kaydın mesafesini tüm kayıtlarla tek tek hesaplamak muazzam bir zaman alır.",
+      "C": "Overfitting K değerinin küçük seçilmesiyle ilgilidir, tembel öğrenici olmasının doğrudan sonucu değildir.",
+      "D": "K değerinin tek sayı seçilmesi bir kuraldır ancak bu veri kaybına yol açmaz.",
+      "E": "Görselleştirme zorluğu boyutla ilgilidir, tembel öğrenme felsefesiyle değil."
+    },
+    "relatedTerms": [
+      {
+        "term": "Tahmin Süresi (Prediction Time)",
+        "definition": "Modelin yeni bir veri için sonuç üretme süresi; KNN'de bu süre veri büyüdükçe çok uzar."
+      }
+    ]
+  },
+  {
+    "id": "w5-v010",
+    "week": 5,
+    "topic": "knn-mesafe-metrikleri",
+    "type": "verbal",
+    "tags": [
+      "knn",
+      "mesafe",
+      "euclidean",
+      "manhattan"
+    ],
+    "sourceNotebook": null,
+    "question": "KNN algoritmasında iki nokta arasındaki mesafeyi, ızgara planlı bir şehirde binaların etrafından dolaşarak (dik açılarla) gidiyormuş gibi hesaplayan mesafe ölçüm yöntemi aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Euclidean Distance",
+      "B": "Edit Distance",
+      "C": "Minkowski Distance",
+      "D": "Manhattan Distance",
+      "E": "Hamming Distance"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Euclidean Distance, iki nokta arasındaki en kısa (kuş uçuşu / Pisagor) mesafeyi ölçer.",
+      "B": "Edit Distance, metinler/kelimeler arasındaki harf farklılıklarını ölçer.",
+      "C": "Minkowski, Euclidean ve Manhattan'ın genelleştirilmiş halidir.",
+      "D": "Doğru. Manhattan Distance, adını ızgara planlı Manhattan şehrinden alır ve mesafeyi dik açılı yollar üzerinden hesaplar.",
+      "E": "Hamming Distance, Edit distance ile benzer şekilde kategorik/metinsel sapmaları ölçer."
+    },
+    "relatedTerms": [
+      {
+        "term": "Manhattan Distance",
+        "definition": "Noktalar arası mesafeyi mutlak farkların toplamı olarak (dik açılarla) hesaplayan metrik."
+      }
+    ]
+  },
+  {
+    "id": "w5-v011",
+    "week": 5,
+    "topic": "edit-distance-senaryo",
+    "type": "verbal",
+    "tags": [
+      "edit-distance",
+      "knn",
+      "senaryo"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir arama motoruna 'Merhaba' yerine yanlışlıkla 'Merhebe' yazdığınızda, sistem size 'Bunu mu demek istediniz: Merhaba' önerisinde bulunur. Bu sistem, girilen kelimenin veri tabanındaki doğru kelimelere olan uzaklığını hesaplayarak çalışır.\nBu senaryoda kullanılan, kelimeler arası mesafeyi ölçen kavram aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Euclidean Distance",
+      "B": "Manhattan Distance",
+      "C": "Edit (Hamming) Distance",
+      "D": "Majority Voting",
+      "E": "Feature Importance"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Euclidean, sayısal koordinatlar arasındaki kuş uçuşu mesafeyi ölçer.",
+      "B": "Manhattan, sayısal verilerde dik açılı uzaklık ölçer.",
+      "C": "Doğru. Sadece sayılar değil, kelimeler arasındaki harf değişim mesafeleri de ölçülebilir. Buna Edit Distance veya Hamming Distance denir.",
+      "D": "Majority Voting mesafe ölçümü değil, oylama tabanlı karar mekanizmasıdır.",
+      "E": "Feature Importance bir değişkenin modele katkısını gösterir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Edit Distance",
+        "definition": "İki metin dizgesi (string) arasındaki karakter farklılıklarının sayısını ölçen mesafe metriği."
+      }
+    ]
+  },
+  {
+    "id": "w5-v012",
+    "week": 5,
+    "topic": "knn-k-degeri-secimi",
+    "type": "verbal",
+    "tags": [
+      "knn",
+      "k-degeri",
+      "overfitting"
+    ],
+    "sourceNotebook": null,
+    "question": "KNN algoritması kullanılarak kurulan bir modelde, 'K' parametresi 1 (K=1) olarak seçilmiştir. Bu durumda modelin sergileyeceği en muhtemel davranış aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Model aşırı genelleme (underfitting) yapacaktır.",
+      "B": "Model gürültüye karşı aşırı duyarlı hale gelecek ve overfitting (aşırı öğrenme) yapacaktır.",
+      "C": "Tahmin süresi normalden 100 kat daha yavaş olacaktır.",
+      "D": "Model, veri setindeki en uzak komşuyu referans alacaktır.",
+      "E": "Eşitlik (tie) durumu ortaya çıkacağı için algoritma çöküntüye uğrayacaktır."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Aşırı genelleme (underfitting) K değerinin çok büyük seçilmesi durumunda ortaya çıkar.",
+      "B": "Doğru. K=1 seçildiğinde yeni veri sadece en yakınındaki tek bir noktaya bakar. Bu durum istisnaları (gürültüyü) kural zannetmesine ve ezberlemesine (overfitting) yol açar.",
+      "C": "K=1 olduğunda hesaplanan mesafelerden sadece en küçüğü seçilir, tahmin süresini dramatik şekilde uzatmaz.",
+      "D": "Model en uzak değil, en yakın komşuyu referans alır.",
+      "E": "K=1 tek sayı olduğu için çoğunluk oylamasında eşitlik (tie) durumu yaşanmaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "K Parametresi",
+        "definition": "KNN algoritmasında sınıflandırma için bakılacak en yakın komşu sayısı."
+      }
+    ]
+  },
+  {
+    "id": "w5-v013",
+    "week": 5,
+    "topic": "knn-k-degeri-tek-sayi",
+    "type": "verbal",
+    "tags": [
+      "knn",
+      "k-degeri",
+      "majority-voting"
+    ],
+    "sourceNotebook": null,
+    "question": "KNN algoritmasında 'K' değerinin genellikle 3, 5, 7 gibi tek sayılardan seçilmesinin temel matematiksel/mantıksal nedeni nedir?",
+    "code": null,
+    "options": {
+      "A": "Bilgisayar işlemcilerinin tek sayılarla daha hızlı bölme işlemi yapması",
+      "B": "Çift sayıların mesafe formüllerinde (karekök vb.) tanımsız sonuçlar üretmesi",
+      "C": "Sınıflandırma oylamasında eşitlik (tie) durumunun yaşanmasını engelleyerek her zaman net bir çoğunluk çıkmasını garanti etmek",
+      "D": "Veri setindeki aykırı değerlerin sadece tek sayı indislerinde bulunması",
+      "E": "Scikit-learn kütüphanesinin çift sayı girildiğinde hata vermesi"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "İşlemcilerin tek veya çift sayılarla hız farkı bu algoritmanın mantığını belirlemez.",
+      "B": "Mesafe formülleri her türlü sayıyla çalışır, çift sayılar tanımsız sonuç üretmez.",
+      "C": "Doğru. Eğer K=6 seçilirse ve en yakın 6 komşunun 3'ü A sınıfı, 3'ü B sınıfı çıkarsa algoritma karar veremez. Tek sayı seçmek bu eşitliği bozar ve kesin karar alınmasını sağlar.",
+      "D": "Aykırı değerlerin indeksiyle K değerinin hiçbir ilişkisi yoktur.",
+      "E": "Scikit-learn çift sayı kabul eder, ancak performans ve mantık açısından tek sayı tercih edilir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Tie (Eşitlik) Durumu",
+        "definition": "Oylama sonucunda sınıfların eşit sayıda çıkması ve karar alınamaması."
+      }
+    ]
+  },
+  {
+    "id": "w5-v014",
+    "week": 5,
+    "topic": "knn-olcekleme-zorunlulugu",
+    "type": "verbal",
+    "tags": [
+      "knn",
+      "scaling",
+      "normalizasyon"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir veri setinde 'Yaş' sütunu 20-50 değerleri arasında, 'Maaş' sütunu ise 10.000-50.000 değerleri arasında değişmektedir. Bu veri seti üzerinde KNN algoritması kullanılacaktır.\nBu senaryoda modelin doğru çalışabilmesi için yapılması gereken en kritik veri ön işleme adımı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Verideki tüm kategorik değişkenleri silmek",
+      "B": "Özellikleri aynı aralığa çekmek için ölçekleme (scaling) işlemi yapmak",
+      "C": "Maaş sütununu modelden tamamen çıkarmak",
+      "D": "K değerini veri setindeki satır sayısına eşitlemek",
+      "E": "Karar ağaçları ile ensemble (topluluk) modeli kurmak"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Kategorik değişkenleri silmek bilgi kaybına yol açar, asıl sorun sayısal büyüklük farkıdır.",
+      "B": "Doğru. KNN mesafe tabanlı olduğu için büyük sayılar (Maaş) küçük sayıları (Yaş) matematiksel olarak ezer geçer. Bu yüzden StandardScaler veya MinMaxScaler ile ölçekleme (scaling) zorunludur.",
+      "C": "Maaş önemli bir değişken olabilir, silmek yerine dönüştürülmesi gerekir.",
+      "D": "K değerini satır sayısına eşitlemek aşırı genellemeye (underfitting) neden olur.",
+      "E": "Soru KNN ile ilgilidir, model değiştirmek sorulan ön işleme adımı değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Scaling (Ölçekleme)",
+        "definition": "Farklı birimlerdeki sayısal değişkenleri (örn. yaş ve maaş) aynı matematiksel düzleme (örn. 0-1 arası) çekme işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w5-v015",
+    "week": 5,
+    "topic": "algoritma-karsilastirma-dt-knn",
+    "type": "verbal",
+    "tags": [
+      "karsilastirma",
+      "decision-tree",
+      "knn",
+      "algoritma-secimi"
+    ],
+    "sourceNotebook": null,
+    "question": "Aşağıdakilerden hangisi Decision Tree (Karar Ağacı) ile KNN algoritmaları arasındaki farkı doğru yansıtan bir ifadedir?",
+    "code": null,
+    "options": {
+      "A": "Decision Tree mesafe tabanlıdır, KNN ise kural tabanlıdır.",
+      "B": "Decision Tree eğitim aşamasında veriyi sadece saklar, KNN ise karmaşık bir model kurar.",
+      "C": "Decision Tree'nin tahmin süresi çok hızlıdır, KNN'in tahmin süresi ise yeni veri için tüm mesafeleri hesapladığından çok yavaştır.",
+      "D": "Decision Tree kullanırken veriyi ölçeklemek (scaling) zorunludur, KNN'de ise buna gerek yoktur.",
+      "E": "Decision Tree modelini görselleştirip yorumlamak imkansızdır, KNN ise kolayca çizilebilir."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Tam tersi. Decision Tree kural (if-else) tabanlı, KNN mesafe tabanlıdır.",
+      "B": "Tam tersi. DT model kurar (Eager Learner), KNN veriyi saklar (Lazy Learner).",
+      "C": "Doğru. Karar ağacı oluşturulmuş dallar üzerinden saniyeler içinde karar verir. KNN ise her yeni veride tüm veri setini taramak zorunda olduğu için çok yavaştır.",
+      "D": "Tam tersi. KNN mesafe tabanlı olduğu için ölçekleme zorunludur, DT kural tabanlı olduğu için genelde gerekmez.",
+      "E": "Tam tersi. DT bir ağaç şeması olarak kolayca görselleştirilebilir, KNN'in yorumlanabilirliği düşüktür."
+    },
+    "relatedTerms": [
+      {
+        "term": "Tahmin Süresi (Prediction Speed)",
+        "definition": "Algoritmanın eğitildikten sonra yeni bir veriyi sınıflandırma hızı."
+      }
+    ]
+  },
+  {
+    "id": "w5-v016",
+    "week": 5,
+    "topic": "algoritma-secimi-senaryo",
+    "type": "verbal",
+    "tags": [
+      "algoritma-secimi",
+      "senaryo",
+      "random-forest"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir şirket, çalışanlarının işten ayrılma durumunu (Attrition) tahmin etmek istemektedir. Veri seti oldukça büyüktür. Şirket yönetimi, modelin 'neden bu kararı verdiğini' tek bir görsel şema ile açıklamaktan ziyade, en yüksek doğruluğa ulaşmayı ve özelliklerin (maaş, mesai vb.) modele olan katkı paylarını (Feature Importance) görmeyi hedeflemektedir.\nBu beklentiler doğrultusunda seçilmesi en uygun algoritma hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Tek bir Decision Tree",
+      "B": "K-Nearest Neighbors (KNN)",
+      "C": "Random Forest",
+      "D": "Sadece StandardScaler",
+      "E": "Majority Voting kullanmayan K=1 KNN"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Tek bir karar ağacı açıklanabilirlik için iyidir ancak yüksek doğruluk ve stabilite konusunda eksik kalabilir.",
+      "B": "KNN büyük veri setlerinde çok yavaştır ve Feature Importance çıkarma özelliği yoktur.",
+      "C": "Doğru. Random Forest büyük verilerde yüksek doğruluk sağlar, overfitting'e dayanıklıdır ve Feature Importance (özellik önem derecesi) hesaplayabilir.",
+      "D": "StandardScaler bir veri ön işleme adımıdır, tahmin algoritması değildir.",
+      "E": "K=1 KNN aşırı ezberleme yapar ve büyük veride kullanışsızdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Feature Importance",
+        "definition": "Bir modelin tahmin yaparken hangi değişkenleri daha fazla dikkate aldığını gösteren önem derecesi."
+      }
+    ]
+  },
+  {
+    "id": "w5-v017",
+    "week": 5,
+    "topic": "veri-sizintisi-ve-olcekleme",
+    "type": "verbal",
+    "tags": [
+      "veri-sizintisi",
+      "data-leakage",
+      "scaling",
+      "standartscaler"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri ön işleme aşamasında 'StandardScaler' kullanılarak ölçekleme yapılacaktır. Modelin gerçek performansını ölçebilmek ve Data Leakage (Veri Sızıntısı) hatasına düşmemek için uygulanması gereken doğru yöntem aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Eğitim (Train) ve Test verileri birleştirilip topluca fit_transform işlemine sokulmalıdır.",
+      "B": "Eğitim verisine fit_transform uygulanırken, Test verisine sadece transform uygulanmalıdır.",
+      "C": "Test verisine fit_transform uygulanıp, Eğitim verisi ölçeklenmeden bırakılmalıdır.",
+      "D": "Her iki veri setine de sadece fit uygulanmalı, transform işlemi tahmin sonrasına bırakılmalıdır.",
+      "E": "Ölçekleme işlemi sadece kategorik değişkenlere uygulanmalıdır."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Test verisi modelin hiç görmemesi gereken veridir. Birleştirip ölçeklemek, test verisinin istatistiksel özelliklerinin eğitime sızmasına (Data Leakage) neden olur.",
+      "B": "Doğru. Eğitim verisinin ortalama ve varyansını öğrenmek için 'fit_transform' kullanılır. Test verisi ise eğitimin öğrendiği bu kurallarla sadece 'transform' edilir. Böylece sızıntı önlenir.",
+      "C": "Eğitim verisi ölçeklenmezse model büyük sayıların etkisinde kalır, test verisine uygulanan ölçeklemenin anlamı kalmaz.",
+      "D": "Fit işlemi veriyi dönüştürmez sadece istatistikleri öğrenir, transform edilmeyen veriyle model eğitilemez.",
+      "E": "Ölçekleme kategorik değil, sayısal değişkenlere uygulanır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Data Leakage (Veri Sızıntısı)",
+        "definition": "Modelin eğitim aşamasında, normalde erişimi olmaması gereken test verisine ait bilgileri bir şekilde öğrenmesi."
+      }
+    ]
+  },
+  {
+    "id": "w5-v018",
+    "week": 5,
+    "topic": "confusion-matrix-kavrami",
+    "type": "verbal",
+    "tags": [
+      "confusion-matrix",
+      "test-verisi",
+      "degerlendirme"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir sınıflandırma modeli eğitildikten sonra elde edilen Karmaşıklık Matrisindeki (Confusion Matrix) tüm hücrelerdeki sayıların toplamı, veri seti ile ilgili hangi bilgiyi verir?",
+    "code": null,
+    "options": {
+      "A": "Eğitim (Train) setindeki toplam eleman sayısını",
+      "B": "Modelin yanlış tahmin ettiği örnek sayısını",
+      "C": "Test setindeki toplam eleman (satır) sayısını",
+      "D": "Veri setindeki toplam özellik (feature) sayısını",
+      "E": "Sınıflandırmada kullanılan ağaç sayısını"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Karmaşıklık matrisi modelin eğitim verisindeki değil, test verisindeki performansını göstermek için çizilir.",
+      "B": "Yanlış tahmin edilenler sadece köşegen dışında kalan sayılardır, tüm sayılar değil.",
+      "C": "Doğru. Matristeki tüm hücreler (doğru ve yanlış tahminlerin tamamı) toplandığında, modelin test edildiği veri kümesinin (X_test) toplam uzunluğunu verir.",
+      "D": "Matris özellik sayısını değil, tahmin edilen sınıfların dağılımını gösterir.",
+      "E": "Ağaç sayısı n_estimators parametresidir, matrisle ilgisi yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Confusion Matrix",
+        "definition": "Sınıflandırma modelinin doğru ve yanlış tahminlerini gerçek değerlerle kıyaslayarak gösteren tablo."
+      }
+    ]
+  },
+  {
+    "id": "w5-v019",
+    "week": 5,
+    "topic": "knn-ve-karar-agaci-yorumlama",
+    "type": "verbal",
+    "tags": [
+      "yorumlanabilirlik",
+      "decision-tree",
+      "knn"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir veri analisti, sunduğu modelin kararlarını yönetime açıklarken 'Şu yaşın altındakiler ve şu maaşın üstündekiler bu gruba ayrılmıştır' şeklinde net kurallar göstermek istemektedir.\nBuna göre analistin HANGİ algoritmayı kullanması ve HANGİ algoritmadan UZAK DURMASI en mantıklıdır?",
+    "code": null,
+    "options": {
+      "A": "Kullanmalı: KNN / Uzak durmalı: Decision Tree",
+      "B": "Kullanmalı: Random Forest / Uzak durmalı: Decision Tree",
+      "C": "Kullanmalı: Decision Tree / Uzak durmalı: KNN",
+      "D": "Kullanmalı: KNN / Uzak durmalı: Random Forest",
+      "E": "Kullanmalı: Random Forest / Uzak durmalı: KNN"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "KNN kural çıkarmaz, açıklanamaz. DT ise kural çıkarır.",
+      "B": "Random Forest yüksek doğruluk verir ama çok sayıda ağaç olduğu için tek bir net kural şeması göstermek zordur.",
+      "C": "Doğru. Decision Tree 'If-Else' mantığıyla çalıştığı için şeması çizilip kolayca yorumlanabilir. KNN ise sadece matematiksel mesafe ölçtüğü için kural tabanlı bir açıklaması yoktur, uzak durulmalıdır.",
+      "D": "KNN yorumlanabilir değildir.",
+      "E": "Random Forest da yüzlerce ağaçtan oluştuğu için basit kural açıklamaları için ideal değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Yorumlanabilirlik (Interpretability)",
+        "definition": "Bir makine öğrenmesi modelinin kararları nasıl ve neden aldığının insanlar tarafından anlaşılabilme derecesi."
+      }
+    ]
+  },
+  {
+    "id": "w5-v020",
+    "week": 5,
+    "topic": "random-forest-adimlar",
+    "type": "verbal",
+    "tags": [
+      "random-forest",
+      "algoritma-adimlari"
+    ],
+    "sourceNotebook": null,
+    "question": "Random Forest algoritmasının çalışma adımları düşünüldüğünde, yeni gelen bir veri noktasının (test verisinin) hangi sınıfa ait olduğuna nasıl karar verilir?",
+    "code": null,
+    "options": {
+      "A": "Yeni veriye en yakın 5 komşu bulunarak",
+      "B": "Veri setindeki en başarılı tek karar ağacının sonucuna bakılarak",
+      "C": "Her karar ağacının tahminleri alınıp çoğunluk oyu (Majority Voting) ile kazanan kategori belirlenerek",
+      "D": "Yeni verinin özelliklerinin ortalaması alınarak",
+      "E": "Eğitim setindeki aykırı değerler silindikten sonra kalan tek ağaç üzerinden"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "En yakın komşulara bakmak KNN algoritmasının özelliğidir.",
+      "B": "Random Forest en başarılı tek ağacı seçmez, tüm ormanın gücünü kullanır.",
+      "C": "Doğru. Random Forest'ta yeni veri tüm karar ağaçlarına sorulur ve en çok tekrar eden sınıf (çoğunluk oyu) nihai karar olarak atanır.",
+      "D": "Veri özelliklerinin ortalaması alınmaz, sınıf tahminlerinin oylaması yapılır.",
+      "E": "Aykırı değer silme işlemi bu algoritmanın tahmin adımında yer almaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "Tahmin Üretimi (Prediction)",
+        "definition": "Modelin eğitim sonrası yeni veriler için sınıf veya değer belirleme süreci."
+      }
+    ]
+  },
+  {
+    "id": "w5-v021",
+    "week": 5,
+    "topic": "knn-kullanim-senaryolari",
+    "type": "verbal",
+    "tags": [
+      "knn",
+      "algoritma-secimi",
+      "boyut"
+    ],
+    "sourceNotebook": null,
+    "question": "Aşağıdaki veri seti senaryolarından hangisinde K-Nearest Neighbors (KNN) algoritmasının tercih edilmesi **en az** uygundur (uzak durulmalıdır)?",
+    "code": null,
+    "options": {
+      "A": "Özellik sayısının az olduğu, lokal benzerliklerin önemli olduğu küçük veri setlerinde",
+      "B": "Sayısal özelliklerin anlamlı olduğu ve ölçekleme (scaling) yapılabildiği durumlarda",
+      "C": "Sınıflandırma işleminin çok hızlı yapılması gereken, milyonlarca satırlık devasa veri setlerinde",
+      "D": "Geçmiş verilere bakarak 'Bana en çok benzeyenler kim?' sorusunun sorulduğu basit problemlerde",
+      "E": "Modelin matematiksel bir formül inşa etmeden sadece veriyi hafızasında tutmasının yeterli olduğu durumlarda"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "KNN küçük veri setlerinde lokal benzerlikler için çok uygundur.",
+      "B": "Ölçekleme yapılmış sayısal veriler KNN için idealdir.",
+      "C": "Doğru. KNN 'Lazy Learner' olduğu için her tahminde tüm veri tabanını tarar. Devasa veri setlerinde tahmin süresi çok uzar, bu yüzden uzak durulmalıdır.",
+      "D": "Bu KNN'in tam olarak temel çalışma mantığıdır.",
+      "E": "KNN'in 'tembel' yapısı bu tür durumlar için uygundur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Veri Boyutu (Data Size)",
+        "definition": "Veri setindeki satır (gözlem) ve sütun (özellik) sayısının büyüklüğü."
+      }
+    ]
+  },
+  {
+    "id": "w5-v022",
+    "week": 5,
+    "topic": "random-forest-ve-paralel-islem",
+    "type": "verbal",
+    "tags": [
+      "n-jobs",
+      "paralel-islem",
+      "random-forest"
+    ],
+    "sourceNotebook": null,
+    "question": "Random Forest gibi çok sayıda karar ağacı üreten Ensemble modeller büyük veri setlerinde eğitilirken bilgisayarı oldukça zorlayabilir. Bu eğitim sürecini hızlandırmak için algoritmaya verilen ve 'bilgisayardaki tüm işlemci çekirdeklerini paralel kullanmayı' sağlayan parametre mantığı hangisidir?",
+    "code": null,
+    "options": {
+      "A": "n_estimators sayısını 1'e düşürmek",
+      "B": "max_depth değerini sonsuz yapmak",
+      "C": "İşlemci çekirdeklerini aktifleştiren paralel işlem parametresini kullanmak (örn: n_jobs=-1)",
+      "D": "random_state değerini sürekli değiştirmek",
+      "E": "K değerini veri setinin boyutuna göre ayarlamak"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Ağaç sayısını 1'e düşürmek modeli Decision Tree'ye dönüştürür, Ensemble mantığını yok eder.",
+      "B": "Derinliği sonsuz yapmak modeli aşırı yavaşlatır ve ezberlemeye (overfitting) iter.",
+      "C": "Doğru. Random Forest'ta ağaçlar birbirinden bağımsız kurulduğu için paralel işlemeye çok uygundur. Tüm çekirdekleri kullanmak (n_jobs=-1) eğitimi hızlandırır.",
+      "D": "random_state sadece sonuçların her çalışmada aynı çıkmasını sağlar, hızı etkilemez.",
+      "E": "K değeri KNN algoritmasına aittir, Random Forest ile ilgisi yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Paralel İşleme (Parallel Processing)",
+        "definition": "Bilgisayarın birden fazla işlemci çekirdeğini aynı anda kullanarak hesaplama süresini kısaltması."
+      }
+    ]
+  },
+  {
+    "id": "w5-v023",
+    "week": 5,
+    "topic": "random-forest-ve-dt-farki",
+    "type": "verbal",
+    "tags": [
+      "karar-agaci",
+      "random-forest",
+      "overfitting"
+    ],
+    "sourceNotebook": null,
+    "question": "Aynı veri seti üzerinde hem tek bir Decision Tree (Karar Ağacı) hem de Random Forest çalıştırıldığında, Random Forest'ın ezberlemeye (overfitting) daha dayanıklı olmasının sebebi aşağıdakilerden hangisiyle açıklanır?",
+    "code": null,
+    "options": {
+      "A": "Random Forest'ın sadece kategorik verilerle çalışması",
+      "B": "Tek ağacın verideki tüm gürültüyü kolayca öğrenmesine karşın, ormandaki ağaçların farklı veri dilimleri ve özelliklerle eğitilip hataların oylamayla törpülenmesi",
+      "C": "Random Forest'ın eğitim öncesinde tüm verileri Euclidean mesafesiyle normalize etmesi",
+      "D": "Decision Tree'nin sadece tek sayı olan verileri işleyebilmesi",
+      "E": "Random Forest'ın karar düğümlerinde Gini yerine her zaman Entropi kullanması"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Random Forest hem sayısal hem kategorik verilerle çalışabilir.",
+      "B": "Doğru. Decision Tree tek başına veri değişimine hassastır ve gürültüyü ezberleyebilir. Random Forest ise rastgele veri alt kümeleriyle birçok ağaç kurarak bu hataları oylama (majority voting) ile dengeler.",
+      "C": "Mesafe ölçümü ve normalizasyon Random Forest'ın değil KNN'in konusudur.",
+      "D": "Decision Tree'nin tek sayılarla çalışma gibi bir kısıtlaması yoktur.",
+      "E": "İki algoritma da hem Gini hem Entropi kullanabilir, dayanıklılığın sebebi bu değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Gürültü (Noise)",
+        "definition": "Veri setindeki anlamsız, rastgele hatalar veya istisnai durumlar."
+      }
+    ]
+  },
+  {
+    "id": "w5-v024",
+    "week": 5,
+    "topic": "knn-k-parametresi-optimizasyonu",
+    "type": "verbal",
+    "tags": [
+      "knn",
+      "k-degeri",
+      "dongu",
+      "optimizasyon"
+    ],
+    "sourceNotebook": null,
+    "question": "KNN algoritmasında modelin en yüksek başarıyı vereceği optimal 'K' değerini (komşu sayısını) baştan kesin olarak bilmek mümkün değildir. Bu durumda en iyi K değerini bulmak için veri madenciliğinde izlenen genel yöntem aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "K değerini her zaman veri setindeki satır sayısının yarısı olarak sabitlemek",
+      "B": "Sadece K=1 değerini deneyip overfitting yapmasını ummak",
+      "C": "Farklı K değerlerini (örn: 1'den 20'ye kadar) bir döngü (iterasyon) içinde tek tek deneyerek test başarısı en yüksek olan noktayı seçmek",
+      "D": "K değerini rastgele bir çift sayı olarak belirlemek",
+      "E": "Mesafe metriğini Manhattan yerine Euclidean yaparak K değeri ihtiyacını ortadan kaldırmak"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Satır sayısının yarısı kadar komşuya bakmak aşırı genellemeye (underfitting) yol açar.",
+      "B": "K=1 her zaman overfitting yapar ve test verisinde çuvallar, bu istenen bir şey değildir.",
+      "C": "Doğru. Optimal K değerini bulmak için belirli aralıktaki sayılar bir for döngüsü ile modele tek tek verilir, başarılar bir listeye eklenir ve grafikteki tepe noktası seçilir.",
+      "D": "Çift sayı seçmek eşitlik (tie) durumuna yol açabileceği için tavsiye edilmez.",
+      "E": "Mesafe metriğini değiştirmek K değerine olan ihtiyacı ortadan kaldırmaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "İterasyon (Döngü)",
+        "definition": "Bir işlemi farklı parametrelerle (örneğin farklı K değerleriyle) tekrar tekrar çalıştırma süreci."
+      }
+    ]
+  },
+  {
+    "id": "w5-v025",
+    "week": 5,
+    "topic": "knn-minkowski-varsayilan",
+    "type": "verbal",
+    "tags": [
+      "knn",
+      "minkowski",
+      "mesafe"
+    ],
+    "sourceNotebook": null,
+    "question": "KNN algoritması farklı mesafe ölçüm metrikleriyle çalışabilir. Scikit-learn kütüphanesinde KNN modeli oluşturulurken herhangi bir özel parametre belirtilmezse, varsayılan (default) olarak kullanılan ve Euclidean ile Manhattan'ın genelleştirilmiş hâli olan mesafe metriği hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Edit Distance",
+      "B": "Hamming Distance",
+      "C": "Euclidean Distance",
+      "D": "Manhattan Distance",
+      "E": "Minkowski Distance"
+    },
+    "correct": "E",
+    "explanations": {
+      "A": "Edit distance metin verileri için kullanılır, varsayılan sayısal metrik değildir.",
+      "B": "Hamming distance kategorik farklılıklar içindir.",
+      "C": "Euclidean çok popülerdir ancak scikit-learn'de doğrudan varsayılan isim değildir.",
+      "D": "Manhattan dik açılı ölçümdür, varsayılan değildir.",
+      "E": "Doğru. Scikit-learn kütüphanesinde KNN varsayılan olarak Minkowski kullanır (p=2 parametresi ile Euclidean'a dönüşür)."
+    },
+    "relatedTerms": [
+      {
+        "term": "Minkowski Distance",
+        "definition": "Euclidean ve Manhattan mesafelerinin formülünü kapsayan genelleştirilmiş mesafe metriği."
+      }
+    ]
+  },
+  {
+    "id": "w5-v026",
+    "week": 5,
+    "topic": "knn-temel-mantik",
+    "type": "verbal",
+    "tags": [
+      "knn",
+      "siniflandirma",
+      "benzerlik"
+    ],
+    "sourceNotebook": null,
+    "question": "KNN algoritmasının bir veriyi sınıflandırırken arka planda çalıştığı temel mantık sorusu aşağıdakilerden hangisiyle en iyi özetlenebilir?",
+    "code": null,
+    "options": {
+      "A": "Bu değişken, modelin toplam varyansının yüzde kaçını açıklıyor?",
+      "B": "Bu yeni gözlem, daha önce gördüğüm hangi örneklere benziyor ve onlara ne kadar yakın?",
+      "C": "Veri setini hangi kurala göre bölersem bilgi kazancını (Information Gain) maksimize ederim?",
+      "D": "Tüm karar ağaçlarının çoğunluk oylaması hangi sonucu işaret ediyor?",
+      "E": "Eğitim verisindeki aykırı değerleri nasıl filtreleyebilirim?"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Bu soru PCA (Temel Bileşenler Analizi) gibi boyut indirgeme algoritmalarının mantığıdır.",
+      "B": "Doğru. KNN'in temel felsefesi benzerliğe ve yakınlığa dayanır. Yeni gelen veriyi etrafındaki komşularının çoğunluk durumuna göre sınıflandırır.",
+      "C": "Bu soru Decision Tree (Karar Ağacı) algoritmasının bölünme mantığıdır.",
+      "D": "Çoğunluk oylaması (Majority Voting) Random Forest'ın mantığıdır.",
+      "E": "KNN aykırı değerleri filtrelemez, aksine onlardan etkilenebilir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Benzerlik (Similarity)",
+        "definition": "İki veri noktası arasındaki özelliklerin birbirine ne kadar yakın olduğu durumu."
+      }
+    ]
+  },
+  {
+    "id": "w5-v027",
+    "week": 5,
+    "topic": "ogrenme-vs-ezberleme",
+    "type": "verbal",
+    "tags": [
+      "ogrenme",
+      "genelleme",
+      "overfitting"
+    ],
+    "sourceNotebook": null,
+    "question": "Makine öğrenmesinde 'Öğrenmek' kavramının tam karşılığı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Eğitim verisindeki tüm satırları birebir hafızaya almak",
+      "B": "Sadece sayısal verilerle matematiksel işlemler yapabilmek",
+      "C": "Gördüğü verilerden kurallar çıkarıp, daha önce hiç görmediği verilerde mantıklı sonuçlar üretebilmek (Tümevarım)",
+      "D": "Bir problemi çözerken mutlaka birden fazla algoritma kullanmak",
+      "E": "Test verisini eğitim verisine katarak modelin başarısını %100'e çekmek"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Veriyi birebir hafızaya almak öğrenmek değil, ezberlemektir (overfitting).",
+      "B": "Makine öğrenmesi kategorik verilerle de çalışır, sadece hesaplama yapmak öğrenmek değildir.",
+      "C": "Doğru. Öğrenmek, genelleme (tümevarım) yapabilmek demektir. Modelin asıl amacı görmediği veride de doğru davranabilmesidir.",
+      "D": "Tek bir algoritma ile de öğrenme gerçekleşebilir.",
+      "E": "Test verisini eğitime katmak Veri Sızıntısı (Data Leakage) adı verilen büyük bir hatadır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Tümevarım",
+        "definition": "Özel örneklerden (eğitim verisi) yola çıkarak genel kurallar elde etme süreci."
+      }
+    ]
+  },
+  {
+    "id": "w5-v028",
+    "week": 5,
+    "topic": "algoritma-secimi-knn-dezavantaj",
+    "type": "verbal",
+    "tags": [
+      "knn",
+      "dezavantaj",
+      "veri-boyutu"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir e-ticaret sitesi, anlık olarak bağlanan milyonlarca kullanıcısına anında ürün önermek için bir sınıflandırma algoritması arıyor. Veri seti çok büyük ve tahminlerin milisaniyeler içinde yapılması şart.\nBu projede aşağıdaki algoritmaların özelliklerinden hangisi, o algoritmanın KESİNLİKLE SEÇİLMEMESİ gerektiğini gösterir?",
+    "code": null,
+    "options": {
+      "A": "Decision Tree'nin kural tabanlı yapısı",
+      "B": "KNN'in tembel öğrenici (Lazy Learner) olması ve her tahminde tüm veriye olan mesafeyi yeniden hesaplaması",
+      "C": "Random Forest'ın aşırı öğrenmeye karşı dirençli olması",
+      "D": "Karar Ağacının eğitim aşamasının çok hızlı olması",
+      "E": "Ensemble modellerin çoğunluk oylaması kullanması"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Kural tabanlı yapı tahmin anında çok hızlı çalışır, bu bir avantajdır.",
+      "B": "Doğru. KNN eğitimde model kurmayıp tüm işi tahmin anına bıraktığı için, milyonlarca satırlık veride bir tahmin yapmak çok uzun sürer. Anlık hız gereken büyük projelerde KNN kullanılamaz.",
+      "C": "Aşırı öğrenmeye dirençli olmak istenen bir özelliktir.",
+      "D": "Eğitimin hızlı olması bir dezavantaj değildir.",
+      "E": "Çoğunluk oylaması modelin güvenilirliğini artırır, seçilmemesi için sebep değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Ölçeklenebilirlik (Scalability)",
+        "definition": "Bir algoritmanın veri boyutu büyüdükçe performansını koruyabilme yeteneği."
+      }
+    ]
+  },
+  {
+    "id": "w5-v029",
+    "week": 5,
+    "topic": "knn-ve-ölcekleme-farki",
+    "type": "verbal",
+    "tags": [
+      "decision-tree",
+      "knn",
+      "scaling"
+    ],
+    "sourceNotebook": null,
+    "question": "Ölçekleme (Scaling) işlemi göz önüne alındığında, Decision Tree ve KNN algoritmaları arasındaki en temel fark aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Decision Tree ölçeklemeye kesinlikle ihtiyaç duyar, KNN ise ölçeklemeden etkilenmez.",
+      "B": "KNN sadece MinMaxScaler kullanabilir, Decision Tree ise sadece StandardScaler kullanabilir.",
+      "C": "Decision Tree kural tabanlı olduğu için genelde ölçeklemeye ihtiyaç duymaz, KNN ise mesafe tabanlı olduğu için ölçekleme kesinlikle zorunludur.",
+      "D": "Her iki algoritma da ölçekleme yapılmadan çalışamaz.",
+      "E": "Ölçekleme işlemi sadece veri setinde eksik veri varsa her ikisi için de uygulanır."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Tam tersi. DT ihtiyaç duymaz, KNN duyar.",
+      "B": "Algoritmaların belirli bir scaler'a zorunluluğu yoktur, verinin dağılımına göre seçilir.",
+      "C": "Doğru. Decision Tree 'Maaş 50 binden büyük mü?' diye sorar, sayının büyüklüğü ağaç yapısını bozmaz. KNN ise matematiksel mesafe ölçtüğü için 50.000 değeri, 30 değerini ezer geçer; bu yüzden ölçekleme şarttır.",
+      "D": "DT ölçekleme olmadan da gayet başarılı çalışabilir.",
+      "E": "Ölçekleme ile eksik veri doldurmanın birbiriyle doğrudan ilgisi yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Kural Tabanlı (Rule-based)",
+        "definition": "Veriyi belirli koşullara (If-Else) göre bölen algoritma yapısı."
+      }
+    ]
+  },
+  {
+    "id": "w5-v030",
+    "week": 5,
+    "topic": "random-forest-avantajlari",
+    "type": "verbal",
+    "tags": [
+      "random-forest",
+      "avantaj",
+      "karar-agaci"
+    ],
+    "sourceNotebook": null,
+    "question": "Aşağıdakilerden hangisi Random Forest (Rastgele Ormanlar) algoritmasının avantajlarından biri DEĞİLDİR?",
+    "code": null,
+    "options": {
+      "A": "Tek bir karar ağacına göre overfitting (aşırı öğrenme) riskini azaltması",
+      "B": "Modelin tüm karar süreçlerinin tek bir ağaç gibi kolayca şemalaştırılıp yorumlanabilmesi",
+      "C": "Hangi değişkenlerin tahminde daha etkili olduğunu (Feature Importance) hesaplayabilmesi",
+      "D": "Birden fazla modelin birleşimi olduğu için daha stabil ve güçlü sonuçlar vermesi",
+      "E": "Karmaşık problemleri çözerken Ensemble Learning (Topluluk Öğrenmesi) gücünü kullanması"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Random Forest'ın temel çıkış noktası overfitting'i azaltmaktır.",
+      "B": "Doğru. Tek bir karar ağacını çizip yorumlamak çok kolaydır ancak yüzlerce ağaçtan oluşan bir ormanın tamamını tek bir şema ile yorumlamak imkansıza yakındır. Yorumlanabilirlik düşüktür.",
+      "C": "Feature Importance özelliği Random Forest'ın en güçlü yanlarından biridir.",
+      "D": "Topluluk modelleri her zaman tekil modellere göre daha stabil sonuçlar üretir.",
+      "E": "Random Forest zaten bir Ensemble Learning yöntemidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Model Yorumlanabilirliği",
+        "definition": "Modelin ürettiği sonuçların arkasındaki mantığın insanlar tarafından şeffaf şekilde anlaşılabilmesi."
+      }
+    ]
+  },
+  {
+    "id": "w5-v031",
+    "week": 5,
+    "topic": "knn-buyuk-k-degeri",
+    "type": "verbal",
+    "tags": [
+      "knn",
+      "underfitting",
+      "k-degeri"
+    ],
+    "sourceNotebook": null,
+    "question": "KNN algoritmasında K değeri, veri setindeki toplam gözlem sayısına çok yakın ve aşırı büyük bir değer olarak seçilirse modelde hangi problemin yaşanması beklenir?",
+    "code": null,
+    "options": {
+      "A": "Model sadece gürültüyü ezberler (Overfitting).",
+      "B": "Model aşırı genelleme yapar ve verideki ince ayrıntıları kaçırır (Underfitting).",
+      "C": "Tahmin süresi sıfıra iner ve model çok hızlanır.",
+      "D": "Algoritma otomatik olarak Decision Tree mantığına dönüşür.",
+      "E": "Ölçekleme (Scaling) ihtiyacı tamamen ortadan kalkar."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Overfitting, K değeri çok küçük (örneğin K=1) seçildiğinde yaşanır.",
+      "B": "Doğru. K değeri çok büyük seçilirse, model yeni gelen her veri için neredeyse tüm veri setine bakar. Bu durumda her zaman çoğunluk sınıfı kazanır, model ayrım yapamaz ve aşırı genelleme (underfitting) olur.",
+      "C": "K değerinin büyümesi mesafelerin sıralanmasını gerektirdiği için süreci hızlandırmaz.",
+      "D": "KNN mesafe tabanlıdır, parametre değişimi onu kural tabanlı bir ağaca dönüştürmez.",
+      "E": "K değeri ne olursa olsun mesafe hesaplandığı sürece ölçekleme zorunludur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Underfitting (Aşırı Genelleme)",
+        "definition": "Modelin veri setindeki kalıpları öğrenemeyecek kadar basit kalması veya aşırı genellemesi durumu."
+      }
+    ]
+  },
+  {
+    "id": "w5-v032",
+    "week": 5,
+    "topic": "accuracy-yorumlama",
+    "type": "verbal",
+    "tags": [
+      "test-accuracy",
+      "train-accuracy",
+      "model-basarisi"
+    ],
+    "sourceNotebook": null,
+    "question": "Makine öğrenmesi projelerinde bir modelin başarısı değerlendirilirken, neden öncelikle 'Test Accuracy' (Test Başarısı) değerine güvenilir?",
+    "code": null,
+    "options": {
+      "A": "Çünkü test verisi her zaman eğitim verisinden daha büyük bir hacme sahiptir.",
+      "B": "Çünkü eğitim aşamasında model sadece hataları öğrenir, doğruları test aşamasında bulur.",
+      "C": "Çünkü Test Accuracy, modelin eğitim sırasında hiç görmediği yeni veriler üzerindeki tümevarım (genelleme) yeteneğini gösterir.",
+      "D": "Çünkü Train Accuracy değeri her zaman 1.00 çıkmak zorundadır, bu yüzden ayırt edici değildir.",
+      "E": "Çünkü test işlemi algoritmanın hiperparametrelerini otomatik olarak optimize eder."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Genellikle eğitim verisi (örn. %70) test verisinden (örn. %30) daha büyüktür.",
+      "B": "Model doğruları eğitim aşamasında öğrenir, testte sadece bu öğrenimi uygular.",
+      "C": "Doğru. Asıl mesele modeli daha önce gördüğü veride test etmek değil, gerçek hayatta karşılaşacağı (hiç görmediği) verideki başarısını ölçmektir. Bunu da Test Accuracy sağlar.",
+      "D": "Train Accuracy her zaman 1.00 çıkmaz; çıkması zaten ezberlemeye işarettir.",
+      "E": "Test işlemi optimize etmez, sadece var olan modelin performansını ölçer."
+    },
+    "relatedTerms": [
+      {
+        "term": "Accuracy (Doğruluk Oranı)",
+        "definition": "Modelin doğru tahmin ettiği örneklerin toplam örnek sayısına oranı."
+      }
+    ]
+  },
+  {
+    "id": "w5-v033",
+    "week": 5,
+    "topic": "dt-vs-rf-yapi",
+    "type": "verbal",
+    "tags": [
+      "karar-agaci",
+      "random-forest",
+      "karsilastirma"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir projenin raporunda, seçilen algoritmanın yapısı için 'Birden çok ağacın birleşimi (bir orman)' ve eğitim süresi için 'Biraz daha uzun' ifadeleri kullanılmıştır. \nBu raporda bahsedilen ve Decision Tree'ye alternatif olarak kullanılan algoritma aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "K-Nearest Neighbors (KNN)",
+      "B": "StandardScaler",
+      "C": "Random Forest",
+      "D": "Majority Voting",
+      "E": "Euclidean Distance"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "KNN ağaç yapısı kullanmaz, mesafe tabanlıdır.",
+      "B": "StandardScaler bir veri dönüştürme işlemidir, algoritma değildir.",
+      "C": "Doğru. Random Forest, birden çok karar ağacının birleşimi olan, eğitim süresi DT'ye göre daha uzun ama doğruluğu daha yüksek olan Ensemble modelidir.",
+      "D": "Majority Voting bir algoritma değil, Random Forest'ın içindeki oylama mekanizmasıdır.",
+      "E": "Euclidean mesafe ölçüm metriğidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Ensemble (Topluluk)",
+        "definition": "Zayıf öğrenicilerin bir araya gelerek güçlü bir öğrenici oluşturduğu model yapısı."
+      }
+    ]
+  },
+  {
+    "id": "w5-v034",
+    "week": 5,
+    "topic": "knn-kullanim-amaci",
+    "type": "verbal",
+    "tags": [
+      "knn",
+      "siniflandirma",
+      "denetimli-ogrenme"
+    ],
+    "sourceNotebook": null,
+    "question": "K-Nearest Neighbors (KNN) algoritması, makine öğrenmesi şemsiyesi altında ağırlıklı olarak hangi tür problemlerin çözümü için kullanılır?",
+    "code": null,
+    "options": {
+      "A": "Denetimsiz öğrenmede kümeleme (Clustering) yapmak için",
+      "B": "Denetimli öğrenmede sınıflandırma (Classification) ve regresyon için",
+      "C": "Veri setindeki eksik değerleri (Missing Values) bulup silmek için",
+      "D": "Kategorik verileri sayısal verilere dönüştürmek (Encoding) için",
+      "E": "Görsel verileri piksellerine ayırıp renklerini değiştirmek için"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "KNN etiketli verilerle çalışır, bu yüzden denetimsiz kümeleme algoritması değildir (K-Means ile karıştırılmamalıdır).",
+      "B": "Doğru. KNN, etiketleri (sınıfları) belli olan veriler üzerinden benzerlik ölçerek yeni veriyi sınıflandıran (veya regresyonla değer tahmin eden) denetimli öğrenme algoritmasıdır.",
+      "C": "Eksik veri doldurma/silme ön işleme adımıdır, KNN'in asıl amacı bu değildir.",
+      "D": "Encoding ön işleme adımıdır (örn: LabelEncoder), algoritmanın görevi değildir.",
+      "E": "Görüntü işleme teknikleri farklıdır, KNN mesafe tabanlı bir tahminleyicidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Denetimli Öğrenme (Supervised Learning)",
+        "definition": "Modelin, girdiler ve onlara karşılık gelen doğru çıktılar (etiketler) üzerinden eğitildiği öğrenme türü."
+      }
+    ]
+  },
+  {
+    "id": "w5-v035",
+    "week": 5,
+    "topic": "random-forest-ve-bankacilik",
+    "type": "verbal",
+    "tags": [
+      "random-forest",
+      "senaryo",
+      "kredi-riski"
+    ],
+    "sourceNotebook": null,
+    "question": "Bankacılık sektöründe kredi riskinin tespiti veya tıp sektöründe hastalık eğilimlerinin belirlenmesi gibi yüksek doğruluk ve güvenilirlik gerektiren karmaşık problemlerde tek bir Decision Tree yerine genellikle hangi algoritma tercih edilmektedir?",
+    "code": null,
+    "options": {
+      "A": "Random Forest",
+      "B": "K-Nearest Neighbors (KNN)",
+      "C": "Sadece K=1 olan KNN",
+      "D": "StandardScaler",
+      "E": "Majority Voting (tek başına)"
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Doğru. Kredi riski veya tıp gibi hata payının düşük olması gereken yerlerde tek ağacın ezberleme riskine girilmez; daha dayanıklı ve yüksek doğruluğa sahip Random Forest tercih edilir.",
+      "B": "KNN büyük ve karmaşık veri setlerinde çok yavaş kalır ve ölçekleme hassasiyeti yüksektir.",
+      "C": "K=1 KNN en çok hata yapma potansiyeline sahip, gürültüye duyarlı modeldir.",
+      "D": "StandardScaler algoritma değil, veri dönüştürücüdür.",
+      "E": "Majority Voting bir kavramdır, tek başına bir makine öğrenmesi algoritması değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Karmaşık Problemler",
+        "definition": "Çok sayıda değişkenin birbirini etkilediği, tek bir kuralla çözülemeyecek problemler."
+      }
+    ]
+  },
+  {
+    "id": "w5-v036",
+    "week": 5,
+    "topic": "knn-mesafe-euclidean",
+    "type": "verbal",
+    "tags": [
+      "knn",
+      "euclidean",
+      "mesafe"
+    ],
+    "sourceNotebook": null,
+    "question": "Geometriden bildiğimiz Pisagor bağıntısına dayanan ve iki nokta arasındaki en kısa (kuş uçuşu) mesafeyi ölçen, KNN algoritmasında da sıkça kullanılan mesafe metriği aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Manhattan Distance",
+      "B": "Hamming Distance",
+      "C": "Edit Distance",
+      "D": "Euclidean Distance",
+      "E": "Minkowski Distance"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Manhattan dik açılarla (binaların etrafından dolaşır gibi) ölçüm yapar.",
+      "B": "Hamming kategorik değerler arası farkı ölçer.",
+      "C": "Edit distance kelimeler arası harf farklarını ölçer.",
+      "D": "Doğru. Euclidean (Öklid) mesafesi, iki nokta arasındaki düz çizgi (kuş uçuşu) mesafesini hesaplayan en temel metriktir.",
+      "E": "Minkowski, formülün p parametresi ile genelleştirilmiş halidir, doğrudan kuş uçuşu tanımının sahibi Euclidean'dır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Euclidean Distance",
+        "definition": "İki nokta arasındaki doğrusal ve en kısa mesafeyi veren matematiksel formül."
+      }
+    ]
+  },
+  {
+    "id": "w5-v037",
+    "week": 5,
+    "topic": "overfitting-sinirda",
+    "type": "verbal",
+    "tags": [
+      "overfitting",
+      "train-test",
+      "karar-verme"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir makine öğrenmesi modelinin sonuçları incelendiğinde Train Accuracy 1.00, Test Accuracy ise 0.80 olarak bulunmuştur.\nBu duruma ilişkin yapılacak en makul analiz aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Model veriyi tamamen ezberlemiştir, test sonucu da %50'nin altında kaldığı için direkt çöpe atılmalıdır.",
+      "B": "Eğitimde ezberleme vardır (Train 1.00) ancak Test başarısı 0.80 ile sınırda ve fena olmadığı için proje bağlamına göre kabul edilebilir.",
+      "C": "Model mükemmel öğrenmiş ve hiçbir şekilde overfitting yapmamıştır.",
+      "D": "Test başarısının 0.80 olması modelin underfitting (eksik öğrenme) yaşadığını kanıtlar.",
+      "E": "Bu sonuçlar sadece K-Nearest Neighbors algoritmasında görülebilir."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Test sonucu %50'nin altında değildir, %80 fena bir oran değildir.",
+      "B": "Doğru. Train 1.00 olduğu için bir ezberleme (overfitting) emaresi vardır, ancak testte 0.70'in altına düşmeyip 0.80'de tutunduğu için model tamamen çuvallamamıştır ve sınırda kabul edilebilir.",
+      "C": "Train 1.00 olduğu için 'hiçbir şekilde overfitting yapmamıştır' denemez, ezberleme vardır.",
+      "D": "Underfitting olması için eğitim başarısının da düşük olması gerekirdi.",
+      "E": "Bu sonuçlar Decision Tree veya Random Forest dahil birçok algoritmada görülebilir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Kabul Edilebilir Sınır",
+        "definition": "Test başarısının genellikle %75-80 üzerinde olması durumunda modelin iş görebilir kabul edilmesi."
+      }
+    ]
+  },
+  {
+    "id": "w5-v038",
+    "week": 5,
+    "topic": "random-forest-agac-sayisi",
+    "type": "verbal",
+    "tags": [
+      "random-forest",
+      "parametre",
+      "n-estimators"
+    ],
+    "sourceNotebook": null,
+    "question": "Random Forest algoritması kodlanırken kullanılan `n_estimators` parametresi modelin hangi özelliğini kontrol eder?",
+    "code": null,
+    "options": {
+      "A": "Algoritmanın kullanacağı bilgisayar çekirdeği sayısını",
+      "B": "Ağaçların maksimum inebileceği derinliği",
+      "C": "Ormanda oluşturulacak toplam karar ağacı sayısını",
+      "D": "Her bir ağaca verilecek rastgele veri yüzdesini",
+      "E": "KNN algoritmasındaki K komşu sayısını"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Çekirdek sayısı `n_jobs` parametresi ile kontrol edilir.",
+      "B": "Ağaç derinliği `max_depth` parametresi ile kontrol edilir.",
+      "C": "Doğru. `n_estimators` (tahmin edici sayısı), Random Forest içinde kaç adet karar ağacı üretileceğini (default genelde 100) belirler.",
+      "D": "Veri yüzdesi `max_samples` gibi farklı parametrelerle ayarlanır.",
+      "E": "K komşu sayısı `n_neighbors` parametresidir ve KNN'e aittir."
+    },
+    "relatedTerms": [
+      {
+        "term": "n_estimators",
+        "definition": "Ensemble modellerde kullanılacak alt model (örneğin karar ağacı) sayısını belirten parametre."
+      }
+    ]
+  },
+  {
+    "id": "w5-v039",
+    "week": 5,
+    "topic": "decision-tree-ezberleme",
+    "type": "verbal",
+    "tags": [
+      "decision-tree",
+      "overfitting",
+      "dezavantaj"
+    ],
+    "sourceNotebook": null,
+    "question": "Decision Tree (Karar Ağacı) algoritmasının tek başına kullanıldığında ortaya çıkan en büyük üç zaafı/problemi aşağıdakilerden hangisinde doğru olarak verilmiştir?",
+    "code": null,
+    "options": {
+      "A": "Çok yavaş çalışması, ölçeklemeye ihtiyaç duyması, sadece küçük verilerde çalışması",
+      "B": "Overfitting (ezberleme) yapabilmesi, veri değişimine hassas olması, tek ağacın her zaman güçlü olmaması",
+      "C": "Mesafe tabanlı olması, çoğunluk oylaması kullanması, kural çıkaramaması",
+      "D": "Görselleştirilememesi, paralel işleme uygun olmaması, donanımı çok yorması",
+      "E": "Sadece kategorik verilerle çalışması, Feature Importance hesaplayamaması, K değerine ihtiyaç duyması"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Decision tree çok hızlı çalışır ve genelde ölçeklemeye ihtiyaç duymaz.",
+      "B": "Doğru. Decision tree'nin en büyük problemi detayları ezberlemesi (overfitting), verideki ufak bir değişimin ağacın tüm yapısını bozabilmesi ve tek başına bazen zayıf kalmasıdır.",
+      "C": "Decision tree kural tabanlıdır, mesafe tabanlı olan KNN'dir.",
+      "D": "Decision tree çok kolay görselleştirilir.",
+      "E": "Sayısal verilerle de çalışır ve Feature Importance hesaplayabilir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Veri Hassasiyeti",
+        "definition": "Eğitim verisindeki küçük bir değişikliğin, modelin ürettiği kuralları tamamen değiştirmesi durumu."
+      }
+    ]
+  },
+  {
+    "id": "w5-v040",
+    "week": 5,
+    "topic": "knn-ve-mnist-senaryo",
+    "type": "verbal",
+    "tags": [
+      "knn",
+      "scaling",
+      "senaryo"
+    ],
+    "sourceNotebook": null,
+    "question": "El yazması rakamların tanınması (MNIST) veri setinde sayılar 0-16 arasındaki piksel değerlerinden oluşmaktadır. Bu veri setinde KNN algoritması ölçekleme (scaling) yapılmadan da %98 başarı vermiştir.\nBuna karşın, farklı özelliklerin bulunduğu bir sağlık veri setinde KNN ölçekleme yapılmadan kullanıldığında başarısı çok düşük çıkmıştır. \nBu durumun temel sebebi aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Sağlık verilerinin sadece kategorik olması ve KNN'in kategorik verilerle çalışamaması",
+      "B": "MNIST verisindeki tüm değerlerin zaten aynı aralıkta (aynı sıklette) olması, sağlık verisinde ise değer aralıklarının birbirinden çok farklı olması",
+      "C": "El yazması verilerinde Euclidean, sağlık verilerinde Manhattan mesafesinin zorunlu olması",
+      "D": "Sağlık verilerinde K değerinin her zaman çift sayı seçilmek zorunda olması",
+      "E": "MNIST veri setinin Random Forest algoritmasıyla, sağlık verisinin KNN ile eğitilmiş olması"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Sağlık verileri (yaş, tansiyon vb.) genellikle sayısaldır, sorun kategorik olmaları değildir.",
+      "B": "Doğru. Piksel değerlerinin hepsi 0-16 aralığında olduğu için matematiksel olarak birbirini ezmezler. Ancak sağlık verisinde bir sütun 1-10 arası iken diğeri 100-500 arasıysa, ölçekleme yapılmadığında büyük sayılar küçükleri yutar ve model çuvallar.",
+      "C": "Veri setine göre zorunlu bir mesafe metriği yoktur, başarısızlığın temel sebebi ölçek farklılığıdır.",
+      "D": "K değeri her zaman tek sayı seçilmelidir, veri setine göre çift sayı zorunluluğu yoktur.",
+      "E": "Senaryoda her iki veride de KNN kullanıldığı belirtilmiştir."
+    },
+    "relatedTerms": []
+  },
+  {
+    "id": "w05-q001",
+    "week": 5,
+    "topic": "veri-on-isleme",
+    "type": "code",
+    "tags": [
+      "train_test_split",
+      "stratify",
+      "modelleme"
+    ],
+    "sourceNotebook": "random_forest.ipynb",
+    "question": "Aşağıdaki veri ayırma işleminde `stratify=y` parametresinin kullanılmasının veri madenciliği açısından temel amacı nedir?",
+    "code": "X_train, X_test, y_train, y_test = train_test_split(\n    X, y,\n    test_size=0.2,\n    random_state=42,\n    stratify=y\n)",
+    "options": {
+      "A": "Sayısal değişkenlerin aynı varyans ve ortalamaya sahip olacak şekilde standartlaştırılmasını sağlar.",
+      "B": "Eğitim ve test veri setlerine ayrım yapılırken, hedef değişkenin sınıf dağılımı oranının her iki sette de korunmasını sağlar.",
+      "C": "Eksik verilerin hedef değişkenin ortalamasına göre doldurulması için bir referans noktası oluşturur.",
+      "D": "Test verisinin boyutunu otomatik olarak optimize ederek modelin ezberlemesini engeller.",
+      "E": "Kategorik değişkenlerin model tarafından algılanabilmesi için otomatik olarak sayısallaştırılmasını sağlar."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. Standartlaştırma işlemi `StandardScaler` gibi ölçeklendiriciler ile yapılır, `train_test_split` ile değil.",
+      "B": "Doğru. Sınıf dağılımının (örneğin kanserli/sağlıklı oranının) eğitim ve test setlerinde orijinal veri setiyle aynı kalmasını garanti eder.",
+      "C": "Yanlış. Eksik veri doldurma (imputation) işlemi bu fonksiyonun bir parçası değildir.",
+      "D": "Yanlış. Test veri boyutu `test_size` parametresi ile belirlenir, optimizasyon yapmaz.",
+      "E": "Yanlış. Kategorik değişken dönüşümleri `pd.get_dummies` veya benzeri encoder'lar ile yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Stratified Sampling",
+        "definition": "Veri setinin alt gruplarının (sınıfların), örneklem içinde orijinal popülasyondakiyle aynı oranda temsil edilmesini sağlayan örnekleme yöntemi."
+      }
+    ]
+  },
+  {
+    "id": "w05-q002",
+    "week": 5,
+    "topic": "eksik-veri-temizleme",
+    "type": "code",
+    "tags": [
+      "replace",
+      "dropna",
+      "pandas"
+    ],
+    "sourceNotebook": "r_forest.ipynb",
+    "question": "Bir veri setinde eksik değerlerin '?' karakteri ile tutulduğu tespit edilmiştir. Bu kayıtları veri setinden tamamen silmek için aşağıdaki kod bloklarından hangisi sırasıyla uygulanmalıdır?",
+    "code": "df[\"workclass\"].value_counts() # '?' içeren kayıtlar gözlemlendi",
+    "options": {
+      "A": "df.dropna('?')\ndf.reset_index()",
+      "B": "df = df.replace('?', np.nan)\ndf = df.dropna()",
+      "C": "df = df.drop('?', axis=1)\ndf.fillna(0)",
+      "D": "df.isnull().sum()\ndf.drop_duplicates()",
+      "E": "df = df.replace(np.nan, '?')\ndf = df.dropna()"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. `dropna()` doğrudan bir string karakteri parametre olarak alıp silemez; sadece NA/NaN değerleri algılar.",
+      "B": "Doğru. Pandas'ın `dropna()` fonksiyonunun çalışabilmesi için önce '?' karakterleri standart `np.nan` değerlerine dönüştürülmeli, ardından silme işlemi yapılmalıdır.",
+      "C": "Yanlış. `drop` fonksiyonu sütun veya indeks silmek içindir, hücre içindeki belirli bir karakteri arayıp silmez.",
+      "D": "Yanlış. Sadece eksik veri sayısını gösterir ve tekrar eden satırları siler, '?' karakterlerini temizlemez.",
+      "E": "Yanlış. İşlem sırası tam tersidir; bu kod eksik verileri '?' yapar ve ardından silinecek bir NaN bulamaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "Eksik Veri (Missing Data)",
+        "definition": "Veri setinde bazı gözlemler için bilgi bulunmaması durumu. NaN, Null veya özel karakterler ('?') ile ifade edilebilir."
+      }
+    ]
+  },
+  {
+    "id": "w05-q003",
+    "week": 5,
+    "topic": "veri-donusumu",
+    "type": "code",
+    "tags": [
+      "get_dummies",
+      "encoding",
+      "one-hot"
+    ],
+    "sourceNotebook": "r_forest.ipynb",
+    "question": "Aşağıdaki kod satırının çalıştırılmasının ardından veri setinin sütun sayısında (15'ten 97'ye) büyük bir artış gözlemlenmiştir. Bu artışın temel nedeni ve `drop_first=True` parametresinin işlevi aşağıdakilerden hangisinde doğru verilmiştir?",
+    "code": "df_encoded = pd.get_dummies(df, drop_first=True)",
+    "options": {
+      "A": "Tüm sayısal sütunlar normalize edilerek kopyalanmıştır; `drop_first=True` ise orijinal sayısal sütunları siler.",
+      "B": "Kategorik değişkenler her bir sınıfı için ayrı birer 0-1 sütununa dönüştürülmüştür; `drop_first=True` ise çoklu doğrusal bağlantıyı (multicollinearity) önlemek için ilk kategoriyi düşürür.",
+      "C": "Veri seti eğitim ve test olarak ikiye ayrılmıştır; `drop_first=True` eğitim setindeki ilk satırı başlık olarak ayarlar.",
+      "D": "Eksik veriler ortalama değerlerle doldurularak yeni sütunlar eklenmiştir; `drop_first=True` ise eksik verisi en çok olan ilk sütunu siler.",
+      "E": "Hedef değişken birden fazla sınıfa ayrılmıştır; `drop_first=True` modeli yanıltmamak için ilk sınıfı analiz dışı bırakır."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. `get_dummies` sayısal sütunları kopyalamaz veya normalize etmez.",
+      "B": "Doğru. One-hot encoding işlemi her kategori için yeni bir sütun (dummy variable) yaratır ve sütun sayısını patlatır. İlk sütunun düşürülmesi, kalan sütunların ilk sütunu zaten ifade edebilmesi (hepsi 0 ise ilk sütundur) nedeniyle bilgi kaybı yaratmadan boyutu azaltır.",
+      "C": "Yanlış. Veri ayırma işlemi `train_test_split` ile yapılır.",
+      "D": "Yanlış. Bu fonksiyon eksik veri doldurma (imputation) işlemi yapmaz.",
+      "E": "Yanlış. Sadece hedef değişkeni değil, tüm kategorik öznitelikleri (features) sayısallaştırır."
+    },
+    "relatedTerms": [
+      {
+        "term": "One-Hot Encoding",
+        "definition": "Kategorik verilerin makine öğrenmesi algoritmaları tarafından işlenebilmesi için her bir kategorinin ikili (0-1) vektörlere dönüştürülmesi işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w05-q004",
+    "week": 5,
+    "topic": "veri-donusumu",
+    "type": "code",
+    "tags": [
+      "lambda",
+      "apply",
+      "label-encoding"
+    ],
+    "sourceNotebook": "r_forest.ipynb",
+    "question": "Metin tabanlı bir hedef değişkeni olan 'income' (gelir) sütunu üzerinde aşağıdaki dönüşüm işlemi uygulanmıştır. Bu işlemin veri madenciliği sürecindeki karşılığı nedir?",
+    "code": "df[\"income\"] = df[\"income\"].apply(lambda x: 1 if \">50K\" in x else 0)",
+    "options": {
+      "A": "Sürekli (continuous) bir değişkeni kesikli (discrete) aralıklara bölerek Binning (Kutulama) işlemi yapmaktadır.",
+      "B": "Eksik değerleri medyan ile doldurarak Imputation (Değer Atama) işlemi yapmaktadır.",
+      "C": "Kategorik hedef değişkeni makine öğrenmesi modelinin anlayabileceği ikili (binary) bir sayısal formata dönüştürerek Label Encoding işlemi yapmaktadır.",
+      "D": "Veri setindeki aykırı değerleri (outliers) tespit edip silerek Noise Reduction (Gürültü Temizleme) işlemi yapmaktadır.",
+      "E": "Sütun içindeki verileri 0 ile 1 arasına sıkıştırarak Min-Max Normalizasyonu işlemi yapmaktadır."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. Değişken halihazırda metinsel bir kategoridir, sürekli bir sayısal değişken değildir.",
+      "B": "Yanlış. Eksik değer doldurma işlemi yapılmamaktadır.",
+      "C": "Doğru. Sınıflandırma modelleri hedef değişkenin sayısal olmasını bekler. Bu satır, '>50K' sınıfını 1, diğerlerini 0 yaparak hedef değişkeni ikili sınıflandırmaya (binary classification) uygun hale getirir.",
+      "D": "Yanlış. Aykırı değer tespiti veya silme mantığı içermez.",
+      "E": "Yanlış. Normalizasyon, farklı ölçeklerdeki sayısal özellikleri ölçeklendirmek için kullanılır; burada metin sayısallaştırılmaktadır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Label Encoding",
+        "definition": "Kategorik sınıf etiketlerini sayısal değerlere (örneğin 0, 1, 2) dönüştürme işlemidir."
+      }
+    ]
+  },
+  {
+    "id": "w05-q005",
+    "week": 5,
+    "topic": "model-degerlendirme",
+    "type": "code",
+    "tags": [
+      "confusion_matrix",
+      "heatmap",
+      "test_verisi"
+    ],
+    "sourceNotebook": "random_forest.ipynb",
+    "question": "Model eğitimi sonrası test verisi üzerinden bir karmaşıklık matrisi (confusion matrix) oluşturulmuş ve aşağıdaki kod ile görselleştirilmiştir. Bu matrisin içindeki tüm sayısal değerler (Hücrelerdeki 4 sayının toplamı) toplandığında veri madenciliği bağlamında hangi bilgiye ulaşılır?",
+    "code": "cm_dt = confusion_matrix(y_test, y_pred_dt)\n\nplt.figure(figsize=(8,6))\nsns.heatmap(cm_dt, annot=True, fmt=\"d\", cmap=\"Blues\")\nplt.show()",
+    "options": {
+      "A": "Modelin doğru tahmin ettiği toplam kayıt sayısına.",
+      "B": "Eğitim (train) veri setindeki toplam kayıt sayısına.",
+      "C": "Sınıflandırma hatası (error rate) yüzdesine.",
+      "D": "Modelin tahmin yaptığı test veri setinin (y_test) toplam kayıt sayısına.",
+      "E": "Sadece Yanlış Pozitif (False Positive) ve Yanlış Negatif (False Negative) değerlerin toplamına."
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Yanlış. Doğru tahminler sadece köşegen (diagonal) üzerindeki değerlerin toplamıdır (TP + TN).",
+      "B": "Yanlış. Confusion matrix eğitim verisi ile değil, test verisi (y_test) ve bu veri üzerindeki tahminler (y_pred) ile oluşturulur.",
+      "C": "Yanlış. Hata oranı, köşegen dışı elemanların toplam eleman sayısına bölünmesiyle bulunur; doğrudan toplam değer değildir.",
+      "D": "Doğru. Confusion matrix, test verisindeki her bir kaydın model tarafından hangi sınıfa atandığını gösterir. İçindeki 4 hücrenin (TP+TN+FP+FN) toplamı, test setindeki toplam satır sayısına (X_test / y_test) eşittir.",
+      "E": "Yanlış. Toplam, sadece hatalı tahminleri değil, köşegendeki doğru tahminleri de kapsar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Karmaşıklık Matrisi (Confusion Matrix)",
+        "definition": "Sınıflandırma modelinin performansını Gerçek ve Tahmin edilen değerlerin kesişimi tablosuyla gösteren matris."
+      }
+    ]
+  },
+  {
+    "id": "w05-q006",
+    "week": 5,
+    "topic": "model-degerlendirme",
+    "type": "code",
+    "tags": [
+      "classification_report",
+      "metrikler"
+    ],
+    "sourceNotebook": "r_forest.ipynb",
+    "question": "Aşağıdaki kod bloğunun çalıştırılması sonucunda elde edilen tabloda, modelin pozitif olarak tahmin ettiği kayıtların ne kadarının gerçekten pozitif olduğunu ve gerçek pozitif kayıtların ne kadarını yakalayabildiğini gösteren metrikler hangi isimlerle yer alır?",
+    "code": "print(classification_report(y_test, y_pred_rf))",
+    "options": {
+      "A": "Accuracy - Support",
+      "B": "Precision - Recall",
+      "C": "F1-score - Accuracy",
+      "D": "Macro avg - Weighted avg",
+      "E": "Support - F1-score"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. Accuracy genel doğruluğu, Support ise o sınıftaki gerçek örnek sayısını verir.",
+      "B": "Doğru. 'Pozitif tahminlerin ne kadarı doğru' sorusunun cevabı Precision (Kesinlik), 'Gerçek pozitiflerin ne kadarı yakalandı' sorusunun cevabı ise Recall (Duyarlılık/Kapsama) metriğidir.",
+      "C": "Yanlış. F1-score, Precision ve Recall'un harmonik ortalamasıdır. İstenen ayrıntılı bilgileri doğrudan temsil etmez.",
+      "D": "Yanlış. Bunlar sınıflar arası metriklerin ortalamasını alma yöntemleridir.",
+      "E": "Yanlış. Support gerçek veri adedini, F1-score ise harmonik ortalamayı gösterir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Precision (Kesinlik)",
+        "definition": "Modelin pozitif dediği durumların yüzde kaçının gerçekten pozitif olduğunu gösteren metrik. (TP / (TP+FP))"
+      }
+    ]
+  },
+  {
+    "id": "w05-q007",
+    "week": 5,
+    "topic": "veri-olceklendirme",
+    "type": "code",
+    "tags": [
+      "scaler",
+      "fit_transform",
+      "transform",
+      "data-leakage"
+    ],
+    "sourceNotebook": "knn.ipynb",
+    "question": "K-En Yakın Komşu (KNN) algoritması uygulanmadan önce veri setine ölçeklendirme yapılmak isteniyor. Veri sızıntısını (Data Leakage) önlemek adına doğru kullanım aşağıdakilerden hangisidir?",
+    "code": "scaler = StandardScaler()\n\n# EĞİTİM VE TEST VERİSİ ÖLÇEKLENDİRİLECEK",
+    "options": {
+      "A": "X_train_scaled = scaler.transform(X_train)\nX_test_scaled = scaler.fit_transform(X_test)",
+      "B": "X_train_scaled = scaler.fit(X_train)\nX_test_scaled = scaler.fit(X_test)",
+      "C": "X_train_scaled = scaler.fit_transform(X_train)\nX_test_scaled = scaler.fit_transform(X_test)",
+      "D": "X_train_scaled = scaler.fit_transform(X_train)\nX_test_scaled = scaler.transform(X_test)",
+      "E": "X_train_scaled = scaler.transform(X_train)\nX_test_scaled = scaler.transform(X_test)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Yanlış. Eğitim verisinde `fit` yapılmadığı için `transform` çalışmaz. Test verisinde `fit_transform` kullanmak veri sızıntısına yol açar.",
+      "B": "Yanlış. `fit` metodu sadece istatistikleri (ortalama, varyans) hesaplar, veriyi dönüştürüp geri döndürmez.",
+      "C": "Yanlış. Test verisi üzerinde `fit_transform` kullanmak, test verisinin kendi ortalaması ve varyansına göre ölçeklenmesine neden olur. Model daha görmemesi gereken test verisinin istatistiklerini öğrenmiş olur (Data Leakage).",
+      "D": "Doğru. Ölçeklendirici `fit_transform` ile sadece eğitim verisinden (X_train) ortalama ve varyans öğrenir ve uygular. Test verisi (X_test) ise model için tamamen kör olmalıdır, bu yüzden sadece eğitim verisinden öğrenilen istatistiklerle `transform` (dönüştürme) işlemine tabi tutulur.",
+      "E": "Yanlış. `scaler` hiçbir veriden istatistik öğrenmediği için (`fit` edilmediği için) hata verir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Data Leakage (Veri Sızıntısı)",
+        "definition": "Modelin eğitim aşamasında, normal şartlarda erişimi olmaması gereken test veya gerçek dünya verilerinden bilgi kopyalaması durumu."
+      }
+    ]
+  },
+  {
+    "id": "w05-q008",
+    "week": 5,
+    "topic": "veri-olceklendirme",
+    "type": "code",
+    "tags": [
+      "knn",
+      "scaling",
+      "describe"
+    ],
+    "sourceNotebook": "knn.ipynb",
+    "question": "İki farklı veri seti (Digits ve Breast Cancer) incelendiğinde `df.describe()` fonksiyonu ile aşağıdaki minimum ve maksimum değerler gözlemlenmiştir:\n\nDigits: Tüm piksel özelliklerinde min=0, max=16\nBreast Cancer: 'smoothness' max=0.16, 'area' max=2501.0\n\nBu tablo özetine göre, mesafe tabanlı K-En Yakın Komşu (KNN) algoritması kullanılmadan önce ölçeklendirme (Scaling) işleminin model başarımına etkisi hakkında aşağıdaki yorumlardan hangisi doğrudur?",
+    "code": "df.describe().T",
+    "options": {
+      "A": "Breast Cancer veri setinde ölçeklendirme yapılmazsa 'area' gibi büyük değerli sütunlar mesafe hesabını tamamen domine eder ve model başarısı ciddi şekilde düşer.",
+      "B": "Digits veri setinde pikseller aynı aralıkta olduğu için ölçeklendirme yapmak modelin ezberlemesine (overfitting) yol açarak doğruluğu düşürür.",
+      "C": "KNN algoritması ağaç tabanlı (tree-based) bir algoritma olduğu için hiçbir veri setinde ölçeklendirmeye ihtiyaç duymaz.",
+      "D": "Her iki veri setinde de ölçeklendirme yapmak zorunludur; aksi takdirde Python `KNeighborsClassifier` fonksiyonu hata verir.",
+      "E": "Breast Cancer veri setinde farklı ölçekler olduğu için model otomatik olarak 'smoothness' sütununu silerek analize devam eder."
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Doğru. KNN Öklid gibi mesafe metrikleri kullanır. Eğer bir sütun 2500, diğeri 0.1 seviyesindeyse, mesafe formülünde 2500'lük sütun ezici bir ağırlığa sahip olur ve diğer öznitelikler yok sayılır. Bu nedenle Breast Cancer verisinde ölçeklendirme (StandardScaler) hayati önem taşır.",
+      "B": "Yanlış. Digits veri setinde ölçeklendirme (0-16 aralığı aynı olduğu için) doğruluğu çok fazla değiştirmez, ancak overfitting'e neden olmaz. Sadece gereksiz bir işlem olabilir.",
+      "C": "Yanlış. KNN ağaç tabanlı (Decision Tree, Random Forest) değil, mesafe tabanlı (Distance-based) bir algoritmadır ve ölçeklendirmeye oldukça duyarlıdır.",
+      "D": "Yanlış. Ölçeklendirme algoritmik bir zorunluluk değil, matematiksel bir gerekliliktir. Fonksiyon hata vermez ama mantıksız sonuçlar üretir.",
+      "E": "Yanlış. Algoritma kendi kendine sütun silmez; tüm sütunları dahil ederek yanlış bir ağırlıklandırma yapar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Distance Metric (Mesafe Ölçümü)",
+        "definition": "Veri noktaları arasındaki benzerliği hesaplamak için kullanılan matematiksel fonksiyonlar (Öklid, Manhattan)."
+      }
+    ]
+  },
+  {
+    "id": "w05-q009",
+    "week": 5,
+    "topic": "knn-modelleme",
+    "type": "code",
+    "tags": [
+      "knn",
+      "n_neighbors",
+      "overfitting"
+    ],
+    "sourceNotebook": "knn.ipynb",
+    "question": "K-En Yakın Komşu (KNN) modelinde komşu sayısı `n_neighbors` parametresi ile belirlenmektedir. Sınıflandırma işlemi sırasında bu parametrenin 1 olarak (K=1) seçilmesi model üzerinde nasıl bir etkiye yol açar?",
+    "code": "knn_model = KNeighborsClassifier(n_neighbors=1)\nknn_model.fit(X_train, y_train)",
+    "options": {
+      "A": "Model, verideki genel örüntüleri çok iyi öğrenerek mükemmel bir genelleme (generalization) yapar.",
+      "B": "Eğitim verisindeki her noktanın en yakın komşusu kendisi olacağı için model eğitim verisini tamamen ezberler (Overfitting) ve test verisinde başarısız olma ihtimali artar.",
+      "C": "Model, sınıflandırma yapabilmek için yeterli referans bulamayacağından eksik öğrenme (Underfitting) problemi yaşar.",
+      "D": "Eşitlik bozma (majority voting) kuralı çalışmayacağı için model tahmin yapmayı reddeder ve hata fırlatır.",
+      "E": "Algoritma sadece en yakın tek komşuya baktığı için modelin eğitim süresi uzar ve çok fazla işlemci gücü harcar."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. K=1 durumu genelleme yapmaz, aksine gürültüleri ve aykırı değerleri bile birebir kopyalar.",
+      "B": "Doğru. K=1 olduğunda, bir noktanın sınıfı doğrudan en yakınındaki tek bir noktaya göre belirlenir. Eğitim setinde her verinin en yakın komşusu kendisidir (mesafe 0). Bu yüzden eğitim skoru %100 çıkar ama test verisinde en ufak bir sapmada yanlış tahmin yapar, yani aşırı öğrenir (overfitting).",
+      "C": "Yanlış. Eksik öğrenme (underfitting) durumu genellikle K değeri çok yüksek seçildiğinde (örneğin K=500) ortaya çıkar, çünkü çok geniş bir alanın ortalaması alınır.",
+      "D": "Yanlış. K=1 olduğunda zaten çoğunluk oylamasına gerek yoktur, tek komşunun sınıfı atanır. Hata vermez.",
+      "E": "Yanlış. K'nın küçük olması hesaplama süresini uzatmaz, aksine azaltabilir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Overfitting (Aşırı Öğrenme)",
+        "definition": "Modelin eğitim verisindeki gürültüleri ve rastgelelikleri bile ezberleyerek, yeni (test) verilerde başarısız olması durumu."
+      }
+    ]
+  },
+  {
+    "id": "w05-q010",
+    "week": 5,
+    "topic": "knn-modelleme",
+    "type": "code",
+    "tags": [
+      "for_loop",
+      "accuracy_score",
+      "knn"
+    ],
+    "sourceNotebook": "knn.ipynb",
+    "question": "Aşağıdaki kod bloğunda farklı K değerleri için KNN modelinin performansı test edilerek `scores` listesine kaydedilmek istenmektedir. Kodu işlevsel hale getirmek için # EKSİK SATIR yerine ne yazılmalıdır?",
+    "code": "k_values = range(1, 21)\nscores = []\n\nfor k in k_values:\n    model = KNeighborsClassifier(n_neighbors=k)\n    model.fit(X_train_scaled, y_train)\n    pred = model.predict(X_test_scaled)\n    # EKSİK SATIR",
+    "options": {
+      "A": "scores.append(confusion_matrix(y_test, pred))",
+      "B": "model.score(X_test_scaled, y_test)",
+      "C": "scores.append(k_values)",
+      "D": "scores.append(accuracy_score(y_test, pred))",
+      "E": "accuracy_score = model.predict(X_test_scaled)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Yanlış. Karmaşıklık matrisi (confusion matrix) listeye eklenebilir ancak grafiğini çizmek için tek bir performans metriği (örneğin accuracy) gereklidir. Matris, y ekseninde gösterilemez.",
+      "B": "Yanlış. Bu satır skoru hesaplar ancak `scores` listesine eklemediği (append) için değerler kaybolur.",
+      "C": "Yanlış. Bu işlem K değerlerinin kendisini listeye ekler, modelin başarımını ölçmez.",
+      "D": "Doğru. Her bir K değeri için üretilen tahminlerin (pred) gerçek değerlerle (y_test) karşılaştırılarak hesaplanan doğruluk skoru (accuracy_score) `append` fonksiyonu ile `scores` listesine eklenmelidir.",
+      "E": "Yanlış. `accuracy_score` bir fonksiyondur, bu atama Python'da fonksiyonu ezer ve sentaks hatasına yol açar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Model Tuning",
+        "definition": "Bir makine öğrenmesi algoritmasının hiperparametrelerini (örneğin KNN için K değeri) test ederek en iyi performansı veren değeri bulma süreci."
+      }
+    ]
+  },
+  {
+    "id": "w05-q011",
+    "week": 5,
+    "topic": "knn-modelleme",
+    "type": "code",
+    "tags": [
+      "KNeighborsClassifier",
+      "metric",
+      "minkowski"
+    ],
+    "sourceNotebook": "knn.ipynb",
+    "question": "KNN algoritması başlatılırken `metric` parametresi açıkça belirtilmediğinde, scikit-learn kütüphanesi veri noktaları arasındaki uzaklığı hesaplamak için varsayılan (default) olarak hangi metriği kullanır?",
+    "code": "knn_model = KNeighborsClassifier(n_neighbors=5)\n# metric parametresi verilmemiştir",
+    "options": {
+      "A": "manhattan",
+      "B": "euclidean",
+      "C": "minkowski",
+      "D": "cosine",
+      "E": "jaccard"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. Manhattan metriği, p=1 değeri ile ifade edilen özel bir uzaklık formülüdür, varsayılan değildir.",
+      "B": "Yanlış. Öklid (Euclidean) metriği pratikte çok kullanılsa da, scikit-learn'de parametre ismi olarak varsayılan tanımlama bu değildir.",
+      "C": "Doğru. KNN fonksiyonunun resmi dökümantasyonunda ve notebook HTML çıktısında görüldüğü üzere varsayılan metrik 'minkowski'dir. (p=2 değeri ile birlikte standart Öklid mesafesine denk gelir).",
+      "D": "Yanlış. Cosine similarity genellikle metin madenciliğinde vektörler arası açı ölçümünde kullanılır.",
+      "E": "Yanlış. Jaccard indeksi kümeler arası benzerlik içindir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Minkowski Distance",
+        "definition": "Öklid ve Manhattan mesafelerinin genelleştirilmiş halini ifade eden uzaklık formülü."
+      }
+    ]
+  },
+  {
+    "id": "w05-q012",
+    "week": 5,
+    "topic": "karar-agaci",
+    "type": "code",
+    "tags": [
+      "DecisionTreeClassifier",
+      "criterion",
+      "gini"
+    ],
+    "sourceNotebook": "random_forest.ipynb",
+    "question": "Aşağıdaki Karar Ağacı modelinde bölme kriteri (criterion) parametresi açıkça yazılmamıştır. Bu durumda model veriyi hangi algoritmaya göre böler?",
+    "code": "dt_model = DecisionTreeClassifier(\n    max_depth=10,          \n    random_state=42\n)",
+    "options": {
+      "A": "entropy",
+      "B": "log_loss",
+      "C": "information_gain",
+      "D": "gini",
+      "E": "mse (Mean Squared Error)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Yanlış. Entropy, gini'ye alternatif bir bölme kriteridir ancak varsayılan değer değildir.",
+      "B": "Yanlış. Log_loss sınıflandırma için bir metrik olsa da karar ağacının varsayılan bölme kuralı değildir.",
+      "C": "Yanlış. Information gain (Bilgi Kazancı) entropy ile hesaplanan bir kavramdır, doğrudan parametre ismi değildir.",
+      "D": "Doğru. Scikit-learn kütüphanesinde `DecisionTreeClassifier` için varsayılan (default) bölme kriteri `gini` (Gini Impurity) indeksidir.",
+      "E": "Yanlış. MSE (Hata Kareler Ortalaması) sınıflandırma değil, regresyon ağaçlarında (DecisionTreeRegressor) kullanılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Gini Impurity",
+        "definition": "Bir veri setinden rastgele seçilen bir elemanın, o düğümdeki sınıf dağılımına göre rastgele etiketlendiğinde yanlış sınıflandırılma olasılığını ölçen saflık ölçütü."
+      }
+    ]
+  },
+  {
+    "id": "w05-q013",
+    "week": 5,
+    "topic": "karar-agaci",
+    "type": "code",
+    "tags": [
+      "max_depth",
+      "overfitting",
+      "score"
+    ],
+    "sourceNotebook": "r_forest.ipynb",
+    "question": "Bir Karar Ağacı (Decision Tree) modeli `max_depth=None` parametresi ile eğitilmiştir. Eğitim (Train) skoru 1.0 iken, Test skoru 0.80 çıkmıştır. Veri madenciliği bağlamında bu çıktı hangi durumu kesin olarak işaret eder?",
+    "code": "dt_deep = DecisionTreeClassifier(max_depth=None, random_state=42)\ndt_deep.fit(X_train, y_train)\n\nprint(\"Train Score:\", dt_deep.score(X_train, y_train)) # Çıktı: 1.0\nprint(\"Test Score :\", dt_deep.score(X_test, y_test))   # Çıktı: 0.809",
+    "options": {
+      "A": "Model eksik öğrenmiş (Underfitting) ve veri setindeki basit ilişkileri bile yakalayamamıştır.",
+      "B": "Modelin kök düğümünde (root node) yanlış öznitelik seçilmiş ve ağaç dallanamamıştır.",
+      "C": "Ağaç derinliği sınırlandırılmadığı için model eğitim verisini tamamen ezberlemiş (Overfitting) ve test verisine genellenememiştir.",
+      "D": "Eğitim ve test veri setleri aynı dağılıma sahip olmadığı için model rastgele tahmin yapmıştır.",
+      "E": "Özniteliklerin ölçeklendirmesi (scaling) yapılmadığı için model eğitim setinde başarısız olmuştur."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. Underfitting durumunda eğitim skoru da (Train Score) çok düşük çıkar.",
+      "B": "Yanlış. Kök düğümde yanlış seçim ağacın dallanmasını engellemez, train skoru 1.0 olduğuna göre ağaç tamamen dallanmıştır.",
+      "C": "Doğru. `max_depth=None` verildiğinde ağaç, yaprak düğümler (leaf nodes) tamamen saf olana kadar büyür. Eğitim verisindeki her bir istisnayı ezberler (Train Score = 1.0). Ancak bu ezber, daha önce görmediği test verisinde başarısız olmasına (Score = 0.80) yol açar. Bu duruma Overfitting (Aşırı Öğrenme) denir.",
+      "D": "Yanlış. Sorun veri dağılımı değil, modelin hiperparametresinin (derinlik sınırsızlığı) yarattığı karmaşıklıktır.",
+      "E": "Yanlış. Karar ağaçları mesafe tabanlı değildir, bu yüzden ölçeklendirmeye (scaling) ihtiyaç duymazlar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Tree Pruning (Ağaç Budama)",
+        "definition": "Karar ağaçlarında aşırı öğrenmeyi (overfitting) engellemek için ağacın maksimum derinliğini sınırlama veya alt dalları kesme işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w05-q014",
+    "week": 5,
+    "topic": "karar-agaci",
+    "type": "code",
+    "tags": [
+      "max_depth",
+      "generalization"
+    ],
+    "sourceNotebook": "r_forest.ipynb",
+    "question": "Aynı veri seti üzerinde çalıştırılan aşağıdaki karar ağacı modelinde `max_depth=5` parametresi verilmiştir. Bu modelin Eğitim skoru 0.84, Test skoru ise 0.83 çıkmıştır. Önceki sorudaki derin ağaçla (Train 1.0, Test 0.80) karşılaştırıldığında bu durum nasıl yorumlanır?",
+    "code": "dt_small = DecisionTreeClassifier(max_depth=5, random_state=42)\ndt_small.fit(X_train, y_train)",
+    "options": {
+      "A": "Model, eğitim setinde başarısız olduğu için test setinde de rastgele sonuçlar üretmiştir.",
+      "B": "Ağaç çok sığ olduğu için veri sızıntısı (data leakage) meydana gelmiş ve test skoru yapay olarak yükselmiştir.",
+      "C": "Derinlik kısıtlandığı için ağaç ezberlemeyi bırakmış, daha genel kurallar öğrenerek test verisinde (gerçek dünyada) daha güvenilir ve dengeli bir performans (Genelleme) sergilemiştir.",
+      "D": "Derinliğin 5 olması ağacın sadece 5 satır veriyle eğitildiği anlamına gelir, bu yüzden skorlar birbirine yakındır.",
+      "E": "Sığ ağaçlar her zaman derin ağaçlardan daha yüksek doğruluk (accuracy) verir, bu makine öğrenmesinde değişmez bir kuraldır."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. 0.84 kötü bir skor değildir; model veri setinin ana örüntülerini yakalamıştır.",
+      "B": "Yanlış. Data leakage veri hazırlığı aşamasında olur, ağaç derinliği ile ilgisi yoktur.",
+      "C": "Doğru. `max_depth` ile derinliği sınırlamak (budama) modelin eğitim verisini ezberlemesini engeller. Train ve Test skorlarının birbirine çok yakın (0.84 ve 0.83) ve test skorunun eskisinden yüksek (0.83 > 0.80) olması, modelin başarılı bir şekilde genelleme (generalization) yaptığını gösterir.",
+      "D": "Yanlış. `max_depth=5` ağacın seviye (katman) sayısını ifade eder, eğitildiği satır sayısını değil.",
+      "E": "Yanlış. Sığ ağaçlar bazen underfitting (eksik öğrenme) yaratabilir. Veriye göre optimal derinlik değişir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Generalization (Genelleme)",
+        "definition": "Modelin eğitim sırasında görmediği yeni veriler üzerinde de başarılı ve tutarlı tahminler yapabilme yeteneği."
+      }
+    ]
+  },
+  {
+    "id": "w05-q015",
+    "week": 5,
+    "topic": "modelleme-temelleri",
+    "type": "code",
+    "tags": [
+      "random_state",
+      "reproducibility"
+    ],
+    "sourceNotebook": "random_forest.ipynb",
+    "question": "Makine öğrenmesi algoritmaları eğitilirken (örneğin Decision Tree veya Random Forest) sıklıkla `random_state=42` parametresi kullanılmaktadır. Bu parametrenin koda eklenmesinin asıl amacı nedir?",
+    "code": "rf_model = RandomForestClassifier(random_state=42)",
+    "options": {
+      "A": "Modelin doğruluk oranını otomatik olarak %42'nin üzerine çıkarmak.",
+      "B": "Ağaçların düğümlerindeki bölünme işlemlerinde kullanılan rastgelelik faktörünü sabitleyerek, kod her çalıştırıldığında aynı deterministik sonuçların alınmasını (tekrarlanabilirliği) sağlamak.",
+      "C": "Ağaç derinliğini 42 seviyesi ile sınırlandırarak modelin aşırı öğrenmesini engellemek.",
+      "D": "Sadece 42 adet özellik (feature) kullanarak modelin eğitim süresini kısaltmak.",
+      "E": "Modeli eğitmek için kullanılan seed (tohum) değerini gizleyerek güvenliği artırmak."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. `random_state` doğrudan bir doğruluk (accuracy) eşiği belirlemez.",
+      "B": "Doğru. Makine öğrenmesi süreçlerinde (veri bölme, ağaç dallanması) rastgelelik (randomness) vardır. `random_state` parametresine sabit bir sayı (42, 0, 123 fark etmez) vermek, rastgele sayı üretecini sabitler. Böylece kodu başka zaman çalıştırdığımızda da birebir aynı sonuçları elde ederiz.",
+      "C": "Yanlış. Ağaç derinliği `max_depth` parametresi ile sınırlandırılır.",
+      "D": "Yanlış. Kullanılacak özellik sayısı `max_features` ile belirlenir.",
+      "E": "Yanlış. Bu parametrenin siber güvenlik veya şifreleme ile ilgisi yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Seed / Rastgelelik Tohumu",
+        "definition": "Sözde-rastgele sayı üreteçlerini (pseudo-random number generators) başlatmak için kullanılan başlangıç değeri."
+      }
+    ]
+  },
+  {
+    "id": "w05-q016",
+    "week": 5,
+    "topic": "random-forest",
+    "type": "code",
+    "tags": [
+      "n_estimators",
+      "RandomForestClassifier"
+    ],
+    "sourceNotebook": "random_forest.ipynb",
+    "question": "Aşağıdaki iki farklı Random Forest modeli çalıştırılmış ve elde edilen Test Accuracy skorları karşılaştırılmıştır. Ağaç sayısının (`n_estimators`) 100'den 1000'e çıkarılmasına rağmen doğruluğun neredeyse hiç artmamasının en olası nedeni nedir?",
+    "code": "rf_model = RandomForestClassifier(n_estimators=100, random_state=42)\n# Accuracy: 0.8528\n\nrf1_model = RandomForestClassifier(n_estimators=1000, random_state=42)\n# Accuracy: 0.8541",
+    "options": {
+      "A": "Ağaç sayısı çok arttığında Random Forest algoritması otomatik olarak Karar Ağacına (Decision Tree) dönüşür.",
+      "B": "Random Forest modelinde `n_estimators` sadece eğitim süresini kısaltan bir parametredir, başarımla ilgisi yoktur.",
+      "C": "Ağaç sayısını artırmak bir noktaya kadar modelin doğruluğunu iyileştirir; ancak optimal noktadan sonra yeni ağaçlar eklemek modelin performansını artırmaz, sadece hesaplama maliyetini ve süresini uzatır.",
+      "D": "1000 ağaç üretildiğinde model ezberlemeye (Overfitting) başladığı için doğruluk düşüş eğilimine girmiştir.",
+      "E": "Veri setindeki sütun (özellik) sayısı 1000'den az olduğu için model yeni ağaç üretememiştir."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. Random Forest hiçbir zaman tek bir Karar Ağacına dönüşmez, yapısı gereği bir topluluk (ensemble) modelidir.",
+      "B": "Yanlış. Ağaç sayısını artırmak eğitim süresini kısaltmaz, tam tersine uzatır.",
+      "C": "Doğru. Random Forest'ta ağaç sayısını artırmak genelleme yeteneğini güçlendirir fakat belirli bir doygunluk noktasından (örneğin 100 veya 200 ağaç) sonra accuracy sabitlenir. Fazladan eklenen yüzlerce ağaç sadece donanım ve zaman maliyeti yaratır.",
+      "D": "Yanlış. Random Forest'ın en büyük avantajlarından biri, ağaç sayısı ne kadar artarsa artsın (Decision Tree'nin aksine) overfitting'e karşı oldukça dirençli olmasıdır.",
+      "E": "Yanlış. Üretilecek ağaç sayısı, veri setindeki öznitelik (sütun) sayısından bağımsızdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Ensemble Learning (Topluluk Öğrenmesi)",
+        "definition": "Birden fazla makine öğrenmesi modelinin (örneğin karar ağaçlarının) bir araya getirilerek daha güçlü ve stabil bir tahmin üretilmesi yaklaşımı."
+      }
+    ]
+  },
+  {
+    "id": "w05-q017",
+    "week": 5,
+    "topic": "random-forest",
+    "type": "code",
+    "tags": [
+      "n_jobs",
+      "performans",
+      "parametre"
+    ],
+    "sourceNotebook": "random_forest.ipynb",
+    "question": "Yarım milyondan fazla satırı olan Forest Cover Type veri setinde Random Forest modeli eğitilirken `n_jobs=-1` parametresi koda eklenmiştir. Bu parametrenin veri madenciliği operasyonundaki görevi nedir?",
+    "code": "rf_model = RandomForestClassifier(\n    n_estimators=100,\n    random_state=42,\n    n_jobs=-1\n)",
+    "options": {
+      "A": "Modelin eğitim işlemi sırasında veri setinden -1 oranında (sondan başlayarak) satır düşürerek işlem yükünü azaltır.",
+      "B": "Eğitim sürecinde bilgisayardaki tüm işlemci çekirdeklerinin (CPU cores) paralel çalışmasını sağlayarak, büyük veri setlerinde kodun çalışma süresini ciddi oranda kısaltır.",
+      "C": "Modelin kök düğümündeki bilgi kazancını negatif yönde cezalandırarak overfitting'i engeller.",
+      "D": "Sınıflandırma yaparken sadece 1 özniteliği analiz dışı bırakır.",
+      "E": "Algoritmanın RAM üzerindeki veri sızıntılarını temizlemesi için ayrılmış bir bellek yöneticisidir."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. Veri setinden satır düşürme (sampling) işlemi yapmaz.",
+      "B": "Doğru. `n_jobs` parametresi eşzamanlı çalışacak işlem parçacığı sayısını belirler. `-1` değeri, sistemdeki kullanılabilir tüm işlemci çekirdeklerinin devreye sokulması anlamına gelir. Bu sayede 100 farklı karar ağacı paralel olarak eğitilir ve süre kısalır.",
+      "C": "Yanlış. Bilgi kazancı (Information Gain) veya cezalandırma (Regularization) ile ilgisi yoktur.",
+      "D": "Yanlış. Öznitelik seçimiyle ilgili parametre `max_features`'tır.",
+      "E": "Yanlış. Bellek yönetimi veya veri sızıntısıyla (Data Leakage) ilgili bir parametre değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Parallel Processing (Paralel İşleme)",
+        "definition": "Bir hesaplama görevini küçük parçalara bölerek birden çok işlemci çekirdeğinde aynı anda yürütme tekniği."
+      }
+    ]
+  },
+  {
+    "id": "w05-q018",
+    "week": 5,
+    "topic": "random-forest",
+    "type": "code",
+    "tags": [
+      "feature_importances",
+      "model_yorumlama"
+    ],
+    "sourceNotebook": "r_forest.ipynb",
+    "question": "Bir Random Forest modeli eğitildikten sonra aşağıdaki kod çalıştırılarak bir dizi sayısal değer elde edilmiştir. Bu değerler veri madenciliği bağlamında neyi ifade eder?",
+    "code": "rf_importance = pd.Series(rf_model.feature_importances_, index=X.columns)\nrf_importance.sort_values(ascending=False).head(10)",
+    "options": {
+      "A": "Modelin her bir sınıf (target) için ne kadar hata yaptığını gösteren kayıp (loss) skorlarıdır.",
+      "B": "Eğitim veri setindeki eksik değerlerin (null) sütun bazında oranlarını gösterir.",
+      "C": "Veri setindeki her bir özniteliğin (sütunun) hedef değişkeni sınıflandırmada modele sağladığı bilgi kazancını (önem derecesini) gösterir.",
+      "D": "Ağaçların dallanma noktalarındaki derinlik (depth) metrikleridir.",
+      "E": "Test verisi üzerindeki her bir satırın doğru tahmin edilme olasılığıdır."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. Hata skorları veya kayıp fonksiyonu (log_loss vb.) modelin genel başarısını ölçer, sütun bazında bir değer döndürmez.",
+      "B": "Yanlış. Eksik değer oranı `df.isnull().mean()` gibi Pandas fonksiyonlarıyla bulunur.",
+      "C": "Doğru. `feature_importances_` özelliği, ağaç tabanlı algoritmaların (Decision Tree, Random Forest) hangi sütunları kullanarak daha saf düğümler (Gini/Entropy) oluşturduğunu hesaplar. Yüksek değer, o sütunun sınıflandırmada çok önemli (ayırt edici) olduğunu gösterir.",
+      "D": "Yanlış. Ağaç derinliği `max_depth` ile ilgilidir, bu özellik sütunların önemini verir.",
+      "E": "Yanlış. Satırların tahmin olasılıkları `predict_proba()` fonksiyonu ile elde edilir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Feature Importance (Öznitelik Önemi)",
+        "definition": "Makine öğrenmesi modelinin tahmin yaparken veri setindeki hangi değişkenlere daha fazla ağırlık verdiğini gösteren teknik."
+      }
+    ]
+  },
+  {
+    "id": "w05-q019",
+    "week": 5,
+    "topic": "veri-kesfi",
+    "type": "code",
+    "tags": [
+      "value_counts",
+      "normalize",
+      "pandas"
+    ],
+    "sourceNotebook": "random_forest.ipynb",
+    "question": "Aşağıdaki Pandas kod satırının sonuna eklenen `normalize=True` parametresinin çıktısı üzerindeki etkisi hangisidir?",
+    "code": "df[\"target\"].value_counts(normalize=True).sort_index()",
+    "options": {
+      "A": "Sınıfların frekanslarını (adetlerini) doğrudan göstermek yerine, her sınıfın veri seti içindeki yüzdelik (oransal) dağılımını gösterir.",
+      "B": "Hedef değişken içindeki aykırı değerleri (outliers) normalize ederek siler.",
+      "C": "Sınıf dağılımlarını büyükten küçüğe doğru otomatik olarak sıralar.",
+      "D": "Sayısal sınıfları 0 ile 1 aralığında Min-Max metoduyla ölçeklendirir.",
+      "E": "Eksik değerlerin (NaN) oranını hesaplayarak çıktıya ekler."
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Doğru. `value_counts()` normalde o sınıftan kaç adet olduğunu (örn: 211840) döndürürken, `normalize=True` parametresi bu adedi toplam satır sayısına bölerek (örn: 0.364) sınıfın oransal ağırlığını verir.",
+      "B": "Yanlış. Outlier silme işlemi yapmaz.",
+      "C": "Yanlış. Sıralama işlemini `value_counts` kendisi veya sonuna eklenen `sort_index()` / `sort_values()` yapar.",
+      "D": "Yanlış. Makine öğrenmesindeki Min-Max ölçeklendirmesi ile Pandas'taki `normalize` parametresinin isim benzerliği dışında bir ilgisi yoktur.",
+      "E": "Yanlış. `value_counts` varsayılan olarak NaN değerleri dahil etmez, bunun için `dropna=False` kullanılmalıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Class Imbalance (Sınıf Dengesizliği)",
+        "definition": "Sınıflandırma problemlerinde hedef değişkenin kategorileri arasında büyük bir oransal eşitsizlik bulunması durumu."
+      }
+    ]
+  },
+  {
+    "id": "w05-q020",
+    "week": 5,
+    "topic": "veri-hazirligi",
+    "type": "code",
+    "tags": [
+      "drop",
+      "hedef_degisken",
+      "modelleme"
+    ],
+    "sourceNotebook": "knn.ipynb",
+    "question": "Modelleme aşamasına geçilmeden hemen önce aşağıdaki kod çalıştırılmıştır. Bu işlemin yapılmaması durumunda veri madenciliği sürecinde hangi kritik hata ortaya çıkar?",
+    "code": "X = df.drop(\"target\", axis=1)\ny = df[\"target\"]",
+    "options": {
+      "A": "Veri setindeki tüm metin tabanlı sütunlar silinmediği için algoritma çökme hatası (Type Error) verir.",
+      "B": "Bağımsız değişkenler (X) ile hedef değişken (y) aynı veri yapısında kalırsa, model zaten tahmin etmesi gereken cevabı (target) eğitim verisinde görür ve veri sızıntısı (Data Leakage) oluşur.",
+      "C": "Eksik veriler hedef değişkenden düşürülmediği için model eksik veri ataması (Imputation) yapamaz.",
+      "D": "Pandas kütüphanesi 2 boyutlu DataFrame yapısını desteklemediği için hedef değişken ayrı bir Numpy dizisine alınmak zorundadır.",
+      "E": "Karar ağaçları hedef değişkeni kök düğüm olarak atayacağı için ağaç hiç dallanamaz."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. Metin silme işlemi `drop` ile yapılsa da, burada özel olarak 'target' sütunu ayrılmaktadır.",
+      "B": "Doğru. Makine öğrenmesinde 'X' modelin girdi (feature) verisi, 'y' ise tahmin etmeye çalıştığı çıktı (hedef) verisidir. Eğer 'target' sütunu X'in içinde kalırsa, model cevabı önceden bildiği için %100 başarı gösterir ancak yeni bir veride tahminde bulunamaz. Buna Data Leakage (Veri Sızıntısı) denir.",
+      "C": "Yanlış. Bu kod eksik veri silme kodu olan `dropna()` değildir.",
+      "D": "Yanlış. Pandas 2 boyutlu yapıları mükemmel destekler. Scikit-learn X ve y'nin ayrılmasını algoritmik bir gereklilik olarak ister.",
+      "E": "Yanlış. Karar ağacı böyle bir atama yapmaz, ancak hedef sütun özelliklerin içinde kalırsa ağaç tek bir kuralda (eğer target==A ise A'dır) sonlanır ve anlamsızlaşır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Bağımsız Değişken (Independent Variable / Feature)",
+        "definition": "Makine öğrenmesi modellerinde tahmin yapmak için modele girdi olarak sağlanan öznitelikler (X)."
+      }
+    ]
+  },
+  {
+    "id": "w05-q021",
+    "week": 5,
+    "topic": "gorsellestirme",
+    "type": "code",
+    "tags": [
+      "plot_tree",
+      "max_depth",
+      "karar_agaci"
+    ],
+    "sourceNotebook": "r_forest.ipynb",
+    "question": "Bir Karar Ağacı modelinin yapısını görselleştirmek için yazılan aşağıdaki kodda `max_depth=3` parametresinin grafiğe etkisi nedir?",
+    "code": "from sklearn.tree import plot_tree\nimport matplotlib.pyplot as plt\n\nplt.figure(figsize=(22,10))\nplot_tree(\n    dt_small, \n    filled=True,\n    feature_names=X.columns,\n    class_names=[\"<=50K\", \">50K\"],\n    max_depth=3,\n    fontsize=8\n)\nplt.show()",
+    "options": {
+      "A": "Eğitilmiş modelin (dt_small) yapısını değiştirerek derinliğini 3 ile sınırlandırır ve modeli yeniden budar.",
+      "B": "Sadece 3'ten daha fazla öznitelik (feature) kullanan ağaç düğümlerini grafikte gösterir.",
+      "C": "Ağaç ne kadar derin olursa olsun, görsel karmaşayı önlemek için kök düğümden itibaren sadece ilk 3 katmanı (seviyeyi) çizdirir.",
+      "D": "Görselin çözünürlüğünü ve kalitesini 3 kat artırarak okunabilirliği sağlar.",
+      "E": "Sadece Gini değeri 3'ün altında olan yaprak düğümleri (leaf nodes) renklendirir."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. `plot_tree` fonksiyonu sadece görselleştirme yapar, halihazırda eğitilmiş olan `dt_small` modelinin yapısını veya matematiksel kurallarını değiştirmez.",
+      "B": "Yanlış. Öznitelik sayısıyla ilgisi yoktur.",
+      "C": "Doğru. Özellikle derin ağaçlarda tüm düğümleri çizdirmek devasa ve okunaksız bir görüntü yaratır. `max_depth=3` parametresi, çizimin sadece ilk 3 seviyesini render ederek anlaşılır bir ağaç kesiti sunar.",
+      "D": "Yanlış. Çözünürlük `plt.figure(figsize=(...))` veya DPI ayarları ile kontrol edilir.",
+      "E": "Yanlış. Gini değeri 0 ile 0.5 (veya 1) arasında değişir, 3 olamaz. Renklendirme `filled=True` ile yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Root Node (Kök Düğüm)",
+        "definition": "Bir karar ağacındaki en üst düğüm; tüm veri setini temsil eder ve ilk bölünmenin gerçekleştiği yerdir."
+      }
+    ]
+  },
+  {
+    "id": "w05-q022",
+    "week": 5,
+    "topic": "random-forest",
+    "type": "code",
+    "tags": [
+      "estimators_",
+      "RandomForestClassifier"
+    ],
+    "sourceNotebook": "r_forest.ipynb",
+    "question": "Eğitilmiş bir Random Forest modeli (rf_model) üzerinden aşağıdaki kod çalıştırılarak `one_tree` isimli bir değişken elde edilmiştir. Bu değişkenin içeriği nedir?",
+    "code": "# Ormandaki ilk ağacı alıyoruz\none_tree = rf_model.estimators_[0]",
+    "options": {
+      "A": "Random Forest modelinin eğitim süresince hesapladığı en yüksek accuracy skorudur.",
+      "B": "Random Forest'ı oluşturan 100 (veya belirlenen n_estimators) adet Karar Ağacından (Decision Tree) indeks sırası 0 olan ilk ağacın kendisidir.",
+      "C": "Modelin kök düğümünde (root node) bölme işlemi için seçtiği en önemli özniteliğin ismidir.",
+      "D": "Test verisi üzerindeki ilk tahmin sonucunu (0 veya 1) tutan dizidir.",
+      "E": "Ağaçların oylama (majority voting) sonuçlarını tutan bir performans matrisidir."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. Skorlar `.score()` veya `accuracy_score()` ile elde edilir.",
+      "B": "Doğru. Random Forest, birçok Decision Tree'nin birleşiminden (ensemble) oluşur. `estimators_` niteliği (attribute), modeli oluşturan tüm bu alt ağaçların bir listesini tutar. `[0]` indeksi ile bu ormandaki ilk karar ağacı model objesi olarak çekilmiş olur.",
+      "C": "Yanlış. En önemli öznitelik `feature_importances_` ile bulunur.",
+      "D": "Yanlış. Tahmin sonuçları `predict()` fonksiyonundan dönen array içindedir.",
+      "E": "Yanlış. Oylama işlemi tahmin sırasında arka planda yapılır, bu kod direkt olarak eğitilmiş alt modeli döndürür."
+    },
+    "relatedTerms": [
+      {
+        "term": "Estimator",
+        "definition": "Scikit-learn kütüphanesinde bir veriden öğrenme işlemini gerçekleştiren herhangi bir algoritma (örneğin DecisionTreeClassifier) objesi."
+      }
+    ]
+  },
+  {
+    "id": "w05-q023",
+    "week": 5,
+    "topic": "eksik-veri-temizleme",
+    "type": "code",
+    "tags": [
+      "pandas",
+      "eksik_veri",
+      "sum"
+    ],
+    "sourceNotebook": "r_forest.ipynb",
+    "question": "Bir Pandas DataFrame'i üzerinde aşağıdaki kod çalıştırılarak ekranda bir liste elde edilmiştir. Bu kodun veri madenciliği ön işleme aşamasındaki görevi nedir?",
+    "code": "(df == \"?\").sum()",
+    "options": {
+      "A": "Veri setindeki tüm '?' karakterlerini otomatik olarak NumPy NaN değerlerine dönüştürür.",
+      "B": "Sütun adlarında '?' işareti olan sütunların toplam sayısını bulur.",
+      "C": "Her bir sütunda '?' karakterinin veri içeriği olarak kaç kez geçtiğini (frekansını) hesaplayarak listeler.",
+      "D": "Veri setindeki eksik satırların toplamını bularak modelin accuracy skorunu hesaplar.",
+      "E": "Kategorik değişkenlerdeki '?' sınıfını tespit edip One-Hot Encoding işlemini başlatır."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. Dönüştürme işlemi `replace()` fonksiyonu ile yapılır.",
+      "B": "Yanlış. Sütun adlarını (header) değil, hücrelerin (cell) içindeki verileri kontrol eder.",
+      "C": "Doğru. `df == \"?\"` ifadesi tüm veri setinde hücrelerin '?' olup olmadığını kontrol ederek True/False (Boolean) bir matris döndürür. `.sum()` ise True değerleri (1 olarak) sütun bazında toplayarak hangi sütunda kaç tane '?' (eksik/bozuk veri) olduğunu gösterir.",
+      "D": "Yanlış. Accuracy hesaplaması modelleme sonrası yapılır, bu bir veri keşfi işlemidir.",
+      "E": "Yanlış. Encoding işlemi `get_dummies` ile yapılır, bu kod sadece sayma işlemi yapar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Boolean Masking",
+        "definition": "Bir veri setindeki elemanların belirli bir koşulu sağlayıp sağlamadığını True/False şeklinde test etme yöntemi."
+      }
+    ]
+  },
+  {
+    "id": "w05-q024",
+    "week": 5,
+    "topic": "model-degerlendirme",
+    "type": "code",
+    "tags": [
+      "accuracy_score",
+      "metrikler"
+    ],
+    "sourceNotebook": "random_forest.ipynb",
+    "question": "Aşağıdaki kod satırında kullanılan `accuracy_score` fonksiyonunun aldığı `y_test` ve `y_pred_dt` parametreleri sırasıyla neyi temsil eder?",
+    "code": "dt_accuracy = accuracy_score(y_test, y_pred_dt)",
+    "options": {
+      "A": "Eğitim verisi özellikleri - Test verisi özellikleri",
+      "B": "Gerçek hedef değerleri - Modelin tahmin ettiği değerler",
+      "C": "Modelin tahmin ettiği değerler - Gerçek hedef değerleri",
+      "D": "Karar ağacının derinliği - Karar ağacının yaprak sayısı",
+      "E": "Bağımsız değişkenler (Features) - Bağımlı değişken (Target)"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. Özellikler (Features) `X` ile ifade edilir (X_train, X_test).",
+      "B": "Doğru. Scikit-learn metrik fonksiyonları (accuracy_score, confusion_matrix vb.) genellikle önce gerçek değerleri (`y_test`), ardından modelin ürettiği tahminleri (`y_pred`) parametre olarak alır.",
+      "C": "Yanlış. Çoğu metrikte sıra tersine çevrildiğinde sonuç aynı çıksa da (örneğin accuracy), bazı metriklerde (precision, recall) sıra kritiktir ve Scikit-learn standardı `(y_true, y_pred)` şeklindedir.",
+      "D": "Yanlış. Ağaç parametreleriyle ilgisi yoktur.",
+      "E": "Yanlış. `X` (bağımsız) ve `y` (bağımlı) eğitim sırasındaki ayrımdır; doğruluk ölçümünde sadece hedef değişkenin (y) gerçek ve tahmin edilen versiyonları karşılaştırılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Accuracy (Doğruluk)",
+        "definition": "Modelin doğru tahmin ettiği gözlem sayısının toplam gözlem sayısına oranı."
+      }
+    ]
+  },
+  {
+    "id": "w05-q025",
+    "week": 5,
+    "topic": "modelleme-karsilastirmasi",
+    "type": "code",
+    "tags": [
+      "random_forest",
+      "decision_tree",
+      "overfitting"
+    ],
+    "sourceNotebook": "r_forest.ipynb",
+    "question": "Aynı veri seti kullanılarak eğitilen 'Derin Decision Tree' (max_depth=None) ve 'Random Forest' modellerinin skorları aşağıda verilmiştir:\n\nDerin Decision Tree: Train Score 1.0000 - Test Score 0.8097\nRandom Forest: Train Score 1.0000 - Test Score 0.8528\n\nHer iki model de eğitim verisini %100 ezberlemiş olmasına rağmen Random Forest'ın test verisinde daha yüksek başarı göstermesinin veri madenciliği açısından temel sebebi nedir?",
+    "code": "print(dt_deep.score(X_test, y_test))\nprint(rf_model.score(X_test, y_test))",
+    "options": {
+      "A": "Random Forest, eğitim verisindeki eksik değerleri kendi kendine sildiği için test setinde daha başarılı olur.",
+      "B": "Decision Tree uzaklık ölçümlerini öklid ile yaparken, Random Forest manhattan mesafesi kullandığı için daha iyi sonuç verir.",
+      "C": "Random Forest, oluşturduğu yüzlerce farklı karar ağacının tahminlerinin ortalamasını (veya çoğunluk oyunu) alarak varyansı düşürür ve tek bir ağacın yaptığı ezberleme (overfitting) hatasını telafi eder.",
+      "D": "Random Forest'ın `n_jobs=-1` parametresi test skoruna doğrudan matematiksel bir katkı sağlar.",
+      "E": "Decision Tree sadece sayısal verilerle çalışabilirken, Random Forest metin verilerini dönüştürmeden kullanabildiği için daha başarılıdır."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. Hiçbir model eksik verileri kendi kendine silmez, bu işlem modelleme öncesi yapılmalıdır.",
+      "B": "Yanlış. Ağaç tabanlı algoritmalar mesafe (distance) ölçümü kullanmazlar (KNN kullanır).",
+      "C": "Doğru. Her iki model de eğitim verisinde overfitting (aşırı öğrenme) yaşamış gibi görünse de, Random Forest bir topluluk (ensemble) algoritmasıdır. Birçok ağacın farklı veri alt kümelerinde ve özniteliklerde uzmanlaşması, bireysel ağaçların hatalarını dengeler (varyansı düşürür) ve genelleme performansını artırır.",
+      "D": "Yanlış. `n_jobs=-1` sadece eğitim süresini hızlandırır, doğruluğa etkisi yoktur.",
+      "E": "Yanlış. Her iki model de scikit-learn uygulamasında metin verisi kabul etmez, sayısallaştırma (encoding) şarttır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Ensemble Methods (Topluluk Yöntemleri)",
+        "definition": "Makine öğrenmesinde, birden çok modelin tahminlerini birleştirerek tek bir modelin ulaşabileceğinden daha yüksek doğruluk ve kararlılık elde etme yaklaşımı."
+      }
+    ]
+  },
+  {
+    "id": "w05-q026",
+    "week": 5,
+    "topic": "veri-kesfi",
+    "type": "code",
+    "tags": [
+      "pandas",
+      "describe"
+    ],
+    "sourceNotebook": "knn.ipynb",
+    "question": "Aşağıdaki Pandas kodunun çıktısı olan tablo (mean, std, min, 25%, max vb. değerler) incelendiğinde, bu işlemin veri madenciliği projesindeki temel amacı nedir?",
+    "code": "# Sayısal özelliklerin temel istatistikleri\ndf.describe().T",
+    "options": {
+      "A": "Metin tabanlı kategorik değişkenlerin frekans dağılımlarını hesaplamak.",
+      "B": "Veri setindeki sayısal sütunların ölçek farklılıklarını (min-max), merkezi eğilimlerini (ortalama) ve dağılımını görerek StandardScaler gibi ön işleme adımlarına karar vermek.",
+      "C": "Eğitim ve test veri setlerinin accuracy skorlarını karşılaştırmak.",
+      "D": "Veri setindeki sütunlar arasındaki çoklu doğrusal bağlantıyı (korelasyonu) ölçmek.",
+      "E": "Hedef değişkenin (target) veri seti içindeki oransal dağılımını (class imbalance) tespit etmek."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. `describe()` varsayılan olarak sadece sayısal (numeric) sütunlar için istatistik üretir.",
+      "B": "Doğru. `describe().T` çıktısı ile sütunların minimum, maksimum, ortalama ve standart sapma değerleri incelenir. Örneğin bir sütun 0-1 arasında iken diğeri 100-2500 arasındaysa, KNN gibi mesafeye duyarlı algoritmalar için ölçeklendirme (Scaling) yapılması gerektiğine karar verilir.",
+      "C": "Yanlış. Skorlar modelleme sonrası `score` veya `accuracy_score` ile bulunur.",
+      "D": "Yanlış. Korelasyon `df.corr()` ile ölçülür.",
+      "E": "Yanlış. Hedef değişken dağılımı `value_counts()` ile tespit edilir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Descriptive Statistics (Betimsel İstatistikler)",
+        "definition": "Bir veri setinin temel özelliklerini (ortalama, medyan, standart sapma vb.) özetleyen istatistiksel ölçümler."
+      }
+    ]
+  },
+  {
+    "id": "w05-q027",
+    "week": 5,
+    "topic": "random-forest",
+    "type": "code",
+    "tags": [
+      "max_features",
+      "RandomForestClassifier"
+    ],
+    "sourceNotebook": "r_forest.ipynb",
+    "question": "Random Forest algoritması eğitilirken `max_features=\"sqrt\"` parametresinin kullanılması modelin çalışma mantığında neyi değiştirir?",
+    "code": "rf_model = RandomForestClassifier(\n    n_estimators=200,\n    max_features=\"sqrt\",\n    random_state=42,\n    n_jobs=-1\n)",
+    "options": {
+      "A": "Ağaç sayısını (n_estimators) veri setindeki sütun sayısının kareköküne eşitler.",
+      "B": "Her bir karar ağacının kökünden itibaren en fazla kaç derinliğe (depth) ulaşabileceğini karekök fonksiyonuyla kısıtlar.",
+      "C": "Ormandaki her bir ağaç düğümde bölünme (split) kararı verirken, veri setindeki tüm öznitelikleri değil, öznitelik sayısının karekökü kadar rastgele seçilmiş özniteliği değerlendirir.",
+      "D": "Uzaklık hesaplamalarında kullanılan Öklid formülündeki karekök alma işlemini aktive eder.",
+      "E": "Veri setindeki tüm sayısal değerlerin karekökünü alarak aykırı değerleri (outlier) küçültür."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. Ağaç sayısı `n_estimators` ile belirlenir ve burada 200 olarak verilmiştir.",
+      "B": "Yanlış. Derinlik kısıtlaması `max_depth` parametresi ile yapılır.",
+      "C": "Doğru. Random Forest'ın başarısının sırrı ağaçların birbirinden farklı (çeşitli) olmasından gelir. `max_features=\"sqrt\"` (varsayılan değerdir), bir düğüm bölünürken örneğin 100 sütun varsa sadece rastgele seçilen 10 sütunun (100'ün karekökü) değerlendirilmesini sağlar. Bu, ağaçların korelasyonunu düşürür.",
+      "D": "Yanlış. Random forest mesafe tabanlı (KNN gibi) bir algoritma değildir.",
+      "E": "Yanlış. Algoritma veri dönüştürmesi (transformation) yapmaz, özellik seçim stratejisini değiştirir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Feature Randomness (Öznitelik Rastgeleliği)",
+        "definition": "Random Forest modelinde her ağacın farklı özellikleri kullanarak eğitilmesini ve böylece ağaçlar arası benzerliğin azaltılmasını sağlayan yöntem."
+      }
+    ]
+  },
+  {
+    "id": "w05-q028",
+    "week": 5,
+    "topic": "gorsellestirme",
+    "type": "code",
+    "tags": [
+      "heatmap",
+      "seaborn",
+      "confusion_matrix"
+    ],
+    "sourceNotebook": "knn.ipynb",
+    "question": "Bir sınıflandırma modelinin test sonuçlarını görselleştirmek için yazılan aşağıdaki Seaborn kodu, veri madenciliği süreçlerinde hangi grafik türünü oluşturmak için kullanılır?",
+    "code": "cm_knn = confusion_matrix(y_test, y_pred_knn_scaled)\n\nplt.figure(figsize=(8,6))\nsns.heatmap(cm_knn, annot=True, fmt=\"d\", cmap=\"Greens\")\nplt.show()",
+    "options": {
+      "A": "Özniteliklerin (features) birbirleriyle olan korelasyonunu gösteren bir Çizgi Grafiği (Line Plot).",
+      "B": "Gerçek değerler ile tahmin edilen değerlerin çapraz tablosunu sayısal ve renk yoğunluğuyla gösteren bir Isı Haritası (Heatmap).",
+      "C": "Eğitim sürecindeki loss (kayıp) değerinin epoklara göre değişimini izleyen bir Dağılım Grafiği (Scatter Plot).",
+      "D": "Kategorik değişkenlerin sınıf frekanslarını gösteren bir Sütun Grafiği (Bar Plot).",
+      "E": "Ağacın dallanma kararlarını gösteren bir Karar Ağacı Şeması (Tree Plot)."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. Çizgi grafiği `sns.lineplot` ile çizilir ve zamana bağlı değişimler için uygundur.",
+      "B": "Doğru. `sns.heatmap()` fonksiyonu, içine verilen matrisin (burada confusion_matrix) hücrelerindeki sayısal değerlere göre renk tonu üreterek Isı Haritası oluşturur. `annot=True` sayıların hücre içine yazılmasını sağlar.",
+      "C": "Yanlış. Scatter plot `sns.scatterplot` ile çizilir.",
+      "D": "Yanlış. Sütun grafiği `sns.countplot` veya `sns.barplot` ile çizilir.",
+      "E": "Yanlış. Karar ağacı şeması `plot_tree` fonksiyonu ile oluşturulur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Heatmap (Isı Haritası)",
+        "definition": "İki boyutlu bir veri matrisindeki değerleri, renklerin tonları veya yoğunlukları aracılığıyla görselleştiren grafik türü."
+      }
+    ]
+  },
+  {
+    "id": "w05-q029",
+    "week": 5,
+    "topic": "veri-olceklendirme",
+    "type": "code",
+    "tags": [
+      "StandardScaler",
+      "fit_transform",
+      "data_leakage"
+    ],
+    "sourceNotebook": "knn.ipynb",
+    "question": "Aşağıdaki hatalı kod bloğu çalıştırıldığında Python herhangi bir sentaks hatası vermez ancak veri madenciliği kuralları açısından ölümcül bir mantık hatası yapılmış olur. Bu hata nedir?",
+    "code": "scaler = StandardScaler()\nX_train_scaled = scaler.fit_transform(X_train)\n\n# HATALI KULLANIM:\nX_test_scaled = scaler.fit_transform(X_test)",
+    "options": {
+      "A": "StandardScaler sadece kategorik veriler için tasarlanmıştır, sayısal X_train verisinde kullanılamaz.",
+      "B": "Test verisi (X_test) üzerinde fit_transform kullanılması, test setinin kendi ortalama ve varyansını modele dahil ederek Veri Sızıntısına (Data Leakage) neden olur.",
+      "C": "fit_transform işlemi verinin boyutunu değiştirdiği için y_test ile X_test uyumsuz hale gelir.",
+      "D": "Test verisi ölçeklendirilemez, ölçeklendirme sadece eğitim verisine özgü bir işlemdir.",
+      "E": "Algoritma test verisini silecek ve sadece eğitim verisiyle doğruluk skoru üretecektir."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. StandardScaler sayısal (numeric) verileri standartlaştırmak içindir.",
+      "B": "Doğru. Test verisi modelin hiç görmemesi gereken \"gelecekteki\" veriyi temsil eder. Eğer `fit_transform` kullanılırsa, scaler test verisinin ortalama ve standart sapmasını hesaplar (öğrenir). Doğru kullanım, eğitim verisinden öğrenilen istatistiklerle test verisini sadece `transform` işlemine tabi tutmaktır.",
+      "C": "Yanlış. Ölçeklendirme verinin boyutunu (satır/sütun sayısı) değiştirmez, sadece değerleri dönüştürür.",
+      "D": "Yanlış. Test verisi de aynı ölçeğe getirilmelidir, aksi takdirde model yanlış tahmin yapar. Sadece `fit` (öğrenme) kısmı test verisine uygulanmaz.",
+      "E": "Yanlış. Veri silme gibi bir işlem gerçekleşmez."
+    },
+    "relatedTerms": [
+      {
+        "term": "Standartlaştırma (Standardization)",
+        "definition": "Veri setindeki özelliklerin ortalamasını 0, standart sapmasını 1 yapacak şekilde yeniden ölçeklendirilmesi."
+      }
+    ]
+  },
+  {
+    "id": "w05-q030",
+    "week": 5,
+    "topic": "gorsellestirme",
+    "type": "code",
+    "tags": [
+      "matplotlib",
+      "plot",
+      "model_tuning"
+    ],
+    "sourceNotebook": "knn.ipynb",
+    "question": "Optimal K değerini bulmak için yazılan döngünün (for k in k_values) ardından aşağıdaki görselleştirme kodu çalıştırılmıştır. Bu grafiğin yorumlanması sonucunda elde edilecek bilgi nedir?",
+    "code": "plt.figure(figsize=(8,5))\nplt.plot(k_values, scores, marker=\"o\")\nplt.title(\"K Değerine Göre KNN Performansı\")\nplt.xlabel(\"K değeri\")\nplt.ylabel(\"Accuracy\")\nplt.show()",
+    "options": {
+      "A": "Veri setindeki eksik değerlerin K sayısına göre nasıl azaldığı.",
+      "B": "Modelin eğitim süresinin K parametresi arttıkça ne kadar uzadığı.",
+      "C": "K-En Yakın Komşu modelinde komşu sayısının (K) değişimine karşılık modelin doğruluk (Accuracy) skorunun nasıl değiştiği ve en yüksek skorun hangi K değerinde alındığı.",
+      "D": "Karar ağacının derinliğinin (K) test verisi üzerindeki overfitting etkisi.",
+      "E": "Hangi özniteliklerin (features) sınıflandırmada daha önemli olduğu."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. Grafiğin y ekseni Accuracy, eksik verilerle ilgisi yoktur.",
+      "B": "Yanlış. Y ekseni eğitim süresini değil, modelin başarısını (Accuracy) göstermektedir.",
+      "C": "Doğru. `plt.plot(k_values, scores)` kodu, X eksenine K değerlerini (1, 2, 3... 20), Y eksenine ise bu K değerlerine karşılık gelen accuracy skorlarını çizer. Zirve (pik) noktası, modelin en başarılı olduğu optimal K değerini gösterir.",
+      "D": "Yanlış. K değeri ağaç derinliği değil, KNN algoritmasındaki komşu sayısıdır.",
+      "E": "Yanlış. Öznitelik önemi `feature_importances_` ile elde edilir ve bar grafiğiyle gösterilir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Hiperparametre Optimizasyonu",
+        "definition": "Bir makine öğrenmesi modelinin performansını en üst düzeye çıkarmak için modelin eğitim öncesi ayarlanan parametrelerinin (hiperparametreler) en iyi kombinasyonunu bulma işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w05-q031",
+    "week": 5,
+    "topic": "karar-agaci",
+    "type": "code",
+    "tags": [
+      "decision_tree",
+      "overfitting",
+      "train_test_score"
+    ],
+    "sourceNotebook": "r_forest.ipynb",
+    "question": "Aşağıdaki Karar Ağacı modelinin (Derin Decision Tree) skorları incelendiğinde `Train Score` değerinin tam olarak 1.0 (yani %100) çıkmasını sağlayan kod parçası veya parametre hangisidir?",
+    "code": "dt_deep = DecisionTreeClassifier(\n    criterion=\"gini\",\n    max_depth=None,\n    random_state=42\n)\ndt_deep.fit(X_train, y_train)\n\nprint(\"Train Score:\", dt_deep.score(X_train, y_train)) # Çıktı: 1.0\nprint(\"Test Score :\", dt_deep.score(X_test, y_test))   # Çıktı: 0.809",
+    "options": {
+      "A": "criterion=\"gini\"",
+      "B": "random_state=42",
+      "C": "dt_deep.score(X_test, y_test)",
+      "D": "dt_deep.fit(X_train, y_train)",
+      "E": "max_depth=None"
+    },
+    "correct": "E",
+    "explanations": {
+      "A": "Yanlış. `gini` bölme işlemi için bir matematiksel formüldür, tek başına ezberlemeye yol açmaz.",
+      "B": "Yanlış. `random_state` sadece süreci sabitler, skorun yüksek çıkmasıyla doğrudan ilgisi yoktur.",
+      "C": "Yanlış. Bu satır sadece test skorunu ekrana yazdırır.",
+      "D": "Yanlış. `fit` modeli eğitir, ancak overfitting olmasını garantilemez.",
+      "E": "Doğru. `max_depth=None` parametresi, karar ağacının büyümesini (derinliğini) hiçbir şekilde kısıtlamaz. Ağaç, eğitim verisindeki her bir satırı ayrı bir yaprak düğüm (leaf) yapana kadar bölünmeye devam eder. Bu da eğitim setinin %100 ezberlenmesine (Train Score: 1.0) yol açar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Underfitting / Overfitting",
+        "definition": "Modelin veriyi yeterince öğrenememesi (Underfitting) veya verideki her detayı ve gürültüyü ezberleyerek yeni verilerde başarısız olması (Overfitting)."
+      }
+    ]
+  },
+  {
+    "id": "w05-q032",
+    "week": 5,
+    "topic": "veri-kesfi",
+    "type": "code",
+    "tags": [
+      "countplot",
+      "sinif-dagilimi",
+      "seaborn"
+    ],
+    "sourceNotebook": "knn.ipynb",
+    "question": "Veri keşfi (EDA) aşamasında hedef değişkenin (target) dağılımını görmek için aşağıdaki kod çalıştırılmıştır. Bu grafiğin sonucunda sınıflar arasında büyük bir fark (örneğin hedef 1: 500 adet, hedef 0: 50 adet) görülmesi veri madenciliği için ne anlama gelir?",
+    "code": "sns.countplot(x=\"target\", data=df)\nplt.title(\"Sınıf Dağılımı\")\nplt.show()",
+    "options": {
+      "A": "Sayısal öznitelikler arasında yüksek bir korelasyon (multicollinearity) olduğunu gösterir.",
+      "B": "Test veri setinin eğitim veri setinden daha büyük olduğunu kanıtlar.",
+      "C": "Hedef değişkende Sınıf Dengesizliği (Class Imbalance) problemi olduğunu gösterir ve modelin çoğunluk sınıfına taraflı (biased) olabileceği uyarısını verir.",
+      "D": "Karar ağacı algoritmasının bu veri seti için kullanılamayacağını, sadece KNN kullanılması gerektiğini gösterir.",
+      "E": "Veri setinde çok fazla eksik değer (NaN) bulunduğunu işaret eder."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Yanlış. Korelasyon, bağımsız değişkenler (X) arasındaki ilişkiyi inceler. Bu grafik sadece tek bir hedef sütunun adetlerini gösterir.",
+      "B": "Yanlış. Eğitim/test ayrımı henüz yapılmamış, tüm `df` üzerinden grafik çizilmiştir.",
+      "C": "Doğru. `countplot` sınıfların sayısını çubuk grafik olarak verir. Biri 500, diğeri 50 ise Sınıf Dengesizliği (Imbalance) vardır. Algoritma kolaya kaçıp her şeye çoğunluk sınıfını tahmin etme eğilimine girebilir.",
+      "D": "Yanlış. Karar ağaçları sınıf dengesizliğine rağmen kullanılabilir, ancak gerekirse `class_weight` parametresi ile dengelenmelidir.",
+      "E": "Yanlış. Eksik değerler bu grafikten doğrudan anlaşılamaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "Class Imbalance",
+        "definition": "Veri setindeki hedef sınıf örneklerinin birbirine yakın oranda olmaması durumu (Örn: %95 Sağlam, %5 Hatalı üretim)."
+      }
+    ]
+  },
+  {
+    "id": "w05-q033",
+    "week": 5,
+    "topic": "veri-yapisi",
+    "type": "code",
+    "tags": [
+      "shape",
+      "pandas",
+      "boyut"
+    ],
+    "sourceNotebook": "random_forest.ipynb",
+    "question": "Veri setinin eğitim ve test olarak ayrılmasının hemen ardından boyut kontrolü yapılmış ve aşağıdaki çıktı elde edilmiştir. Bu çıktıya göre eğitim (X_train) ve test (X_test) verilerinin satır ve sütun sayıları aşağıdakilerden hangisinde doğru yorumlanmıştır?",
+    "code": "X_train.shape, X_test.shape\n# Çıktı: ((464809, 54), (116203, 54))",
+    "options": {
+      "A": "Eğitim setinde 464809 sütun, 54 satır; test setinde ise 116203 sütun, 54 satır vardır.",
+      "B": "Eğitim setinde 54 sınıf, test setinde 54 hedef değişken bulunmaktadır.",
+      "C": "Veri seti 464809 adet ağaç (estimator) kullanılarak eğitilmiş ve 116203 kez test edilmiştir.",
+      "D": "Eğitim seti 464809 satır ve 54 sütundan (öznitelik); test seti ise 116203 satır ve aynı 54 sütundan oluşmaktadır.",
+      "E": "Model %54 accuracy ile eğitilmiş, %54 accuracy ile test edilmiştir."
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Yanlış. Pandas'ta `.shape` fonksiyonu her zaman (Satır Sayısı, Sütun Sayısı) tuple'ını döndürür. Satır ve sütun yer değiştirmiştir.",
+      "B": "Yanlış. Sınıf sayısını (target) göstermez, X veri setinin boyutunu gösterir.",
+      "C": "Yanlış. Ağaç sayısıyla (n_estimators) ilgisi yoktur.",
+      "D": "Doğru. `shape` çıktısındaki ilk eleman satır (örnek/gözlem) sayısını, ikinci eleman ise sütun (feature/öznitelik) sayısını verir. X_train için 464,809 satır ve 54 sütun vardır.",
+      "E": "Yanlış. Çıktı veri boyutunu gösterir, modelin başarı skorunu değil."
+    },
+    "relatedTerms": [
+      {
+        "term": "Dimensionality (Boyutsallık)",
+        "definition": "Bir veri setindeki değişken (sütun/öznitelik) sayısını ifade eder. Pandas'ta .shape ile sorgulanır."
+      }
+    ]
+  },
+  {
+    "id": "w05-q034",
+    "week": 5,
+    "topic": "gorsellestirme",
+    "type": "code",
+    "tags": [
+      "plot",
+      "barh",
+      "feature_importances"
+    ],
+    "sourceNotebook": "r_forest.ipynb",
+    "question": "Random Forest modelinde öznitelik önem derecelerini (feature_importances_) bulduktan sonra, sonuçları yatay sütun grafiği şeklinde ekrana çizdirmek için `plot` fonksiyonunun içine hangi parametre eklenmiştir?",
+    "code": "# Grafik olarak gösterelim\nrf_importance.sort_values(ascending=False).head(10).plot(\n    # EKSİK PARAMETRE\n    figsize=(8,5)\n)\nplt.title(\"Random Forest - En Önemli 10 Özellik\")\nplt.show()",
+    "options": {
+      "A": "kind=\"pie\"",
+      "B": "kind=\"barh\"",
+      "C": "kind=\"scatter\"",
+      "D": "kind=\"hist\"",
+      "E": "kind=\"line\""
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yanlış. 'pie' pasta grafiği (pie chart) çizer.",
+      "B": "Doğru. Pandas'ın yerleşik `.plot()` fonksiyonunda `kind=\"barh\"` (horizontal bar) parametresi kullanıldığında veriler yatay çubuk grafik olarak çizilir. Bu, uzun öznitelik isimlerinin (feature names) okunabilirliği için sıklıkla tercih edilir.",
+      "C": "Yanlış. 'scatter' dağılım (nokta) grafiği çizer ve iki değişkene ihtiyaç duyar.",
+      "D": "Yanlış. 'hist' histogram çizer.",
+      "E": "Yanlış. 'line' çizgi grafiği çizer."
+    },
+    "relatedTerms": [
+      {
+        "term": "Barh (Horizontal Bar Plot)",
+        "definition": "Kategorik verilerin yatay çubuklar kullanılarak gösterildiği ve kategorilerin genellikle Y ekseninde yer aldığı grafik türü."
+      }
+    ]
+  },
+  {
+    "id": "w05-q035",
+    "week": 5,
+    "topic": "veri-donusumu",
+    "type": "code",
+    "tags": [
+      "one-hot-encoding",
+      "get_dummies",
+      "pandas"
+    ],
+    "sourceNotebook": "r_forest.ipynb",
+    "question": "Adult veri seti üzerinde çalışılırken sütun sayısı 15 iken, Pandas ile bir işlem uygulandıktan sonra sütun sayısı 97'ye çıkmıştır. Aşağıdaki kodlardan hangisi veri madenciliğinde bu sütun patlamasına (column expansion) yol açan işlemdir?",
+    "code": "# İşlem öncesi df.shape: (30139, 15)\n# İşlem sonrası df.shape: (30139, 97)",
+    "options": {
+      "A": "df_encoded = pd.get_dummies(df, drop_first=True)",
+      "B": "df = df.replace(\"?\", np.nan)",
+      "C": "df_encoded = StandardScaler().fit_transform(df)",
+      "D": "df = df.dropna()",
+      "E": "df[\"income\"] = df[\"income\"].apply(lambda x: 1 if \">50K\" in x else 0)"
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Doğru. `get_dummies` fonksiyonu One-Hot Encoding işlemi yapar. Kategorik bir sütunun içinde örneğin 40 farklı ülke varsa, veri setine bu ülkeleri temsil eden 40 adet yeni 0-1 sütunu ekler. Sütun sayısındaki devasa artışın sebebi budur.",
+      "B": "Yanlış. Sadece hücre içindeki değerleri değiştirir, boyut aynı kalır.",
+      "C": "Yanlış. StandardScaler sayısal verileri ölçeklendirir, mevcut sütunların değerlerini değiştirir ancak yeni sütun eklemez.",
+      "D": "Yanlış. `dropna()` satır (row) siler, sütun sayısını değiştirmez.",
+      "E": "Yanlış. Sadece mevcut tek bir sütunun (income) içindeki metinleri sayıya (1-0) çevirir, sütun eklemez."
+    },
+    "relatedTerms": [
+      {
+        "term": "Curse of Dimensionality (Boyutluluk Laneti)",
+        "definition": "Veri setindeki değişken (sütun) sayısının çok fazla artması durumunda modellerin eğitiminin zorlaşması ve aşırı öğrenme (overfitting) riskinin artması."
+      }
+    ]
   }
 ]

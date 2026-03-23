@@ -46,7 +46,7 @@
           "tokens": [
             {
               "token": "np.random.seed(3)",
-              "explanation": "NumPy rastgele üreticisini 3 değeriyle sabitler.",
+              "explanation": "NumPy rastgele üretiçisini 3 değeriyle sabitler.",
               "turkce": "Seed",
               "amac": "Her çalıştırmada aynı rastgele sayıların gelmesini sağlamak.",
               "detay": "Bu sayede örnek çıktılar tekrar üretilebilir olur."
@@ -83,7 +83,7 @@
           "tokens": [
             {
               "token": "np.random.seed(3)",
-              "explanation": "NumPy rastgele üreticisini 3 değeriyle sabitler.",
+              "explanation": "NumPy rastgele üretiçisini 3 değeriyle sabitler.",
               "turkce": "Seed",
               "amac": "Her çalıştırmada aynı rastgele sayıların gelmesini sağlamak.",
               "detay": "Bu sayede örnek çıktılar tekrar üretilebilir olur."
@@ -162,7 +162,7 @@
         {
           "lineNumber": 6,
           "code": "pd.DataFrame(data1).head()",
-          "lineExplanation": "Oluşturulan maaş sözlüğünü geçici olarak tabloya çevirip ilk 5 satırı gösterir.",
+          "lineExplanation": "Oluşturulan maaş sözlüğünü geçiçi olarak tabloya çevirip ilk 5 satırı gösterir.",
           "tokens": [
             {
               "token": "pd.DataFrame(data1)",
@@ -326,7 +326,7 @@
           "codeContext": "Bu satır, `df2` içinde ID ve Maas sütunlarının ilk kayıtlarını incelememizi sağlar."
         }
       ],
-      "expectedOutput": "ID Kategori\n0   1        A\n1   2        E\n2   3        A\n3   4        A\n4   5        E\n\n   ID         Maas\n0   1  1024.962496\n1   2   735.181640\n2   3   278.829732\n3   4   648.870075\n4   5   424.488491"
+      "expectedOutput": "ID Kategori\n0   1        A\n1   2        E\n2   3        A\n3   4        A\n4   5        E\n\nID         Maas\n0   1  1024.962496\n1   2   735.181640\n2   3   278.829732\n3   4   648.870075\n4   5   424.488491"
     },
     {
       "id": "veri_birlestir-b005",

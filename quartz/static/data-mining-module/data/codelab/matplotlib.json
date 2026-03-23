@@ -139,7 +139,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "Basit bir çizgi grafiği üretilir.",
+      "expectedOutput": "[<matplotlib.lines.Line2D object at 0x7fda05b05fd0>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05b06660>]\n\n<Figure size 800x500 with 2 Axes>",
       "plotImage": "matplotlib-b001.png"
     },
     {
@@ -235,7 +235,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "Başlığı ve eksen etiketleri olan bir çizgi grafiği görünür.",
+      "expectedOutput": "Text(0.5, 1.0, 'İlk grafiğimiz!')\n\nText(0.5, 32.249999999999986, 'x axis')\n\nText(66.25, 0.5, 'y axis')\n\n[<matplotlib.lines.Line2D object at 0x7fda05b06510>]\n\n<Figure size 800x500 with 2 Axes>",
       "plotImage": "matplotlib-b002.png"
     },
     {
@@ -373,7 +373,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "Çentikleri elle tanımlanmış çizgi grafiği görünür.",
+      "expectedOutput": "([<matplotlib.axis.XTick object at 0x7fd9e86e2d50>, <matplotlib.axis.XTick object at 0x7fda05994190>, <matplotlib.axis.XTick object at 0x7fda05994550>, <matplotlib.axis.XTick object at 0x7fda06674a50>], [Text(1, 0, ''), Text(2, 0, ''), Text(3, 0, ''), Text(4, 0, '')])\n\n([<matplotlib.axis.YTick object at 0x7fd9e86e3110>, <matplotlib.axis.YTick object at 0x7fda05997890>, <matplotlib.axis.YTick object at 0x7fda05997c50>, <matplotlib.axis.YTick object at 0x7fda05997ed0>], [Text(0, 1, 'Wilderness_Area_3'), Text(0, 4, 'Horizontal_Distance_To_Fire_Points'), Text(0, 9, 'Soil_Type_38'), Text(0, 16, '')])\n\nText(0.5, 1.0, 'İlk grafiğimiz!')\n\nText(0.5, 32.249999999999986, 'x axis')\n\nText(66.25, 0.5, 'y axis')\n\n[<matplotlib.lines.Line2D object at 0x7fda05b063c0>]\n\n<Figure size 800x500 with 2 Axes>",
       "plotImage": "matplotlib-b003.png"
     },
     {
@@ -520,7 +520,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "Yeşil çizgi ve legend kutusu içeren grafik görünür.",
+      "expectedOutput": "[<matplotlib.lines.Line2D object at 0x7fda05b042f0>]\n\n([<matplotlib.axis.XTick object at 0x7fd9e86e2d50>, <matplotlib.axis.XTick object at 0x7fda05994190>, <matplotlib.axis.XTick object at 0x7fda05994550>, <matplotlib.axis.XTick object at 0x7fda06674a50>, <matplotlib.axis.XTick object at 0x7fda06363d90>], [Text(1, 0, ''), Text(2, 0, ''), Text(3, 0, ''), Text(4, 0, ''), Text(5, 0, '')])\n\n([<matplotlib.axis.YTick object at 0x7fd9e86e3110>, <matplotlib.axis.YTick object at 0x7fda05997890>, <matplotlib.axis.YTick object at 0x7fda05997c50>, <matplotlib.axis.YTick object at 0x7fda05997ed0>, <matplotlib.axis.YTick object at 0x7fda059d8410>], [Text(0, 1, 'Wilderness_Area_3'), Text(0, 4, 'Horizontal_Distance_To_Fire_Points'), Text(0, 9, 'Soil_Type_38'), Text(0, 16, ''), Text(0, 25, '')])\n\nText(0.5, 1.0, 'İlk grafiğimiz!')\n\nText(0.5, 32.249999999999986, 'x axis')\n\nText(66.25, 0.5, 'y axis')\n\n<matplotlib.legend.Legend object at 0x7fda05b06270>\n\n<Figure size 800x500 with 2 Axes>",
       "plotImage": "matplotlib-b004.png"
     },
     {
@@ -679,7 +679,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "Kesikli, kalın ve marker'lı çizgi grafiği görünür.",
+      "expectedOutput": "[<matplotlib.lines.Line2D object at 0x7fda06386120>]\n\n([<matplotlib.axis.XTick object at 0x7fd9e86e2d50>, <matplotlib.axis.XTick object at 0x7fda05994190>, <matplotlib.axis.XTick object at 0x7fda05994550>, <matplotlib.axis.XTick object at 0x7fda06674a50>, <matplotlib.axis.XTick object at 0x7fda06363d90>], [Text(1, 0, ''), Text(2, 0, ''), Text(3, 0, ''), Text(4, 0, ''), Text(5, 0, '')])\n\n([<matplotlib.axis.YTick object at 0x7fd9e86e3110>, <matplotlib.axis.YTick object at 0x7fda05997890>, <matplotlib.axis.YTick object at 0x7fda05997c50>, <matplotlib.axis.YTick object at 0x7fda05997ed0>, <matplotlib.axis.YTick object at 0x7fda059d8410>], [Text(0, 1, 'Wilderness_Area_3'), Text(0, 4, 'Horizontal_Distance_To_Fire_Points'), Text(0, 9, 'Soil_Type_38'), Text(0, 16, ''), Text(0, 25, '')])\n\nText(0.5, 1.0, 'İlk grafiğimiz!')\n\nText(0.5, 32.249999999999986, 'x axis')\n\nText(66.25, 0.5, 'y axis')\n\n<matplotlib.legend.Legend object at 0x7fda05b041a0>\n\n<Figure size 800x500 with 2 Axes>",
       "plotImage": "matplotlib-b005.png"
     },
     {
@@ -807,16 +807,30 @@
         {
           "lineNumber": 8,
           "code": "x2 = np.arange(0,5,0.5)",
-          "lineExplanation": "Bir değeri veya hesap sonucunu değişkene atar.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Çizme' bloğunda sonraki adımların kullanacağı ara sonucu üretir."
+          "lineExplanation": "`x2 = np.arange(0,5,0.5)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "x2",
+              "explanation": "`x2 = np.arange(0,5,0.5)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Aynı Grafikte İkinci Çizgi Çizme' bloğunda `x2 = np.arange(0,5,0.5)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Çizme' bloğunda `x2 = np.arange(0,5,0.5)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
         },
         {
           "lineNumber": 9,
           "code": "plt.plot(x2,x2*2,color='red', linewidth = 2, marker='.', label='2*x')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Çizme' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(x2,x2*2,color='red', linewidth = 2, marker='.', label='2*x')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Aynı Grafikte İkinci Çizgi Çizme' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Çizme' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 10,
@@ -849,7 +863,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "Aynı grafikte iki farklı seri birlikte görünür.",
+      "expectedOutput": "[<matplotlib.lines.Line2D object at 0x7fda063857f0>]\n\n([<matplotlib.axis.XTick object at 0x7fd9e86e2d50>, <matplotlib.axis.XTick object at 0x7fda05994190>, <matplotlib.axis.XTick object at 0x7fda05994550>, <matplotlib.axis.XTick object at 0x7fda06674a50>, <matplotlib.axis.XTick object at 0x7fda06363d90>, <matplotlib.axis.XTick object at 0x7fda05996c10>], [Text(0, 0, ''), Text(1, 0, ''), Text(2, 0, ''), Text(3, 0, ''), Text(4, 0, ''), Text(5, 0, '')])\n\n([<matplotlib.axis.YTick object at 0x7fd9e86e3110>, <matplotlib.axis.YTick object at 0x7fda05997890>, <matplotlib.axis.YTick object at 0x7fda05997c50>, <matplotlib.axis.YTick object at 0x7fda05997ed0>, <matplotlib.axis.YTick object at 0x7fda059d8410>, <matplotlib.axis.YTick object at 0x7fda059d87d0>], [Text(0, 0, 'Elevation'), Text(0, 1, 'Wilderness_Area_3'), Text(0, 4, 'Horizontal_Distance_To_Fire_Points'), Text(0, 9, 'Soil_Type_38'), Text(0, 16, ''), Text(0, 25, '')])\n\nText(0.5, 1.0, 'İlk grafiğimiz!')\n\nText(0.5, 32.249999999999986, 'x axis')\n\nText(66.25, 0.5, 'y axis')\n\n[<matplotlib.lines.Line2D object at 0x7fda063856a0>]\n\n<matplotlib.legend.Legend object at 0x7fda06385e80>\n\n<Figure size 800x500 with 2 Axes>",
       "plotImage": "matplotlib-b006.png"
     },
     {
@@ -962,16 +976,30 @@
         {
           "lineNumber": 7,
           "code": "x2 = np.arange(0,5,0.5)",
-          "lineExplanation": "Bir değeri veya hesap sonucunu değişkene atar.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Çizme' bloğunda sonraki adımların kullanacağı ara sonucu üretir."
+          "lineExplanation": "`x2 = np.arange(0,5,0.5)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "x2",
+              "explanation": "`x2 = np.arange(0,5,0.5)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Grafiği Dosyaya Kaydetme' bloğunda `x2 = np.arange(0,5,0.5)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Grafiği Dosyaya Kaydetme' bloğunda `x2 = np.arange(0,5,0.5)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
         },
         {
           "lineNumber": 8,
           "code": "plt.plot(x2,x2*2,color='red', linewidth = 2, marker='.', label='2*x')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Çizme' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(x2,x2*2,color='red', linewidth = 2, marker='.', label='2*x')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Grafiği Dosyaya Kaydetme' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Grafiği Dosyaya Kaydetme' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 9,
@@ -992,7 +1020,14 @@
           "lineNumber": 10,
           "code": "plt.savefig('firstgraph.png', dpi=400)",
           "lineExplanation": "Mevcut grafiği dosyaya kaydeder.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.savefig('firstgraph.png', dpi=400)",
+              "explanation": "Mevcut grafiği dosyaya kaydeder.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Grafiği Dosyaya Kaydetme' bloğunda görselin dosyaya yazılmasını sağlar."
+            }
+          ],
           "codeContext": "Bu satır, 'Grafiği Dosyaya Kaydetme' bloğunda görselin dosyaya yazılmasını sağlar."
         },
         {
@@ -1011,7 +1046,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "Grafik ekranda görünür ve firstgraph.png dosyası olarak kaydedilir.",
+      "expectedOutput": "[<matplotlib.lines.Line2D object at 0x7fda05b04050>]\n\n([<matplotlib.axis.XTick object at 0x7fd9e86e2d50>, <matplotlib.axis.XTick object at 0x7fda05994190>, <matplotlib.axis.XTick object at 0x7fda05994550>, <matplotlib.axis.XTick object at 0x7fda06674a50>, <matplotlib.axis.XTick object at 0x7fda06363d90>, <matplotlib.axis.XTick object at 0x7fda05996c10>], [Text(0, 0, ''), Text(1, 0, ''), Text(2, 0, ''), Text(3, 0, ''), Text(4, 0, ''), Text(5, 0, '')])\n\n([<matplotlib.axis.YTick object at 0x7fd9e86e3110>, <matplotlib.axis.YTick object at 0x7fda05997890>, <matplotlib.axis.YTick object at 0x7fda05997c50>, <matplotlib.axis.YTick object at 0x7fda05997ed0>, <matplotlib.axis.YTick object at 0x7fda059d8410>, <matplotlib.axis.YTick object at 0x7fda059d87d0>], [Text(0, 0, 'Elevation'), Text(0, 1, 'Wilderness_Area_3'), Text(0, 4, 'Horizontal_Distance_To_Fire_Points'), Text(0, 9, 'Soil_Type_38'), Text(0, 16, ''), Text(0, 25, '')])\n\nText(0.5, 1.0, 'İlk grafiğimiz!')\n\nText(0.5, 32.249999999999986, 'x axis')\n\nText(66.25, 0.5, 'y axis')\n\n[<matplotlib.lines.Line2D object at 0x7fda05b06270>]\n\n<matplotlib.legend.Legend object at 0x7fda06385fd0>\n\n<Figure size 800x500 with 2 Axes>",
       "plotImage": "matplotlib-b007.png"
     },
     {
@@ -1114,7 +1149,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "Şehir adlarına göre değerleri gösteren çubuk grafiği görünür.",
+      "expectedOutput": "<BarContainer object of 7 artists>\n\nText(0.5, 36.24999999999999, 'Kategori')\n\nText(-184.5, 0.5, 'Değerler')\n\n<Figure size 800x500 with 2 Axes>",
       "plotImage": "matplotlib-b008.png"
     },
     {
@@ -1125,9 +1160,16 @@
         {
           "lineNumber": 1,
           "code": "x = ['Ankara', 'İstanbul', 'İzmir', 'Kastamonu', 'Sakarya', 'Edirne', 'Düzce']",
-          "lineExplanation": "Bir değeri veya hesap sonucunu değişkene atar.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Hatch Deseni ile Çubuk Vurgulama' bloğunda sonraki adımların kullanacağı ara sonucu üretir."
+          "lineExplanation": "`x = ['Ankara', 'İstanbul', 'İzmir', 'Kastamonu', 'Sakarya', 'Edirne', 'Düzce']` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "x",
+              "explanation": "`x = ['Ankara', 'İstanbul', 'İzmir', 'Kastamonu', 'Sakarya', 'Edirne', 'Düzce']` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Hatch Deseni ile Çubuk Vurgulama' bloğunda `x = ['ankara', 'i̇stanbul', 'i̇zmir', 'kastamonu', 'sakarya', 'edirne', 'düzce']` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hatch Deseni ile Çubuk Vurgulama' bloğunda `x = ['ankara', 'i̇stanbul', 'i̇zmir', 'kastamonu', 'sakarya', 'edirne', 'düzce']` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
         },
         {
           "lineNumber": 2,
@@ -1146,29 +1188,57 @@
         {
           "lineNumber": 3,
           "code": "cubuklar = plt.bar(x,y, color='pink')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Hatch Deseni ile Çubuk Vurgulama' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "`cubuklar = plt.bar(x,y, color='pink')` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "cubuklar = plt.bar(x,y, color='pink')",
+              "explanation": "`cubuklar = plt.bar(x,y, color='pink')` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Hatch Deseni ile Çubuk Vurgulama' bloğunda `cubuklar = plt.bar(x,y, color='pink')` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hatch Deseni ile Çubuk Vurgulama' bloğunda `cubuklar = plt.bar(x,y, color='pink')` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
         },
         {
           "lineNumber": 4,
           "code": "cubuklar[1].set_hatch('+')",
           "lineExplanation": "İkinci çubuğa `+` desenini uygulayarak onu görsel olarak ayırır.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "cubuklar[1].set_hatch('+')",
+              "explanation": "İkinci çubuğa `+` desenini uygulayarak onu görsel olarak ayırır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, seçilen çubuğu diğerlerinden farklı hatch deseniyle vurgular."
+            }
+          ],
           "codeContext": "Bu satır, seçilen çubuğu diğerlerinden farklı hatch deseniyle vurgular."
         },
         {
           "lineNumber": 5,
           "code": "cubuklar[0].set_hatch('.')",
           "lineExplanation": "İlk çubuğa nokta desenini uygular.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "cubuklar[0].set_hatch('.')",
+              "explanation": "İlk çubuğa nokta desenini uygular.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, ilk çubuğun yüzeyini farklı bir hatch deseniyle işaretler."
+            }
+          ],
           "codeContext": "Bu satır, ilk çubuğun yüzeyini farklı bir hatch deseniyle işaretler."
         },
         {
           "lineNumber": 6,
           "code": "cubuklar[4].set_hatch('/')",
           "lineExplanation": "Beşinci çubuğa `/` desenini uygular.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "cubuklar[4].set_hatch('/')",
+              "explanation": "Beşinci çubuğa `/` desenini uygular.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, belirli bir kategoriyi eğik çizgi deseniyle öne çıkarır."
+            }
+          ],
           "codeContext": "Bu satır, belirli bir kategoriyi eğik çizgi deseniyle öne çıkarır."
         },
         {
@@ -1187,7 +1257,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "Desenli çubukları olan grafik görünür.",
+      "expectedOutput": "<Figure size 800x500 with 2 Axes>",
       "plotImage": "matplotlib-b009.png"
     },
     {
@@ -1301,7 +1371,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "Yüzdeleri yazılı bir pasta grafiği görünür.",
+      "expectedOutput": "([<matplotlib.patches.Wedge object at 0x7fda08c03620>, <matplotlib.patches.Wedge object at 0x7fda059d9bd0>, <matplotlib.patches.Wedge object at 0x7fda059db4d0>, <matplotlib.patches.Wedge object at 0x7fda059db890>], [Text(-1.0973204557467513, 0.07673211452672334, 'Grup A'), Text(-0.07673219737211265, -1.0973204499536346, 'Grup B'), Text(1.0958141985251735, 0.0958709669849625, 'Grup C'), Text(-0.09587114551575511, 1.095814182905796, 'Grup D')], [Text(-0.5985384304073188, 0.04185388065093999, '20.0%'), Text(-0.04185392583933417, -0.598538427247437, '30.0%'), Text(0.5977168355591855, 0.052293254719070446, '25.0%'), Text(-0.05229335209950278, 0.5977168270395249, '25.0%')])\n\nText(0.5, 1.0, 'Pasta Grafiği Örneği')\n\n(np.float64(-1.4199995151043814), np.float64(7.819999976909732), np.float64(-9.949999781084294), np.float64(186.94999998957545))\n\n<Figure size 800x500 with 2 Axes>",
       "plotImage": "matplotlib-b010.png"
     },
     {
@@ -1348,36 +1418,71 @@
         {
           "lineNumber": 3,
           "code": "veri = np.random.randn(1000)",
-          "lineExplanation": "Bir değeri veya hesap sonucunu değişkene atar.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda sonraki adımların kullanacağı ara sonucu üretir."
+          "lineExplanation": "0 ile 1 arasında rastgele değerlerden oluşan dizi üretir.",
+          "tokens": [
+            {
+              "token": "veri",
+              "explanation": "0 ile 1 arasında rastgele değerlerden oluşan dizi üretir.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda 0 ile 1 arasında rastgele değerlerden oluşan dizi üretir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda 0 ile 1 arasında rastgele değerlerden oluşan dizi üretir."
         },
         {
           "lineNumber": 4,
           "code": "plt.hist(veri, bins=30, color='purple', edgecolor='black')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Histogram grafiği çizer.",
+          "tokens": [
+            {
+              "token": "plt.hist(veri, bins=30, color='purple', edgecolor='black')",
+              "explanation": "Histogram grafiği çizer.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda histogram grafiği çizer."
+            }
+          ],
+          "codeContext": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda histogram grafiği çizer."
         },
         {
           "lineNumber": 5,
           "code": "plt.title('Histogram Örneği')",
           "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.title('Histogram Örneği')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
           "lineNumber": 6,
           "code": "plt.xlabel('Değer Aralığı')",
           "lineExplanation": "X eksenine etiket ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.xlabel('Değer Aralığı')",
+              "explanation": "X eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
           "lineNumber": 7,
           "code": "plt.ylabel('Frekans')",
           "lineExplanation": "Y eksenine etiket ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.ylabel('Frekans')",
+              "explanation": "Y eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
@@ -1396,7 +1501,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "Rastgele verinin histogramı görünür.",
+      "expectedOutput": "(array([ 3.,  3.,  1.,  8., 16.,  9., 15., 19., 34., 49., 76., 79., 81.,\n       84., 76., 75., 84., 72., 52., 43., 31., 29., 22.,  8., 13.,  7.,\n        7.,  0.,  2.,  2.]), array([-2.96699073, -2.7595156 , -2.55204047, -2.34456535, -2.13709022,\n       -1.92961509, -1.72213997, -1.51466484, -1.30718971, -1.09971459,\n       -0.89223946, -0.68476433, -0.47728921, -0.26981408, -0.06233895,\n        0.14513617,  0.3526113 ,  0.56008643,  0.76756155,  0.97503668,\n        1.18251181,  1.38998693,  1.59746206,  1.80493719,  2.01241231,\n        2.21988744,  2.42736257,  2.63483769,  2.84231282,  3.04978795,\n        3.25726307]), <BarContainer object of 30 artists>)\n\nText(0.5, 1.0, 'Histogram Örneği')\n\nText(0.5, 36.24999999999999, 'Değer Aralığı')\n\nText(-184.5, 0.5, 'Frekans')\n\n<Figure size 800x500 with 2 Axes>",
       "plotImage": "matplotlib-b011.png"
     },
     {
@@ -1444,49 +1549,98 @@
           "lineNumber": 3,
           "code": "x = np.random.rand(50)",
           "lineExplanation": "50 rastgele X değeri üretir.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "x",
+              "explanation": "50 rastgele X değeri üretir.",
+              "turkce": "Atama",
+              "amac": "Bu satır, scatter grafiğinin yatay ekseninde kullanılacak rastgele noktaları oluşturur."
+            }
+          ],
           "codeContext": "Bu satır, scatter grafiğinin yatay ekseninde kullanılacak rastgele noktaları oluşturur."
         },
         {
           "lineNumber": 4,
           "code": "y = np.random.rand(50)",
           "lineExplanation": "50 rastgele Y değeri üretir.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "y",
+              "explanation": "50 rastgele Y değeri üretir.",
+              "turkce": "Atama",
+              "amac": "Bu satır, saçılım grafiğinin dikey ekseninde kullanılacak ikinci rastgele dizi oluşturur."
+            }
+          ],
           "codeContext": "Bu satır, saçılım grafiğinin dikey ekseninde kullanılacak ikinci rastgele dizi oluşturur."
         },
         {
           "lineNumber": 5,
           "code": "plt.scatter(x, y, color='green')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Saçılım grafiği çizer.",
+          "tokens": [
+            {
+              "token": "plt.scatter(x, y, color='green')",
+              "explanation": "Saçılım grafiği çizer.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda saçılım grafiği çizer."
+            }
+          ],
+          "codeContext": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda saçılım grafiği çizer."
         },
         {
           "lineNumber": 6,
           "code": "plt.title('Scatter Grafiği Örneği')",
           "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.title('Scatter Grafiği Örneği')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
           "lineNumber": 7,
           "code": "plt.xlabel('X ekseni')",
           "lineExplanation": "X eksenine etiket ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.xlabel('X ekseni')",
+              "explanation": "X eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
           "lineNumber": 8,
           "code": "plt.ylabel('Y ekseni')",
           "lineExplanation": "Y eksenine etiket ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.ylabel('Y ekseni')",
+              "explanation": "Y eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
           "lineNumber": 9,
           "code": "plt.grid(True)",
           "lineExplanation": "Grafiğe arka planda kılavuz ızgara çizgileri ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.grid(True)",
+              "explanation": "Grafiğe arka planda kılavuz ızgara çizgileri ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, scatter grafiğindeki noktaların eksen üzerinde daha rahat okunabilmesi için referans ızgarası oluşturur."
+            }
+          ],
           "codeContext": "Bu satır, scatter grafiğindeki noktaların eksen üzerinde daha rahat okunabilmesi için referans ızgarası oluşturur."
         },
         {
@@ -1505,7 +1659,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "Rastgele noktalardan oluşan bir saçılım grafiği görünür.",
+      "expectedOutput": "<matplotlib.collections.PathCollection object at 0x7fda05846c10>\n\nText(0.5, 1.0, 'Scatter Grafiği Örneği')\n\nText(0.5, 36.24999999999999, 'X ekseni')\n\nText(-184.5, 0.5, 'Y ekseni')\n\n<Figure size 800x500 with 2 Axes>",
       "plotImage": "matplotlib-b012.png"
     },
     {
@@ -1552,71 +1706,141 @@
         {
           "lineNumber": 3,
           "code": "x = np.arange(0, 5, 1)",
-          "lineExplanation": "Bir değeri veya hesap sonucunu değişkene atar.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda sonraki adımların kullanacağı ara sonucu üretir."
+          "lineExplanation": "`x = np.arange(0, 5, 1)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "x",
+              "explanation": "`x = np.arange(0, 5, 1)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda `x = np.arange(0, 5, 1)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda `x = np.arange(0, 5, 1)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
         },
         {
           "lineNumber": 4,
           "code": "y1 = [1, 2, 4, 3, 5]",
-          "lineExplanation": "Bir değeri veya hesap sonucunu değişkene atar.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda sonraki adımların kullanacağı ara sonucu üretir."
+          "lineExplanation": "`y1 = [1, 2, 4, 3, 5]` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "y1",
+              "explanation": "`y1 = [1, 2, 4, 3, 5]` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda `y1 = [1, 2, 4, 3, 5]` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda `y1 = [1, 2, 4, 3, 5]` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
         },
         {
           "lineNumber": 5,
           "code": "y2 = [2, 3, 5, 4, 6]",
-          "lineExplanation": "Bir değeri veya hesap sonucunu değişkene atar.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda sonraki adımların kullanacağı ara sonucu üretir."
+          "lineExplanation": "`y2 = [2, 3, 5, 4, 6]` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "y2",
+              "explanation": "`y2 = [2, 3, 5, 4, 6]` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda `y2 = [2, 3, 5, 4, 6]` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda `y2 = [2, 3, 5, 4, 6]` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
         },
         {
           "lineNumber": 6,
           "code": "plt.fill_between(x, y1, color=\"skyblue\", alpha=0.4)",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "İki seri arasındaki alanı doldurarak alan grafiği üretir.",
+          "tokens": [
+            {
+              "token": "plt.fill_between(x, y1, color=\"skyblue\", alpha=0.4)",
+              "explanation": "İki seri arasındaki alanı doldurarak alan grafiği üretir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda i̇ki seri arasındaki alanı doldurarak alan grafiği üretir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda i̇ki seri arasındaki alanı doldurarak alan grafiği üretir."
         },
         {
           "lineNumber": 7,
           "code": "plt.fill_between(x, y2, color=\"lightgreen\", alpha=0.4)",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "İki seri arasındaki alanı doldurarak alan grafiği üretir.",
+          "tokens": [
+            {
+              "token": "plt.fill_between(x, y2, color=\"lightgreen\", alpha=0.4)",
+              "explanation": "İki seri arasındaki alanı doldurarak alan grafiği üretir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda i̇ki seri arasındaki alanı doldurarak alan grafiği üretir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda i̇ki seri arasındaki alanı doldurarak alan grafiği üretir."
         },
         {
           "lineNumber": 8,
           "code": "plt.plot(x, y1, label='Y1', color='blue')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(x, y1, label='Y1', color='blue')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 9,
           "code": "plt.plot(x, y2, label='Y2', color='green')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(x, y2, label='Y2', color='green')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 10,
           "code": "plt.title('Alan Grafiği Örneği')",
           "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.title('Alan Grafiği Örneği')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
           "lineNumber": 11,
           "code": "plt.xlabel('X ekseni')",
           "lineExplanation": "X eksenine etiket ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.xlabel('X ekseni')",
+              "explanation": "X eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
           "lineNumber": 12,
           "code": "plt.ylabel('Y ekseni')",
           "lineExplanation": "Y eksenine etiket ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.ylabel('Y ekseni')",
+              "explanation": "Y eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
@@ -1650,7 +1874,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "Doldurulmuş iki alan serisini gösteren grafik görünür.",
+      "expectedOutput": "<matplotlib.collections.FillBetweenPolyCollection object at 0x7fda05845e50>\n\n<matplotlib.collections.FillBetweenPolyCollection object at 0x7fda058460d0>\n\n[<matplotlib.lines.Line2D object at 0x7fda058d9e80>]\n\n[<matplotlib.lines.Line2D object at 0x7fda058da510>]\n\nText(0.5, 1.0, 'Alan Grafiği Örneği')\n\nText(0.5, 36.24999999999999, 'X ekseni')\n\nText(-184.5, 0.5, 'Y ekseni')\n\n<matplotlib.legend.Legend object at 0x7fda058da120>\n\n<Figure size 800x500 with 2 Axes>",
       "plotImage": "matplotlib-b013.png"
     },
     {
@@ -1697,57 +1921,113 @@
         {
           "lineNumber": 3,
           "code": "x = np.linspace(0, 10, 100)",
-          "lineExplanation": "Bir değeri veya hesap sonucunu değişkene atar.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda sonraki adımların kullanacağı ara sonucu üretir."
+          "lineExplanation": "`x = np.linspace(0, 10, 100)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "x",
+              "explanation": "`x = np.linspace(0, 10, 100)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda `x = np.linspace(0, 10, 100)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda `x = np.linspace(0, 10, 100)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
         },
         {
           "lineNumber": 4,
           "code": "y1 = np.sin(x)",
-          "lineExplanation": "Bir değeri veya hesap sonucunu değişkene atar.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda sonraki adımların kullanacağı ara sonucu üretir."
+          "lineExplanation": "`y1 = np.sin(x)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "y1",
+              "explanation": "`y1 = np.sin(x)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda `y1 = np.sin(x)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda `y1 = np.sin(x)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
         },
         {
           "lineNumber": 5,
           "code": "y2 = np.cos(x)",
-          "lineExplanation": "Bir değeri veya hesap sonucunu değişkene atar.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda sonraki adımların kullanacağı ara sonucu üretir."
+          "lineExplanation": "`y2 = np.cos(x)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "y2",
+              "explanation": "`y2 = np.cos(x)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda `y2 = np.cos(x)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda `y2 = np.cos(x)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
         },
         {
           "lineNumber": 6,
           "code": "fig, (ax1, ax2) = plt.subplots(2, 1)",
           "lineExplanation": "Yeni bir çizim alanı oluşturur.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "fig, (ax1, ax2) = plt.subplots(2, 1)",
+              "explanation": "Yeni bir çizim alanı oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda çizimin yapılacağı figürü kurar."
+            }
+          ],
           "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda çizimin yapılacağı figürü kurar."
         },
         {
           "lineNumber": 7,
           "code": "ax1.plot(x, y1, color='red')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "ax1.plot(x, y1, color",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 8,
           "code": "ax1.set_title('Sinüs Grafiği')",
           "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "ax1.set_title('Sinüs Grafiği')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
           "lineNumber": 9,
           "code": "ax2.plot(x, y2, color='blue')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "ax2.plot(x, y2, color",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 10,
           "code": "ax2.set_title('Kosinüs Grafiği')",
           "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "ax2.set_title('Kosinüs Grafiği')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
@@ -1781,7 +2061,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "Sinüs ve kosinüs için iki ayrı alt grafikten oluşan panel görünür.",
+      "expectedOutput": "[<matplotlib.lines.Line2D object at 0x7fda058d97f0>]\n\nText(0.5, 1.0, 'Sinüs Grafiği')\n\n[<matplotlib.lines.Line2D object at 0x7fda058d96a0>]\n\nText(0.5, 1.0, 'Kosinüs Grafiği')\n\n<Figure size 640x480 with 2 Axes>",
       "plotImage": "matplotlib-b014.png"
     },
     {
@@ -1829,77 +2109,154 @@
           "lineNumber": 3,
           "code": "degerler = [5, 3, 4, 2, 4, 5]",
           "lineExplanation": "Radar grafiğinde kullanılacak çok değişkenli puan listesini tanımlar.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "degerler",
+              "explanation": "Radar grafiğinde kullanılacak çok değişkenli puan listesini tanımlar.",
+              "turkce": "Atama",
+              "amac": "Bu satır, kutupsal grafikte her eksene yerleştirilecek sayısal değerleri hazırlar."
+            }
+          ],
           "codeContext": "Bu satır, kutupsal grafikte her eksene yerleştirilecek sayısal değerleri hazırlar."
         },
         {
           "lineNumber": 4,
           "code": "etiketler = np.array(['A', 'B', 'C', 'D', 'E', 'F'])",
           "lineExplanation": "Radar grafiği eksen etiketlerini tanımlar.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "etiketler",
+              "explanation": "Radar grafiği eksen etiketlerini tanımlar.",
+              "turkce": "Atama",
+              "amac": "Bu satır, radar grafiğinin köşelerinde görünecek kategori adlarını belirler."
+            }
+          ],
           "codeContext": "Bu satır, radar grafiğinin köşelerinde görünecek kategori adlarını belirler."
         },
         {
           "lineNumber": 5,
           "code": "angles = np.linspace(0, 2 * np.pi, len(degerler), endpoint=False).tolist()",
           "lineExplanation": "Eksen açılarını eşit aralıklarla hesaplar.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "angles",
+              "explanation": "Eksen açılarını eşit aralıklarla hesaplar.",
+              "turkce": "Atama",
+              "amac": "Bu satır, kutupsal eksende her kategoriye düşecek açıyı matematiksel olarak üretir."
+            }
+          ],
           "codeContext": "Bu satır, kutupsal eksende her kategoriye düşecek açıyı matematiksel olarak üretir."
         },
         {
           "lineNumber": 6,
           "code": "degerler += degerler[:1]",
           "lineExplanation": "Poligonun kapanması için ilk değeri listenin sonuna tekrar ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "degerler +",
+              "explanation": "Poligonun kapanması için ilk değeri listenin sonuna tekrar ekler.",
+              "turkce": "Atama",
+              "amac": "Bu satır, radar grafiğinde şeklin açık kalmaması için başlangıç değerini sona kopyalar."
+            }
+          ],
           "codeContext": "Bu satır, radar grafiğinde şeklin açık kalmaması için başlangıç değerini sona kopyalar."
         },
         {
           "lineNumber": 7,
           "code": "angles += angles[:1]",
           "lineExplanation": "Açı listesini de aynı nedenle son elemanla kapatır.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "angles +",
+              "explanation": "Açı listesini de aynı nedenle son elemanla kapatır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, değer listesiyle uyumlu olacak şekilde açı listesini kapalı şekle dönüştürür."
+            }
+          ],
           "codeContext": "Bu satır, değer listesiyle uyumlu olacak şekilde açı listesini kapalı şekle dönüştürür."
         },
         {
           "lineNumber": 8,
           "code": "fig, ax = plt.subplots(figsize=(6,6), subplot_kw=dict(polar=True))",
           "lineExplanation": "Yeni bir çizim alanı oluşturur.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "fig, ax = plt.subplots(figsize=(6,6), subplot_kw=dict(polar=True))",
+              "explanation": "Yeni bir çizim alanı oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Radar Grafiği' bloğunda çizimin yapılacağı figürü kurar."
+            }
+          ],
           "codeContext": "Bu satır, 'Radar Grafiği' bloğunda çizimin yapılacağı figürü kurar."
         },
         {
           "lineNumber": 9,
           "code": "ax.fill(angles, degerler, color='blue', alpha=0.25)",
-          "lineExplanation": "Bir değeri veya hesap sonucunu değişkene atar.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Radar Grafiği' bloğunda sonraki adımların kullanacağı ara sonucu üretir."
+          "lineExplanation": "`ax.fill(angles, degerler, color='blue', alpha=0.25)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "ax.fill(angles, degerler, color='blue', alpha=0.25)",
+              "explanation": "`ax.fill(angles, degerler, color='blue', alpha=0.25)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Radar Grafiği' bloğunda `ax.fill(angles, degerler, color='blue', alpha=0.25)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Radar Grafiği' bloğunda `ax.fill(angles, degerler, color='blue', alpha=0.25)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
         },
         {
           "lineNumber": 10,
           "code": "ax.plot(angles, degerler, color='blue')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Radar Grafiği' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "ax.plot(angles, degerler, color='blue')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Radar Grafiği' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Radar Grafiği' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 11,
           "code": "ax.set_xticks(angles[:-1])",
           "lineExplanation": "Eksen üzerindeki işaretleri veya etiketleri ayarlar.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "ax.set_xticks(angles[:-1])",
+              "explanation": "Eksen üzerindeki işaretleri veya etiketleri ayarlar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Radar Grafiği' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Radar Grafiği' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
           "lineNumber": 12,
           "code": "ax.set_xticklabels(etiketler)",
           "lineExplanation": "Radar grafiğinin çevresindeki eksen etiketlerini A-F kategorileriyle doldurur.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "ax.set_xticklabels(etiketler)",
+              "explanation": "Radar grafiğinin çevresindeki eksen etiketlerini A-F kategorileriyle doldurur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, kutupsal eksendeki her köşeye hangi kategori adının yazılacağını belirleyerek grafiği okunur hale getirir."
+            }
+          ],
           "codeContext": "Bu satır, kutupsal eksendeki her köşeye hangi kategori adının yazılacağını belirleyerek grafiği okunur hale getirir."
         },
         {
           "lineNumber": 13,
           "code": "plt.title('Radar Grafiği Örneği')",
           "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.title('Radar Grafiği Örneği')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Radar Grafiği' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Radar Grafiği' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
@@ -1918,7 +2275,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "Kategorileri kutupsal eksende gösteren radar grafiği görünür.",
+      "expectedOutput": "[<matplotlib.patches.Polygon object at 0x7fd9f830f230>]\n\n[<matplotlib.lines.Line2D object at 0x7fd9f830f0e0>]\n\n[<matplotlib.projections.polar.ThetaTick object at 0x7fda05daf750>, <matplotlib.projections.polar.ThetaTick object at 0x7fda05d70a50>, <matplotlib.projections.polar.ThetaTick object at 0x7fda05d70cd0>, <matplotlib.projections.polar.ThetaTick object at 0x7fda05d70f50>, <matplotlib.projections.polar.ThetaTick object at 0x7fda05d71310>, <matplotlib.projections.polar.ThetaTick object at 0x7fda05d716d0>]\n\n[Text(0.0, 0, 'A'), Text(1.0471975511965976, 0, 'B'), Text(2.0943951023931953, 0, 'C'), Text(3.141592653589793, 0, 'D'), Text(4.1887902047863905, 0, 'E'), Text(5.235987755982988, 0, 'F')]\n\nText(0.5, 1.0, 'Radar Grafiği Örneği')\n\n<Figure size 600x600 with 1 Axes>",
       "plotImage": "matplotlib-b015.png"
     },
     {
@@ -1930,18 +2287,32 @@
           "lineNumber": 1,
           "code": "gas = pd.read_csv('enerji_veri.csv')",
           "lineExplanation": "CSV dosyasını okuyup bir DataFrame oluşturur.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "gas",
+              "explanation": "CSV dosyasını okuyup bir DataFrame oluşturur.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Gerçek Veriyi Okuma ve İlk İnceleme' bloğunda dış kaynaktaki veriyi içeri alır."
+            }
+          ],
           "codeContext": "Bu satır, 'Gerçek Veriyi Okuma ve İlk İnceleme' bloğunda dış kaynaktaki veriyi içeri alır."
         },
         {
           "lineNumber": 2,
           "code": "gas",
           "lineExplanation": "Okunan enerji veri setini notebook çıktısı olarak tablo halinde gösterir.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "gas",
+              "explanation": "Okunan enerji veri setini notebook çıktısı olarak tablo halinde gösterir.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, `gas` DataFrame'inin satırlarını doğrudan ekrana basarak veri yapısını ilk kez görünür kılar."
+            }
+          ],
           "codeContext": "Bu satır, `gas` DataFrame'inin satırlarını doğrudan ekrana basarak veri yapısını ilk kez görünür kılar."
         }
       ],
-      "expectedOutput": "Enerji veri setinin satırları tablo olarak görüntülenir."
+      "expectedOutput": "Year  Australia  Canada  France  Germany  Italy  Japan  Mexico  South Korea    UK   USA\n0   1990        NaN    1.77    3.62     2.65   4.59   3.16    1.00         2.05  2.82  1.16\n1   1991       1.96    1.92    3.45     2.90   4.50   3.46    1.30         2.49  3.01  1.14\n2   1992       1.89    1.73    3.56     3.27   4.53   3.58    1.50         2.65  3.06  1.13\n3   1993       1.73    1.57    3.41     3.07   3.68   4.16    1.56         2.88  2.84  1.11\n4   1994       1.84    1.45    3.59     3.52   3.70   4.36    1.48         2.87  2.99  1.11\n..   ...        ...     ...     ...      ...    ...    ...     ...          ...   ...   ...\n14  2004       2.72    2.37    4.99     5.24   5.29   3.93    2.03         4.51  5.56  1.88\n15  2005       3.23    2.89    5.46     5.66   5.74   4.28    2.22         5.28  5.97  2.30\n16  2006       3.54    3.26    5.88     6.03   6.10   4.47    2.31         5.92  6.36  2.59\n17  2007       3.85    3.59    6.60     6.88   6.73   4.49    2.40         6.21  7.13  2.80\n18  2008       4.45    4.08    7.51     7.75   7.63   5.74    2.45         5.83  7.42  3.27\n\n[19 rows x 11 columns]"
     },
     {
       "id": "matplotlib-b017",
@@ -1952,28 +2323,56 @@
           "lineNumber": 1,
           "code": "plt.title('Gas Fiyatları')",
           "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.title('Gas Fiyatları')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
           "lineNumber": 2,
           "code": "plt.plot(gas['Year'], gas['USA'], 'b-', label='USA')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas['Year'], gas['USA'], 'b-', label='USA')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 3,
           "code": "plt.xlabel('Yıl')",
           "lineExplanation": "X eksenine etiket ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.xlabel('Yıl')",
+              "explanation": "X eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
           "lineNumber": 4,
           "code": "plt.ylabel('Dolar')",
           "lineExplanation": "Y eksenine etiket ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.ylabel('Dolar')",
+              "explanation": "Y eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
@@ -2007,7 +2406,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "USA serisini gösteren tek çizgili bir grafik görünür.",
+      "expectedOutput": "Text(0.5, 1.0, 'Gas Fiyatları')\n\n[<matplotlib.lines.Line2D object at 0x7fda05d88d70>]\n\nText(0.5, 0, 'Yıl')\n\nText(0, 0.5, 'Dolar')\n\n<matplotlib.legend.Legend object at 0x7fda05d88ad0>\n\n<Figure size 600x600 with 1 Axes>",
       "plotImage": "matplotlib-b017.png"
     },
     {
@@ -2019,56 +2418,112 @@
           "lineNumber": 1,
           "code": "plt.title('Gas Fiyatları')",
           "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.title('Gas Fiyatları')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
           "lineNumber": 2,
           "code": "plt.plot(gas.Year, gas.Japan, 'b-', label='Japonya')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas.Year, gas.Japan, 'b-', label='Japonya')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 3,
           "code": "plt.plot(gas.Year, gas['Mexico'], 'r-', label=\"Meksika\")",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas.Year, gas['Mexico'], 'r-', label=\"Meksika\")",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 4,
           "code": "plt.plot(gas.Year, gas['Italy'], 'g.-', label='İtalya')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas.Year, gas['Italy'], 'g.-', label='İtalya')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 5,
           "code": "plt.plot(gas.Year, gas['Canada'], 'y.-', label='Kanada')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas.Year, gas['Canada'], 'y.-', label='Kanada')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 6,
           "code": "plt.plot(gas['Year'], gas.UK, color='orange', label='Birleşik Krallık')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas['Year'], gas.UK, color='orange', label='Birleşik Krallık')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 7,
           "code": "plt.xlabel('Yıl')",
           "lineExplanation": "X eksenine etiket ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.xlabel('Yıl')",
+              "explanation": "X eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
           "lineNumber": 8,
           "code": "plt.ylabel('Dolar')",
           "lineExplanation": "Y eksenine etiket ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.ylabel('Dolar')",
+              "explanation": "Y eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
@@ -2102,7 +2557,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "Birden fazla ülkenin enerji serisini aynı eksende gösteren karşılaştırma grafiği görünür.",
+      "expectedOutput": "Text(0.5, 1.0, 'Gas Fiyatları')\n\n[<matplotlib.lines.Line2D object at 0x7fda05d89160>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05d892b0>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05d89400>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05d89550>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05d896a0>]\n\nText(0.5, 0, 'Yıl')\n\nText(0, 0.5, 'Dolar')\n\n<matplotlib.legend.Legend object at 0x7fda05d88ec0>\n\n<Figure size 600x600 with 1 Axes>",
       "plotImage": "matplotlib-b018.png"
     },
     {
@@ -2114,63 +2569,126 @@
           "lineNumber": 1,
           "code": "plt.figure(figsize=(14,5))",
           "lineExplanation": "Yeni bir çizim alanı oluşturur.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.figure(figsize=(14,5))",
+              "explanation": "Yeni bir çizim alanı oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizimin yapılacağı figürü kurar."
+            }
+          ],
           "codeContext": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizimin yapılacağı figürü kurar."
         },
         {
           "lineNumber": 2,
           "code": "plt.title('Gas Fiyatları')",
           "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.title('Gas Fiyatları')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
           "lineNumber": 3,
           "code": "plt.plot(gas.Year, gas.Japan, 'b-', label='Japonya')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas.Year, gas.Japan, 'b-', label='Japonya')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 4,
           "code": "plt.plot(gas.Year, gas['Mexico'], 'r-', label=\"Meksika\")",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas.Year, gas['Mexico'], 'r-', label=\"Meksika\")",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 5,
           "code": "plt.plot(gas.Year, gas['Italy'], 'g.-', label='İtalya')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas.Year, gas['Italy'], 'g.-', label='İtalya')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 6,
           "code": "plt.plot(gas.Year, gas['Canada'], 'y.-', label='Kanada')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas.Year, gas['Canada'], 'y.-', label='Kanada')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 7,
           "code": "plt.plot(gas['Year'], gas.UK, color='orange', label='Birleşik Krallık')",
-          "lineExplanation": "Veriyi grafik olarak görselleştirir.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda veriyi görsel çıktıya dönüştürür."
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas['Year'], gas.UK, color='orange', label='Birleşik Krallık')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
         },
         {
           "lineNumber": 8,
           "code": "plt.xlabel('Yıl')",
           "lineExplanation": "X eksenine etiket ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.xlabel('Yıl')",
+              "explanation": "X eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
           "lineNumber": 9,
           "code": "plt.ylabel('Dolar')",
           "lineExplanation": "Y eksenine etiket ekler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.ylabel('Dolar')",
+              "explanation": "Y eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
           "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
         },
         {
@@ -2192,7 +2710,14 @@
           "lineNumber": 11,
           "code": "plt.savefig('secondgraph.png', dpi=300)",
           "lineExplanation": "Mevcut grafiği dosyaya kaydeder.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "plt.savefig('secondgraph.png', dpi=300)",
+              "explanation": "Mevcut grafiği dosyaya kaydeder.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda görselin dosyaya yazılmasını sağlar."
+            }
+          ],
           "codeContext": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda görselin dosyaya yazılmasını sağlar."
         },
         {
@@ -2211,7 +2736,7 @@
           "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
         }
       ],
-      "expectedOutput": "Geniş figür boyutunda çoklu çizgi grafiği görünür ve secondgraph.png olarak kaydedilir.",
+      "expectedOutput": "<Figure size 1400x500 with 0 Axes>\n\nText(0.5, 1.0, 'Gas Fiyatları')\n\n[<matplotlib.lines.Line2D object at 0x7fda05d8af90>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05d8b0e0>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05d8b230>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05d8b380>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05d8b4d0>]\n\nText(0.5, 0, 'Yıl')\n\nText(0, 0.5, 'Dolar')\n\n<matplotlib.legend.Legend object at 0x7fda05d8acf0>\n\n<Figure size 1400x500 with 1 Axes>",
       "plotImage": "matplotlib-b019.png"
     }
   ]

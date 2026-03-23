@@ -49,7 +49,7 @@ const applyClass = (cls: string, key: string, fallback = false) =>
   document.documentElement.classList.toggle(cls, getToggle(key, fallback))
 
 const applyCustomTypography = () => applyClass("noetic-custom-typo", "custom-typography")
-const applyEffects = () => document.documentElement.classList.toggle("noetic-no-effects", !getToggle("effects-enabled", true))
+const applyEffects = () => document.documentElement.classList.toggle("noetic-no-effects", !getToggle("effects-enabled", false))
 const applyCodeLineNumbers = () => applyClass("noetic-code-line-numbers", "code-line-numbers")
 const applyCodeCollapsible = () => applyClass("noetic-code-collapsible", "code-collapsible")
 const applyZenMode = () => applyClass("noetic-zen-mode", "zen-mode")
@@ -66,7 +66,7 @@ applyZenMode()
 if (getToggle("zen-mode")) createZenExitButton()
 
 requestIdleCallback(() => {
-  const fonts = ["Poppins","Lato","Roboto","Open+Sans","Quicksand","Montserrat","Merriweather","Source+Sans+Pro","Atkinson+Hyperlegible"]
+  const fonts = ["Poppins", "Lato", "Roboto", "Open+Sans", "Quicksand", "Montserrat", "Merriweather", "Source+Sans+Pro", "Atkinson+Hyperlegible"]
   for (const f of fonts) {
     const link = document.createElement("link")
     link.rel = "stylesheet"
@@ -122,11 +122,13 @@ function openSettingsModal() {
     document.body.appendChild(overlay)
   }
   overlay.classList.add("active")
+  document.body.classList.add("settings-modal-open")
   syncSettingsInputs()
 }
 
 function closeSettingsModal() {
   document.getElementById("settings-overlay")?.classList.remove("active")
+  document.body.classList.remove("settings-modal-open")
 }
 
 function syncSettingsInputs() {
@@ -151,7 +153,7 @@ function syncSettingsInputs() {
 
   const toggleMap: Record<string, { key: string; fallback: boolean }> = {
     "custom-typography": { key: "custom-typography", fallback: false },
-    "effects-enabled": { key: "effects-enabled", fallback: true },
+    "effects-enabled": { key: "effects-enabled", fallback: false },
     "code-line-numbers": { key: "code-line-numbers", fallback: false },
     "code-collapsible": { key: "code-collapsible", fallback: false },
     "notifications-enabled": { key: "noetic-notifications", fallback: true },
@@ -273,7 +275,7 @@ async function syncLoadFromServer() {
 
 function collectAllPreferences(): Record<string, unknown> {
   const prefs: Record<string, unknown> = {}
-  for (const k of ["font-family","font-size","line-height","content-width","custom-typography","effects-enabled","code-line-numbers","code-collapsible","noetic-notifications","theme","zen-mode"]) {
+  for (const k of ["font-family", "font-size", "line-height", "content-width", "custom-typography", "effects-enabled", "code-line-numbers", "code-collapsible", "noetic-notifications", "theme", "zen-mode"]) {
     const v = localStorage.getItem(k)
     if (v !== null) prefs[k] = v
   }

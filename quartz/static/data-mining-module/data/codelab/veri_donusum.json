@@ -17,7 +17,7 @@
             {
               "token": "MinMaxScaler",
               "explanation": "Sayısal sütunu minimum 0, maksimum 1 olacak şekilde ölçekleyen sınıftır.",
-              "turkce": "Min-Max Ölçekleyici",
+              "turkce": "Min-Max Ölçekleyiçi",
               "amac": "Gelir değerlerini ortak aralığa taşımak."
             }
           ],
@@ -59,7 +59,7 @@
           "tokens": [
             {
               "token": "MinMaxScaler()",
-              "explanation": "Yeni bir min-max ölçekleyici nesnesi oluşturur.",
+              "explanation": "Yeni bir min-max ölçekleyiçi nesnesi oluşturur.",
               "turkce": "Scaler Nesnesi",
               "amac": "Veriyi fit edip dönüştürmeye hazırlanmak."
             }
@@ -75,7 +75,7 @@
               "token": "fit_transform(df[[\"Gelir\"]])",
               "explanation": "Gelir sütununu öğrenip aynı adımda dönüştürür.",
               "turkce": "Fit + Transform",
-              "amac": "Ölçekleyiciyi veri üzerinde uygulamak."
+              "amac": "Ölçekleyiçiyi veri üzerinde uygulamak."
             },
             {
               "token": "df[[\"Gelir\"]]",
@@ -122,7 +122,7 @@
             {
               "token": "StandardScaler",
               "explanation": "Sütunu ortalaması 0, standart sapması 1 olacak biçimde dönüştüren sınıftır.",
-              "turkce": "Z-Score Ölçekleyici",
+              "turkce": "Z-Score Ölçekleyiçi",
               "amac": "Gelir değerlerini standartlaştırmak."
             }
           ],

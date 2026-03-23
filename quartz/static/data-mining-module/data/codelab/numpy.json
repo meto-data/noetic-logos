@@ -72,7 +72,7 @@
           "codeContext": "Bu satır, 'Kütüphane İçe Aktarma ve Dizi Oluşturma' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         }
       ],
-      "expectedOutput": "[ 1  5 10]\n[[ 1  7 20]\n [ 5  8  9]]"
+      "expectedOutput": "Bu blok hazırlık adımıdır; terminal çıktısı üretmez."
     },
     {
       "id": "numpy-b002",
@@ -97,7 +97,14 @@
           "lineNumber": 2,
           "code": "a.ndim",
           "lineExplanation": "a tek boyutlu bir dizi olduğu için 1 döner.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "a.ndim",
+              "explanation": "a tek boyutlu bir dizi olduğu için 1 döner.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Dizinin Özellikleri: Boyut, Şekil, Tip' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
+            }
+          ],
           "codeContext": "Bu satır, 'Dizinin Özellikleri: Boyut, Şekil, Tip' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
@@ -133,18 +140,32 @@
           "lineNumber": 5,
           "code": "x = np.array([1.0, 5.4, 10.42])",
           "lineExplanation": "Ondalıklı sayılardan oluşan bir dizi oluşturur. dtype otomatik olarak float64 olur.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "x",
+              "explanation": "Ondalıklı sayılardan oluşan bir dizi oluşturur. dtype otomatik olarak float64 olur.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Dizinin Özellikleri: Boyut, Şekil, Tip' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+            }
+          ],
           "codeContext": "Bu satır, 'Dizinin Özellikleri: Boyut, Şekil, Tip' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 6,
           "code": "x.dtype",
           "lineExplanation": "Ondalıklı sayı içerdiği için float64 döner.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "x.dtype",
+              "explanation": "Ondalıklı sayı içerdiği için float64 döner.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Dizinin Özellikleri: Boyut, Şekil, Tip' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
+            }
+          ],
           "codeContext": "Bu satır, 'Dizinin Özellikleri: Boyut, Şekil, Tip' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
-      "expectedOutput": "2\n1\n(2, 3)\nint64\nfloat64"
+      "expectedOutput": "2\n\n1\n\n(2, 3)\n\ndtype('int64')\n\ndtype('float64')"
     },
     {
       "id": "numpy-b003",
@@ -169,14 +190,28 @@
           "lineNumber": 2,
           "code": "b[1, 1]",
           "lineExplanation": "1. satırın 1. sütunundaki elemanı getirir: 8. (2. satır, 2. sütun)",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "b[1, 1]",
+              "explanation": "1. satırın 1. sütunundaki elemanı getirir: 8. (2. satır, 2. sütun)",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'İndeksleme ve Dilimleme (Sliçing)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
+            }
+          ],
           "codeContext": "Bu satır, 'İndeksleme ve Dilimleme (Sliçing)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 3,
           "code": "b[0]",
           "lineExplanation": "Sadece satır indeksi verildiğinde o satırın tamamını getirir: [1, 7, 20].",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "b[0]",
+              "explanation": "Sadece satır indeksi verildiğinde o satırın tamamını getirir: [1, 7, 20].",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'İndeksleme ve Dilimleme (Sliçing)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
+            }
+          ],
           "codeContext": "Bu satır, 'İndeksleme ve Dilimleme (Sliçing)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
@@ -197,11 +232,18 @@
           "lineNumber": 5,
           "code": "b[1, 1] = 18",
           "lineExplanation": "1. satır, 1. sütundaki değeri (8) 18 ile değiştirir. NumPy dizileri değiştirilebilir (mutable) yapılardır.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "b[1, 1]",
+              "explanation": "1. satır, 1. sütundaki değeri (8) 18 ile değiştirir. NumPy dizileri değiştirilebilir (mutable) yapılardır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'İndeksleme ve Dilimleme (Sliçing)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+            }
+          ],
           "codeContext": "Bu satır, 'İndeksleme ve Dilimleme (Sliçing)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         }
       ],
-      "expectedOutput": "20\n8\n[ 1  7 20]\n[ 7 20]\n18"
+      "expectedOutput": "np.int64(20)\n\nnp.int64(8)\n\narray([ 1,  7, 20])\n\narray([ 7, 20])"
     },
     {
       "id": "numpy-b004",
@@ -277,7 +319,7 @@
           "codeContext": "Bu satır, 'Otomatik Dizi Oluşturma Fonksiyonları' bloğunda analizin kullanacagi sayisal ekseni veya ornek veriyi hazırlar."
         }
       ],
-      "expectedOutput": "[[0. 0. 0.]\n [0. 0. 0.]]\n\n[[50 50 50 50]\n [50 50 50 50]\n [50 50 50 50]\n [50 50 50 50]]\n\n(rastgele float matris)\n\n(rastgele int matris)"
+      "expectedOutput": "Bu blok hazırlık adımıdır; terminal çıktısı üretmez."
     },
     {
       "id": "numpy-b005",
@@ -288,7 +330,14 @@
           "lineNumber": 1,
           "code": "a = np.array([1, 2, 3])",
           "lineExplanation": "Orijinal diziyi oluşturur.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "a",
+              "explanation": "Orijinal diziyi oluşturur.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+            }
+          ],
           "codeContext": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
@@ -309,21 +358,42 @@
           "lineNumber": 3,
           "code": "b[0] = 90",
           "lineExplanation": "b'nin ilk elemanını 90 yapar. Ama b ve a aynı yeri gösterdiği için a da değişir!",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "b[0]",
+              "explanation": "b'nin ilk elemanını 90 yapar. Ama b ve a aynı yeri gösterdiği için a da değişir!",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+            }
+          ],
           "codeContext": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 4,
           "code": "print(a)",
           "lineExplanation": "a'yı yazdırır: [90, 2, 3]. Orijinal dizi de bozulmuştur!",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "print(a)",
+              "explanation": "a'yı yazdırır: [90, 2, 3]. Orijinal dizi de bozulmuştur!",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
+            }
+          ],
           "codeContext": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
           "lineNumber": 5,
           "code": "a = np.array([1, 2, 3])",
           "lineExplanation": "Diziyi tekrar oluşturur, doğru yöntemi göstermek için.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "a",
+              "explanation": "Diziyi tekrar oluşturur, doğru yöntemi göstermek için.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+            }
+          ],
           "codeContext": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
@@ -351,18 +421,32 @@
           "lineNumber": 7,
           "code": "b[0] = 90",
           "lineExplanation": "b'nin ilk elemanını 90 yapar ama bu sefer a etkilenmez.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "b[0]",
+              "explanation": "b'nin ilk elemanını 90 yapar ama bu sefer a etkilenmez.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+            }
+          ],
           "codeContext": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 8,
           "code": "print(a)",
           "lineExplanation": "a hâlâ [1, 2, 3] — bozulmadı. Doğru kopyalama yöntemi budur.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "print(a)",
+              "explanation": "a hâlâ [1, 2, 3] — bozulmadı. Doğru kopyalama yöntemi budur.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
+            }
+          ],
           "codeContext": "Bu satır, 'Dizi Kopyalama: Pointer Tuzağı' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
-      "expectedOutput": "[90  2  3]   ← Yanlış kopyalama (a bozuldu)\n[1 2 3]     ← Doğru kopyalama (a korundu)"
+      "expectedOutput": "[90  2  3]\n[1 2 3]"
     },
     {
       "id": "numpy-b006",
@@ -373,7 +457,14 @@
           "lineNumber": 1,
           "code": "a = np.array([1, 2, 3, 4])",
           "lineExplanation": "4 elemanlı bir dizi oluşturur.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "a",
+              "explanation": "4 elemanlı bir dizi oluşturur.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+            }
+          ],
           "codeContext": "Bu satır, 'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
@@ -394,7 +485,14 @@
           "lineNumber": 3,
           "code": "a * 2",
           "lineExplanation": "Tüm elemanları 2 ile çarpar: [2, 4, 6, 8].",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "a * 2",
+              "explanation": "Tüm elemanları 2 ile çarpar: [2, 4, 6, 8].",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
+            }
+          ],
           "codeContext": "Bu satır, 'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
@@ -415,18 +513,32 @@
           "lineNumber": 5,
           "code": "b = np.array([1, 0, 1, 0])",
           "lineExplanation": "İkinci bir dizi oluşturur, eleman eleman toplama için.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "b",
+              "explanation": "İkinci bir dizi oluşturur, eleman eleman toplama için.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+            }
+          ],
           "codeContext": "Bu satır, 'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
           "lineNumber": 6,
           "code": "a + b",
           "lineExplanation": "İki diziyi karşılıklı toplar: [1+1, 2+0, 3+1, 4+0] = [2, 2, 4, 4].",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "a + b",
+              "explanation": "İki diziyi karşılıklı toplar: [1+1, 2+0, 3+1, 4+0] = [2, 2, 4, 4].",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
+            }
+          ],
           "codeContext": "Bu satır, 'Dizilerde Matematiksel İşlemler (Vektörizasyon)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
-      "expectedOutput": "[5 6 7 8]\n[2 4 6 8]\n[ 1  4  9 16]\n[2 2 4 4]"
+      "expectedOutput": "array([5, 6, 7, 8])\n\narray([2, 4, 6, 8])\n\narray([ 1,  4,  9, 16])\n\narray([2, 2, 4, 4])"
     },
     {
       "id": "numpy-b007",
@@ -437,7 +549,14 @@
           "lineNumber": 1,
           "code": "dizi4 = np.array([[1, 2, 3], [4, 5, 6]])",
           "lineExplanation": "2x3 boyutunda bir matris oluşturur.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "dizi4",
+              "explanation": "2x3 boyutunda bir matris oluşturur.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'İstatistiksel İşlemler' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+            }
+          ],
           "codeContext": "Bu satır, 'İstatistiksel İşlemler' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
@@ -483,7 +602,7 @@
           "codeContext": "Bu satır, 'İstatistiksel İşlemler' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
-      "expectedOutput": "1\n6\n21"
+      "expectedOutput": "np.int64(1)\n\nnp.int64(6)\n\nnp.int64(21)"
     }
   ]
 }

@@ -55,7 +55,7 @@
           "codeContext": "Bu satır, 'Kütüphane ve Veri Seti Yükleme' bloğunda kullanilacak ham veriyi dis kaynaktan DataFrame'e cekerek veri girisini yapar."
         }
       ],
-      "expectedOutput": "(DataFrame yüklendi)"
+      "expectedOutput": "Bu blok hazırlık adımıdır; terminal çıktısı üretmez."
     },
     {
       "id": "pandas-b002",
@@ -128,7 +128,7 @@
           "codeContext": "Bu satır, 'Veri Setine İlk Bakış: head, tail, shape' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
-      "expectedOutput": "(ilk 3 satır IMDB veri seti)\n(son 5 satır)\n(1000, 16)\n1000"
+      "expectedOutput": "Series_Title Released_Year Certificate  Runtime                 Genre  IMDB_Rating                                           Overview  Meta_score              Director  \\\n0  The Shawshank Redemption          1994           A  142 min                 Drama          9.3  Two imprisoned men bond over a number of years...        80.0        Frank Darabont   \n1             The Godfather          1972           A  175 min          Crime, Drama          9.2  An organized crime dynasty's aging patriarch t...       100.0  Francis Ford Coppola   \n2           The Dark Knight          2008          UA  152 min  Action, Crime, Drama          9.0  When the menace known as the Joker wreaks havo...        84.0     Christopher Nolan   \n\n            Star1           Star2          Star3           Star4  No_of_Votes        Gross  \n0     Tim Robbins  Morgan Freeman     Bob Gunton  William Sadler      2343110   28,341,469  \n1   Marlon Brando       Al Pacino     James Caan    Diane Keaton      1620367  134,966,411  \n2  Christian Bale    Heath Ledger  Aaron Eckhart   Michael Caine      2303232  534,858,444\n\nSeries_Title Released_Year Certificate  Runtime                     Genre  IMDB_Rating                                           Overview  Meta_score          Director  \\\n995  Breakfast at Tiffany's          1961           A  115 min    Comedy, Drama, Romance          7.6  A young New York socialite becomes interested ...        76.0     Blake Edwards   \n996                   Giant          1956           G  201 min            Drama, Western          7.6  Sprawling epic covering the life of a Texas ca...        84.0    George Stevens   \n997   From Here to Eternity          1953      Passed  118 min       Drama, Romance, War          7.6  In Hawaii in 1941, a private is cruelly punish...        85.0    Fred Zinnemann   \n998                Lifeboat          1944         NaN   97 min                Drama, War          7.6  Several survivors of a torpedoed merchant ship...        78.0  Alfred Hitchcock   \n999            The 39 Steps          1935         NaN   86 min  Crime, Mystery, Thriller          7.6  A man in London tries to help a counter-espion...        93.0  Alfred Hitchcock   \n\n                 Star1              Star2           Star3           Star4  No_of_Votes       Gross  \n995     Audrey Hepburn     George Peppard   Patricia Neal     Buddy Ebsen       166544         NaN  \n996   Elizabeth Taylor        Rock Hudson      James Dean   Carroll Baker        34075         NaN  \n997     Burt Lancaster   Montgomery Clift    Deborah Kerr      Donna Reed        43374  30,500,000  \n998  Tallulah Bankhead        John Hodiak   Walter Slezak  William Bendix        26471         NaN  \n999       Robert Donat  Madeleine Carroll  Lucie Mannheim  Godfrey Tearle        51853         NaN\n\n(1000, 15)\n\n1000"
     },
     {
       "id": "pandas-b003",
@@ -179,7 +179,7 @@
           "codeContext": "Bu satır, 'Sütun Bilgileri ve Eksik Veri Kontrolü' bloğunda veri setinin yapısıni veya dağılımini okuyarak kesif asamasini ilerletir."
         }
       ],
-      "expectedOutput": "Index(['Poster_Link', 'Series_Title', 'Released_Year', ...], dtype='object')\n\nPoster_Link      object\nSeries_Title     object\n...\ndtype: object\n\n(True/False tablosu)"
+      "expectedOutput": "Index(['Series_Title', 'Released_Year', 'Certificate', 'Runtime', 'Genre', 'IMDB_Rating', 'Overview', 'Meta_score', 'Director', 'Star1', 'Star2', 'Star3', 'Star4', 'No_of_Votes', 'Gross'], dtype='object')\n\nSeries_Title     object\nReleased_Year    object\nCertificate      object\nRuntime          object\nGenre            object\n                  ...  \nStar2            object\nStar3            object\nStar4            object\nNo_of_Votes       int64\nGross            object\nLength: 15, dtype: object\n\nSeries_Title  Released_Year  Certificate  Runtime  Genre  IMDB_Rating  Overview  Meta_score  Director  Star1  Star2  Star3  Star4  No_of_Votes  Gross\n0           False          False        False    False  False        False     False       False     False  False  False  False  False        False  False\n1           False          False        False    False  False        False     False       False     False  False  False  False  False        False  False\n2           False          False        False    False  False        False     False       False     False  False  False  False  False        False  False\n3           False          False        False    False  False        False     False       False     False  False  False  False  False        False  False\n4           False          False        False    False  False        False     False       False     False  False  False  False  False        False  False\n..            ...            ...          ...      ...    ...          ...       ...         ...       ...    ...    ...    ...    ...          ...    ...\n995         False          False        False    False  False        False     False       False     False  False  False  False  False        False   True\n996         False          False        False    False  False        False     False       False     False  False  False  False  False        False   True\n997         False          False        False    False  False        False     False       False     False  False  False  False  False        False  False\n998         False          False         True    False  False        False     False       False     False  False  False  False  False        False   True\n999         False          False         True    False  False        False     False       False     False  False  False  False  False        False   True\n\n[1000 rows x 15 columns]"
     },
     {
       "id": "pandas-b004",
@@ -229,7 +229,7 @@
           "codeContext": "Bu satır, 'Sütun Seçimi ve Yeni DataFrame Oluşturma' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         }
       ],
-      "expectedOutput": "0                  The Shawshank Redemption\n1                            The Godfather\n...\nName: Series_Title, dtype: object"
+      "expectedOutput": "0      The Shawshank Redemption\n1                 The Godfather\n2               The Dark Knight\n3        The Godfather: Part II\n4                  12 Angry Men\n                 ...           \n995      Breakfast at Tiffany's\n996                       Giant\n997       From Here to Eternity\n998                    Lifeboat\n999                The 39 Steps\nName: Series_Title, Length: 1000, dtype: object\n\n0    The Shawshank Redemption\n1               The Godfather\n2             The Dark Knight\n3      The Godfather: Part II\n4                12 Angry Men\nName: Series_Title, dtype: object"
     },
     {
       "id": "pandas-b005",
@@ -267,7 +267,7 @@
           "codeContext": "Bu satır, 'Sıralama ve Değer Sayımı' bloğunda veri setinin yapısıni veya dağılımini okuyarak kesif asamasini ilerletir."
         }
       ],
-      "expectedOutput": "2014    68\n2013    56\n2015    51\n...\nName: Released_Year, dtype: int64"
+      "expectedOutput": "Series_Title Released_Year Certificate  Runtime                      Genre  IMDB_Rating                                           Overview  Meta_score           Director  \\\n321  Das Cabinet des Dr. Caligari          1920         NaN   76 min   Fantasy, Horror, Mystery          8.1  Hypnotist Dr. Caligari uses a somnambulist, Ce...         NaN       Robert Wiene   \n127                       The Kid          1921      Passed   68 min      Comedy, Drama, Family          8.3  The Tramp cares for an abandoned child, but ev...         NaN    Charles Chaplin   \n568                     Nosferatu          1922         NaN   94 min            Fantasy, Horror          7.9  Vampire Count Orlok expresses interest in a ne...         NaN        F.W. Murnau   \n194                  Sherlock Jr.          1924      Passed   45 min    Action, Comedy, Romance          8.2  A film projectionist longs to be a detective, ...         NaN      Buster Keaton   \n193                 The Gold Rush          1925      Passed   95 min   Adventure, Comedy, Drama          8.2  A prospector goes to the Klondike in search of...         NaN    Charles Chaplin   \n..                            ...           ...         ...      ...                        ...          ...                                                ...         ...                ...   \n464                   Dil Bechara          2020          UA  101 min     Comedy, Drama, Romance          7.9  The emotional journey of two hopelessly in lov...         NaN     Mukesh Chhabra   \n18                       Hamilton          2020       PG-13  160 min  Biography, Drama, History          8.6  The real life of one of America's foremost fou...        90.0        Thomas Kail   \n20                Soorarai Pottru          2020           U  153 min                      Drama          8.6  Nedumaaran Rajangam \"Maara\" sets out to make t...         NaN      Sudha Kongara   \n613                          Druk          2020         NaN  117 min              Comedy, Drama          7.8  Four friends, all high school teachers, test a...        81.0  Thomas Vinterberg   \n966                     Apollo 13            PG           U  140 min  Adventure, Drama, History          7.6  NASA must devise a strategy to return Apollo 1...        77.0         Ron Howard   \n\n                    Star1              Star2                  Star3                   Star4  No_of_Votes        Gross  \n321         Werner Krauss       Conrad Veidt        Friedrich Feher             Lil Dagover        57428          NaN  \n127       Charles Chaplin     Edna Purviance          Jackie Coogan             Carl Miller       113314    5,450,000  \n568           Max Schreck  Alexander Granach  Gustav von Wangenheim          Greta Schröder        88794          NaN  \n194         Buster Keaton    Kathryn McGuire             Joe Keaton          Erwin Connelly        41985      977,375  \n193       Charles Chaplin         Mack Swain             Tom Murray           Henry Bergman       101053    5,450,000  \n..                    ...                ...                    ...                     ...          ...          ...  \n464  Sushant Singh Rajput     Sanjana Sanghi             Sahil Vaid      Saswata Chatterjee       111478          NaN  \n18     Lin-Manuel Miranda       Phillipa Soo        Leslie Odom Jr.  Renée Elise Goldsberry        55291          NaN  \n20                 Suriya           Madhavan           Paresh Rawal       Aparna Balamurali        54995          NaN  \n613        Mads Mikkelsen   Thomas Bo Larsen         Magnus Millang             Lars Ranthe        33931          NaN  \n966             Tom Hanks        Bill Paxton            Kevin Bacon             Gary Sinise       269197  173,837,933  \n\n[1000 rows x 15 columns]\n\nReleased_Year\n2014    32\n2004    31\n2009    29\n2013    28\n2016    28\n        ..\n1920     1\n1930     1\n1922     1\n1943     1\nPG       1\nName: count, Length: 100, dtype: int64"
     },
     {
       "id": "pandas-b006",
@@ -343,7 +343,7 @@
           "codeContext": "Bu satır, 'Veri Filtreleme: loc ile Koşullu Erişim' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         }
       ],
-      "expectedOutput": "3    The Godfather    9.2\n...\n(filtrelenmiş DataFrame)"
+      "expectedOutput": "np.float64(8.9)\n\nSeries_Title Released_Year Certificate  Runtime         Genre  IMDB_Rating                                           Overview  Meta_score              Director          Star1      Star2  \\\n1  The Godfather          1972           A  175 min  Crime, Drama          9.2  An organized crime dynasty's aging patriarch t...       100.0  Francis Ford Coppola  Marlon Brando  Al Pacino   \n\n        Star3         Star4  No_of_Votes        Gross  \n1  James Caan  Diane Keaton      1620367  134,966,411\n\n1    9.2\nName: IMDB_Rating, dtype: float64\n\nSeries_Title Released_Year Certificate  Runtime                       Genre  IMDB_Rating                                           Overview  Meta_score              Director  \\\n0    The Shawshank Redemption          1994           A  142 min                       Drama          9.3  Two imprisoned men bond over a number of years...        80.0        Frank Darabont   \n1               The Godfather          1972           A  175 min                Crime, Drama          9.2  An organized crime dynasty's aging patriarch t...       100.0  Francis Ford Coppola   \n2             The Dark Knight          2008          UA  152 min        Action, Crime, Drama          9.0  When the menace known as the Joker wreaks havo...        84.0     Christopher Nolan   \n3      The Godfather: Part II          1974           A  202 min                Crime, Drama          9.0  The early life and career of Vito Corleone in ...        90.0  Francis Ford Coppola   \n4                12 Angry Men          1957           U   96 min                Crime, Drama          9.0  A jury holdout attempts to prevent a miscarria...        96.0          Sidney Lumet   \n..                        ...           ...         ...      ...                         ...          ...                                                ...         ...                   ...   \n432                        8½          1963         NaN  138 min                       Drama          8.0  A harried movie director retreats into his mem...        91.0      Federico Fellini   \n446             Roman Holiday          1953         NaN  118 min             Comedy, Romance          8.0  A bored and sheltered princess escapes her gua...        78.0         William Wyler   \n450                      Rope          1948           A   80 min       Crime, Drama, Mystery          8.0  Two men attempt to prove they committed the pe...        73.0      Alfred Hitchcock   \n456        The Maltese Falcon          1941         NaN  100 min          Film-Noir, Mystery          8.0  A private detective takes on a case that invol...        96.0           John Huston   \n458          The Wizard of Oz          1939           U  102 min  Adventure, Family, Fantasy          8.0  Dorothy Gale is swept away from a farm in Kans...        92.0        Victor Fleming   \n\n                    Star1           Star2              Star3           Star4  No_of_Votes        Gross  \n0             Tim Robbins  Morgan Freeman         Bob Gunton  William Sadler      2343110   28,341,469  \n1           Marlon Brando       Al Pacino         James Caan    Diane Keaton      1620367  134,966,411  \n2          Christian Bale    Heath Ledger      Aaron Eckhart   Michael Caine      2303232  534,858,444  \n3               Al Pacino  Robert De Niro      Robert Duvall    Diane Keaton      1129952   57,300,000  \n4             Henry Fonda     Lee J. Cobb      Martin Balsam    John Fiedler       689845    4,360,000  \n..                    ...             ...                ...             ...          ...          ...  \n432  Marcello Mastroianni     Anouk Aimée  Claudia Cardinale     Sandra Milo       108844        50,69  \n446          Gregory Peck  Audrey Hepburn       Eddie Albert   Hartley Power       127256          NaN  \n450         James Stewart       John Dall     Farley Granger      Dick Hogan       129783          NaN  \n456       Humphrey Bogart      Mary Astor      Gladys George     Peter Lorre       148928    2,108,060  \n458          George Cukor    Mervyn LeRoy      Norman Taurog  Richard Thorpe       371379    2,076,020  \n\n[290 rows x 15 columns]"
     },
     {
       "id": "pandas-b007",
@@ -395,22 +395,36 @@
           "lineNumber": 3,
           "code": "df.loc[(df['IMDB_Rating']>=8.0) & (df['Gross']>=800000000)]",
           "lineExplanation": "Artık Gross sayısal olduğu için büyüklük karşılaştırması yapılabilir. 800 milyon üstü gişe yapan 8+ puanlı filmler.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "df.loc[(df['IMDB_Rating']>",
+              "explanation": "Artık Gross sayısal olduğu için büyüklük karşılaştırması yapılabilir. 800 milyon üstü gişe yapan 8+ puanlı filmler.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Veri Tipi Dönüşümü' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+            }
+          ],
           "codeContext": "Bu satır, 'Veri Tipi Dönüşümü' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         }
       ],
-      "expectedOutput": "(IMDB >= 8.0 ve Gross >= 800M olan filmler)"
+      "expectedOutput": "Series_Title Released_Year Certificate  Runtime                     Genre  IMDB_Rating                                           Overview  Meta_score       Director      Star1  \\\n59  Avengers: Endgame          2019          UA  181 min  Action, Adventure, Drama          8.4  After the devastating events of Avengers: Infi...        78.0  Anthony Russo  Joe Russo   \n\n                Star2        Star3         Star4  No_of_Votes        Gross  \n59  Robert Downey Jr.  Chris Evans  Mark Ruffalo       809955  858373000.0"
     },
     {
       "id": "pandas-b008",
       "title": "Manuel DataFrame Oluşturma",
-      "blockExplanation": "Herhangi bir dosya okumadan, Python sözlüğü (diçtionary) veya listelerden sıfırdan DataFrame oluşturulabilir. index parametresi satır etiketlerini, columns parametresi sütun isimlerini belirler. Test ve prototipleme için çok kullanılır.",
+      "blockExplanation": "Herhangi bir dosya okumadan, Python sözlüğü (dictionary) veya listelerden sıfırdan DataFrame oluşturulabilir. index parametresi satır etiketlerini, columns parametresi sütun isimlerini belirler. Test ve prototipleme için çok kullanılır.",
       "lines": [
         {
           "lineNumber": 1,
           "code": "import random",
           "lineExplanation": "Python'un yerleşik rastgele sayı kütüphanesini içe aktarır.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "import random",
+              "explanation": "Python'un yerleşik rastgele sayı kütüphanesini içe aktarır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Manuel DataFrame Oluşturma' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
+            }
+          ],
           "codeContext": "Bu satır, 'Manuel DataFrame Oluşturma' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
         },
         {
@@ -442,14 +456,49 @@
         },
         {
           "lineNumber": 3,
-          "code": "columns = [\"Sıcaklık 1.gün\", \"Sıcaklık 2.gün\"]",
-          "lineExplanation": "Sütun isimlerini bir liste olarak tanımlar.",
-          "tokens": [],
-          "codeContext": "Bu satır, 'Manuel DataFrame Oluşturma' bloğunda sonraki adimlarin kullanacagi semayi veya eksen etiketlerini tanimlar."
+          "code": "rndlst2 = random.sample(range(15, 25), 2)",
+          "lineExplanation": "İkinci sıcaklık sütunu için yine 15-24 arasından rastgele 2 benzersiz sayı seçer.",
+          "tokens": [
+            {
+              "token": "rndlst2",
+              "explanation": "İkinci sıcaklık sütunu için yine 15-24 arasından rastgele 2 benzersiz sayı seçer.",
+              "turkce": "Atama",
+              "amac": "Bu satır, ikinci gün sıcaklık değerlerini üretip tablonun ikinci sütununu besler."
+            }
+          ],
+          "codeContext": "Bu satır, ikinci gün sıcaklık değerlerini üretip tablonun ikinci sütununu besler."
         },
         {
           "lineNumber": 4,
-          "code": "mydataframe = pd.DataFrame(data, index=[\"Düzce\",\"Sakarya\"], columns=columns)",
+          "code": "randomlistoflists = [rndlst1, rndlst2]",
+          "lineExplanation": "İki rastgele listeyi tek bir veri yapısında bir araya getirir.",
+          "tokens": [
+            {
+              "token": "randomlistoflists",
+              "explanation": "İki rastgele listeyi tek bir veri yapısında bir araya getirir.",
+              "turkce": "Atama",
+              "amac": "Bu satır, DataFrame kurulumunda kullanılacak iki boyutlu liste yapısını hazırlar."
+            }
+          ],
+          "codeContext": "Bu satır, DataFrame kurulumunda kullanılacak iki boyutlu liste yapısını hazırlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "columns = [\"Sıcaklık 1.gün\", \"Sıcaklık 2.gün\"]",
+          "lineExplanation": "Sütun isimlerini bir liste olarak tanımlar.",
+          "tokens": [
+            {
+              "token": "columns",
+              "explanation": "Sütun isimlerini bir liste olarak tanımlar.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Manuel DataFrame Oluşturma' bloğunda sonraki adimlarin kullanacagi semayi veya eksen etiketlerini tanimlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Manuel DataFrame Oluşturma' bloğunda sonraki adimlarin kullanacagi semayi veya eksen etiketlerini tanimlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "mydataframe = pd.DataFrame(randomlistoflists, index=[\"Düzce\",\"Sakarya\"], columns=columns)",
           "lineExplanation": "Listelerden sıfırdan bir DataFrame oluşturur. Satır etiketleri şehir isimleri, sütunlar sıcaklık günleri.",
           "tokens": [
             {
@@ -473,9 +522,23 @@
             }
           ],
           "codeContext": "Bu satır, 'Manuel DataFrame Oluşturma' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "mydataframe",
+          "lineExplanation": "Oluşturulan DataFrame'i notebook çıktısı olarak gösterir.",
+          "tokens": [
+            {
+              "token": "mydataframe",
+              "explanation": "Oluşturulan DataFrame'i notebook çıktısı olarak gösterir.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, kurulan tablonun satır ve sütun yapısını doğrudan kontrol etmeyi sağlar."
+            }
+          ],
+          "codeContext": "Bu satır, kurulan tablonun satır ve sütun yapısını doğrudan kontrol etmeyi sağlar."
         }
       ],
-      "expectedOutput": "        Sıcaklık 1.gün  Sıcaklık 2.gün\nDüzce              18              22\nSakarya            16              20"
+      "expectedOutput": "Sıcaklık 1.gün  Sıcaklık 2.gün\nDüzce                17              18\nSakarya              20              21"
     }
   ]
 }

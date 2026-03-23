@@ -1,0 +1,1622 @@
+{
+  "id": "hafta5_digit",
+  "title": "Hafta 5: Digits ile Karar Ağacı ve KNN",
+  "week": 5,
+  "csvFiles": [
+    "digits.csv"
+  ],
+  "blocks": [
+    {
+      "id": "hafta5_digit-b001",
+      "title": "Özellikleri DataFrame'e çeviriyoruz",
+      "blockExplanation": "Özellikleri DataFrame'e çeviriyoruz adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import pandas as pd",
+          "lineExplanation": "Pandas kütüphanesini içe aktarır; tablo biçimindeki verileri DataFrame olarak işleyeceğiz.",
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "Pandas kütüphanesini içe aktarır; tablo biçimindeki verileri DataFrame olarak işleyeceğiz.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda pandas kütüphanesini içe aktarır; tablo biçimindeki verileri dataframe olarak işleyeceğiz."
+            }
+          ],
+          "codeContext": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda pandas kütüphanesini içe aktarır; tablo biçimindeki verileri dataframe olarak işleyeceğiz."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import numpy as np",
+          "lineExplanation": "NumPy kütüphanesini içe aktarır; sayısal hesaplama ve dizi işlemleri için kullanılacaktır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "NumPy kütüphanesini içe aktarır; sayısal hesaplama ve dizi işlemleri için kullanılacaktır.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda numpy kütüphanesini içe aktarır; sayısal hesaplama ve dizi işlemleri için kullanılacaktır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda numpy kütüphanesini içe aktarır; sayısal hesaplama ve dizi işlemleri için kullanılacaktır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "Matplotlib'in pyplot modülünü içe aktarır; grafik başlıkları, eksenleri ve figürleri bununla yöneteceğiz.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "Matplotlib'in pyplot modülünü içe aktarır; grafik başlıkları, eksenleri ve figürleri bununla yöneteceğiz.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda matplotlib'in pyplot modülünü içe aktarır; grafik başlıkları, eksenleri ve figürleri bununla yöneteceğiz."
+            }
+          ],
+          "codeContext": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda matplotlib'in pyplot modülünü içe aktarır; grafik başlıkları, eksenleri ve figürleri bununla yöneteceğiz."
+        },
+        {
+          "lineNumber": 4,
+          "code": "import seaborn as sns",
+          "lineExplanation": "Seaborn kütüphanesini içe aktarır; istatistiksel grafikler için üst düzey çizim aracı sağlar.",
+          "tokens": [
+            {
+              "token": "seaborn",
+              "explanation": "Seaborn kütüphanesini içe aktarır; istatistiksel grafikler için üst düzey çizim aracı sağlar.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda seaborn kütüphanesini içe aktarır; istatistiksel grafikler için üst düzey çizim aracı sağlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda seaborn kütüphanesini içe aktarır; istatistiksel grafikler için üst düzey çizim aracı sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "from sklearn.datasets import load_digits",
+          "lineExplanation": "Scikit-learn içindeki hazır veri seti yükleyicisini içe aktarır.",
+          "tokens": [
+            {
+              "token": "load_digits",
+              "explanation": "Scikit-learn içindeki hazır veri seti yükleyicisini içe aktarır.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda scikit-learn içindeki hazır veri seti yükleyicisini içe aktarır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda scikit-learn içindeki hazır veri seti yükleyicisini içe aktarır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "from sklearn.model_selection import train_test_split",
+          "lineExplanation": "Veriyi eğitim ve test kümelerine bölecek yardımcı fonksiyonu içe aktarır.",
+          "tokens": [
+            {
+              "token": "train_test_split",
+              "explanation": "Veriyi eğitim ve test kümelerine bölecek yardımcı fonksiyonu içe aktarır.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda veriyi eğitim ve test kümelerine bölecek yardımcı fonksiyonu içe aktarır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda veriyi eğitim ve test kümelerine bölecek yardımcı fonksiyonu içe aktarır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "from sklearn.tree import DecisionTreeClassifier",
+          "lineExplanation": "Karar ağacı modelini veya ağacı görselleştirme fonksiyonunu içe aktarır.",
+          "tokens": [
+            {
+              "token": "DecisionTreeClassifier",
+              "explanation": "Karar ağacı modelini veya ağacı görselleştirme fonksiyonunu içe aktarır.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda karar ağacı modelini veya ağacı görselleştirme fonksiyonunu içe aktarır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda karar ağacı modelini veya ağacı görselleştirme fonksiyonunu içe aktarır."
+        },
+        {
+          "lineNumber": 8,
+          "code": "from sklearn.neighbors import KNeighborsClassifier",
+          "lineExplanation": "K-Nearest Neighbors sınıflandırıcısını içe aktarır.",
+          "tokens": [
+            {
+              "token": "KNeighborsClassifier",
+              "explanation": "K-Nearest Neighbors sınıflandırıcısını içe aktarır.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda k-nearest neighbors sınıflandırıcısını içe aktarır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda k-nearest neighbors sınıflandırıcısını içe aktarır."
+        },
+        {
+          "lineNumber": 9,
+          "code": "from sklearn.preprocessing import StandardScaler",
+          "lineExplanation": "Özellikleri standartlaştıracak StandardScaler sınıfını içe aktarır.",
+          "tokens": [
+            {
+              "token": "StandardScaler",
+              "explanation": "Özellikleri standartlaştıracak StandardScaler sınıfını içe aktarır.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda özellikleri standartlaştıracak standardscaler sınıfını içe aktarır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda özellikleri standartlaştıracak standardscaler sınıfını içe aktarır."
+        },
+        {
+          "lineNumber": 10,
+          "code": "from sklearn.metrics import accuracy_score, classification_report, confusion_matrix",
+          "lineExplanation": "Accuracy, classification report ve confusion matrix gibi değerlendirme araçlarını içe aktarır.",
+          "tokens": [
+            {
+              "token": "accuracy_score, classification_report, confusion_matrix",
+              "explanation": "Accuracy, classification report ve confusion matrix gibi değerlendirme araçlarını içe aktarır.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda accuracy, classification report ve confusion matrix gibi değerlendirme araçlarını içe aktarır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda accuracy, classification report ve confusion matrix gibi değerlendirme araçlarını içe aktarır."
+        },
+        {
+          "lineNumber": 11,
+          "code": "digits = load_digits()",
+          "lineExplanation": "Digits veri setini sklearn içinden yükler.",
+          "tokens": [
+            {
+              "token": "digits",
+              "explanation": "Digits veri setini sklearn içinden yükler.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda digits veri setini sklearn içinden yükler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda digits veri setini sklearn içinden yükler."
+        },
+        {
+          "lineNumber": 12,
+          "code": "df = pd.DataFrame(digits.data)",
+          "lineExplanation": "O anki veri yapısını DataFrame olarak kurar veya yeniden tanımlar.",
+          "tokens": [
+            {
+              "token": "digits.data",
+              "explanation": "Digits veri setinin 64 piksellik özellik matrisidir.",
+              "turkce": "Özellik Matrisi",
+              "amac": "Rakam görüntülerini tabloya dönüştürmek.",
+              "detay": "Her satır bir rakam örneği, her sütun bir piksel yoğunluğudur."
+            },
+            {
+              "token": "pd.DataFrame(...)",
+              "explanation": "Ham numpy matrisini DataFrame'e çevirir.",
+              "turkce": "DataFrame",
+              "amac": "Özellikleri sütun-sütun analiz etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda o anki veri yapısını dataframe olarak kurar veya yeniden tanımlar."
+        },
+        {
+          "lineNumber": 13,
+          "code": "df[\"target\"] = digits.target",
+          "lineExplanation": "Hedef değişkeni DataFrame'e ayrı sütun olarak ekler veya sayısallaştırır.",
+          "tokens": [
+            {
+              "token": "digits.target",
+              "explanation": "Her görüntünün gerçek rakam etiketini taşır.",
+              "turkce": "Hedef Dizi",
+              "amac": "Sınıflandırma için gerçek sınıfı tabloya eklemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda hedef değişkeni dataframe'e ayrı sütun olarak ekler veya sayısallaştırır."
+        },
+        {
+          "lineNumber": 14,
+          "code": "df.head()",
+          "lineExplanation": "Tablonun ilk satırlarını önizleme olarak gösterir.",
+          "tokens": [
+            {
+              "token": "head()",
+              "explanation": "İlk satırları gösterir.",
+              "turkce": "Önizleme",
+              "amac": "Veri yapısını hızlıca kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Özellikleri DataFrame'e çeviriyoruz' bloğunda tablonun ilk satırlarını önizleme olarak gösterir."
+        }
+      ],
+      "expectedOutput": "0    1    2     3     4     5    6    7    8    9  ...   55   56   57   58    59    60    61   62   63  target\n0  0.0  0.0  5.0  13.0   9.0   1.0  0.0  0.0  0.0  0.0  ...  0.0  0.0  0.0  6.0  13.0  10.0   0.0  0.0  0.0       0\n1  0.0  0.0  0.0  12.0  13.0   5.0  0.0  0.0  0.0  0.0  ...  0.0  0.0  0.0  0.0  11.0  16.0  10.0  0.0  0.0       1\n2  0.0  0.0  0.0   4.0  15.0  12.0  0.0  0.0  0.0  0.0  ...  0.0  0.0  0.0  0.0   3.0  11.0  16.0  9.0  0.0       2\n3  0.0  0.0  7.0  15.0  13.0   1.0  0.0  0.0  0.0  8.0  ...  0.0  0.0  0.0  7.0  13.0  13.0   9.0  0.0  0.0       3\n4  0.0  0.0  0.0   1.0  11.0   0.0  0.0  0.0  0.0  0.0  ...  0.0  0.0  0.0  0.0   2.0  16.0   4.0  0.0  0.0       4\n\n[5 rows x 65 columns]"
+    },
+    {
+      "id": "hafta5_digit-b002",
+      "title": "df.shape",
+      "blockExplanation": "df.shape adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.shape",
+          "lineExplanation": "Veri setinin veya eğitim/test parçalarının boyut bilgisini verir.",
+          "tokens": [
+            {
+              "token": ".shape",
+              "explanation": "Satır ve sütun sayısını tuple olarak verir.",
+              "turkce": "Boyut",
+              "amac": "Verinin büyüklüğünü doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'df.shape' bloğunda veri setinin veya eğitim/test parçalarının boyut bilgisini verir."
+        }
+      ],
+      "expectedOutput": "(1797, 65)"
+    },
+    {
+      "id": "hafta5_digit-b003",
+      "title": "df.info()",
+      "blockExplanation": "df.info() adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.info()",
+          "lineExplanation": "Sütun tiplerini, dolu hücre sayılarını ve bellek kullanımını özetler.",
+          "tokens": [
+            {
+              "token": ".info()",
+              "explanation": "Sütun tipleri ve doluluk bilgisi üretir.",
+              "turkce": "Yapı Özeti",
+              "amac": "Veri tiplerini ve eksik durumu görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'df.info()' bloğunda sütun tiplerini, dolu hücre sayılarını ve bellek kullanımını özetler."
+        }
+      ],
+      "expectedOutput": "<class 'pandas.core.frame.DataFrame'>\nRangeIndex: 1797 entries, 0 to 1796\nData columns (total 65 columns):\n #   Column  Non-Null Count  Dtype  \n---  ------  --------------  -----  \n 0   0       1797 non-null   float64\n 1   1       1797 non-null   float64\n 2   2       1797 non-null   float64\n 3   3       1797 non-null   float64\n 4   4       1797 non-null   float64\n 5   5       1797 non-null   float64\n 6   6       1797 non-null   float64\n 7   7       1797 non-null   float64\n 8   8       1797 non-null   float64\n 9   9       1797 non-null   float64\n 10  10      1797 non-null   float64\n 11  11      1797 non-null   float64\n 12  12      1797 non-null   float64\n 13  13      1797 non-null   float64\n 14  14      1797 non-null   float64\n 15  15      1797 non-null   float64\n 16  16      1797 non-null   float64\n 17  17      1797 non-null   float64\n 18  18      1797 non-null   float64\n 19  19      1797 non-null   float64\n 20  20      1797 non-null   float64\n 21  21      1797 non-null   float64\n 22  22      1797 non-null   float64\n 23  23      1797 non-null   float64\n 24  24      1797 non-null   float64\n 25  25      1797 non-null   float64\n 26  26      1797 non-null   float64\n 27  27      1797 non-null   float64\n 28  28      1797 non-null   float64\n 29  29      1797 non-null   float64\n 30  30      1797 non-null   float64\n 31  31      1797 non-null   float64\n 32  32      1797 non-null   float64\n 33  33      1797 non-null   float64\n 34  34      1797 non-null   float64\n 35  35      1797 non-null   float64\n 36  36      1797 non-null   float64\n 37  37      1797 non-null   float64\n 38  38      1797 non-null   float64\n 39  39      1797 non-null   float64\n 40  40      1797 non-null   float64\n 41  41      1797 non-null   float64\n 42  42      1797 non-null   float64\n 43  43      1797 non-null   float64\n 44  44      1797 non-null   float64\n 45  45      1797 non-null   float64\n 46  46      1797 non-null   float64\n 47  47      1797 non-null   float64\n 48  48      1797 non-null   float64\n 49  49      1797 non-null   float64\n 50  50      1797 non-null   float64\n 51  51      1797 non-null   float64\n 52  52      1797 non-null   float64\n 53  53      1797 non-null   float64\n 54  54      1797 non-null   float64\n 55  55      1797 non-null   float64\n 56  56      1797 non-null   float64\n 57  57      1797 non-null   float64\n 58  58      1797 non-null   float64\n 59  59      1797 non-null   float64\n 60  60      1797 non-null   float64\n 61  61      1797 non-null   float64\n 62  62      1797 non-null   float64\n 63  63      1797 non-null   float64\n 64  target  1797 non-null   int64  \ndtypes: float64(64), int64(1)\nmemory usage: 912.7 KB"
+    },
+    {
+      "id": "hafta5_digit-b004",
+      "title": "df.describe()",
+      "blockExplanation": "df.describe() adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.describe()",
+          "lineExplanation": "Sayısal sütunların temel istatistiksel özetini üretir.",
+          "tokens": [
+            {
+              "token": ".describe()",
+              "explanation": "Temel istatistik özetini üretir.",
+              "turkce": "İstatistik Özeti",
+              "amac": "Dağılımın merkezi ve saçılımını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'df.describe()' bloğunda sayısal sütunların temel istatistiksel özetini üretir."
+        }
+      ],
+      "expectedOutput": "0            1            2            3            4            5            6            7            8            9  ...           55           56           57           58  \\\ncount  1797.0  1797.000000  1797.000000  1797.000000  1797.000000  1797.000000  1797.000000  1797.000000  1797.000000  1797.000000  ...  1797.000000  1797.000000  1797.000000  1797.000000   \nmean      0.0     0.303840     5.204786    11.835838    11.848080     5.781859     1.362270     0.129661     0.005565     1.993879  ...     0.206455     0.000556     0.279354     5.557596   \nstd       0.0     0.907192     4.754826     4.248842     4.287388     5.666418     3.325775     1.037383     0.094222     3.196160  ...     0.984401     0.023590     0.934302     5.103019   \nmin       0.0     0.000000     0.000000     0.000000     0.000000     0.000000     0.000000     0.000000     0.000000     0.000000  ...     0.000000     0.000000     0.000000     0.000000   \n25%       0.0     0.000000     1.000000    10.000000    10.000000     0.000000     0.000000     0.000000     0.000000     0.000000  ...     0.000000     0.000000     0.000000     1.000000   \n50%       0.0     0.000000     4.000000    13.000000    13.000000     4.000000     0.000000     0.000000     0.000000     0.000000  ...     0.000000     0.000000     0.000000     4.000000   \n75%       0.0     0.000000     9.000000    15.000000    15.000000    11.000000     0.000000     0.000000     0.000000     3.000000  ...     0.000000     0.000000     0.000000    10.000000   \nmax       0.0     8.000000    16.000000    16.000000    16.000000    16.000000    16.000000    15.000000     2.000000    16.000000  ...    13.000000     1.000000     9.000000    16.000000   \n\n                59           60           61           62           63       target  \ncount  1797.000000  1797.000000  1797.000000  1797.000000  1797.000000  1797.000000  \nmean     12.089037    11.809126     6.764051     2.067891     0.364496     4.490818  \nstd       4.374694     4.933947     5.900623     4.090548     1.860122     2.865304  \nmin       0.000000     0.000000     0.000000     0.000000     0.000000     0.000000  \n25%      11.000000    10.000000     0.000000     0.000000     0.000000     2.000000  \n50%      13.000000    14.000000     6.000000     0.000000     0.000000     4.000000  \n75%      16.000000    16.000000    12.000000     2.000000     0.000000     7.000000  \nmax      16.000000    16.000000    16.000000    16.000000    16.000000     9.000000  \n\n[8 rows x 65 columns]"
+    },
+    {
+      "id": "hafta5_digit-b005",
+      "title": "Her rakam sınıfının kaç örneği var?",
+      "blockExplanation": "Her rakam sınıfının kaç örneği var? adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df[\"target\"].value_counts().sort_index()",
+          "lineExplanation": "Sınıf veya kategori frekanslarını adet olarak hesaplar.",
+          "tokens": [
+            {
+              "token": "value_counts(...)",
+              "explanation": "Kategori frekanslarını veya oranlarını hesaplar.",
+              "turkce": "Frekans Analizi",
+              "amac": "Sınıf dağılımını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Her rakam sınıfının kaç örneği var?' bloğunda sınıf veya kategori frekanslarını adet olarak hesaplar."
+        }
+      ],
+      "expectedOutput": "target\n0    178\n1    182\n2    177\n3    183\n4    181\n5    182\n6    181\n7    179\n8    174\n9    180\nName: count, dtype: int64"
+    },
+    {
+      "id": "hafta5_digit-b006",
+      "title": "plt.figure(figsize=(8,4))",
+      "blockExplanation": "plt.figure(figsize=(8,4)) adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.figure(figsize=(8,4))",
+          "lineExplanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+          "tokens": [
+            {
+              "token": "plt.figure(figsize=(8,4))",
+              "explanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'plt.figure(figsize=(8,4))' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'plt.figure(figsize=(8,4))' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "sns.countplot(x=\"target\", data=df)",
+          "lineExplanation": "Kategorik sınıf dağılımını çubuk grafik olarak çizer.",
+          "tokens": [
+            {
+              "token": "sns.countplot(x=\"target\", data=df)",
+              "explanation": "Kategorik sınıf dağılımını çubuk grafik olarak çizer.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'plt.figure(figsize=(8,4))' bloğunda kategorik sınıf dağılımını çubuk grafik olarak çizer."
+            }
+          ],
+          "codeContext": "Bu satır, 'plt.figure(figsize=(8,4))' bloğunda kategorik sınıf dağılımını çubuk grafik olarak çizer."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.title(\"Digits Veri Seti - Sınıf Dağılımı\")",
+          "lineExplanation": "Grafiğe açıklayıcı başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title(\"Digits Veri Seti - Sınıf Dağılımı\")",
+              "explanation": "Grafiğe açıklayıcı başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'plt.figure(figsize=(8,4))' bloğunda grafiğe açıklayıcı başlık ekler."
+            }
+          ],
+          "codeContext": "Bu satır, 'plt.figure(figsize=(8,4))' bloğunda grafiğe açıklayıcı başlık ekler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.xlabel(\"Rakam Sınıfı\")",
+          "lineExplanation": "X eksenine etiket yazar.",
+          "tokens": [
+            {
+              "token": "plt.xlabel(\"Rakam Sınıfı\")",
+              "explanation": "X eksenine etiket yazar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'plt.figure(figsize=(8,4))' bloğunda x eksenine etiket yazar."
+            }
+          ],
+          "codeContext": "Bu satır, 'plt.figure(figsize=(8,4))' bloğunda x eksenine etiket yazar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.ylabel(\"Frekans\")",
+          "lineExplanation": "Y eksenine etiket yazar.",
+          "tokens": [
+            {
+              "token": "plt.ylabel(\"Frekans\")",
+              "explanation": "Y eksenine etiket yazar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'plt.figure(figsize=(8,4))' bloğunda y eksenine etiket yazar."
+            }
+          ],
+          "codeContext": "Bu satır, 'plt.figure(figsize=(8,4))' bloğunda y eksenine etiket yazar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda gösterir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Hazırlanan grafiği ekranda gösterir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'plt.figure(figsize=(8,4))' bloğunda hazırlanan grafiği ekranda gösterir."
+            }
+          ],
+          "codeContext": "Bu satır, 'plt.figure(figsize=(8,4))' bloğunda hazırlanan grafiği ekranda gösterir."
+        }
+      ],
+      "expectedOutput": "<Figure size 800x400 with 0 Axes>\n\n<Axes: xlabel='target', ylabel='count'>\n\nText(0.5, 1.0, 'Digits Veri Seti - Sınıf Dağılımı')\n\nText(0.5, 0, 'Rakam Sınıfı')\n\nText(0, 0.5, 'Frekans')\n\n<Figure size 800x400 with 1 Axes>",
+      "plotImage": "h5-digit-b006.png"
+    },
+    {
+      "id": "hafta5_digit-b007",
+      "title": "İlk 10 rakamı görselleştirelim",
+      "blockExplanation": "İlk 10 rakamı görselleştirelim adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "fig, axes = plt.subplots(2, 5, figsize=(10,5))",
+          "lineExplanation": "Birden fazla alt grafik oluşturmak için figür ve eksen nesnelerini üretir.",
+          "tokens": [
+            {
+              "token": "fig, axes = plt.subplots(2, 5, figsize=(10,5))",
+              "explanation": "Birden fazla alt grafik oluşturmak için figür ve eksen nesnelerini üretir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'İlk 10 rakamı görselleştirelim' bloğunda birden fazla alt grafik oluşturmak için figür ve eksen nesnelerini üretir."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk 10 rakamı görselleştirelim' bloğunda birden fazla alt grafik oluşturmak için figür ve eksen nesnelerini üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "for i, ax in enumerate(axes.flat):",
+          "lineExplanation": "Alt grafik eksenlerini sırayla dolaşarak her birine farklı görüntü yerleştirir.",
+          "tokens": [
+            {
+              "token": "for i, ax in enumerate(axes.flat):",
+              "explanation": "Alt grafik eksenlerini sırayla dolaşarak her birine farklı görüntü yerleştirir.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'İlk 10 rakamı görselleştirelim' bloğunda alt grafik eksenlerini sırayla dolaşarak her birine farklı görüntü yerleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk 10 rakamı görselleştirelim' bloğunda alt grafik eksenlerini sırayla dolaşarak her birine farklı görüntü yerleştirir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    ax.imshow(digits.images[i], cmap=\"gray\")",
+          "lineExplanation": "Görüntü matrisini gri tonlu görsel olarak ekrana basar.",
+          "tokens": [
+            {
+              "token": "ax.imshow(digits.images[i], cmap=\"gray\")",
+              "explanation": "Görüntü matrisini gri tonlu görsel olarak ekrana basar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'İlk 10 rakamı görselleştirelim' bloğunda görüntü matrisini gri tonlu görsel olarak ekrana basar."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk 10 rakamı görselleştirelim' bloğunda görüntü matrisini gri tonlu görsel olarak ekrana basar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    ax.set_title(f\"Etiket: {digits.target[i]}\")",
+          "lineExplanation": "Grafiğe açıklayıcı başlık ekler.",
+          "tokens": [
+            {
+              "token": "ax.set_title(f\"Etiket: {digits.target[i]}\")",
+              "explanation": "Grafiğe açıklayıcı başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'İlk 10 rakamı görselleştirelim' bloğunda grafiğe açıklayıcı başlık ekler."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk 10 rakamı görselleştirelim' bloğunda grafiğe açıklayıcı başlık ekler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    ax.axis(\"off\")",
+          "lineExplanation": "İlgili alt grafikte eksen çizgilerini ve tick etiketlerini gizler.",
+          "tokens": [
+            {
+              "token": "ax.axis(\"off\")",
+              "explanation": "İlgili alt grafikte eksen çizgilerini ve tick etiketlerini gizler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'İlk 10 rakamı görselleştirelim' bloğunda i̇lgili alt grafikte eksen çizgilerini ve tick etiketlerini gizler."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk 10 rakamı görselleştirelim' bloğunda i̇lgili alt grafikte eksen çizgilerini ve tick etiketlerini gizler."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Alt grafikler ile başlıkların çakışmaması için yerleşimi sıkıştırır.",
+          "tokens": [
+            {
+              "token": "plt.tight_layout()",
+              "explanation": "Alt grafikler ile başlıkların çakışmaması için yerleşimi sıkıştırır.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'İlk 10 rakamı görselleştirelim' bloğunda alt grafikler ile başlıkların çakışmaması için yerleşimi sıkıştırır."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk 10 rakamı görselleştirelim' bloğunda alt grafikler ile başlıkların çakışmaması için yerleşimi sıkıştırır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda gösterir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Hazırlanan grafiği ekranda gösterir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'İlk 10 rakamı görselleştirelim' bloğunda hazırlanan grafiği ekranda gösterir."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk 10 rakamı görselleştirelim' bloğunda hazırlanan grafiği ekranda gösterir."
+        }
+      ],
+      "expectedOutput": "<Figure size 1000x500 with 10 Axes>",
+      "plotImage": "h5-digit-b007.png"
+    },
+    {
+      "id": "hafta5_digit-b008",
+      "title": "Eğitim ve test ayrımı",
+      "blockExplanation": "Eğitim ve test ayrımı adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "X = df.drop(\"target\", axis=1)",
+          "lineExplanation": "Hedef sütunu çıkararak özellik matrisini oluşturur.",
+          "tokens": [
+            {
+              "token": "X",
+              "explanation": "Hedef sütunu çıkararak özellik matrisini oluşturur.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Eğitim ve test ayrımı' bloğunda hedef sütunu çıkararak özellik matrisini oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim ve test ayrımı' bloğunda hedef sütunu çıkararak özellik matrisini oluşturur."
+        },
+        {
+          "lineNumber": 2,
+          "code": "y = df[\"target\"]",
+          "lineExplanation": "Tahmin edilecek hedef değişkeni ayrı dizi/seri olarak seçer.",
+          "tokens": [
+            {
+              "token": "y",
+              "explanation": "Tahmin edilecek hedef değişkeni ayrı dizi/seri olarak seçer.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Eğitim ve test ayrımı' bloğunda tahmin edilecek hedef değişkeni ayrı dizi/seri olarak seçer."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim ve test ayrımı' bloğunda tahmin edilecek hedef değişkeni ayrı dizi/seri olarak seçer."
+        },
+        {
+          "lineNumber": 3,
+          "code": "X_train, X_test, y_train, y_test = train_test_split(",
+          "lineExplanation": "Veriyi eğitim ve test kümelerine bölme işlemini başlatır.",
+          "tokens": [
+            {
+              "token": "train_test_split(...)",
+              "explanation": "Veriyi eğitim ve test kümelerine böler.",
+              "turkce": "Veri Bölme",
+              "amac": "Modeli ayrı veri üzerinde değerlendirebilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim ve test ayrımı' bloğunda veriyi eğitim ve test kümelerine bölme işlemini başlatır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    X, y,",
+          "lineExplanation": "train_test_split içine özellik matrisi X ile hedef vektörü y'yi birlikte gönderir.",
+          "tokens": [
+            {
+              "token": "X",
+              "explanation": "Model girdilerini taşıyan özellik matrisidir.",
+              "turkce": "Özellik Matrisi",
+              "amac": "Eğitim ve test için bölünecek giriş verisini sağlamak."
+            },
+            {
+              "token": "y",
+              "explanation": "Gerçek sınıf etiketlerini taşıyan hedef vektördür.",
+              "turkce": "Hedef Vektör",
+              "amac": "X ile uyumlu etiketlerin aynı anda bölünmesini sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim ve test ayrımı' bloğunda giriş ve hedef verisinin aynı anda bölünmesini sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    test_size=0.2,",
+          "lineExplanation": "Verinin yüzde 20'sinin test kümesine ayrılacağını belirtir.",
+          "tokens": [
+            {
+              "token": "test_size",
+              "explanation": "Verinin yüzde 20'sinin test kümesine ayrılacağını belirtir.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Eğitim ve test ayrımı' bloğunda verinin yüzde 20'sinin test kümesine ayrılacağını belirtir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim ve test ayrımı' bloğunda verinin yüzde 20'sinin test kümesine ayrılacağını belirtir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    random_state=42,",
+          "lineExplanation": "Rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır.",
+          "tokens": [
+            {
+              "token": "random_state",
+              "explanation": "Rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Eğitim ve test ayrımı' bloğunda rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim ve test ayrımı' bloğunda rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    stratify=y",
+          "lineExplanation": "Sınıf oranlarının eğitim ve testte korunmasını sağlar.",
+          "tokens": [
+            {
+              "token": "stratify",
+              "explanation": "Sınıf oranlarının eğitim ve testte korunmasını sağlar.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Eğitim ve test ayrımı' bloğunda sınıf oranlarının eğitim ve testte korunmasını sağlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim ve test ayrımı' bloğunda sınıf oranlarının eğitim ve testte korunmasını sağlar."
+        },
+        {
+          "lineNumber": 8,
+          "code": ")",
+          "lineExplanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Eğitim ve test ayrımı' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim ve test ayrımı' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+        },
+        {
+          "lineNumber": 9,
+          "code": "X_train.shape, X_test.shape",
+          "lineExplanation": "Veri setinin veya eğitim/test parçalarının boyut bilgisini verir.",
+          "tokens": [
+            {
+              "token": ".shape",
+              "explanation": "Satır ve sütun sayısını tuple olarak verir.",
+              "turkce": "Boyut",
+              "amac": "Verinin büyüklüğünü doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim ve test ayrımı' bloğunda veri setinin veya eğitim/test parçalarının boyut bilgisini verir."
+        }
+      ],
+      "expectedOutput": "((1437, 64), (360, 64))"
+    },
+    {
+      "id": "hafta5_digit-b009",
+      "title": "Karar ağacı modelini oluşturuyoruz",
+      "blockExplanation": "Karar ağacı modelini oluşturuyoruz adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "dt_model = DecisionTreeClassifier(",
+          "lineExplanation": "Karar ağacı modelini belirtilen hiperparametrelerle oluşturur.",
+          "tokens": [
+            {
+              "token": "DecisionTreeClassifier(...)",
+              "explanation": "Karar ağacı modelini oluşturur.",
+              "turkce": "Karar Ağacı",
+              "amac": "Ağaç tabanlı sınıflandırma modeli kurmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Karar ağacı modelini oluşturuyoruz' bloğunda karar ağacı modelini belirtilen hiperparametrelerle oluşturur."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    random_state=42,",
+          "lineExplanation": "Rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır.",
+          "tokens": [
+            {
+              "token": "random_state",
+              "explanation": "Rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Karar ağacı modelini oluşturuyoruz' bloğunda rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Karar ağacı modelini oluşturuyoruz' bloğunda rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    max_depth=10",
+          "lineExplanation": "Ağacın maksimum derinliğini `10` olarak belirler.",
+          "tokens": [
+            {
+              "token": "max_depth=10",
+              "explanation": "Maksimum ağaç derinliğini `10` yapar.",
+              "turkce": "Derinlik Sınırı",
+              "amac": "Aşırı öğrenmeyi kontrol etmek veya derin modeli test etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Karar ağacı modelini oluşturuyoruz' bloğunda modelin ne kadar derine dallanabileceğini sınırlar veya serbest bırakır."
+        },
+        {
+          "lineNumber": 4,
+          "code": ")",
+          "lineExplanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Karar ağacı modelini oluşturuyoruz' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Karar ağacı modelini oluşturuyoruz' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "dt_model.fit(X_train, y_train)",
+          "lineExplanation": "Modeli eğitim verisi üzerinde öğrenme sürecine sokar.",
+          "tokens": [
+            {
+              "token": ".fit(...)",
+              "explanation": "Modeli eğitim verisiyle öğrenme sürecine sokar.",
+              "turkce": "Model Eğitimi",
+              "amac": "Algoritmanın veriden kural çıkarmasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Karar ağacı modelini oluşturuyoruz' bloğunda modeli eğitim verisi üzerinde öğrenme sürecine sokar."
+        }
+      ],
+      "expectedOutput": "DecisionTreeClassifier(max_depth=10, random_state=42)"
+    },
+    {
+      "id": "hafta5_digit-b010",
+      "title": "Accuracy",
+      "blockExplanation": "Accuracy adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "y_pred_dt = dt_model.predict(X_test)",
+          "lineExplanation": "Eğitilmiş model ile yeni veriler için tahmin üretir.",
+          "tokens": [
+            {
+              "token": ".predict(...)",
+              "explanation": "Eğitilmiş modelle tahmin üretir.",
+              "turkce": "Tahmin",
+              "amac": "Test veya yeni veri üzerinde sınıf üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Accuracy' bloğunda eğitilmiş model ile yeni veriler için tahmin üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "print(\"Decision Tree Accuracy:\", accuracy_score(y_test, y_pred_dt))",
+          "lineExplanation": "Gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar.",
+          "tokens": [
+            {
+              "token": "accuracy_score(...)",
+              "explanation": "Doğruluk oranını hesaplar.",
+              "turkce": "Accuracy",
+              "amac": "Tahmin başarısını tek sayı ile görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Accuracy' bloğunda gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar."
+        }
+      ],
+      "expectedOutput": "Decision Tree Accuracy: 0.8111111111111111"
+    },
+    {
+      "id": "hafta5_digit-b011",
+      "title": "Detaylı rapor",
+      "blockExplanation": "Detaylı rapor adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "print(classification_report(y_test, y_pred_dt))",
+          "lineExplanation": "Precision, recall ve f1-score değerlerini sınıf bazında raporlar.",
+          "tokens": [
+            {
+              "token": "classification_report(...)",
+              "explanation": "Precision, recall ve f1-score tablosunu üretir.",
+              "turkce": "Detaylı Rapor",
+              "amac": "Sınıf bazlı başarıyı görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Detaylı rapor' bloğunda precision, recall ve f1-score değerlerini sınıf bazında raporlar."
+        }
+      ],
+      "expectedOutput": "precision    recall  f1-score   support\n\n           0       0.94      0.94      0.94        36\n           1       0.66      0.69      0.68        36\n           2       0.93      0.80      0.86        35\n           3       0.79      0.81      0.80        37\n           4       0.86      0.83      0.85        36\n           5       0.88      0.95      0.91        37\n           6       0.86      0.83      0.85        36\n           7       0.81      0.83      0.82        36\n           8       0.63      0.69      0.66        35\n           9       0.79      0.72      0.75        36\n\n    accuracy                           0.81       360\n   macro avg       0.81      0.81      0.81       360\nweighted avg       0.81      0.81      0.81       360"
+    },
+    {
+      "id": "hafta5_digit-b012",
+      "title": "cm_dt = confusion_matrix(y_test, y_pred_dt)",
+      "blockExplanation": "cm_dt = confusion_matrix(y_test, y_pred_dt) adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "cm_dt = confusion_matrix(y_test, y_pred_dt)",
+          "lineExplanation": "Gerçek ve tahmin edilen sınıfların çapraz sayımlarını matris olarak üretir.",
+          "tokens": [
+            {
+              "token": "confusion_matrix(...)",
+              "explanation": "Gerçek ve tahmin edilen sınıfların kesişimini matris olarak çıkarır.",
+              "turkce": "Karmaşıklık Matrisi",
+              "amac": "Hata türlerini görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_dt = confusion_matrix(y_test, y_pred_dt)' bloğunda gerçek ve tahmin edilen sınıfların çapraz sayımlarını matris olarak üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.figure(figsize=(8,6))",
+          "lineExplanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+          "tokens": [
+            {
+              "token": "plt.figure(figsize=(8,6))",
+              "explanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_dt = confusion_matrix(y_test, y_pred_dt)' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_dt = confusion_matrix(y_test, y_pred_dt)' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "sns.heatmap(cm_dt, annot=True, fmt=\"d\", cmap=\"Blues\")",
+          "lineExplanation": "Matris yapısını ısı haritası olarak görselleştirir.",
+          "tokens": [
+            {
+              "token": "sns.heatmap(cm_dt, annot=True, fmt=\"d\", cmap=\"Blues\")",
+              "explanation": "Matris yapısını ısı haritası olarak görselleştirir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_dt = confusion_matrix(y_test, y_pred_dt)' bloğunda matris yapısını ısı haritası olarak görselleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_dt = confusion_matrix(y_test, y_pred_dt)' bloğunda matris yapısını ısı haritası olarak görselleştirir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.title(\"Decision Tree - Confusion Matrix\")",
+          "lineExplanation": "Grafiğe açıklayıcı başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title(\"Decision Tree - Confusion Matrix\")",
+              "explanation": "Grafiğe açıklayıcı başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_dt = confusion_matrix(y_test, y_pred_dt)' bloğunda grafiğe açıklayıcı başlık ekler."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_dt = confusion_matrix(y_test, y_pred_dt)' bloğunda grafiğe açıklayıcı başlık ekler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.xlabel(\"Tahmin\")",
+          "lineExplanation": "X eksenine etiket yazar.",
+          "tokens": [
+            {
+              "token": "plt.xlabel(\"Tahmin\")",
+              "explanation": "X eksenine etiket yazar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_dt = confusion_matrix(y_test, y_pred_dt)' bloğunda x eksenine etiket yazar."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_dt = confusion_matrix(y_test, y_pred_dt)' bloğunda x eksenine etiket yazar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.ylabel(\"Gerçek\")",
+          "lineExplanation": "Y eksenine etiket yazar.",
+          "tokens": [
+            {
+              "token": "plt.ylabel(\"Gerçek\")",
+              "explanation": "Y eksenine etiket yazar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_dt = confusion_matrix(y_test, y_pred_dt)' bloğunda y eksenine etiket yazar."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_dt = confusion_matrix(y_test, y_pred_dt)' bloğunda y eksenine etiket yazar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda gösterir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Hazırlanan grafiği ekranda gösterir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_dt = confusion_matrix(y_test, y_pred_dt)' bloğunda hazırlanan grafiği ekranda gösterir."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_dt = confusion_matrix(y_test, y_pred_dt)' bloğunda hazırlanan grafiği ekranda gösterir."
+        }
+      ],
+      "expectedOutput": "<Figure size 800x600 with 0 Axes>\n\n<Axes: >\n\nText(0.5, 1.0, 'Decision Tree - Confusion Matrix')\n\nText(0.5, 32.249999999999986, 'Tahmin')\n\nText(66.25, 0.5, 'Gerçek')\n\n<Figure size 800x600 with 2 Axes>",
+      "plotImage": "h5-digit-b012.png"
+    },
+    {
+      "id": "hafta5_digit-b013",
+      "title": "knn_model = KNeighborsClassifier(n_neighbors=5)",
+      "blockExplanation": "knn_model = KNeighborsClassifier(n_neighbors=5) adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "knn_model = KNeighborsClassifier(metric=\"manhattan\", n_neighbors=5)",
+          "lineExplanation": "KNN modelini belirtilen komşu sayısı veya uzaklık metriğiyle oluşturur.",
+          "tokens": [
+            {
+              "token": "KNeighborsClassifier(...)",
+              "explanation": "KNN modelini oluşturur.",
+              "turkce": "KNN",
+              "amac": "Komşuluk temelli sınıflandırma yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'knn_model = KNeighborsClassifier(n_neighbors=5)' bloğunda knn modelini belirtilen komşu sayısı veya uzaklık metriğiyle oluşturur."
+        },
+        {
+          "lineNumber": 2,
+          "code": "knn_model.fit(X_train, y_train)",
+          "lineExplanation": "Modeli eğitim verisi üzerinde öğrenme sürecine sokar.",
+          "tokens": [
+            {
+              "token": ".fit(...)",
+              "explanation": "Modeli eğitim verisiyle öğrenme sürecine sokar.",
+              "turkce": "Model Eğitimi",
+              "amac": "Algoritmanın veriden kural çıkarmasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'knn_model = KNeighborsClassifier(n_neighbors=5)' bloğunda modeli eğitim verisi üzerinde öğrenme sürecine sokar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "y_pred_knn = knn_model.predict(X_test)",
+          "lineExplanation": "Eğitilmiş model ile yeni veriler için tahmin üretir.",
+          "tokens": [
+            {
+              "token": ".predict(...)",
+              "explanation": "Eğitilmiş modelle tahmin üretir.",
+              "turkce": "Tahmin",
+              "amac": "Test veya yeni veri üzerinde sınıf üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'knn_model = KNeighborsClassifier(n_neighbors=5)' bloğunda eğitilmiş model ile yeni veriler için tahmin üretir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "print(\"KNN Accuracy (Scaling yok):\", accuracy_score(y_test, y_pred_knn))",
+          "lineExplanation": "Gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar.",
+          "tokens": [
+            {
+              "token": "accuracy_score(...)",
+              "explanation": "Doğruluk oranını hesaplar.",
+              "turkce": "Accuracy",
+              "amac": "Tahmin başarısını tek sayı ile görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'knn_model = KNeighborsClassifier(n_neighbors=5)' bloğunda gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar."
+        }
+      ],
+      "expectedOutput": "KNN Accuracy (Scaling yok): 0.9888888888888889\n\nKNeighborsClassifier(metric='manhattan')"
+    },
+    {
+      "id": "hafta5_digit-b014",
+      "title": "print(classification_report(y_test, y_pred_knn))",
+      "blockExplanation": "print(classification_report(y_test, y_pred_knn)) adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "print(classification_report(y_test, y_pred_knn))",
+          "lineExplanation": "Precision, recall ve f1-score değerlerini sınıf bazında raporlar.",
+          "tokens": [
+            {
+              "token": "classification_report(...)",
+              "explanation": "Precision, recall ve f1-score tablosunu üretir.",
+              "turkce": "Detaylı Rapor",
+              "amac": "Sınıf bazlı başarıyı görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'print(classification_report(y_test, y_pred_knn))' bloğunda precision, recall ve f1-score değerlerini sınıf bazında raporlar."
+        }
+      ],
+      "expectedOutput": "precision    recall  f1-score   support\n\n           0       1.00      1.00      1.00        36\n           1       0.92      1.00      0.96        36\n           2       1.00      1.00      1.00        35\n           3       1.00      1.00      1.00        37\n           4       0.97      1.00      0.99        36\n           5       1.00      1.00      1.00        37\n           6       1.00      1.00      1.00        36\n           7       1.00      1.00      1.00        36\n           8       1.00      0.91      0.96        35\n           9       1.00      0.97      0.99        36\n\n    accuracy                           0.99       360\n   macro avg       0.99      0.99      0.99       360\nweighted avg       0.99      0.99      0.99       360"
+    },
+    {
+      "id": "hafta5_digit-b015",
+      "title": "StandardScaler ile özellikleri standartlaştırıyoruz",
+      "blockExplanation": "StandardScaler ile özellikleri standartlaştırıyoruz adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "scaler = StandardScaler()",
+          "lineExplanation": "Özellikleri standartlaştıracak scaler nesnesini oluşturur.",
+          "tokens": [
+            {
+              "token": "StandardScaler()",
+              "explanation": "Özellikleri standartlaştıracak scaler nesnesini oluşturur.",
+              "turkce": "Standardizasyon",
+              "amac": "Özellik ölçeklerini benzer seviyeye getirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'StandardScaler ile özellikleri standartlaştırıyoruz' bloğunda özellikleri standartlaştıracak scaler nesnesini oluşturur."
+        },
+        {
+          "lineNumber": 2,
+          "code": "X_train_scaled = scaler.fit_transform(X_train)",
+          "lineExplanation": "Dönüştürücüyü veriye uydurup aynı anda dönüşmüş çıktıyı üretir.",
+          "tokens": [
+            {
+              "token": ".fit_transform(...)",
+              "explanation": "Dönüştürücüyü veriye uydurup aynı anda çıktı üretir.",
+              "turkce": "Fit + Transform",
+              "amac": "Ölçekleyiciyi ilk kez uygulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'StandardScaler ile özellikleri standartlaştırıyoruz' bloğunda dönüştürücüyü veriye uydurup aynı anda dönüşmüş çıktıyı üretir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "X_test_scaled = scaler.transform(X_test)",
+          "lineExplanation": "Daha önce öğrenilen scaler parametreleriyle veriyi dönüştürür.",
+          "tokens": [
+            {
+              "token": ".transform(...)",
+              "explanation": "Önceden öğrenilen parametrelerle veriyi dönüştürür.",
+              "turkce": "Transform",
+              "amac": "Test verisini aynı ölçeğe çekmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'StandardScaler ile özellikleri standartlaştırıyoruz' bloğunda daha önce öğrenilen scaler parametreleriyle veriyi dönüştürür."
+        },
+        {
+          "lineNumber": 4,
+          "code": "knn_scaled = KNeighborsClassifier(metric=\"manhattan\", n_neighbors=5)",
+          "lineExplanation": "KNN modelini belirtilen komşu sayısı veya uzaklık metriğiyle oluşturur.",
+          "tokens": [
+            {
+              "token": "KNeighborsClassifier(...)",
+              "explanation": "KNN modelini oluşturur.",
+              "turkce": "KNN",
+              "amac": "Komşuluk temelli sınıflandırma yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'StandardScaler ile özellikleri standartlaştırıyoruz' bloğunda knn modelini belirtilen komşu sayısı veya uzaklık metriğiyle oluşturur."
+        },
+        {
+          "lineNumber": 5,
+          "code": "knn_scaled.fit(X_train_scaled, y_train)",
+          "lineExplanation": "Modeli eğitim verisi üzerinde öğrenme sürecine sokar.",
+          "tokens": [
+            {
+              "token": ".fit(...)",
+              "explanation": "Modeli eğitim verisiyle öğrenme sürecine sokar.",
+              "turkce": "Model Eğitimi",
+              "amac": "Algoritmanın veriden kural çıkarmasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'StandardScaler ile özellikleri standartlaştırıyoruz' bloğunda modeli eğitim verisi üzerinde öğrenme sürecine sokar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "y_pred_knn_scaled = knn_scaled.predict(X_test_scaled)",
+          "lineExplanation": "Eğitilmiş model ile yeni veriler için tahmin üretir.",
+          "tokens": [
+            {
+              "token": ".predict(...)",
+              "explanation": "Eğitilmiş modelle tahmin üretir.",
+              "turkce": "Tahmin",
+              "amac": "Test veya yeni veri üzerinde sınıf üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'StandardScaler ile özellikleri standartlaştırıyoruz' bloğunda eğitilmiş model ile yeni veriler için tahmin üretir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "print(\"KNN Accuracy (Scaling var):\", accuracy_score(y_test, y_pred_knn_scaled))",
+          "lineExplanation": "Gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar.",
+          "tokens": [
+            {
+              "token": "accuracy_score(...)",
+              "explanation": "Doğruluk oranını hesaplar.",
+              "turkce": "Accuracy",
+              "amac": "Tahmin başarısını tek sayı ile görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'StandardScaler ile özellikleri standartlaştırıyoruz' bloğunda gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar."
+        }
+      ],
+      "expectedOutput": "KNN Accuracy (Scaling var): 0.9888888888888889\n\nKNeighborsClassifier(metric='manhattan')"
+    },
+    {
+      "id": "hafta5_digit-b016",
+      "title": "print(classification_report(y_test, y_pred_knn_scaled))",
+      "blockExplanation": "print(classification_report(y_test, y_pred_knn_scaled)) adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "print(classification_report(y_test, y_pred_knn_scaled))",
+          "lineExplanation": "Precision, recall ve f1-score değerlerini sınıf bazında raporlar.",
+          "tokens": [
+            {
+              "token": "classification_report(...)",
+              "explanation": "Precision, recall ve f1-score tablosunu üretir.",
+              "turkce": "Detaylı Rapor",
+              "amac": "Sınıf bazlı başarıyı görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'print(classification_report(y_test, y_pred_knn_scaled))' bloğunda precision, recall ve f1-score değerlerini sınıf bazında raporlar."
+        }
+      ],
+      "expectedOutput": "precision    recall  f1-score   support\n\n           0       1.00      1.00      1.00        36\n           1       0.92      1.00      0.96        36\n           2       1.00      1.00      1.00        35\n           3       1.00      1.00      1.00        37\n           4       0.97      1.00      0.99        36\n           5       1.00      1.00      1.00        37\n           6       1.00      1.00      1.00        36\n           7       1.00      1.00      1.00        36\n           8       1.00      0.91      0.96        35\n           9       1.00      0.97      0.99        36\n\n    accuracy                           0.99       360\n   macro avg       0.99      0.99      0.99       360\nweighted avg       0.99      0.99      0.99       360"
+    },
+    {
+      "id": "hafta5_digit-b017",
+      "title": "cm_knn = confusion_matrix(y_test, y_pred_knn_scaled)",
+      "blockExplanation": "cm_knn = confusion_matrix(y_test, y_pred_knn_scaled) adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "cm_knn = confusion_matrix(y_test, y_pred_knn_scaled)",
+          "lineExplanation": "Gerçek ve tahmin edilen sınıfların çapraz sayımlarını matris olarak üretir.",
+          "tokens": [
+            {
+              "token": "confusion_matrix(...)",
+              "explanation": "Gerçek ve tahmin edilen sınıfların kesişimini matris olarak çıkarır.",
+              "turkce": "Karmaşıklık Matrisi",
+              "amac": "Hata türlerini görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_knn = confusion_matrix(y_test, y_pred_knn_scaled)' bloğunda gerçek ve tahmin edilen sınıfların çapraz sayımlarını matris olarak üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.figure(figsize=(8,6))",
+          "lineExplanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+          "tokens": [
+            {
+              "token": "plt.figure(figsize=(8,6))",
+              "explanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_knn = confusion_matrix(y_test, y_pred_knn_scaled)' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_knn = confusion_matrix(y_test, y_pred_knn_scaled)' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "sns.heatmap(cm_knn, annot=True, fmt=\"d\", cmap=\"Greens\")",
+          "lineExplanation": "Matris yapısını ısı haritası olarak görselleştirir.",
+          "tokens": [
+            {
+              "token": "sns.heatmap(cm_knn, annot=True, fmt=\"d\", cmap=\"Greens\")",
+              "explanation": "Matris yapısını ısı haritası olarak görselleştirir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_knn = confusion_matrix(y_test, y_pred_knn_scaled)' bloğunda matris yapısını ısı haritası olarak görselleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_knn = confusion_matrix(y_test, y_pred_knn_scaled)' bloğunda matris yapısını ısı haritası olarak görselleştirir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.title(\"KNN (Scaling sonrası) - Confusion Matrix\")",
+          "lineExplanation": "Grafiğe açıklayıcı başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title(\"KNN (Scaling sonrası) - Confusion Matrix\")",
+              "explanation": "Grafiğe açıklayıcı başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_knn = confusion_matrix(y_test, y_pred_knn_scaled)' bloğunda grafiğe açıklayıcı başlık ekler."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_knn = confusion_matrix(y_test, y_pred_knn_scaled)' bloğunda grafiğe açıklayıcı başlık ekler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.xlabel(\"Tahmin\")",
+          "lineExplanation": "X eksenine etiket yazar.",
+          "tokens": [
+            {
+              "token": "plt.xlabel(\"Tahmin\")",
+              "explanation": "X eksenine etiket yazar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_knn = confusion_matrix(y_test, y_pred_knn_scaled)' bloğunda x eksenine etiket yazar."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_knn = confusion_matrix(y_test, y_pred_knn_scaled)' bloğunda x eksenine etiket yazar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.ylabel(\"Gerçek\")",
+          "lineExplanation": "Y eksenine etiket yazar.",
+          "tokens": [
+            {
+              "token": "plt.ylabel(\"Gerçek\")",
+              "explanation": "Y eksenine etiket yazar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_knn = confusion_matrix(y_test, y_pred_knn_scaled)' bloğunda y eksenine etiket yazar."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_knn = confusion_matrix(y_test, y_pred_knn_scaled)' bloğunda y eksenine etiket yazar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda gösterir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Hazırlanan grafiği ekranda gösterir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_knn = confusion_matrix(y_test, y_pred_knn_scaled)' bloğunda hazırlanan grafiği ekranda gösterir."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_knn = confusion_matrix(y_test, y_pred_knn_scaled)' bloğunda hazırlanan grafiği ekranda gösterir."
+        }
+      ],
+      "expectedOutput": "<Figure size 800x600 with 0 Axes>\n\n<Axes: >\n\nText(0.5, 1.0, 'KNN (Scaling sonrası) - Confusion Matrix')\n\nText(0.5, 32.249999999999986, 'Tahmin')\n\nText(66.25, 0.5, 'Gerçek')\n\n<Figure size 800x600 with 2 Axes>",
+      "plotImage": "h5-digit-b017.png"
+    },
+    {
+      "id": "hafta5_digit-b018",
+      "title": "results = pd.DataFrame({",
+      "blockExplanation": "results = pd.DataFrame({ adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "results = pd.DataFrame({",
+          "lineExplanation": "Modellerin metriklerini tek tabloda toplamak için sonuç DataFrame'ini başlatır.",
+          "tokens": [
+            {
+              "token": "pd.DataFrame(...)",
+              "explanation": "Veriyi DataFrame yapısına dönüştürür.",
+              "turkce": "DataFrame",
+              "amac": "Tablolu yapı üzerinde işlem yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'results = pd.DataFrame({' bloğunda modellerin metriklerini tek tabloda toplamak için sonuç dataframe'ini başlatır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    \"Model\": [",
+          "lineExplanation": "Sonuç tablosundaki model adı sütununu başlatır.",
+          "tokens": [
+            {
+              "token": "\"Model\"",
+              "explanation": "Sonuç tablosunda model adlarının tutulacağı sütundur.",
+              "turkce": "Kolon Adı",
+              "amac": "Karşılaştırma tablosunda model isimlerini yazmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'results = pd.DataFrame({' bloğunda karşılaştırma tablosunun model isimleri kolonunu tanımlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "        \"Decision Tree\",",
+          "lineExplanation": "Sonuç tablosundaki model listesine `Decision Tree` satırını ekler.",
+          "tokens": [
+            {
+              "token": "Decision Tree",
+              "explanation": "Karşılaştırma tablosunda `Decision Tree` model adını temsil eder.",
+              "turkce": "Model Adı",
+              "amac": "Sonuç tablosunda ilgili modeli etiketlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'results = pd.DataFrame({' bloğunda karşılaştırılacak modellerden birinin adını tabloya yazar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "        \"KNN (Scaling yok)\",",
+          "lineExplanation": "Sonuç tablosundaki model listesine `KNN (Scaling yok)` satırını ekler.",
+          "tokens": [
+            {
+              "token": "KNN (Scaling yok)",
+              "explanation": "Karşılaştırma tablosunda `KNN (Scaling yok)` model adını temsil eder.",
+              "turkce": "Model Adı",
+              "amac": "Sonuç tablosunda ilgili modeli etiketlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'results = pd.DataFrame({' bloğunda karşılaştırılacak modellerden birinin adını tabloya yazar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "        \"KNN (Scaling var)\"",
+          "lineExplanation": "Sonuç tablosundaki model listesine `KNN (Scaling var)` satırını ekler.",
+          "tokens": [
+            {
+              "token": "KNN (Scaling var)",
+              "explanation": "Karşılaştırma tablosunda `KNN (Scaling var)` model adını temsil eder.",
+              "turkce": "Model Adı",
+              "amac": "Sonuç tablosunda ilgili modeli etiketlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'results = pd.DataFrame({' bloğunda karşılaştırılacak modellerden birinin adını tabloya yazar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    ],",
+          "lineExplanation": "], satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "],",
+              "explanation": "], satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'results = pd.DataFrame({' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'results = pd.DataFrame({' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    \"Accuracy\": [",
+          "lineExplanation": "Sonuç tablosundaki accuracy sütununu başlatır.",
+          "tokens": [
+            {
+              "token": "\"Accuracy\"",
+              "explanation": "Modellerin accuracy değerlerini tutacak sütunu tanımlar.",
+              "turkce": "Kolon Adı",
+              "amac": "Doğruluk skorlarını tabloya eklemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'results = pd.DataFrame({' bloğunda doğruluk oranlarının yazılacağı kolonu tanımlar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "        accuracy_score(y_test, y_pred_dt),",
+          "lineExplanation": "Gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar.",
+          "tokens": [
+            {
+              "token": "accuracy_score(...)",
+              "explanation": "Doğruluk oranını hesaplar.",
+              "turkce": "Accuracy",
+              "amac": "Tahmin başarısını tek sayı ile görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'results = pd.DataFrame({' bloğunda gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "        accuracy_score(y_test, y_pred_knn),",
+          "lineExplanation": "Gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar.",
+          "tokens": [
+            {
+              "token": "accuracy_score(...)",
+              "explanation": "Doğruluk oranını hesaplar.",
+              "turkce": "Accuracy",
+              "amac": "Tahmin başarısını tek sayı ile görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'results = pd.DataFrame({' bloğunda gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "        accuracy_score(y_test, y_pred_knn_scaled)",
+          "lineExplanation": "Gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar.",
+          "tokens": [
+            {
+              "token": "accuracy_score(...)",
+              "explanation": "Doğruluk oranını hesaplar.",
+              "turkce": "Accuracy",
+              "amac": "Tahmin başarısını tek sayı ile görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'results = pd.DataFrame({' bloğunda gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "    ]",
+          "lineExplanation": "Bir önceki metrik listesini kapatır.",
+          "tokens": [
+            {
+              "token": "]",
+              "explanation": "Bir önceki metrik listesinin tanımını sonlandırır.",
+              "turkce": "Liste Kapanışı",
+              "amac": "DataFrame sözlüğündeki dizi tanımını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'results = pd.DataFrame({' bloğunda sonuç tablosuna eklenecek metrik dizisinin kapanışını yapar."
+        },
+        {
+          "lineNumber": 12,
+          "code": "})",
+          "lineExplanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+          "tokens": [
+            {
+              "token": "})",
+              "explanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'results = pd.DataFrame({' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+            }
+          ],
+          "codeContext": "Bu satır, 'results = pd.DataFrame({' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+        },
+        {
+          "lineNumber": 13,
+          "code": "results",
+          "lineExplanation": "Hazırlanan model karşılaştırma tablosunu notebook çıktısı olarak gösterir.",
+          "tokens": [
+            {
+              "token": "results",
+              "explanation": "Model karşılaştırma sonuçlarını içeren DataFrame'dir.",
+              "turkce": "Sonuç Tablosu",
+              "amac": "Accuracy, train ve test skorlarını birlikte görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'results = pd.DataFrame({' bloğunda daha önce kurulan sonuç DataFrame'ini görünür kılar."
+        }
+      ],
+      "expectedOutput": "Model  Accuracy\n0      Decision Tree  0.811111\n1  KNN (Scaling yok)  0.988889\n2  KNN (Scaling var)  0.988889"
+    },
+    {
+      "id": "hafta5_digit-b019",
+      "title": "k_values = range(1, 21)",
+      "blockExplanation": "k_values = range(1, 21) adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "k_values = range(1, 21)",
+          "lineExplanation": "Denenecek K komşu değerleri aralığını tanımlar.",
+          "tokens": [
+            {
+              "token": "k_values",
+              "explanation": "Denenecek K komşu değerleri aralığını tanımlar.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'k_values = range(1, 21)' bloğunda denenecek k komşu değerleri aralığını tanımlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'k_values = range(1, 21)' bloğunda denenecek k komşu değerleri aralığını tanımlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "scores = []",
+          "lineExplanation": "Her K değeri için hesaplanacak başarı skorlarını saklayacak boş liste oluşturur.",
+          "tokens": [
+            {
+              "token": "scores",
+              "explanation": "Her K değeri için hesaplanacak başarı skorlarını saklayacak boş liste oluşturur.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'k_values = range(1, 21)' bloğunda her k değeri için hesaplanacak başarı skorlarını saklayacak boş liste oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'k_values = range(1, 21)' bloğunda her k değeri için hesaplanacak başarı skorlarını saklayacak boş liste oluşturur."
+        },
+        {
+          "lineNumber": 3,
+          "code": "for k in k_values:",
+          "lineExplanation": "Her K değeri için modeli yeniden kurup başarıyı ölçen döngüyü başlatır.",
+          "tokens": [
+            {
+              "token": "for k in k_values:",
+              "explanation": "Her K değeri için modeli yeniden kurup başarıyı ölçen döngüyü başlatır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'k_values = range(1, 21)' bloğunda her k değeri için modeli yeniden kurup başarıyı ölçen döngüyü başlatır."
+            }
+          ],
+          "codeContext": "Bu satır, 'k_values = range(1, 21)' bloğunda her k değeri için modeli yeniden kurup başarıyı ölçen döngüyü başlatır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    model = KNeighborsClassifier(n_neighbors=k)",
+          "lineExplanation": "KNN modelini belirtilen komşu sayısı veya uzaklık metriğiyle oluşturur.",
+          "tokens": [
+            {
+              "token": "KNeighborsClassifier(...)",
+              "explanation": "KNN modelini oluşturur.",
+              "turkce": "KNN",
+              "amac": "Komşuluk temelli sınıflandırma yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'k_values = range(1, 21)' bloğunda knn modelini belirtilen komşu sayısı veya uzaklık metriğiyle oluşturur."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    model.fit(X_train_scaled, y_train)",
+          "lineExplanation": "Modeli eğitim verisi üzerinde öğrenme sürecine sokar.",
+          "tokens": [
+            {
+              "token": ".fit(...)",
+              "explanation": "Modeli eğitim verisiyle öğrenme sürecine sokar.",
+              "turkce": "Model Eğitimi",
+              "amac": "Algoritmanın veriden kural çıkarmasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'k_values = range(1, 21)' bloğunda modeli eğitim verisi üzerinde öğrenme sürecine sokar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    pred = model.predict(X_test_scaled)",
+          "lineExplanation": "Eğitilmiş model ile yeni veriler için tahmin üretir.",
+          "tokens": [
+            {
+              "token": ".predict(...)",
+              "explanation": "Eğitilmiş modelle tahmin üretir.",
+              "turkce": "Tahmin",
+              "amac": "Test veya yeni veri üzerinde sınıf üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'k_values = range(1, 21)' bloğunda eğitilmiş model ile yeni veriler için tahmin üretir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    scores.append(accuracy_score(y_test, pred))",
+          "lineExplanation": "Gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar.",
+          "tokens": [
+            {
+              "token": "accuracy_score(...)",
+              "explanation": "Doğruluk oranını hesaplar.",
+              "turkce": "Accuracy",
+              "amac": "Tahmin başarısını tek sayı ile görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'k_values = range(1, 21)' bloğunda gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.figure(figsize=(8,5))",
+          "lineExplanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+          "tokens": [
+            {
+              "token": "plt.figure(figsize=(8,5))",
+              "explanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'k_values = range(1, 21)' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'k_values = range(1, 21)' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.plot(k_values, scores, marker=\"o\")",
+          "lineExplanation": "K değerleri ile accuracy skorlarını çizgi grafikte birleştirir.",
+          "tokens": [
+            {
+              "token": "plt.plot(k_values, scores, marker=\"o\")",
+              "explanation": "K değerlerini x eksenine, accuracy skorlarını y eksenine çizerek performans eğrisi oluşturur.",
+              "turkce": "Performans Eğrisi",
+              "amac": "En uygun K değerini görsel olarak aramak."
+            }
+          ],
+          "codeContext": "Bu satır, 'k_values = range(1, 21)' bloğunda farklı K değerlerinin başarıya etkisini eğri olarak çizer."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.title(\"K Değerine Göre KNN Performansı\")",
+          "lineExplanation": "Grafiğe açıklayıcı başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title(\"K Değerine Göre KNN Performansı\")",
+              "explanation": "Grafiğe açıklayıcı başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'k_values = range(1, 21)' bloğunda grafiğe açıklayıcı başlık ekler."
+            }
+          ],
+          "codeContext": "Bu satır, 'k_values = range(1, 21)' bloğunda grafiğe açıklayıcı başlık ekler."
+        },
+        {
+          "lineNumber": 11,
+          "code": "plt.xlabel(\"K değeri\")",
+          "lineExplanation": "X eksenine etiket yazar.",
+          "tokens": [
+            {
+              "token": "plt.xlabel(\"K değeri\")",
+              "explanation": "X eksenine etiket yazar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'k_values = range(1, 21)' bloğunda x eksenine etiket yazar."
+            }
+          ],
+          "codeContext": "Bu satır, 'k_values = range(1, 21)' bloğunda x eksenine etiket yazar."
+        },
+        {
+          "lineNumber": 12,
+          "code": "plt.ylabel(\"Accuracy\")",
+          "lineExplanation": "Y eksenine etiket yazar.",
+          "tokens": [
+            {
+              "token": "plt.ylabel(\"Accuracy\")",
+              "explanation": "Y eksenine etiket yazar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'k_values = range(1, 21)' bloğunda y eksenine etiket yazar."
+            }
+          ],
+          "codeContext": "Bu satır, 'k_values = range(1, 21)' bloğunda y eksenine etiket yazar."
+        },
+        {
+          "lineNumber": 13,
+          "code": "plt.xticks(k_values)",
+          "lineExplanation": "X eksenindeki işaretleri veya yazıları özelleştirir.",
+          "tokens": [
+            {
+              "token": "plt.xticks(k_values)",
+              "explanation": "X eksenindeki işaretleri veya yazıları özelleştirir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'k_values = range(1, 21)' bloğunda x eksenindeki işaretleri veya yazıları özelleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'k_values = range(1, 21)' bloğunda x eksenindeki işaretleri veya yazıları özelleştirir."
+        },
+        {
+          "lineNumber": 14,
+          "code": "plt.grid(True)",
+          "lineExplanation": "Grafiğe referans ızgara çizgileri ekler.",
+          "tokens": [
+            {
+              "token": "plt.grid(True)",
+              "explanation": "Grafiğe referans ızgara çizgileri ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'k_values = range(1, 21)' bloğunda grafiğe referans ızgara çizgileri ekler."
+            }
+          ],
+          "codeContext": "Bu satır, 'k_values = range(1, 21)' bloğunda grafiğe referans ızgara çizgileri ekler."
+        },
+        {
+          "lineNumber": 15,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda gösterir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Hazırlanan grafiği ekranda gösterir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'k_values = range(1, 21)' bloğunda hazırlanan grafiği ekranda gösterir."
+            }
+          ],
+          "codeContext": "Bu satır, 'k_values = range(1, 21)' bloğunda hazırlanan grafiği ekranda gösterir."
+        }
+      ],
+      "expectedOutput": "<Figure size 800x500 with 0 Axes>\n\n[<matplotlib.lines.Line2D object at 0x7fda0409f4d0>]\n\nText(0.5, 1.0, 'K Değerine Göre KNN Performansı')\n\nText(0.5, 0, 'K değeri')\n\nText(0, 0.5, 'Accuracy')\n\n([<matplotlib.axis.XTick object at 0x7fd9f8701e50>, <matplotlib.axis.XTick object at 0x7fd9f8703250>, <matplotlib.axis.XTick object at 0x7fd9f8703610>, <matplotlib.axis.XTick object at 0x7fd9f87039d0>, <matplotlib.axis.XTick object at 0x7fd9f8703d90>, <matplotlib.axis.XTick object at 0x7fd9f875c190>, <matplotlib.axis.XTick object at 0x7fd9f875c550>, <matplotlib.axis.XTick object at 0x7fd9f875c910>, <matplotlib.axis.XTick object at 0x7fd9f875ccd0>, <matplotlib.axis.XTick object at 0x7fd9f875d090>, <matplotlib.axis.XTick object at 0x7fd9f875d450>, <matplotlib.axis.XTick object at 0x7fd9f875d810>, <matplotlib.axis.XTick object at 0x7fd9f875dbd0>, <matplotlib.axis.XTick object at 0x7fd9f875df90>, <matplotlib.axis.XTick object at 0x7fd9f875e350>, <matplotlib.axis.XTick object at 0x7fd9f875e710>, <matplotlib.axis.XTick object at 0x7fd9f875ead0>, <matplotlib.axis.XTick object at 0x7fd9f875ee90>, <matplotlib.axis.XTick object at 0x7fd9f875f250>, <matplotlib.axis.XTick object at 0x7fd9f875f610>], [Text(1, 0, '1'), Text(2, 0, '2'), Text(3, 0, '3'), Text(4, 0, '4'), Text(5, 0, '5'), Text(6, 0, '6'), Text(7, 0, '7'), Text(8, 0, '8'), Text(9, 0, '9'), Text(10, 0, '10'), Text(11, 0, '11'), Text(12, 0, '12'), Text(13, 0, '13'), Text(14, 0, '14'), Text(15, 0, '15'), Text(16, 0, '16'), Text(17, 0, '17'), Text(18, 0, '18'), Text(19, 0, '19'), Text(20, 0, '20')])\n\n<Figure size 800x500 with 1 Axes>",
+      "plotImage": "h5-digit-b019.png"
+    }
+  ]
+}

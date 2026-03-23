@@ -1,6 +1,22 @@
 @use "./base.scss";
 @use "./variables.scss" as *;
 
+// ===== MODAL SCROLL LOCK =====
+html:has(body.mobile-menu-open),
+html:has(body.settings-modal-open),
+html:has(body.modules-modal-open) {
+  overflow: hidden !important;
+  height: 100dvh !important;
+  overscroll-behavior: none !important;
+
+  body {
+    overflow: hidden !important;
+    height: 100dvh !important;
+    overscroll-behavior: none !important;
+  }
+}
+
+
 // ==========================================
 // NOETIC LOGOS THEME v19 - TEMA UYUMLU MOBİL
 // ==========================================

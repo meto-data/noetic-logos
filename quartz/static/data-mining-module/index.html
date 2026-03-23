@@ -6,13 +6,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noetic Mining</title>
     <meta name="description" content="Noetic Mining veri madenciliği sinav ve kodlab modulu." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/noetic-logos/static/data-mining-module/assets/index-CmPXvUdH.js"></script>
-    <link rel="stylesheet" crossorigin href="/noetic-logos/static/data-mining-module/assets/index-CbkdUMff.css">
+    <style>
+      body.boot-loading {
+        margin: 0;
+        overflow: hidden;
+        background: #fbf1c7;
+        color: #282828;
+        font-family: 'Lexend', system-ui, -apple-system, sans-serif;
+      }
+
+      body.boot-loading #root {
+        visibility: hidden;
+      }
+
+      #boot-splash {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background:
+          radial-gradient(circle at top left, rgba(181, 118, 20, 0.18), transparent 36%),
+          radial-gradient(circle at bottom right, rgba(69, 133, 136, 0.14), transparent 38%),
+          linear-gradient(180deg, #fbf1c7 0%, #f2e5bc 100%);
+        transition: opacity 220ms ease, visibility 220ms ease;
+      }
+
+      #boot-splash.hide {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .boot-shell {
+        width: min(420px, calc(100vw - 32px));
+        padding: 28px 24px;
+        border: 1px solid rgba(60, 56, 54, 0.12);
+        border-radius: 24px;
+        background: rgba(251, 241, 199, 0.82);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 24px 70px rgba(60, 56, 54, 0.12);
+      }
+
+      .boot-head {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .boot-badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+        background: rgba(181, 118, 20, 0.16);
+        color: #b57614;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      .boot-title {
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #282828;
+      }
+
+      .boot-subtitle {
+        margin: 4px 0 0;
+        font-size: 0.74rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(181, 118, 20, 0.8);
+      }
+
+      .boot-copy {
+        margin: 16px 0 18px;
+        font-size: 0.92rem;
+        line-height: 1.55;
+        color: #665c54;
+      }
+
+      .boot-bar {
+        position: relative;
+        height: 10px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(168, 153, 132, 0.22);
+      }
+
+      .boot-bar::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        width: 42%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #b57614 0%, #458588 100%);
+        animation: boot-slide 1.15s ease-in-out infinite;
+      }
+
+      .boot-foot {
+        margin-top: 10px;
+        font-size: 0.78rem;
+        color: #a89984;
+      }
+
+      @keyframes boot-slide {
+        0% {
+          transform: translateX(-115%);
+        }
+        50% {
+          transform: translateX(130%);
+        }
+        100% {
+          transform: translateX(240%);
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/noetic-logos/static/data-mining-module/assets/index-D0ncCkV8.js"></script>
+    <link rel="stylesheet" crossorigin href="/noetic-logos/static/data-mining-module/assets/index-DSshCfoU.css">
   </head>
-  <body>
+  <body class="boot-loading">
+    <div id="boot-splash" aria-live="polite" aria-label="Uygulama yükleniyor">
+      <div class="boot-shell">
+        <div class="boot-head">
+          <div class="boot-badge">NM</div>
+          <div>
+            <h1 class="boot-title">Noetic Mining</h1>
+            <p class="boot-subtitle">Veri Madenciliği</p>
+          </div>
+        </div>
+        <p class="boot-copy">Fontlar, ikonlar ve uygulama bileşenleri yükleniyor.</p>
+        <div class="boot-bar"></div>
+        <div class="boot-foot">Arayüz hazır olunca otomatik açılır.</div>
+      </div>
+    </div>
     <div id="root"></div>
   </body>
 </html>

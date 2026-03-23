@@ -112,14 +112,14 @@ const setupMobileChrome = () => {
     leftSidebar.classList.add("mobile-open")
     hamburger.classList.add("active")
     overlay.classList.add("active")
-    document.body.style.overflow = "hidden"
+    document.body.classList.add("mobile-menu-open")
   }
 
   const closeMenu = () => {
     leftSidebar.classList.remove("mobile-open")
     hamburger.classList.remove("active")
     overlay.classList.remove("active")
-    document.body.style.overflow = ""
+    document.body.classList.remove("mobile-menu-open")
   }
 
   const toggleMenu = () => {

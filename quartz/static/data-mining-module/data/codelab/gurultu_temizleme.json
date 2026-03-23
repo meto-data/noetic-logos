@@ -63,8 +63,15 @@
         {
           "lineNumber": 4,
           "code": "data_noisy = {",
-          "lineExplanation": "Gürültülü veri setinin sütunlarını tanımlayan bir Python sözlüğü (diçtionary) oluşturmaya başlar.",
-          "tokens": [],
+          "lineExplanation": "Gürültülü veri setinin sütunlarını tanımlayan bir Python sözlüğü (dictionary) oluşturmaya başlar.",
+          "tokens": [
+            {
+              "token": "data_noisy",
+              "explanation": "Gürültülü veri setinin sütunlarını tanımlayan bir Python sözlüğü (dictionary) oluşturmaya başlar.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+            }
+          ],
           "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
@@ -125,7 +132,14 @@
           "lineNumber": 8,
           "code": "}",
           "lineExplanation": "Sözlük tanımını kapatır.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "}",
+              "explanation": "Sözlük tanımını kapatır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
+            }
+          ],
           "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
@@ -165,7 +179,7 @@
           "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
-      "expectedOutput": "   ID      Ölçüm_1      Ölçüm_2\n0   1   637.284512   438.127643\n1   2   854.932178   712.549831\n2   3   203.718294   567.832104\n3   4   491.056723   289.413567\n4   5   728.391045   845.672318"
+      "expectedOutput": "ID      Ölçüm_1     Ölçüm_2\n0   1  1048.377157  883.141050\n1   2   708.084966  592.525777\n2   3   391.291670  857.446645\n3   4   649.955524  250.315916\n4   5   325.855745  683.356378"
     },
     {
       "id": "gurultu-b002",
@@ -223,7 +237,14 @@
           "lineNumber": 3,
           "code": "df_moving_avg[\"Ölçüm_2_MA\"] = df_noisy[\"Ölçüm_2\"].rolling(window=4).mean()",
           "lineExplanation": "Ölçüm_2 sütununa da aynı şekilde 4 elemanlı hareketli ortalama uygular.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "df_moving_avg[\"Ölçüm_2_MA\"]",
+              "explanation": "Ölçüm_2 sütununa da aynı şekilde 4 elemanlı hareketli ortalama uygular.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Hareketli Ortalama (Moving Average)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+            }
+          ],
           "codeContext": "Bu satır, 'Hareketli Ortalama (Moving Average)' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
         },
         {
@@ -248,7 +269,7 @@
           "codeContext": "Bu satır, 'Hareketli Ortalama (Moving Average)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
-      "expectedOutput": "   ID      Ölçüm_1      Ölçüm_2  Ölçüm_1_MA  Ölçüm_2_MA\n0   1   637.284512   438.127643         NaN         NaN\n1   2   854.932178   712.549831         NaN         NaN\n2   3   203.718294   567.832104         NaN         NaN\n3   4   491.056723   289.413567  546.747927  501.980786\n4   5   728.391045   845.672318  569.524560  603.866955\n5   6   312.847291   421.305872  434.003338  531.055965\n6   7   567.123894   634.218493  524.854738  547.652563\n7   8   445.672138   378.941267  513.508592  570.034488\n8   9   891.234567   723.456789  554.219473  539.480605\n9  10   234.567891   512.345678  534.649623  562.240557",
+      "expectedOutput": "ID      Ölçüm_1     Ölçüm_2  Ölçüm_1_MA  Ölçüm_2_MA\n0   1  1048.377157  883.141050         NaN         NaN\n1   2   708.084966  592.525777         NaN         NaN\n2   3   391.291670  857.446645         NaN         NaN\n3   4   649.955524  250.315916  699.427329  645.857347\n4   5   325.855745  683.356378  518.796976  595.911179\n5   6   793.276398  283.718518  540.094834  518.709364\n6   7   811.407376   90.483866  645.123760  326.968670\n7   8   880.686891  792.096088  702.806602  462.413712\n8   9   965.129266  740.108312  862.624983  476.601696\n9  10   869.732252  211.251646  881.738946  458.484978",
       "plotImage": "gurultu-b002.png"
     },
     {
@@ -289,7 +310,14 @@
           "lineNumber": 3,
           "code": "for col in [\"Ölçüm_1\", \"Ölçüm_2\"]:",
           "lineExplanation": "İki ölçüm sütunu üzerinde döngü başlatır. Her iki sütuna da aynı bölmeleme işlemi uygulanacak.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "for col in [\"Ölçüm_1\", \"Ölçüm_2\"]:",
+              "explanation": "İki ölçüm sütunu üzerinde döngü başlatır. Her iki sütuna da aynı bölmeleme işlemi uygulanacak.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
+            }
+          ],
           "codeContext": "Bu satır, 'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
@@ -334,7 +362,7 @@
           "codeContext": "Bu satır, 'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
-      "expectedOutput": "   ID  Ölçüm_1  Ölçüm_2\n0   1        2        1\n1   2        3        2\n2   3        0        2\n3   4        1        0\n4   5        2        3\n5   6        1        1\n6   7        2        2",
+      "expectedOutput": "ID  Ölçüm_1  Ölçüm_2\n0   1        3        3\n1   2        2        2\n2   3        1        3\n3   4        2        1\n4   5        1        2\n5   6        2        1\n6   7        2        0",
       "plotImage": "gurultu-b003.png"
     },
     {
@@ -375,7 +403,14 @@
           "lineNumber": 3,
           "code": "for col in [\"Ölçüm_1\", \"Ölçüm_2\"]:",
           "lineExplanation": "İki ölçüm sütunu üzerinde döngü başlatır.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "for col in [\"Ölçüm_1\", \"Ölçüm_2\"]:",
+              "explanation": "İki ölçüm sütunu üzerinde döngü başlatır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
+            }
+          ],
           "codeContext": "Bu satır, 'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         },
         {
@@ -420,7 +455,7 @@
           "codeContext": "Bu satır, 'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
-      "expectedOutput": "   ID  Ölçüm_1  Ölçüm_2\n0   1        2        1\n1   2        3        3\n2   3        0        1\n3   4        1        0\n4   5        3        3\n5   6        0        1\n6   7        2        2"
+      "expectedOutput": "ID  Ölçüm_1  Ölçüm_2\n0   1        3        3\n1   2        2        2\n2   3        1        3\n3   4        2        0\n4   5        0        2\n5   6        2        0\n6   7        2        0"
     },
     {
       "id": "gurultu-b005",
@@ -458,7 +493,14 @@
           "lineNumber": 2,
           "code": "print(frekanslar)",
           "lineExplanation": "Her bölmedeki eleman sayısını yazdırır. qcut kullanıldığı için 4 bölmede de yaklaşık 25'er eleman olması beklenir.",
-          "tokens": [],
+          "tokens": [
+            {
+              "token": "print(frekanslar)",
+              "explanation": "Her bölmedeki eleman sayısını yazdırır. qcut kullanıldığı için 4 bölmede de yaklaşık 25'er eleman olması beklenir.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Frekans Dağılımı Kontrolü' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
+            }
+          ],
           "codeContext": "Bu satır, 'Frekans Dağılımı Kontrolü' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
@@ -668,7 +710,7 @@
           "codeContext": "Bu satır, 'Eğri Uydurma (Curve Fitting)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
-      "expectedOutput": "   ID      Ölçüm_1      Ölçüm_2  Ölçüm_1_Fitted  Ölçüm_2_Fitted\n0   1   637.284512   438.127643      548.231456      523.148723\n1   2   854.932178   712.549831      548.017234      524.561238\n2   3   203.718294   567.832104      547.803012      525.973754\n3   4   491.056723   289.413567      547.588790      527.386269\n4   5   728.391045   845.672318      547.374568      528.798785",
+      "expectedOutput": "ID      Ölçüm_1     Ölçüm_2  Ölçüm_1_Fitted  Ölçüm_2_Fitted\n0   1  1048.377157  883.141050      670.902112      883.001545\n1   2   708.084966  592.525777      669.664954      593.271680\n2   3   391.291670  857.446645      668.427796      855.713634\n3   4   649.955524  250.315916      667.190637      252.616039\n4   5   325.855745  683.356378      665.953479      681.508462\n\nLinearRegression()",
       "plotImage": "gurultu-b006.png"
     }
   ]

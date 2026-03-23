@@ -396,7 +396,7 @@
           "codeContext": "Bu satır, görsel çıktıyı sayısal özetle destekleyerek hangi sütunda kaç eksik bulunduğunu terminal kısmında da gösterir."
         }
       ],
-      "expectedOutput": "Grafik çıktısı aşağıda görünür.\n\nID             0\nKategori       0\nGelir         10\nGider         10\nKar           10\nMemnuniyet     0\ndtype: int64"
+      "expectedOutput": "<Figure size 1100x500 with 0 Axes>\n\n<Axes: >\n\nText(0.5, 1.0, 'Eksik Veri Matrisi')\n\nText(0.5, 21.249999999999993, 'Sütunlar')\n\nText(103.75, 0.5, 'Satırlar')\n\n<Figure size 1100x500 with 1 Axes>\n\nID             0\nKategori       0\nGelir         10\nGider         10\nKar           10\nMemnuniyet     0\ndtype: int64"
     },
     {
       "id": "veri_tamamlama-b007",
