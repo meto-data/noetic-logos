@@ -225,9 +225,9 @@ HTML elemanlarını CSS ile seçmek veya JavaScript ile manipüle etmek için ku
 
 # Derse Aşkın
 
-## Sınav Odaklı Vurgular (Hocanın Önemsediği Yerler)
+## Sınav Odaklı Vurgular
 
-1.  **Block ve Inline Kavramları (Kesin Sınav Sorusu Adayı):**
+1.  **Block ve Inline Kavramları (Sınav Sorusu Adayı):**
     * *Soru Potansiyeli:* "Aşağıdakilerden hangisi block-level bir elementtir?" (Cevap: div, p, vb.) veya "Inline bir element, block bir elementi kapsayabilir mi?" (Cevap: Hayır).
 2. **Class ve ID Farkı:**
     * Hoca hem teorik olarak hem de editörde deneyerek bu ikisinin farkı üzerinde durdu. `class`'ın birden çok elemana, `ID`'nin tek bir elemana verildiği çıkabilir.

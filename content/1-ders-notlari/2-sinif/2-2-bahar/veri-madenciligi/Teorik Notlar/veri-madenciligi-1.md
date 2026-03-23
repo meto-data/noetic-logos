@@ -106,7 +106,7 @@ Verinin sonucu (hedef değişkeni) önceden bellidir. Geçmiş veriden öğrener
 | Yöntem                             | Açıklama                                                                           | Algoritmalar                           |
 | ---------------------------------- | ---------------------------------------------------------------------------------- | -------------------------------------- |
 | **Sınıflandırma (Classification)** | Çıktı **kategoriktir** (Evet/Hayır, Hasta/Sağlıklı). Veriyi ayrık sınıflara böler. | Karar Ağaçları, Naive Bayes, SVM, KNN. |
-| **Regresyon**                      | Çıktı **sürekli ve sayısaldır**. Veriyi bir fonksiyona/eğriye yedirir.             | Lineer Regresyon, Lojistik Regresyon   |
+| **Regresyon**                      | Çıktı **sürekli ve sayısaldır**. Veriyi bir fonksiyona/eğriye yedirir.             | Lineer Regresyon vb.                   |
 | **Zaman Serileri**                 | Zaman içinde değişen verinin trend analizi.                                        | ARIMA, LSTM.                           |
 
 ### B. Tanımlayıcı Yöntemler (Descriptive/Unsupervised Learning)

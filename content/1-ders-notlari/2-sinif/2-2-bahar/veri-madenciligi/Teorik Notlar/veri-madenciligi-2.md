@@ -22,6 +22,10 @@ slug: veri-madenciligi-2
 	- **Nesne**: Kayıt, varlık, örnek (satırlar).
 	- **Nitelik**: Bir nesnenin özelliği, **boyutu** (sütunlar). Örn: Yaş, sıcaklık, göz rengi vs.
 
+### Boyut
+
+ - **Sütun/Boyut (Column/Dimension) X - Bağımsız Değişkenler**: Değişken sayısıdır (örn: yaş, maaş, cinsiyet = 3 boyut).
+
 >[!info] Boyut (Dimension) Kavramı
 >Veri madenciliğinde sütun sayısı, verinin boyutunu (ve kapladığı büyüklüğü) belirler.
 >

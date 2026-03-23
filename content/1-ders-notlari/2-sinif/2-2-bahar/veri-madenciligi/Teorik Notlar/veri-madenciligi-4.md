@@ -144,20 +144,22 @@ Veriyi **ardışık kararlar vererek** bölme mantığıyla (if-else tarzı) ça
 4. **Kenarlar (Edges)**: Sorular arası bağlantılardır.
 
 
-##### Karar Ağaçlarının (Decision Tree) Avantajları
+#### Karar Ağaçlarının (Decision Tree) Avantajları
 - **Yorumlanması kolaydır**: İnsan mantığına (if-else) çok uygun olduğu için alınan kararın nedeni kolayca açıklanabilir.
 - **Görselleştirilebilir**: Ağaç yapısı çizilerek sunum yapılabilir.
 - **Sezgisel bilgi sağlar**: Hangi değişkenin (feature) hedefi belirlemede daha önemli olduğunu (root node'a yakınlığına bakarak) hemen anlarız.
 
-##### Ağacın Durma Kriteri
+#### Ağacın Durma Kriteri
 - Düğüm sayısı arttıkça modelin karmaşıklığı da artar. Karmaşıklığın artması bizi *overfitting* tehlikesine götürür.
 - **Dallanma ne zaman durur?**: Algoritma bu alt gruplara ayırma işlemini şu iki durumdan biri gerçekleşene kadar sürdürür:
 	1. Veri tamamen saf olana kadar (örn: yapraktaki herkesin "yes " olması).
 	2. Dışarıdan bir **durdurma kriteri** (örn: `max_depth`) sağlanana kadar.
 
+#### Karar Ağaçlarının En büyük Problemi: OVERFITTING (Aşırı Öğrenme)
+
 >[!danger] Karar Ağaçlarının En büyük Problemi: OVERFITTING (Aşırı Öğrenme)
 >Makinenin veriyi öğrenmesi değil, **ezberlemesidir**. Ezberleyen makine, tıpkı ezberci bir öğrenci gibi, yeni bir durumla karşılaştığında yorum (tahmin) yapamaz ve çuvallar. **Ezberlersek, farklı alanda yorum yapamayız**. <br>
->**Çözüm**: Karar ağaçlarının bu sorunu çözmek için birden fazla karar ağacının birleşiminden oluşan [[Random Forest]] (Rassal Orman) algoritması geliştirilmiştir.
+>**Çözüm**: Karar ağaçlarının bu sorunu çözmek için birden fazla karar ağacının birleşiminden oluşan [[veri-madenciligi-5#A. Random Forests|Random Forest]] (Rassal Orman) algoritması geliştirilmiştir.
 
 >[!info] 📉 Eğitim Grafiği (Time vs. Loss) ve Overfitting'in Tespiti
 >Makine öğrenirken arka planda bir **Zaman (Time)** ve **Hata/Kayıp (Loss)** grafiği oluşur. Eğitim ilerledikçe hata oranı sıfıra doğru yaklaşır. 

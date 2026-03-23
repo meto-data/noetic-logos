@@ -139,12 +139,11 @@ Derste form mantığını anlamak için dış sitelere veri gönderildi:
 
 ## Derse Aşkın
 
-Hocanın anlattıklarında düzeltilmesi gereken kritik hatalar (Hakikat) ve sınavda sorabileceği, üzerine basa basa vurguladığı yerler.
 ## Sınav Odaklı Vurgular
-1. **`name` Özelliğinin Önemi (Kesin Sınav Sorusu Adayı):**
+1. **`name` Özelliğinin Önemi (Sınav Sorusu Adayı):**
     * Bir formun karşı tarafa (sunucuya) veri gönderebilmesi için `<input>` etiketinde kesinlikle **`name`** özelliği olmalıdır.  (URL'de `?isim=Ali` kısmındaki `isim` kelimesi `name`'den gelir).
 2. **`action` Özelliği Boş Bırakılırsa Ne Olur?**
-    * Hoca derste bizzat kodu silerek test etti: "Action kısmını silelim... Ne oldu? Tekrar aynı sayfaya döndü." Sınavda "Bir formun action özelliği tanımlanmazsa form submit edildiğinde ne gerçekleşir?" şeklinde bir test sorusu olarak karşınıza çıkma ihtimali çok yüksektir.
+    * Hoca derste bizzat kodu silerek test etti: "Action kısmını silelim... Ne oldu? Tekrar aynı sayfaya döndü." Sınavda "Bir formun action özelliği tanımlanmazsa form submit edildiğinde ne gerçekleşir?" şeklinde bir test sorusu olarak çıkma ihtimali yüksek.
 3. **Form Elemanlarının Inline (Satıriçi) Olması:**
     * Form elemanlarının varsayılan davranışının blok değil, satıriçi (inline) olduğu sınavda sorulabilir. `<br>` etiketi koyarız bu durumlarda.
 4. **Enter Tuşu ile Form Gönderme:**
