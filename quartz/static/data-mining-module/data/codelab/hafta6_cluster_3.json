@@ -1,0 +1,1777 @@
+{
+  "id": "hafta6_cluster_3",
+  "title": "Hafta 6: K-Means ile Marketing Campaign",
+  "week": 6,
+  "csvFiles": [
+    "marketing_campaign.csv"
+  ],
+  "blocks": [
+    {
+      "id": "hafta6_cluster_3-b001",
+      "title": "Marketing kampanya araçlarını hazırlıyoruz",
+      "blockExplanation": "Bu hücre, kampanya verisi için dosya kontrolü, veri işleme, kodlama, PCA, K-Means ve elbow araçlarını hazırlar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import warnings",
+          "lineExplanation": "warnings modülünü içe aktarır.",
+          "tokens": [
+            {
+              "token": "warnings",
+              "explanation": "warnings modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Gerekli fonksiyon ve sınıfları kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Marketing kampanya araçlarını hazırlıyoruz' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "warnings.filterwarnings(\"ignore\")",
+          "lineExplanation": "Çalışma sırasında çıkabilecek uyarı mesajlarını bastırarak çıktıyı sadeleştirir.",
+          "tokens": [
+            {
+              "token": "filterwarnings(\"ignore\")",
+              "explanation": "Tüm uyarıları gösterme davranışını kapatır.",
+              "turkce": "Uyarı Ayarı",
+              "amac": "Notebook çıktısını gereksiz uyarı satırlarından temiz tutmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Marketing kampanya araçlarını hazırlıyoruz' bloğunda terminal çıktısını sade tutmak için uyarıları kapatır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "import os",
+          "lineExplanation": "os modülünü içe aktarır.",
+          "tokens": [
+            {
+              "token": "os",
+              "explanation": "os modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Gerekli fonksiyon ve sınıfları kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Marketing kampanya araçlarını hazırlıyoruz' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "import pandas as pd",
+          "lineExplanation": "pandas modülünü pd takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "pandas modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "pd",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Marketing kampanya araçlarını hazırlıyoruz' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "matplotlib.pyplot modülünü plt takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "matplotlib.pyplot modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "plt",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Marketing kampanya araçlarını hazırlıyoruz' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 6,
+          "code": "import seaborn as sns",
+          "lineExplanation": "seaborn modülünü sns takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "seaborn",
+              "explanation": "seaborn modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "sns",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Marketing kampanya araçlarını hazırlıyoruz' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 7,
+          "code": "from sklearn.preprocessing import LabelEncoder, StandardScaler",
+          "lineExplanation": "sklearn.preprocessing modülünden LabelEncoder, StandardScaler bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "sklearn.preprocessing",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "LabelEncoder, StandardScaler",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Marketing kampanya araçlarını hazırlıyoruz' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "from sklearn.cluster import KMeans",
+          "lineExplanation": "sklearn.cluster modülünden KMeans bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "sklearn.cluster",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "KMeans",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Marketing kampanya araçlarını hazırlıyoruz' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "from sklearn.decomposition import PCA",
+          "lineExplanation": "sklearn.decomposition modülünden PCA bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "sklearn.decomposition",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "PCA",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Marketing kampanya araçlarını hazırlıyoruz' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "from yellowbrick.cluster import KElbowVisualizer",
+          "lineExplanation": "yellowbrick.cluster modülünden KElbowVisualizer bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "yellowbrick.cluster",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "KElbowVisualizer",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Marketing kampanya araçlarını hazırlıyoruz' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "from mpl_toolkits.mplot3d import Axes3D",
+          "lineExplanation": "mpl_toolkits.mplot3d modülünden Axes3D bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "mpl_toolkits.mplot3d",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "Axes3D",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Marketing kampanya araçlarını hazırlıyoruz' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+    },
+    {
+      "id": "hafta6_cluster_3-b002",
+      "title": "Marketing campaign verisini yüklüyoruz",
+      "blockExplanation": "Bu hücre, TSV biçimindeki marketing_campaign.csv dosyasını okuyup ilk satırları gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "dataset_path = \"marketing_campaign.csv\"",
+          "lineExplanation": "Okunacak veri dosyasının adını marketing_campaign.csv olarak değişkene yazar.",
+          "tokens": [
+            {
+              "token": "dataset_path",
+              "explanation": "Dosya yolunu tutan değişkendir.",
+              "turkce": "Dosya Yolu",
+              "amac": "Aynı yol bilgisini sonraki satırlarda tekrar kullanmak."
+            },
+            {
+              "token": "marketing_campaign.csv",
+              "explanation": "Okunacak gerçek veri dosyasını belirtir.",
+              "turkce": "CSV/TSV Adı",
+              "amac": "Doğru veri kaynağını hedeflemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Marketing campaign verisini yüklüyoruz' bloğunda dosya yolunu tek yerde tanımlayarak tekrar kullanım sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "if not os.path.exists(dataset_path):",
+          "lineExplanation": "Belirtilen veri dosyasının klasörde gerçekten bulunup bulunmadığını kontrol eder.",
+          "tokens": [
+            {
+              "token": "os.path.exists(dataset_path)",
+              "explanation": "Dosya yolunun mevcut olup olmadığını True/False olarak döndürür.",
+              "turkce": "Dosya Kontrolü",
+              "amac": "Eksik dosya nedeniyle sessiz hataya düşmemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Marketing campaign verisini yüklüyoruz' bloğunda veri kaynağının varlığını doğrulayan güvenlik kontrolünü başlatır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    raise FileNotFoundError(f\"'{dataset_path}' dosyası bulunamadı.\")",
+          "lineExplanation": "Dosya yoksa işlemi durdurup kullanıcıya anlaşılır bir dosya bulunamadı hatası verir.",
+          "tokens": [
+            {
+              "token": "FileNotFoundError",
+              "explanation": "Eksik dosya durumunda yükseltilen yerleşik hatadır.",
+              "turkce": "Hata",
+              "amac": "Veri kaynağı yokken sonraki satırların boşa çalışmasını önlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Marketing campaign verisini yüklüyoruz' bloğunda veri kaynağı bulunmazsa yürütmeyi bilinçli biçimde keser."
+        },
+        {
+          "lineNumber": 4,
+          "code": "df = pd.read_csv(dataset_path, sep=\"\\t\")",
+          "lineExplanation": "\\t dosyasını '\\\\t' ayırıcıyla okuyup df adlı DataFrame'e yükler.",
+          "tokens": [
+            {
+              "token": "pd.read_csv",
+              "explanation": "CSV ya da benzeri düz metin dosyalarını tablo olarak okur.",
+              "turkce": "Dosya Okuma",
+              "amac": "Veriyi pandas DataFrame biçimine almak."
+            },
+            {
+              "token": "\\t",
+              "explanation": "Okunan veri dosyasının adıdır.",
+              "turkce": "Veri Dosyası",
+              "amac": "Hangi kaynağın kullanılacağını belirtmek."
+            },
+            {
+              "token": "sep=\"\\t\"",
+              "explanation": "Dosyadaki sütun ayırıcısının tab karakteri olduğunu söyler.",
+              "turkce": "Ayraç",
+              "amac": "TSV verisini doğru sütunlara ayırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Marketing campaign verisini yüklüyoruz' bloğunda ham dosyayı pandas tablosuna dönüştürür."
+        },
+        {
+          "lineNumber": 5,
+          "code": "df.head()",
+          "lineExplanation": "DataFrame'in ilk 5 satırını göstererek verinin görünümünü hızlıca kontrol ettirir.",
+          "tokens": [
+            {
+              "token": ".head()",
+              "explanation": "Varsayılan olarak ilk 5 satırı getirir.",
+              "turkce": "Önizleme",
+              "amac": "Dosyanın doğru okunup okunmadığını hızlıca görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Marketing campaign verisini yüklüyoruz' bloğunda tablonun ilk satırlarını önizleme amaçlı ekrana getirir."
+        }
+      ],
+      "expectedOutput": "     ID  Year_Birth   Education Marital_Status   Income  Kidhome  Teenhome Dt_Customer  Recency  MntWines  MntFruits  MntMeatProducts  MntFishProducts  \\\n0  5524        1957  Graduation         Single  58138.0        0         0  04-09-2012       58       635         88              546              172\n1  2174        1954  Graduation         Single  46344.0        1         1  08-03-2014       38        11          1                6                2\n2  4141        1965  Graduation       Together  71613.0        0         0  21-08-2013       26       426         49              127              111\n3  6182        1984  Graduation       Together  26646.0        1         0  10-02-2014       26        11          4               20               10\n4  5324        1981         PhD        Married  58293.0        1         0  19-01-2014       94       173         43              118               46\n\n   MntSweetProducts  MntGoldProds  NumDealsPurchases  NumWebPurchases  NumCatalogPurchases  NumStorePurchases  NumWebVisitsMonth  AcceptedCmp3  AcceptedCmp4  \\\n0                88            88                  3                8                   10                  4                  7             0             0\n1                 1             6                  2                1                    1                  2                  5             0             0\n2                21            42                  1                8                    2                 10                  4             0             0\n3                 3             5                  2                2                    0                  4                  6             0             0\n4                27            15                  5                5                    3                  6                  5             0             0\n\n   AcceptedCmp5  AcceptedCmp1  AcceptedCmp2  Complain  Z_CostContact  Z_Revenue  Response\n0             0             0             0         0              3         11         1\n1             0             0             0         0              3         11         0\n2             0             0             0         0              3         11         0\n3             0             0             0         0              3         11         0\n4             0             0             0         0              3         11         0"
+    },
+    {
+      "id": "hafta6_cluster_3-b003",
+      "title": "Veri yapısını df.info() ile görüyoruz",
+      "blockExplanation": "Bu hücre, kampanya verisinin tiplerini ve doluluk durumunu özetleyerek ilk kalite kontrolünü yapar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.info()",
+          "lineExplanation": "Sütunların doluluk sayısını, veri tiplerini ve bellek kullanımını ekrana yazar.",
+          "tokens": [
+            {
+              "token": ".info()",
+              "explanation": "DataFrame'in yapısal özetini üretir.",
+              "turkce": "Yapı Özeti",
+              "amac": "Eksik veri ve tip bilgisini tek çıktıda görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veri yapısını df.info() ile görüyoruz' bloğunda veri setinin genel yapısını özetler."
+        }
+      ],
+      "expectedOutput": "<class 'pandas.core.frame.DataFrame'>\nRangeIndex: 2240 entries, 0 to 2239\nData columns (total 29 columns):\n #   Column               Non-Null Count  Dtype\n---  ------               --------------  -----\n 0   ID                   2240 non-null   int64\n 1   Year_Birth           2240 non-null   int64\n 2   Education            2240 non-null   object\n 3   Marital_Status       2240 non-null   object\n 4   Income               2216 non-null   float64\n 5   Kidhome              2240 non-null   int64\n 6   Teenhome             2240 non-null   int64\n 7   Dt_Customer          2240 non-null   object\n 8   Recency              2240 non-null   int64\n 9   MntWines             2240 non-null   int64\n 10  MntFruits            2240 non-null   int64\n 11  MntMeatProducts      2240 non-null   int64\n 12  MntFishProducts      2240 non-null   int64\n 13  MntSweetProducts     2240 non-null   int64\n 14  MntGoldProds         2240 non-null   int64\n 15  NumDealsPurchases    2240 non-null   int64\n 16  NumWebPurchases      2240 non-null   int64\n 17  NumCatalogPurchases  2240 non-null   int64\n 18  NumStorePurchases    2240 non-null   int64\n 19  NumWebVisitsMonth    2240 non-null   int64\n 20  AcceptedCmp3         2240 non-null   int64\n 21  AcceptedCmp4         2240 non-null   int64\n 22  AcceptedCmp5         2240 non-null   int64\n 23  AcceptedCmp1         2240 non-null   int64\n 24  AcceptedCmp2         2240 non-null   int64\n 25  Complain             2240 non-null   int64\n 26  Z_CostContact        2240 non-null   int64\n 27  Z_Revenue            2240 non-null   int64\n 28  Response             2240 non-null   int64\ndtypes: float64(1), int64(25), object(3)\nmemory usage: 507.6+ KB"
+    },
+    {
+      "id": "hafta6_cluster_3-b004",
+      "title": "Eksik değerleri listeliyoruz",
+      "blockExplanation": "Bu hücre, sadece eksik değeri olan sütunları ekrana getirerek sorunlu alanları daraltır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "missing_values = df.isnull().sum()",
+          "lineExplanation": "Tüm sütunlar için eksik değer sayısını missing_values serisine yazar.",
+          "tokens": [
+            {
+              "token": "df.isnull().sum()",
+              "explanation": "Her sütundaki boş hücre sayısını hesaplar.",
+              "turkce": "Eksik Sayımı",
+              "amac": "Sorunlu sütunları tek yerde toplamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eksik değerleri listeliyoruz' bloğunda eksik veri özetini üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "missing_values[missing_values > 0]",
+          "lineExplanation": "Sadece eksik değeri sıfırdan büyük olan sütunları filtreleyip gösterir.",
+          "tokens": [
+            {
+              "token": "missing_values > 0",
+              "explanation": "Eksik sayısı pozitif olan sütunları seçer.",
+              "turkce": "Filtre",
+              "amac": "Sadece sorunlu alanları görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eksik değerleri listeliyoruz' bloğunda eksik değeri olan sütunları daraltır."
+        }
+      ],
+      "expectedOutput": "Income    24\ndtype: int64"
+    },
+    {
+      "id": "hafta6_cluster_3-b005",
+      "title": "Income eksiklerini medyanla dolduruyoruz",
+      "blockExplanation": "Bu hücre, Income sütunundaki eksikleri medyan değer ile kapatır ve sonrasında eksik kalıp kalmadığını kontrol eder.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Income sütunundaki eksikleri medyan ile dolduruyoruz",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Income sütunundaki eksikleri medyan ile dolduruyoruz' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Income sütunundaki eksikleri medyan ile dolduruyoruz",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Income eksiklerini medyanla dolduruyoruz' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df[\"Income\"] = df[\"Income\"].fillna(df[\"Income\"].median())",
+          "lineExplanation": "Income sütunundaki NaN değerleri o sütunun medyanı ile doldurur.",
+          "tokens": [
+            {
+              "token": "df[\"Income\"]",
+              "explanation": "Eksikleri doldurulacak gelir sütunudur.",
+              "turkce": "Sütun",
+              "amac": "Gelir bilgisini eksiksiz hale getirmek."
+            },
+            {
+              "token": "fillna(df[\"Income\"].median())",
+              "explanation": "NaN hücreleri sütunun medyan değeriyle değiştirir.",
+              "turkce": "Medyanla Doldurma",
+              "amac": "Aşırı uçlardan daha az etkilenen bir merkezi değer kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Income eksiklerini medyanla dolduruyoruz' bloğunda gelir sütunundaki eksikleri medyanla kapatır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df[\"Income\"].isnull().sum()",
+          "lineExplanation": "Income sütununda doldurma sonrası eksik değer kalıp kalmadığını sayısal olarak kontrol eder.",
+          "tokens": [
+            {
+              "token": "isnull().sum()",
+              "explanation": "Boş Income hücrelerinin sayısını verir.",
+              "turkce": "Kontrol",
+              "amac": "Doldurma adımının başarıyla tamamlandığını doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Income eksiklerini medyanla dolduruyoruz' bloğunda Income sütununun temizlenip temizlenmediğini doğrular."
+        }
+      ],
+      "expectedOutput": "np.int64(0)"
+    },
+    {
+      "id": "hafta6_cluster_3-b006",
+      "title": "Eğitim ve medeni durumu kodluyoruz",
+      "blockExplanation": "Bu hücre, Education ve Marital_Status sütunlarını LabelEncoder ile sayısal hale getirir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "categorical_features = [\"Education\", \"Marital_Status\"]",
+          "lineExplanation": "Etiket kodlaması uygulanacak iki kategorik sütunu listeler.",
+          "tokens": [
+            {
+              "token": "\"Education\", \"Marital_Status\"",
+              "explanation": "Kodlanacak eğitim ve medeni durum sütunlarını seçer.",
+              "turkce": "Kategorik Liste",
+              "amac": "Hangi kategorik alanların sayısallaştırılacağını netleştirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim ve medeni durumu kodluyoruz' bloğunda kodlanacak kategorik alanları belirler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "encoder = LabelEncoder()",
+          "lineExplanation": "Kategorik metinleri sayısal etiketlere çevirecek LabelEncoder nesnesini oluşturur.",
+          "tokens": [
+            {
+              "token": "LabelEncoder",
+              "explanation": "Farklı kategorileri 0, 1, 2 gibi tamsayılara dönüştürür.",
+              "turkce": "Kodlayıcı",
+              "amac": "Kategorik veriyi sayısal forma çevirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim ve medeni durumu kodluyoruz' bloğunda kategorik sütunları kodlayacak aracı hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "for col in categorical_features:",
+          "lineExplanation": "Listedeki her kategorik sütun için aynı kodlama işlemini tekrarlayan döngüyü başlatır.",
+          "tokens": [
+            {
+              "token": "categorical_features",
+              "explanation": "Kodlanacak sütun isimlerinin listesidir.",
+              "turkce": "Döngü Listesi",
+              "amac": "Aynı işlemi birden fazla sütuna uygulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim ve medeni durumu kodluyoruz' bloğunda sütun bazlı kodlama döngüsünü başlatır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    df[col] = encoder.fit_transform(df[col])",
+          "lineExplanation": "O anki kategorik sütunun benzersiz değerlerini sayısal etiketlere dönüştürüp tekrar aynı sütuna yazar.",
+          "tokens": [
+            {
+              "token": "fit_transform(df[col])",
+              "explanation": "Sütundaki kategorileri öğrenir ve tamsayı etiketlerine dönüştürür.",
+              "turkce": "Kodlama",
+              "amac": "Metin sınıflarını modelin işleyebileceği sayılara çevirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim ve medeni durumu kodluyoruz' bloğunda tek tek kategorik sütunları sayısallaştırır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "df[categorical_features].head()",
+          "lineExplanation": "Kodlanmış Education ve Marital_Status sütunlarının ilk 5 satırını gösterir.",
+          "tokens": [
+            {
+              "token": "df[categorical_features]",
+              "explanation": "Sadece kodlanan sütunları seçer.",
+              "turkce": "Alt Tablo",
+              "amac": "Dönüşüm sonucunu sadece ilgili alanlarda görmek."
+            },
+            {
+              "token": ".head()",
+              "explanation": "İlk satırları getirir.",
+              "turkce": "Önizleme",
+              "amac": "Kodlamanın beklenen gibi yapıldığını doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim ve medeni durumu kodluyoruz' bloğunda kodlanan sütunların sonucunu kontrol ettirir."
+        }
+      ],
+      "expectedOutput": "   Education  Marital_Status\n0          2               4\n1          2               4\n2          2               5\n3          2               5\n4          4               3"
+    },
+    {
+      "id": "hafta6_cluster_3-b007",
+      "title": "Kümeleme özelliklerini ve toplam harcamayı hazırlıyoruz",
+      "blockExplanation": "Bu hücre, kümeleme için kullanılacak sütunları seçer ve ayrıca tüm harcama kalemlerini toplayan Total_Spending sütununu üretir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "columns_to_use = [",
+          "lineExplanation": "Kümelemede kullanılacak sütun isimlerini toplayacak çok satırlı listeyi başlatır.",
+          "tokens": [
+            {
+              "token": "columns_to_use",
+              "explanation": "Seçilecek sütun adlarını tutan listedir.",
+              "turkce": "Sütun Listesi",
+              "amac": "Kümeleme için hangi özelliklerin alınacağını merkezileştirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme özelliklerini ve toplam harcamayı hazırlıyoruz' bloğunda kullanılacak öznitelik listesini başlatır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    \"Income\", \"Kidhome\", \"Teenhome\", \"Recency\",",
+          "lineExplanation": "Kümeleme listesine gelir, evdeki çocuk sayısı, evdeki genç sayısı ve son alışveriş güncelliği sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "Income",
+              "explanation": "gelir bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Kidhome",
+              "explanation": "evdeki çocuk sayısı bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Teenhome",
+              "explanation": "evdeki genç sayısı bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Recency",
+              "explanation": "son alışveriş güncelliği bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme özelliklerini ve toplam harcamayı hazırlıyoruz' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    \"MntWines\", \"MntFruits\", \"MntMeatProducts\",",
+          "lineExplanation": "Kümeleme listesine şarap harcaması, meyve harcaması ve et ürünü harcaması sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "MntWines",
+              "explanation": "şarap harcaması bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "MntFruits",
+              "explanation": "meyve harcaması bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "MntMeatProducts",
+              "explanation": "et ürünü harcaması bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme özelliklerini ve toplam harcamayı hazırlıyoruz' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    \"MntFishProducts\", \"MntSweetProducts\", \"MntGoldProds\",",
+          "lineExplanation": "Kümeleme listesine balık ürünü harcaması, tatlı harcaması ve altın ürün harcaması sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "MntFishProducts",
+              "explanation": "balık ürünü harcaması bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "MntSweetProducts",
+              "explanation": "tatlı harcaması bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "MntGoldProds",
+              "explanation": "altın ürün harcaması bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme özelliklerini ve toplam harcamayı hazırlıyoruz' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    \"NumDealsPurchases\", \"NumWebPurchases\", \"NumCatalogPurchases\",",
+          "lineExplanation": "Kümeleme listesine indirimli alışveriş sayısı, web alışveriş sayısı ve katalog alışveriş sayısı sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "NumDealsPurchases",
+              "explanation": "indirimli alışveriş sayısı bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "NumWebPurchases",
+              "explanation": "web alışveriş sayısı bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "NumCatalogPurchases",
+              "explanation": "katalog alışveriş sayısı bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme özelliklerini ve toplam harcamayı hazırlıyoruz' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    \"NumStorePurchases\", \"NumWebVisitsMonth\"",
+          "lineExplanation": "Kümeleme listesine mağaza alışveriş sayısı ve aylık web ziyareti sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "NumStorePurchases",
+              "explanation": "mağaza alışveriş sayısı bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "NumWebVisitsMonth",
+              "explanation": "aylık web ziyareti bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme özelliklerini ve toplam harcamayı hazırlıyoruz' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "]",
+          "lineExplanation": "Bir önceki çok satırlı liste tanımını kapatır.",
+          "tokens": [
+            {
+              "token": "]",
+              "explanation": "Liste tanımının kapanış işaretidir.",
+              "turkce": "Liste Kapanışı",
+              "amac": "Çok satırlı listeyi bitirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme özelliklerini ve toplam harcamayı hazırlıyoruz' bloğunda sütun listesini tamamlar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "df_cluster = df[columns_to_use].copy()",
+          "lineExplanation": "Seçilen sütunları ayrı bir çalışma tablosuna kopyalar.",
+          "tokens": [
+            {
+              "token": "df[columns_to_use]",
+              "explanation": "Listeye yazılmış sütunlardan oluşan alt tabloyu seçer.",
+              "turkce": "Sütun Seçimi",
+              "amac": "Sadece gerekli özelliklerle çalışmak."
+            },
+            {
+              "token": ".copy()",
+              "explanation": "Bağımsız kopya oluşturur.",
+              "turkce": "Kopya",
+              "amac": "Sonraki değişikliklerin ana tabloyu etkilemesini önlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme özelliklerini ve toplam harcamayı hazırlıyoruz' bloğunda kümeleme için özel çalışma tablosu üretir."
+        },
+        {
+          "lineNumber": 9,
+          "code": "# Toplam harcama sütunu",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Toplam harcama sütunu' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Toplam harcama sütunu",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme özelliklerini ve toplam harcamayı hazırlıyoruz' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "df_cluster[\"Total_Spending\"] = (",
+          "lineExplanation": "Toplam harcama sütununu oluşturacak çok satırlı toplama ifadesini başlatır.",
+          "tokens": [
+            {
+              "token": "df_cluster[\"Total_Spending\"]",
+              "explanation": "Oluşturulacak yeni toplam harcama sütunudur.",
+              "turkce": "Yeni Sütun",
+              "amac": "Farklı harcama kalemlerini tek ölçüde birleştirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme özelliklerini ve toplam harcamayı hazırlıyoruz' bloğunda toplam harcama hesabının başlangıcını yapar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "    df[\"MntWines\"] + df[\"MntFruits\"] + df[\"MntMeatProducts\"] +",
+          "lineExplanation": "şarap harcaması, meyve harcaması ve et ürünü harcaması sütunlarını toplam harcama hesabına ekler.",
+          "tokens": [
+            {
+              "token": "MntWines",
+              "explanation": "şarap harcaması bilgisini hesaplamaya dahil eder.",
+              "turkce": "Toplama Terimi",
+              "amac": "Toplam harcama sütununu adım adım kurmak."
+            },
+            {
+              "token": "MntFruits",
+              "explanation": "meyve harcaması bilgisini hesaplamaya dahil eder.",
+              "turkce": "Toplama Terimi",
+              "amac": "Toplam harcama sütununu adım adım kurmak."
+            },
+            {
+              "token": "MntMeatProducts",
+              "explanation": "et ürünü harcaması bilgisini hesaplamaya dahil eder.",
+              "turkce": "Toplama Terimi",
+              "amac": "Toplam harcama sütununu adım adım kurmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme özelliklerini ve toplam harcamayı hazırlıyoruz' bloğunda toplam harcamayı oluşturan kalemleri toplama ifadesine ekler."
+        },
+        {
+          "lineNumber": 12,
+          "code": "    df[\"MntFishProducts\"] + df[\"MntSweetProducts\"] + df[\"MntGoldProds\"]",
+          "lineExplanation": "balık ürünü harcaması, tatlı harcaması ve altın ürün harcaması sütunlarını toplam harcama hesabına ekler.",
+          "tokens": [
+            {
+              "token": "MntFishProducts",
+              "explanation": "balık ürünü harcaması bilgisini hesaplamaya dahil eder.",
+              "turkce": "Toplama Terimi",
+              "amac": "Toplam harcama sütununu adım adım kurmak."
+            },
+            {
+              "token": "MntSweetProducts",
+              "explanation": "tatlı harcaması bilgisini hesaplamaya dahil eder.",
+              "turkce": "Toplama Terimi",
+              "amac": "Toplam harcama sütununu adım adım kurmak."
+            },
+            {
+              "token": "MntGoldProds",
+              "explanation": "altın ürün harcaması bilgisini hesaplamaya dahil eder.",
+              "turkce": "Toplama Terimi",
+              "amac": "Toplam harcama sütununu adım adım kurmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme özelliklerini ve toplam harcamayı hazırlıyoruz' bloğunda toplam harcamayı oluşturan kalemleri toplama ifadesine ekler."
+        },
+        {
+          "lineNumber": 13,
+          "code": ")",
+          "lineExplanation": "Bir önceki çok satırlı fonksiyon çağrısını veya matematiksel ifadeyi kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Açık bırakılmış çağrıyı veya ifadeyi sonlandırır.",
+              "turkce": "Kapanış",
+              "amac": "Çok satırlı yapının sentaksını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme özelliklerini ve toplam harcamayı hazırlıyoruz' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
+        },
+        {
+          "lineNumber": 14,
+          "code": "df_cluster.head()",
+          "lineExplanation": "df_cluster tablosunun ilk 5 satırını gösterir.",
+          "tokens": [
+            {
+              "token": ".head()",
+              "explanation": "İlk satırları getirir.",
+              "turkce": "Önizleme",
+              "amac": "Seçilen özelliklerin doğru geldiğini doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme özelliklerini ve toplam harcamayı hazırlıyoruz' bloğunda daraltılmış tablonun önizlemesini verir."
+        }
+      ],
+      "expectedOutput": "    Income  Kidhome  Teenhome  Recency  MntWines  MntFruits  MntMeatProducts  MntFishProducts  MntSweetProducts  MntGoldProds  NumDealsPurchases  \\\n0  58138.0        0         0       58       635         88              546              172                88            88                  3\n1  46344.0        1         1       38        11          1                6                2                 1             6                  2\n2  71613.0        0         0       26       426         49              127              111                21            42                  1\n3  26646.0        1         0       26        11          4               20               10                 3             5                  2\n4  58293.0        1         0       94       173         43              118               46                27            15                  5\n\n   NumWebPurchases  NumCatalogPurchases  NumStorePurchases  NumWebVisitsMonth  Total_Spending\n0                8                   10                  4                  7            1617\n1                1                    1                  2                  5              27\n2                8                    2                 10                  4             776\n3                2                    0                  4                  6              53\n4                5                    3                  6                  5             422"
+    },
+    {
+      "id": "hafta6_cluster_3-b008",
+      "title": "Özellikleri ölçeklendiriyoruz",
+      "blockExplanation": "Bu hücre, seçilen pazarlama özelliklerini StandardScaler ile ölçekler ve ilk dönüştürülmüş satırları gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "scaler = StandardScaler()",
+          "lineExplanation": "Standartlaştırma işlemi yapacak StandardScaler nesnesini oluşturur.",
+          "tokens": [
+            {
+              "token": "StandardScaler",
+              "explanation": "Her özelliği ortalaması 0, standart sapması 1 olacak biçimde ölçekler.",
+              "turkce": "Ölçekleyici",
+              "amac": "Mesafe tabanlı algoritmalarda sütunları ortak ölçeğe getirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Özellikleri ölçeklendiriyoruz' bloğunda sayısal özellikleri ölçekleyecek aracı kurar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df_scaled = scaler.fit_transform(df_cluster)",
+          "lineExplanation": "StandardScaler'ı df_cluster üzerinde öğrenir ve ölçeklenmiş matrisi df_scaled içine yazar.",
+          "tokens": [
+            {
+              "token": "fit_transform(df_cluster)",
+              "explanation": "Önce ölçekleyiciyi veriye uydurur, sonra dönüşümü uygular.",
+              "turkce": "Fit + Transform",
+              "amac": "K-Means için tüm özellikleri ortak ölçeğe çekmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Özellikleri ölçeklendiriyoruz' bloğunda kümeleme verisini standardize eder."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df_scaled[:5]",
+          "lineExplanation": "Ölçeklenmiş matrisin ilk 5 satırını gösterir.",
+          "tokens": [
+            {
+              "token": "[:5]",
+              "explanation": "İlk 5 satırı seçer.",
+              "turkce": "Dilimleme",
+              "amac": "Dönüşüm sonucunu küçük örnek üstünde doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Özellikleri ölçeklendiriyoruz' bloğunda ölçeklenmiş verinin örnek görünümünü sunar."
+        }
+      ],
+      "expectedOutput": "array([[ 2.35695837e-01, -8.25217650e-01, -9.29894379e-01,  3.07039263e-01,  9.83781265e-01,  1.55157698e+00,  1.67970233e+00,  2.46214705e+00,\n         1.47650010e+00,  8.43206907e-01,  3.49413941e-01,  1.40930394e+00,  2.51089024e+00, -5.50784790e-01,  6.93903739e-01,  1.67941681e+00],\n       [-2.35454185e-01,  1.03255877e+00,  9.06934024e-01, -3.83664176e-01, -8.70479481e-01, -6.36301155e-01, -7.13225407e-01, -6.50449253e-01,\n        -6.31503178e-01, -7.29005787e-01, -1.68236342e-01, -1.11040937e+00, -5.68719619e-01, -1.16612540e+00, -1.30463472e-01, -9.61275447e-01],\n       [ 7.73998919e-01, -8.25217650e-01, -9.29894379e-01, -7.98086240e-01,  3.62722778e-01,  5.70804023e-01, -1.77032339e-01,  1.34527426e+00,\n        -1.46904724e-01, -3.87660676e-02, -6.85886625e-01,  1.40930394e+00, -2.26540745e-01,  1.29523705e+00, -5.42647077e-01,  2.82673294e-01],\n       [-1.02235542e+00,  1.03255877e+00, -9.29894379e-01, -7.98086240e-01, -8.70479481e-01, -5.60857082e-01, -6.51186539e-01, -5.03974134e-01,\n        -5.83043333e-01, -7.48179113e-01, -1.68236342e-01, -7.50450329e-01, -9.10898492e-01, -5.50784790e-01,  2.81720134e-01, -9.18094316e-01],\n       [ 2.41887820e-01,  1.03255877e+00, -9.29894379e-01,  1.55030546e+00, -3.89084864e-01,  4.19915876e-01, -2.16914468e-01,  1.55163906e-01,\n        -1.52518710e-03, -5.56445857e-01,  1.38471451e+00,  3.29426804e-01,  1.15638128e-01,  6.45558232e-02, -1.30463472e-01, -3.05254416e-01]])"
+    },
+    {
+      "id": "hafta6_cluster_3-b009",
+      "title": "Elbow yöntemiyle optimum k'yı arıyoruz",
+      "blockExplanation": "Bu hücre, çeşitli küme sayıları için inertia değerlerini hesaplar, elbow grafiğini çizer ve seçilen optimum k değerini basar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "model = KMeans(n_init=10, random_state=42)",
+          "lineExplanation": "Elbow hesabında tekrar tekrar kullanılacak temel K-Means modelini oluşturur.",
+          "tokens": [
+            {
+              "token": "KMeans(n_init=10, random_state=42)",
+              "explanation": "Başlangıç deneme sayısı ve sabit rastgelelik ile K-Means modelini kurar.",
+              "turkce": "Temel Model",
+              "amac": "Elbow için farklı k değerlerinde karşılaştırılabilir sonuçlar üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Elbow yöntemiyle optimum k'yı arıyoruz' bloğunda elbow denemelerinde kullanılacak temel modeli kurar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "visualizer = KElbowVisualizer(model, k=(2, 10), force_model=True)",
+          "lineExplanation": "KElbowVisualizer nesnesini oluşturur ve denenecek k aralığını 2 ile 9 arasında belirler.",
+          "tokens": [
+            {
+              "token": "KElbowVisualizer",
+              "explanation": "K değerlerine göre inertia eğrisini üreten yardımcı araçtır.",
+              "turkce": "Elbow Aracı",
+              "amac": "Uygun küme sayısını görsel olarak seçmek."
+            },
+            {
+              "token": "force_model=True",
+              "explanation": "Modeli veriye uygunluk uyarılarına takılmadan zorla çalıştırır.",
+              "turkce": "Zorla Çalıştır",
+              "amac": "Elbow aracının modeli her durumda üretmesini sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Elbow yöntemiyle optimum k'yı arıyoruz' bloğunda elbow görselleştiricisini yapılandırır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "visualizer.fit(df_scaled)",
+          "lineExplanation": "Elbow görselleştiricisini ölçeklenmiş veri üzerinde çalıştırır ve farklı k değerlerinin inertia skorlarını hesaplatır.",
+          "tokens": [
+            {
+              "token": "fit(df_scaled)",
+              "explanation": "Veriyi elbow aracına vererek tüm k denemelerini yaptırır.",
+              "turkce": "Elbow Eğitimi",
+              "amac": "Dirsek eğrisi için gerekli skorları üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Elbow yöntemiyle optimum k'yı arıyoruz' bloğunda elbow skorlarını hesaplatır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "visualizer.show()",
+          "lineExplanation": "Elbow eğrisini grafik olarak çizer.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazırlanan elbow grafiğini görünür hale getirir.",
+              "turkce": "Grafik Göster",
+              "amac": "Uygun k değerini gözle seçilebilir yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Elbow yöntemiyle optimum k'yı arıyoruz' bloğunda elbow grafiğini ekrana taşır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "optimal_k = visualizer.elbow_value_",
+          "lineExplanation": "Elbow aracının seçtiği en uygun küme sayısını optimal_k değişkenine yazar.",
+          "tokens": [
+            {
+              "token": "visualizer.elbow_value_",
+              "explanation": "Dirsek noktasında seçilen k değeridir.",
+              "turkce": "Optimum k",
+              "amac": "Sonraki K-Means modelini bu değere göre kurmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Elbow yöntemiyle optimum k'yı arıyoruz' bloğunda seçilen optimum küme sayısını değişkene aktarır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "print(\"Optimum küme sayısı:\", optimal_k)",
+          "lineExplanation": "Bulunan optimum k değerini kullanıcıya metin olarak yazar.",
+          "tokens": [
+            {
+              "token": "optimal_k",
+              "explanation": "Elbow sonucunda seçilen küme sayısıdır.",
+              "turkce": "Optimum k",
+              "amac": "Seçilen değeri görünür biçimde raporlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Elbow yöntemiyle optimum k'yı arıyoruz' bloğunda seçilen küme sayısını terminal çıktısına dönüştürür."
+        }
+      ],
+      "expectedOutput": "<__main__.build_fake_yellowbrick.<locals>.KElbowVisualizer at 0x7fb17c261d10>\n\nOptimum küme sayısı: 3",
+      "plotImage": "h6-marketing-b009.png"
+    },
+    {
+      "id": "hafta6_cluster_3-b010",
+      "title": "K-Means modeliyle kümeleri oluşturuyoruz",
+      "blockExplanation": "Bu hücre, optimum küme sayısıyla modeli eğitir ve her kümeye kaç müşteri düştüğünü gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "kmeans = KMeans(n_clusters=optimal_k, random_state=42, n_init=10)",
+          "lineExplanation": "K-Means modelini n_clusters=optimal_k, random_state=42, n_init=10 parametreleriyle kurar.",
+          "tokens": [
+            {
+              "token": "KMeans",
+              "explanation": "Scikit-learn'ün K-Means kümeleme sınıfıdır.",
+              "turkce": "Model",
+              "amac": "Veriyi benzer örnek kümelerine ayırmak."
+            },
+            {
+              "token": "n_clusters=optimal_k, random_state=42, n_init=10",
+              "explanation": "Modelin kaç küme, hangi başlangıç ve kaç tekrar ile çalışacağını belirler.",
+              "turkce": "Parametreler",
+              "amac": "Algoritmanın davranışını kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'K-Means modeliyle kümeleri oluşturuyoruz' bloğunda K-Means model nesnesini oluşturur."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df_cluster[\"Cluster\"] = kmeans.fit_predict(df_scaled)",
+          "lineExplanation": "K-Means modelini ölçeklenmiş veri üzerinde eğitir ve cluster etiketlerini doğrudan yeni sütuna yazar.",
+          "tokens": [
+            {
+              "token": "fit_predict(df_scaled)",
+              "explanation": "Modeli eğitip etiketleri aynı anda üretir.",
+              "turkce": "Fit + Predict",
+              "amac": "Tek satırda cluster etiketlerini almak."
+            },
+            {
+              "token": "df_cluster[\"Cluster\"]",
+              "explanation": "Üretilen etiketleri saklayan sütundur.",
+              "turkce": "Cluster Sütunu",
+              "amac": "Her örneğin hangi kümeye düştüğünü tabloya yazmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'K-Means modeliyle kümeleri oluşturuyoruz' bloğunda veri noktalarına cluster etiketlerini ekler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df_cluster[\"Cluster\"].value_counts()",
+          "lineExplanation": "Her cluster etiketinden kaç satır olduğunu sayar.",
+          "tokens": [
+            {
+              "token": "value_counts()",
+              "explanation": "Her benzersiz değerin frekansını verir.",
+              "turkce": "Frekans",
+              "amac": "Kümelerin dengeli dağılıp dağılmadığını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'K-Means modeliyle kümeleri oluşturuyoruz' bloğunda kümelerin büyüklük dağılımını gösterir."
+        }
+      ],
+      "expectedOutput": "Cluster\n0    1056\n1     594\n2     590\nName: count, dtype: int64"
+    },
+    {
+      "id": "hafta6_cluster_3-b011",
+      "title": "PCA ile iki boyutlu görünüm çiziyoruz",
+      "blockExplanation": "Bu hücre, ölçeklenmiş veriyi PCA ile indirger; ilk iki bileşeni tabloya ekleyip kümeleri iki boyutlu saçılım grafiğinde gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "pca = PCA(n_components=3)",
+          "lineExplanation": "ilk PCA akışı için 3 bileşenli PCA nesnesini oluşturur.",
+          "tokens": [
+            {
+              "token": "PCA(n_components=3)",
+              "explanation": "Veriyi 3 ana bileşene indirger.",
+              "turkce": "PCA",
+              "amac": "Yüksek boyutlu veriyi daha az boyutta görselleştirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda boyut indirgeme modelini kurar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df_cluster_pca = pca.fit_transform(df_scaled)",
+          "lineExplanation": "PCA modelini ölçeklenmiş veri üzerinde çalıştırır ve indirgenmiş bileşenleri yeni matrise yazar.",
+          "tokens": [
+            {
+              "token": "fit_transform(df_scaled)",
+              "explanation": "PCA bileşenlerini öğrenir ve veriyi yeni eksenlere projeler.",
+              "turkce": "Boyut İndirgeme",
+              "amac": "Görselleştirme için daha az boyutlu temsil elde etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda ölçeklenmiş veriyi PCA uzayına taşır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df_cluster[\"PCA1\"] = df_cluster_pca[:, 0]",
+          "lineExplanation": "İndirgenmiş matrisin 0. bileşenini PCA1 sütunu olarak tabloya ekler.",
+          "tokens": [
+            {
+              "token": "PCA1",
+              "explanation": "Tabloya eklenecek PCA1 sütunudur.",
+              "turkce": "PCA Sütunu",
+              "amac": "Görselleştirme için PCA koordinatlarını tabloya taşımak."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda PCA koordinatını sonuç tablosuna ekler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "df_cluster[\"PCA2\"] = df_cluster_pca[:, 1]",
+          "lineExplanation": "İndirgenmiş matrisin 1. bileşenini PCA2 sütunu olarak tabloya ekler.",
+          "tokens": [
+            {
+              "token": "PCA2",
+              "explanation": "Tabloya eklenecek PCA2 sütunudur.",
+              "turkce": "PCA Sütunu",
+              "amac": "Görselleştirme için PCA koordinatlarını tabloya taşımak."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda PCA koordinatını sonuç tablosuna ekler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.figure(figsize=(10, 6))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 10, 6 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "sns.scatterplot(",
+          "lineExplanation": "Seaborn ile saçılım grafiği çizimini başlatır.",
+          "tokens": [
+            {
+              "token": "sns.scatterplot",
+              "explanation": "İki değişkenin noktalarla gösterildiği saçılım grafiğini üretir.",
+              "turkce": "Saçılım Grafiği",
+              "amac": "İki özellik arasındaki örüntüyü görselleştirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda görsel küme/dağılım anlatımını başlatır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    data=df_cluster,",
+          "lineExplanation": "Grafikte kullanılacak veri kaynağını df_cluster olarak belirler.",
+          "tokens": [
+            {
+              "token": "df_cluster",
+              "explanation": "Grafiğin okuyacağı tabloyu belirtir.",
+              "turkce": "Veri Kaynağı",
+              "amac": "Hangi DataFrame'in çizileceğini seçmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda görselin veri kaynağını sabitler."
+        },
+        {
+          "lineNumber": 8,
+          "code": "    x=\"PCA1\",",
+          "lineExplanation": "Grafiğin x ekseninde \"PCA1\" değişkenini kullanır.",
+          "tokens": [
+            {
+              "token": "\"PCA1\"",
+              "explanation": "Yatay eksene bağlanan alanı belirtir.",
+              "turkce": "X Değişkeni",
+              "amac": "İlgili özelliği yatay eksende göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda yatay eksende hangi değişkenin çizileceğini belirler."
+        },
+        {
+          "lineNumber": 9,
+          "code": "    y=\"PCA2\",",
+          "lineExplanation": "Grafiğin y ekseninde \"PCA2\" değişkenini kullanır.",
+          "tokens": [
+            {
+              "token": "\"PCA2\"",
+              "explanation": "Dikey eksene bağlanan alanı belirtir.",
+              "turkce": "Y Değişkeni",
+              "amac": "İlgili özelliği dikey eksende göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda dikey eksende hangi değişkenin çizileceğini belirler."
+        },
+        {
+          "lineNumber": 10,
+          "code": "    hue=\"Cluster\",",
+          "lineExplanation": "Noktaların rengini \"Cluster\" bilgisine göre değiştirir.",
+          "tokens": [
+            {
+              "token": "\"Cluster\"",
+              "explanation": "Grafikte renk ayrımını belirleyen alanı ifade eder.",
+              "turkce": "Renk Değişkeni",
+              "amac": "Grupları veya sürekli ölçeği renk ile taşımak."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda görselin renklendirme ölçütünü seçer."
+        },
+        {
+          "lineNumber": 11,
+          "code": "    palette=\"viridis\",",
+          "lineExplanation": "Grafikte kullanılacak renk paletini \"viridis\" olarak seçer.",
+          "tokens": [
+            {
+              "token": "\"viridis\"",
+              "explanation": "Görselde kullanılacak renk düzenini belirler.",
+              "turkce": "Renk Paleti",
+              "amac": "Grupları veya yoğunlukları okunabilir biçimde ayırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda görselin renk dilini belirler."
+        },
+        {
+          "lineNumber": 12,
+          "code": "    alpha=0.7",
+          "lineExplanation": "Noktaların saydamlığını 0.7 olarak ayarlar.",
+          "tokens": [
+            {
+              "token": "alpha=0.7",
+              "explanation": "Noktaları kısmen saydam çizer.",
+              "turkce": "Saydamlık",
+              "amac": "Üst üste binen noktaları daha rahat görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda noktaların opaklık seviyesini ayarlar."
+        },
+        {
+          "lineNumber": 13,
+          "code": ")",
+          "lineExplanation": "Bir önceki çok satırlı fonksiyon çağrısını veya matematiksel ifadeyi kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Açık bırakılmış çağrıyı veya ifadeyi sonlandırır.",
+              "turkce": "Kapanış",
+              "amac": "Çok satırlı yapının sentaksını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
+        },
+        {
+          "lineNumber": 14,
+          "code": "plt.title(\"K-Means Kümeleme Sonuçları (2 Boyutlu PCA)\")",
+          "lineExplanation": "Grafiğin başlığını \"K-Means Kümeleme Sonuçları (2 Boyutlu PCA)\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 15,
+          "code": "plt.xlabel(\"PCA Bileşeni 1\")",
+          "lineExplanation": "X ekseninin etiketini \"PCA Bileşeni 1\" olarak yazar.",
+          "tokens": [
+            {
+              "token": "plt.xlabel",
+              "explanation": "Yatay eksenin adını belirler.",
+              "turkce": "X Etiketi",
+              "amac": "Grafiğin hangi değişkeni yatay eksende taşıdığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda yatay ekseni isimlendirir."
+        },
+        {
+          "lineNumber": 16,
+          "code": "plt.ylabel(\"PCA Bileşeni 2\")",
+          "lineExplanation": "Y ekseninin etiketini \"PCA Bileşeni 2\" olarak yazar.",
+          "tokens": [
+            {
+              "token": "plt.ylabel",
+              "explanation": "Dikey eksenin adını belirler.",
+              "turkce": "Y Etiketi",
+              "amac": "Grafiğin hangi değişkeni dikey eksende taşıdığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda dikey ekseni isimlendirir."
+        },
+        {
+          "lineNumber": 17,
+          "code": "plt.grid(True)",
+          "lineExplanation": "Grafiğe kılavuz ızgara çizgilerini ekler.",
+          "tokens": [
+            {
+              "token": "plt.grid(True)",
+              "explanation": "Izgara çizgilerini görünür hale getirir.",
+              "turkce": "Izgara",
+              "amac": "Nokta konumlarını okumayı kolaylaştırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda görsel okuma kolaylığı için ızgarayı açar."
+        },
+        {
+          "lineNumber": 18,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile iki boyutlu görünüm çiziyoruz' bloğunda görsel üretimini tamamlar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h6-marketing-b011.png"
+    },
+    {
+      "id": "hafta6_cluster_3-b012",
+      "title": "PCA ile üç boyutlu görünüm çiziyoruz",
+      "blockExplanation": "Bu hücre, ikinci bir PCA akışıyla 3B görünüm üretir ve kümeleri üç eksenli saçılım grafiğinde gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "pca_3d = PCA(n_components=3)",
+          "lineExplanation": "3B PCA akışı için 3 bileşenli PCA nesnesini oluşturur.",
+          "tokens": [
+            {
+              "token": "PCA(n_components=3)",
+              "explanation": "Veriyi 3 ana bileşene indirger.",
+              "turkce": "PCA",
+              "amac": "Yüksek boyutlu veriyi daha az boyutta görselleştirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda boyut indirgeme modelini kurar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df_cluster_pca_3d = pca_3d.fit_transform(df_scaled)",
+          "lineExplanation": "PCA modelini ölçeklenmiş veri üzerinde çalıştırır ve indirgenmiş bileşenleri yeni matrise yazar.",
+          "tokens": [
+            {
+              "token": "fit_transform(df_scaled)",
+              "explanation": "PCA bileşenlerini öğrenir ve veriyi yeni eksenlere projeler.",
+              "turkce": "Boyut İndirgeme",
+              "amac": "Görselleştirme için daha az boyutlu temsil elde etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda ölçeklenmiş veriyi PCA uzayına taşır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "fig = plt.figure(figsize=(10, 8))",
+          "lineExplanation": "3 boyutlu çizim için 10x8 boyutunda yeni bir figür nesnesi oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni figür oluşturur.",
+              "turkce": "Figür",
+              "amac": "3B eksen eklemek için bir konteyner hazırlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda 3B görsel için ana figürü başlatır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "ax = fig.add_subplot(111, projection=\"3d\")",
+          "lineExplanation": "Figür içine 3 boyutlu bir eksen yerleştirir.",
+          "tokens": [
+            {
+              "token": "projection=\"3d\"",
+              "explanation": "Alt eksenin 3B olarak kurulacağını belirtir.",
+              "turkce": "3B Eksen",
+              "amac": "Noktaları üç koordinatla çizebilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda figüre 3B eksen ekler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "sc = ax.scatter(",
+          "lineExplanation": "3 boyutlu scatter çağrısını başlatır ve oluşan renkli nokta nesnesini sc değişkenine yazar.",
+          "tokens": [
+            {
+              "token": "ax.scatter",
+              "explanation": "3 boyutlu nokta bulutu çizer.",
+              "turkce": "3B Saçılım",
+              "amac": "Kümeleri üç bileşen uzayında göstermek."
+            },
+            {
+              "token": "sc",
+              "explanation": "Sonradan colorbar eklemek için scatter nesnesini saklar.",
+              "turkce": "Grafik Nesnesi",
+              "amac": "Renk çubuğunu aynı veri katmanına bağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda 3B nokta çizimini başlatır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    df_cluster_pca_3d[:, 0],",
+          "lineExplanation": "3B scatter için PCA matrisinin 0. bileşenini koordinat olarak gönderir.",
+          "tokens": [
+            {
+              "token": "df_cluster_pca_3d[:, 0]",
+              "explanation": "İlgili PCA eksenini seçer.",
+              "turkce": "PCA Koordinatı",
+              "amac": "3B grafikte kullanılacak ekseni vermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda 3B grafiğin bir eksenini besler."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    df_cluster_pca_3d[:, 1],",
+          "lineExplanation": "3B scatter için PCA matrisinin 1. bileşenini koordinat olarak gönderir.",
+          "tokens": [
+            {
+              "token": "df_cluster_pca_3d[:, 1]",
+              "explanation": "İlgili PCA eksenini seçer.",
+              "turkce": "PCA Koordinatı",
+              "amac": "3B grafikte kullanılacak ekseni vermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda 3B grafiğin bir eksenini besler."
+        },
+        {
+          "lineNumber": 8,
+          "code": "    df_cluster_pca_3d[:, 2],",
+          "lineExplanation": "3B scatter için PCA matrisinin 2. bileşenini koordinat olarak gönderir.",
+          "tokens": [
+            {
+              "token": "df_cluster_pca_3d[:, 2]",
+              "explanation": "İlgili PCA eksenini seçer.",
+              "turkce": "PCA Koordinatı",
+              "amac": "3B grafikte kullanılacak ekseni vermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda 3B grafiğin bir eksenini besler."
+        },
+        {
+          "lineNumber": 9,
+          "code": "    c=df_cluster[\"Cluster\"],",
+          "lineExplanation": "Noktaların rengini cluster etiketlerine göre belirler.",
+          "tokens": [
+            {
+              "token": "df_cluster[\"Cluster\"]",
+              "explanation": "Her noktanın hangi cluster rengiyle çizileceğini belirler.",
+              "turkce": "Renk Kaynağı",
+              "amac": "Kümeleri görsel olarak ayırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda noktaları küme etiketlerine göre renklendirir."
+        },
+        {
+          "lineNumber": 10,
+          "code": "    cmap=\"viridis\",",
+          "lineExplanation": "Grafikte kullanılacak renk paletini \"viridis\" olarak seçer.",
+          "tokens": [
+            {
+              "token": "\"viridis\"",
+              "explanation": "Görselde kullanılacak renk düzenini belirler.",
+              "turkce": "Renk Paleti",
+              "amac": "Grupları veya yoğunlukları okunabilir biçimde ayırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda görselin renk dilini belirler."
+        },
+        {
+          "lineNumber": 11,
+          "code": "    alpha=0.7",
+          "lineExplanation": "Noktaların saydamlığını 0.7 olarak ayarlar.",
+          "tokens": [
+            {
+              "token": "alpha=0.7",
+              "explanation": "Noktaları kısmen saydam çizer.",
+              "turkce": "Saydamlık",
+              "amac": "Üst üste binen noktaları daha rahat görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda noktaların opaklık seviyesini ayarlar."
+        },
+        {
+          "lineNumber": 12,
+          "code": ")",
+          "lineExplanation": "Bir önceki çok satırlı fonksiyon çağrısını veya matematiksel ifadeyi kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Açık bırakılmış çağrıyı veya ifadeyi sonlandırır.",
+              "turkce": "Kapanış",
+              "amac": "Çok satırlı yapının sentaksını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
+        },
+        {
+          "lineNumber": 13,
+          "code": "ax.set_title(\"K-Means Kümeleme Sonuçları (3 Boyutlu PCA)\")",
+          "lineExplanation": "3B grafiğin başlığını ayarlar.",
+          "tokens": [
+            {
+              "token": "set_title",
+              "explanation": "İlgili 3B eksen yazısını ayarlayan yöntemdir.",
+              "turkce": "Eksen Yazısı",
+              "amac": "3B grafiğin okunabilirliğini artırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda 3B görselin açıklayıcı etiketlerinden birini yazar."
+        },
+        {
+          "lineNumber": 14,
+          "code": "ax.set_xlabel(\"PCA1\")",
+          "lineExplanation": "3B grafiğin x eksenini isimlendirir.",
+          "tokens": [
+            {
+              "token": "set_xlabel",
+              "explanation": "İlgili 3B eksen yazısını ayarlayan yöntemdir.",
+              "turkce": "Eksen Yazısı",
+              "amac": "3B grafiğin okunabilirliğini artırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda 3B görselin açıklayıcı etiketlerinden birini yazar."
+        },
+        {
+          "lineNumber": 15,
+          "code": "ax.set_ylabel(\"PCA2\")",
+          "lineExplanation": "3B grafiğin y eksenini isimlendirir.",
+          "tokens": [
+            {
+              "token": "set_ylabel",
+              "explanation": "İlgili 3B eksen yazısını ayarlayan yöntemdir.",
+              "turkce": "Eksen Yazısı",
+              "amac": "3B grafiğin okunabilirliğini artırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda 3B görselin açıklayıcı etiketlerinden birini yazar."
+        },
+        {
+          "lineNumber": 16,
+          "code": "ax.set_zlabel(\"PCA3\")",
+          "lineExplanation": "3B grafiğin z eksenini isimlendirir.",
+          "tokens": [
+            {
+              "token": "set_zlabel",
+              "explanation": "İlgili 3B eksen yazısını ayarlayan yöntemdir.",
+              "turkce": "Eksen Yazısı",
+              "amac": "3B grafiğin okunabilirliğini artırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda 3B görselin açıklayıcı etiketlerinden birini yazar."
+        },
+        {
+          "lineNumber": 17,
+          "code": "plt.colorbar(sc, ax=ax, label=\"Küme\")",
+          "lineExplanation": "3B scatter'daki renklerin hangi cluster etiketine karşılık geldiğini gösteren colorbar ekler.",
+          "tokens": [
+            {
+              "token": "plt.colorbar",
+              "explanation": "Grafiğe renk ölçeği çubuğu ekler.",
+              "turkce": "Renk Çubuğu",
+              "amac": "Renklerin anlamını açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda renklerin açıklamasını görsele ekler."
+        },
+        {
+          "lineNumber": 18,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'PCA ile üç boyutlu görünüm çiziyoruz' bloğunda görsel üretimini tamamlar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h6-marketing-b012.png"
+    },
+    {
+      "id": "hafta6_cluster_3-b013",
+      "title": "Gelir ve harcamaya göre kümeleri inceliyoruz",
+      "blockExplanation": "Bu hücre, müşteri gelirini toplam harcamayla birlikte çizerek kümelerin ticari davranış açısından nasıl ayrıştığını gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.figure(figsize=(10, 6))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 10, 6 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gelir ve harcamaya göre kümeleri inceliyoruz' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "sns.scatterplot(",
+          "lineExplanation": "Seaborn ile saçılım grafiği çizimini başlatır.",
+          "tokens": [
+            {
+              "token": "sns.scatterplot",
+              "explanation": "İki değişkenin noktalarla gösterildiği saçılım grafiğini üretir.",
+              "turkce": "Saçılım Grafiği",
+              "amac": "İki özellik arasındaki örüntüyü görselleştirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gelir ve harcamaya göre kümeleri inceliyoruz' bloğunda görsel küme/dağılım anlatımını başlatır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    data=df_cluster,",
+          "lineExplanation": "Grafikte kullanılacak veri kaynağını df_cluster olarak belirler.",
+          "tokens": [
+            {
+              "token": "df_cluster",
+              "explanation": "Grafiğin okuyacağı tabloyu belirtir.",
+              "turkce": "Veri Kaynağı",
+              "amac": "Hangi DataFrame'in çizileceğini seçmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gelir ve harcamaya göre kümeleri inceliyoruz' bloğunda görselin veri kaynağını sabitler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    x=\"Income\",",
+          "lineExplanation": "Grafiğin x ekseninde \"Income\" değişkenini kullanır.",
+          "tokens": [
+            {
+              "token": "\"Income\"",
+              "explanation": "Yatay eksene bağlanan alanı belirtir.",
+              "turkce": "X Değişkeni",
+              "amac": "İlgili özelliği yatay eksende göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gelir ve harcamaya göre kümeleri inceliyoruz' bloğunda yatay eksende hangi değişkenin çizileceğini belirler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    y=\"Total_Spending\",",
+          "lineExplanation": "Grafiğin y ekseninde \"Total_Spending\" değişkenini kullanır.",
+          "tokens": [
+            {
+              "token": "\"Total_Spending\"",
+              "explanation": "Dikey eksene bağlanan alanı belirtir.",
+              "turkce": "Y Değişkeni",
+              "amac": "İlgili özelliği dikey eksende göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gelir ve harcamaya göre kümeleri inceliyoruz' bloğunda dikey eksende hangi değişkenin çizileceğini belirler."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    hue=\"Cluster\",",
+          "lineExplanation": "Noktaların rengini \"Cluster\" bilgisine göre değiştirir.",
+          "tokens": [
+            {
+              "token": "\"Cluster\"",
+              "explanation": "Grafikte renk ayrımını belirleyen alanı ifade eder.",
+              "turkce": "Renk Değişkeni",
+              "amac": "Grupları veya sürekli ölçeği renk ile taşımak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gelir ve harcamaya göre kümeleri inceliyoruz' bloğunda görselin renklendirme ölçütünü seçer."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    palette=\"viridis\",",
+          "lineExplanation": "Grafikte kullanılacak renk paletini \"viridis\" olarak seçer.",
+          "tokens": [
+            {
+              "token": "\"viridis\"",
+              "explanation": "Görselde kullanılacak renk düzenini belirler.",
+              "turkce": "Renk Paleti",
+              "amac": "Grupları veya yoğunlukları okunabilir biçimde ayırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gelir ve harcamaya göre kümeleri inceliyoruz' bloğunda görselin renk dilini belirler."
+        },
+        {
+          "lineNumber": 8,
+          "code": "    alpha=0.7",
+          "lineExplanation": "Noktaların saydamlığını 0.7 olarak ayarlar.",
+          "tokens": [
+            {
+              "token": "alpha=0.7",
+              "explanation": "Noktaları kısmen saydam çizer.",
+              "turkce": "Saydamlık",
+              "amac": "Üst üste binen noktaları daha rahat görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gelir ve harcamaya göre kümeleri inceliyoruz' bloğunda noktaların opaklık seviyesini ayarlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": ")",
+          "lineExplanation": "Bir önceki çok satırlı fonksiyon çağrısını veya matematiksel ifadeyi kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Açık bırakılmış çağrıyı veya ifadeyi sonlandırır.",
+              "turkce": "Kapanış",
+              "amac": "Çok satırlı yapının sentaksını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gelir ve harcamaya göre kümeleri inceliyoruz' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.title(\"Gelir ve Toplam Harcamaya Göre Kümeler\")",
+          "lineExplanation": "Grafiğin başlığını \"Gelir ve Toplam Harcamaya Göre Kümeler\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gelir ve harcamaya göre kümeleri inceliyoruz' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 11,
+          "code": "plt.xlabel(\"Gelir\")",
+          "lineExplanation": "X ekseninin etiketini \"Gelir\" olarak yazar.",
+          "tokens": [
+            {
+              "token": "plt.xlabel",
+              "explanation": "Yatay eksenin adını belirler.",
+              "turkce": "X Etiketi",
+              "amac": "Grafiğin hangi değişkeni yatay eksende taşıdığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gelir ve harcamaya göre kümeleri inceliyoruz' bloğunda yatay ekseni isimlendirir."
+        },
+        {
+          "lineNumber": 12,
+          "code": "plt.ylabel(\"Toplam Harcama\")",
+          "lineExplanation": "Y ekseninin etiketini \"Toplam Harcama\" olarak yazar.",
+          "tokens": [
+            {
+              "token": "plt.ylabel",
+              "explanation": "Dikey eksenin adını belirler.",
+              "turkce": "Y Etiketi",
+              "amac": "Grafiğin hangi değişkeni dikey eksende taşıdığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gelir ve harcamaya göre kümeleri inceliyoruz' bloğunda dikey ekseni isimlendirir."
+        },
+        {
+          "lineNumber": 13,
+          "code": "plt.grid(True)",
+          "lineExplanation": "Grafiğe kılavuz ızgara çizgilerini ekler.",
+          "tokens": [
+            {
+              "token": "plt.grid(True)",
+              "explanation": "Izgara çizgilerini görünür hale getirir.",
+              "turkce": "Izgara",
+              "amac": "Nokta konumlarını okumayı kolaylaştırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gelir ve harcamaya göre kümeleri inceliyoruz' bloğunda görsel okuma kolaylığı için ızgarayı açar."
+        },
+        {
+          "lineNumber": 14,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gelir ve harcamaya göre kümeleri inceliyoruz' bloğunda görsel üretimini tamamlar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h6-marketing-b013.png"
+    },
+    {
+      "id": "hafta6_cluster_3-b014",
+      "title": "Sonuç tablosunu görüyoruz",
+      "blockExplanation": "Bu hücre, son haline gelmiş cluster tablosunun ilk satırlarını özet olarak gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df_cluster.head()",
+          "lineExplanation": "df_cluster tablosunun ilk 5 satırını gösterir.",
+          "tokens": [
+            {
+              "token": ".head()",
+              "explanation": "İlk satırları getirir.",
+              "turkce": "Önizleme",
+              "amac": "Seçilen özelliklerin doğru geldiğini doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuç tablosunu görüyoruz' bloğunda daraltılmış tablonun önizlemesini verir."
+        }
+      ],
+      "expectedOutput": "    Income  Kidhome  Teenhome  Recency  MntWines  MntFruits  MntMeatProducts  MntFishProducts  MntSweetProducts  MntGoldProds  NumDealsPurchases  \\\n0  58138.0        0         0       58       635         88              546              172                88            88                  3\n1  46344.0        1         1       38        11          1                6                2                 1             6                  2\n2  71613.0        0         0       26       426         49              127              111                21            42                  1\n3  26646.0        1         0       26        11          4               20               10                 3             5                  2\n4  58293.0        1         0       94       173         43              118               46                27            15                  5\n\n   NumWebPurchases  NumCatalogPurchases  NumStorePurchases  NumWebVisitsMonth  Total_Spending  Cluster      PCA1      PCA2\n0                8                   10                  4                  7            1617        2  4.138351 -0.074085\n1                1                    1                  2                  5              27        0 -2.568597 -0.367485\n2                8                    2                 10                  4             776        2  1.844418 -0.296688\n3                2                    0                  4                  6              53        0 -2.550948 -0.989237\n4                5                    3                  6                  5             422        1 -0.300438  0.206037"
+    }
+  ],
+  "csvOptions": {
+    "delimiter": "\t"
+  }
+}

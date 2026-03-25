@@ -1,0 +1,986 @@
+{
+  "id": "hafta6_cluster_2",
+  "title": "Hafta 6: K-Means ile Live",
+  "week": 6,
+  "csvFiles": [
+    "Live.csv"
+  ],
+  "blocks": [
+    {
+      "id": "hafta6_cluster_2-b001",
+      "title": "Live veri seti için araçları hazırlıyoruz",
+      "blockExplanation": "Bu hücre, Live.csv analizi için uyarı yönetimi, dosya kontrolü, veri işleme, görselleştirme, ölçekleme ve elbow araçlarını hazırlar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import warnings",
+          "lineExplanation": "warnings modülünü içe aktarır.",
+          "tokens": [
+            {
+              "token": "warnings",
+              "explanation": "warnings modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Gerekli fonksiyon ve sınıfları kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Live veri seti için araçları hazırlıyoruz' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "warnings.filterwarnings(\"ignore\")",
+          "lineExplanation": "Çalışma sırasında çıkabilecek uyarı mesajlarını bastırarak çıktıyı sadeleştirir.",
+          "tokens": [
+            {
+              "token": "filterwarnings(\"ignore\")",
+              "explanation": "Tüm uyarıları gösterme davranışını kapatır.",
+              "turkce": "Uyarı Ayarı",
+              "amac": "Notebook çıktısını gereksiz uyarı satırlarından temiz tutmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Live veri seti için araçları hazırlıyoruz' bloğunda terminal çıktısını sade tutmak için uyarıları kapatır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "import os",
+          "lineExplanation": "os modülünü içe aktarır.",
+          "tokens": [
+            {
+              "token": "os",
+              "explanation": "os modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Gerekli fonksiyon ve sınıfları kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Live veri seti için araçları hazırlıyoruz' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "import pandas as pd",
+          "lineExplanation": "pandas modülünü pd takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "pandas modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "pd",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Live veri seti için araçları hazırlıyoruz' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "matplotlib.pyplot modülünü plt takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "matplotlib.pyplot modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "plt",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Live veri seti için araçları hazırlıyoruz' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 6,
+          "code": "import seaborn as sns",
+          "lineExplanation": "seaborn modülünü sns takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "seaborn",
+              "explanation": "seaborn modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "sns",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Live veri seti için araçları hazırlıyoruz' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 7,
+          "code": "from sklearn.cluster import KMeans",
+          "lineExplanation": "sklearn.cluster modülünden KMeans bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "sklearn.cluster",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "KMeans",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Live veri seti için araçları hazırlıyoruz' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "from sklearn.preprocessing import StandardScaler",
+          "lineExplanation": "sklearn.preprocessing modülünden StandardScaler bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "sklearn.preprocessing",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "StandardScaler",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Live veri seti için araçları hazırlıyoruz' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "from yellowbrick.cluster import KElbowVisualizer",
+          "lineExplanation": "yellowbrick.cluster modülünden KElbowVisualizer bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "yellowbrick.cluster",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "KElbowVisualizer",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Live veri seti için araçları hazırlıyoruz' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+    },
+    {
+      "id": "hafta6_cluster_2-b002",
+      "title": "Live.csv dosyasını yüklüyoruz",
+      "blockExplanation": "Bu hücre, dosyanın varlığını doğrular; ardından Live.csv verisini okuyup bilgi mesajı ile ilk satırları ekrana getirir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "dataset_path = \"Live.csv\"",
+          "lineExplanation": "Okunacak veri dosyasının adını Live.csv olarak değişkene yazar.",
+          "tokens": [
+            {
+              "token": "dataset_path",
+              "explanation": "Dosya yolunu tutan değişkendir.",
+              "turkce": "Dosya Yolu",
+              "amac": "Aynı yol bilgisini sonraki satırlarda tekrar kullanmak."
+            },
+            {
+              "token": "Live.csv",
+              "explanation": "Okunacak gerçek veri dosyasını belirtir.",
+              "turkce": "CSV/TSV Adı",
+              "amac": "Doğru veri kaynağını hedeflemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Live.csv dosyasını yüklüyoruz' bloğunda dosya yolunu tek yerde tanımlayarak tekrar kullanım sağlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "if not os.path.exists(dataset_path):",
+          "lineExplanation": "Belirtilen veri dosyasının klasörde gerçekten bulunup bulunmadığını kontrol eder.",
+          "tokens": [
+            {
+              "token": "os.path.exists(dataset_path)",
+              "explanation": "Dosya yolunun mevcut olup olmadığını True/False olarak döndürür.",
+              "turkce": "Dosya Kontrolü",
+              "amac": "Eksik dosya nedeniyle sessiz hataya düşmemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Live.csv dosyasını yüklüyoruz' bloğunda veri kaynağının varlığını doğrulayan güvenlik kontrolünü başlatır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    raise FileNotFoundError(f\"'{dataset_path}' dosyası bulunamadı.\")",
+          "lineExplanation": "Dosya yoksa işlemi durdurup kullanıcıya anlaşılır bir dosya bulunamadı hatası verir.",
+          "tokens": [
+            {
+              "token": "FileNotFoundError",
+              "explanation": "Eksik dosya durumunda yükseltilen yerleşik hatadır.",
+              "turkce": "Hata",
+              "amac": "Veri kaynağı yokken sonraki satırların boşa çalışmasını önlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Live.csv dosyasını yüklüyoruz' bloğunda veri kaynağı bulunmazsa yürütmeyi bilinçli biçimde keser."
+        },
+        {
+          "lineNumber": 4,
+          "code": "df = pd.read_csv(dataset_path)",
+          "lineExplanation": "veri dosyası dosyasını pandas ile okuyup df adlı DataFrame'e yükler.",
+          "tokens": [
+            {
+              "token": "pd.read_csv",
+              "explanation": "CSV ya da benzeri düz metin dosyalarını tablo olarak okur.",
+              "turkce": "Dosya Okuma",
+              "amac": "Veriyi pandas DataFrame biçimine almak."
+            },
+            {
+              "token": "veri dosyası",
+              "explanation": "Okunan veri dosyasının adıdır.",
+              "turkce": "Veri Dosyası",
+              "amac": "Hangi kaynağın kullanılacağını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Live.csv dosyasını yüklüyoruz' bloğunda ham dosyayı pandas tablosuna dönüştürür."
+        },
+        {
+          "lineNumber": 5,
+          "code": "print(\"Veri seti yüklendi.\")",
+          "lineExplanation": "Dosya başarıyla okunduğunda kullanıcıya kısa bir durum mesajı basar.",
+          "tokens": [
+            {
+              "token": "print(\"Veri seti yüklendi.\")",
+              "explanation": "Başarılı yükleme bilgisini terminale yazar.",
+              "turkce": "Durum Mesajı",
+              "amac": "Veri okuma adımının sorunsuz tamamlandığını göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Live.csv dosyasını yüklüyoruz' bloğunda yükleme adımının tamamlandığını görünür kılar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "df.head()",
+          "lineExplanation": "DataFrame'in ilk 5 satırını göstererek verinin görünümünü hızlıca kontrol ettirir.",
+          "tokens": [
+            {
+              "token": ".head()",
+              "explanation": "Varsayılan olarak ilk 5 satırı getirir.",
+              "turkce": "Önizleme",
+              "amac": "Dosyanın doğru okunup okunmadığını hızlıca görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Live.csv dosyasını yüklüyoruz' bloğunda tablonun ilk satırlarını önizleme amaçlı ekrana getirir."
+        }
+      ],
+      "expectedOutput": "Veri seti yüklendi.\n\n                          status_id status_type status_published  num_reactions  num_comments  num_shares  num_likes  num_loves  num_wows  num_hahas  \\\n0  246675545449582_1649696485147474       video   4/22/2018 6:00            529           512         262        432         92         3          1\n1  246675545449582_1649426988507757       photo  4/21/2018 22:45            150             0           0        150          0         0          0\n2  246675545449582_1648730588577397       video   4/21/2018 6:17            227           236          57        204         21         1          1\n3  246675545449582_1648576705259452       photo   4/21/2018 2:29            111             0           0        111          0         0          0\n4  246675545449582_1645700502213739       photo   4/18/2018 3:22            213             0           0        204          9         0          0\n\n   num_sads  num_angrys  Column1  Column2  Column3  Column4\n0         1           0      NaN      NaN      NaN      NaN\n1         0           0      NaN      NaN      NaN      NaN\n2         0           0      NaN      NaN      NaN      NaN\n3         0           0      NaN      NaN      NaN      NaN\n4         0           0      NaN      NaN      NaN      NaN"
+    },
+    {
+      "id": "hafta6_cluster_2-b003",
+      "title": "Genel yapıyı df.info() ile inceliyoruz",
+      "blockExplanation": "Bu hücre, Live veri setinin sütun tiplerini, doluluk durumunu ve bellek kullanımını özetler.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.info()",
+          "lineExplanation": "Sütunların doluluk sayısını, veri tiplerini ve bellek kullanımını ekrana yazar.",
+          "tokens": [
+            {
+              "token": ".info()",
+              "explanation": "DataFrame'in yapısal özetini üretir.",
+              "turkce": "Yapı Özeti",
+              "amac": "Eksik veri ve tip bilgisini tek çıktıda görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel yapıyı df.info() ile inceliyoruz' bloğunda veri setinin genel yapısını özetler."
+        }
+      ],
+      "expectedOutput": "<class 'pandas.core.frame.DataFrame'>\nRangeIndex: 7050 entries, 0 to 7049\nData columns (total 16 columns):\n #   Column            Non-Null Count  Dtype\n---  ------            --------------  -----\n 0   status_id         7050 non-null   object\n 1   status_type       7050 non-null   object\n 2   status_published  7050 non-null   object\n 3   num_reactions     7050 non-null   int64\n 4   num_comments      7050 non-null   int64\n 5   num_shares        7050 non-null   int64\n 6   num_likes         7050 non-null   int64\n 7   num_loves         7050 non-null   int64\n 8   num_wows          7050 non-null   int64\n 9   num_hahas         7050 non-null   int64\n 10  num_sads          7050 non-null   int64\n 11  num_angrys        7050 non-null   int64\n 12  Column1           0 non-null      float64\n 13  Column2           0 non-null      float64\n 14  Column3           0 non-null      float64\n 15  Column4           0 non-null      float64\ndtypes: float64(4), int64(9), object(3)\nmemory usage: 881.4+ KB"
+    },
+    {
+      "id": "hafta6_cluster_2-b004",
+      "title": "Kümeleme sütunlarını seçiyoruz",
+      "blockExplanation": "Bu hücre, yalnızca etkileşim sayılarıyla ilgili sütunları ayırır ve kümelemede kullanılacak daraltılmış tabloyu oluşturur.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "columns_to_use = [",
+          "lineExplanation": "Kümelemede kullanılacak sütun isimlerini toplayacak çok satırlı listeyi başlatır.",
+          "tokens": [
+            {
+              "token": "columns_to_use",
+              "explanation": "Seçilecek sütun adlarını tutan listedir.",
+              "turkce": "Sütun Listesi",
+              "amac": "Kümeleme için hangi özelliklerin alınacağını merkezileştirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme sütunlarını seçiyoruz' bloğunda kullanılacak öznitelik listesini başlatır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    \"num_reactions\", \"num_comments\", \"num_shares\",",
+          "lineExplanation": "Kümeleme listesine reaksiyon, yorum ve paylaşım sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "num_reactions",
+              "explanation": "reaksiyon bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "num_comments",
+              "explanation": "yorum bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "num_shares",
+              "explanation": "paylaşım bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme sütunlarını seçiyoruz' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    \"num_likes\", \"num_loves\", \"num_wows\", \"num_hahas\",",
+          "lineExplanation": "Kümeleme listesine beğeni, sevgi reaksiyonu, şaşkınlık reaksiyonu ve kahkaha reaksiyonu sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "num_likes",
+              "explanation": "beğeni bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "num_loves",
+              "explanation": "sevgi reaksiyonu bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "num_wows",
+              "explanation": "şaşkınlık reaksiyonu bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "num_hahas",
+              "explanation": "kahkaha reaksiyonu bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme sütunlarını seçiyoruz' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    \"num_sads\", \"num_angrys\"",
+          "lineExplanation": "Kümeleme listesine üzgün reaksiyon ve kızgın reaksiyon sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "num_sads",
+              "explanation": "üzgün reaksiyon bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "num_angrys",
+              "explanation": "kızgın reaksiyon bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme sütunlarını seçiyoruz' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "]",
+          "lineExplanation": "Bir önceki çok satırlı liste tanımını kapatır.",
+          "tokens": [
+            {
+              "token": "]",
+              "explanation": "Liste tanımının kapanış işaretidir.",
+              "turkce": "Liste Kapanışı",
+              "amac": "Çok satırlı listeyi bitirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme sütunlarını seçiyoruz' bloğunda sütun listesini tamamlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "df_cluster = df[columns_to_use].copy()",
+          "lineExplanation": "Seçilen sütunları ayrı bir çalışma tablosuna kopyalar.",
+          "tokens": [
+            {
+              "token": "df[columns_to_use]",
+              "explanation": "Listeye yazılmış sütunlardan oluşan alt tabloyu seçer.",
+              "turkce": "Sütun Seçimi",
+              "amac": "Sadece gerekli özelliklerle çalışmak."
+            },
+            {
+              "token": ".copy()",
+              "explanation": "Bağımsız kopya oluşturur.",
+              "turkce": "Kopya",
+              "amac": "Sonraki değişikliklerin ana tabloyu etkilemesini önlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme sütunlarını seçiyoruz' bloğunda kümeleme için özel çalışma tablosu üretir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "df_cluster.head()",
+          "lineExplanation": "df_cluster tablosunun ilk 5 satırını gösterir.",
+          "tokens": [
+            {
+              "token": ".head()",
+              "explanation": "İlk satırları getirir.",
+              "turkce": "Önizleme",
+              "amac": "Seçilen özelliklerin doğru geldiğini doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleme sütunlarını seçiyoruz' bloğunda daraltılmış tablonun önizlemesini verir."
+        }
+      ],
+      "expectedOutput": "   num_reactions  num_comments  num_shares  num_likes  num_loves  num_wows  num_hahas  num_sads  num_angrys\n0            529           512         262        432         92         3          1         1           0\n1            150             0           0        150          0         0          0         0           0\n2            227           236          57        204         21         1          1         0           0\n3            111             0           0        111          0         0          0         0           0\n4            213             0           0        204          9         0          0         0           0"
+    },
+    {
+      "id": "hafta6_cluster_2-b005",
+      "title": "Eksik değerleri sayıyoruz",
+      "blockExplanation": "Bu hücre, seçilen etkileşim sütunlarında eksik hücre bulunup bulunmadığını sütun bazında sayar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df_cluster.isnull().sum()",
+          "lineExplanation": "df_cluster içindeki eksik değer sayılarını sütun bazında sayar.",
+          "tokens": [
+            {
+              "token": "isnull().sum()",
+              "explanation": "Önce boş hücreleri bulur, sonra toplamlarını alır.",
+              "turkce": "Eksik Sayımı",
+              "amac": "Temizleme gerekip gerekmediğini görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eksik değerleri sayıyoruz' bloğunda eksik veri yoğunluğunu ölçer."
+        }
+      ],
+      "expectedOutput": "num_reactions    0\nnum_comments     0\nnum_shares       0\nnum_likes        0\nnum_loves        0\nnum_wows         0\nnum_hahas        0\nnum_sads         0\nnum_angrys       0\ndtype: int64"
+    },
+    {
+      "id": "hafta6_cluster_2-b006",
+      "title": "Eksikleri sıfırla tamamlama kararını veriyoruz",
+      "blockExplanation": "Bu hücre, eksik veri varsa 0 ile doldurur; yoksa veri setinin temiz olduğunu kullanıcıya yazdırır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "if df_cluster.isnull().sum().sum() > 0:",
+          "lineExplanation": "Tüm eksik değerlerin toplamı sıfırdan büyükse doldurma akışına geçer.",
+          "tokens": [
+            {
+              "token": "df_cluster.isnull().sum().sum() > 0",
+              "explanation": "Toplam eksik hücre sayısının pozitif olup olmadığını kontrol eder.",
+              "turkce": "Koşul",
+              "amac": "Yalnızca eksik veri varsa doldurma işlemini tetiklemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eksikleri sıfırla tamamlama kararını veriyoruz' bloğunda eksik veri var/yok kararını verir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    print(\"Eksik veriler bulundu, 0 ile dolduruluyor.\")",
+          "lineExplanation": "Eksik veri bulunduğunu ve 0 ile doldurma yapılacağını terminale yazar.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "Bilgilendirme mesajını ekrana basar.",
+              "turkce": "Durum Mesajı",
+              "amac": "Kullanıcıya hangi temizleme kararının alındığını söylemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eksikleri sıfırla tamamlama kararını veriyoruz' bloğunda uygulanacak doldurma stratejisini kullanıcıya açıklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    df_cluster = df_cluster.fillna(0)",
+          "lineExplanation": "Eksik hücreleri 0 ile doldurur ve sonucu tekrar df_cluster içine yazar.",
+          "tokens": [
+            {
+              "token": "fillna(0)",
+              "explanation": "NaN hücreleri 0 ile değiştirir.",
+              "turkce": "Eksik Doldurma",
+              "amac": "Model öncesi boş değer bırakmamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eksikleri sıfırla tamamlama kararını veriyoruz' bloğunda eksik verileri sıfırla kapatır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "else:",
+          "lineExplanation": "Koşul sağlanmadığında alternatif akışa geçileceğini belirtir.",
+          "tokens": [
+            {
+              "token": "else:",
+              "explanation": "if koşulu False olduğunda çalışacak kolu açar.",
+              "turkce": "Alternatif Akış",
+              "amac": "Koşulun diğer sonucunda yapılacak işlemleri tanımlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eksikleri sıfırla tamamlama kararını veriyoruz' bloğunda alternatif akış kapısını açar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    print(\"Eksik veri bulunmadı.\")",
+          "lineExplanation": "Eksik veri olmadığını terminale yazar.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "Bilgilendirme mesajını ekrana basar.",
+              "turkce": "Durum Mesajı",
+              "amac": "Temizleme gereksiz olduğunu görünür kılmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eksikleri sıfırla tamamlama kararını veriyoruz' bloğunda veri setinin temiz olduğunu kullanıcıya bildirir."
+        }
+      ],
+      "expectedOutput": "Eksik veri bulunmadı."
+    },
+    {
+      "id": "hafta6_cluster_2-b007",
+      "title": "Veriyi StandardScaler ile ölçeklendiriyoruz",
+      "blockExplanation": "Bu hücre, etkileşim sütunlarını ortak ölçekte toplar ve ilk dönüştürülmüş satırları gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "scaler = StandardScaler()",
+          "lineExplanation": "Standartlaştırma işlemi yapacak StandardScaler nesnesini oluşturur.",
+          "tokens": [
+            {
+              "token": "StandardScaler",
+              "explanation": "Her özelliği ortalaması 0, standart sapması 1 olacak biçimde ölçekler.",
+              "turkce": "Ölçekleyici",
+              "amac": "Mesafe tabanlı algoritmalarda sütunları ortak ölçeğe getirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veriyi StandardScaler ile ölçeklendiriyoruz' bloğunda sayısal özellikleri ölçekleyecek aracı kurar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df_scaled = scaler.fit_transform(df_cluster)",
+          "lineExplanation": "StandardScaler'ı df_cluster üzerinde öğrenir ve ölçeklenmiş matrisi df_scaled içine yazar.",
+          "tokens": [
+            {
+              "token": "fit_transform(df_cluster)",
+              "explanation": "Önce ölçekleyiciyi veriye uydurur, sonra dönüşümü uygular.",
+              "turkce": "Fit + Transform",
+              "amac": "K-Means için tüm özellikleri ortak ölçeğe çekmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veriyi StandardScaler ile ölçeklendiriyoruz' bloğunda kümeleme verisini standardize eder."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df_scaled[:5]",
+          "lineExplanation": "Ölçeklenmiş matrisin ilk 5 satırını gösterir.",
+          "tokens": [
+            {
+              "token": "[:5]",
+              "explanation": "İlk 5 satırı seçer.",
+              "turkce": "Dilimleme",
+              "amac": "Dönüşüm sonucunu küçük örnek üstünde doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veriyi StandardScaler ile ölçeklendiriyoruz' bloğunda ölçeklenmiş verinin örnek görünümünü sunar."
+        }
+      ],
+      "expectedOutput": "array([[ 0.64610394,  0.32335035,  1.6868788 ,  0.48272661,  1.98326643,  0.1961959 ,  0.07671305,  0.47357035, -0.15574803],\n       [-0.17319166, -0.25220622, -0.3041444 , -0.14472021, -0.3184544 , -0.147879  , -0.17600986, -0.152587  , -0.15574803],\n       [-0.00673846,  0.01308938,  0.12901714, -0.02457082,  0.2069384 , -0.03318737,  0.07671305, -0.152587  , -0.15574803],\n       [-0.25749912, -0.25220622, -0.3041444 , -0.23149477, -0.3184544 , -0.147879  , -0.17600986, -0.152587  , -0.15574803],\n       [-0.03700268, -0.25220622, -0.3041444 , -0.02457082, -0.09328605, -0.147879  , -0.17600986, -0.152587  , -0.15574803]])"
+    },
+    {
+      "id": "hafta6_cluster_2-b008",
+      "title": "Elbow yöntemiyle optimum k'yı buluyoruz",
+      "blockExplanation": "Bu hücre, 2 ile 9 arasındaki küme sayılarını dener; dirsek grafiğini çizer ve seçilen optimum k değerini ekrana basar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "model = KMeans(n_init=10, random_state=42)",
+          "lineExplanation": "Elbow hesabında tekrar tekrar kullanılacak temel K-Means modelini oluşturur.",
+          "tokens": [
+            {
+              "token": "KMeans(n_init=10, random_state=42)",
+              "explanation": "Başlangıç deneme sayısı ve sabit rastgelelik ile K-Means modelini kurar.",
+              "turkce": "Temel Model",
+              "amac": "Elbow için farklı k değerlerinde karşılaştırılabilir sonuçlar üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Elbow yöntemiyle optimum k'yı buluyoruz' bloğunda elbow denemelerinde kullanılacak temel modeli kurar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "visualizer = KElbowVisualizer(model, k=(2, 10))",
+          "lineExplanation": "KElbowVisualizer nesnesini oluşturur ve denenecek k aralığını 2 ile 9 arasında belirler.",
+          "tokens": [
+            {
+              "token": "KElbowVisualizer",
+              "explanation": "K değerlerine göre inertia eğrisini üreten yardımcı araçtır.",
+              "turkce": "Elbow Aracı",
+              "amac": "Uygun küme sayısını görsel olarak seçmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Elbow yöntemiyle optimum k'yı buluyoruz' bloğunda elbow görselleştiricisini yapılandırır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "visualizer.fit(df_scaled)",
+          "lineExplanation": "Elbow görselleştiricisini ölçeklenmiş veri üzerinde çalıştırır ve farklı k değerlerinin inertia skorlarını hesaplatır.",
+          "tokens": [
+            {
+              "token": "fit(df_scaled)",
+              "explanation": "Veriyi elbow aracına vererek tüm k denemelerini yaptırır.",
+              "turkce": "Elbow Eğitimi",
+              "amac": "Dirsek eğrisi için gerekli skorları üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Elbow yöntemiyle optimum k'yı buluyoruz' bloğunda elbow skorlarını hesaplatır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "visualizer.show()",
+          "lineExplanation": "Elbow eğrisini grafik olarak çizer.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazırlanan elbow grafiğini görünür hale getirir.",
+              "turkce": "Grafik Göster",
+              "amac": "Uygun k değerini gözle seçilebilir yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Elbow yöntemiyle optimum k'yı buluyoruz' bloğunda elbow grafiğini ekrana taşır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "optimal_k = visualizer.elbow_value_",
+          "lineExplanation": "Elbow aracının seçtiği en uygun küme sayısını optimal_k değişkenine yazar.",
+          "tokens": [
+            {
+              "token": "visualizer.elbow_value_",
+              "explanation": "Dirsek noktasında seçilen k değeridir.",
+              "turkce": "Optimum k",
+              "amac": "Sonraki K-Means modelini bu değere göre kurmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Elbow yöntemiyle optimum k'yı buluyoruz' bloğunda seçilen optimum küme sayısını değişkene aktarır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "print(\"Optimum küme sayısı:\", optimal_k)",
+          "lineExplanation": "Bulunan optimum k değerini kullanıcıya metin olarak yazar.",
+          "tokens": [
+            {
+              "token": "optimal_k",
+              "explanation": "Elbow sonucunda seçilen küme sayısıdır.",
+              "turkce": "Optimum k",
+              "amac": "Seçilen değeri görünür biçimde raporlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Elbow yöntemiyle optimum k'yı buluyoruz' bloğunda seçilen küme sayısını terminal çıktısına dönüştürür."
+        }
+      ],
+      "expectedOutput": "<__main__.build_fake_yellowbrick.<locals>.KElbowVisualizer at 0x7fb18033cec0>\n\nOptimum küme sayısı: 4",
+      "plotImage": "h6-live-b008.png"
+    },
+    {
+      "id": "hafta6_cluster_2-b009",
+      "title": "K-Means modelini eğitip etiketleri ekliyoruz",
+      "blockExplanation": "Bu hücre, bulunan optimum küme sayısıyla modeli eğitir ve her kümedeki örnek sayısını gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "kmeans = KMeans(n_clusters=optimal_k, random_state=42, n_init=10)",
+          "lineExplanation": "K-Means modelini n_clusters=optimal_k, random_state=42, n_init=10 parametreleriyle kurar.",
+          "tokens": [
+            {
+              "token": "KMeans",
+              "explanation": "Scikit-learn'ün K-Means kümeleme sınıfıdır.",
+              "turkce": "Model",
+              "amac": "Veriyi benzer örnek kümelerine ayırmak."
+            },
+            {
+              "token": "n_clusters=optimal_k, random_state=42, n_init=10",
+              "explanation": "Modelin kaç küme, hangi başlangıç ve kaç tekrar ile çalışacağını belirler.",
+              "turkce": "Parametreler",
+              "amac": "Algoritmanın davranışını kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'K-Means modelini eğitip etiketleri ekliyoruz' bloğunda K-Means model nesnesini oluşturur."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df_cluster[\"Cluster\"] = kmeans.fit_predict(df_scaled)",
+          "lineExplanation": "K-Means modelini ölçeklenmiş veri üzerinde eğitir ve cluster etiketlerini doğrudan yeni sütuna yazar.",
+          "tokens": [
+            {
+              "token": "fit_predict(df_scaled)",
+              "explanation": "Modeli eğitip etiketleri aynı anda üretir.",
+              "turkce": "Fit + Predict",
+              "amac": "Tek satırda cluster etiketlerini almak."
+            },
+            {
+              "token": "df_cluster[\"Cluster\"]",
+              "explanation": "Üretilen etiketleri saklayan sütundur.",
+              "turkce": "Cluster Sütunu",
+              "amac": "Her örneğin hangi kümeye düştüğünü tabloya yazmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'K-Means modelini eğitip etiketleri ekliyoruz' bloğunda veri noktalarına cluster etiketlerini ekler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df_cluster[\"Cluster\"].value_counts()",
+          "lineExplanation": "Her cluster etiketinden kaç satır olduğunu sayar.",
+          "tokens": [
+            {
+              "token": "value_counts()",
+              "explanation": "Her benzersiz değerin frekansını verir.",
+              "turkce": "Frekans",
+              "amac": "Kümelerin dengeli dağılıp dağılmadığını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'K-Means modelini eğitip etiketleri ekliyoruz' bloğunda kümelerin büyüklük dağılımını gösterir."
+        }
+      ],
+      "expectedOutput": "Cluster\n0    6322\n2     372\n1     330\n3      26\nName: count, dtype: int64"
+    },
+    {
+      "id": "hafta6_cluster_2-b010",
+      "title": "Beğeni ve paylaşım düzleminde kümeleri çiziyoruz",
+      "blockExplanation": "Bu hücre, num_likes ve num_shares eksenlerinde kümelerin nasıl ayrıştığını görsel hale getirir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.figure(figsize=(10, 6))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 10, 6 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Beğeni ve paylaşım düzleminde kümeleri çiziyoruz' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "sns.scatterplot(",
+          "lineExplanation": "Seaborn ile saçılım grafiği çizimini başlatır.",
+          "tokens": [
+            {
+              "token": "sns.scatterplot",
+              "explanation": "İki değişkenin noktalarla gösterildiği saçılım grafiğini üretir.",
+              "turkce": "Saçılım Grafiği",
+              "amac": "İki özellik arasındaki örüntüyü görselleştirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Beğeni ve paylaşım düzleminde kümeleri çiziyoruz' bloğunda görsel küme/dağılım anlatımını başlatır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    data=df_cluster,",
+          "lineExplanation": "Grafikte kullanılacak veri kaynağını df_cluster olarak belirler.",
+          "tokens": [
+            {
+              "token": "df_cluster",
+              "explanation": "Grafiğin okuyacağı tabloyu belirtir.",
+              "turkce": "Veri Kaynağı",
+              "amac": "Hangi DataFrame'in çizileceğini seçmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Beğeni ve paylaşım düzleminde kümeleri çiziyoruz' bloğunda görselin veri kaynağını sabitler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    x=\"num_likes\",",
+          "lineExplanation": "Grafiğin x ekseninde \"num_likes\" değişkenini kullanır.",
+          "tokens": [
+            {
+              "token": "\"num_likes\"",
+              "explanation": "Yatay eksene bağlanan alanı belirtir.",
+              "turkce": "X Değişkeni",
+              "amac": "İlgili özelliği yatay eksende göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Beğeni ve paylaşım düzleminde kümeleri çiziyoruz' bloğunda yatay eksende hangi değişkenin çizileceğini belirler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    y=\"num_shares\",",
+          "lineExplanation": "Grafiğin y ekseninde \"num_shares\" değişkenini kullanır.",
+          "tokens": [
+            {
+              "token": "\"num_shares\"",
+              "explanation": "Dikey eksene bağlanan alanı belirtir.",
+              "turkce": "Y Değişkeni",
+              "amac": "İlgili özelliği dikey eksende göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Beğeni ve paylaşım düzleminde kümeleri çiziyoruz' bloğunda dikey eksende hangi değişkenin çizileceğini belirler."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    hue=\"Cluster\",",
+          "lineExplanation": "Noktaların rengini \"Cluster\" bilgisine göre değiştirir.",
+          "tokens": [
+            {
+              "token": "\"Cluster\"",
+              "explanation": "Grafikte renk ayrımını belirleyen alanı ifade eder.",
+              "turkce": "Renk Değişkeni",
+              "amac": "Grupları veya sürekli ölçeği renk ile taşımak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Beğeni ve paylaşım düzleminde kümeleri çiziyoruz' bloğunda görselin renklendirme ölçütünü seçer."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    palette=\"viridis\",",
+          "lineExplanation": "Grafikte kullanılacak renk paletini \"viridis\" olarak seçer.",
+          "tokens": [
+            {
+              "token": "\"viridis\"",
+              "explanation": "Görselde kullanılacak renk düzenini belirler.",
+              "turkce": "Renk Paleti",
+              "amac": "Grupları veya yoğunlukları okunabilir biçimde ayırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Beğeni ve paylaşım düzleminde kümeleri çiziyoruz' bloğunda görselin renk dilini belirler."
+        },
+        {
+          "lineNumber": 8,
+          "code": "    alpha=0.7",
+          "lineExplanation": "Noktaların saydamlığını 0.7 olarak ayarlar.",
+          "tokens": [
+            {
+              "token": "alpha=0.7",
+              "explanation": "Noktaları kısmen saydam çizer.",
+              "turkce": "Saydamlık",
+              "amac": "Üst üste binen noktaları daha rahat görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Beğeni ve paylaşım düzleminde kümeleri çiziyoruz' bloğunda noktaların opaklık seviyesini ayarlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": ")",
+          "lineExplanation": "Bir önceki çok satırlı fonksiyon çağrısını veya matematiksel ifadeyi kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Açık bırakılmış çağrıyı veya ifadeyi sonlandırır.",
+              "turkce": "Kapanış",
+              "amac": "Çok satırlı yapının sentaksını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Beğeni ve paylaşım düzleminde kümeleri çiziyoruz' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.title(\"K-Means Kümeleme Sonuçları: Beğeni vs Paylaşım\")",
+          "lineExplanation": "Grafiğin başlığını \"K-Means Kümeleme Sonuçları: Beğeni vs Paylaşım\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Beğeni ve paylaşım düzleminde kümeleri çiziyoruz' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 11,
+          "code": "plt.xlabel(\"Beğeni Sayısı\")",
+          "lineExplanation": "X ekseninin etiketini \"Beğeni Sayısı\" olarak yazar.",
+          "tokens": [
+            {
+              "token": "plt.xlabel",
+              "explanation": "Yatay eksenin adını belirler.",
+              "turkce": "X Etiketi",
+              "amac": "Grafiğin hangi değişkeni yatay eksende taşıdığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Beğeni ve paylaşım düzleminde kümeleri çiziyoruz' bloğunda yatay ekseni isimlendirir."
+        },
+        {
+          "lineNumber": 12,
+          "code": "plt.ylabel(\"Paylaşım Sayısı\")",
+          "lineExplanation": "Y ekseninin etiketini \"Paylaşım Sayısı\" olarak yazar.",
+          "tokens": [
+            {
+              "token": "plt.ylabel",
+              "explanation": "Dikey eksenin adını belirler.",
+              "turkce": "Y Etiketi",
+              "amac": "Grafiğin hangi değişkeni dikey eksende taşıdığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Beğeni ve paylaşım düzleminde kümeleri çiziyoruz' bloğunda dikey ekseni isimlendirir."
+        },
+        {
+          "lineNumber": 13,
+          "code": "plt.grid(True)",
+          "lineExplanation": "Grafiğe kılavuz ızgara çizgilerini ekler.",
+          "tokens": [
+            {
+              "token": "plt.grid(True)",
+              "explanation": "Izgara çizgilerini görünür hale getirir.",
+              "turkce": "Izgara",
+              "amac": "Nokta konumlarını okumayı kolaylaştırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Beğeni ve paylaşım düzleminde kümeleri çiziyoruz' bloğunda görsel okuma kolaylığı için ızgarayı açar."
+        },
+        {
+          "lineNumber": 14,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Beğeni ve paylaşım düzleminde kümeleri çiziyoruz' bloğunda görsel üretimini tamamlar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h6-live-b010.png"
+    },
+    {
+      "id": "hafta6_cluster_2-b011",
+      "title": "Sonuç tablosunu görüyoruz",
+      "blockExplanation": "Bu hücre, cluster sütunu eklenmiş etkileşim tablosunun ilk satırlarını gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df_cluster.head()",
+          "lineExplanation": "df_cluster tablosunun ilk 5 satırını gösterir.",
+          "tokens": [
+            {
+              "token": ".head()",
+              "explanation": "İlk satırları getirir.",
+              "turkce": "Önizleme",
+              "amac": "Seçilen özelliklerin doğru geldiğini doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuç tablosunu görüyoruz' bloğunda daraltılmış tablonun önizlemesini verir."
+        }
+      ],
+      "expectedOutput": "   num_reactions  num_comments  num_shares  num_likes  num_loves  num_wows  num_hahas  num_sads  num_angrys  Cluster\n0            529           512         262        432         92         3          1         1           0        0\n1            150             0           0        150          0         0          0         0           0        0\n2            227           236          57        204         21         1          1         0           0        0\n3            111             0           0        111          0         0          0         0           0        0\n4            213             0           0        204          9         0          0         0           0        0"
+    }
+  ]
+}

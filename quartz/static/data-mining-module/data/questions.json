@@ -10217,5 +10217,1387 @@
         "definition": "Veri setindeki değişken (sütun) sayısının çok fazla artması durumunda modellerin eğitiminin zorlaşması ve aşırı öğrenme (overfitting) riskinin artması."
       }
     ]
+  },
+  {
+    "id": "w06-q001",
+    "week": 6,
+    "topic": "veri-on-isleme",
+    "type": "code",
+    "tags": [
+      "preprocessing",
+      "warnings",
+      "kutuphane"
+    ],
+    "sourceNotebook": "cluster_0.ipynb",
+    "question": "Aşağıdaki kod satırının veri madenciliği sürecindeki temel kullanım amacı nedir?",
+    "code": "import warnings\nwarnings.filterwarnings(\"ignore\")",
+    "options": {
+      "A": "Veri setindeki eksik veya hatalı değerleri (NaN) otomatik olarak silmek.",
+      "B": "Kütüphane versiyon farklılıklarından kaynaklanan ve çalışmayı durdurmayan sarı/kırmızı uyarı mesajlarını gizlemek.",
+      "C": "K-Means algoritmasının iterasyonları sırasındaki matematiksel hataları yoksaymak.",
+      "D": "Outlier (aykırı) verilerin model tarafından dikkate alınmasını engellemek.",
+      "E": "Makine öğrenmesi modelinin aşırı öğrenme (overfitting) uyarısı vermesini kapatmak."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Eksik veriler pandas fonksiyonları (dropna, fillna) ile yönetilir, warnings kütüphanesi veri manipülasyonu yapmaz.",
+      "B": "Bu kod, Python kütüphanelerinin güncellemelerinden kaynaklanan zararsız uyarı mesajlarının çıktı ekranını kirletmesini engeller.",
+      "C": "Matematiksel hatalar veya exception'lar bu komutla değil, try-except bloklarıyla yönetilir.",
+      "D": "Aykırı değerler istatistiksel yöntemler (Z-score, IQR) ile temizlenir, uyarı kütüphanesiyle ilgisi yoktur.",
+      "E": "Overfitting bir modelleme sorunudur, sistem tarafından fırlatılan bir 'warning' (uyarı) mesajı değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "warnings",
+        "definition": "Python'da potansiyel sorunları bildiren ancak kodun çalışmasını durdurmayan uyarı mesajları modülü."
+      }
+    ]
+  },
+  {
+    "id": "w06-q002",
+    "week": 6,
+    "topic": "veri-temizleme",
+    "type": "code",
+    "tags": [
+      "drop",
+      "pandas",
+      "ozellik-secimi"
+    ],
+    "sourceNotebook": "cluster_0.ipynb",
+    "question": "Kümeleme modellemesine geçilmeden önce aşağıdaki kod çalıştırılmıştır. Bu işlemin yapılmasının en temel nedeni aşağıdakilerden hangisidir?",
+    "code": "df = df.drop(\"CustomerID\", axis=1)",
+    "options": {
+      "A": "Müşteri ID'lerinin modelde hedef değişken (Y) olarak kullanılacak olması.",
+      "B": "CustomerID sütununun çok fazla eksik veri (NaN) içermesi.",
+      "C": "ID değerlerinin matematiksel bir mesafe (Öklid) hesabında mantıksal bir anlam ifade etmemesi ve modeli yanıltacak olması.",
+      "D": "K-Means algoritmasının yalnızca kategorik (string) verilerle çalışabilmesi.",
+      "E": "ID sütununun modelin eğitim süresini uzatması nedeniyle boyut indirgeme (PCA) uygulanması."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "K-Means denetimsiz bir algoritmadır, hedef değişken (Y) bulunmaz.",
+      "B": "ID sütunları genelde tamdır, atılma sebebi eksik veri olması değil, sıralı sayıların özellik (feature) olmamasıdır.",
+      "C": "ID'ler sırayla artan numaralardır. K-Means mesafe tabanlı çalıştığı için iki ID arasındaki matematiksel farkın (örn: ID 5 ile ID 10) müşteri benzerliği açısından hiçbir anlamı yoktur, bu yüzden atılmalıdır.",
+      "D": "Tam tersi, K-Means algoritması yalnızca sayısal verilerle çalışır.",
+      "E": "Tek bir sütunu silmek eğitim süresini çok etkilemez ve bu işlem bir PCA (boyut indirgeme) değil, özellik seçimi (feature selection) adımıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Feature Selection",
+        "definition": "Modelin başarımını artırmak için yalnızca anlamlı verilerin (sütunların) seçilmesi işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w06-q003",
+    "week": 6,
+    "topic": "veri-donusumu",
+    "type": "code",
+    "tags": [
+      "encoding",
+      "lambda",
+      "kategorik-veri"
+    ],
+    "sourceNotebook": "cluster_0.ipynb",
+    "question": "Aşağıdaki kod bloğu veri madenciliği ön işleme aşamasında hangi işlemi gerçekleştirmektedir?",
+    "code": "df[\"Genre\"] = df[\"Genre\"].apply(lambda x: 1 if x == \"Female\" else 0)",
+    "options": {
+      "A": "Eksik (NaN) verileri cinsiyete göre 1 veya 0 ile doldurmaktadır.",
+      "B": "Kategorik olan cinsiyet verisini, mesafe tabanlı algoritmanın (K-Means) anlayabilmesi için sayısallaştırmaktadır.",
+      "C": "Veri setindeki kadın ve erkek müşterileri iki farklı kümeye ayıran modeli eğitmektedir.",
+      "D": "Cinsiyet sütunundaki aykırı (outlier) değerleri filtreleyerek temizlemektedir.",
+      "E": "Cinsiyet değişkeninin varyansını hesaplayarak boyut indirgeme işlemi yapmaktadır."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Kodda eksik verileri kontrol eden (isnull, fillna) bir yapı yoktur.",
+      "B": "K-Means string veriler üzerinde mesafe hesaplayamaz. Bu kod 'Female' ve 'Male' metinlerini 1 ve 0 şeklinde binary (ikili) formatta encode ederek sayısallaştırır.",
+      "C": "Bu satır bir modelleme işlemi değil, veri dönüşümü (transformation) işlemidir. Kümeleme yapmaz.",
+      "D": "Aykırı değer tespiti veya silme işlemi yoktur, tüm satırlara koşullu dönüşüm uygulanır.",
+      "E": "Varyans hesabı veya PCA (boyut indirgeme) ile ilgisi yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Encoding",
+        "definition": "Kategorik (metinsel) verilerin makine öğrenmesi algoritmaları için sayısal değerlere dönüştürülmesi."
+      }
+    ]
+  },
+  {
+    "id": "w06-q004",
+    "week": 6,
+    "topic": "veri-donusumu",
+    "type": "code",
+    "tags": [
+      "label-encoder",
+      "preprocessing"
+    ],
+    "sourceNotebook": "cluster_3.ipynb",
+    "question": "Pazarlama kampanyası veri setinde, aşağıdaki kod çalıştırıldıktan sonra 'Education' ve 'Marital_Status' sütunlarında nasıl bir çıktı elde edilmesi beklenir?",
+    "code": "categorical_features = [\"Education\", \"Marital_Status\"]\nencoder = LabelEncoder()\n\nfor col in categorical_features:\n    df[col] = encoder.fit_transform(df[col])",
+    "options": {
+      "A": "Sütunlar veri setinden tamamen silinir.",
+      "B": "Sütunlardaki metinsel sınıflar, 0'dan başlayarak artan tam sayılara (0, 1, 2, 3...) dönüştürülür.",
+      "C": "Sütunlar yalnızca 0 ve 1 değerlerinden oluşan yeni sütunlara (One-Hot) ayrıştırılır.",
+      "D": "Sütunlardaki tüm değerlerin ortalaması alınarak eksik veriler doldurulur.",
+      "E": "Sütunlardaki metin değerleri standartlaştırılarak aralarındaki mesafe -1 ile +1 arasına çekilir."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Sütunlar silinmez, üzerine yazılarak dönüştürülür.",
+      "B": "LabelEncoder fonksiyonu, sütundaki her farklı metinsel (kategorik) sınıf için 0'dan başlayan ardışık bir tam sayı atar. Böylece veri K-Means için sayısallaştırılmış olur.",
+      "C": "One-Hot Encoding, get_dummies() fonksiyonu ile yapılır ve birden fazla yeni sütun oluşturur. LabelEncoder tek sütun içinde sayısal dönüşüm yapar.",
+      "D": "LabelEncoder eksik veri tamamlama (imputation) işlemi yapmaz.",
+      "E": "Standartlaştırma (StandardScaler) sürekli sayısal değişkenlere uygulanır, kategorik değişkenlere değil."
+    },
+    "relatedTerms": [
+      {
+        "term": "LabelEncoder",
+        "definition": "Scikit-Learn kütüphanesinde sınıfları ardışık tam sayılara dönüştüren araç."
+      }
+    ]
+  },
+  {
+    "id": "w06-q005",
+    "week": 6,
+    "topic": "eksik-veri-tamamlama",
+    "type": "code",
+    "tags": [
+      "fillna",
+      "median",
+      "imputation"
+    ],
+    "sourceNotebook": "cluster_3.ipynb",
+    "question": "Aşağıdaki kod satırı, gelir (Income) verisindeki eksiklikleri gidermek için kullanılmıştır. Bu satırın çalışma mantığına göre eksik veriler ne ile doldurulur?",
+    "code": "df[\"Income\"] = df[\"Income\"].fillna(df[\"Income\"].median())",
+    "options": {
+      "A": "Gelir sütununun aritmetik ortalaması ile.",
+      "B": "Gelir sütununda en sık tekrar eden (mod) değer ile.",
+      "C": "Gelir değerleri küçükten büyüğe sıralandığında tam ortada yer alan değer ile.",
+      "D": "Tüm eksik gelir değerlerine varsayılan olarak 0 atanarak.",
+      "E": "Eksik veriye sahip olan müşterilerin satırları veri setinden silinerek."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Aritmetik ortalama 'mean()' fonksiyonu ile alınır.",
+      "B": "En sık tekrar eden değer 'mode()' fonksiyonu ile bulunur.",
+      "C": "Kodda kullanılan 'median()' fonksiyonu, veriler sıralandığında ortada kalan değeri ifade eder. Uç değerlerden (outliers) etkilenmediği için gelir gibi verilerde ortalama yerine tercih edilir.",
+      "D": "Sıfır ataması yapmak için fillna(0) kullanılmalıdır.",
+      "E": "Silme işlemi dropna() fonksiyonu ile yapılır, burada fillna() ile doldurma yapılmıştır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Median",
+        "definition": "Veri seti sıralandığında tam ortada bulunan, uç değerlere karşı dirençli merkezi eğilim ölçüsü."
+      }
+    ]
+  },
+  {
+    "id": "w06-q006",
+    "week": 6,
+    "topic": "veri-olceklendirme",
+    "type": "code",
+    "tags": [
+      "standard-scaler",
+      "k-means"
+    ],
+    "sourceNotebook": "cluster_1.ipynb",
+    "question": "Aşağıdaki kod parçasının veri madenciliği sürecinde (özellikle K-Means öncesi) uygulanması neden zorunlu/kritiktir?",
+    "code": "scaler = StandardScaler()\nX_scaled = scaler.fit_transform(X)",
+    "options": {
+      "A": "K-Means algoritmasının kategorik (metin) verileri tanıyabilmesi için veriyi sayısal formata çevirir.",
+      "B": "Eksik olan verileri (NaN) 0 değerine dönüştürerek hatasız eğitim yapılmasını sağlar.",
+      "C": "Sütunlar arasındaki büyük ölçek farklarını (örn: ev yaşı 10 iken fiyatı 500.000) standartlaştırarak, Öklid mesafesi hesaplanırken büyük sayıların diğerlerini ezmesini engeller.",
+      "D": "Veri setindeki çoklu bağlantı (multicollinearity) sorununu çözerek boyut indirgeme yapar.",
+      "E": "Hedef değişkeni (Y) dengeleyerek modelin çoğunluk sınıfına taraf olmasını (bias) önler."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Kategorik dönüşüm işlemleri Encoder'lar ile yapılır, StandardScaler sayısal veriler içindir.",
+      "B": "StandardScaler eksik veri doldurmaz. Eğer veri setinde NaN varsa bu kod hata verir.",
+      "C": "K-Means gibi mesafe tabanlı (Öklid, Manhattan) algoritmalar değerlerin büyüklüğüne duyarlıdır. Ölçeklendirme (Standardization) tüm sütunları benzer aralıklara (-1, 1 civarı) çekerek adil bir hesaplama sağlar.",
+      "D": "Boyut indirgeme işlemi PCA (Principal Component Analysis) ile yapılır.",
+      "E": "K-Means denetimsizdir, Y (hedef) değişkeni yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "StandardScaler",
+        "definition": "Verinin ortalamasını 0, standart sapmasını 1 yapacak şekilde ölçekleyen dönüşüm aracı."
+      }
+    ]
+  },
+  {
+    "id": "w06-q007",
+    "week": 6,
+    "topic": "makine-ogrenmesi-ayrimi",
+    "type": "code",
+    "tags": [
+      "unsupervised",
+      "k-means",
+      "modelleme"
+    ],
+    "sourceNotebook": "cluster_1.ipynb",
+    "question": "Aşağıdaki K-Means modelleme kodunda, sınıflandırma (classification) algoritmalarından farklı olarak hangi yapı veya parametre eksiktir?",
+    "code": "kmeans = KMeans(n_clusters=5, random_state=42, n_init=10)\nX_cluster[\"Cluster\"] = kmeans.fit_predict(X_scaled)",
+    "options": {
+      "A": "X_scaled parametresinin ölçeklendirilmiş olması.",
+      "B": "fit_predict işlemi sırasında bir bağımlı değişkenin (y_train veya Y hedef sütunu) verilmemiş olması.",
+      "C": "Küme sayısının (n_clusters) algoritma başlatılmadan önce dışarıdan manuel olarak verilmesi.",
+      "D": "Rastgelelik (random_state) parametresinin belirlenmesi.",
+      "E": "Sonuçların yeni bir sütuna (Cluster) atanması."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Hem sınıflandırma hem kümeleme algoritmalarında ölçeklendirilmiş veri (X_scaled) kullanılabilir.",
+      "B": "K-Means gözetimsiz (unsupervised) bir algoritmadır, bu yüzden verinin etiketleri (Y) yoktur. Sınıflandırma algoritmalarında ise model 'fit(X_train, y_train)' şeklinde hem girdilerle hem de hedef çıktılarla eğitilir.",
+      "C": "KNN gibi bazı sınıflandırma algoritmalarında da komşu sayısı (K) baştan verilir.",
+      "D": "Random_state parametresi sınıflandırma modellerinde de (örn: Random Forest) kullanılır.",
+      "E": "Tahmin edilen değerleri yeni bir sütuna atamak her iki öğrenme türünde de yapılabilir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Unsupervised Learning",
+        "definition": "Modelin veriyi eğitirken önceden etiketlenmiş bir hedef değişkene (Y) ihtiyaç duymadığı öğrenme türü."
+      }
+    ]
+  },
+  {
+    "id": "w06-q008",
+    "week": 6,
+    "topic": "kume-degerlendirme",
+    "type": "code",
+    "tags": [
+      "elbow-method",
+      "inertia",
+      "for-loop"
+    ],
+    "sourceNotebook": "cluster_0.ipynb",
+    "question": "Aşağıdaki kod bloğu, K-Means algoritmasında optimum K (küme) sayısını belirlemek için kurulmuştur. Kodda yer alan `kmeans.inertia_` parametresi matematiksel olarak neyi ifade eder?",
+    "code": "sse = {}\nfor k in range(2, 15):\n    kmeans = KMeans(n_clusters=k, init=\"k-means++\", n_init=10, random_state=42)\n    kmeans.fit(df)\n    sse[k] = kmeans.inertia_",
+    "options": {
+      "A": "Kümeler arası maksimum uzaklığı.",
+      "B": "Her bir veri noktasının kendi küme merkezine olan uzaklıklarının kareleri toplamını (hata oranı).",
+      "C": "Modelin test veri seti üzerindeki doğruluk (accuracy) yüzdesini.",
+      "D": "Küme merkezlerinin başlangıçta rastgele atandığı koordinatları.",
+      "E": "İki ardışık K değeri arasındaki bilgi kaybı miktarını."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Inertia kümeler arası uzaklığı değil, küme içi sıkılığı ölçer.",
+      "B": "Inertia (WCSS), her elemanın ait olduğu kümenin merkezine olan uzaklığının karesini alır ve toplar. Bu değerin grafikte kırıldığı (dirsek yaptığı) nokta optimum küme sayısını verir.",
+      "C": "K-Means'te doğruluk (accuracy) metriği yoktur çünkü verilerin gerçek etiketleri bilinmez.",
+      "D": "Küme merkez koordinatları 'cluster_centers_' özniteliği ile alınır.",
+      "E": "Bilgi kaybı miktarı varyans üzerinden PCA ile ilişkilidir, inertia ile değil."
+    },
+    "relatedTerms": [
+      {
+        "term": "Inertia (WCSS)",
+        "definition": "Within-Cluster Sum of Squares. Verilerin kendi küme merkezlerine olan hata kareleri toplamı."
+      }
+    ]
+  },
+  {
+    "id": "w06-q009",
+    "week": 6,
+    "topic": "kume-degerlendirme",
+    "type": "code",
+    "tags": [
+      "yellowbrick",
+      "kelbowvisualizer"
+    ],
+    "sourceNotebook": "cluster_2.ipynb",
+    "question": "Aşağıdaki çıktıyı ve optimum K değerini otomatik olarak hesaplayan `visualizer.elbow_value_` değişkenini üreten kütüphane ve modül aşağıdakilerden hangisidir?",
+    "code": "model = KMeans(n_init=10, random_state=42)\nvisualizer = KElbowVisualizer(model, k=(2, 10))\nvisualizer.fit(df_scaled)\nvisualizer.show()\n\noptimal_k = visualizer.elbow_value_",
+    "options": {
+      "A": "matplotlib.pyplot",
+      "B": "seaborn.clustermap",
+      "C": "sklearn.metrics.silhouette_score",
+      "D": "yellowbrick.cluster",
+      "E": "pandas.DataFrame.plot"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Matplotlib temel çizim kütüphanesidir, kendi başına KElbowVisualizer modülünü içermez.",
+      "B": "Seaborn clustermap hiyerarşik kümeleme haritası çizer, elbow metodu uygulamaz.",
+      "C": "Silhouette score sklearn içinde bir metrik hesaplamasıdır, görselleştirici (visualizer) sınıfı değildir.",
+      "D": "Yellowbrick kütüphanesi, scikit-learn modellerini görselleştirmek için kullanılır ve `KElbowVisualizer` modülü dirsek yöntemini otomatik çizip optimum K değerini hesaplar.",
+      "E": "Pandas plot metodunun makine öğrenmesi algoritmalarının hiperparametre optimizasyonu ile doğrudan bağı yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Yellowbrick",
+        "definition": "Makine öğrenmesi modellerinin teşhis edilmesi ve görselleştirilmesi için kullanılan Python kütüphanesi."
+      }
+    ]
+  },
+  {
+    "id": "w06-q010",
+    "week": 6,
+    "topic": "model-oznitelikleri",
+    "type": "code",
+    "tags": [
+      "k-means",
+      "labels",
+      "centers"
+    ],
+    "sourceNotebook": "cluster_0.ipynb",
+    "question": "Eğitilmiş bir `kmeans` modelinde, verilerin hangi kümelere atandığını gösteren dizi (array) ile, bu kümelerin matematiksel merkez koordinatlarını veren parametreler hangi seçenekte sırasıyla doğru verilmiştir?",
+    "code": "kmeans = KMeans(n_clusters=5, n_init=10, random_state=42)\nkmeans.fit(df)\n\n# Soru: Hangi parametreler çağrılmalıdır?",
+    "options": {
+      "A": "kmeans.predict_ / kmeans.centroids_",
+      "B": "kmeans.labels_ / kmeans.cluster_centers_",
+      "C": "kmeans.fit_predict / kmeans.inertia_",
+      "D": "kmeans.clusters_ / kmeans.points_",
+      "E": "kmeans.transform_ / kmeans.coordinates_"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Scikit-learn'de tahmin edilen etiketler predict_ değil labels_ özniteliğinde tutulur, merkezler ise centroids_ değil cluster_centers_ ile çağrılır.",
+      "B": "`labels_` model tarafından her bir veri noktasına atanan küme numaralarının (0,1,2..) listesidir. `cluster_centers_` ise her kümenin özellik uzayındaki merkez noktalarının (centroid) koordinatlarıdır.",
+      "C": "fit_predict bir fonksiyondur öznitelik değildir. inertia_ ise toplam hatadır, merkez koordinatları değildir.",
+      "D": "Bu isimde öznitelikler KMeans sınıfında bulunmaz.",
+      "E": "transform() bir fonksiyondur, öznitelik değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Cluster Centers",
+        "definition": "Küme içindeki tüm elemanların ortalaması alınarak hesaplanan merkez nokta (centroid)."
+      }
+    ]
+  },
+  {
+    "id": "w06-q011",
+    "week": 6,
+    "topic": "boyut-indirgeme",
+    "type": "code",
+    "tags": [
+      "pca",
+      "components"
+    ],
+    "sourceNotebook": "cluster_3.ipynb",
+    "question": "Aşağıdaki kod parçasının veri madenciliği akışındaki temel amacı nedir?",
+    "code": "pca = PCA(n_components=2)\ndf_cluster_pca = pca.fit_transform(df_scaled)\n\ndf_cluster[\"PCA1\"] = df_cluster_pca[:, 0]\ndf_cluster[\"PCA2\"] = df_cluster_pca[:, 1]",
+    "options": {
+      "A": "Kümeleme sonucunda oluşan merkez noktalarının koordinatlarını hesaplamak.",
+      "B": "Veri setindeki eksik değerleri (NaN) iki boyuta yansıtarak tahmin etmek.",
+      "C": "Çok sütunlu (yüksek boyutlu) veriyi, bilgi (varyans) kaybını minimize ederek iki sütuna (boyuta) indirmek ve görselleştirmeye uygun hale getirmek.",
+      "D": "Eğitim verisi ile test verisini ayırarak modelin doğruluk oranını yükseltmek.",
+      "E": "Aykırı değerleri tespit edip veriden uzaklaştırmak."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Merkez noktaları PCA ile değil KMeans algoritmasının kendi iç hesaplamasıyla (cluster_centers_) bulunur.",
+      "B": "PCA eksik veri tahminleme veya doldurma işlemi yapmaz. Veride NaN varken PCA hata verir.",
+      "C": "Principal Component Analysis (PCA), çok sayıda özelliği (sütunu) temel bileşenlerine dönüştürerek boyutu azaltır. `n_components=2` ile veri x ve y ekseninde grafik çizilebilmesi (görselleştirme) için iki sütuna düşürülür.",
+      "D": "Eğitim ve test ayırımı train_test_split ile yapılır, PCA bir modelleme değerlendirme aracı değildir.",
+      "E": "Aykırı değer tespiti Isolation Forest veya istatistiksel sınırlar ile yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "PCA",
+        "definition": "Verinin varyansını olabildiğince koruyarak boyutunu (sütun sayısını) azaltan istatistiksel teknik."
+      }
+    ]
+  },
+  {
+    "id": "w06-q012",
+    "week": 6,
+    "topic": "gorsellestirme",
+    "type": "code",
+    "tags": [
+      "scatter",
+      "matplotlib",
+      "centers"
+    ],
+    "sourceNotebook": "cluster_0.ipynb",
+    "question": "Aşağıdaki görselleştirme kodunda yer alan `centers[:, 2], centers[:, 3]` ifadesi ne anlama gelmektedir?",
+    "code": "# Küme merkezlerini çiz\nplt.scatter(centers[:, 2], centers[:, 3], color=\"black\", marker=\"X\", s=150, label=\"Merkezler\")",
+    "options": {
+      "A": "Küme merkezlerinin sadece 2. ve 3. kümelerine ait verilerini filtreler.",
+      "B": "Veri setindeki 2. ve 3. indeksli satırların (müşterilerin) değerlerini yazdırır.",
+      "C": "Tüm küme merkezlerinin 2. ve 3. indeksli sütun (özellik) koordinatlarını alarak grafik eksenlerine yansıtır.",
+      "D": "Merkezlerin X koordinatını 2 ile, Y koordinatını 3 ile çarparak ölçeklendirir.",
+      "E": "Merkezleri çizerken rastgelelik sağlamak için kullanılan seed değerleridir."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Satır (küme) filtrelemesi yapmak için merkez matrisinin ilk parametresi (virgülden öncesi) filtrelenirdi (örn: centers[2:4, :]).",
+      "B": "centers matrisi satırları (müşterileri) değil, küme merkezlerinin koordinatlarını tutar.",
+      "C": "Numpy array dilimleme (slicing) yapısında `[:, 2]` tüm satırların 2. indeksli sütununu, `[:, 3]` ise tüm satırların 3. indeksli sütununu temsil eder. Çizdirilen grafiğin x ve y eksenindeki özelliklere karşılık gelirler.",
+      "D": "Çarpma işlemi (matematiksel operatör) yoktur, yalnızca indeksleme yapılmıştır.",
+      "E": "Seed değeri model oluşturulurken 'random_state' parametresi ile verilir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Slicing",
+        "definition": "Çok boyutlu dizilerde belirli satır veya sütun aralıklarının seçilip kopyalanması işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w06-q013",
+    "week": 6,
+    "topic": "gorsellestirme",
+    "type": "code",
+    "tags": [
+      "seaborn",
+      "hue",
+      "cluster"
+    ],
+    "sourceNotebook": "cluster_1.ipynb",
+    "question": "Kümeleme işlemi sonrası elde edilen veri seti (`X_cluster`) görselleştirilirken aşağıdaki parametrelerden hangisi noktaların hangi kümeye ait olduğunu renklerle ayrıştırmayı sağlar?",
+    "code": "plt.figure(figsize=(8, 6))\nsns.scatterplot(\n    data=X_cluster,\n    x=\"Longitude\",\n    y=\"Latitude\",\n    hue=\"Cluster\",\n    palette=\"viridis\"\n)",
+    "options": {
+      "A": "data=X_cluster",
+      "B": "x=\"Longitude\"",
+      "C": "palette=\"viridis\"",
+      "D": "hue=\"Cluster\"",
+      "E": "figsize=(8, 6)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Veri çerçevesini (DataFrame) belirtir, renk ayrımı yapmaz.",
+      "B": "X eksenine hangi sütunun yerleşeceğini belirtir.",
+      "C": "Kullanılacak renk paletinin adını belirler (yeşilden sarıya geçiş) ancak hangi veriye göre renklendirileceğini belirlemez.",
+      "D": "Seaborn kütüphanesinde 'hue' parametresi, veri noktalarını verilen sütundaki (burada 'Cluster') kategorik değerlere göre farklı renklere boyayarak gruplandırır.",
+      "E": "Çizilecek figürün boyutunu (genişlik, yükseklik) belirler."
+    },
+    "relatedTerms": [
+      {
+        "term": "Hue",
+        "definition": "Veri görselleştirmede noktaların, çizgilerin veya çubukların belirli bir kategorik değişkene göre renklendirilmesi parametresi."
+      }
+    ]
+  },
+  {
+    "id": "w06-q014",
+    "week": 6,
+    "topic": "veri-on-isleme",
+    "type": "code",
+    "tags": [
+      "isnull",
+      "eksik-veri",
+      "kontrol"
+    ],
+    "sourceNotebook": "cluster_2.ipynb",
+    "question": "Aşağıdaki kod parçası veri setinde nasıl bir kontrol gerçekleştirmektedir?",
+    "code": "if df_cluster.isnull().sum().sum() > 0:\n    print(\"Eksik veriler bulundu, 0 ile dolduruluyor.\")\n    df_cluster = df_cluster.fillna(0)",
+    "options": {
+      "A": "Veri setindeki sayısal olmayan (string) sütunların sayısını toplayarak, varsa onları siler.",
+      "B": "Veri setindeki değerlerin toplamını alıp sıfırdan büyük olup olmadığını kontrol eder.",
+      "C": "Tüm veri setindeki toplam boş (NaN/null) hücre sayısını hesaplar, eğer eksik hücre varsa bunların yerine 0 yazar.",
+      "D": "İçinde 0 bulunan satırların sayısını hesaplayarak bu verileri eksik (NaN) kabul eder.",
+      "E": "Sadece ilk sütundaki eksik veri sayısını bulur ve o sütunu tamamen sıfırlar."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "String (sayısal olmayan) sütunların kontrolü dtypes veya select_dtypes ile yapılır.",
+      "B": "Değerlerin genel toplamı df.sum() ile alınır, burada isnull() ile sadece null değerlerin varlığı kontrol edilmektedir.",
+      "C": "İlk `isnull().sum()` sütun bazında boş veri sayılarını verir. İkinci `.sum()` ise bunları toplayarak veri setindeki genel toplam boş hücre sayısını döndürür. Eğer 0'dan büyükse koşul sağlanır ve `fillna(0)` ile eksik yerler sıfırla doldurulur.",
+      "D": "0 verisini NaN yapmaz, tam tersine NaN verisini 0 yapar.",
+      "E": "Çift .sum() kullanımı tüm veri seti üzerinde işlem yapıldığını gösterir, sadece ilk sütunda değil."
+    },
+    "relatedTerms": [
+      {
+        "term": "isnull()",
+        "definition": "Pandas kütüphanesinde veri yapısı içerisindeki eksik veya boş değerleri (NaN) Boolean (True/False) olarak tespit eden metod."
+      }
+    ]
+  },
+  {
+    "id": "w06-q015",
+    "week": 6,
+    "topic": "kume-degerlendirme",
+    "type": "code",
+    "tags": [
+      "boxenplot",
+      "medhouseval"
+    ],
+    "sourceNotebook": "cluster_1.ipynb",
+    "question": "Konut verileri kümelendikten sonra, aşağıdaki kod bloğu kullanılarak kümelerin anlamlandırılması (etiketlenmesi) hedeflenmektedir. Bu kodun işlevi hangi veri madenciliği aşamasına karşılık gelir?",
+    "code": "sns.boxenplot(\n    data=X_cluster,\n    x=\"MedHouseVal\",\n    y=\"Cluster\",\n    palette=\"coolwarm\"\n)",
+    "options": {
+      "A": "Veri Dönüşümü (Kategorik verileri sayısallaştırma).",
+      "B": "Boyut İndirgeme (Varyans kaybını hesaplama).",
+      "C": "Model Eğitimi (K-Means algoritmik hesaplama süreci).",
+      "D": "Sonuçları Yorumlama (Oluşturulan kümelerin dış bir değişken olan 'Medyan Ev Değeri' ile ilişkisini inceleme).",
+      "E": "Veri Temizleme (Eksik veya hatalı konut fiyatlarını silme)."
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Veri dönüşümü LabelEncoder veya StandardScaler ile yapılır.",
+      "B": "Boyut indirgeme işlemi (PCA) grafik fonksiyonlarıyla değil, istatistiksel modellerle yapılır.",
+      "C": "Eğitim süreci fit() metoduyla yapılmıştır, bu kod görselleştirme yapar.",
+      "D": "K-Means etiketleme yapmaz, sadece gruplar. Bu grupların ne anlama geldiğini (Örn: Cluster 0 zengin evleri mi, ucuz evleri mi temsil ediyor?) anlamak için modelde kullanılmayan ev değeri (MedHouseVal) ile kümeler karşılaştırılarak sonuçlar yorumlanır.",
+      "E": "Eksik veriler bu aşamada çoktan halledilmiştir, boxenplot veriyi silmez."
+    },
+    "relatedTerms": [
+      {
+        "term": "Cluster Interpretation",
+        "definition": "Oluşan kümelerin iş problemi bağlamında ne anlama geldiğini tanımlama süreci."
+      }
+    ]
+  },
+  {
+    "id": "w06-q016",
+    "week": 6,
+    "topic": "k-means-parametreleri",
+    "type": "code",
+    "tags": [
+      "n_init",
+      "k-means",
+      "random_state"
+    ],
+    "sourceNotebook": "cluster_3.ipynb",
+    "question": "Aşağıdaki model tanımlamasında yer alan `n_init=10` parametresi modelin çalışma şeklini nasıl etkiler?",
+    "code": "kmeans = KMeans(n_clusters=optimal_k, random_state=42, n_init=10)",
+    "options": {
+      "A": "Modeli 10 farklı K (küme) değeri için eğiterek en iyisini bulur.",
+      "B": "Algoritmanın veri noktalarını kümelere atarken maksimum 10 tur (iterasyon) dönmesine izin verir.",
+      "C": "Başlangıç küme merkezlerini (centroid) rastgele 10 farklı şekilde konumlandırarak modeli çalıştırır ve inertia (hata) oranı en düşük olan sonucu seçer.",
+      "D": "Sonuçların doğruluğunu test etmek için veriyi %10'luk test kümelerine ayırır (Cross-validation).",
+      "E": "Boyut sayısını en iyi varyansı veren 10 bileşene (PCA) indirger."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Farklı K değerleri denemek için for döngüsü veya Elbow metodu kurulur. Model içindeki parametre bunu yapmaz.",
+      "B": "Maksimum iterasyon sayısı 'max_iter' parametresi ile kontrol edilir (varsayılan genelde 300'dür).",
+      "C": "K-Means rastgele başlangıç merkezlerine karşı hassastır ve yanlış yerde başlayıp kötü kümeleme (lokal minimum) yapabilir. `n_init=10` modeli tamamen farklı merkezlerle 10 kez baştan kurar ve en iyi dağılımı sağlayan modeli nihai sonuç olarak sunar.",
+      "D": "K-Means'te test seti veya cross-validation mantığı (hedef değişken olmadığı için) kullanılmaz.",
+      "E": "Boyut indirgeme parametresi KMeans'in değil, PCA sınıfının (n_components) parametresidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Centroid Initialization",
+        "definition": "K-Means algoritması başlarken küme merkezlerinin uzaydaki ilk başlangıç noktalarının seçimi."
+      }
+    ]
+  },
+  {
+    "id": "w06-q017",
+    "week": 6,
+    "topic": "veri-inceleme",
+    "type": "code",
+    "tags": [
+      "value_counts",
+      "cluster"
+    ],
+    "sourceNotebook": "cluster_2.ipynb",
+    "question": "Model çalıştırıldıktan sonra aşağıdaki kod yürütülmüştür. Bu kodun ürettiği çıktı temel olarak hangi bilgiyi verir?",
+    "code": "df_cluster[\"Cluster\"].value_counts()",
+    "options": {
+      "A": "Her bir sütunun ne kadar boş (NaN) veri içerdiğini.",
+      "B": "Makine öğrenmesi modelinin % üzerinden hata oranını.",
+      "C": "Oluşturulan her bir kümede (örneğin Cluster 0, Cluster 1) kaç adet veri noktası (satır) bulunduğunu.",
+      "D": "Kümelerin koordinat düzlemindeki merkez noktalarını.",
+      "E": "Hangi sütunun kümelemede en fazla ağırlığa sahip olduğunu (feature importance)."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Boş veri sayısı isnull().sum() ile bulunur.",
+      "B": "Hata oranı inertia_ özniteliği ile tutulur.",
+      "C": "Pandas'taki value_counts() metodu, bir sütundaki her benzersiz değerin kaç kez tekrar ettiğini sayar. 'Cluster' sütunu üzerinde çalıştırıldığında, kümelerin kaçar elemandan oluştuğunu (kümelerin büyüklük dağılımını) görmeyi sağlar.",
+      "D": "Merkez noktaları cluster_centers_ ile bulunur.",
+      "E": "K-Means'te feature importance (ağırlık) metodu yoktur; bu karar ağaçlarına ait bir özelliktir."
+    },
+    "relatedTerms": [
+      {
+        "term": "value_counts()",
+        "definition": "Bir Pandas serisindeki her farklı (unique) değerin frekansını (geçiş sayısını) döndüren fonksiyon."
+      }
+    ]
+  },
+  {
+    "id": "w06-q018",
+    "week": 6,
+    "topic": "ozellik-muhendisligi",
+    "type": "code",
+    "tags": [
+      "feature-engineering",
+      "toplam"
+    ],
+    "sourceNotebook": "cluster_3.ipynb",
+    "question": "Pazarlama verilerinde, modelin boyutunu şişirmemek ve daha anlamlı bir veri üretmek için aşağıdaki kod yazılmıştır. Bu işleme veri madenciliğinde ne ad verilir?",
+    "code": "df_cluster[\"Total_Spending\"] = (\n    df[\"MntWines\"] + df[\"MntFruits\"] + df[\"MntMeatProducts\"] +\n    df[\"MntFishProducts\"] + df[\"MntSweetProducts\"] + df[\"MntGoldProds\"]\n)",
+    "options": {
+      "A": "Principal Component Analysis (PCA)",
+      "B": "Eksik Veri Doldurma (Imputation)",
+      "C": "Özellik Ölçeklendirme (Standardization)",
+      "D": "Özellik Çıkarımı / Mühendisliği (Feature Engineering)",
+      "E": "Dirsek Yöntemi (Elbow Method)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "PCA istatistiksel bir boyut indirgeme yöntemidir, manuel toplama işlemi yapmaz.",
+      "B": "Burada bir NaN değeri tamamlama işlemi (fillna) yoktur.",
+      "C": "Ölçeklendirme veriyi standartlaştırır, yeni bir sütun (Total_Spending) oluşturmaz.",
+      "D": "Mevcut sütunları matematiksel olarak birleştirerek (toplama, oranlama vs.) modele daha yararlı olacak yepyeni bir özellik (sütun) üretme işlemine Özellik Mühendisliği (Feature Engineering) denir.",
+      "E": "Dirsek yöntemi küme sayısını belirlemek içindir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Feature Engineering",
+        "definition": "Ham verilerden alan bilgisini (domain knowledge) kullanarak makine öğrenmesi modellerinin performansını artıracak yeni özellikler türetme."
+      }
+    ]
+  },
+  {
+    "id": "w06-q019",
+    "week": 6,
+    "topic": "gorsellestirme",
+    "type": "code",
+    "tags": [
+      "3d-plot",
+      "pca"
+    ],
+    "sourceNotebook": "cluster_3.ipynb",
+    "question": "Aşağıdaki kod parçası kullanılarak nasıl bir görselleştirme elde edilmektedir?",
+    "code": "fig = plt.figure(figsize=(10, 8))\nax = fig.add_subplot(111, projection=\"3d\")\n\nsc = ax.scatter(\n    df_cluster_pca_3d[:, 0],\n    df_cluster_pca_3d[:, 1],\n    df_cluster_pca_3d[:, 2],\n    c=df_cluster[\"Cluster\"],\n    cmap=\"viridis\",\n    alpha=0.7\n)",
+    "options": {
+      "A": "Zamana bağlı değişimleri gösteren bir çizgi grafiği (Line plot).",
+      "B": "X, Y ve Z eksenlerine sahip üç boyutlu (3D) bir dağılım grafiği (Scatter plot).",
+      "C": "Küme boyutlarını yüzdesel olarak gösteren bir pasta grafiği (Pie chart).",
+      "D": "Kümeler arası hiyerarşik ilişkiyi gösteren dendrogram.",
+      "E": "Aykırı değerleri tespit etmeye yarayan kutu grafiği (Box plot)."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Çizgi grafiği plt.plot() ile oluşturulur.",
+      "B": "Kodda yer alan `projection=\"3d\"` ifadesi grafiğin üç boyutlu olacağını, `ax.scatter()` ve üç farklı koordinat sütunu `[:, 0], [:, 1], [:, 2]` (X, Y, Z eksenleri) verilmesi ise bunun bir 3 boyutlu dağılım grafiği olduğunu gösterir.",
+      "C": "Pasta grafiği plt.pie() ile çizilir.",
+      "D": "Dendrogram scipy.cluster.hierarchy kütüphanesinden çağrılır.",
+      "E": "Kutu grafiği sns.boxplot() veya boxenplot() ile çizilir."
+    },
+    "relatedTerms": [
+      {
+        "term": "3D Scatter Plot",
+        "definition": "Verilerin üç farklı sayısal değişkenini üç eksende (x, y, z) noktalar halinde gösteren grafik türü."
+      }
+    ]
+  },
+  {
+    "id": "w06-q020",
+    "week": 6,
+    "topic": "veri-tipi-donusumu",
+    "type": "code",
+    "tags": [
+      "astype",
+      "category",
+      "cluster"
+    ],
+    "sourceNotebook": "cluster_1.ipynb",
+    "question": "K-Means uygulandıktan sonra elde edilen etiket sütununa aşağıdaki tür dönüşümü (astype) neden uygulanmıştır?",
+    "code": "X_cluster[\"Cluster\"] = kmeans.fit_predict(X_scaled)\nX_cluster[\"Cluster\"] = X_cluster[\"Cluster\"].astype(\"category\")",
+    "options": {
+      "A": "Sayısal etiketleri (0, 1, 2) tekrar metin formatına (string) çevirmek için.",
+      "B": "Sıfır olan etiketleri geçersiz (NaN) kabul ederek veriden silmek için.",
+      "C": "Etiket değerlerinin büyüklük ifade eden sayılar olmadığını, bağımsız grupları (kategorileri) temsil ettiğini tanımlamak ve görselleştirmelerde renklerin sayısal bir geçişle (gradyan) değil, ayrık renklerle oluşmasını sağlamak için.",
+      "D": "Modeli tekrar eğitebilmek için algoritmanın gerektirdiği zorunlu veri yapısına dönüştürmek için.",
+      "E": "LabelEncoder algoritmasının çalışabilmesi için veriyi önceden hazırlamak için."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Kategori veri tipi doğrudan metin (string) demek değildir, bellekte özel bir yapı olarak tutulur.",
+      "B": "Tür dönüşümü veri silmez veya NaN ataması yapmaz.",
+      "C": "K-Means çıktıları integer (0, 1, 2...) olarak döner. Grafikler çizilirken bu sayılar sürekli bir değişken (örn: yaş, fiyat) sanılıp renkler ton ton (gradyan) verilebilir. `category` tipine dönüştürüldüğünde, sistem bunların birbirinden bağımsız isimler olduğunu anlar ve grafikte farklı, net renkler (ayrık) kullanır.",
+      "D": "Model eğitildikten sonra yapılmıştır, tekrar eğitime etkisi yoktur.",
+      "E": "Bu aşama kümeleme sonrasıdır, LabelEncoder model öncesi yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Category Type",
+        "definition": "Pandas'ta sınırlı sayıda, sabit ve belirli değerler (sınıflar) alabilen değişkenleri temsil eden veri tipi."
+      }
+    ]
+  },
+  {
+    "id": "w06-q021",
+    "week": 6,
+    "topic": "kume-degerlendirme",
+    "type": "code",
+    "tags": [
+      "elbow-method",
+      "hata",
+      "uygulama-mantigi"
+    ],
+    "sourceNotebook": "cluster_0.ipynb",
+    "question": "Bir for döngüsü ile 2'den 15'e kadar olan küme sayıları için K-Means eğitilip her bir `inertia_` değeri bir listeye kaydedilmiştir. Ortaya çıkan grafikte x ekseni küme sayısı (K), y ekseni ise SSE (hata) değeridir. \nBu grafiği yorumlarken modelleme için seçilecek en uygun K değeri aşağıdakilerden hangisidir?",
+    "code": "plt.plot(list(sse.keys()), list(sse.values()), marker=\"o\")\nplt.xlabel(\"Küme Sayısı\")\nplt.ylabel(\"Toplam Hata Kareleri (SSE)\")",
+    "options": {
+      "A": "Grafikte hata değerinin (Y ekseni) en yüksek olduğu başlangıç noktası.",
+      "B": "Grafikte hata değerinin sıfıra en yakın olduğu, grafiğin en sağındaki K değeri.",
+      "C": "Hatanın hızlı bir şekilde azalıp, azalma ivmesinin yavaşladığı (kırılma/dirsek yaptığı) K noktası.",
+      "D": "Kümelerin sayısı ile hata oranının eşitlendiği K noktası.",
+      "E": "Sadece tek bir kümenin olduğu (K=1) nokta."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "En yüksek hata, modeli kümelememekle veya çok az kümeye bölmekle oluşur, bu istenmez.",
+      "B": "K sayısı veri noktası sayısına eşit olana kadar hata hep azalır, ancak çok fazla küme oluşturmak 'overfitting' (her müşteriye bir küme) anlamına gelir ve modeli yorumlanamaz kılar.",
+      "C": "Elbow (dirsek) metodunun ana mantığı, hatanın (inertia) dramatik şekilde düşmeyi bıraktığı ve artık yataya daha paralel ilerlemeye başladığı kırılım (dirsek) noktasını optimum K olarak seçmektir.",
+      "D": "Eksenlerin ölçekleri tamamen farklıdır, kesişimleri anlamsızdır.",
+      "E": "Algoritma 2'den başlatılmıştır ve K=1 durumu kümeleme yapılmadığı anlamına gelir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Elbow Method",
+        "definition": "Küme içi varyansın azalım hızının yavaşladığı noktayı tespit ederek en uygun küme sayısını bulma yöntemi."
+      }
+    ]
+  },
+  {
+    "id": "w06-q022",
+    "week": 6,
+    "topic": "veri-on-isleme",
+    "type": "code",
+    "tags": [
+      "ozellik-secimi",
+      "dataframe",
+      "copy"
+    ],
+    "sourceNotebook": "cluster_1.ipynb",
+    "question": "Orijinal veri seti `df` içinden modelde kullanılacak belirli sütunların alınıp `X` adında yeni bir değişken yaratılmasını sağlayan aşağıdaki kod parçası, veri madenciliği akışının hangi adımıdır?",
+    "code": "required_cols = [\"MedInc\", \"Latitude\", \"Longitude\"]\nX = df[required_cols].copy()",
+    "options": {
+      "A": "Veri Çoğaltma (Data Augmentation)",
+      "B": "Özellik Seçimi (Feature Selection)",
+      "C": "Boyut İndirgeme (Dimensionality Reduction)",
+      "D": "Bağımlı Değişken (Y) Belirleme",
+      "E": "Eksik Veri Tamamlama (Imputation)"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Veri çoğaltma, eldeki verilerden sentetik yeni satırlar üretme işlemidir.",
+      "B": "Mevcut olan pek çok sütun (özellik) arasından sadece analizde kullanılacak (anlamlı olduğu düşünülen) sütunların seçilerek yeni bir matris (X) oluşturulması işlemi Feature Selection'dır.",
+      "C": "Boyut indirgeme (PCA) işlemi, sütunları seçerek değil, matematiksel olarak dönüştürerek azaltır.",
+      "D": "K-Means modelinde bağımlı değişken (Y) yoktur, seçilenlerin tümü bağımsız değişken (X) kabul edilir.",
+      "E": "NaN veya boş değerler üzerinde bir işlem (fillna) yapılmamıştır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Subset",
+        "definition": "Bir veri çerçevesinin (DataFrame) sadece belirli sütunlarını veya satırlarını içeren alt kümesi."
+      }
+    ]
+  },
+  {
+    "id": "w06-q023",
+    "week": 6,
+    "topic": "veri-on-isleme",
+    "type": "code",
+    "tags": [
+      "eksik-veri",
+      "raise",
+      "hata-yakalama"
+    ],
+    "sourceNotebook": "cluster_1.ipynb",
+    "question": "Aşağıdaki kod bloğunda, analize başlarken neden bir `ValueError` (Hata fırlatma) mekanizması kurulmuştur?",
+    "code": "missing_cols = [col for col in required_cols if col not in df.columns]\n\nif missing_cols:\n    raise ValueError(f\"Eksik sütunlar var: {missing_cols}\")",
+    "options": {
+      "A": "Kümeleme algoritmasının sadece 3 sütunla çalışabilmesi kuralını zorlamak için.",
+      "B": "Orijinal veri dosyasında, modelleme için hayati önem taşıyan gerekli sütunların bulunmaması durumunda programı durdurarak yanlış model kurulmasını engellemek için.",
+      "C": "Veri setindeki (NaN) boş hücreleri tespit edip satırları temizlemek için.",
+      "D": "Ölçeklendirme (StandardScaler) yapılmadığını tespit edip uyarı vermek için.",
+      "E": "Python kütüphanelerinin yüklü olup olmadığını kontrol etmek için."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "K-Means herhangi bir boyuttaki (sütun sayısındaki) veriyle çalışabilir, 3 sütun sınırı yoktur.",
+      "B": "Bu bir savunmacı programlama (defensive programming) kodudur. Modelin çalışması için zorunlu olan 'required_cols' listesindeki sütunlar veri setinde yoksa, ilerideki kodların çalışmayacağı veya anlamsız sonuç üreteceği kesin olduğundan kod akışı bilinçli olarak `raise` ile durdurulur.",
+      "C": "Hücrelerdeki boşlukları (NaN) değil, genel sütun (column) adlarının eksikliğini kontrol eder.",
+      "D": "StandardScaler kontrolü yapılmamıştır.",
+      "E": "Kütüphane kontrolü import satırlarında try-except ile yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Exception Handling",
+        "definition": "Programın beklenmeyen veya hatalı durumlarda uygun uyarıları fırlatarak akışı kontrol etmesi."
+      }
+    ]
+  },
+  {
+    "id": "w06-q024",
+    "week": 6,
+    "topic": "k-means-parametreleri",
+    "type": "code",
+    "tags": [
+      "random_state",
+      "reproducibility"
+    ],
+    "sourceNotebook": "cluster_2.ipynb",
+    "question": "Model tanımlamasında kullanılan `random_state=42` parametresinin bu koddaki yegane amacı aşağıdakilerden hangisidir?",
+    "code": "kmeans = KMeans(n_clusters=optimal_k, random_state=42, n_init=10)",
+    "options": {
+      "A": "Kümeler arasındaki mesafeyi hesaplarken rastgeleliği artırmak.",
+      "B": "Elbow yönteminin hatalı sonuç vermemesi için veriyi önceden %42 oranında karıştırmak.",
+      "C": "Algoritmanın başlangıç merkezlerini (centroid) atama rastgeleliğini sabitleyerek, kodun her çalıştırıldığında tamamen aynı kümeleme sonuçlarını üretmesini (tekrarlanabilirlik) sağlamak.",
+      "D": "Veri setindeki eleman sayısının çok fazla olması durumunda modelin 42 adet alt gruba (batch) bölünerek çalışmasını sağlamak.",
+      "E": "Aykırı değerlerin (outliers) modele olan negatif etkisini azaltmak."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Mesafe hesaplamaları (Öklid) deterministiktir, rastgelelik içermez.",
+      "B": "Veriyi bölme (split/karıştırma) işlemi burada yapılmaz.",
+      "C": "K-Means başlangıç merkezlerini rastgele (random) konumlandırır. Bu da kodu her çalıştırdığınızda biraz farklı kümeler elde etmenize neden olabilir. Seed (random_state) parametresi sabit bir sayıya ayarlandığında, rastgelelik sabitlenir ve kod her çalıştırıldığında aynı sonucu verir.",
+      "D": "Batch boyutunu belirleyen parametre 'batch_size' olup MiniBatchKMeans algoritmasında kullanılır.",
+      "E": "Aykırı değerlere karşı algoritmayı koruyan bir özellik değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Random Seed / Random State",
+        "definition": "Sözde-rastgele sayı üretecinin başlangıç noktasını sabitleyerek sonuçların tekrarlanabilirliğini sağlayan değer."
+      }
+    ]
+  },
+  {
+    "id": "w06-q025",
+    "week": 6,
+    "topic": "veri-inceleme",
+    "type": "code",
+    "tags": [
+      "info",
+      "dataframe",
+      "kesifci-veri-analizi"
+    ],
+    "sourceNotebook": "cluster_3.ipynb",
+    "question": "Veri setini projeye dahil ettikten hemen sonra `df.info()` fonksiyonu çalıştırılmıştır. Veri madenciliği sürecinde bu komutun çağrılmasının en temel nedeni nedir?",
+    "code": "df = pd.read_csv(dataset_path, sep=\"\\t\")\ndf.info()",
+    "options": {
+      "A": "Veri setindeki değişkenlerin (sütunların) isimlerini, tiplerini (int, float, object) ve boş (NaN) olmayan hücre sayısını tek bir bakışta görmek için.",
+      "B": "Sayısal sütunların ortalama, standart sapma, min ve max değerlerini hesaplamak için.",
+      "C": "Verideki korelasyon katsayılarını (ilişkileri) hesaplatmak için.",
+      "D": "Veriyi eğitim ve test (train-test) setlerine ayırmak için.",
+      "E": "Tüm veri setini bir Python sözlüğüne (dictionary) çevirmek için."
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "df.info() fonksiyonu veri setinin genel bir resmini (satır sayısı, sütun sayısı, data tipleri ve non-null değer sayısı) döndürerek analiste ön hazırlık (sayısallaştırma, temizleme) gereksinimleri hakkında bilgi verir.",
+      "B": "Ortalama ve standart sapma vb. istatistikler df.describe() ile elde edilir.",
+      "C": "Korelasyon df.corr() ile alınır.",
+      "D": "Eğitim test ayırımı train_test_split ile yapılır.",
+      "E": "Sözlüğe çevirme df.to_dict() ile yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Data Info",
+        "definition": "Bir Pandas DataFrame'inin satır/sütun boyutu, RAM kullanımı ve veri tipleri gibi yapısal özetini veren metod."
+      }
+    ]
+  },
+  {
+    "id": "w06-q026",
+    "week": 6,
+    "topic": "hata-yakalama",
+    "type": "code",
+    "tags": [
+      "yellowbrick",
+      "hata-giderimi"
+    ],
+    "sourceNotebook": "cluster_2.ipynb",
+    "question": "Yellowbrick kütüphanesini kullanarak Dirsek (Elbow) yöntemi görselleştirmesi çalıştırıldığında Python kütüphane eksikliği (ModuleNotFoundError) hatası verirse, sorunun çözümü için sistem/terminal üzerinde hangi kodun çalıştırılması gerekir?",
+    "code": "# Kod bloğu çalıştırıldığında 'No module named yellowbrick' hatası alındığı varsayılmaktadır.\n\nfrom yellowbrick.cluster import KElbowVisualizer\nmodel = KMeans()\nvisualizer = KElbowVisualizer(model, k=(2, 10))",
+    "options": {
+      "A": "import yellowbrick as yb",
+      "B": "pip install yellowbrick",
+      "C": "conda update sklearn",
+      "D": "apt-get install kmeans",
+      "E": "python -m pip uninstall yellowbrick"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Kütüphane yüklü değilse (hata alınıyorsa), import komutu çalışmaz.",
+      "B": "Python ekosisteminde kütüphane/paket eksiklikleri, paket yöneticisi olan 'pip' (veya conda) üzerinden paket ismi belirtilerek (install) yüklenir. Hoca da notlarında kütüphane kurulmamışsa `pip install yellowbrick` uygulanmasını belirtmiştir.",
+      "C": "Hata sklearn'den değil yellowbrick'ten kaynaklandığı için sklearn güncellemesi işe yaramaz.",
+      "D": "kmeans bir Python kütüphanesi değil, sklearn içindeki bir sınıftır.",
+      "E": "uninstall komutu paketi kurmaz, aksine varsa siler."
+    },
+    "relatedTerms": [
+      {
+        "term": "pip install",
+        "definition": "Python Paket İndeksi (PyPI) üzerinden dış kütüphaneleri sisteme veya sanal ortama indirme ve kurma aracı."
+      }
+    ]
+  },
+  {
+    "id": "w06-q027",
+    "week": 6,
+    "topic": "veri-olceklendirme",
+    "type": "code",
+    "tags": [
+      "standard-scaler",
+      "veri-donusumu"
+    ],
+    "sourceNotebook": "cluster_2.ipynb",
+    "question": "Sosyal medya etkileşim verisi kümelenirken `StandardScaler` kodu hiç uygulanmadan direkt `KMeans` algoritmasına verilseydi, sonuçlarda nasıl bir sorun yaşanması en muhtemeldi?",
+    "code": "scaler = StandardScaler()\ndf_scaled = scaler.fit_transform(df_cluster)\n\nkmeans = KMeans(n_clusters=optimal_k)\nkmeans.fit(df_scaled) # Eğer df_scaled yerine orijinal df_cluster verilseydi?",
+    "options": {
+      "A": "Model çalışmaz, 'Target variable missing' hatası verirdi.",
+      "B": "Algoritma verideki eksik değerleri (NaN) otomatik olarak sileceği için veri küçülürdü.",
+      "C": "Paylaşım sayısı veya görüntülenme gibi sayısal değeri çok büyük olan sütunlar, uzaklık hesabını domine ederek küçük değerli ama önemli sütunları ezebilirdi.",
+      "D": "K-Means küme sayısını (K) bulmakta zorlanır ve sonsuz döngüye girerdi.",
+      "E": "Tüm veriler tek bir kümede toplanmak zorunda kalırdı."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "K-Means algoritması gözetimsizdir, Y değişkenine ihtiyaç duymaz, hata vermez.",
+      "B": "K-Means eksik değer silmez, NaN veri varsa hata verip durur.",
+      "C": "Öklid mesafesi hesaplanırken, eğer bir özellik 1-5 arasında, diğeri 1.000-50.000 arasında değişiyorsa, aradaki büyük sayısal fark mesafeyi tamamen 2. özelliğin belirlemesine yol açar. StandardScaler tüm özellikleri benzer bir dağılıma çekerek adaleti sağlar.",
+      "D": "K-Means sonsuz döngüye girmez, max_iter sınırında durur.",
+      "E": "Tüm veriler tek kümede toplanmaz, atanan K kadar kümeye bölünür fakat kümeler anlamsız olur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Domination of Features",
+        "definition": "Matematiksel modellerde ölçeği büyük olan değişkenlerin, ölçeği küçük olan değişkenlerin etkisini tamamen yutması durumu."
+      }
+    ]
+  },
+  {
+    "id": "w06-q028",
+    "week": 6,
+    "topic": "kumeleme-akis",
+    "type": "code",
+    "tags": [
+      "k-means",
+      "modelleme",
+      "uygulama-sirasi"
+    ],
+    "sourceNotebook": "cluster_3.ipynb",
+    "question": "Bir veri setinde K-Means kümeleme yapmak için yürütülmesi gereken kodların doğru akış sırası (veri ön hazırlığı tamamlandıktan sonra) aşağıdakilerden hangisidir?",
+    "code": "1. kmeans.fit(X_scaled)\n2. scaler.fit_transform(X)\n3. X_cluster[\"Cluster\"] = kmeans.labels_\n4. KMeans(n_clusters=5)",
+    "options": {
+      "A": "4 -> 1 -> 2 -> 3",
+      "B": "2 -> 4 -> 1 -> 3",
+      "C": "1 -> 2 -> 3 -> 4",
+      "D": "2 -> 1 -> 4 -> 3",
+      "E": "4 -> 2 -> 3 -> 1"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Veri ölçeklendirilmeden (2) modele verilmemelidir.",
+      "B": "Önce veri StandardScaler ile ölçeklendirilir (2). Ardından KMeans algoritması K parametresi verilerek tanımlanır (4). Daha sonra model ölçeklenmiş veri üzerinde eğitilir (1). Son olarak ortaya çıkan küme etiketleri ana veriye yeni bir sütun olarak eklenir (3).",
+      "C": "Model tanımlanmadan (4) eğitilemez (1).",
+      "D": "Eğitim (1) yapıldıktan sonra model objesi (4) yaratılamaz.",
+      "E": "Eğitim (1) gerçekleşmeden etiketler (3) alınamaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "Pipeline (Akış)",
+        "definition": "Veri ön işleme, modelleme ve değerlendirme adımlarının birbirine bağımlı ardışık sırası."
+      }
+    ]
+  },
+  {
+    "id": "w06-q029",
+    "week": 6,
+    "topic": "gorsellestirme",
+    "type": "code",
+    "tags": [
+      "pca",
+      "scatterplot",
+      "iki-boyut"
+    ],
+    "sourceNotebook": "cluster_3.ipynb",
+    "question": "Kümeleri görselleştirmek için PCA ile 2 boyuta indirgenmiş veri grafiğe dökülürken x ve y eksenlerine verinin hangi özellikleri yansıtılır?",
+    "code": "plt.figure(figsize=(10, 6))\nsns.scatterplot(\n    data=df_cluster,\n    x=\"PCA1\",\n    y=\"PCA2\",\n    hue=\"Cluster\",\n    palette=\"viridis\",\n    alpha=0.7\n)",
+    "options": {
+      "A": "Veri setindeki en yüksek korelasyona sahip orijinal iki sütun (örneğin Gelir ve Harcama).",
+      "B": "PCA algoritmasının özelliklerinden türettiği, birbiriyle dik açılı ve verideki varyansı en çok açıklayan yeni iki yapay bileşen (PCA1 ve PCA2).",
+      "C": "K-Means'in hesapladığı küme merkezlerinin (Centroid) x ve y koordinatları.",
+      "D": "Verilerin küme merkezlerine olan uzaklıkları.",
+      "E": "Bağımlı değişken (Y) ve hedef (Target) değişkenleri."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Grafikte x ve y olarak açıkça PCA1 ve PCA2 sütunları kullanılmıştır. Bunlar orijinal sütunlar (Gelir vs) değildir.",
+      "B": "PCA, orijinal veri setindeki değişkenlerin lineer kombinasyonlarını oluşturarak varyansı maksimum tutan yeni özellikler (Bileşenler / Components) üretir. Bu kod, üretilen 1. ve 2. temel bileşeni eksenlere oturtur.",
+      "C": "Küme merkezleri çizdirilmiyor, veri noktalarının kendisi çizdiriliyor.",
+      "D": "Uzaklıkları değil verinin kendi koordinatlarını gösterir.",
+      "E": "K-Means'te Y (hedef) değişkeni yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Principal Components",
+        "definition": "Orijinal verideki bilginin (varyansın) çoğunu taşıyan, birbiriyle korelasyonsuz (dik) yeni yapay eksenler."
+      }
+    ]
+  },
+  {
+    "id": "w06-q030",
+    "week": 6,
+    "topic": "eksik-veri-tamamlama",
+    "type": "code",
+    "tags": [
+      "fillna",
+      "zero",
+      "mantiksal-doldurma"
+    ],
+    "sourceNotebook": "cluster_2.ipynb",
+    "question": "Sosyal medya etkileşim veri setinde (Live.csv), eksik verilerin tespiti sonrasında aşağıdaki kod çalıştırılmıştır. Ortalamadan (mean/median) ziyade '0' ile doldurma işlemi yapılmasının mantıksal (domain) açıklaması hangisi olabilir?",
+    "code": "if df_cluster.isnull().sum().sum() > 0:\n    df_cluster = df_cluster.fillna(0)",
+    "options": {
+      "A": "Sosyal medyada bir paylaşımın beğeni veya paylaşım verisinin boş (NaN) olması, o etkileşimin 'hiç yapılmadığı' yani sıfır olduğu anlamına gelmektedir.",
+      "B": "K-Means algoritması sıfır (0) dışındaki sayıları kabul etmemektedir.",
+      "C": "StandartScaler uygulandığında 0 değerleri matematiksel olarak silindiği için boyut indirgenmektedir.",
+      "D": "Sıfır ataması aykırı verileri (outliers) maskeleyerek modelin dengeli çalışmasını sağlar.",
+      "E": "Tüm boş değerlerin ortalaması alındığında sonuç her zaman sıfır (0) çıkmaktadır."
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Veri madenciliğinde eksik değer tamamlama, verinin bağlamına (domain) göre yapılır. Maaş veya ev yaşında eksikliği 0 yapmak mantıksızdır (kimsenin maaşı 0 olamaz), ancak sosyal medya tepkilerinde (like, share) değerin boş olması kullanıcının tepki vermediğini gösterir, bu nedenle 0 en doğru değerdir.",
+      "B": "K-Means her türlü ondalık ve tam sayıyı kabul eder.",
+      "C": "StandardScaler 0 verisini silmez, sadece dağılımı değiştirerek sıfırı ortalama bir değere çeker.",
+      "D": "Sıfır ile doldurmanın aykırı değerleri maskeleme ile direkt ilgisi yoktur.",
+      "E": "Ortalama değer sıfır olmak zorunda değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Domain Knowledge",
+        "definition": "Veri madenciliği sürecinde analizi yapılan işin (sektörün) doğasını bilerek algoritmik kararlar almak."
+      }
+    ]
+  },
+  {
+    "id": "w06-q031",
+    "week": 6,
+    "topic": "kume-degerlendirme",
+    "type": "code",
+    "tags": [
+      "yellowbrick",
+      "hata",
+      "elbow"
+    ],
+    "sourceNotebook": "cluster_1.ipynb",
+    "question": "Housing (ev) veri setini inceleyen bir analist, modelini eğitmeden önce `# NOT: BURADA ELBOW'U UYGULA` yorum satırını görmüştür. Bu satırın yerine en uygun (optimum) küme sayısını bulmak için aşağıdakilerden hangisini yazmalıdır?",
+    "code": "scaler = StandardScaler()\nX_scaled = scaler.fit_transform(X)\n\n# NOT: BURADA ELBOW'U UYGULA\n\n# kmeans = KMeans(n_clusters=??)",
+    "options": {
+      "A": "from sklearn.decomposition import PCA\npca = PCA(n_components=5)\npca.fit_transform(X_scaled)",
+      "B": "model = KMeans()\nvisualizer = KElbowVisualizer(model, k=(2, 10))\nvisualizer.fit(X_scaled)\nvisualizer.show()",
+      "C": "sns.boxenplot(data=X_scaled, x=\"MedInc\", y=\"Cluster\")",
+      "D": "df_cluster = df.fillna(df.mean())",
+      "E": "from sklearn.model_selection import train_test_split\nX_train, X_test = train_test_split(X_scaled)"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Bu kod boyut indirgeme (PCA) yapar, küme sayısı (K) bulmaz.",
+      "B": "Yellowbrick kütüphanesine ait KElbowVisualizer, 2 ile 10 arasındaki K değerleri için modeli çalıştırıp en uygun K değerini bulup grafiğini çizen yegane metottur.",
+      "C": "Bu kod görselleştirme yapar, henüz kümeler (Cluster) oluşmadığı için hata verir.",
+      "D": "Eksik veri doldurma işlemidir, Elbow metoduyla alakası yoktur.",
+      "E": "Eğitim ve test ayırımı K-Means'te kullanılmaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "Hyperparameter Tuning",
+        "definition": "Makine öğrenmesi modellerinde eğitilmeden önce dışarıdan girilen parametrelerin (K sayısı gibi) en uygununu arama süreci."
+      }
+    ]
+  },
+  {
+    "id": "w06-q032",
+    "week": 6,
+    "topic": "makine-ogrenmesi-ayrimi",
+    "type": "code",
+    "tags": [
+      "classification",
+      "clustering",
+      "y_train"
+    ],
+    "sourceNotebook": "cluster_0.ipynb",
+    "question": "Aşağıdaki kod parçalarından hangisi, K-Means'in ait olduğu 'Gözetimsiz Öğrenme (Unsupervised Learning)' mantığına KESİNLİKLE aykırıdır ve kullanılması mantıksal bir hata olur?",
+    "options": {
+      "A": "kmeans = KMeans(n_clusters=4)\nkmeans.fit(X_scaled)",
+      "B": "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)\nmodel.fit(X_train, y_train)",
+      "C": "labels = kmeans.labels_",
+      "D": "df[\"Cluster\"] = kmeans.fit_predict(df_scaled)",
+      "E": "plt.scatter(df[\"PCA1\"], df[\"PCA2\"], hue=kmeans.labels_)"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "KMeans algoritmasının standart, gözetimsiz eğitim (fit) metodudur.",
+      "B": "Gözetimsiz öğrenmede bağımlı (hedef/etiket) değişken olan 'y' bulunmaz. Dolayısıyla veriyi girdiler (X) ve bilinen cevaplar (y) olarak test ve eğitime bölüp 'y_train' ile modeli eğitmek gözetimli (supervised) öğrenme metodudur (örn: KNN).",
+      "C": "Model eğitildikten sonra etiketleri almak gözetimsiz öğrenmenin doğasında vardır.",
+      "D": "fit_predict işlemi girdileri (X) alır ve grupları döndürür, tamamen geçerlidir.",
+      "E": "Görselleştirme için etiketleri kullanmak geçerli bir adımdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Supervised vs Unsupervised",
+        "definition": "Veride ulaşılmak istenen doğru cevapların (hedef/Y) baştan verilip (gözetimli) verilmediği (gözetimsiz) durumu."
+      }
+    ]
+  },
+  {
+    "id": "w06-q033",
+    "week": 6,
+    "topic": "gorsellestirme",
+    "type": "code",
+    "tags": [
+      "3d-plot",
+      "c-parameter"
+    ],
+    "sourceNotebook": "cluster_3.ipynb",
+    "question": "3 boyutlu PCA görselleştirmesi yapılırken kullanılan `c=df_cluster[\"Cluster\"]` parametresi ne işe yaramaktadır?",
+    "code": "sc = ax.scatter(\n    df_cluster_pca_3d[:, 0],\n    df_cluster_pca_3d[:, 1],\n    df_cluster_pca_3d[:, 2],\n    c=df_cluster[\"Cluster\"],\n    cmap=\"viridis\",\n    alpha=0.7\n)",
+    "options": {
+      "A": "Veri noktalarının 3 boyutlu uzaydaki (Z) yükseklik değerini belirler.",
+      "B": "Grafik etrafındaki sınır çizgisinin kalınlığını küme numarasına göre ayarlar.",
+      "C": "Noktaların boyutunu (size) ait olduğu kümenin eleman sayısına göre büyütür.",
+      "D": "Grafik çizilirken eksik verilerin (c = null) çıkartılmasını sağlar.",
+      "E": "Noktaların renklerini, daha önceden hesaplanan 'Cluster' (küme) numaralarına göre ayırarak kümeleri belirginleştirir."
+    },
+    "correct": "E",
+    "explanations": {
+      "A": "Z ekseni (yükseklik) `df_cluster_pca_3d[:, 2]` ile belirlenmektedir.",
+      "B": "Sınır kalınlığı 'edgecolors' veya 'linewidths' ile belirlenir.",
+      "C": "Nokta boyutu 's' (size) parametresi ile belirlenir.",
+      "D": "Eksik veriyi ayıklayan bir parametre değildir.",
+      "E": "Matplotlib scatter fonksiyonunda `c` (color) parametresi, noktaların renklerini belirler. İçerisine küme numaraları atanarak, her kümenin (cmap ile verilen) farklı bir renge boyanması sağlanır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Color Mapping (c)",
+        "definition": "Matplotlib'te veri noktalarının değerine veya kategorisine göre renklendirilmesini sağlayan parametre."
+      }
+    ]
+  },
+  {
+    "id": "w06-q034",
+    "week": 6,
+    "topic": "veri-okuma",
+    "type": "code",
+    "tags": [
+      "pd.read_csv",
+      "sep",
+      "file-reading"
+    ],
+    "sourceNotebook": "cluster_3.ipynb",
+    "question": "Pazarlama kampanyası verisi okunurken `sep=\"\\t\"` parametresi kullanılmıştır. Bu parametrenin kodu okuyan Python kütüphanesine verdiği talimat nedir?",
+    "code": "df = pd.read_csv(dataset_path, sep=\"\\t\")",
+    "options": {
+      "A": "Verilerin internet üzerinden, verilen URL path'inden indirilmesini sağlar.",
+      "B": "CSV dosyasındaki eksik değerleri (NaN) atlayarak okumayı talimatlandırır.",
+      "C": "Dosyadaki sütunların birbirlerinden virgül (,) yerine Tab (boşluk sekmesi) karakteri ile ayrıldığını belirtir.",
+      "D": "Metin verilerinin sayısal kodlamaya (Tabular format) dönüştürülmesini sağlar.",
+      "E": "Dosyanın sadece test amaçlı olarak ilk 10 satırının okunmasını sağlar."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "URL veya lokal yol, ilk parametre olan 'dataset_path' değişkeninde belirtilir.",
+      "B": "Eksik verileri atlamak için read_csv içinde dropna() benzeri fonksiyonlar zincirlenir, sep ile yapılmaz.",
+      "C": "sep (separator), dosyadaki değerlerin ne ile ayrıldığını belirler. '\\t' (tab) ifadesi verilerin sekmelerle ayrıldığı TSV (Tab Separated Values) türevi bir dosya okunduğunu Pandas'a bildirir. Bildirilmezse tüm satır tek sütun gibi okunur.",
+      "D": "Format dönüştürme encode işlemleridir.",
+      "E": "Satır sayısı kısıtlaması 'nrows=10' parametresi ile yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Separator (sep)",
+        "definition": "Veri okuma işlemlerinde (CSV, TXT) sütun değerlerini birbirinden ayıran ayraç karakter."
+      }
+    ]
+  },
+  {
+    "id": "w06-q035",
+    "week": 6,
+    "topic": "kume-degerlendirme",
+    "type": "code",
+    "tags": [
+      "inertia",
+      "optimum-k"
+    ],
+    "sourceNotebook": "cluster_0.ipynb",
+    "question": "K-Means'te `inertia_` (hata kareleri toplamı) değeri, K (küme sayısı) parametresi arttıkça teorik olarak nasıl bir eğilim (trend) gösterir?",
+    "code": "for k in range(2, 15):\n    kmeans = KMeans(n_clusters=k)\n    kmeans.fit(df)\n    print(kmeans.inertia_)",
+    "options": {
+      "A": "K değeri arttıkça inertia değeri sürekli olarak yükselir.",
+      "B": "K değeri arttıkça inertia değeri sürekli olarak düşer ve K sayısı veri satır sayısına eşit olduğunda 0 olur.",
+      "C": "Inertia değeri önce azalır, optimum noktadan sonra tekrar yükselmeye (U-şekli) başlar.",
+      "D": "Inertia değeri sabit kalır, sadece kümelerin etiketleri değişir.",
+      "E": "K sayısı çift olduğunda düşer, tek olduğunda yükselir."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Küme sayısı arttıkça verilerin kendi merkezine olan uzaklığı kısalacağı için hata düşer, yükselmez.",
+      "B": "K sayısı arttıkça (daha fazla gruba bölündükçe), her nokta bir merkeze daha da yaklaşır. Eğer her satır (müşteri) ayrı bir küme olursa (K=N), uzaklık 0 olacağı için hata sıfır çıkar. Eğilim sürekli aşağı yönlüdür.",
+      "C": "Inertia (WCSS) hiçbir zaman geri yükselmez (aşırı öğrenmeye rağmen matematiksel olarak azalmaya devam eder).",
+      "D": "Merkez sayısı arttıkça mesafeler daralacağı için sabit kalması imkansızdır.",
+      "E": "Tek veya çift sayı olmasının hata metriğine hiçbir etkisi yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Overfitting in Clustering",
+        "definition": "Hata (inertia) sıfıra yaklaşsa bile modelin anlamlı gruplar bulmak yerine her elemanı tek başına bir küme yapması."
+      }
+    ]
+  },
+  {
+    "id": "w06-q036",
+    "week": 6,
+    "topic": "k-means-parametreleri",
+    "type": "code",
+    "tags": [
+      "shape",
+      "cluster_centers"
+    ],
+    "sourceNotebook": "cluster_0.ipynb",
+    "question": "Bir veri setinde `df_scaled` matrisi 200 satır ve 4 özellik (sütun) içermektedir. K-Means modeli `n_clusters=5` ile eğitildikten sonra, `kmeans.cluster_centers_` komutunun döndüreceği Numpy dizisinin yapısı (shape) ne olur?",
+    "code": "kmeans = KMeans(n_clusters=5)\nkmeans.fit(df_scaled) # df_scaled.shape = (200, 4)\n\nprint(kmeans.cluster_centers_.shape)",
+    "options": {
+      "A": "(200, 5)",
+      "B": "(200, 4)",
+      "C": "(5, 200)",
+      "D": "(5, 4)",
+      "E": "(4, 5)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Merkez matrisi satır sayısı (veri büyüklüğü) kadar değil, küme sayısı kadar satır içerir.",
+      "B": "Bu orijinal verinin yapısıdır.",
+      "C": "Merkez koordinatları tüm veri seti üzerinden değil özellikler üzerinden çizilir.",
+      "D": "Her bir küme (toplam 5 adet) için, veri setindeki özellik/sütun sayısı kadar (toplam 4 adet) koordinat bulunur. Dolayısıyla merkezler matrisi 5 satır (kümeler) ve 4 sütun (koordinatlar) boyutundadır (5, 4).",
+      "E": "Satırlarkümeleri, sütunlar özellikleri temsil eder, tersi değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Shape",
+        "definition": "Bir matrisin veya dizinin (satır_sayısı, sütun_sayısı) biçimini gösteren boyut bilgisi."
+      }
+    ]
+  },
+  {
+    "id": "w06-q037",
+    "week": 6,
+    "topic": "veri-tipi-donusumu",
+    "type": "code",
+    "tags": [
+      "apply",
+      "lambda",
+      "binary-encoding"
+    ],
+    "sourceNotebook": "cluster_0.ipynb",
+    "question": "Aşağıdaki kod parçası çalıştırıldığında 'Female' ve 'Male' dışındaki farklı bir kelime girilse veya değer boş (NaN) olsa, kod nasıl bir çıktı üretir?",
+    "code": "df[\"Genre\"] = df[\"Genre\"].apply(lambda x: 1 if x == \"Female\" else 0)",
+    "options": {
+      "A": "Sistem hata fırlatır ve kodun çalışmasını durdurur.",
+      "B": "'Female' kelimesine tam uymayan her değeri (Male, NaN, Unknown vs.) otomatik olarak 0'a dönüştürür.",
+      "C": "Bilinmeyen değerler için -1 ataması yapar.",
+      "D": "Sadece 'Female'leri dönüştürür, diğer değerleri olduğu gibi metin (string) olarak bırakır.",
+      "E": "Cinsiyet değerlerini tahmin ederek eksik verileri 1 veya 0 ile doldurur."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Lambda else bloğu içerdiği için hata fırlatmaz, else koşulunu uygular.",
+      "B": "Yazılan lambda fonksiyonunun mantığı basittir: Eğer hücre tam olarak 'Female' kelimesini içeriyorsa (büyük/küçük harf duyarlı) 1 atar. Geri kalan HER ŞEYE (Male, Boşluk, NaN, Hatalı yazım) else bloğu gereği 0 atar.",
+      "C": "Kodda -1 tanımlaması yoktur.",
+      "D": "Bütün sütunu (apply) işlediği için string değer bırakmaz, hepsini sayıya çevirir.",
+      "E": "Lambda fonksiyonu bir tahminleme algoritması değildir, statik mantık kurar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Lambda Function",
+        "definition": "Python'da tek satırda yazılabilen, isimsiz ve hızlı çalıştırılan küçük fonksiyonlar."
+      }
+    ]
+  },
+  {
+    "id": "w06-q038",
+    "week": 6,
+    "topic": "gorsellestirme",
+    "type": "code",
+    "tags": [
+      "seaborn",
+      "legend"
+    ],
+    "sourceNotebook": "cluster_0.ipynb",
+    "question": "Görselleştirme kodunda yer alan `legend=\"full\"` parametresinin kullanımı hangi amaca hizmet etmektedir?",
+    "code": "sns.scatterplot(\n    data=df,\n    x=\"Annual Income (k$)\",\n    y=\"Spending Score (1-100)\",\n    hue=labels,\n    palette=\"deep\",\n    legend=\"full\"\n)",
+    "options": {
+      "A": "Grafiğin kenarlıklarını tam ekran modunda çizmeye zorlar.",
+      "B": "X ve Y eksenlerinin limitlerini verideki en uç noktalara kadar genişletir.",
+      "C": "Renk etiketlerini (küme numaralarını) gösteren bilgi kutusunun (legend), bazı grupları gizlemeden tüm grupları (0,1,2,3,4) içerecek şekilde gösterilmesini sağlar.",
+      "D": "Grafikteki tüm veri noktalarının şeffaflık (alpha) ayarını iptal eder.",
+      "E": "Eksik verilerin (NaN) de bir renk altında toplanıp grafikte gösterilmesini sağlar."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Tam ekran veya figür boyutu figsize=(X, Y) ile ayarlanır.",
+      "B": "Eksen limitleri plt.xlim() ve plt.ylim() ile ayarlanır.",
+      "C": "Seaborn scatterplot'ta `legend='full'`, özellikle gruplama (hue) yapıldığında her bir farklı kategorinin veya kümenin işaretçi kutusunda (legend) kesilmeden/kısaltılmadan açıkça belirtilmesini zorunlu kılar.",
+      "D": "Şeffaflık ayarı 'alpha' parametresi ile değiştirilir.",
+      "E": "Seaborn varsayılan olarak NaN değerleri çizmez, legend parametresi eksik verileri çizdirmez."
+    },
+    "relatedTerms": [
+      {
+        "term": "Legend",
+        "definition": "Grafikte kullanılan renklerin, şekillerin veya boyutların hangi sınıfları temsil ettiğini anlatan açıklama kutusu."
+      }
+    ]
+  },
+  {
+    "id": "w06-q039",
+    "week": 6,
+    "topic": "kume-degerlendirme",
+    "type": "code",
+    "tags": [
+      "boyut-indirgeme",
+      "pca",
+      "fit_transform"
+    ],
+    "sourceNotebook": "cluster_3.ipynb",
+    "question": "Pazarlama verilerinde toplamda 15 özellikten (sütundan) oluşan matrise 3 bileşenli PCA uygulandıktan sonra elde edilen `df_cluster_pca_3d` matrisinin sütun sayısı kaç olur?",
+    "code": "pca_3d = PCA(n_components=3)\ndf_cluster_pca_3d = pca_3d.fit_transform(df_scaled) # df_scaled 15 sütuna sahip",
+    "options": {
+      "A": "15 (Orijinal sütun sayısı korunur)",
+      "B": "18 (15 orijinal + 3 yeni PCA sütunu)",
+      "C": "12 (15 orijinal - 3 atılan sütun)",
+      "D": "3 (Varyansı özetleyen yepyeni 3 bileşen/sütun)",
+      "E": "5 (15 sütunun 3 bileşene bölünmesi sonucu)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "PCA boyut korumaz, boyut indirger.",
+      "B": "Yeni özellikler orijinal matrisin üzerine eklenmez, tamamen yeni bir yapı üretilir.",
+      "C": "PCA en işe yaramaz sütunları atarak değil, hepsini matematiksel formüllerle harmanlayarak çalışır.",
+      "D": "PCA (n_components=3) uygulandığında, 15 boyutlu (sütunlu) verinin %80-90 varyans bilgisini taşıyacak şekilde tamamen yeni ve birbiriyle dik açılı 3 yapay boyut (sütun) üretilir. Çıktı (fit_transform) her zaman hedef komponent sayısı kadardır.",
+      "E": "Bölme işlemi değil lineer cebir dönüşümü yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "n_components",
+        "definition": "PCA algoritmasında hedeflenen çıktı boyut (sütun) sayısını belirten parametre."
+      }
+    ]
+  },
+  {
+    "id": "w06-q040",
+    "week": 6,
+    "topic": "makine-ogrenmesi-ayrimi",
+    "type": "code",
+    "tags": [
+      "label-encoder",
+      "clustering"
+    ],
+    "sourceNotebook": "cluster_3.ipynb",
+    "question": "Aşağıdaki işlemlerden hangisi Veri Dönüşümü (Transformation) değil, Modelleme aşamasına aittir?",
+    "options": {
+      "A": "df[\"Income\"].fillna(df[\"Income\"].median())",
+      "B": "scaler = StandardScaler()\ndf_scaled = scaler.fit_transform(df_cluster)",
+      "C": "encoder = LabelEncoder()\ndf[col] = encoder.fit_transform(df[col])",
+      "D": "kmeans = KMeans(n_clusters=optimal_k)\ndf_cluster[\"Cluster\"] = kmeans.fit_predict(df_scaled)",
+      "E": "pca = PCA(n_components=3)\ndf_pca = pca.fit_transform(df_scaled)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Boş değerleri doldurmak bir Ön İşleme (Preprocessing) aşamasıdır.",
+      "B": "Veriyi ölçeklendirmek bir Veri Dönüşümü (Transformation) adımıdır.",
+      "C": "Metinleri sayıya çevirmek bir Dönüşüm (Encoding/Transformation) adımıdır.",
+      "D": "KMeans algoritmasının örneğinin yaratılması ve 'fit_predict' işlemi ile verinin eğitimden geçirilip çıktılarının alınması doğrudan Modelleme (Modeling/Data Mining) adımıdır.",
+      "E": "PCA bir modelleme algoritması gibi görünse de ana amacı modelleme öncesi veri boyutunu küçültmek olan bir Veri Dönüşümü tekniğidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Modeling",
+        "definition": "Veri setindeki gizli örüntüleri veya kümeleri bulmak için algoritmaların çalıştırıldığı evre."
+      }
+    ]
   }
 ]

@@ -1,7 +1,7 @@
 ---
 title: Veri Madenciliği - 5
 created: 2026-03-17
-draft: true
+draft: false
 tags: akademi/dersler/veri-madenciligi
 slug: veri-madenciligi-5
 konu: Random Forest?

@@ -1,0 +1,1075 @@
+{
+  "id": "hafta6_cluster_1",
+  "title": "Hafta 6: K-Means ile Housing",
+  "week": 6,
+  "csvFiles": [
+    "housing.csv"
+  ],
+  "blocks": [
+    {
+      "id": "hafta6_cluster_1-b001",
+      "title": "Görselleştirme ve kümeleme araçlarını yüklüyoruz",
+      "blockExplanation": "Bu hücre, housing verisi için gerekli matplotlib, seaborn, K-Means ve ölçekleme araçlarını içe aktarır ve tema ayarlarını yapar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "matplotlib.pyplot modülünü plt takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "matplotlib.pyplot modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "plt",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Görselleştirme ve kümeleme araçlarını yüklüyoruz' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import pandas as pd",
+          "lineExplanation": "pandas modülünü pd takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "pandas modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "pd",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Görselleştirme ve kümeleme araçlarını yüklüyoruz' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "import seaborn as sns",
+          "lineExplanation": "seaborn modülünü sns takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "seaborn",
+              "explanation": "seaborn modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "sns",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Görselleştirme ve kümeleme araçlarını yüklüyoruz' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "from sklearn.cluster import KMeans",
+          "lineExplanation": "sklearn.cluster modülünden KMeans bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "sklearn.cluster",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "KMeans",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Görselleştirme ve kümeleme araçlarını yüklüyoruz' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "from sklearn.preprocessing import StandardScaler",
+          "lineExplanation": "sklearn.preprocessing modülünden StandardScaler bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "sklearn.preprocessing",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "StandardScaler",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Görselleştirme ve kümeleme araçlarını yüklüyoruz' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "sns.set_theme(style=\"whitegrid\")",
+          "lineExplanation": "Seaborn için genel tema ayarını whitegrid stiline çevirir.",
+          "tokens": [
+            {
+              "token": "style=\"whitegrid\"",
+              "explanation": "Seaborn temasının parametrelerini belirler.",
+              "turkce": "Tema",
+              "amac": "Grafiklerin daha okunabilir görünmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Görselleştirme ve kümeleme araçlarını yüklüyoruz' bloğunda görsel temayı beyaz ızgara düzenine geçirir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.style.use(\"ggplot\")",
+          "lineExplanation": "Matplotlib'in genel görünümünü ggplot stiline çevirir.",
+          "tokens": [
+            {
+              "token": "\"ggplot\"",
+              "explanation": "Uygulanacak matplotlib stilini seçer.",
+              "turkce": "Stil",
+              "amac": "Grafiklerin belirli bir görsel dille çizilmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Görselleştirme ve kümeleme araçlarını yüklüyoruz' bloğunda matplotlib çizimlerinin genel stilini değiştirir."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+    },
+    {
+      "id": "hafta6_cluster_1-b002",
+      "title": "Housing verisini yüklüyoruz",
+      "blockExplanation": "Bu hücre, housing.csv dosyasını okuyup ilk satırları göstererek veri akışını başlatır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df = pd.read_csv(\"housing.csv\")",
+          "lineExplanation": "housing.csv dosyasını pandas ile okuyup df adlı DataFrame'e yükler.",
+          "tokens": [
+            {
+              "token": "pd.read_csv",
+              "explanation": "CSV ya da benzeri düz metin dosyalarını tablo olarak okur.",
+              "turkce": "Dosya Okuma",
+              "amac": "Veriyi pandas DataFrame biçimine almak."
+            },
+            {
+              "token": "housing.csv",
+              "explanation": "Okunan veri dosyasının adıdır.",
+              "turkce": "Veri Dosyası",
+              "amac": "Hangi kaynağın kullanılacağını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Housing verisini yüklüyoruz' bloğunda ham dosyayı pandas tablosuna dönüştürür."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df.head()",
+          "lineExplanation": "DataFrame'in ilk 5 satırını göstererek verinin görünümünü hızlıca kontrol ettirir.",
+          "tokens": [
+            {
+              "token": ".head()",
+              "explanation": "Varsayılan olarak ilk 5 satırı getirir.",
+              "turkce": "Önizleme",
+              "amac": "Dosyanın doğru okunup okunmadığını hızlıca görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Housing verisini yüklüyoruz' bloğunda tablonun ilk satırlarını önizleme amaçlı ekrana getirir."
+        }
+      ],
+      "expectedOutput": "   MedInc  HouseAge  AveRooms  AveBedrms  Population  AveOccup  Latitude  Longitude  MedHouseVal\n0  8.3252      41.0  6.984127   1.023810       322.0  2.555556     37.88    -122.23        4.526\n1  8.3014      21.0  6.238137   0.971880      2401.0  2.109842     37.86    -122.22        3.585\n2  7.2574      52.0  8.288136   1.073446       496.0  2.802260     37.85    -122.24        3.521\n3  5.6431      52.0  5.817352   1.073059       558.0  2.547945     37.85    -122.25        3.413\n4  3.8462      52.0  6.281853   1.081081       565.0  2.181467     37.85    -122.25        3.422"
+    },
+    {
+      "id": "hafta6_cluster_1-b003",
+      "title": "Kullanılacak sütunları seçiyoruz",
+      "blockExplanation": "Bu hücre, kümelemede kullanılacak sütunları doğrular; eksik sütun varsa hata fırlatır, sonra gerekli üç özelliği ayrı bir tabloya alır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "required_cols = [\"MedInc\", \"Latitude\", \"Longitude\"]",
+          "lineExplanation": "Kümelemede kullanılacak üç sütunu tek listede tanımlar.",
+          "tokens": [
+            {
+              "token": "\"MedInc\", \"Latitude\", \"Longitude\"",
+              "explanation": "Kullanılacak medyan gelir, enlem ve boylam sütunlarını listeler.",
+              "turkce": "Sütun Listesi",
+              "amac": "Kümeleme için hangi özniteliklerin seçildiğini netleştirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kullanılacak sütunları seçiyoruz' bloğunda analizde kullanılacak sütun setini belirler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "missing_cols = [col for col in required_cols if col not in df.columns]",
+          "lineExplanation": "Gerekli sütun listesindeki her adı veri setinin kolonlarında arar ve eksikleri missing_cols listesine toplar.",
+          "tokens": [
+            {
+              "token": "missing_cols",
+              "explanation": "Eksik kalan sütun adlarını tutacak listedir.",
+              "turkce": "Eksik Sütun",
+              "amac": "Beklenen kolonlar gerçekten var mı diye kontrol etmek."
+            },
+            {
+              "token": "required_cols",
+              "explanation": "Olması beklenen sütunların referans listesidir.",
+              "turkce": "Beklenen Kolonlar",
+              "amac": "Doğrulama ölçütünü belirlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kullanılacak sütunları seçiyoruz' bloğunda zorunlu kolon doğrulamasını hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "if missing_cols:",
+          "lineExplanation": "Eksik sütun listesi boş değilse hata koluna girmeyi sağlar.",
+          "tokens": [
+            {
+              "token": "if missing_cols",
+              "explanation": "Liste boş değilse True olur.",
+              "turkce": "Koşul",
+              "amac": "Eksik sütun bulunduğunda işlemi durdurmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kullanılacak sütunları seçiyoruz' bloğunda doğrulama sonucuna göre hata akışını başlatır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    raise ValueError(f\"Eksik sütunlar var: {missing_cols}\")",
+          "lineExplanation": "Eksik sütunları kullanıcıya açıkça söyleyen bir ValueError yükseltir.",
+          "tokens": [
+            {
+              "token": "ValueError",
+              "explanation": "Beklenmeyen içerik durumları için kullanılan hatadır.",
+              "turkce": "Doğrulama Hatası",
+              "amac": "Gerekli alanlar yokken analizi sürdürmemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kullanılacak sütunları seçiyoruz' bloğunda veri şemasında sorun varsa çalışmayı durdurur."
+        },
+        {
+          "lineNumber": 5,
+          "code": "X = df[required_cols].copy()",
+          "lineExplanation": "Seçilen sütunları alır ve bağımsız bir kopyasını X değişkenine atar.",
+          "tokens": [
+            {
+              "token": "df[required_cols]",
+              "explanation": "Sadece gerekli sütunlardan oluşan alt tabloyu seçer.",
+              "turkce": "Sütun Seçimi",
+              "amac": "Analizi ihtiyaç duyulan değişkenlerle sınırlamak."
+            },
+            {
+              "token": ".copy()",
+              "explanation": "Orijinal tabloyla bağlantısız bir kopya üretir.",
+              "turkce": "Kopya",
+              "amac": "Sonraki değişikliklerin ana tabloyu etkilemesini önlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kullanılacak sütunları seçiyoruz' bloğunda kümeleme için sadeleştirilmiş çalışma tablosunu oluşturur."
+        },
+        {
+          "lineNumber": 6,
+          "code": "X.head()",
+          "lineExplanation": "X tablosunun ilk 5 satırını gösterir.",
+          "tokens": [
+            {
+              "token": ".head()",
+              "explanation": "İlk satırları getirir.",
+              "turkce": "Önizleme",
+              "amac": "Seçilen sütunların beklenen yapıda gelip gelmediğini görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kullanılacak sütunları seçiyoruz' bloğunda seçilen sütunların ilk örneklerini kontrol ettirir."
+        }
+      ],
+      "expectedOutput": "   MedInc  Latitude  Longitude\n0  8.3252     37.88    -122.23\n1  8.3014     37.86    -122.22\n2  7.2574     37.85    -122.24\n3  5.6431     37.85    -122.25\n4  3.8462     37.85    -122.25"
+    },
+    {
+      "id": "hafta6_cluster_1-b004",
+      "title": "İlk coğrafi dağılım grafiğini çiziyoruz",
+      "blockExplanation": "Bu hücre, evleri boylam ve enlem ekseninde gösterir; MedInc sütununu renk ile anlatarak gelir farklarını da aynı görselde taşır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.figure(figsize=(8, 6))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 8, 6 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk coğrafi dağılım grafiğini çiziyoruz' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "sns.scatterplot(",
+          "lineExplanation": "Seaborn ile saçılım grafiği çizimini başlatır.",
+          "tokens": [
+            {
+              "token": "sns.scatterplot",
+              "explanation": "İki değişkenin noktalarla gösterildiği saçılım grafiğini üretir.",
+              "turkce": "Saçılım Grafiği",
+              "amac": "İki özellik arasındaki örüntüyü görselleştirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk coğrafi dağılım grafiğini çiziyoruz' bloğunda görsel küme/dağılım anlatımını başlatır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    data=X,",
+          "lineExplanation": "Grafikte kullanılacak veri kaynağını X olarak belirler.",
+          "tokens": [
+            {
+              "token": "X",
+              "explanation": "Grafiğin okuyacağı tabloyu belirtir.",
+              "turkce": "Veri Kaynağı",
+              "amac": "Hangi DataFrame'in çizileceğini seçmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk coğrafi dağılım grafiğini çiziyoruz' bloğunda görselin veri kaynağını sabitler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    x=\"Longitude\",",
+          "lineExplanation": "Grafiğin x ekseninde \"Longitude\" değişkenini kullanır.",
+          "tokens": [
+            {
+              "token": "\"Longitude\"",
+              "explanation": "Yatay eksene bağlanan alanı belirtir.",
+              "turkce": "X Değişkeni",
+              "amac": "İlgili özelliği yatay eksende göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk coğrafi dağılım grafiğini çiziyoruz' bloğunda yatay eksende hangi değişkenin çizileceğini belirler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    y=\"Latitude\",",
+          "lineExplanation": "Grafiğin y ekseninde \"Latitude\" değişkenini kullanır.",
+          "tokens": [
+            {
+              "token": "\"Latitude\"",
+              "explanation": "Dikey eksene bağlanan alanı belirtir.",
+              "turkce": "Y Değişkeni",
+              "amac": "İlgili özelliği dikey eksende göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk coğrafi dağılım grafiğini çiziyoruz' bloğunda dikey eksende hangi değişkenin çizileceğini belirler."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    hue=\"MedInc\",",
+          "lineExplanation": "Noktaların rengini \"MedInc\" bilgisine göre değiştirir.",
+          "tokens": [
+            {
+              "token": "\"MedInc\"",
+              "explanation": "Grafikte renk ayrımını belirleyen alanı ifade eder.",
+              "turkce": "Renk Değişkeni",
+              "amac": "Grupları veya sürekli ölçeği renk ile taşımak."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk coğrafi dağılım grafiğini çiziyoruz' bloğunda görselin renklendirme ölçütünü seçer."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    palette=\"coolwarm\"",
+          "lineExplanation": "Grafikte kullanılacak renk paletini \"coolwarm\" olarak seçer.",
+          "tokens": [
+            {
+              "token": "\"coolwarm\"",
+              "explanation": "Görselde kullanılacak renk düzenini belirler.",
+              "turkce": "Renk Paleti",
+              "amac": "Grupları veya yoğunlukları okunabilir biçimde ayırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk coğrafi dağılım grafiğini çiziyoruz' bloğunda görselin renk dilini belirler."
+        },
+        {
+          "lineNumber": 8,
+          "code": ")",
+          "lineExplanation": "Bir önceki çok satırlı fonksiyon çağrısını veya matematiksel ifadeyi kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Açık bırakılmış çağrıyı veya ifadeyi sonlandırır.",
+              "turkce": "Kapanış",
+              "amac": "Çok satırlı yapının sentaksını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk coğrafi dağılım grafiğini çiziyoruz' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.title(\"Evlerin Coğrafi Dağılımı (Gelire Göre Renklendirilmiş)\")",
+          "lineExplanation": "Grafiğin başlığını \"Evlerin Coğrafi Dağılımı (Gelire Göre Renklendirilmiş)\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk coğrafi dağılım grafiğini çiziyoruz' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.xlabel(\"Longitude\")",
+          "lineExplanation": "X ekseninin etiketini \"Longitude\" olarak yazar.",
+          "tokens": [
+            {
+              "token": "plt.xlabel",
+              "explanation": "Yatay eksenin adını belirler.",
+              "turkce": "X Etiketi",
+              "amac": "Grafiğin hangi değişkeni yatay eksende taşıdığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk coğrafi dağılım grafiğini çiziyoruz' bloğunda yatay ekseni isimlendirir."
+        },
+        {
+          "lineNumber": 11,
+          "code": "plt.ylabel(\"Latitude\")",
+          "lineExplanation": "Y ekseninin etiketini \"Latitude\" olarak yazar.",
+          "tokens": [
+            {
+              "token": "plt.ylabel",
+              "explanation": "Dikey eksenin adını belirler.",
+              "turkce": "Y Etiketi",
+              "amac": "Grafiğin hangi değişkeni dikey eksende taşıdığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk coğrafi dağılım grafiğini çiziyoruz' bloğunda dikey ekseni isimlendirir."
+        },
+        {
+          "lineNumber": 12,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk coğrafi dağılım grafiğini çiziyoruz' bloğunda görsel üretimini tamamlar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h6-housing-b004.png"
+    },
+    {
+      "id": "hafta6_cluster_1-b005",
+      "title": "Eksik değerleri kontrol ediyoruz",
+      "blockExplanation": "Bu hücre, seçilen MedInc, Latitude ve Longitude sütunlarında eksik veri olup olmadığını sayar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "X.isnull().sum()",
+          "lineExplanation": "X içindeki her sütunda kaç eksik değer olduğunu sayar.",
+          "tokens": [
+            {
+              "token": "isnull().sum()",
+              "explanation": "Önce boş hücreleri işaretler, sonra sütun bazında toplar.",
+              "turkce": "Eksik Sayımı",
+              "amac": "Ölçekleme ve model öncesi eksik veri olup olmadığını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eksik değerleri kontrol ediyoruz' bloğunda eksik veri kontrolünü sayısallaştırır."
+        }
+      ],
+      "expectedOutput": "MedInc       0\nLatitude     0\nLongitude    0\ndtype: int64"
+    },
+    {
+      "id": "hafta6_cluster_1-b006",
+      "title": "Veriyi ölçeklendiriyoruz",
+      "blockExplanation": "Bu hücre, K-Means için üç özelliği StandardScaler ile ortak ölçeğe getirir ve ilk satırların dönüştürülmüş halini gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "scaler = StandardScaler()",
+          "lineExplanation": "Standartlaştırma işlemi yapacak StandardScaler nesnesini oluşturur.",
+          "tokens": [
+            {
+              "token": "StandardScaler",
+              "explanation": "Her özelliği ortalaması 0, standart sapması 1 olacak biçimde ölçekler.",
+              "turkce": "Ölçekleyici",
+              "amac": "Mesafe tabanlı algoritmalarda sütunları ortak ölçeğe getirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veriyi ölçeklendiriyoruz' bloğunda sayısal özellikleri ölçekleyecek aracı kurar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "X_scaled = scaler.fit_transform(X)",
+          "lineExplanation": "Ölçekleyiciyi X üzerinde öğrenir ve aynı anda dönüştürülmüş matrisi X_scaled içine yazar.",
+          "tokens": [
+            {
+              "token": "fit_transform(X)",
+              "explanation": "Önce ortalama/std hesaplar, ardından veriyi dönüştürür.",
+              "turkce": "Fit + Transform",
+              "amac": "Tek adımda standartlaştırılmış veri üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veriyi ölçeklendiriyoruz' bloğunda veriyi modele uygun ortak ölçeğe taşır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "X_scaled[:5]",
+          "lineExplanation": "Ölçeklenmiş verinin ilk 5 satırını numpy dizisi olarak gösterir.",
+          "tokens": [
+            {
+              "token": "[:5]",
+              "explanation": "İlk 5 satırlık dilimi seçer.",
+              "turkce": "Dilimleme",
+              "amac": "Dönüşüm sonucunu küçük bir örnek üzerinde görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veriyi ölçeklendiriyoruz' bloğunda ölçeklenmiş verinin örnek kısmını görünür kılar."
+        }
+      ],
+      "expectedOutput": "array([[ 2.34476576,  1.05254828, -1.32783522],\n       [ 2.33223796,  1.04318455, -1.32284391],\n       [ 1.7826994 ,  1.03850269, -1.33282653],\n       [ 0.93296751,  1.03850269, -1.33781784],\n       [-0.012881  ,  1.03850269, -1.33781784]])"
+    },
+    {
+      "id": "hafta6_cluster_1-b007",
+      "title": "5 kümeli modeli kuruyoruz",
+      "blockExplanation": "Bu hücre, 5 kümeli K-Means modelini eğitir ve cluster etiketlerini tabloya ekler.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "kmeans = KMeans(n_clusters=5, random_state=42, n_init=10)",
+          "lineExplanation": "K-Means modelini n_clusters=5, random_state=42, n_init=10 parametreleriyle kurar.",
+          "tokens": [
+            {
+              "token": "KMeans",
+              "explanation": "Scikit-learn'ün K-Means kümeleme sınıfıdır.",
+              "turkce": "Model",
+              "amac": "Veriyi benzer örnek kümelerine ayırmak."
+            },
+            {
+              "token": "n_clusters=5, random_state=42, n_init=10",
+              "explanation": "Modelin kaç küme, hangi başlangıç ve kaç tekrar ile çalışacağını belirler.",
+              "turkce": "Parametreler",
+              "amac": "Algoritmanın davranışını kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, '5 kümeli modeli kuruyoruz' bloğunda K-Means model nesnesini oluşturur."
+        },
+        {
+          "lineNumber": 2,
+          "code": "X_cluster = X.copy()",
+          "lineExplanation": "Kümeleri eklemek için X tablosunun kopyasını X_cluster adıyla oluşturur.",
+          "tokens": [
+            {
+              "token": "X.copy()",
+              "explanation": "Seçilen özellik tablosunun bağımsız kopyasını alır.",
+              "turkce": "Kopya",
+              "amac": "Cluster sütununu eklerken temel tabloyu korumak."
+            }
+          ],
+          "codeContext": "Bu satır, '5 kümeli modeli kuruyoruz' bloğunda küme etiketlerini taşıyacak sonuç tablosunu hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "X_cluster[\"Cluster\"] = kmeans.fit_predict(X_scaled)",
+          "lineExplanation": "Modeli ölçeklenmiş veri üzerinde eğitir ve her satırın küme etiketini doğrudan Cluster sütununa yazar.",
+          "tokens": [
+            {
+              "token": "fit_predict(X_scaled)",
+              "explanation": "Modeli eğitir ve aynı anda etiketleri döndürür.",
+              "turkce": "Fit + Predict",
+              "amac": "Tek satırda eğitim ve etiket üretmek."
+            },
+            {
+              "token": "X_cluster[\"Cluster\"]",
+              "explanation": "Üretilen etiketlerin yazılacağı sonuç sütunudur.",
+              "turkce": "Sonuç Sütunu",
+              "amac": "Her gözlemin kümesini tabloda saklamak."
+            }
+          ],
+          "codeContext": "Bu satır, '5 kümeli modeli kuruyoruz' bloğunda cluster etiketlerini sonuç tablosuna ekler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "X_cluster[\"Cluster\"] = X_cluster[\"Cluster\"].astype(\"category\")",
+          "lineExplanation": "Cluster sütununu kategorik tipe çevirerek özellikle görselleştirmede anlamlı sınıf gibi davranmasını sağlar.",
+          "tokens": [
+            {
+              "token": ".astype(\"category\")",
+              "explanation": "Sütunu kategorik veri tipine dönüştürür.",
+              "turkce": "Tip Dönüşümü",
+              "amac": "Cluster değerlerini sayısal ölçü değil sınıf etiketi olarak kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, '5 kümeli modeli kuruyoruz' bloğunda cluster etiketlerini kategorik sınıf haline getirir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "X_cluster.head()",
+          "lineExplanation": "Cluster etiketleri eklenmiş tablonun ilk 5 satırını gösterir.",
+          "tokens": [
+            {
+              "token": ".head()",
+              "explanation": "İlk satırları getirir.",
+              "turkce": "Önizleme",
+              "amac": "Cluster sütununun beklendiği gibi eklendiğini doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, '5 kümeli modeli kuruyoruz' bloğunda kümeli tablonun önizlemesini sunar."
+        }
+      ],
+      "expectedOutput": "   MedInc  Latitude  Longitude Cluster\n0  8.3252     37.88    -122.23       1\n1  8.3014     37.86    -122.22       1\n2  7.2574     37.85    -122.24       1\n3  5.6431     37.85    -122.25       1\n4  3.8462     37.85    -122.25       4"
+    },
+    {
+      "id": "hafta6_cluster_1-b008",
+      "title": "Kümeleri harita üzerinde gösteriyoruz",
+      "blockExplanation": "Bu hücre, elde edilen küme etiketlerini coğrafi konuma göre renklendirir. Hücre içindeki yorum satırı ayrıca Elbow adımının sonradan eklenmesi gerektiğini not eder.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.figure(figsize=(8, 6)) # NOT: BURADA ELBOW'U UYGULA. BUNU OKUYORSAN HATIRLAT BANA ELBOW'U UYGULA DİYE.",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 8, 6 olarak belirler. Satır sonundaki not, bu notebook'ta ayrıca Elbow adımının eklenmesi gerektiğini hatırlatır.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            },
+            {
+              "token": "# NOT",
+              "explanation": "Notebook içinde Elbow adımının sonradan eklenmesi gerektiğini hatırlatan geliştirici notudur.",
+              "turkce": "Not",
+              "amac": "Bu hücrenin eksik kalan yönünü not düşmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleri harita üzerinde gösteriyoruz' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "sns.scatterplot(",
+          "lineExplanation": "Seaborn ile saçılım grafiği çizimini başlatır.",
+          "tokens": [
+            {
+              "token": "sns.scatterplot",
+              "explanation": "İki değişkenin noktalarla gösterildiği saçılım grafiğini üretir.",
+              "turkce": "Saçılım Grafiği",
+              "amac": "İki özellik arasındaki örüntüyü görselleştirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleri harita üzerinde gösteriyoruz' bloğunda görsel küme/dağılım anlatımını başlatır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    data=X_cluster,",
+          "lineExplanation": "Grafikte kullanılacak veri kaynağını X_cluster olarak belirler.",
+          "tokens": [
+            {
+              "token": "X_cluster",
+              "explanation": "Grafiğin okuyacağı tabloyu belirtir.",
+              "turkce": "Veri Kaynağı",
+              "amac": "Hangi DataFrame'in çizileceğini seçmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleri harita üzerinde gösteriyoruz' bloğunda görselin veri kaynağını sabitler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    x=\"Longitude\",",
+          "lineExplanation": "Grafiğin x ekseninde \"Longitude\" değişkenini kullanır.",
+          "tokens": [
+            {
+              "token": "\"Longitude\"",
+              "explanation": "Yatay eksene bağlanan alanı belirtir.",
+              "turkce": "X Değişkeni",
+              "amac": "İlgili özelliği yatay eksende göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleri harita üzerinde gösteriyoruz' bloğunda yatay eksende hangi değişkenin çizileceğini belirler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    y=\"Latitude\",",
+          "lineExplanation": "Grafiğin y ekseninde \"Latitude\" değişkenini kullanır.",
+          "tokens": [
+            {
+              "token": "\"Latitude\"",
+              "explanation": "Dikey eksene bağlanan alanı belirtir.",
+              "turkce": "Y Değişkeni",
+              "amac": "İlgili özelliği dikey eksende göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleri harita üzerinde gösteriyoruz' bloğunda dikey eksende hangi değişkenin çizileceğini belirler."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    hue=\"Cluster\",",
+          "lineExplanation": "Noktaların rengini \"Cluster\" bilgisine göre değiştirir.",
+          "tokens": [
+            {
+              "token": "\"Cluster\"",
+              "explanation": "Grafikte renk ayrımını belirleyen alanı ifade eder.",
+              "turkce": "Renk Değişkeni",
+              "amac": "Grupları veya sürekli ölçeği renk ile taşımak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleri harita üzerinde gösteriyoruz' bloğunda görselin renklendirme ölçütünü seçer."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    palette=\"viridis\"",
+          "lineExplanation": "Grafikte kullanılacak renk paletini \"viridis\" olarak seçer.",
+          "tokens": [
+            {
+              "token": "\"viridis\"",
+              "explanation": "Görselde kullanılacak renk düzenini belirler.",
+              "turkce": "Renk Paleti",
+              "amac": "Grupları veya yoğunlukları okunabilir biçimde ayırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleri harita üzerinde gösteriyoruz' bloğunda görselin renk dilini belirler."
+        },
+        {
+          "lineNumber": 8,
+          "code": ")",
+          "lineExplanation": "Bir önceki çok satırlı fonksiyon çağrısını veya matematiksel ifadeyi kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Açık bırakılmış çağrıyı veya ifadeyi sonlandırır.",
+              "turkce": "Kapanış",
+              "amac": "Çok satırlı yapının sentaksını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleri harita üzerinde gösteriyoruz' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.title(\"K-Means Kümeleme Sonuçları\")",
+          "lineExplanation": "Grafiğin başlığını \"K-Means Kümeleme Sonuçları\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleri harita üzerinde gösteriyoruz' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.xlabel(\"Longitude\")",
+          "lineExplanation": "X ekseninin etiketini \"Longitude\" olarak yazar.",
+          "tokens": [
+            {
+              "token": "plt.xlabel",
+              "explanation": "Yatay eksenin adını belirler.",
+              "turkce": "X Etiketi",
+              "amac": "Grafiğin hangi değişkeni yatay eksende taşıdığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleri harita üzerinde gösteriyoruz' bloğunda yatay ekseni isimlendirir."
+        },
+        {
+          "lineNumber": 11,
+          "code": "plt.ylabel(\"Latitude\")",
+          "lineExplanation": "Y ekseninin etiketini \"Latitude\" olarak yazar.",
+          "tokens": [
+            {
+              "token": "plt.ylabel",
+              "explanation": "Dikey eksenin adını belirler.",
+              "turkce": "Y Etiketi",
+              "amac": "Grafiğin hangi değişkeni dikey eksende taşıdığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleri harita üzerinde gösteriyoruz' bloğunda dikey ekseni isimlendirir."
+        },
+        {
+          "lineNumber": 12,
+          "code": "plt.legend(title=\"Küme\")",
+          "lineExplanation": "Grafikteki renk veya işaretlerin neyi temsil ettiğini anlatan legend kutusunu gösterir.",
+          "tokens": [
+            {
+              "token": "plt.legend",
+              "explanation": "Grafik açıklama kutusunu ekler.",
+              "turkce": "Legend",
+              "amac": "Renklerin veya işaretlerin anlamını kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleri harita üzerinde gösteriyoruz' bloğunda görseldeki sınıf/seri bilgisini okunur kılar."
+        },
+        {
+          "lineNumber": 13,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kümeleri harita üzerinde gösteriyoruz' bloğunda görsel üretimini tamamlar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h6-housing-b008.png"
+    },
+    {
+      "id": "hafta6_cluster_1-b009",
+      "title": "Ev değeri ilişkisini boxenplot ile inceliyoruz",
+      "blockExplanation": "Bu hücre, MedHouseVal sütunu varsa kümeleri medyan ev değeriyle ilişkilendirir; yoksa kullanıcıya bilgi mesajı basar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "if \"MedHouseVal\" not in df.columns:",
+          "lineExplanation": "MedHouseVal sütunu veri setinde yoksa boxenplot çizmeden bilgi mesajı verme akışını başlatır.",
+          "tokens": [
+            {
+              "token": "\"MedHouseVal\" not in df.columns",
+              "explanation": "İlgili sütunun veri setinde bulunup bulunmadığını sınar.",
+              "turkce": "Kolon Kontrolü",
+              "amac": "Olmayan bir sütunla grafik çizmeye çalışmamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ev değeri ilişkisini boxenplot ile inceliyoruz' bloğunda isteğe bağlı bir sütun için korumalı akışı başlatır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    print(\"'MedHouseVal' sütunu bulunamadı. Boxen grafiği çizilemedi.\")",
+          "lineExplanation": "MedHouseVal yoksa boxenplot çizilemediğini kullanıcıya açıkça bildirir.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "Bilgilendirme mesajını terminale basar.",
+              "turkce": "Bilgi Mesajı",
+              "amac": "Eksik sütun durumunu sessiz geçmemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ev değeri ilişkisini boxenplot ile inceliyoruz' bloğunda eksik sütun senaryosunda kullanıcıya açıklama verir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "else:",
+          "lineExplanation": "Koşul sağlanmadığında alternatif akışa geçileceğini belirtir.",
+          "tokens": [
+            {
+              "token": "else:",
+              "explanation": "if koşulu False olduğunda çalışacak kolu açar.",
+              "turkce": "Alternatif Akış",
+              "amac": "Koşulun diğer sonucunda yapılacak işlemleri tanımlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ev değeri ilişkisini boxenplot ile inceliyoruz' bloğunda alternatif akış kapısını açar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    X_cluster[\"MedHouseVal\"] = df[\"MedHouseVal\"]",
+          "lineExplanation": "Orijinal tablodaki medyan ev değeri sütununu kümeli tabloya ekler.",
+          "tokens": [
+            {
+              "token": "X_cluster[\"MedHouseVal\"]",
+              "explanation": "Kümeli tabloya eklenecek yeni sütunu temsil eder.",
+              "turkce": "Sütun Ekleme",
+              "amac": "Kümeleri ev değeri ile birlikte değerlendirmek."
+            },
+            {
+              "token": "df[\"MedHouseVal\"]",
+              "explanation": "Kaynak tablodaki medyan ev değeri bilgisidir.",
+              "turkce": "Kaynak Sütun",
+              "amac": "Orijinal değeri sonuç tablosuna taşımak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ev değeri ilişkisini boxenplot ile inceliyoruz' bloğunda değerlendirme için ev değeri bilgisini sonuç tablosuna taşır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    plt.figure(figsize=(8, 6))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 8, 6 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ev değeri ilişkisini boxenplot ile inceliyoruz' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    sns.boxenplot(",
+          "lineExplanation": "Seaborn ile dağılımı katmanlı kutu grafiği mantığında gösteren boxenplot çizimini başlatır.",
+          "tokens": [
+            {
+              "token": "sns.boxenplot",
+              "explanation": "Dağılım kuyruklarını kutu grafikten daha detaylı gösterir.",
+              "turkce": "Boxenplot",
+              "amac": "Kümeler arası değer dağılımını karşılaştırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ev değeri ilişkisini boxenplot ile inceliyoruz' bloğunda kümeler ile ev değeri arasındaki dağılımı çizecek çağrıyı başlatır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "        data=X_cluster,",
+          "lineExplanation": "Grafikte kullanılacak veri kaynağını X_cluster olarak belirler.",
+          "tokens": [
+            {
+              "token": "X_cluster",
+              "explanation": "Grafiğin okuyacağı tabloyu belirtir.",
+              "turkce": "Veri Kaynağı",
+              "amac": "Hangi DataFrame'in çizileceğini seçmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ev değeri ilişkisini boxenplot ile inceliyoruz' bloğunda görselin veri kaynağını sabitler."
+        },
+        {
+          "lineNumber": 8,
+          "code": "        x=\"MedHouseVal\",",
+          "lineExplanation": "Grafiğin x ekseninde \"MedHouseVal\" değişkenini kullanır.",
+          "tokens": [
+            {
+              "token": "\"MedHouseVal\"",
+              "explanation": "Yatay eksene bağlanan alanı belirtir.",
+              "turkce": "X Değişkeni",
+              "amac": "İlgili özelliği yatay eksende göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ev değeri ilişkisini boxenplot ile inceliyoruz' bloğunda yatay eksende hangi değişkenin çizileceğini belirler."
+        },
+        {
+          "lineNumber": 9,
+          "code": "        y=\"Cluster\",",
+          "lineExplanation": "Grafiğin y ekseninde \"Cluster\" değişkenini kullanır.",
+          "tokens": [
+            {
+              "token": "\"Cluster\"",
+              "explanation": "Dikey eksene bağlanan alanı belirtir.",
+              "turkce": "Y Değişkeni",
+              "amac": "İlgili özelliği dikey eksende göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ev değeri ilişkisini boxenplot ile inceliyoruz' bloğunda dikey eksende hangi değişkenin çizileceğini belirler."
+        },
+        {
+          "lineNumber": 10,
+          "code": "        palette=\"coolwarm\"",
+          "lineExplanation": "Grafikte kullanılacak renk paletini \"coolwarm\" olarak seçer.",
+          "tokens": [
+            {
+              "token": "\"coolwarm\"",
+              "explanation": "Görselde kullanılacak renk düzenini belirler.",
+              "turkce": "Renk Paleti",
+              "amac": "Grupları veya yoğunlukları okunabilir biçimde ayırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ev değeri ilişkisini boxenplot ile inceliyoruz' bloğunda görselin renk dilini belirler."
+        },
+        {
+          "lineNumber": 11,
+          "code": "    )",
+          "lineExplanation": "Bir önceki çok satırlı fonksiyon çağrısını veya matematiksel ifadeyi kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Açık bırakılmış çağrıyı veya ifadeyi sonlandırır.",
+              "turkce": "Kapanış",
+              "amac": "Çok satırlı yapının sentaksını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ev değeri ilişkisini boxenplot ile inceliyoruz' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
+        },
+        {
+          "lineNumber": 12,
+          "code": "    plt.title(\"Kümeler ve Medyan Ev Değeri İlişkisi\")",
+          "lineExplanation": "Grafiğin başlığını \"Kümeler ve Medyan Ev Değeri İlişkisi\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ev değeri ilişkisini boxenplot ile inceliyoruz' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 13,
+          "code": "    plt.xlabel(\"Medyan Ev Değeri\")",
+          "lineExplanation": "X ekseninin etiketini \"Medyan Ev Değeri\" olarak yazar.",
+          "tokens": [
+            {
+              "token": "plt.xlabel",
+              "explanation": "Yatay eksenin adını belirler.",
+              "turkce": "X Etiketi",
+              "amac": "Grafiğin hangi değişkeni yatay eksende taşıdığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ev değeri ilişkisini boxenplot ile inceliyoruz' bloğunda yatay ekseni isimlendirir."
+        },
+        {
+          "lineNumber": 14,
+          "code": "    plt.ylabel(\"Küme\")",
+          "lineExplanation": "Y ekseninin etiketini \"Küme\" olarak yazar.",
+          "tokens": [
+            {
+              "token": "plt.ylabel",
+              "explanation": "Dikey eksenin adını belirler.",
+              "turkce": "Y Etiketi",
+              "amac": "Grafiğin hangi değişkeni dikey eksende taşıdığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ev değeri ilişkisini boxenplot ile inceliyoruz' bloğunda dikey ekseni isimlendirir."
+        },
+        {
+          "lineNumber": 15,
+          "code": "    plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ev değeri ilişkisini boxenplot ile inceliyoruz' bloğunda görsel üretimini tamamlar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h6-housing-b009.png"
+    },
+    {
+      "id": "hafta6_cluster_1-b010",
+      "title": "Sonuç tablosunu görüyoruz",
+      "blockExplanation": "Bu hücre, cluster etiketleri eklenmiş tablonun ilk satırlarını göstererek son hali kontrol ettirir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "X_cluster.head()",
+          "lineExplanation": "Cluster etiketleri eklenmiş tablonun ilk 5 satırını gösterir.",
+          "tokens": [
+            {
+              "token": ".head()",
+              "explanation": "İlk satırları getirir.",
+              "turkce": "Önizleme",
+              "amac": "Cluster sütununun beklendiği gibi eklendiğini doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuç tablosunu görüyoruz' bloğunda kümeli tablonun önizlemesini sunar."
+        }
+      ],
+      "expectedOutput": "   MedInc  Latitude  Longitude Cluster  MedHouseVal\n0  8.3252     37.88    -122.23       1        4.526\n1  8.3014     37.86    -122.22       1        3.585\n2  7.2574     37.85    -122.24       1        3.521\n3  5.6431     37.85    -122.25       1        3.413\n4  3.8462     37.85    -122.25       4        3.422"
+    }
+  ]
+}
