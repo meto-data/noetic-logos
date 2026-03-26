@@ -13,7 +13,7 @@ created: 2025-03-04
 
 
 ## 1. Ağ Toplumu ve Pazarlama İlişkisi
-Geçen hafta Manuel Castells üzerinden değinilen [[Ağ Toplumu (Network Society)]] kavramını bu hafta doğrudan pazarlama modelleriyle ilişkilendirdik. Kavramları ezberlemek yerine aralarındaki ilişkiyi kurmak epey mühim. Castells'in "Bilgi Kenti" yaklaşımına göre endüstriyel çağın dikey entegrasyonu yerini yatay, esnek ve gevşek bağlı ağlara bırakmıştır.
+Geçen hafta Manuel Castells üzerinden değinilen [[Ağ Toplumu (Network Society)]] kavramını bu hafta doğrudan pazarlama modelleriyle ilişkilendirdik. Kavramları ezberlemek yerine aralarındaki ilişkiyi kurmak epey mühim. Castells'in "Bilgi Kenti" yaklaşımına göre endüstriyel çağın dikey, hiyerarşik yapısı yerini yatay, esnek ve gevşek bağlı ağlara bırakmıştır.
 
 - **B2B (Business to Business):** Firmalar arası ağ etkileşimi.
 - **B2C (Business to Customer):** İşletmeden müşteriye.

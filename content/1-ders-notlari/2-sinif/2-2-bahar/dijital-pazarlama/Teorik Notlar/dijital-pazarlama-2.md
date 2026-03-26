@@ -45,7 +45,7 @@ Tüplü, hantal monitörlerden dinamik, mobil cihazlara geçiş.
 - **İçerik Üreticileri (Content Creators)**: Web 2.0 ile birlikte tüketici pasif olmaktan çıktı. Hem tüketen hem üreten ([[Prosumer]]) hâline geldi. Literatürde **üretüketim** olarak geçer bu derste değinilmese bile.
 - **Küresel İşbirliği**: Wikipedia gibi platformlar veya tartışma forumları.
 - **Veri Madenciliği (Data Mining)**: Kullanıcı etkileşimleri arttıkça devasa bir veri havuzu oluştu. Firmalar, siber alandaki hareketlerimizi, yorumlarımızı, izlerimizi toplayıp analiz ederek bize özel ürünler sunar.
-- **[[Ağızdan Ağza Pazarlama]] (WOMM - Word of Mouth Marketing)**: [[dijital-pazarlama-1#4. Tutundurma (Promotion)|Tutundurma (Promotion)]] kısmında bahsedilen e-ticaret yorumları mevzusu. Bir restoran veya otel hakkında yazılan yorumlar, markanın itibarını saniyeler içinde yerle bir edebilir dediydi hoca. Tüketici yorumları içerik analizi yöntemiyle (hangi kelime kaç kez kullanılmış, örn: "kırık" kelimesi) incelenir. Hoca bu kelimeyi yanlış kullandı nitekim; Mouth to Mouth olarak ele aldı ama, literatürde **Word of Mouth** olarak geçiyor.
+- **[[Ağızdan Ağza Pazarlama]] (WOMM - Word of Mouth Marketing)**: [[dijital-pazarlama-1#4. Tutundurma (Promotion)|Tutundurma (Promotion)]] kısmında bahsedilen e-ticaret yorumları mevzusu. Bir restoran veya otel hakkında yazılan yorumlar, markanın itibarını saniyeler içinde yerle bir edebilir dediydi hoca. Tüketici yorumları içerik analizi yöntemiyle (hangi kelime kaç kez kullanılmış, örn: "kırık" kelimesi) incelenir.
 
 ### İtibar Yönetimi (Reputation Management)
 - İnternette Kişi = Markadır. (Hoca Demet Akalın örneğini verdiydi; nitekim Demet bir isim değil, bir markadır).
