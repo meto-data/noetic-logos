@@ -7,6 +7,7 @@ created: 2025-03-19
 ## Bürokrasi, ödevler vb.
 
 - **Ödev**: Chatbot (Sohbet Robotları -yahut *Sohbot*) teknolojilerinin ne işe yaradığı ve yapay zekâ desteğiyle özellikle pazarlama alanında nasıl kullanıldığının araştırılması (Hocanın bu konuda yazılmış bir makalesi varmış).
+	- [[Sohbotlar ne işe yarar, YZ destekli sohbot pazarlamada nasıl kullanılır]]
 - **Sınav Beklentisi ve Vurgular**:
 	- Hoca daha önceki derslerdeki gibi yine vurguladı: Sınavda kavramların salt ne olduğundan ziyade **pazarlamada nasıl kullanıldığı** ve **diğer kavramlarla nasıl ilişkilendirildiği** gibi sorular üzerinden ölçüm yapılacak.
 	- **Müşteri Tatmini (Customer Satisfaction)** kavramının formülünün kesinlikle not alınmasını, sınavlarda anlık bilgi veya soru olarak karşımıza çıkacağını üstüne basa basa belirtti.
