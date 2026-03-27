@@ -1,6 +1,6 @@
 ---
 title: Web Tasarım - 3. Ders
-created: 2026-03-04
+created: 2026-03-01
 draft: false
 tags:
   - akademi/dersler/web-tasarim

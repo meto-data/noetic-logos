@@ -2,7 +2,7 @@
 title: Dijital Pazarlama - 4
 tags:
   - akademi/dersler/dijital-pazarlama
-created: 2025-03-12
+created: 2026-03-12
 ---
 ## Bilgilendirme
 

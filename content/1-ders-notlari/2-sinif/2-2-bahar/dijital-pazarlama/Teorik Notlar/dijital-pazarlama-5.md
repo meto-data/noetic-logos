@@ -2,7 +2,7 @@
 title: Dijital Pazarlama - 5
 tags:
   - akademi/dersler/dijital-pazarlama
-created: 2025-03-19
+created: 2026-03-19
 ---
 ## Bürokrasi, ödevler vb.
 
@@ -106,7 +106,7 @@ graph LR
 - **Search Engine Optimization (SEO)**: Arama Motoru Optimizasyonu
 - **Advertisement Bombarding**: Reklam Bombardımanı. Literatürde ve sektörde **Ad Bombardment** olarak kullanılır daha ziyade, tüketicide yarattığı etki bakımından "**Ad Fatigue" (Reklam Yorgunluğu)** olarak ifade edilir. **Bombarding** fiilimsisi pek kullanılmaz.
 - **Word-of-Mouth Marketing** veya **Mouth-to-Mouth Marketing**: Ağızdan ağza pazarlama.
-- **Two-Way Communication**: Çift yönlü iletişim. Hoca *two-faced communication* demişti ama yanlış söyledi. Nitekim **two-faced** "ikiyüzlü, riyakâr" anlamlarına gelir. Markaların tüketiciye karşı tutumunu düşünürsek doğru denilebilir :D Pazarlama terminolojisinde <b><u>two-way communication</u></b> denilir, doğrusu budur.
+- **Two-Way Communication**: Çift yönlü iletişim. Hoca *two-faced communication* demişti galiba, eğer öyleyse yanlış söyledi. Nitekim **two-faced** "ikiyüzlü, riyakâr" anlamlarına gelir. Markaların tüketiciye karşı tutumunu düşünürsek doğru denilebilir :D Pazarlama terminolojisinde <b><u>two-way communication</u></b> denilir, doğrusu budur.
 
 ---
 

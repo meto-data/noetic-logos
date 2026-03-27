@@ -25,14 +25,16 @@ Buna rağmen böyle bir ders vermesine onay veren öğretim elemanları da üniv
 
 
 <div style="font-family: 'Georgia', serif; font-style: italic; border-left: 5px solid #8e44ad; padding: 25px 35px; margin: 25px 0; box-shadow: 3px 3px 15px rgba(0,0,0,0.08); border-radius: 8px; line-height: 1.8; font-size: 16px;">
+<br>
+
   Müsâhibi tek PDF'i, yoldaşı cansız ekranı<br>
   Vazife bildi her dâim usandırmak bu irfânı<br><br>
   
   Ne ilhâm var ne bir zevk, tekdüzedir beyânı <br>
-  Demâdem vird edip okur geçer W3schools denen fermânı<br><br>
+  Demâdem vird edip okur geçer PDF denen fermânı<br><br>
   
   Görünce ilhâmı, şevki emreden irşâd beyânını <br>
-  Tek örnek bildi kendine robotların o bayat lisânını.<br><br>
+  Tek örnek bildi kendine PDF'lerin o bayat lisânını.<br><br>
   
   Keşf görmek gibidir onda hakîki ders nişânı kim<br>
   Merak eyler bütün sınıf, hiç sızlar mı vicdânı<br><br>
@@ -47,5 +49,5 @@ Buna rağmen böyle bir ders vermesine onay veren öğretim elemanları da üniv
   Okur sâdece siteyi, eder tüm dersi böyle habis<br><br>
   
   Murâd ettimse anlatmak meziyetin, ne imkânı<br>
-  Gelip ruhsuzluğu yıktı kelâmın cümle evzânı
+  Gelip ruhsuzluğu yıktı kelâmın cümle evzânı <br<
 </div>

@@ -1,6 +1,6 @@
 ---
 title: Web Tasarım - 4. Ders
-created: 2026-03-11
+created: 2026-03-8
 draft: false
 tags:
   - akademi/dersler/web-tasarim

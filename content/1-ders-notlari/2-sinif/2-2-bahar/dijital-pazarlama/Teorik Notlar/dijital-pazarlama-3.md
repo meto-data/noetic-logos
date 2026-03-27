@@ -2,7 +2,7 @@
 title: Dijital Pazarlama - 3
 tags:
   - akademi/dersler/dijital-pazarlama
-created: 2025-03-04
+created: 2026-03-04
 ---
 
 ## Dersin Bürokrasisi, Vurgular vs.

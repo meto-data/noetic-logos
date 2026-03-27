@@ -1,6 +1,6 @@
 ---
 title: Web Tasarım - 5. Ders
-created: 2026-03-18
+created: 2026-03-15
 draft: false
 tags:
   - akademi/dersler/web-tasarim
