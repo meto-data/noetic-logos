@@ -73,6 +73,11 @@ Gardner'in zekâ teorisinden bahsetti hoca ama, tam bir saçmalık bu bana sorac
 
 Pazarlama ekosisteminde yapay zekâ, e-ticaret platformlarının dinamik fiyatlandırma stratejilerinde saniyeler içinde rakip analizi yapıp fiyat güncellemesinde yahut Netflix'te ve YouTube'da geçmiş izleme verilerinizi sömürerek bize özel kişiselleştirilmiş bir ortam oluşturur. Ancak bu sistemler kusursuz değildir. Algoritmik ön yargılar, telif hakkı ihlalleri ve en mühimi, hatalı verilerle beslendiğinde yanlış bir bilgiyi mutlak doğruymuş gibi inatla savunabilir. Etik sorunları da bünyesinde barındırır tabii, nihai karar aşamasında insan faktörünün denetimi de hâlâ zaruridir yapay zekâda.
 
+#### Yapay Zekânın Satış Yönetimine Entegrasyonu
+Pazarlama daha uzun vadeli ve stratejik bir vizyon çizerken, satış daha kısa vadeli ve doğrudan müşteri ilişkileri odaklıdır. Dinamik ve sürekli değişen müşteri beklentileri karşısında satış yönetimi (hedef belirleme, ihtiyaç analizi, teklif sunma, satış kapama) yapay zekâ ile otomatize edilmektedir. Gerçek zamanlı veri analizi sayesinde nitelikli müşteri adayları belirlenir, rutin görevler makinelere devredilir.
+
+Ancak burada hocanın da bilhassa vurguladığı devasa bir kriz baş gösterir: Personelin teknolojiye adaptasyonu ve eğitimi. Yapay zekâ veri analizinde ne kadar üstün olursa olsun, nihai kararı verecek olan insan faktörüdür. Satış personelinin bu teknolojiyi bir tehdit değil, bir asistan olarak görüp özgüvenle kullanabilmesi için eğitilmesi şarttır. Aksi takdirde, makine ile insanın entegrasyonu (iş birliği) sağlanamaz, çalışan kendi ürettiği araca yabancılaşır ve sistem çöker.
+
 
 ## İngilizce Terimler
 - **Data**: Veri

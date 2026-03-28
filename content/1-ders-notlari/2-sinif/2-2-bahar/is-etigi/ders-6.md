@@ -7,7 +7,7 @@ tags:
 ---
 Fazlasıyla kaderci ve genelgeçer bir biçimde ele alınıyor konu. 
 
-**Öz-** nitelemesiyle başlayan kavramların ve imlediklerinin ailede kazanılması elbet önemli ve bir ölçüde belirleyicidir (öz-sevgi, öz-saygı vesaire). Ancak bunun salt olarak ailede karşılandığı iddiası epey sığ bir iddia olarak kalıyor.
+**Öz-** nitelemesiyle başlayan kavramların ve imlediklerinin ailede kazanılması elbet önemli ve bir ölçüde belirleyicidir (öz-sevgi, öz-saygı, öz-disiplin vesaire). Ancak bunun salt olarak ailede karşılandığı iddiası epey sığ bir iddia olarak kalıyor.
 
 Burada dış kaynaklar aracılığıyla zihin dünyasının değişebileceği ihtimali her nedense gözardı ediliyor. Büyük isimlerle kitaplar vasıtasıyla ilişki kurmuş birisi, kapitalizmin insanları gösteriş budalasına ve tüketim delisine çevirdiğine vâkıf olan birisinin ailede karşılayamadıklarını tekrar karşılaması mümkündür; nitekim insan bunları başkalarının deyişlerinde, başkalarının beğenisinde aramak zorunda değildir. Bana kalırsa aramamalıdır da.
 
@@ -17,10 +17,10 @@ Bir eyleme yönelip güzel bir çıktı ortaya koymakla, *bir şeyler* ortaya ko
 
 Tüm dersler için geçerli, kritize etme motivasyonum büyük ölçüde sönümlenmiş vaziyette. Üşeniyorum, küstah gelecek belki ama böyle sığ iddialara cevap vermeye üşeniyorum artık. İrade Eğitimi dersinde en son dersin kritiğini yapmamam bundandır ya, sığlığa cevapla zamanımı harcamak istemiyorum artık. 
 
-Ayrıca yapma gözünü seveyim, bir kere **entellektüel** değil, **entelektüel**. İkincisi, İlber'in tespiti saçmalığın daniskası. Entelektüel dediğin bilgi hamalından, veri istifçisinden farksız. Entelektüelden kastının bu olmadığını varsayarak konuşursak; üstüne koyma edimi aile ile olmak zorunda değil, büyük zihinlerle tanışmış ve onlarla bağ kurmuş bir kişi, 3 kuşak entelektüel yok diye olmayacak mı yani, yarmayın gözünüzü seveyim. Doğru kaynaklara yöneldiği müddet elbet olabilir kastedilen bağlamda. 
+Ayrıca yapma gözünü seveyim, bir kere **entellektüel** değil, **entelektüel**. İkincisi, İlber'in tespiti saçmalığın daniskası. Entelektüel dediğin bilgi hamalından farksız benim nezdimde. Entelektüelden kastının bu olmadığını varsayarak konuşursak, üstüne koyma edimi aile ile olmak zorunda değil; büyük zihinlerle tanışmış ve onlarla bağ kurmuş bir kişiye "*Hmm, senin deden okumamış bak senden entelektüel olmaz maalesef*" falan mı diyeceğiz ya yarmayın :D Doğru kaynaklara yöneldiği müddet elbet olabilir kastedilen bağlamda. 
 
-Ölünün arkasından konuşup konuşmamak pek umurumda değil benim, ancak İlber'in yaptığı nabza göre şerbet vermek mi entelektüelliktir? Falanca aleyhinde konuşurken o aleyhte kişi oraya gelince lehte konuşmak mı entelektüelliktir? Yoksa Şengör'ün yaptığı gibi mantık safsataları yapmak mı? Alanı olmadığı sosyal bilimlere girip zırvalamak mıdır? Yoksa Anadolu halkına üstten bakmak mı? Kendi kültürünü aşağılayıp Batı'yı yüceltmek midir yoksa? Eğer entelektüelden kastettiğimiz bu gibi kişilerse batsın entelektüelliğiniz. İkisinin de halka olan aşağılayıcı bakışlarını bilmiyormuşuz gibi. 
+Ölünün arkasından konuşup konuşmamak pek umurumda değil benim. İlber'in yaptığı nabza göre şerbet vermek mi entelektüelliktir mesela? Falanca aleyhinde konuşurken o aleyhte kişi oraya gelince lehte konuşmak mı entelektüelliktir yoksa? Yoksa Şengör'ün yaptığı gibi bilmediği bir konuda biliyormuşçasına ahkâm keserek mantık safsataları yapmak mı? Alanı olmadığı sosyal bilimlere girip zırvalamak mıdır? Yoksa Anadolu halkına üstten bakmak mı? Kendi kültürünü aşağılayıp Batı'yı yüceltmek midir yoksa? Eğer entelektüelden kastettiğimiz bu gibi kişilerse batsın entelektüelliğiniz. İkisinin de halka olan aşağılayıcı bakışlarını bilmiyormuşuz gibi. Ha yok, entelektüelden kastınız bilgi hamalıysa elbet bilgi hamalıdır Celal de İlber de.
 
-Popüler kültürü eleştirip popüler kültürün oluşturduğu kişilerin art alanında ne yattığını göremiyor. Neyse, bunlar entelektüeldir tabiî, ancak entelektüel dediğin veri istifçisinden, bilgi hamalından gayrısı da değildir. Bu gerek-sebep safsataları da burjuva övücü düşünce yapınız da yoruyor vallahi.
+Popüler kültürü eleştirip popüler kültürün oluşturduğu kişilerin art alanında ne yattığını göremiyorsunuz. Bu gerek-sebep safsataları da farkında olmaksızın yapılan burjuva övücü zihniyet de yoruyor. Entelektüel olmanın gerek-sebebi değildir üç kuşak okumuş olmak. 
 
 

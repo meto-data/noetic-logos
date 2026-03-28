@@ -43,8 +43,16 @@ Endüstriyel evrim sürecinde Endüstri 4.0 (Büyük Veri, ML, IoT) yerini yava�
 
 Her ne kadar zamandan tasarruv, ivme, kalite, ciddi maliyet düşüşü gibi avantajlar sunsa bile insanî etkileşimi ve öteki ile karşılaşmayı engelleyen, günbegün duygusal bağın yok olmasına ve tükdüzeliğe sebebiyet vermesi gibi olumsuz yanları da vardır. İstihdam/işsizlik sorunları da cabası.
 
-1. **Endüstriyel Robotlar**: Endüstri işte. Üretim hattında, montajta, lojistikte vs.
+1. **Endüstriyel Robotlar**: Endüstri işte. Üretim hattında, montajta, lojistikte, otomotiv sektöründe vs.
 2. **Hizmet Robotları**: Hizmet işte bu da. Teslimat droneları, sağlık/ameliyat robotları, yaşlı bakım robotları gibi gibi, hizmet sektörüne değgin robot.
+
+
+### Pazarlama Karması (4P) ve Robotlar
+Robotik teknolojiler geleneksel 4P bileşenlerini şu şekilde dönüştürmektedir:
+- **Ürün (Product)**: Robotik destekli üretimle hata payı sıfırlanır, ürün kalitesi standartlaşır.
+- **Fiyat (Price)**: İşçilik ve enerji maliyetleri düştükçe, bu tasarruf tüketiciye daha uygun fiyat olarak yansıtılabilir (veya kâr marjı artırılır).
+- **Dağıtım (Place)**: Otonom araçlar ve dronelar ile lojistik süreçleri hızlanır.
+- **Tutundurma (Promotion)**: İnteraktif robotlar fuarlarda veya mağaza içinde ilgi odağı olarak markanın tanıtımını yapar.
 
 ### Hizmet Pazarlaması ve Teknoloji Kabul Modeli
 
