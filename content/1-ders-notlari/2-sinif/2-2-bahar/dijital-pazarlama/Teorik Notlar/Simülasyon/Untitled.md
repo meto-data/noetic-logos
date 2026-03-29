@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 ### VİZE SİMÜLASYONU 1
 
 | Puan Tipi     | Soru (Sadece soru havuzundan toplamı 100 puan edecek biçimde soruları seçiniz)                                                                                                                                                                                                                                                                |

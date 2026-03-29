@@ -1,3 +1,6 @@
+---
+draft: true
+---
 
 ### VİZE SİMÜLASYONU 2
 
