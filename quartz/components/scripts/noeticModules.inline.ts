@@ -6,6 +6,11 @@ window.__noeticModules?.cleanup()
 
 const NOETIC_MODULES_SEEN_KEY = "noetic-modules-seen"
 
+const setModulesModalLock = (locked: boolean) => {
+  document.body.classList.toggle("modules-modal-open", locked)
+  document.documentElement.classList.toggle("modules-modal-open", locked)
+}
+
 function getBasePath(): string {
   const baseElement = document.querySelector("base")
   if (baseElement?.href) {
@@ -155,7 +160,7 @@ function setupNoeticModules() {
     overlay.classList.add("visible")
     panel.classList.add("visible")
     panel.setAttribute("aria-hidden", "false")
-    document.body.classList.add("modules-modal-open")
+    setModulesModalLock(true)
     positionPanel(source)
   }
 
@@ -164,7 +169,7 @@ function setupNoeticModules() {
     overlay.classList.remove("visible")
     panel.classList.remove("visible")
     panel.setAttribute("aria-hidden", "true")
-    document.body.classList.remove("modules-modal-open")
+    setModulesModalLock(false)
   }
 
   const onTriggerClick = (event: MouseEvent) => {

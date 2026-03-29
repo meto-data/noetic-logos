@@ -20,6 +20,26 @@ type FolderState = {
 }
 
 let currentExplorerState: Array<FolderState>
+
+function isElementActuallyVisible(element: Element | null): element is HTMLElement {
+  if (!(element instanceof HTMLElement)) return false
+
+  if (typeof element.checkVisibility === "function") {
+    try {
+      return element.checkVisibility()
+    } catch {
+      // Fall through to CSS box checks for browsers with partial implementations.
+    }
+  }
+
+  const style = window.getComputedStyle(element)
+  if (style.display === "none" || style.visibility === "hidden" || style.visibility === "collapse") {
+    return false
+  }
+
+  return element.getClientRects().length > 0
+}
+
 function toggleExplorer(this: HTMLElement) {
   const nearestExplorer = this.closest(".explorer") as HTMLElement
   if (!nearestExplorer) return
@@ -35,6 +55,15 @@ function toggleExplorer(this: HTMLElement) {
   } else {
     document.documentElement.classList.remove("mobile-no-scroll")
   }
+}
+
+function syncFolderItemState(folderOuter: HTMLElement) {
+  const item = folderOuter.closest("li")
+  if (!item) return
+
+  const isOpen = folderOuter.classList.contains("open")
+  item.classList.toggle("folder-open", isOpen)
+  item.classList.toggle("folder-collapsed", !isOpen)
 }
 
 function toggleFolder(evt: MouseEvent) {
@@ -58,6 +87,7 @@ function toggleFolder(evt: MouseEvent) {
   if (!childFolderContainer) return
 
   childFolderContainer.classList.toggle("open")
+  syncFolderItemState(childFolderContainer)
 
   // Collapse folder container
   const isCollapsed = !childFolderContainer.classList.contains("open")
@@ -139,6 +169,7 @@ function createFolderNode(
   if (!isCollapsed || folderIsPrefixOfCurrentSlug) {
     folderOuter.classList.add("open")
   }
+  syncFolderItemState(folderOuter)
 
   for (const child of node.children) {
     const childNode = child.isFolder
@@ -274,7 +305,7 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
     const mobileExplorer = explorer.querySelector(".mobile-explorer")
     if (!mobileExplorer) return
 
-    if (mobileExplorer.checkVisibility()) {
+    if (isElementActuallyVisible(mobileExplorer)) {
       explorer.classList.add("collapsed")
       explorer.setAttribute("aria-expanded", "false")
 
@@ -297,5 +328,11 @@ window.addEventListener("resize", function () {
 })
 
 function setFolderState(folderElement: HTMLElement, collapsed: boolean) {
-  return collapsed ? folderElement.classList.remove("open") : folderElement.classList.add("open")
+  if (collapsed) {
+    folderElement.classList.remove("open")
+  } else {
+    folderElement.classList.add("open")
+  }
+
+  syncFolderItemState(folderElement)
 }

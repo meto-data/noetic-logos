@@ -2,18 +2,32 @@
 @use "./variables.scss" as *;
 
 // ===== MODAL SCROLL LOCK =====
+html.mobile-menu-open,
+html.settings-modal-open,
+html.modules-modal-open,
 html:has(body.mobile-menu-open),
 html:has(body.settings-modal-open),
 html:has(body.modules-modal-open) {
   overflow: hidden !important;
+  height: 100vh !important;
   height: 100dvh !important;
   overscroll-behavior: none !important;
 
   body {
     overflow: hidden !important;
+    height: 100vh !important;
     height: 100dvh !important;
     overscroll-behavior: none !important;
   }
+}
+
+body.mobile-menu-open,
+body.settings-modal-open,
+body.modules-modal-open {
+  overflow: hidden !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  overscroll-behavior: none !important;
 }
 
 
@@ -101,21 +115,6 @@ html.noetic-custom-typo article {
   }
 }
 
-// Efektler kapalı
-html.noetic-no-effects {
-  scroll-behavior: auto !important;
-
-  article,
-  .explorer,
-  .sidebar,
-  .center,
-  .page,
-  .callout {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
 // Kod Satır Numaraları
 html.noetic-code-line-numbers pre>code {
   counter-reset: line;
@@ -143,7 +142,6 @@ html.noetic-code-collapsible pre>code {
   overflow: hidden;
   position: relative;
   display: block;
-  transition: max-height 0.3s ease;
 }
 
 html.noetic-code-collapsible pre.code-expanded>code {
@@ -217,44 +215,6 @@ html:not(.noetic-code-collapsible) pre>.code-expand-btn {
   }
 }
 
-// Sayfa Geçiş Animasyonu
-html:not(.noetic-no-effects) article {
-  animation: noeticFadeIn 0.2s ease-out;
-  will-change: opacity;
-}
-
-@keyframes noeticFadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-// Yumuşak Kaydırma
-html:not(.noetic-no-effects) {
-  scroll-behavior: smooth;
-}
-
-// Akıcı Genişletme/Daraltma
-html:not(.noetic-no-effects) {
-  .explorer details[open]>ul {
-    animation: noeticSlideDown 0.15s ease-out;
-  }
-}
-
-@keyframes noeticSlideDown {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 // Görsel Lightbox
 .noetic-lightbox-overlay {
   position: fixed;
@@ -278,7 +238,6 @@ html:not(.noetic-no-effects) {
 
 article img:not(.no-lightbox) {
   cursor: zoom-in;
-  transition: transform 0.15s ease;
 }
 
 // Erişilebilirlik: prefers-reduced-motion
@@ -309,7 +268,6 @@ article img:not(.no-lightbox) {
   font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
-  transition: top 0.15s ease;
 
   &:focus {
     top: 0;
@@ -590,8 +548,8 @@ img {
     color: #d4d4d8 !important;
   }
 
-  .font-item:has(input:checked) span,
-  .size-item:has(input:checked) span {
+  .font-item[data-checked="true"] span,
+  .size-item[data-checked="true"] span {
     color: #c0c0c5 !important;
   }
 
@@ -799,7 +757,6 @@ img {
         padding: 4px 0 4px 15px;
         color: var(--muted);
         text-decoration: none;
-        transition: all 0.2s ease;
         border-left: 2px solid transparent;
         margin-left: -2px;
         cursor: pointer;
@@ -998,8 +955,8 @@ img {
     color: #d4d4d8 !important;
   }
 
-  .font-item:has(input:checked) span,
-  .size-item:has(input:checked) span {
+  .font-item[data-checked="true"] span,
+  .size-item[data-checked="true"] span {
     color: #71717a !important;
   }
 
@@ -1420,7 +1377,7 @@ li.section-li {
       }
     }
 
-    li:has(> .folder-outer.open)>.folder-container {
+    li.folder-open>.folder-container {
 
       div>a,
       div>button span {
@@ -1571,13 +1528,11 @@ li.section-li {
     justify-content: center;
     cursor: pointer;
     flex-shrink: 0;
-    transition: all 0.2s ease;
 
     svg {
       width: 18px;
       height: 18px;
       fill: var(--text) !important;
-      transition: fill 0.2s ease;
     }
 
     &:hover {
@@ -1590,25 +1545,7 @@ li.section-li {
   }
 
   .mobile-modules-btn.is-attention {
-    animation: noetic-modules-pulse 1.4s ease-in-out infinite;
     box-shadow: 0 0 0 0 color-mix(in srgb, var(--secondary) 38%, transparent);
-  }
-}
-
-@keyframes noetic-modules-pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 color-mix(in srgb, var(--secondary) 34%, transparent);
-  }
-
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 0 9px color-mix(in srgb, var(--secondary) 0%, transparent);
-  }
-
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 color-mix(in srgb, var(--secondary) 0%, transparent);
   }
 }
 
@@ -1814,7 +1751,7 @@ li.section-li {
   }
 }
 
-li:has(> .folder-outer.open)>.folder-container {
+li.folder-open>.folder-container {
   background-color: transparent !important;
 
   div>a,
@@ -2024,20 +1961,8 @@ footer {
 }
 
 // ===== ANCHOR HIGHLIGHT =====
-@keyframes anchor-highlight-pulse {
-  0% {
-    background-color: color-mix(in srgb, var(--secondary) 25%, transparent);
-    box-shadow: 0 0 12px color-mix(in srgb, var(--secondary) 20%, transparent);
-  }
-
-  100% {
-    background-color: transparent;
-    box-shadow: none;
-  }
-}
-
 :target {
-  animation: anchor-highlight-pulse 2s ease-out;
+  background-color: color-mix(in srgb, var(--secondary) 12%, transparent);
   border-radius: 4px;
   scroll-margin-top: 1rem;
 }
@@ -2281,19 +2206,6 @@ a.internal {
     max-height: 70vh;
     overflow-y: auto;
     padding-bottom: 20px;
-    animation: slideUp 0.3s ease-out;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
   }
 }
 
@@ -2318,7 +2230,6 @@ a.internal {
 .center,
 .right-sidebar {
   background-color: var(--panel-bg, var(--light)) !important;
-  transition: background-color 0.3s ease;
 }
 
 // Sağ Panel Border (Koyu temalar için belirgin ayrım)
@@ -2514,8 +2425,8 @@ a.internal {
     color: #d4d4d8 !important;
   }
 
-  .font-item:has(input:checked) span,
-  .size-item:has(input:checked) span {
+  .font-item[data-checked="true"] span,
+  .size-item[data-checked="true"] span {
     color: #a78bfa !important;
   }
 
@@ -2856,7 +2767,6 @@ html:not(.noetic-zen-mode) .zen-exit-btn {
   border: 1px solid var(--lightgray);
   border-radius: 8px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  animation: ctxFadeIn 0.12s ease;
   touch-action: manipulation;
 
   @media (max-width: 800px) {
@@ -2870,7 +2780,6 @@ html:not(.noetic-zen-mode) .zen-exit-btn {
     border-radius: 50%;
     border: 2px solid transparent;
     cursor: pointer;
-    transition: transform 0.1s ease, border-color 0.1s ease;
     -webkit-tap-highlight-color: transparent;
 
     @media (max-width: 800px) {

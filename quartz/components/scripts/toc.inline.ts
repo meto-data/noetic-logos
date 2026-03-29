@@ -1,20 +1,24 @@
-const observer = new IntersectionObserver((entries) => {
-  for (const entry of entries) {
-    const slug = entry.target.id
-    const tocEntryElements = document.querySelectorAll(`a[data-for="${slug}"]`)
-    const windowHeight = entry.rootBounds?.height
-    if (windowHeight && tocEntryElements.length > 0) {
-      if (entry.boundingClientRect.y < windowHeight) {
-        tocEntryElements.forEach((tocEntryElement) => tocEntryElement.classList.add("in-view"))
-      } else {
-        tocEntryElements.forEach((tocEntryElement) => tocEntryElement.classList.remove("in-view"))
-      }
-    }
-  }
-})
+const observer =
+  typeof window.IntersectionObserver === "function"
+    ? new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          const slug = entry.target.id
+          const tocEntryElements = document.querySelectorAll(`a[data-for="${slug}"]`)
+          const windowHeight = entry.rootBounds?.height
+          if (windowHeight && tocEntryElements.length > 0) {
+            if (entry.boundingClientRect.y < windowHeight) {
+              tocEntryElements.forEach((tocEntryElement) => tocEntryElement.classList.add("in-view"))
+            } else {
+              tocEntryElements.forEach((tocEntryElement) => tocEntryElement.classList.remove("in-view"))
+            }
+          }
+        }
+      })
+    : null
 
 function toggleToc(this: HTMLElement) {
   this.classList.toggle("collapsed")
+  this.closest(".toc")?.classList.toggle("collapsed", this.classList.contains("collapsed"))
   this.setAttribute(
     "aria-expanded",
     this.getAttribute("aria-expanded") === "true" ? "false" : "true",
@@ -60,6 +64,7 @@ function setupToc() {
     const button = toc.querySelector(".toc-header")
     const content = toc.querySelector(".toc-content")
     if (!button || !content) return
+    toc.classList.toggle("collapsed", button.classList.contains("collapsed"))
 
     // Toggle için event listener
     button.addEventListener("click", toggleToc)
@@ -77,9 +82,8 @@ document.addEventListener("nav", () => {
   setupToc()
 
   // update toc entry highlighting
-  observer.disconnect()
+  observer?.disconnect()
   const headers = document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]")
 
-  headers.forEach((header) => observer.observe(header))
+  headers.forEach((header) => observer?.observe(header))
 })
-

@@ -16,6 +16,11 @@ let cleanupMobileChrome = () => { }
 const isElementVisible = (element: HTMLElement | null) =>
   !!element && window.getComputedStyle(element).display !== "none"
 
+const setMobileMenuLock = (locked: boolean) => {
+  document.body.classList.toggle("mobile-menu-open", locked)
+  document.documentElement.classList.toggle("mobile-menu-open", locked)
+}
+
 const getBasePath = () => {
   const baseElement = document.querySelector("base")
   if (baseElement?.href) {
@@ -112,14 +117,14 @@ const setupMobileChrome = () => {
     leftSidebar.classList.add("mobile-open")
     hamburger.classList.add("active")
     overlay.classList.add("active")
-    document.body.classList.add("mobile-menu-open")
+    setMobileMenuLock(true)
   }
 
   const closeMenu = () => {
     leftSidebar.classList.remove("mobile-open")
     hamburger.classList.remove("active")
     overlay.classList.remove("active")
-    document.body.classList.remove("mobile-menu-open")
+    setMobileMenuLock(false)
   }
 
   const toggleMenu = () => {

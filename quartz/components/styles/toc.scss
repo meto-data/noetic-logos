@@ -6,7 +6,7 @@
   overflow-y: hidden;
   min-height: 1.4rem;
   flex: 0 0.5 auto;
-  &:has(button.toc-header.collapsed) {
+  &.collapsed {
     flex: 0 1 1.4rem;
   }
 }

@@ -59,7 +59,6 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
               <div class="settings-col">
                 <div class="section-header">Görünüm</div>
                 <div class="toggle-row"><span>Özel Tipografi</span><label class="toggle-switch"><input type="checkbox" name="custom-typography" /><span class="toggle-slider" /></label></div>
-                <div class="toggle-row"><span>Animasyonlar ve Efektler</span><label class="toggle-switch"><input type="checkbox" name="effects-enabled" /><span class="toggle-slider" /></label></div>
                 <div class="toggle-row"><span>Bildirimler</span><label class="toggle-switch"><input type="checkbox" name="notifications-enabled" /><span class="toggle-slider" /></label></div>
                 <div class="toggle-row zen-mode-row"><span>Zen Modu</span><label class="toggle-switch"><input type="checkbox" name="zen-mode" /><span class="toggle-slider" /></label></div>
                 <div class="section-header size-header">Kod Blokları</div>

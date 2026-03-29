@@ -34,6 +34,7 @@ Pazarlama stratejileri oluşturulurken dört temel bileşen çerçevesinde harek
 
 <br>
 
+
 ```mermaid
 %%{init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#000000', 'secondaryColor': '#ffffff', 'tertiaryColor': '#ffffff', 'nodeTextColor': '#000000' } } }%%
 mindmap
@@ -118,8 +119,6 @@ Tüketiciler her zaman rasyonel kararlar almazlar. Satın alma davranışını e
 
 
 # Derse Aşkın: Örüntüler ve Bağlantılar
-- **Not**: Şakamatik bir dil ile olması için abartılı bir üslup kullanılmıştır. Abartılara aldanış etmeyiniz, abartıların gerçeklik değeri pek yoktur...
-
 
 ##### A. Pazarlama Temelleri ve Evrimi
 

@@ -17,38 +17,6 @@
   }
 }
 
-@keyframes toast-slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes toast-slide-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes toast-fade-out {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-}
-
 .noetic-toast {
   pointer-events: auto;
   display: flex;
@@ -66,7 +34,6 @@
   color: var(--dark);
   border: 1px solid var(--lightgray);
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
 
   @media (max-width: 800px) {
     width: 100%;
@@ -75,15 +42,10 @@
 
   &.noetic-toast-enter {
     opacity: 1;
-    animation: toast-slide-in-right 0.3s ease forwards;
-
-    @media (max-width: 800px) {
-      animation: toast-slide-in-up 0.3s ease forwards;
-    }
   }
 
   &.noetic-toast-exit {
-    animation: toast-fade-out 0.3s ease forwards;
+    opacity: 0;
   }
 
   &.noetic-toast-info {
@@ -116,7 +78,6 @@
   line-height: 1;
   padding: 2px 4px;
   border-radius: 4px;
-  transition: opacity 0.15s ease, background 0.15s ease;
 
   &:hover {
     opacity: 1;

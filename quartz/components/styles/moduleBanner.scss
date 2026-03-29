@@ -15,7 +15,6 @@
         border: 1px solid color-mix(in srgb, var(--secondary) 30%, transparent);
         border-radius: 12px;
         box-shadow: 0 2px 8px color-mix(in srgb, var(--secondary) 10%, transparent);
-        transition: all 0.2s ease;
 
         &:hover {
             box-shadow: 0 4px 16px color-mix(in srgb, var(--secondary) 15%, transparent);
@@ -79,27 +78,16 @@
         font-size: 0.875rem;
         text-decoration: none !important;
         white-space: nowrap;
-        transition: all 0.2s ease;
         flex-shrink: 0;
 
         svg {
             width: 16px;
             height: 16px;
             stroke: white;
-            transition: transform 0.2s ease;
         }
 
         &:hover {
             background: var(--tertiary);
-            transform: translateY(-1px);
-
-            svg {
-                transform: translateX(3px);
-            }
-        }
-
-        &:active {
-            transform: translateY(0);
         }
     }
 }
