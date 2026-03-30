@@ -1,63 +1,123 @@
 ---
-title: Veri Madenciliği - 5
+title: Veri Madenciliği - 6
 created: 2026-03-24
-draft: true
+draft: false
 tags: akademi/dersler/veri-madenciligi
 slug: veri-madenciligi-6
 konu: Kümeleme (Clustering)
 ---
-## A. Kümeleme
-- **Gözetimsiz öğrenme tekniğidir**. 
-	- Etiketleme yoktur.
-- Unsupervised ML mermaid'i oluşturmak lazım bu noktada «».
+## Sınav ve Ödev Bilgilendirmeleri
+- **Sınav Soru Tipi**: Sınavda kod sorulacak. Sıfırdan bir Python kodu yazılması beklenmiyor. «Bu kod hangi işlevi gerçekleştirir?», «Eksik veriyi doldurma kodu hangisidir?», «Hangi kod temizleme yapar?» gibi, yazılmış kodun **veri madenciliği bağlamındaki mantığı** sorulacak.
+- **Uygulama Dosyaları**: Hocanın gönderdiği Jupyter Notebook (`.ipynb`) dosyaları **kesinlikle çalıştırılmalı**. O kodların yanına Türkiye'de kolay kolay bulunamayacak detaylı Türkçe açıklamalar da eklendi. Sınavdaki sorular doğrudan bu dosyaların mantığından gelecek.
+- **Dönem Sonu Projeci Tüyosu** Hoca algoritma dağıtımını rastgele yapacak, zaten bunu söylemiştim daha önceki notlarda. Eğer size K-Means veya benzeri bir algoritma düşerse standart (öklid) kullanıp geçmeyin. Manhattan kullanın, Hamming deneyin, farklı parametreleri karşılaştırmamızı bekliyor hoca, aradaki farkları görmemizi de istiyor.
 
-### K-Means
-- Denetimsizdir, etiketsizdir ve özellik olarak yaptığı işlem: benzer veri gruplarını aynı gruba toplamak.
-- Bizim için sağladığı tek durum (kişisel?) **yorumlama özelliği kazanmamızdır.** Tahmin edebilir sonuç <u>üretmez</u>.
-- Neden tahmin üretmiyor bakmak lazım...
-- Var-olan elemanlar üzerinde kümeleme işlemi gerçekleştiriyoruz. Sonraki işlemde tahmin etme özelliği kazandırmış olabiliriz; bu bağlamda K-Means bana bir şey kazandırıyor: **etiketleme**. Günümüzdeki otomatik etiketleme sistemlerini ? K-Means ile gerçekleştiriyoruz.
-- **ETİKETLENMEMİŞ VERİLERDE KULLANILIR**.
-- **GİRDİSİ VE ÇIKTISI OLAN BİR VERİ GRUBUNA İHTİYACIMIZ YOKTUR K-MEANS İÇİN; BELİRLİ HASTALIK GRUBUNDA SAĞLIKLI MI DEĞİL Mİ GİBİ KARAR EREN BİR SÜTUYA AİT VERİYE İHTİYACIMIZ YOKTUR YANİ.***
-	- x bağımlı y bağımsız?
-- Kümelemenin, k-means'in çalışmasında, **y sütunu yoktur, hep x'ler vardır**.
-	- Söz gelimi, marketteki fişler bizim zengin mi fakir mi diye bir yorum yapmaz; aldığım bilgilerden oluşan bir veri grubunu imler. 1-2-100-1000 gibi kişi alışveriş yapmıştır ve onlar için ilgili bir nitelik değerlendirmesi yoktur; sadece alışverişlerini yapmıştır. 
-		- Bunlar arasında kümeleme yapabiliriz; ekmek alanlar, sadece ekmek sadece peynir gibi gibi.  
-			- Onları sınıflandırma yolunda etiketlemiş oluruz bu bağlamda.
+---
 
-- Sadece matematiksel modellerden yararlanarak yapar.
-- Sınıflandırdığı şeyin ne olduğunu bilmez.
-- Netflix algoritması gibi herhal?
-- Lossless kayıpsız ve kayıplı sıkıştırma var.
 
-## Kümeleme Algoritmaları
-## A. K-Means
-- Kaç tane K (küme) merkezi oluşacağı problemi, en önemli problemdir bu algoritma için.
-- Mesafe tabanlı (öklid).
-- Çok büyük verileri kümeleme için uygun, ancak outlier (aykırı) veri olduğunda pek uygun değil. Nitekim bu tarz yapılarda bir etiketlemesi olmadığı için etkilenecektir bundan. Ancak bir film izleme yapısı gibi, alışkanlık gibi tahmin gerektirmeyen *X* verileri için, çok büyük veriler için kolaylıkla kümeleme yapabilir; hızlıdır, basittir ve yoruma açıktır.
+# Ders Notları
 
-**Dezavantajları**: 
-- **K** değeri bilinmelidir -en çok yorulduğumuz taraf da budur-.
-- Başlangıç merkezine duyarlıdır.
-- Outlierlardan etkilenir.
+## 1. Kümeleme (Clustering) Nedir
+Kümeleme, benzer veri noktalarını gruplamak için kullanılan [[veri-madenciligi-4#B. Denetimsiz Öğrenme (Unsupervised Learning)|Gözetimsiz/Denetimsiz Öğrenme (Unsupervised Learning)]] tekniğidir.
 
-### K Problemi
-### Elbow Metodu
- Küme sayısının belirlenmesi için
- Kaç tane küme olmalı?
- Temel amaç küme sayısının bilinmediği veya tahmin edilemediği durumunda 1'den itibaren for döngüsü gibi bir şey...
-### PCA
-Principal Component Analysis
-- En önemli bilgiyi korur, gereksiz varyansı atar, boyutu düşürür.
-- Veride boyut = sütun demek, hatırla.
-- Boyutu azaltmak ve boyutlarla ilgili yorumlar yapmak gerekirse ne söyleyebiliriz?
-	- Zamandan tasarruf için yapabiliriz.
-	- Verilerde aykırılık varsa, uyumsuzluk varsa, ilgili uyumsuzluğun olduğu boyutu kaldırabiliriz. Nitekim bunlar önemsizdir, gereksiz varyans varsa onları atarız.
-	- 20 sütunlu bir verinin tüm sütunları özelse, sayısal olarak değerliyse ve bunu görsele çevirmek istiyorsak, <u>görüntüleyemeyi</u> 3 boyutlu dışında görüntü göremiyoruz.
+Makine Öğrenmesi hiyerarşisinde **kümeleme**nin yeri aşağıdaki gibidir:
 
-Büyük boyutlu veri setlerindeki boyutu azaltır.
-2D'yi 1D'ye çevirir, 3 boyutu 2D'ye çevirir gibi gibi...
-3 boyutluda 1000 position varken 2 boyutta 100 pointle, 1 boyutta 10 ile temsil etmek gibi gibi.
-1 boyutlu, 3 boyutlunun bilgisini taşıyabilir varyans bozulmadıysa.
+```mermaid
+graph TD
+    A["MAKİNE ÖĞRENMESİ <br> (Machine Learning)"] --> B["Gözetimsiz Öğrenme <br> (Unsupervised Learning)"]
+    
+    B --> C["Kümeleme <br> (Clustering)"]
+    B --> D["Birliktelik <br> (Association)"]
+    B --> E["Boyut Azaltma <br> (Dimensionality Reduction)"]
+    
+    C --> F("K-Means")
+    C --> G("Hiyerarşik Kümeleme")
+    
+    E --> H("PCA (Principal Component Analysis)")
+```
 
-> K-Means ile kullanılan yöntemlerin ilişkisine bak, o yöntemleri de incele: hamming vs. minkowski vs...
+### 1.1. Neden tahmin yapmaz, etiketleme ne demektir
+Kümeleme, **tahmin (prediction) yapmaz!**
+
+>[!info] X ve Y Değişkenleri Mantığı
+>- Sınıflandırma (Classification) algoritmalarında hastanın tahlilleri ($X$) ve karşılığında "Hasta/Sağlıklı" gibi bir sonuç sütunu ($Y$ - Hedef/Label) vardır. Yeni gelen kişinin ne olacağı **tahmin** edilir.
+>- **Kümelemede ise $Y$ sütunu (hedef) YOKTUR.** Sadece $X$'ler (bağımsız değişkenler) vardır. Makine, veriyi alır ve benzerliklerini göre gruplara ayırır. NEYİ GRUPLADIĞINI BİLMEZ!!!
+
+<br>
+**Örnek**: Markete gittiniz ve fişler oluştu diyelim. Bu fişler sizin "zengin" yahut "fakir" olduğunuzu söylemez. Sadece 1000 kişinin alışveriş verisidir bu. K-Means Algoritması bu 1000 kişiyi "sadece ekmek alanlar", "peynir alanlar" diye kümelere ayırır. Kümeleme bittikten sonra o gruplara bakıp "**Bunlar "Zenginler" kümesi**" **diye isim vermeyi BİZ yaparız. Buna [[Etiketleme (Labelling)]] denir.** Yani K-Means, gelecekteki sınıflandırma algoritmaları için **otomatik etiketleme (auto-labeling** altyapısı sunar.
+
+
+### 1.2. Gerçek Hayatta Kullanım Alanları
+1. **Müşteri Segmentasyonu**: Müşterileri harcama alışkanlıklarına göre ayırmak.
+2. **Tavsiye/Önerilenler Sistemleri (Recommendation)**: Netflix'in "Bunu izleyenler şunu da izledi" algoritması örnektir. Benzer filmleri izleyenlerin kümesini bulup, o kümenin izlediği ama bizim izlemediğimiz filmleri bize önerir.
+3. **Görüntü Segmentasyonu (Sıkıştırma)**:
+	- Kayıpsız (Lossless) sıkıştırma **metinlerde** olur.
+	- Kayıplı (Lossy) sıkıştırma **ses** ve **görüntüde** olur.
+	- **K-Means ile Sıkıştırma**: Bir ağaç görselindeki 1000 adet farklı kahverengi piksel, K-Means ile 3 ana kahverengi kümesine atanır. Kedi burnundaki renkler ortaklaştırılır. Görünüm (formasyon) bozulmaz ama dosya boyutu 10MB'dan 5MB'a düşer.
+
+---
+
+## 2. K-Means Algoritması
+Denetimsiz öğrenme içinde yer alan mesafeye dayalı bir algoritmadır. "K", oluşturulacak küme sayısını temsil eder.
+
+### 2.1. Nasıl Çalışır
+
+1. $K$ **sayısı belirlenir** (Örn: Veriyi 3 kümeye böl).
+2. Uzaya rastgele $K$ adet **merkez noktası (centroid)** atanır.
+3. Her veri noktası, kendisine **en yakın** merkeze atanır.
+4. Oluşan yeni kümenin tam ortası hesaplanır ve merkez nokta oraya kaydırılır.
+5. Merkezler sabit kalana kadar bu işlem tekrarlanır.
+
+### 2.2. K-Means için Kullanılan Mesafe Yöntemleri
+Verilerin birbirine yakınlığı matematiksel olarak ölçülür. Varsayılan yöntem **[[Öklid Mesafesi]]**'dir.
+
+
+| **Yöntem**            | **En İyi Kullanım Alanı**                                                                                                                                                                                                                                                     |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Öklid (Euclidean)** | Düşük boyutlu, düzgün dağılımlı veriler (varsayılan). Geometrideki hipotenüs (Pisagor) mantığıdır. İki nokta arasındaki en kısa "kuş uçuşu" mesafedir. Sayısal ve sürekli verilerde kullanılır. K-Means'in varsayılan (default) değeridir.                                    |
+| **Manhattan**         | Grid-tabanlı (ızgara planlı) veriler, şehir haritaları. Noktalar arasındaki mesafeyi çapraz (kuş uçuşu) değil, ızgara planlı bir şehirde binaların etrafından dik açılarla dolaşarak ölçer gibi hesaplar. Veride uç değerler (outliers) varsa Öklid'e göre daha güvenilirdir. |
+| **Kosinüs**           | Metin madenciliği, NLP (Doğal Dil İşleme).  Yönelime bakar, büyüklüğe bakmaz. Metin madenciliğinde veya "İki müşteri alışveriş sepetinde benzer yönelimde mi?" diye bakarken kullanılır.                                                                                      |
+| **Mahalanobis**       | Korelasyonlu veriler, finansal analiz.                                                                                                                                                                                                                                        |
+| **Minkowski**         | Genel amaçlı, esnek (Öklid ve Manhattan'ın genelleşmiş hâli). Öklid ve Manhattan'ın genelleştirilmiş, babası sayılan formüldür. Formüldeki "p" değeri 1 olursa Manhattan, 2 olursa Öklid olur.                                                                                |
+| **Hamming**           | Binary (ikili) veriler. (Google'ın "Bunu mu demek istediniz") mantığı. Sayısal değil, kategorik (metin) veya Binary (1-0) verilerde kullanılır. "Kaç harf/bit farklı?" diye sayar.                                                                                            |
+
+### 2.3. K-Means Avantajları ve Dezavantajları
+
+
+| Avantajlar +                               | Dezavantajlar -                                                                                                     |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| Çok hızlı çalışır ve algoritması basittir. | $K$ değerinin baştan bilinmesi gerekir.                                                                             |
+| **Büyük Veri** için çok uygundur.          | Başlangıç merkezlerinin rastgele atılmasına duyarlıdır.                                                             |
+| Görselleştirmesi ve yorumlaması kolaydır.  | **Outlier (Aykırı Değer)**'lardan çok etilenir (savaş çıkınca altının fırlaması gibi uç veriler algoritmayı bozar). |
+|                                            | Kümelerin küresel (yuvarlak) olduğunu varsayar.                                                                     |
+
+---
+
+## 3. K Değeri Problemi: Elbow (Dirsek) Metodu
+K-Means'in en büyük derdi "Peki veriyi kaç kümeye böleceğiz?" sorusudur. Bunu çözmek için **Elbow (Dirsek)** metodu kullanır. 
+
+- **Mantık**: Bir `for` döngüsü kurularak K=1'den K=15'e kadar tüm ihtimaller denenir ve hr adımdaki **Hata Oranı (Inertia / WSS)** hesaplanır.
+- $K$ sayısı arttıkça hata oranı sürekli azalır. Ancak bir noktadan sonra bu azalma **yavaşlar**.
+- Grafikte hatanın düşüşünün yavaşladığı, **dirsek (elbow)** şeklini aldığı kırılma noktası, **Optimum $K$** değeridir.
+
+
+---
+
+## 4. Boyut Azaltma: PCA (Principal Component Analysis)
+
+<br>
+**Curse Dimensionality (Boyut Laneti)**: Veri setinde çok fazla sütun (boyut) varsa, mesafelerin anlamı kaybolur, makine aşırı yorulur ve veriyi görselleştirmek imkânsızlaşır.
+
+**Çözüm**: PCA (Temel Bileşen Analizi). Yüksek boyutlu veriyi, minimum bilgi kaybıyla daha az boyuta indirgeme işlemi.
+
+### PCA Neden Yapılır?
+1. **Eğitim Süresini Kısaltmak**: 1 Milyon satır $x$ 20 sütun = 20 Milyon işlem demektir. Eğer PCA ile 20 sütunu 3 sütuna indirgersek, işlem sayısı 3 Milyona düşer. %85 tasarruf sağlanır, makine yorulmaz.
+2. **Görselleştirme İmkânı**: İnsan gözü 1D (nokta), 2D (grafik), 3D (küp) görebilir. Elimizde değerli olan 8 sütun varsa, bunu grafiksel olarak çizemeyiz. PCA ile o 8 sütunu 2 sütuna (Component 1, Component 2) indirgersek, ekrandaki kümeleri netçe görebiliriz.
+
+### PCA'in Kırmızı Çizgisi: **VARYANS**
+
+>[!danger] Çok Önemli
+>Boyutu azaltırken bilgiyi korumak zorundayız. Bilginin istatistikteki karşılığı **Varyans**'tır. <br>
+> - Başlangıçta varyans **1.0** kabul edilir.
+> - Sütunları sildiğimizde/dönüştürdüğümüzde varyans **0.90** ve üzerinde kalıyorsa, "Bilgiyi koruduk, kabul edilebilir" deriz.
+> - Eğer varyans **0.85** ve altına düşerse bilgi kaybı (veri bozulması) yaşanmıştır, o PCA işlemi **kabul edilemez!** Esi veriyle yeni veri artık eşdeğer değildir.
 

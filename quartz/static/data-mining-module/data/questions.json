@@ -10219,6 +10219,1055 @@
     ]
   },
   {
+    "id": "w6-v001",
+    "week": 6,
+    "topic": "kumeleme-temel-kavramlar",
+    "type": "verbal",
+    "tags": [
+      "kümeleme",
+      "sınıflandırma",
+      "fark"
+    ],
+    "sourceNotebook": null,
+    "question": "Sınıflandırma (Classification) ve Kümeleme (Clustering) algoritmaları arasındaki en temel kavramsal fark aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Sınıflandırma algoritmaları yalnızca sayısal verilerle çalışırken, kümeleme algoritmaları yalnızca kategorik verilerle çalışır.",
+      "B": "Sınıflandırma modelinde bağımsız değişkenlerin (X) yanında tahmin edilecek bir hedef etiket (Y) bulunurken, kümelemede hedef etiket (Y) yoktur.",
+      "C": "Kümeleme algoritmaları denetimli öğrenme altındayken, sınıflandırma algoritmaları gözetimsiz öğrenme kategorisindedir.",
+      "D": "Sınıflandırma algoritmaları veriyi her zaman iki gruba ayırırken, kümeleme algoritmaları veriyi sonsuz parçaya böler.",
+      "E": "Kümeleme algoritmaları mesafe ölçümlerini kullanmazken, sınıflandırma algoritmaları her zaman mesafe temelli çalışır."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Her iki algoritma türü de veri ön işlemeden geçtikten sonra hem sayısal hem de dönüştürülmüş kategorik verilerle çalışabilir.",
+      "B": "Doğru. Sınıflandırma algoritmaları geçmişte sonucu belli olan (Y etiketi olan) verilerden öğrenip tahmin yaparken, kümeleme algoritmaları yalnızca özellikleri (X) kullanarak benzerliklerine göre gruplama yapar.",
+      "C": "Tam tersidir. Sınıflandırma denetimli (supervised), kümeleme ise gözetimsiz (unsupervised) öğrenmedir.",
+      "D": "Sınıflandırma algoritmaları çok sınıflı (multi-class) olabilir, sadece iki gruba ayırmak zorunda değildir.",
+      "E": "Kümeleme algoritmaları (özellikle K-Means) doğrudan mesafe temelli (Öklid vb.) çalışır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Gözetimsiz Öğrenme",
+        "definition": "Etiketlenmemiş verilerdeki gizli yapıları ve grupları bulmayı amaçlayan makine öğrenmesi türü."
+      }
+    ]
+  },
+  {
+    "id": "w6-v002",
+    "week": 6,
+    "topic": "kumeleme-uygulama-alanlari",
+    "type": "verbal",
+    "tags": [
+      "senaryo",
+      "tavsiye-sistemleri",
+      "kullanım-alanı"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir dijital yayın platformu, kullanıcılarına 'Bunu izleyenler şunu da izledi' şeklinde film önerilerinde bulunmaktadır. Bu platformun arka planda kullandığı tavsiye sisteminin temel mantığı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Kullanıcının izlediği filmlerin süresini toplayıp, benzer süredeki filmleri rastgele önermek.",
+      "B": "Kullanıcının demografik bilgilerini bir sınıflandırma modeline sokarak en yüksek puanlı filmi tahmin etmek.",
+      "C": "Kullanıcıyı izleme geçmişine göre diğer kullanıcılarla aynı kümeye atamak ve o kümedeki diğer kişilerin izlediği ama kullanıcının henüz izlemediği filmleri önermek.",
+      "D": "Kullanıcının izlediği her filmin türünü tek boyutlu bir matrise çevirip, varyansı en düşük olan filmi bulmak.",
+      "E": "Kullanıcı verilerini kayıpsız sıkıştırma algoritmalarıyla küçültüp, boyut lanetini ortadan kaldırmak."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Film sürelerinin toplanması tavsiye sistemleri için anlamlı bir benzerlik ölçütü değildir.",
+      "B": "Tavsiye sistemleri doğrudan bir hedef değişkeni (Y) tahmin etmekten ziyade, kullanıcılar arası benzerlikleri (kümeleme) baz alır.",
+      "C": "Doğru. Tavsiye sistemleri, benzer alışkanlıklara sahip kullanıcıları aynı kümede toplar ve o kümedeki ortak eğilimleri, henüz o eğilimi göstermemiş kullanıcıya öneri olarak sunar.",
+      "D": "Varyansı en düşük olan filmi bulmak boyutsal indirgeme ile ilgili olabilir, tavsiye mantığıyla uyuşmaz.",
+      "E": "Kayıpsız sıkıştırma veri yapıları ile ilgilidir, tavsiye sistemlerinin algoritma mantığı değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Tavsiye Sistemleri",
+        "definition": "Kullanıcıların geçmiş davranışlarına ve benzer kullanıcıların tercihlerine dayanarak yeni içerikler sunan sistemler."
+      }
+    ]
+  },
+  {
+    "id": "w6-v003",
+    "week": 6,
+    "topic": "k-means-mesafe-metrikleri",
+    "type": "verbal",
+    "tags": [
+      "mesafe",
+      "algoritma-seçimi",
+      "metrik"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir arama motorunda, kullanıcı hatalı bir kelime girdiğinde 'Bunu mu demek istediniz?' şeklinde bir düzeltme önerisi sunulmaktadır. Bu tarz ikili (binary) verilerde ve kelime düzenleme farklılıklarını ölçmede kullanılan en uygun mesafe metriği aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Öklid Mesafesi",
+      "B": "Manhattan Mesafesi",
+      "C": "Mahalanobis Mesafesi",
+      "D": "Hamming Mesafesi",
+      "E": "Minkowski Mesafesi"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Öklid mesafesi sürekli ve düşük boyutlu verilerde varsayılan olarak kullanılır, kelime harf farklılıkları için uygun değildir.",
+      "B": "Manhattan mesafesi genellikle grid (ızgara) tabanlı verilerde veya şehir haritası gibi alanlarda tercih edilir.",
+      "C": "Mahalanobis mesafesi korelasyonlu verilerde ve finansal analizlerde kullanılır.",
+      "D": "Doğru. Hamming mesafesi, iki dizi arasındaki yapısal farkları (kaç harf/bit farklı) sayar ve kategorik/binary verilerde (edit distance) tercih edilir.",
+      "E": "Minkowski, Öklid ve Manhattan'ın genelleştirilmiş halidir, doğrudan metin harf farklılıkları için ilk tercih değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Hamming Mesafesi",
+        "definition": "Eşit uzunluktaki iki dizi arasında, birbirine uymayan karşılıklı sembollerin sayısı."
+      }
+    ]
+  },
+  {
+    "id": "w6-v004",
+    "week": 6,
+    "topic": "gorsel-sikistirma-k-means",
+    "type": "verbal",
+    "tags": [
+      "görüntü-segmentasyonu",
+      "kayıplı-sıkıştırma",
+      "senaryo"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir ağaç fotoğrafının boyutu K-Means algoritması kullanılarak 100 MB'tan 50 MB'a düşürülmüştür. Bu işlem sırasında fotoğrafın genel görünümü (formasyonu) bozulmamış ancak kalitesinde hafif bir bulanıklaşma gözlemlenmiştir. Bu durum için aşağıdaki yorumlardan hangisi en doğrudur?",
+    "code": null,
+    "options": {
+      "A": "Kayıpsız (lossless) bir sıkıştırma yapılmış ve veri seti boyut lanetinden kurtarılmıştır.",
+      "B": "Görüntüdeki tüm aykırı değerler (outliers) silindiği için dosya boyutu yarı yarıya inmiştir.",
+      "C": "K-Means ile kayıplı (lossy) sıkıştırma yapılmış, birbirine benzeyen pikseller aynı renk kümesinde ortaklaştırılarak boyut küçültülmüştür.",
+      "D": "Görüntü verisi PCA algoritmasına sokulmuş ve renklerin varyansı %50 oranında düşürülmüştür.",
+      "E": "Manhattan mesafesi kullanıldığı için pikseller arasındaki ızgara yapısı bozulmuş ve görüntü bulanıklaşmıştır."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Görüntü ve ses sıkıştırmaları kayıpsız değil, kayıplı (lossy) sıkıştırmalardır. Kayıpsız sıkıştırma metinlerde olur.",
+      "B": "Dosya boyutunun inmesi aykırı değerlerin silinmesiyle değil, benzer renklerin gruplanmasıyla (renk sayısının azaltılmasıyla) sağlanır.",
+      "C": "Doğru. K-Means, görüntüdeki binlerce farklı tonu belirlenen K adet ana renge (kümeye) indirger. Bu da formasyonu bozmadan dosya boyutunu küçültür (kayıplı sıkıştırma).",
+      "D": "Soru PCA'i değil, K-Means ile görüntü segmentasyonunu tarif etmektedir.",
+      "E": "Bulanıklaşmanın sebebi Manhattan mesafesi değil, renk yelpazesinin K adet kümeye daraltılmasıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Görüntü Segmentasyonu",
+        "definition": "Bir dijital görüntüyü piksellerin özelliklerine göre birden fazla bölüme (kümeye) ayırma işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w6-v005",
+    "week": 6,
+    "topic": "k-means-algoritma-ozellikleri",
+    "type": "verbal",
+    "tags": [
+      "dezavantaj",
+      "aykırı-değer",
+      "k-means"
+    ],
+    "sourceNotebook": null,
+    "question": "Savaş veya ekonomik kriz gibi olağanüstü durumlarda altın, döviz gibi piyasa verilerinde ani ve sıra dışı sıçramalar yaşanır. Bu tür veriler K-Means algoritması ile kümelenmek istendiğinde modelin zorlanması ve başarısının düşmesi beklenir. Bu durum K-Means'in hangi özelliği ile doğrudan ilişkilidir?",
+    "code": null,
+    "options": {
+      "A": "Yalnızca Kosinüs benzerliği ile çalışabilmesi",
+      "B": "Başlangıç merkezlerini (K değerini) kendisinin otomatik belirlemesi",
+      "C": "Aykırı değerlerden (outlier) çok fazla etkilenmesi",
+      "D": "Çok büyük veri setlerinde (Big Data) kullanılamaması",
+      "E": "Kümelerin her zaman doğrusal bir çizgi şeklinde olduğunu varsayması"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "K-Means varsayılan olarak Öklid mesafesi ile çalışır, yalnızca Kosinüs ile çalışmaz.",
+      "B": "K-Means K değerini otomatik belirlemez, bu değeri kullanıcı baştan vermelidir.",
+      "C": "Doğru. K-Means, merkezleri hesaplarken matematiksel ortalama (mean) aldığı için, çok uçlardaki sıra dışı veriler (outliers) merkez noktalarını kendi üzerlerine doğru çeker ve kümeleri bozar.",
+      "D": "Tam tersine, K-Means basit yapısı sayesinde çok büyük veri setlerinde oldukça başarılı ve hızlıdır.",
+      "E": "K-Means kümelerin doğrusal çizgi değil, küresel (spherical/yuvarlak) olduğunu varsayar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Aykırı Değer (Outlier)",
+        "definition": "Gözlemlenen veri setindeki diğer tüm değerlerden anormal bir şekilde farklılık gösteren veri noktası."
+      }
+    ]
+  },
+  {
+    "id": "w6-v006",
+    "week": 6,
+    "topic": "elbow-metodu",
+    "type": "verbal",
+    "tags": [
+      "k-değeri",
+      "optimizasyon",
+      "elbow"
+    ],
+    "sourceNotebook": null,
+    "question": "K-Means algoritmasında optimum K (küme) sayısını belirlemek için Elbow (Dirsek) metodu kullanılmaktadır. Bu metodun çalışma mantığı aşağıdakilerden hangisinde en doğru şekilde açıklanmıştır?",
+    "code": null,
+    "options": {
+      "A": "Veri setindeki tüm aykırı değerleri silerek, kalan veri sayısını K olarak kabul eder.",
+      "B": "K sayısını rastgele olarak artırır ve varyansın 1.0 olduğu ilk noktayı optimum K olarak belirler.",
+      "C": "1'den başlayarak belirli bir sayıya kadar olan tüm K değerleri için modeli eğitir ve hata azalmasının belirgin şekilde yavaşladığı kırılma noktasını seçer.",
+      "D": "Her bir K değeri için PCA uygulayarak, verinin görselleştirilebildiği en küçük boyutu optimum K olarak atar.",
+      "E": "Veri setindeki toplam satır sayısının karekökünü alarak en uygun kümeleme merkezini matematiksel olarak bulur."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Elbow metodunun aykırı değerleri silmek veya veri sayısını K olarak atamak gibi bir işlevi yoktur.",
+      "B": "Varyansın korunması PCA ile ilgilidir, Elbow metodu ile K seçimi doğrudan varyansın 1.0 olmasıyla ilgili değildir.",
+      "C": "Doğru. Bir döngü kurularak K değerleri denenir. K arttıkça hata oranı düşer. Düşüşün yavaşladığı, grafiğin dirsek şeklini aldığı nokta optimum K olarak kabul edilir.",
+      "D": "PCA boyut azaltma için kullanılır, optimum küme sayısını belirlemek için değil.",
+      "E": "Karekök alma kuralı bazı metotlarda pratik bir yaklaşım olsa da, Elbow metodunun tanımı veya çalışma mantığı bu değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Elbow (Dirsek) Metodu",
+        "definition": "Kümeleme algoritmalarında, küme sayısı eklendikçe azalan hata miktarındaki kırılma noktasını bularak ideal K değerini seçme yöntemi."
+      }
+    ]
+  },
+  {
+    "id": "w6-v007",
+    "week": 6,
+    "topic": "elbow-metodu-yorumlama",
+    "type": "verbal",
+    "tags": [
+      "karar-verme",
+      "yorum",
+      "hata-oranı"
+    ],
+    "sourceNotebook": null,
+    "question": "Elbow grafiğinde K=3 noktasında belirgin bir dirsek oluşmuş, ancak K=9 noktasında hata oranının (inertia) K=3'e göre biraz daha düşük olduğu görülmüştür. Bir veri analistinin hata oranının daha düşük olmasına rağmen K=3'ü tercih etmesinin temel nedeni aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "K=9 olduğunda veri setindeki tüm varyans kaybolacağı için bilgi kaybı yaşanması.",
+      "B": "K sayısı arttıkça K-Means algoritmasının mesafeleri hesaplamak yerine tahmin modeline dönüşmesi.",
+      "C": "K=3 sonrasındaki hata azalışının ihmal edilebilir düzeyde olması ve çok fazla kümenin yorumlanabilirlik (etiketleme) zorluğunu artırması.",
+      "D": "K=9 noktasında Manhattan mesafesinin Öklid mesafesine göre daha fazla zaman karmaşıklığı yaratması.",
+      "E": "Algoritmanın yalnızca tek sayıları K değeri olarak kabul etme zorunluluğunun bulunması."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Küme sayısının artması varyansın kaybolmasına neden olmaz, varyans PCA bağlamında bir koruma ölçütüdür.",
+      "B": "K-Means hiçbir K değerinde bir tahmin (prediction) modeline dönüşmez.",
+      "C": "Doğru. 'Minimum küme, maksimum yorum' esastır. Hata düşse bile kırılma noktasından sonraki düşüşler anlamlı değildir. 9 farklı kümeyi iş bağlamında etiketlemek ve yorumlamak zordur.",
+      "D": "Mesafe metriklerinin zaman karmaşıklığı K seçiminin temel mantığı değildir.",
+      "E": "K-Means'te K değerinin yalnızca tek sayı olma zorunluluğu yoktur (Bu KNN'deki komşu sayısı seçimi için geçerli bir durumdur)."
+    },
+    "relatedTerms": [
+      {
+        "term": "Inertia (WSS)",
+        "definition": "Her bir veri noktasının kendi küme merkezine olan uzaklıklarının karesel toplamı; hata oranı."
+      }
+    ]
+  },
+  {
+    "id": "w6-v008",
+    "week": 6,
+    "topic": "pca-amaci",
+    "type": "verbal",
+    "tags": [
+      "pca",
+      "boyut-azaltma",
+      "karar-verme"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir veri setinde 20 farklı sütun (boyut) bulunmaktadır. Modelin eğitim süresini kısaltmak ve verileri 2 boyutlu bir grafikte görselleştirmek için PCA (Principal Component Analysis) algoritması uygulanmıştır. PCA işlemi gerçekleştirilirken kesinlikle korunması gereken ve bilgi kaybını ölçen istatistiksel metrik aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Ortalama (Mean)",
+      "B": "Mod",
+      "C": "Varyans",
+      "D": "Korelasyon katsayısı",
+      "E": "Hata kareler toplamı (Inertia)"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Ortalama korunması gereken temel bilgi metriği değildir.",
+      "B": "Mod, en çok tekrar eden değerdir; boyut küçültmede bilginin bütünlüğünü temsil etmez.",
+      "C": "Doğru. Verideki bilgi bütünlüğünü temsil eden şey varyanstır. Boyut azaltılırken orijinal varyansın yüksek oranda (örn: 0.90 ve üzeri) korunması hedeflenir.",
+      "D": "Korelasyon değişkenler arası ilişkiyi ölçer, PCA varyansı maksimize eden yeni eksenler arar.",
+      "E": "Hata kareler toplamı K-Means'in kümeleme başarısını (Elbow) ölçer."
+    },
+    "relatedTerms": [
+      {
+        "term": "Varyans (Variance)",
+        "definition": "Verilerin ortalamadan ne kadar saptığını ve yayıldığını gösteren, bilgi miktarını temsil eden istatistiksel ölçü."
+      }
+    ]
+  },
+  {
+    "id": "w6-v009",
+    "week": 6,
+    "topic": "pca-varyans-yorumlama",
+    "type": "verbal",
+    "tags": [
+      "pca",
+      "varyans",
+      "yorum"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir makine öğrenmesi uzmanı, 5 boyutlu bir veri setini PCA kullanarak 2 boyuta indirgemiştir. Başlangıçta 1.0 kabul edilen varyans değeri, işlem sonucunda 0.85 olarak hesaplanmıştır. Bu duruma yönelik yapılacak en doğru yorum aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Bilgi %85 oranında korunduğu için PCA işlemi son derece başarılıdır ve model güvenle eğitilebilir.",
+      "B": "Varyansın düşmesi, veri setindeki tüm aykırı değerlerin (outliers) başarıyla temizlendiğini gösterir.",
+      "C": "Veride kabul edilemez düzeyde bilgi kaybı yaşanmıştır, eski veri ile yeni veri artık eşdeğer değildir.",
+      "D": "Boyut sayısı 5'ten 2'ye düştüğü için varyansın matematiksel olarak en fazla 0.40 olması beklenirdi.",
+      "E": "Varyans 0.85'e düştüğü için artık K-Means yerine yalnızca Hiyerarşik Kümeleme algoritması kullanılmalıdır."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Varyansın 0.85'e düşmesi bilgi kaybının yüksek olduğunu gösterir, genel kabul görmüş sınır (0.90) altındadır.",
+      "B": "Varyans düşüşü aykırı değer temizliğini değil, orijinal değişkenlerdeki açıklayıcı gücün kaybolduğunu gösterir.",
+      "C": "Doğru. Bilgi bütünlüğü varyans ile ölçülür. 0.90 ve üzeri kabul edilebilirken, 0.85 bilgi kaybı (veri bozulması) anlamına gelir ve işlem kabul edilemez.",
+      "D": "Varyans koruma oranının sütun sayısına doğrudan bölünebilir matematiksel bir üst sınırı yoktur.",
+      "E": "Boyut indirgeme sonrası varyansın düşmesi algoritma seçimini (K-Means vs Hiyerarşik) değiştirmez, veri temsil kalitesini etkiler."
+    },
+    "relatedTerms": [
+      {
+        "term": "Boyut Laneti (Curse of Dimensionality)",
+        "definition": "Veri setindeki boyut (sütun) sayısı arttıkça modelin eğitilmesinin zorlaşması ve mesafelerin anlamını yitirmesi durumu."
+      }
+    ]
+  },
+  {
+    "id": "w6-v010",
+    "week": 6,
+    "topic": "k-means-on-isleme",
+    "type": "verbal",
+    "tags": [
+      "veri-ön-işleme",
+      "karar-verme",
+      "ölçeklendirme"
+    ],
+    "sourceNotebook": null,
+    "question": "K-Means algoritması ile bir müşteri segmentasyonu yapılacaktır. Veri setindeki 'Gelir' sütunu 50.000 ile 150.000 arasında değişirken, 'Çocuk Sayısı' sütunu 0 ile 4 arasında değişmektedir. Modeli eğitmeden önce bu veri seti üzerinde yapılması gereken en kritik ön işleme adımı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Çocuk sayısı çok küçük olduğu için bu sütunu veri setinden tamamen çıkarmak.",
+      "B": "K-Means mesafe tabanlı çalıştığı için verileri Standartlaştırma (Scaling/Normalization) işleminden geçirmek.",
+      "C": "Gelir sütununu kategorik veriye dönüştürerek Öklid mesafesi yerine Kosinüs benzerliği kullanmak.",
+      "D": "Müşterilerin gelirlerini çocuk sayılarına bölerek tek bir boyut (feature) elde etmek.",
+      "E": "Veri setindeki tüm değerleri 0 ile 100 arasında olacak şekilde rastgele yeniden atamak."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Çocuk sayısı değerli bir bilgi olabilir, değerinin küçük olması sütunun atılmasını gerektirmez.",
+      "B": "Doğru. K-Means (Öklid vb.) mesafe ölçümleri kullanır. Büyük rakamlı sütunlar (Gelir), küçük rakamlı sütunları (Çocuk Sayısı) ezmemesi için veriler mutlaka ölçeklendirilmelidir.",
+      "C": "Sayısal bir veriyi kategorik veriye dönüştürmek bilgi kaybına yol açar ve Kosinüs benzerliği metin madenciliği gibi alanlarda tercih edilir.",
+      "D": "Böyle bir dönüşüm (feature engineering) yapılabilir ancak verinin ölçeklendirilmesi K-Means için asıl zorunluluktur.",
+      "E": "Verileri rastgele yeniden atamak orijinal veriyi ve bilgiyi tamamen bozar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Normalizasyon / Ölçeklendirme",
+        "definition": "Farklı aralıklardaki veri özelliklerini (sütunları) aynı ölçeğe getirerek, mesafe tabanlı modellerin adil hesaplama yapmasını sağlama."
+      }
+    ]
+  },
+  {
+    "id": "w6-v011",
+    "week": 6,
+    "topic": "k-means-calisma-mantigi",
+    "type": "verbal",
+    "tags": [
+      "kavram",
+      "algoritma-adımları"
+    ],
+    "sourceNotebook": null,
+    "question": "K-Means algoritmasının tekrarlı (iterative) çalışma mantığında, veri noktalarının kendilerine en yakın merkezlere atanmasının hemen ardından gerçekleşen işlem adımı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Yeni K değerinin (küme sayısının) otomatik olarak bir artırılması.",
+      "B": "Oluşan yeni kümedeki elemanların ortalamasının alınarak merkez noktasının güncellenmesi.",
+      "C": "Veri setindeki aykırı değerlerin tespit edilip silinmesi.",
+      "D": "PCA uygulanarak veri setindeki boyut sayısının yarıya indirilmesi.",
+      "E": "Kümelere rastgele yeni elemanlar eklenmesi."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "K-Means çalışma sırasında K değerini değiştirmez, K baştan belirlenir.",
+      "B": "Doğru. Tüm veri noktaları en yakın merkeze atandıktan sonra, her küme kendi içindeki elemanların ortalamasını alarak yeni merkez noktasını (centroid) hesaplar ve merkezler o noktaya kaydırılır.",
+      "C": "K-Means iterasyon sırasında aykırı değer temizliği yapmaz, bu yüzden aykırı değerlerden olumsuz etkilenir.",
+      "D": "PCA, kümeleme algoritmasından önce veriyi hazırlamak için uygulanır, iterasyon içinde uygulanmaz.",
+      "E": "Algoritma dışarıdan yeni eleman eklemez, var olan elemanlar üzerinde çalışır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Centroid (Merkez Noktası)",
+        "definition": "Bir kümeye ait tüm veri noktalarının ortalamasını temsil eden matematiksel merkez."
+      }
+    ]
+  },
+  {
+    "id": "w6-v012",
+    "week": 6,
+    "topic": "etiketleme-mantigi",
+    "type": "verbal",
+    "tags": [
+      "kavram",
+      "etiketleme",
+      "gözetimsiz-öğrenme"
+    ],
+    "sourceNotebook": null,
+    "question": "Makine öğrenmesinde 'Otomatik Etiketleme (Auto-labeling)' mantığı değerlendirildiğinde, K-Means algoritmasının bu sürece katkısı aşağıdakilerden hangisinde doğru ifade edilmiştir?",
+    "code": null,
+    "options": {
+      "A": "K-Means, hedef (Y) değişkenine bakarak yeni gelecek olan verinin hangi sınıfa ait olacağını doğrudan tahmin eder.",
+      "B": "K-Means, sadece bağımsız değişkenleri (X) kullanarak veriyi benzerliklerine göre gruplar; bu gruplara daha sonra anlam (etiket) yüklenerek veri setinin etiketlenmesi sağlanır.",
+      "C": "Algoritma veriyi incelerken, dışarıdan hiçbir müdahale olmadan gruplara 'Zenginler', 'Fakirler' gibi anlamlı isimleri kendisi verir.",
+      "D": "Veri setindeki gereksiz sütunları (Customer ID gibi) tespit edip silerek verinin etiketlenmesini kolaylaştırır.",
+      "E": "K-Means, etiketli verileri etiketlenmemiş verilerden ayırmak için kullanılan bir filtreleme aracıdır."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "K-Means tahmin (prediction) yapmaz ve hedef (Y) değişkeni kullanmaz.",
+      "B": "Doğru. Algoritma matematiksel olarak gruplama (küme 0, küme 1 vb.) yapar. Daha sonra bir veri analisti bu kümelerin ortak özelliklerine bakarak onlara isim (etiket) verir.",
+      "C": "Makine neyi grupladığını bilemez, sadece matematiksel mesafelere bakar. Anlamlı isimleri insanlar koyar.",
+      "D": "Customer ID gibi sütunları silmek ön işleme (preprocessing) adımıdır, K-Means bunu otomatik yapmaz.",
+      "E": "K-Means etiketli veriyi etiketlenmemişten ayırmaz, tamamen etiketsiz verileri gruplar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Etiketleme (Labeling)",
+        "definition": "Veri noktalarının hangi sınıfa veya anlama karşılık geldiğinin (hedef değişken) belirlenmesi işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w6-v013",
+    "week": 6,
+    "topic": "veri-on-isleme-id-sutunu",
+    "type": "verbal",
+    "tags": [
+      "veri-ön-işleme",
+      "k-means",
+      "karar-verme"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir perakende şirketinin müşteri verileri K-Means algoritması ile kümelenecektir. Veri setinde 'Müşteri_ID', 'Yaş', 'Yıllık_Gelir' ve 'Harcama_Skoru' sütunları bulunmaktadır. Algoritma çalıştırılmadan önce 'Müşteri_ID' sütunu veri setinden çıkarılmıştır. Bu işlemin yapılmasının temel nedeni aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Müşteri ID'sinin sadece metinsel (string) bir veri olmasından dolayı algoritmanın hata vermesini önlemek.",
+      "B": "Çok yüksek değerlere sahip olduğu için varyansı bozarak boyut lanetine (Curse of Dimensionality) sebep olması.",
+      "C": "Yalnızca bir sıralama belirten ve matematiksel bir kümeleme niteliği taşımayan bu değerlerin, mesafe hesaplamalarını yanıltmasını engellemek.",
+      "D": "Müşteri kimliklerinin gizliliğini korumak amacıyla verinin anonimleştirilmesi gerekliliği.",
+      "E": "ID sütununun her zaman eksik veri (NaN) içermesi ve algoritmanın bu eksikliklerle başa çıkamaması."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "ID'ler genelde sayısal olabilir (1, 2, 3..). Çıkarılma nedeni veri tipi değil, taşıdığı bilginin anlamsızlığıdır.",
+      "B": "Bir sütun boyut lanetine tek başına sebep olmaz. Sorun varyans değil, anlamsız mesafedir.",
+      "C": "Doğru. ID'ler sırayla artan numaralardır (1'den 1000'e gibi). Müşterilerin alışveriş alışkanlığı hakkında hiçbir nitelik taşımazlar ve algoritmada yanıltıcı bir mesafe oluştururlar.",
+      "D": "Anonimleştirme veri güvenliği ile ilgilidir, makine öğrenmesi algoritmasının doğru çalışması ile doğrudan ilgili teknik bir neden değildir.",
+      "E": "ID sütunları genelde eksiksizdir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Bağımsız Değişken (Feature/X)",
+        "definition": "Modelin öğrenmek veya gruplamak için kullandığı, ölçülebilir özellikleri barındıran sütunlar."
+      }
+    ]
+  },
+  {
+    "id": "w6-v014",
+    "week": 6,
+    "topic": "k-means-mesafe-algoritmalari",
+    "type": "verbal",
+    "tags": [
+      "algoritma-seçimi",
+      "mesafe",
+      "manhattan"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir kargo şirketi, dağıtım merkezlerini konumlandırmak için K-Means algoritmasını kullanacaktır. Veri seti, ızgara (grid) planlı sokaklardan oluşan bir şehir haritasındaki koordinatları içermektedir. Kuş uçuşu mesafe yerine, sokak dönüşlerini dikkate alan bir ölçüm yapılması planlanmaktadır. Bu senaryoda aşağıdaki mesafe metriklerinden hangisinin seçilmesi en uygundur?",
+    "code": null,
+    "options": {
+      "A": "Öklid (Euclidean) Mesafesi",
+      "B": "Hamming Mesafesi",
+      "C": "Kosinüs (Cosine) Benzerliği",
+      "D": "Manhattan (City Block) Mesafesi",
+      "E": "Mahalanobis Mesafesi"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Öklid mesafesi iki nokta arasındaki en kısa doğruyu (kuş uçuşu) hesaplar, binaların etrafından dolaşmaz.",
+      "B": "Hamming mesafesi binary (ikili) veya metin verilerindeki farklılıkları sayar.",
+      "C": "Kosinüs benzerliği metin madenciliği veya yönelim hesaplamalarında kullanılır.",
+      "D": "Doğru. Manhattan (City Block - Şehir Bloğu) mesafesi, noktalar arasındaki mesafeyi dik açılarla (sokakları dolaşır gibi) hesaplar ve ızgara planlı verilerde en uygunudur.",
+      "E": "Mahalanobis, verilerin korelasyonunu dikkate alan finansal veya istatistiksel bir mesafedir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Manhattan Mesafesi",
+        "definition": "İki nokta arasındaki farkların mutlak değerlerinin toplamına dayanan, grid tabanlı mesafe ölçümü."
+      }
+    ]
+  },
+  {
+    "id": "w6-v015",
+    "week": 6,
+    "topic": "pca-k-means-siralama",
+    "type": "verbal",
+    "tags": [
+      "pca",
+      "sıralama",
+      "boyut-azaltma"
+    ],
+    "sourceNotebook": null,
+    "question": "28 farklı sütundan (boyut) oluşan karmaşık bir müşteri davranışları veri setine hem PCA (Principal Component Analysis) hem de K-Means algoritmaları uygulanarak verinin 2 boyutlu bir grafikte görselleştirilmesi hedeflenmektedir. İşlem sırası ve mantığı açısından en doğru yaklaşım aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Önce K-Means ile veri kümelenmeli, ardından kümelerin doğruluk oranını artırmak için PCA uygulanmalıdır.",
+      "B": "Önce PCA uygulanarak boyut sayısı 2'ye indirgenmeli, ardından K-Means ile bu indirgenmiş veri üzerinde kümeleme yapılmalıdır.",
+      "C": "Her iki algoritma birbirinden bağımsızdır, veri setinin yarısına PCA, diğer yarısına K-Means uygulanmalıdır.",
+      "D": "Eğitim sürecini hızlandırmak için PCA sadece grafik çizim aşamasında kullanılmalı, K-Means ise 28 boyutun tamamıyla eğitilmelidir.",
+      "E": "PCA yalnızca etiketli verilerde (Y değişkeni olan) çalıştığı için K-Means öncesinde kullanılamaz."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Çok boyutlu verilerde (28 sütun) doğrudan K-Means uygulamak mesafe ölçümlerini anlamsızlaştırır (Boyut Laneti) ve işlemi yavaşlatır. PCA önce uygulanmalıdır.",
+      "B": "Doğru. Eğitimden önce PCA uygulanarak gereksiz varyans atılır ve veri 2 veya 3 boyuta indirilir. K-Means bu daha hafif ve anlamlı veri üzerinde eğitilerek kümeler oluşturur ve rahatça görselleştirilir.",
+      "C": "Algoritmalar aynı hat üzerinde (pipeline) birbirini besleyecek şekilde ardışık uygulanır.",
+      "D": "28 boyutla K-Means'i eğitmek modeli yorar ve boyut laneti yüzünden küme kalitesini düşürebilir.",
+      "E": "PCA gözetimsiz bir yöntemdir ve etiket (Y) gerektirmez."
+    },
+    "relatedTerms": [
+      {
+        "term": "Boyut Azaltma (Dimensionality Reduction)",
+        "definition": "Verideki önemli bilgiyi koruyarak rastgele veya ilişkili değişkenleri azaltma süreci."
+      }
+    ]
+  },
+  {
+    "id": "w6-v016",
+    "week": 6,
+    "topic": "kategorik-veri-donusumu",
+    "type": "verbal",
+    "tags": [
+      "veri-ön-işleme",
+      "kategorik-veri",
+      "karar-verme"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir müşteri segmentasyonu veri setinde 'Cinsiyet' (Kadın/Erkek) ve 'Eğitim Durumu' (Lise, Lisans, Yüksek Lisans) gibi metinsel veriler bulunmaktadır. K-Means algoritmasının doğru çalışabilmesi için bu verilere uygulanması gereken zorunlu işlem nedir?",
+    "code": null,
+    "options": {
+      "A": "Metinsel verilerin algoritmayı yormaması için veri setinden tamamen çıkarılması.",
+      "B": "Metinsel ifadelerin mesafelerinin Hamming algoritması ile doğrudan ölçülerek kümelemeye dahil edilmesi.",
+      "C": "Kategorik verilerin sayısal değerlere (örn: 0, 1, 2) dönüştürülmesi (Encoding).",
+      "D": "Metinlerin harf sayıları toplanarak standartlaştırılması ve yeni bir sütun oluşturulması.",
+      "E": "Bu verilerin yalnızca hedef (Y) değişkeni olarak ayrılması."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Cinsiyet ve eğitim durumu gibi veriler değerli bilgiler içerir, doğrudan silmek bilgi kaybıdır.",
+      "B": "K-Means varsayılan olarak Öklid gibi matematiksel mesafe metrikleri kullanır; verilerin sayısallaştırılması gerekir.",
+      "C": "Doğru. Makine öğrenmesi algoritmaları metin okuyamaz, matematiksel işlem yaparlar. Bu nedenle kategorik veriler sayısallaştırılmalıdır (Encoding işlemi).",
+      "D": "Harf sayılarının toplanması anlamsız bir istatistik yaratır ve kategorik bilginin doğasını yansıtmaz.",
+      "E": "K-Means'te hedef (Y) değişkeni yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Encoding (Kodlama)",
+        "definition": "Kategorik ve metinsel verilerin algoritmalar tarafından işlenebilmesi için sayısal formatlara dönüştürülmesi."
+      }
+    ]
+  },
+  {
+    "id": "w6-v017",
+    "week": 6,
+    "topic": "k-means-dezavantajlari",
+    "type": "verbal",
+    "tags": [
+      "k-means",
+      "kavram",
+      "dezavantaj"
+    ],
+    "sourceNotebook": null,
+    "question": "Aşağıdakilerden hangisi K-Means algoritmasının bilinen dezavantajlarından biri değildir?",
+    "code": null,
+    "options": {
+      "A": "Kümelerin sayısının (K değeri) analist tarafından baştan belirlenmek zorunda olması.",
+      "B": "Büyük veri setleri (Big Data) üzerinde çalışırken çok yavaş olması ve çökmeye eğilimli olması.",
+      "C": "Aykırı değerlerin (outliers) merkez noktalarının konumunu ciddi şekilde saptırması.",
+      "D": "Başlangıç merkezlerinin rastgele seçilmesinin, elde edilecek nihai kümeleri etkileyebilmesi.",
+      "E": "Kümelerin genellikle küresel (yuvarlak) yapıda olduğunu varsayması."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Bu bir dezavantajdır, K değerini bulmak (Elbow ile vs.) ekstra işlem gerektirir.",
+      "B": "Doğru. Bu bir dezavantaj DEĞİLDİR. Tam tersine K-Means basit yapısı sayesinde çok büyük verilerde (Big Data) son derece hızlı ve uygundur.",
+      "C": "Bu bir dezavantajdır, ortalama (mean) mantığı aykırı değerlere hassastır.",
+      "D": "Bu bir dezavantajdır (Initialization problemi). Rastgele atama farklı sonuçlar doğurabilir.",
+      "E": "Bu bir dezavantajdır. Dairesel/küresel olmayan, örneğin iç içe geçmiş hilal şeklindeki verilerde K-Means başarısız olur."
+    },
+    "relatedTerms": [
+      {
+        "term": "K-Means++",
+        "definition": "Başlangıç merkezlerinin rastgele atanması problemini çözmek için geliştirilmiş, merkezleri birbirine uzak seçecek şekilde optimize eden başlatma metodu."
+      }
+    ]
+  },
+  {
+    "id": "w6-v018",
+    "week": 6,
+    "topic": "logaritmik-donusum",
+    "type": "verbal",
+    "tags": [
+      "veri-ön-işleme",
+      "çarpıklık",
+      "grafik-yorumlama"
+    ],
+    "sourceNotebook": null,
+    "question": "Sosyal medya etkileşim verilerini kümeleyen bir analist, 'Paylaşım Sayısı' sütununda verilerin çok büyük bir kısmının 0-50 arasında yığıldığını, ancak birkaç verinin 1400 gibi çok yüksek değerlere sahip olduğunu (sağa çarpık veri) fark etmiştir. Veri dağılımını grafikte daha net ve dengeli görebilmek için hangi yöntemin kullanılması en uygundur?",
+    "code": null,
+    "options": {
+      "A": "PCA uygulayarak 1400 değerine sahip satırları tamamen silmek.",
+      "B": "Elbow metodunu 1400'e kadar çalıştırarak veriyi genişletmek.",
+      "C": "Veriye logaritmik dönüşüm uygulayarak uçurumları daraltmak ve yığılmaları açmak.",
+      "D": "Kosinüs benzerliği hesaplayarak eksenlerin yönünü tersine çevirmek.",
+      "E": "Eksik veri (NaN) doldurma yöntemleriyle 0 değerlerini 1400'e eşitlemek."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "PCA boyut (sütun) azaltır, satır (veri) silmez.",
+      "B": "Elbow metodu K değerini bulmak içindir, veri dağılımını düzenlemez.",
+      "C": "Doğru. Aşırı sağa çarpık (kuyruklu) ve devasa uçurumlar barındıran verilerde logaritmik dönüşüm kullanmak, yüksek değerleri baskılar ve küçük yığılmaları açarak veriyi daha normal bir dağılıma yaklaştırır.",
+      "D": "Kosinüs benzerliği bir mesafe metriğidir, veri dağılımını grafikte düzenleyen bir ön işleme tekniği değildir.",
+      "E": "0 değerleri etkileşim olmadığını gösteren gerçek verilerdir, eksik veri değillerdir. Bunları değiştirmek veriyi bozar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Sağa Çarpık (Right-Skewed) Dağılım",
+        "definition": "Verilerin çoğunun sol tarafta (düşük değerlerde) yığıldığı, kuyruğun ise sağ tarafa doğru uzadığı dağılım."
+      }
+    ]
+  },
+  {
+    "id": "w6-v019",
+    "week": 6,
+    "topic": "eksik-veri-doldurma",
+    "type": "verbal",
+    "tags": [
+      "veri-ön-işleme",
+      "eksik-veri",
+      "karar-verme"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir müşteri analizi veri setinde 'Gelir' sütununda 24 adet eksik veri (NaN) tespit edilmiştir. Veri setinin boyutu görece küçüktür ve gelir sütununda aşırı yüksek uç değerler (outliers) bulunmaktadır. Bu eksik verileri doldurmak için en güvenilir istatistiksel yaklaşım aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Eksik verilerin bulunduğu 24 satırı veri setinden tamamen silmek.",
+      "B": "Aykırı değerlerden etkilenmediği için eksik verileri Medyan (Ortanca) ile doldurmak.",
+      "C": "Gelir sütununun Ortalama (Mean) değerini alarak boşlukları doldurmak.",
+      "D": "Tüm eksik verileri 0 (sıfır) değeri ile değiştirmek.",
+      "E": "Gelir verisini PCA ile 2 boyuta indirgeyip eksikleri görmezden gelmek."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Veri seti küçük olduğu için 24 satırı silmek önemli bilgi kayıplarına yol açabilir.",
+      "B": "Doğru. Veri setinde aykırı değerler (outliers) varsa, Ortalama (Mean) bu değerlerden çok etkilenir. Medyan (Ortanca) ise uç değerlere karşı dirençlidir ve eksik verileri doldurmak için en güvenilir yaklaşımdır.",
+      "C": "Ortalama, uç değerlerden dolayı gerçekçi olmayan bir rakama (çok yükseğe) kaymış olabilir.",
+      "D": "Gelir değerini sıfır yapmak, o müşterilerin hiç geliri olmadığı gibi yanlış bir matematiksel model yaratır.",
+      "E": "PCA uygulayabilmek için öncelikle veri setinde eksik değer bulunmaması gerekir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Medyan (Ortanca)",
+        "definition": "Sıralanmış bir veri dizisinin tam ortasında yer alan, aykırı değerlere karşı dirençli merkezi eğilim ölçüsü."
+      }
+    ]
+  },
+  {
+    "id": "w6-v020",
+    "week": 6,
+    "topic": "curse-of-dimensionality",
+    "type": "verbal",
+    "tags": [
+      "boyut-laneti",
+      "kavram",
+      "k-means"
+    ],
+    "sourceNotebook": null,
+    "question": "Makine öğrenmesinde 'Curse of Dimensionality' (Boyut Laneti) kavramı, kümeleme algoritmalarını nasıl etkiler?",
+    "code": null,
+    "options": {
+      "A": "Veri setindeki satır sayısı arttıkça modelin K değerini bulmasını imkansız hale getirir.",
+      "B": "Boyut (sütun) sayısı arttıkça veri noktaları arasındaki mesafe anlamını yitirir ve Öklid gibi metrikler başarısız olur.",
+      "C": "Yalnızca eksik veriler çoğaldığında ortaya çıkar ve algoritmanın çökmesine neden olur.",
+      "D": "Etiketli (Y) verilerin sayısının etiketlenmemiş verilerden fazla olması durumunda modeli yanıltır.",
+      "E": "Boyut sayısı azaldıkça varyansın artmasına ve modelin aşırı öğrenmesine (overfitting) sebep olur."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Boyut laneti satır (veri) sayısıyla değil, sütun (özellik/boyut) sayısıyla ilgilidir.",
+      "B": "Doğru. Sütun (boyut) sayısı çok fazla arttığında yüksek boyutlu uzayda her nokta birbirine eşit uzaklıktaymış gibi görünmeye başlar. Mesafe metrikleri ayırt ediciliğini ve anlamını kaybeder.",
+      "C": "Eksik verilerle değil, doğrudan değişken (özellik) sayısının çokluğuyla ilgilidir.",
+      "D": "Kümelemede etiketli Y verisi zaten kullanılmaz.",
+      "E": "Boyut sayısı azaldıkça modelin genelleme yeteneği artar, boyut laneti boyutlar arttığında yaşanır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Boyut (Dimension)",
+        "definition": "Veri setindeki her bir özellik (feature) veya sütun."
+      }
+    ]
+  },
+  {
+    "id": "w6-v021",
+    "week": 6,
+    "topic": "k-means-ve-knn-farki",
+    "type": "verbal",
+    "tags": [
+      "algoritma-farkı",
+      "k-means",
+      "knn"
+    ],
+    "sourceNotebook": null,
+    "question": "K-Means ve KNN (K-Nearest Neighbors) algoritmaları isim olarak birbirine benzese de çalışma mantıkları tamamen farklıdır. Aşağıdakilerden hangisi bu iki algoritma arasındaki temel farkı belirtir?",
+    "code": null,
+    "options": {
+      "A": "K-Means denetimli öğrenme algoritmasıyken, KNN gözetimsiz bir kümeleme algoritmasıdır.",
+      "B": "KNN, etiketli veriler üzerinden yeni gelen verinin sınıfını tahmin ederken; K-Means etiketsiz verileri kendi içindeki benzerliklerine göre gruplar.",
+      "C": "K-Means mesafe temelli (Öklid vb.) çalışırken, KNN kural temelli (Entropy vb.) çalışır.",
+      "D": "KNN algoritması modelin eğitim aşamasında çok uzun süre hesaplama yaparken, K-Means sadece test aşamasında yavaşlar.",
+      "E": "K-Means'te K parametresi komşu sayısını belirtirken, KNN'de K parametresi toplam küme sayısını belirtir."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Tam tersidir. KNN denetimli (supervised), K-Means gözetimsiz (unsupervised) öğrenmedir.",
+      "B": "Doğru. KNN sınıflandırma yapar ve geçmiş etiketleri bilir. K-Means ise etiket bilmeden elindeki tüm veriyi mesafelerine göre kümelere ayırır.",
+      "C": "Her iki algoritma da mesafe temelli çalışır. Kural temelli çalışan Decision Tree'dir.",
+      "D": "KNN 'Lazy Learner'dır, eğitim aşamasında model kurmaz (hesaplama yapmaz), tahmin anında yavaşlar.",
+      "E": "Tam tersidir. K-Means'te K küme sayısıdır, KNN'de K komşu sayısıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Denetimli Öğrenme (Supervised Learning)",
+        "definition": "Modelin hem girdileri (X) hem de sonuçları (Y etiketleri) görerek eğitildiği makine öğrenmesi türü."
+      }
+    ]
+  },
+  {
+    "id": "w6-v022",
+    "week": 6,
+    "topic": "k-means-mesafe-NLP",
+    "type": "verbal",
+    "tags": [
+      "algoritma-seçimi",
+      "metin-madenciliği",
+      "kosinüs"
+    ],
+    "sourceNotebook": null,
+    "question": "Doğal Dil İşleme (NLP) ve metin madenciliği uygulamalarında, dokümanları kelime içeriklerine göre kümelemek için K-Means kullanılacaktır. Vektörlerin uzunluklarından (kelime sayısından) ziyade, yönelimlerine ve açılarına bakılarak benzerlik ölçülmesi gereken bu durumda hangi mesafe ölçümünün seçilmesi en uygundur?",
+    "code": null,
+    "options": {
+      "A": "Öklid Mesafesi",
+      "B": "Kosinüs (Cosine) Benzerliği",
+      "C": "Manhattan Mesafesi",
+      "D": "Hamming Mesafesi",
+      "E": "Minkowski Mesafesi"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Öklid mesafesi sürekli sayısal koordinatlardaki uzunluğa odaklanır, metin vektörlerindeki yönelimi ölçmek için zayıftır.",
+      "B": "Doğru. Kosinüs benzerliği, iki vektör arasındaki açının kosinüsünü ölçer. Dokümanların uzunlukları (biri 10 sayfa, diğeri 1 sayfa olabilir) farklı olsa bile yönelimleri aynıysa benzer kabul eder.",
+      "C": "Manhattan mesafesi grid (ızgara) tabanlı hesaplamalar içindir.",
+      "D": "Hamming mesafesi yapısal (harf harf veya bit bit) farklılıkları sayar, geniş metin bağlamı ve vektör açısı için kullanılmaz.",
+      "E": "Minkowski, Öklid ve Manhattan'ın genellemesidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Kosinüs Benzerliği",
+        "definition": "İki vektör arasındaki açıyı kullanarak yönelimsel benzerliği ölçen metrik."
+      }
+    ]
+  },
+  {
+    "id": "w6-v023",
+    "week": 6,
+    "topic": "k-means-gorsellestirme-siniri",
+    "type": "verbal",
+    "tags": [
+      "görselleştirme",
+      "pca",
+      "kavram"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir veri analisti, 7 boyutlu (sütunlu) ve tamamı değerli verilerden oluşan bir veri setindeki kümeleme sonuçlarını tek bir grafik üzerinde eksiksiz olarak görselleştirmek istemektedir. Bu işlem PCA uygulamadan mümkün müdür? Neden?",
+    "code": null,
+    "options": {
+      "A": "Mümkündür; K-Means algoritması 7 boyutu kendisi otomatik olarak sıkıştırıp tek bir grafik çıkarır.",
+      "B": "Mümkün değildir; insan gözü ve klasik grafikleme yöntemleri en fazla 3 boyutu (3D) aynı anda algılayabilir.",
+      "C": "Mümkündür; logaritmik dönüşüm kullanılarak 7 eksen tek bir eksen üzerine katlanabilir.",
+      "D": "Mümkün değildir; çünkü 7 boyutlu verilerde varyans her zaman 0.85'in altına düşer.",
+      "E": "Mümkündür; Elbow metodu sayesinde boyut sayısı K değerine eşitlenerek çizim yapılabilir."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "K-Means algoritması hesaplamaları 7 boyutta yapar ancak boyutları görselleştirme için otomatik olarak sıkıştırmaz.",
+      "B": "Doğru. Fiziksel ve görsel sınırımız gereği verileri en fazla 1D (nokta), 2D (grafik) veya 3D (küp) olarak görebiliriz. 4 ve üzeri boyutları tek bir grafikte görselleştirmek için PCA ile boyut azaltımı zorunludur.",
+      "C": "Logaritmik dönüşüm çarpık dağılımları düzeltir, eksen sayısını (boyutu) azaltmaz.",
+      "D": "7 boyutlu verinin kendi varyansı vardır, varyans düşüşü PCA uygulandıktan sonraki bilgi kaybını ölçer.",
+      "E": "Elbow metodu optimum küme (K) sayısını belirler, boyut (sütun) sayısına müdahale etmez."
+    },
+    "relatedTerms": [
+      {
+        "term": "Görselleştirme (Visualization)",
+        "definition": "Verilerin anlaşılabilirliğini artırmak için grafik, tablo veya şemalarla temsil edilmesi."
+      }
+    ]
+  },
+  {
+    "id": "w6-v024",
+    "week": 6,
+    "topic": "k-means-baslangic-duyarliligi",
+    "type": "verbal",
+    "tags": [
+      "dezavantaj",
+      "k-means",
+      "kavram"
+    ],
+    "sourceNotebook": null,
+    "question": "K-Means algoritması ile aynı veri seti üzerinde iki kez çalıştırılan bir model, her iki çalışmada da farklı kümeleme sonuçları üretmiştir. Algoritma parametreleri ve K sayısı değiştirilmediğine göre, bu farklılığın temel sebebi K-Means'in hangi özelliğidir?",
+    "code": null,
+    "options": {
+      "A": "Her çalıştırmada farklı bir mesafe ölçüm metriği kullanması.",
+      "B": "Aykırı değerlerin (outliers) her çalışmada yer değiştirmesi.",
+      "C": "Başlangıç merkez noktalarının (centroids) her seferinde uzaya rastgele atanması.",
+      "D": "Elbow metodunun her döngüde farklı bir kırılma noktası hesaplaması.",
+      "E": "Varyans değerinin eğitim süresince sürekli değişime uğraması."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Algoritma dışarıdan parametre değiştirilmedikçe aynı mesafe metriğini (genelde Öklid) kullanır.",
+      "B": "Aykırı değerler veri setinin içindedir, yerleri değişmez.",
+      "C": "Doğru. K-Means ilk iterasyona başlarken belirlediğiniz K sayısı kadar merkezi uzaya rastgele fırlatır (Random Initialization). Başlangıç noktaları farklı olduğu için, merkezlerin noktaları toplaya toplaya gideceği nihai konumlar (ve kümeler) farklılık gösterebilir.",
+      "D": "Elbow metodu K'yı bulmak için bizim yaptığımız dışarıdan bir testtir, K-Means'in çalışma mekanizmasının parçası değildir.",
+      "E": "Varyans PCA'in konusudur, K-Means'in rastgelelik problemi ile ilgili değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Random Initialization (Rastgele Başlatma)",
+        "definition": "Algoritmanın çalışmaya başlamak için ilk parametre veya merkezleri şansa bağlı belirlemesi."
+      }
+    ]
+  },
+  {
+    "id": "w6-v025",
+    "week": 6,
+    "topic": "pca-varyans-karari",
+    "type": "verbal",
+    "tags": [
+      "pca",
+      "karar-verme",
+      "varyans"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir veri madenciliği projesinde, 10 boyutlu müşteri verisi PCA ile 3 boyuta indirgenmiştir. Çıktı raporunda varyansın (bilgi koruma oranının) 0.93 olduğu görülmüştür. Bu durumla ilgili alınması gereken karar aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Boyut sayısı çok fazla azaltıldığı için varyansa bakılmaksızın işlem iptal edilmelidir.",
+      "B": "Varyans 0.90'ın üzerinde olduğu için bilginin büyük ölçüde korunduğu kabul edilir ve işlem onaylanır.",
+      "C": "Varyans 1.0 olmadığı sürece her türlü PCA işlemi başarısız sayılacağından model eski haline döndürülmelidir.",
+      "D": "Varyansın 0.93 olması aşırı öğrenmeye (overfitting) işaret ettiği için PCA yerine K-Means kullanılmalıdır.",
+      "E": "Kalan 3 boyutun da silinerek varyansın 0.0'a çekilmesi sağlanmalıdır."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Boyutun 10'dan 3'e düşürülmesi, varyans korunduğu sürece mükemmel bir başarıdır, iptal edilmez.",
+      "B": "Doğru. PCA'de amaç varyansı (bilgiyi) koruyarak boyutu küçültmektir. Genel kural olarak 0.90 ve üzeri varyans korunması, işlemin başarılı olduğu ve veri kaybının kabul edilebilir seviyede (sadece %7) olduğu anlamına gelir.",
+      "C": "Boyut azaltıldığında varyansın 1.0 (orijinal) kalması matematiksel olarak genelde imkansızdır, her zaman ufak bir kayıp olur.",
+      "D": "Varyansın yüksek olması aşırı öğrenme demek değildir, bilginin temsil gücü demektir. K-Means PCA'in alternatifi değil, sonraki adımıdır.",
+      "E": "Tüm boyutları silmek veriyi yok etmektir."
+    },
+    "relatedTerms": [
+      {
+        "term": "PCA (Temel Bileşen Analizi)",
+        "definition": "Çok değişkenli verideki temel yapıları bularak, birbirleriyle ilişkisiz yeni ve daha az sayıda değişken (bileşen) oluşturan yöntem."
+      }
+    ]
+  },
+  {
+    "id": "w6-v026",
+    "week": 6,
+    "topic": "hiyerarsik-kumeleme-ornegi",
+    "type": "verbal",
+    "tags": [
+      "kavram",
+      "hiyerarşik-kümeleme",
+      "tanım"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir sirkette 'Müdür', 'Müdür Yardımcıları' ve onların altındaki 'Asistanlar' gibi ağaç (tree) mantığına dayanan bir yapılandırmayı modellemek için hangi gözetimsiz öğrenme algoritmasının kullanılması yapısal olarak en uygundur?",
+    "code": null,
+    "options": {
+      "A": "K-Means Kümeleme",
+      "B": "PCA (Boyut Azaltma)",
+      "C": "Hiyerarşik Kümeleme",
+      "D": "K-Nearest Neighbors (KNN)",
+      "E": "Apriori Algoritması"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "K-Means veriyi iç içe ağaç yapısında değil, yan yana bağımsız dairesel kümeler halinde böler.",
+      "B": "PCA kümeleme algoritması değil, boyut azaltma tekniğidir.",
+      "C": "Doğru. Hiyerarşik Kümeleme (Agglomerative/Divisive) algoritmaları verileri birbiri ardına kapsayan, ağaç (dendrogram) mantığına dayanan alt-üst ilişkili gruplar oluşturur.",
+      "D": "KNN denetimli bir sınıflandırma algoritmasıdır.",
+      "E": "Apriori, market sepeti analizi gibi birliktelik (association) kuralları bulmak için kullanılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Hiyerarşik Kümeleme",
+        "definition": "Verileri birbirini kapsayan alt ve üst kümeler ağacı (dendrogram) şeklinde gruplandıran algoritma ailesi."
+      }
+    ]
+  },
+  {
+    "id": "w6-v027",
+    "week": 6,
+    "topic": "k-means-etiketsiz-veri",
+    "type": "verbal",
+    "tags": [
+      "kavram",
+      "etiketsiz-veri",
+      "x-ve-y"
+    ],
+    "sourceNotebook": null,
+    "question": "K-Means algoritması çalıştırılırken veri setinin yapısı incelendiğinde, aşağıdakilerden hangisi her zaman doğrudur?",
+    "code": null,
+    "options": {
+      "A": "Veri setinde yalnızca hedef (Y) değişkeni bulunur, bağımsız değişkenler (X) model tarafından üretilir.",
+      "B": "Veri setinde hem bağımsız değişkenler (X) hem de tahmin edilecek hedef değişkeni (Y) bir arada bulunur.",
+      "C": "Veri setinde yalnızca bağımsız değişkenler (X) bulunur, hedef (Y) sütunu yoktur.",
+      "D": "Model, etiketli verilerle eğitim yapar, ardından etiketsiz verileri test eder.",
+      "E": "K-Means, hedef değişkeni (Y) olmayan satırları eksik veri sayarak siler."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "K-Means bağımsız değişkenleri (X) kullanır, modelden Y beklenmez.",
+      "B": "Eğer hedef (Y) değişkeni varsa o işlem sınıflandırma (classification) olur, kümeleme olmaz.",
+      "C": "Doğru. K-Means bir gözetimsiz öğrenme (Unsupervised Learning) modelidir. Ne aradığını (hedefi) baştan bilmez. Sadece bağımsız özelliklere (X'lere) bakarak gruplama yapar.",
+      "D": "K-Means eğitim/test ayrımından ziyade, tüm veriyi bir anda özelliklerine göre böler; etiket hiç yoktur.",
+      "E": "Hedef değişkeni (Y) olmaması K-Means'in varoluş amacıdır, hata veya eksik veri değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Bağımlı Değişken (Target/Label/Y)",
+        "definition": "Tahmin edilmek veya sınıflandırılmak istenen, verinin sonucunu belirten etiket sütunu."
+      }
+    ]
+  },
+  {
+    "id": "w6-v028",
+    "week": 6,
+    "topic": "tahmin-vs-kumeleme",
+    "type": "verbal",
+    "tags": [
+      "kavram-farkı",
+      "karar-verme",
+      "tahmin"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir hastanede geçmişte tedavi görmüş hastaların tahlil sonuçları (X) ve hastanın 'Sağlıklı/Hasta' (Y) bilgileri mevcuttur. Hastane, yeni gelen bir hastanın tahlillerine bakarak onun hasta olup olmadığını otomatik tespit etmek istiyor. Bu işlem için K-Means kullanılması uygun mudur? Neden?",
+    "code": null,
+    "options": {
+      "A": "Uygundur; K-Means geçmiş Y etiketlerini çok hızlı öğrenerek yeni gelen veriyi tahmin eder.",
+      "B": "Uygun değildir; çünkü K-Means tahmin (prediction) yapmaz, geçmiş etiketlere bakarak öğrenemez, sadece elindeki verileri benzerliklerine göre gruplar.",
+      "C": "Uygundur; tahlil sonuçları sayısal değerler olduğu için Öklid mesafesi ile kesin hastalık teşhisi konulabilir.",
+      "D": "Uygun değildir; çünkü tıbbi verilerde PCA kullanılması yasal olarak yasaktır.",
+      "E": "Uygundur; Hiyerarşik Kümeleme yerine K-Means seçilirse Y değişkeni otomatik olarak hedef haline gelir."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "K-Means geçmiş Y etiketlerini okumaz ve öğrenmez, gözetimsizdir.",
+      "B": "Doğru. Hedefi belli olan verilerden öğrenip, yeni gelen veriyi tahmin etme işi denetimli öğrenmenin (Sınıflandırma, örn: KNN) işidir. K-Means Y etiketlerini kullanamaz ve geleceği tahmin etmez.",
+      "C": "Sayısal olmaları K-Means'in çalışmasını sağlasa da, teşhis (tahmin) koyma mantığı K-Means'e aykırıdır.",
+      "D": "Tıbbi verilerde PCA kullanmanın yasal yasağı yoktur, teknik bir nedenden ötürü uygun değildir.",
+      "E": "Hiçbir kümeleme algoritması Y değişkenini hedef olarak görüp öğrenemez."
+    },
+    "relatedTerms": [
+      {
+        "term": "Sınıflandırma (Classification)",
+        "definition": "Verilen girdi verilerini (X), geçmiş etiketlerden öğrenerek belirli kategorilere (Y) atama görevi."
+      }
+    ]
+  },
+  {
+    "id": "w6-v029",
+    "week": 6,
+    "topic": "elbow-k-secimi-pratik",
+    "type": "verbal",
+    "tags": [
+      "elbow",
+      "k-değeri",
+      "karar-verme"
+    ],
+    "sourceNotebook": null,
+    "question": "Elbow metodunu kullanarak hata oranları hesaplanmış ve grafikte K=3, K=4 ve K=5 noktalarında dirsek görünümü saptanmıştır. İş mantığı ve 'Minimum Küme, Maksimum Yorum' prensibi dikkate alındığında, modelin nihai küme sayısı (K) olarak hangisinin seçilmesi analiste en fazla yorumlama kolaylığı sağlar?",
+    "code": null,
+    "options": {
+      "A": "K=5, çünkü küme sayısı arttıkça hata oranı her zaman daha düşük olur.",
+      "B": "K=3, çünkü daha az sayıdaki kümeye isim (etiket) vermek ve iş bağlamında yorumlamak çok daha kolaydır.",
+      "C": "K=4, çünkü her zaman çift sayıdaki kümeler daha dengeli dağılır.",
+      "D": "K=1, çünkü tüm veriyi tek bir kümede tutmak hata oranını tamamen sıfırlar.",
+      "E": "K=5, çünkü PCA 5 boyuta kadar görselleştirme yapabilir."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Hata oranı düşse de, 5 kümeyi iş birimlerine anlatmak ve etiketlemek, 3 kümeye göre daha zordur.",
+      "B": "Doğru. Kırılma bandında birbirine yakın dirsekler varsa, en küçük olan (K=3) tercih edilir. Çünkü 'Zengin, Orta, Fakir' gibi 3 grubu yorumlamak, 5 farklı nüanslı grubu etiketlemekten çok daha pratiktir.",
+      "C": "Kümelerin tek veya çift olması başarıyı veya dengeyi etkilemez.",
+      "D": "Tüm veriyi K=1 yapmak hatayı maksimize eder (hiç kümeleme yapılmamış olur).",
+      "E": "PCA'in görselleştirme sınırı 2 veya 3 boyuttur (2D/3D), 5 boyut değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Optimum K",
+        "definition": "Hata oranındaki düşüşün anlamlı olduğu son nokta ile iş mantığının yorumlanabilirliğinin kesiştiği ideal küme sayısı."
+      }
+    ]
+  },
+  {
+    "id": "w6-v030",
+    "week": 6,
+    "topic": "veri-sikistirma-farki",
+    "type": "verbal",
+    "tags": [
+      "kavram",
+      "veri-sıkıştırma",
+      "fark"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri yapılarında kullanılan sıkıştırma algoritmaları kayıplı (lossy) ve kayıpsız (lossless) olmak üzere ikiye ayrılır. Bu bağlamda, K-Means algoritmasının görüntü sıkıştırmadaki yeri ve metin sıkıştırmasıyla olan farkı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "K-Means hem görüntüyü hem de metni kayıpsız sıkıştırır; bu yüzden her iki alanda da varsayılan algoritmadır.",
+      "B": "K-Means görüntüdeki renkleri benzer kümelerde toplayarak kayıplı sıkıştırma yapar; metinlerde ise 1 bitlik kayıp bile anlamı bozacağından kayıpsız sıkıştırma kullanılır ve K-Means tercih edilmez.",
+      "C": "K-Means metinlerdeki kelimeleri kümelerken kayıplı sıkıştırma yapar, görüntüleri ise kayıpsız olarak piksel piksel korur.",
+      "D": "Görüntü sıkıştırma işleminde K-Means PCA'ya dönüşerek varyansı sıfırlar, bu yüzden kayıpsızdır.",
+      "E": "K-Means görüntü sıkıştırmada Manhattan mesafesini kullandığı için pikseller arası kayıpsız bir matris oluşturur."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "K-Means görüntüde kayıplı sıkıştırma yapar, kayıpsız değil.",
+      "B": "Doğru. Görüntüde binlerce renk tonunu (örneğin kahverengileri) 3-5 ana renge indirgeyerek (K-Means ile) kayıplı ama görseli bozmayan bir sıkıştırma yapılır. Metinde ise kayıplı sıkıştırma yapılamaz çünkü harf kaybı kelimenin anlamını yok eder.",
+      "C": "Tam tersi, K-Means görüntüde renk kümelerini birleştirerek kaliteyi (ve boyutu) düşürür (kayıplı).",
+      "D": "K-Means PCA'ya dönüşmez, ikisi farklı algoritmalardır. Ayrıca varyans sıfırlanmaz.",
+      "E": "K-Means görüntüde piksellerin renk (RGB) değerlerini Öklid ile ölçerek kümeleştirir, kayıpsız değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Kayıplı Sıkıştırma (Lossy Compression)",
+        "definition": "Dosya boyutunu küçültmek için verinin bir kısmının (insan algısını çok bozmayacak şekilde) kalıcı olarak atıldığı sıkıştırma türü."
+      }
+    ]
+  },
+  {
     "id": "w06-q001",
     "week": 6,
     "topic": "veri-on-isleme",
