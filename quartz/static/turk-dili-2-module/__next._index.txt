@@ -1,7 +1,84 @@
 1:"$Sreact.fragment"
-2:I[7121,[],""]
-3:I[4581,[],""]
-:HL["/noetic-logos/static/turk-dili-2-module/_next/static/css/ec89a193b70cc130.css","style"]
-:HL["https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap","style"]
-:HL["https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap","style"]
-0:{"buildId":"z7kfr8BD4NYnZB9mqDcod","rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/noetic-logos/static/turk-dili-2-module/_next/static/css/ec89a193b70cc130.css","precedence":"next"}]],["$","html",null,{"lang":"tr","children":[["$","head",null,{"children":[["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap","rel":"stylesheet"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap","rel":"stylesheet"}]]}],["$","body",null,{"className":"ambient-layer bg-background-light text-ink antialiased h-screen flex flex-col overflow-hidden","children":["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]]}]}]]}]]}],"loading":null,"isPartial":false}
+2:I[2593,["177","static/chunks/app/layout-9cdf7ad31ce85940.js"],""]
+8:I[7121,[],""]
+9:I[4581,[],""]
+:HL["/noetic-logos/static/turk-dili-2-module/_next/static/css/f2d0e7f15ccf7970.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block","style"]
+3:T7fc,
+(() => {
+  const root = document.documentElement;
+  const READY_EVENT = 'turkDili:app-ready';
+  let isRevealed = false;
+
+  try {
+    if (window.localStorage.getItem('turkDili_theme') === 'dark') {
+      root.classList.add('dark');
+    }
+  } catch {}
+
+  const revealApp = () => {
+    if (isRevealed) return;
+    isRevealed = true;
+    root.classList.remove('app-booting');
+
+    const splash = document.getElementById('app-boot-splash');
+    if (!splash) return;
+
+    splash.classList.add('app-boot-splash-hide');
+    window.setTimeout(() => splash.remove(), 220);
+  };
+
+  const waitForDom = document.readyState === 'loading'
+    ? new Promise((resolve) => document.addEventListener('DOMContentLoaded', resolve, { once: true }))
+    : Promise.resolve();
+
+  const waitForLoad = document.readyState === 'complete'
+    ? Promise.resolve()
+    : new Promise((resolve) => {
+        const finish = () => {
+          window.removeEventListener('load', finish);
+          resolve();
+        };
+
+        window.addEventListener('load', finish, { once: true });
+        window.setTimeout(finish, 2600);
+      });
+
+  const waitForIcons = new Promise((resolve) => {
+    let settled = false;
+
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      root.classList.add('icons-ready');
+      resolve();
+    };
+
+    if (!document.fonts || document.fonts.check('400 1em "Material Symbols Outlined"')) {
+      finish();
+      return;
+    }
+
+    document.fonts.load('400 1em "Material Symbols Outlined"').then(finish).catch(finish);
+    window.setTimeout(finish, 2600);
+  });
+
+  const waitForApp = new Promise((resolve) => {
+    const finish = () => {
+      window.removeEventListener(READY_EVENT, finish);
+      resolve();
+    };
+
+    window.addEventListener(READY_EVENT, finish, { once: true });
+    window.setTimeout(finish, 4200);
+  });
+
+  const minDelay = new Promise((resolve) => window.setTimeout(resolve, 620));
+
+  Promise.all([waitForDom, waitForLoad, waitForIcons, waitForApp, minDelay]).then(revealApp).catch(revealApp);
+})();
+0:{"buildId":"eL2BYsIk50-by9q1fVqUl","rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/noetic-logos/static/turk-dili-2-module/_next/static/css/f2d0e7f15ccf7970.css","precedence":"next"}]],["$","html",null,{"lang":"tr","className":"app-booting","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","$L2",null,{"id":"app-boot-script","strategy":"beforeInteractive","children":"$3"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block","rel":"stylesheet"}]]}],["$","body",null,{"className":"ambient-layer bg-background-light text-ink antialiased h-screen flex flex-col overflow-hidden","children":[["$","div",null,{"id":"app-boot-splash","className":"app-boot-splash","aria-hidden":"true","children":["$","div",null,{"className":"app-boot-panel","children":[["$","div",null,{"className":"mx-auto wolf-loader-mark","children":[["$","span",null,{"className":"wolf-loader-ear wolf-loader-ear-left"}],["$","span",null,{"className":"wolf-loader-ear wolf-loader-ear-right"}],["$","span",null,{"className":"wolf-loader-face","children":[["$","span",null,{"className":"wolf-loader-eye wolf-loader-eye-left"}],["$","span",null,{"className":"wolf-loader-eye wolf-loader-eye-right"}],["$","span",null,{"className":"wolf-loader-muzzle"}]]}]]}],["$","div",null,{"className":"mt-5 text-center","children":["$L4","$L5"]}],"$L6"]}]}],"$L7"]}]]}]]}],"loading":null,"isPartial":false}
+4:["$","div",null,{"className":"headline-font mt-3 text-3xl font-extrabold tracking-tight text-[#13333a] dark:text-white sm:text-[2.2rem]","children":"Türk Dili II"}]
+5:["$","div",null,{"className":"label-font mt-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#006876]/58 dark:text-[#88C0D0]/62","children":"Hazırlanıyor"}]
+6:["$","div",null,{"className":"app-boot-bar mt-7","children":["$","span",null,{"className":"app-boot-bar-fill"}]}]
+7:["$","$L8",null,{"parallelRouterKey":"children","template":["$","$L9",null,{}],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]]}]

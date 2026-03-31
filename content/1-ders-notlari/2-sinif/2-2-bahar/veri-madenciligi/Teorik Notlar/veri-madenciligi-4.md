@@ -178,7 +178,7 @@ graph TD
     Node2 -->|NO| Leaf4("🟩 LEAF NODES / YAPRAKLAR <br> (Nihai Karar)")
 ```
 
-
+z
 #### Örnek Bir Karar Ağacı: "İş Teklifini Kabul Etmeli Miyim?"
 
 ```mermaid
