@@ -60,57 +60,46 @@ Makine öğrenmesi, bilgisayarların açıkça programlanmadan verilerden öğre
 
 
 ```mermaid
-flowchart TD
+graph TD
 
-    %% Ana Başlık
-    A["MAKİNE ÖĞRENMESİ"]
+A["MAKİNE ÖĞRENMESİ"]
+A --> B["Denetimli Öğrenme <br> Supervised Learning"]
+A --> C["Denetimsiz Öğrenme <br> Unsupervised Learning"]
 
-    %% İki Ana Dal
-    A --> B["Denetimli Öğrenme <br> Supervised Learning"]
-    A --> C["Denetimsiz Öğrenme <br> Unsupervised Learning"]
+B -.-> B_desc["Label / Etiket bulunan verilerle <br>yapılan öğrenmedir. <br>Amaç: Tahmin yapmak"]
+C -.-> C_desc["Label / Etiket bulunmayan verilerle <br>yapılan öğrenmedir. <br>Amaç: Verideki yapıyı keşfetmek"]
 
-    %% Açıklama Kutuları
-    B -.-> B_desc["Label / Etiket bulunan verilerle <br>yapılan öğrenmedir. <br>Amaç: Tahmin yapmak"]
-    C -.-> C_desc["Label / Etiket bulunmayan verilerle <br>yapılan öğrenmedir. <br>Amaç: Verideki yapıyı keşfetmek"]
+B --> D("SINIFLANDIRMA <br> Classification")
+B --> E("REGRESYON <br> Regression")
 
-    %% Denetimli Alt Dalları
-    B --> D(["SINIFLANDIRMA <br> Classification"])
-    B --> E(["REGRESYON <br> Regression"])
+D --> D1("Decision Tree / Karar Ağacı")
+D --> D2("Random Forest")
+D --> D3("KNN / K-Nearest Neighbors")
+D --> D4("Naive Bayes")
+D --> D5("SVM / Destek Vektör Makineleri")
+D --> D6("Lojistik Regresyon")
 
-    %% Sınıflandırma Algoritmaları
-    D --> D1("Decision Tree / Karar Ağacı")
-    D --> D2("Random Forest")
-    D --> D3("KNN / K-Nearest Neighbors")
-    D --> D4("Naive Bayes")
-    D --> D5("SVM / Destek Vektör Makineleri")
-    D --> D6("Lojistik Regresyon")
+E --> E1("Lineer Regresyon")
+E --> E2("Ridge / Lasso")
+E --> E3("Decision Tree Regressor")
 
-    %% Regresyon Algoritmaları
-    E --> E1("Lineer Regresyon")
-    E --> E2("Ridge / Lasso")
-    E --> E3("Decision Tree Regressor")
+C --> F("KÜMELEME <br> Clustering")
+C --> G("BİRLİKTELİK KURALLARI <br> Association Rules")
 
-    %% Denetimsiz Alt Dalları
-    C --> F(["KÜMELEME <br> Clustering"])
-    C --> G(["BİRLİKTELİK KURALLARI <br> Association Rules"])
+F --> F1("K-Means")
+F --> F2("Hiyerarşik Kümeleme")
+F --> F3("DBSCAN")
 
-    %% Kümeleme Algoritmaları
-    F --> F1("K-Means")
-    F --> F2("Hiyerarşik Kümeleme")
-    F --> F3("DBSCAN")
+G --> G1("Apriori")
+G --> G2("Eclat")
+G --> G3("FP-Growth")
 
-    %% Birliktelik Algoritmaları
-    G --> G1("Apriori")
-    G --> G2("Eclat")
-    G --> G3("FP-Growth")
-
-    %% Renklendirmeler ve Stiller (Karanlık Mod Uyumluluğu Eklendi)
-    style B fill:#d4edda,stroke:#28a745,stroke-width:2px,color:#000000
-    style C fill:#fff3cd,stroke:#ffc107,stroke-width:2px,color:#000000
-    style D fill:#17a2b8,stroke:#ffffff,stroke-width:2px,color:#ffffff
-    style E fill:#17a2b8,stroke:#ffffff,stroke-width:2px,color:#ffffff
-    style F fill:#fd7e14,stroke:#ffffff,stroke-width:2px,color:#ffffff
-    style G fill:#fd7e14,stroke:#ffffff,stroke-width:2px,color:#ffffff
+style B fill:#d4edda,stroke:#28a745,stroke-width:2px,color:#000000
+style C fill:#fff3cd,stroke:#ffc107,stroke-width:2px,color:#000000
+style D fill:#17a2b8,stroke:#ffffff,stroke-width:2px,color:#ffffff
+style E fill:#17a2b8,stroke:#ffffff,stroke-width:2px,color:#ffffff
+style F fill:#fd7e14,stroke:#ffffff,stroke-width:2px,color:#ffffff
+style G fill:#fd7e14,stroke:#ffffff,stroke-width:2px,color:#ffffff
 ```
 
 
@@ -193,39 +182,33 @@ graph TD
 #### Örnek Bir Karar Ağacı: "İş Teklifini Kabul Etmeli Miyim?"
 
 ```mermaid
-flowchart TD
+graph TD
 
-    %% Kök Düğüm
-    A(["Maaş 50.000 dolardan fazla mı? <br> (Ağacın Kökü)"])
-    
-    %% İç Düğümler
-    B(["Ulaşım 1 saatten fazla mı sürüyor?"])
-    C(["Kahve ücretsiz mi?"])
+A("Maaş 50.000 dolardan fazla mı? <br> (Ağacın Kökü)")
+B("Ulaşım 1 saatten fazla mı sürüyor?")
+C("Kahve ücretsiz mi?")
 
-    %% Yapraklar (Tahmin/Karar)
-    L1(("Teklifi reddet."))
-    L2(("Teklifi reddet."))
-    L3(("Teklifi reddet."))
-    L4(("Teklifi kabul et."))
+L1("Teklifi reddet.")
+L2("Teklifi reddet.")
+L3("Teklifi reddet.")
+L4("Teklifi kabul et.")
 
-    %% Bağlantılar (Edge'ler / Dallanmalar)
-    A -->|"Evet"| B
-    A -->|"Hayır"| L1
+A -->|"Evet"| B
+A -->|"Hayır"| L1
 
-    B -->|"Hayır"| C
-    B -->|"Evet"| L2
+B -->|"Hayır"| C
+B -->|"Evet"| L2
 
-    C -->|"Hayır"| L3
-    C -->|"Evet"| L4
+C -->|"Hayır"| L3
+C -->|"Evet"| L4
 
-    %% Obsidian Uyumlu Renklendirmeler ve Stiller
-    style A fill:#cce5ff,stroke:#004085,stroke-width:2px,color:#000000
-    style B fill:#cce5ff,stroke:#004085,stroke-width:2px,color:#000000
-    style C fill:#cce5ff,stroke:#004085,stroke-width:2px,color:#000000
-    style L1 fill:#f8d7da,stroke:#dc3545,stroke-width:2px,color:#000000
-    style L2 fill:#f8d7da,stroke:#dc3545,stroke-width:2px,color:#000000
-    style L3 fill:#f8d7da,stroke:#dc3545,stroke-width:2px,color:#000000
-    style L4 fill:#d4edda,stroke:#28a745,stroke-width:2px,color:#000000
+style A fill:#cce5ff,stroke:#004085,stroke-width:2px,color:#000000
+style B fill:#cce5ff,stroke:#004085,stroke-width:2px,color:#000000
+style C fill:#cce5ff,stroke:#004085,stroke-width:2px,color:#000000
+style L1 fill:#f8d7da,stroke:#dc3545,stroke-width:2px,color:#000000
+style L2 fill:#f8d7da,stroke:#dc3545,stroke-width:2px,color:#000000
+style L3 fill:#f8d7da,stroke:#dc3545,stroke-width:2px,color:#000000
+style L4 fill:#d4edda,stroke:#28a745,stroke-width:2px,color:#000000
 ```    
 
 
