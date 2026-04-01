@@ -12648,5 +12648,1475 @@
         "definition": "Veri setindeki gizli örüntüleri veya kümeleri bulmak için algoritmaların çalıştırıldığı evre."
       }
     ]
+  },
+  {
+    "id": "w7-v001",
+    "week": 7,
+    "topic": "birliktelik-kurallari-temelleri",
+    "type": "verbal",
+    "tags": [
+      "apriori",
+      "denetimsiz-ogrenme",
+      "kavram"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri madenciliği projelerinde bağımlı bir değişkeni (Y) yüksek doğrulukla tahmin etmek hedeflendiğinde, Apriori algoritmasının kullanılmamasının temel nedeni aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Veri setindeki eksik değerleri otomatik olarak doldurma yeteneğine sahip olmaması",
+      "B": "Yalnızca sayısal veriler üzerinde çalışabilen bir regresyon modeli olması",
+      "C": "Bir tahmin algoritması değil, veri içindeki bağlanma frekanslarını bulan bir kural çıkarım algoritması olması",
+      "D": "Modeli eğitirken eğitim ve test verisi ayrımına (train-test split) ihtiyaç duymaması",
+      "E": "Sınıflandırma problemlerinde yalnızca iki sınıflı veri setleriyle sınırlandırılmış olması"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Apriori'nin eksik veri doldurma yeteneğiyle ilgili bir kısıtı, tahmin modeli olmamasının temel nedeni değildir.",
+      "B": "Apriori bir regresyon modeli değildir; kategorik öğe gruplarının ilişkilerini inceler.",
+      "C": "Apriori algoritması bir model eğitip geleceği tahmin etmez; eldeki verinin mevcut yapısındaki örüntüleri ve kuralları ortaya çıkarır.",
+      "D": "Eğitim ve test ayrımı yapmaması onun denetimsiz yapısıyla ilgilidir ancak asıl sebep bir tahmin mekanizması barındırmamasıdır.",
+      "E": "Apriori bir sınıflandırma algoritması değildir, dolayısıyla sınıf sayısıyla ilgili bir kısıtlaması yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Apriori Algoritması",
+        "definition": "Veriler arasındaki gizli örüntüleri ve bağlanma frekanslarını bulan kural çıkarım algoritması."
+      }
+    ]
+  },
+  {
+    "id": "w7-v002",
+    "week": 7,
+    "topic": "birliktelik-kurallari-temelleri",
+    "type": "verbal",
+    "tags": [
+      "denetimsiz-ogrenme",
+      "etiket",
+      "kavram"
+    ],
+    "sourceNotebook": null,
+    "question": "Birliktelik kurallarının 'Denetimsiz Öğrenme (Unsupervised Learning)' kategorisinde yer almasının en belirgin göstergesi aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Veri setinde önceden belirlenmiş bir hedef (etiket) değişkeninin bulunmaması",
+      "B": "Algoritmanın sürekli olarak kendini güncelleyen bir geri bildirim döngüsüne sahip olması",
+      "C": "Sadece metinsel verileri işleyebilen özel bir mimariye dayanması",
+      "D": "Kuralların çıkarılması aşamasında herhangi bir eşik değerine ihtiyaç duyulmaması",
+      "E": "Sonuçların her zaman pozitif bir korelasyon (Lift > 1) üretmek zorunda olması"
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Denetimsiz öğrenme teknikleri, veride bir hedef/çıktı (Y) etiketi bulunmadığında örüntü yakalamak için kullanılır.",
+      "B": "Geri bildirim döngüsü daha çok pekiştirmeli öğrenme (reinforcement learning) ile ilgilidir.",
+      "C": "Birliktelik kuralları sadece metinsel verilerle değil, her türlü kategorik sepet/işlem verisiyle çalışabilir.",
+      "D": "Aksine, Apriori algoritması çalışabilmek için mutlaka bir Support (eşik) değerine ihtiyaç duyar.",
+      "E": "Sonuçlar negatif veya bağımsız ilişkiler (Lift < 1 veya Lift = 1) de üretebilir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Denetimsiz Öğrenme",
+        "definition": "Etiket bulunmayan veriler üzerinden örüntü yakalamaya çalışan makine öğrenmesi yaklaşımı."
+      }
+    ]
+  },
+  {
+    "id": "w7-v004",
+    "week": 7,
+    "topic": "apriori-calisma-mekanizmasi",
+    "type": "verbal",
+    "tags": [
+      "apriori-prensibi",
+      "kural",
+      "tanim"
+    ],
+    "sourceNotebook": null,
+    "question": "Apriori algoritmasının temelini oluşturan sarsılmaz kural (Apriori Prensibi) aşağıdakilerden hangisinde doğru olarak ifade edilmiştir?",
+    "code": null,
+    "options": {
+      "A": "Bir üst kümenin frekansı yüksekse, alt kümelerinin frekansı her zaman düşüktür.",
+      "B": "Eğer bir alt küme sık geçmiyorsa, onu barındıran hiçbir üst küme de sık geçemez.",
+      "C": "İki ürünün birlikte bulunma olasılığı, tek tek bulunma olasılıklarının toplamına eşittir.",
+      "D": "Bir ürünün tek başına satılma oranı eşik değerinin altındaysa, o ürün veri setinden tamamen silinmelidir.",
+      "E": "Eğer bir kuralın Lift değeri 1'den büyükse, o kuralın Support değeri her zaman eşik değerinin üzerindedir."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Üst kümenin frekansı yüksekse, onu oluşturan alt kümelerin frekansı matematiksel olarak daha da yüksek olmak zorundadır.",
+      "B": "Bu, Apriori prensibinin tam tanımıdır. Süt satmıyorsa, Süt+Ekmek kombinasyonu da satamaz mantığına dayanır.",
+      "C": "Birlikte bulunma olasılığı (kesişim), olasılıkların toplamına eşit değildir.",
+      "D": "Ürün silinmez, sadece o ürünün dahil olduğu kombinasyonlar kural çıkarma sürecinden elenir (budanır).",
+      "E": "Lift değeri ile Support eşiği arasında böyle doğrudan bir matematiksel zorunluluk yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Apriori Prensibi",
+        "definition": "Bir alt küme sık değilse, onun hiçbir üst kümesinin de sık olamayacağını belirten temel kural."
+      }
+    ]
+  },
+  {
+    "id": "w7-v005",
+    "week": 7,
+    "topic": "apriori-calisma-mekanizmasi",
+    "type": "verbal",
+    "tags": [
+      "senaryo",
+      "budama",
+      "iterasyon"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir perakende mağazasına ait veri tabanında Apriori algoritması çalıştırılmaktadır. Destek (Support) eşiği %30 olarak belirlenmiştir. İlk iterasyon sonucunda 'Şemsiye' ürününün tek başına bulunma oranının %15 olduğu görülmüştür. \n\nAlgoritmanın çalışma mekanizmasına göre bir sonraki adımda ne olması beklenir?",
+    "code": null,
+    "options": {
+      "A": "Algoritma, 'Şemsiye' ve 'Yağmurluk' ikilisinin satış oranını bulmak için veri tabanını tekrar tarar.",
+      "B": "Eşik değeri otomatik olarak %15'e düşürülerek 'Şemsiye' analizde tutulur.",
+      "C": "'Şemsiye' içeren hiçbir ikili veya üçlü kombinasyon hesaplanmaz ve doğrudan elenir.",
+      "D": "Şemsiye ürününün Lift değeri hesaplanarak pozitif bir ilişki olup olmadığı kontrol edilir.",
+      "E": "Algoritma 'Şemsiye' ürününü hedef değişken (Y) olarak belirleyip sınıflandırma modeline geçer."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Apriori prensibine göre alt küme eşiği geçemezse üst kümeler taranmaz; bu yüzden algoritmanın o kombinasyonlar için veri tabanını tekrar taraması beklenmez.",
+      "B": "Apriori algoritması, iterasyonlar sırasında eşik değerini (threshold) otomatik olarak dinamik şekilde değiştirmez.",
+      "C": "Şemsiye %30 eşiğinin altında kaldığı için (önsel bilgi), onu içeren hiçbir üst kombinasyonun %30'u geçemeyeceği mantıken bilinir ve budanır.",
+      "D": "Lift değeri kurallar oluştuktan sonra ilişkileri yorumlamak için kullanılır; ilk iterasyonda elenen ürün için kombinasyon aranıp Lift hesaplanmaz.",
+      "E": "Apriori denetimsiz bir öğrenme algoritmasıdır, hedef değişken (Y) ataması yapmaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "Budama (Pruning)",
+        "definition": "Eşik değerinin altında kalan öğelerin ve kombinasyonların işlemden çıkarılması süreci."
+      }
+    ]
+  },
+  {
+    "id": "w7-v006",
+    "week": 7,
+    "topic": "gercek-hayat-uygulamalari",
+    "type": "verbal",
+    "tags": [
+      "pazar-sepeti-analizi",
+      "senaryo",
+      "karar-verme"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir süpermarket zinciri, reyon dizilimlerini optimize etmek istemektedir. Yapılan pazar sepeti analizi sonucunda, ekmek satın alan müşterilerin yüksek bir yatkınlıkla (Confidence) süt de satın aldığı tespit edilmiştir. Ancak mağaza yönetimi, müşterilerin sadece ihtiyaçlarını alıp çıkmasını engellemek ve mağaza içinde daha fazla vakit geçirmelerini sağlamak istemektedir.\n\nBu stratejik hedefe göre, mağaza yönetiminin reyon yerleşimi konusunda alması beklenen en mantıklı karar aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Ekmek ve süt reyonlarını mağaza girişinde yan yana konumlandırmak",
+      "B": "Ekmek reyonunu girişe, süt reyonunu ise mağazanın en arka köşesine yerleştirmek",
+      "C": "Her iki ürünü de kasalara en yakın noktalarda indirimli olarak sergilemek",
+      "D": "Süt ürünlerinin satışını durdurarak müşterileri diğer içeceklere yönlendirmek",
+      "E": "Ekmek ve süt ürünlerini mağazanın tam ortasında aynı stantta birleştirmek"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Yan yana koymak müşterinin hızla alışverişi bitirmesini sağlar, mağazayı gezdirme hedefine uymaz.",
+      "B": "Birlikteliği yüksek olan iki ürünü fiziksel olarak uzaklaştırmak, müşteriyi birinden diğerine giderken tüm mağazayı dolaşmaya (gezdirme politikası) mecbur bırakır.",
+      "C": "Kasa yanına koymak ani/dürtüsel (impulse) alımlar içindir, mağazayı gezdirmez.",
+      "D": "Çok satan bir ürünün satışını durdurmak ticari olarak mantıksızdır ve analizin amacına aykırıdır.",
+      "E": "Aynı stantta birleştirmek, tıpkı girişte yan yana koymak gibi işlemi hızlandırır ve dolaşmayı engeller."
+    },
+    "relatedTerms": [
+      {
+        "term": "Pazar Sepeti Analizi",
+        "definition": "Müşterilerin alışveriş sepetlerindeki ürünlerin birlikte satın alınma eğilimlerini inceleyen yöntem."
+      }
+    ]
+  },
+  {
+    "id": "w7-v007",
+    "week": 7,
+    "topic": "gercek-hayat-uygulamalari",
+    "type": "verbal",
+    "tags": [
+      "e-ticaret",
+      "oneri-sistemleri",
+      "kavram"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir e-ticaret platformunda bir ürünü sepete eklediğinizde ekranda beliren 'Bunu alanlar bunu da aldı' şeklindeki öneri kutucukları, arka planda hangi veri madenciliği yaklaşımını kullanmaktadır?",
+    "code": null,
+    "options": {
+      "A": "Metin madenciliği ile ürün yorumlarının duygu analizi",
+      "B": "Pazar sepeti analizi ve birliktelik kuralları",
+      "C": "Gözetimli öğrenme ile müşteri yaş tahmini",
+      "D": "K-Means algoritması ile görüntü kümeleme",
+      "E": "Zaman serisi analizi ile mevsimsel talep tahmini"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Duygu analizi, metinlerin olumlu/olumsuz algısını ölçer; ürünlerin birlikte alınma sıklığını vermez.",
+      "B": "Birlikte alınan ürünlerin tespit edilip önerilmesi, Apriori gibi birliktelik kuralı algoritmalarının e-ticaretteki en temel uygulama alanıdır.",
+      "C": "Yaş tahmini, müşterinin demografik yapısını bulur, doğrudan sepet eşleştirmesi yapmaz.",
+      "D": "K-Means kümeleme yapar ancak 'bunu alan bunu da aldı' kuralını koşullu olasılıkla çıkaran yapı birliktelik kurallarıdır.",
+      "E": "Zaman serisi analizi gelecekteki satış miktarını tahmin eder, anlık ürün ilişkisi önermez."
+    },
+    "relatedTerms": [
+      {
+        "term": "Öneri Sistemleri (Recommendation Systems)",
+        "definition": "Kullanıcılara geçmiş verilere veya kural setlerine dayanarak ilgili içerik/ürün sunan sistemler."
+      }
+    ]
+  },
+  {
+    "id": "w7-v008",
+    "week": 7,
+    "topic": "apriori-calisma-mekanizmasi",
+    "type": "verbal",
+    "tags": [
+      "iterasyon",
+      "mekanizma",
+      "fark"
+    ],
+    "sourceNotebook": null,
+    "question": "Apriori algoritmasının kural çıkarırken kullandığı yaklaşım aşağıdakilerden hangisiyle ifade edilir?",
+    "code": null,
+    "options": {
+      "A": "Yukarıdan-Aşağıya (Top-Down) ve Rastgele (Random)",
+      "B": "Aşağıdan-Yukarıya (Bottom-Up) ve İteratif (Tekrarlayıcı)",
+      "C": "Doğrusal (Linear) ve Gözetimli (Supervised)",
+      "D": "Ağaç Tabanlı (Tree-based) ve Böl ve Fethet (Divide and Conquer)",
+      "E": "Sıralı (Sequential) ve Tek Seferlik (One-shot)"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Apriori, karmaşık kombinasyonlardan basite inmez; tekli ürünlerden başlayarak karmaşığa gider.",
+      "B": "Algoritma önce tekli ürünlere, sonra ikililere, sonra üçlülere bakarak aşağıdan yukarıya ve bu işlemi adım adım tekrarlayarak (iteratif) çalışır.",
+      "C": "Apriori doğrusal bir modelleme yapmaz ve gözetimsizdir.",
+      "D": "Karar ağaçlarının (Decision Trees) kullandığı yöntemdir, Apriori'nin değil.",
+      "E": "İşlemi tek seferde yapmaz; eşik değerine göre budama yaparak defalarca tekrarlar."
+    },
+    "relatedTerms": [
+      {
+        "term": "İteratif Yaklaşım",
+        "definition": "Bir işlemin belirli kurallar çerçevesinde adım adım ve tekrarlanarak gerçekleştirilmesi."
+      }
+    ]
+  },
+  {
+    "id": "w7-v009",
+    "week": 7,
+    "topic": "birliktelik-kurallari-metrikleri",
+    "type": "verbal",
+    "tags": [
+      "support",
+      "metrik",
+      "tanim"
+    ],
+    "sourceNotebook": null,
+    "question": "Birliktelik kurallarında kullanılan temel metriklerden biri olan 'Support (Destek)' değerinin en doğru tanımı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "X ürünü satın alındığında, Y ürününün de alınma koşullu olasılığıdır.",
+      "B": "İki ürün arasındaki negatif ilişkinin şiddetini ölçen uzaklık birimidir.",
+      "C": "Bir ürünün veya ürün kombinasyonunun incelenen tüm alışveriş fişleri içerisinde görülme sıklığıdır.",
+      "D": "X ürünü alındığında, Y ürününün tek başına alınma ihtimaline kıyasla kaç kat arttığını gösteren orandır.",
+      "E": "Eğitim ve test veri setleri arasındaki hata payını belirleyen eşik değeridir."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Bu tanım Confidence (Güven/Yatkınlık) metriğine aittir.",
+      "B": "Negatif/pozitif ilişki şiddeti veya yönü Lift metriği ile yorumlanır; uzaklık birimi değildir.",
+      "C": "Support, bir öğenin tüm veri tabanında ne kadar popüler olduğunu gösteren frekans (olasılık) değeridir.",
+      "D": "Bu tanım Lift (Kaldıraç) metriğine aittir.",
+      "E": "Apriori algoritması model eğitmediği için eğitim/test hatası barındırmaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "Support (Destek)",
+        "definition": "Bir öğenin veri kümesinde bulunma sıklığını ifade eden olasılık değeri."
+      }
+    ]
+  },
+  {
+    "id": "w7-v010",
+    "week": 7,
+    "topic": "birliktelik-kurallari-metrikleri",
+    "type": "verbal",
+    "tags": [
+      "confidence",
+      "metrik",
+      "fark"
+    ],
+    "sourceNotebook": null,
+    "question": "Pazar sepeti analizinde bir veri madencisi, 'Müşterilerin yüzde kaçı sadece X ürününü alıyor?' sorusu yerine, 'X ürününü alan müşterilerin yüzde kaçı bunun yanında Y ürününü de sepete ekliyor?' sorusunun cevabını aramaktadır.\n\nVeri madencisinin odaklandığı bu metrik aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Accuracy (Doğruluk)",
+      "B": "Lift (Kaldıraç)",
+      "C": "Euclidean (Öklid Uzaklığı)",
+      "D": "Support (Destek)",
+      "E": "Confidence (Güven/Yatkınlık)"
+    },
+    "correct": "E",
+    "explanations": {
+      "A": "Accuracy bir sınıflandırma modelinin genel başarı oranıdır, birliktelik metriklerinden biri değildir.",
+      "B": "Lift, bağımsız alınma ihtimaline kıyasla artış kat sayısını verir, salt koşullu olasılık yüzdesini değil.",
+      "C": "Euclidean, KNN gibi algoritmalarda kullanılan bir mesafe ölçütüdür.",
+      "D": "Support, ürünün tüm sepetlerdeki genel frekansıdır; koşullu bir durum barındırmaz.",
+      "E": "Confidence, X'in gerçekleştiği bilindiğinde Y'nin gerçekleşme ihtimalini veren koşullu olasılık metriğidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Confidence (Güven)",
+        "definition": "Bir ürün alındığında diğerinin de alınma ihtimalini gösteren koşullu olasılık ölçüsü."
+      }
+    ]
+  },
+  {
+    "id": "w7-v011",
+    "week": 7,
+    "topic": "birliktelik-kurallari-metrikleri",
+    "type": "verbal",
+    "tags": [
+      "lift",
+      "yorum",
+      "karar-verme"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir birliktelik kuralı analizinde {Bebek Bezi} -> {Bira} kuralı için hesaplanan Lift (Kaldıraç) değerinin 1.8 olduğu tespit edilmiştir.\n\nBu değere bakılarak yapılabilecek en doğru yorum aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Bebek bezi alan birinin bira alma ihtimali, biranın tek başına alınma ihtimaline göre 1.8 kat artmaktadır.",
+      "B": "Müşterilerin %80'i bebek bezi ve birayı birbirinden tamamen bağımsız zamanlarda almaktadır.",
+      "C": "Bebek bezi satışları, bira satışlarını negatif yönde etkilemekte ve satışları %18 oranında düşürmektedir.",
+      "D": "Bebek bezi ve bira ikilisi, incelenen tüm alışveriş fişlerinin sadece %1.8'inde geçmektedir.",
+      "E": "Bu kuralın oluşturulabilmesi için eşik (threshold) değerinin 1.8 olarak belirlenmesi zorunludur."
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Lift değerinin 1'den büyük olması pozitif bir ilişkiyi gösterir ve X alındığında Y'nin alınma ihtimalinin kaç kat arttığını ifade eder.",
+      "B": "Bağımsızlık durumu Lift değerinin tam 1 olmasıyla ifade edilir.",
+      "C": "Negatif yönlü etki (baltalama) olması için Lift değerinin 1'den küçük (örneğin 0.8) olması gerekirdi.",
+      "D": "Tüm fişler içindeki geçme oranını ifade eden metrik Support'tur, Lift değil.",
+      "E": "Lift bir eşik değeri değildir, kural oluştuktan sonra kuralın gücünü/etkisini ölçen bir değerdir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Lift (Kaldıraç)",
+        "definition": "X ürünü alındığında Y'nin tek başına alınma ihtimaline kıyasla ne kadar arttığını gösteren oran."
+      }
+    ]
+  },
+  {
+    "id": "w7-v012",
+    "week": 7,
+    "topic": "birliktelik-kurallari-metrikleri",
+    "type": "verbal",
+    "tags": [
+      "lift",
+      "yorum",
+      "gorsellestirme-ve-yorumlama"
+    ],
+    "sourceNotebook": null,
+    "question": "Aşağıdaki kural setlerinden hangisinde, ürünler arasında 'birbirini baltalama' (negatif ilişki) durumunun olduğu söylenebilir?",
+    "code": null,
+    "options": {
+      "A": "{Çay} -> {Şeker} kuralı için Lift = 2.4",
+      "B": "{Kahve} -> {Süt} kuralı için Lift = 1.0",
+      "C": "{Kola} -> {Meyve Suyu} kuralı için Lift = 0.6",
+      "D": "{Ekmek} -> {Peynir} kuralı için Confidence = %90",
+      "E": "{Makarna} -> {Sos} kuralı için Support = %45"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Lift > 1 olduğu için burada pozitif bir tetikleme ilişkisi vardır.",
+      "B": "Lift = 1 olduğu için bu iki ürün arasında ilişki yoktur, tamamen bağımsızdırlar.",
+      "C": "Lift değerinin 1'den küçük olması (Lift < 1), bir ürünün diğerinin satışını negatif etkilediği (baltaladığı) anlamına gelir. Kola alan kişinin meyve suyu alma ihtimali düşmüştür.",
+      "D": "Confidence koşullu olasılık verir, birbirini baltalama durumunu net olarak Lift ile ölçeriz.",
+      "E": "Support genel frekanstır, ilişki yönünü (negatif/pozitif) vermez."
+    },
+    "relatedTerms": [
+      {
+        "term": "Negatif İlişki",
+        "definition": "Bir olayın gerçekleşmesinin, diğer olayın gerçekleşme ihtimalini normalden daha aşağı çekmesi durumu."
+      }
+    ]
+  },
+  {
+    "id": "w7-v013",
+    "week": 7,
+    "topic": "apriori-calisma-mekanizmasi",
+    "type": "verbal",
+    "tags": [
+      "esik-degeri",
+      "kavram",
+      "mekanizma"
+    ],
+    "sourceNotebook": null,
+    "question": "Apriori algoritmasının devasa veri setlerinde sistemi kilitlememesi ve körü körüne tüm ürün kombinasyonlarını hesaplamaktan kurtulması, temel olarak hangi bileşenin kullanılmasıyla sağlanır?",
+    "code": null,
+    "options": {
+      "A": "Minkowski uzaklık formülü",
+      "B": "Test ve eğitim verisi ayrımı",
+      "C": "Eşik (Threshold / Support) değeri",
+      "D": "Bağımlı değişken (Y) ataması",
+      "E": "Bağımsız değişkenlerin normalizasyonu"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Minkowski algoritmanın değil, KNN veya K-Means gibi uzaklık tabanlı modellerin bileşenidir.",
+      "B": "Apriori modeli eğitmez, bu yüzden train-test ayrımı yapmaz.",
+      "C": "Algoritma iterasyonlar sırasında eşik değerinin (Support) altında kalan ürünleri budayarak ihtimalleri daraltır ve sistemi kilitlemekten kurtarır.",
+      "D": "Apriori denetimsizdir, Y değişkeni barındırmaz.",
+      "E": "Kategorik alışveriş verilerinde normalizasyon değil, frekans sayımı yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Eşik Değeri (Threshold)",
+        "definition": "Bir kuralın veya öğenin geçerli sayılabilmesi için aşması gereken minimum sınır."
+      }
+    ]
+  },
+  {
+    "id": "w7-v014",
+    "week": 7,
+    "topic": "algoritma-kod-baglami",
+    "type": "verbal",
+    "tags": [
+      "python",
+      "kod-mantigi",
+      "kavram"
+    ],
+    "sourceNotebook": null,
+    "question": "Veri madenciliği uygulamalarında sıklıkla karşılaşılan 'train_test_split()' fonksiyonunun koddaki temel amacı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Veri setindeki eksik değerleri (NaN) tespit edip ortalama ile doldurmak",
+      "B": "Apriori algoritmasında budama işlemini başlatmak için eşik değerini belirlemek",
+      "C": "Bağımsız değişkenlerin ölçeklerini aynı seviyeye getirmek için normalizasyon yapmak",
+      "D": "Sınıflandırma veya regresyon gibi modelleri eğitebilmek ve başarısını ölçebilmek için veriyi iki farklı parçaya bölmek",
+      "E": "Çıktıları grafik üzerinde görselleştirmek için eksenleri ikiye ayırmak"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Eksik veri doldurma işlemi için genellikle fillna() veya Imputer sınıfları kullanılır.",
+      "B": "Eşik değeri belirleme manuel yapılan bir parametre ayarıdır, train_test_split ile ilgisi yoktur.",
+      "C": "Normalizasyon işlemi StandardScaler veya MinMaxScaler gibi fonksiyonlarla yapılır.",
+      "D": "train_test_split() fonksiyonu, modelin öğrenmesi için 'eğitim' ve öğrendiğini test etmesi için 'test' seti olarak veriyi bölme işlemini yapar.",
+      "E": "Görselleştirme işlemleri Matplotlib veya Seaborn gibi kütüphanelerle yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Train-Test Split",
+        "definition": "Modelin genelleyebilirliğini ölçmek amacıyla veri setinin eğitim ve test olarak ikiye bölünmesi işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w7-v015",
+    "week": 7,
+    "topic": "algoritma-kod-baglami",
+    "type": "verbal",
+    "tags": [
+      "python",
+      "fonksiyon",
+      "fark"
+    ],
+    "sourceNotebook": null,
+    "question": "Makine öğrenmesi kütüphanelerinde yaygın olarak kullanılan 'fit()' ve 'predict()' fonksiyonları arasındaki temel işlevsel fark aşağıdakilerden hangisinde doğru verilmiştir?",
+    "code": null,
+    "options": {
+      "A": "fit() verideki aykırı değerleri siler; predict() ise eksik değerleri tahmin ederek doldurur.",
+      "B": "fit() modelin veriden kalıpları öğrenmesini (eğitim) sağlar; predict() ise eğitilmiş modeli kullanarak yeni veriler üzerinde tahmin üretir.",
+      "C": "fit() veriyi görselleştirmek için grafiği çizer; predict() ise grafiği ekrana yansıtır.",
+      "D": "fit() sınıflandırma problemleri için, predict() ise regresyon problemleri için kullanılır.",
+      "E": "fit() veriyi train ve test olarak ikiye böler; predict() ise bu iki veriyi tekrar birleştirir."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Bu fonksiyonların doğrudan aykırı değer silme veya eksik veri doldurma gibi bir temel görevi yoktur.",
+      "B": "Makine öğrenmesinde 'fit' modeli oturtmak/öğretmek, 'predict' ise öğrenilen bilgilerle çıkarım/tahmin yapmak için kullanılır.",
+      "C": "Görselleştirme için plot() veya show() gibi fonksiyonlar kullanılır.",
+      "D": "Her iki problem türünde de model eğitmek için fit, sonuç almak için predict kullanılır.",
+      "E": "Veriyi bölme işlemi train_test_split() ile yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "fit()",
+        "definition": "Algoritmanın veri seti üzerindeki matematiksel ilişkileri öğrenerek modeli oluşturma süreci."
+      }
+    ]
+  },
+  {
+    "id": "w7-v016",
+    "week": 7,
+    "topic": "kavram-algoritma-eslestirmesi",
+    "type": "verbal",
+    "tags": [
+      "metrik",
+      "algoritma-secimi",
+      "eslestirme"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir veri analisti, elindeki veri seti için bir algoritma seçecektir. Analistin kullanacağı metriklerin 'Minkowski' ve 'Euclidean' ölçümleri olduğu bilinmektedir.\n\nBuna göre analistin kurmayı planladığı yapı aşağıdakilerden hangisi olabilir?",
+    "code": null,
+    "options": {
+      "A": "Apriori Algoritması",
+      "B": "Birliktelik Kuralları",
+      "C": "Pazar Sepeti Analizi",
+      "D": "KNN veya K-Means Algoritmaları",
+      "E": "Zaman Serisi Modelleri"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Apriori uzaklık ölçümleri kullanmaz, frekans ve koşullu olasılık kullanır.",
+      "B": "Birliktelik kuralları da Minkowski veya Euclidean gibi mesafe metrikleriyle çalışmaz.",
+      "C": "Pazar sepeti analizi Apriori'nin uygulama alanıdır, uzaklık metriği kullanılmaz.",
+      "D": "Minkowski ve Euclidean, veri noktaları arasındaki mesafeyi ölçen metriklerdir ve KNN (K-En Yakın Komşu) ile K-Means gibi algoritmaların temelini oluştururlar.",
+      "E": "Zaman serilerinde daha çok gecikme (lag) ve trend metrikleri kullanılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Euclidean (Öklid) Uzaklığı",
+        "definition": "İki nokta arasındaki kuş uçuşu en kısa mesafeyi hesaplayan matematiksel formül."
+      }
+    ]
+  },
+  {
+    "id": "w7-v017",
+    "week": 7,
+    "topic": "kavram-algoritma-eslestirmesi",
+    "type": "verbal",
+    "tags": [
+      "apriori",
+      "metrik",
+      "fark"
+    ],
+    "sourceNotebook": null,
+    "question": "Aşağıdaki metriklerden hangisi Apriori algoritmasının çıktılarını ve kurallarını değerlendirmek için kullanılan temel ölçütlerden biri değildir?",
+    "code": null,
+    "options": {
+      "A": "Support",
+      "B": "Confidence",
+      "C": "Lift",
+      "D": "Euclidean",
+      "E": "Destek"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Support (Destek) Apriori'nin en temel frekans metriğidir.",
+      "B": "Confidence, kuralların güvenilirliğini ölçen temel Apriori metriğidir.",
+      "C": "Lift, kuralların birbirini nasıl etkilediğini ölçen temel Apriori metriğidir.",
+      "D": "Euclidean, Apriori'ye değil, KNN ve K-Means gibi uzaklık tabanlı algoritmalara ait bir metriktir.",
+      "E": "Destek, Support metriğinin Türkçe karşılığıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Birliktelik Kuralları Metrikleri",
+        "definition": "Support, Confidence ve Lift gibi kuralların kalitesini ölçen istatistiksel değerler."
+      }
+    ]
+  },
+  {
+    "id": "w7-v018",
+    "week": 7,
+    "topic": "gercek-hayat-uygulamalari",
+    "type": "verbal",
+    "tags": [
+      "senaryo",
+      "hedefe-yonelme",
+      "karar-verme"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir müşteri, acelesi olduğu için süpermarkete sadece ekmek almak amacıyla girmiştir. Mağaza yönetimi, Apriori mantığını kullanarak 'nokta atışı' bir hedeflemeyle bu müşterinin sepet tutarını artırmak istemektedir.\n\nAşağıdaki stratejilerden hangisi, Apriori mantığına dayanan doğrudan satış artırma politikasına en uygun örnektir?",
+    "code": null,
+    "options": {
+      "A": "Müşteriyi ekmek reyonuna ulaşana kadar tüm mağazayı dolaşmaya mecbur bırakmak",
+      "B": "Ekmek reyonunun hemen yanına, ekmekle birlikte alınma olasılığı (Confidence) yüksek olan sütü yerleştirerek anında ihtiyacı hatırlatmak",
+      "C": "Ekmek reyonundaki ürünleri rastgele aralıklarla mağazanın farklı köşelerine dağıtmak",
+      "D": "Ekmeğin yanına daha önce hiç satılmamış (Support değeri çok düşük) yeni bir ürün ekleyerek şans denemek",
+      "E": "Acelesi olan müşteriler için ekmek satışını sadece sabah saatleriyle sınırlandırmak"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Tüm mağazayı dolaştırmak 'gezdirme' politikasıdır. Apriori ise kurallara dayanarak nokta atışı öneriler yapar.",
+      "B": "Apriori'nin doğrudan hedefleme mantığı, yüksek birliktelik kuralına sahip ürünleri yan yana getirerek hızlı/dürtüsel satışı tetiklemektir.",
+      "C": "Rastgele yerleşim veri madenciliği kurallarına aykırıdır.",
+      "D": "Support değeri düşük bir ürün kombinasyonu Apriori prensibine göre zaten baştan elenir.",
+      "E": "Saat sınırlaması birliktelik kurallarıyla değil, operasyonel yönetimle ilgilidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Tamamlayıcı Ürün Önerisi",
+        "definition": "Sepetteki mevcut ürüne bakarak en olası ek ürünü önermeye dayanan satış stratejisi."
+      }
+    ]
+  },
+  {
+    "id": "w7-v019",
+    "week": 7,
+    "topic": "apriori-calisma-mekanizmasi",
+    "type": "verbal",
+    "tags": [
+      "yorum",
+      "kavram",
+      "lift"
+    ],
+    "sourceNotebook": null,
+    "question": "Borsada gıda hisselerinin yükselişinin, diğer gıda hisselerini de peşinden sürüklemesi durumu, Apriori algoritmasının metrikleri üzerinden değerlendirildiğinde aşağıdakilerden hangisiyle benzerlik gösterir?",
+    "code": null,
+    "options": {
+      "A": "Lift değerinin 1'e eşit olmasıyla",
+      "B": "Lift değerinin 1'den küçük olmasıyla",
+      "C": "Lift değerinin 1'den büyük olmasıyla",
+      "D": "Support değerinin %0 olmasıyla",
+      "E": "Confidence değerinin negatif bir sayı çıkmasıyla"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Lift = 1, hisseler arasında hiçbir etkileşim/ilişki olmadığını gösterir.",
+      "B": "Lift < 1, bir hissenin yükselişinin diğerini düşürdüğünü (negatif ilişki) gösterir.",
+      "C": "Bir olayın diğerini peşinden sürüklemesi (tetiklemesi), aralarında pozitif bir ilişki olduğunu gösterir ki bu Lift > 1 durumu ile ifade edilir.",
+      "D": "Support %0 olursa ürün veri setinde hiç geçmiyor demektir.",
+      "E": "Olasılık değeri olan Confidence negatif bir değer alamaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "Pozitif İlişki (Lift > 1)",
+        "definition": "Bir öğenin varlığının, diğer bir öğenin var olma ihtimalini artırması durumu."
+      }
+    ]
+  },
+  {
+    "id": "w7-v020",
+    "week": 7,
+    "topic": "birliktelik-kurallari-temelleri",
+    "type": "verbal",
+    "tags": [
+      "tanim",
+      "hedef",
+      "apriori"
+    ],
+    "sourceNotebook": null,
+    "question": "Apriori algoritmasının veri tabanlarındaki temel amacı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Gelecek aydaki toplam ciro miktarını tahmin etmek",
+      "B": "Müşterileri demografik özelliklerine göre homojen gruplara ayırmak",
+      "C": "Öğe gruplarının kendi aralarındaki bağlanma frekanslarını ve koşullu olasılıklarını tespit etmek",
+      "D": "Veri tabanındaki aykırı değerleri tespit ederek silmek",
+      "E": "Eksik müşteri verilerini en yakın komşu mantığıyla doldurmak"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Apriori geleceği tahmin etmez (regresyon yapmaz).",
+      "B": "Müşterileri gruplara ayırmak Kümeleme (Clustering) algoritmalarının işidir.",
+      "C": "Apriori'nin yegane amacı, eldeki veriler içinde ürünlerin hangi sıklıkla bir araya geldiğini (frekans) ve birbirlerine olan yatkınlıklarını (koşullu olasılık) bulmaktır.",
+      "D": "Aykırı değer tespiti Anomaly Detection algoritmalarıyla yapılır.",
+      "E": "Eksik veri doldurma işlemi KNN Imputer gibi yöntemlerin işidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Bağlanma Frekansı",
+        "definition": "Farklı öğelerin aynı işlem veya sepet içerisinde birlikte bulunma sıklığı."
+      }
+    ]
+  },
+  {
+    "id": "w7-v021",
+    "week": 7,
+    "topic": "apriori-calisma-mekanizmasi",
+    "type": "verbal",
+    "tags": [
+      "apriori-prensibi",
+      "senaryo",
+      "iterasyon"
+    ],
+    "sourceNotebook": null,
+    "question": "Destek (Support) eşiği %20 olarak belirlenmiş bir veri setinde, sırasıyla A, B ve C ürünlerinin tekli bulunma oranları; A:%25, B:%15, C:%40 olarak ölçülmüştür.\n\nApriori prensibine göre, ikinci iterasyonda hangi ikili kombinasyonların hesaplanması kesinlikle atlanır (budanır)?",
+    "code": null,
+    "options": {
+      "A": "İçinde A veya C bulunan tüm kombinasyonlar",
+      "B": "İçinde B bulunan tüm kombinasyonlar",
+      "C": "Yalnızca A ve C'den oluşan kombinasyon",
+      "D": "Hiçbir kombinasyon atlanmaz, tüm ikililer taranır",
+      "E": "Eşik değeri dinamik olarak %15'e çekilerek B ürünü de hesaplamaya dahil edilir"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "A ve C eşiği geçtiği için ({A, C} kombinasyonu) bir sonraki adımda hesaplanmalıdır.",
+      "B": "B ürününün tek başına bulunma oranı (%15), %20 eşiğinin altındadır. Bu nedenle B'yi barındıran hiçbir üst kümenin (%20) eşiğini geçemeyeceği peşinen bilinir ve içinde B olan tüm ikililer ({A,B}, {B,C}) hesaplanmadan budanır.",
+      "C": "Tam tersine, {A, C} kombinasyonu kontrol edilmesi gereken tek geçerli ihtimaldir.",
+      "D": "Tüm ikilileri taramak Apriori'nin budama prensibine aykırıdır.",
+      "E": "Apriori çalışırken eşik değerini kendi kendine esnetmez."
+    },
+    "relatedTerms": [
+      {
+        "term": "Budama (Pruning)",
+        "definition": "Gereksiz hesaplamalardan kaçınmak için eşiği geçemeyen öğelerin süreçten çıkarılması."
+      }
+    ]
+  },
+  {
+    "id": "w7-v022",
+    "week": 7,
+    "topic": "birliktelik-kurallari-metrikleri",
+    "type": "verbal",
+    "tags": [
+      "lift",
+      "yorum",
+      "bagimsizlik"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir süpermarkette yapılan analizde, {Süt} ve {Deterjan} ürünleri arasındaki Lift değeri tam olarak 1 hesaplanmıştır.\n\nBu durum ürünlerin birbiriyle olan ilişkisi hakkında neyi ifade eder?",
+    "code": null,
+    "options": {
+      "A": "Birinin satışı, diğerinin satışını güçlü bir şekilde tetiklemektedir.",
+      "B": "İki ürün arasında hiçbir ilişki yoktur, birbirlerinden tamamen bağımsızdırlar.",
+      "C": "Süt alan müşteriler kesinlikle deterjan almaktan vazgeçmektedir.",
+      "D": "Bu iki ürün her zaman aynı alışveriş sepetinde yer almaktadır.",
+      "E": "Bu ürünlerin mağaza girişinde yan yana sergilenmesi satışları artıracaktır."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Tetikleme durumu Lift değerinin 1'den büyük olmasıyla açıklanır.",
+      "B": "Lift = 1 olması, X'in satılmasının Y'nin satılma ihtimalini değiştirmediği, yani aralarında hiçbir korelasyon/ilişki olmadığı anlamına gelir.",
+      "C": "Vazgeçme (baltalama) durumu Lift'in 1'den küçük (negatif) olmasıdır.",
+      "D": "Her zaman aynı sepette yer alsalardı Lift değeri ve Confidence çok yüksek çıkardı.",
+      "E": "Aralarında ilişki olmayan ürünleri yan yana dizmek Apriori stratejisi açısından anlamsızdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Bağımsızlık (Lift = 1)",
+        "definition": "İki olayın birbirinin gerçekleşme ihtimali üzerinde hiçbir etkisinin olmaması."
+      }
+    ]
+  },
+  {
+    "id": "w7-v024",
+    "week": 7,
+    "topic": "gercek-hayat-uygulamalari",
+    "type": "verbal",
+    "tags": [
+      "fiziksel-magazacilik",
+      "apriori",
+      "senaryo"
+    ],
+    "sourceNotebook": null,
+    "question": "Yurt dışındaki bazı marketlerde bebek bezi ile içki reyonlarının yan yana dizilmesinin temel mantığı veri madenciliği açısından nasıl açıklanır?",
+    "code": null,
+    "options": {
+      "A": "Her iki ürünün de üretim tarihlerinin benzer olması",
+      "B": "Müşterilerin mağaza içinde daha fazla dolaşmasını sağlama (gezdirme) isteği",
+      "C": "Pazar sepeti analizlerinde bu iki ürünün birlikte alınma oranının çok yüksek çıkması",
+      "D": "Mağaza yöneticilerinin kişisel tercihleri ve görsel düzen takıntıları",
+      "E": "İki ürün arasındaki Lift değerinin 1'den küçük çıkması"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Üretim tarihleri birliktelik kuralı algoritmaları için temel bir metrik değildir.",
+      "B": "Yan yana dizmek müşteriyi gezdirmez, aksine işlemini hemen bitirmesini sağlar.",
+      "C": "Yapılan Apriori analizlerinde bebek bezi alanların içki de aldığı yüksek güven (Confidence) ile tespit edildiği için bu iki reyon yan yana getirilerek satışlar maksimize edilmek istenmiştir.",
+      "D": "Bu karar kişisel değil, veri odaklı (data-driven) kural çıkarımlarına dayanır.",
+      "E": "Lift değeri 1'den küçük çıksaydı bu ürünler birbirini baltalıyor olurdu ve yan yana konulmazlardı."
+    },
+    "relatedTerms": [
+      {
+        "term": "Reyon Optimizasyonu",
+        "definition": "Müşterilerin satın alma davranışlarına göre fiziksel mağaza içi yerleşimin düzenlenmesi."
+      }
+    ]
+  },
+  {
+    "id": "w7-v025",
+    "week": 7,
+    "topic": "apriori-calisma-mekanizmasi",
+    "type": "verbal",
+    "tags": [
+      "iterasyon",
+      "budama",
+      "mekanizma"
+    ],
+    "sourceNotebook": null,
+    "question": "Apriori algoritması bir veri tabanını tararken iterasyonlara her zaman hangi adım ile başlar?",
+    "code": null,
+    "options": {
+      "A": "Bütün ürünlerin bir arada bulunduğu en geniş kümeyi hesaplayarak",
+      "B": "Tüm tekli ürünlerin veri setindeki satış oranını (Support) bularak",
+      "C": "Sadece birbirini baltalayan negatif ilişkili ürünleri silerek",
+      "D": "En yüksek fiyatlı ürünlerin Lift değerini hesaplayarak",
+      "E": "Rastgele seçilen üçlü ürün kombinasyonlarının Confidence'ını ölçerek"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Apriori Aşağıdan-Yukarıya (Bottom-Up) çalışır, en geniş kümeden başlamaz.",
+      "B": "Algoritma iteratif yapısı gereği önce tüm tekli ürünlerin frekansına bakar ve eşik altında kalanları eler. Sonra ikililere geçer.",
+      "C": "Negatif ilişki analizi (Lift) en son kurallar oluştuktan sonra yapılır.",
+      "D": "Fiyat verisi Apriori'nin temel metriklerinden biri değildir, frekans önemlidir.",
+      "E": "Süreç rastgele değil, sıralı ve tekli kombinasyonlardan başlayarak ilerler."
+    },
+    "relatedTerms": [
+      {
+        "term": "Aşağıdan-Yukarıya (Bottom-Up)",
+        "definition": "En temel/küçük parçalardan başlayarak daha karmaşık bütüne doğru ilerleyen sistem tasarımı."
+      }
+    ]
+  },
+  {
+    "id": "w7-v026",
+    "week": 7,
+    "topic": "algoritma-kod-baglami",
+    "type": "verbal",
+    "tags": [
+      "python",
+      "kavram",
+      "kod-mantigi"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir veri analisti, Apriori algoritmasını kullanarak kurallar çıkarmak için kod yazmaktadır. Analist, veri setini modellemeye sokmadan önce 'train_test_split()' fonksiyonunu kullanmamıştır.\n\nBu analistin yaklaşımı veri madenciliği prensipleri açısından değerlendirildiğinde aşağıdakilerden hangisi doğrudur?",
+    "code": null,
+    "options": {
+      "A": "Yanlıştır; çünkü her algoritma mutlaka eğitim ve test verisine ihtiyaç duyar.",
+      "B": "Yanlıştır; çünkü bu fonksiyon olmadan Support değeri hesaplanamaz.",
+      "C": "Doğrudur; çünkü Apriori bir tahmin modeli değildir ve eğitim/test ayrımına gerek duymaz.",
+      "D": "Doğrudur; ancak sadece Lift değeri 1'den küçükse bu adım atlanabilir.",
+      "E": "Yanlıştır; eksik veriler (NaN) ancak bu fonksiyonla temizlenebilir."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Denetimsiz kural çıkarım algoritmaları model eğitmediği için bu ayrıma ihtiyaç duymaz.",
+      "B": "Support değeri doğrudan tüm veri seti üzerindeki frekans sayılarak bulunur, bölme işlemine gerek yoktur.",
+      "C": "Apriori'de amaç geleceği tahmin eden bir Accuracy skoru bulmak değil, verideki mevcut frekans kurallarını çıkarmaktır. Bu yüzden veriyi eğitmek ve test etmek anlamsızdır.",
+      "D": "Lift değeri ile veriyi eğitim/test olarak bölmenin bir ilişkisi yoktur.",
+      "E": "Eksik verileri temizleme/doldurma işlemi ayrı fonksiyonlarla yapılır, train_test_split ile değil."
+    },
+    "relatedTerms": [
+      {
+        "term": "Tahmin Algoritmaları",
+        "definition": "Eğitim verisinden öğrenip test verisi üzerinde öngörüde bulunan makine öğrenmesi modelleri."
+      }
+    ]
+  },
+  {
+    "id": "w7-v027",
+    "week": 7,
+    "topic": "apriori-calisma-mekanizmasi",
+    "type": "verbal",
+    "tags": [
+      "iterasyon",
+      "kavram",
+      "mekanizma"
+    ],
+    "sourceNotebook": null,
+    "question": "Apriori algoritmasının çalışma mekanizmasında bahsedilen 'İteratif (Tekrarlayıcı)' yaklaşım, algoritmanın kural çıkarma sürecindeki hangi davranışını ifade eder?",
+    "code": null,
+    "options": {
+      "A": "Tüm ürün kombinasyonlarını tek bir seferde tarayıp hesaplamayı anında bitirmesini",
+      "B": "Önce tekli ürünleri, ardından eşiği geçenlerin ikili, daha sonra üçlü kombinasyonlarını adım adım tekrarlayarak hesaplamasını",
+      "C": "Bulunan kuralları her yeni veri eklendiğinde baştan hesaplayarak sürekli kendini güncellemesini",
+      "D": "Belirlenen eşik (Support) değerini her adımda otomatik olarak düşürerek süreci devam ettirmesini",
+      "E": "Eğitim ve test veri setleri arasındaki hata payını minimuma indirene kadar model ağırlıklarını yenilemesini"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Apriori tek seferlik (one-shot) çalışmaz; kombinasyonları körü körüne tümden taramak sistemi kilitleyeceği için süreci aşamalara böler.",
+      "B": "İteratif yapı, her adımda (1'li, 2'li, 3'lü kombinasyonlar şeklinde) eşiği aşan öğeleri bulup, bir sonraki daha geniş kombinasyon setini taramak için tekrarlayıcı bir döngü kurma işlemidir.",
+      "C": "Apriori'deki iterasyon, mevcut veri seti içindeki kombinasyonların adım adım büyütülmesidir; veri tabanına her yeni kayıt geldiğinde kendi kendini otomatik güncelleyen bir canlı öğrenme modeli değildir.",
+      "D": "Algoritma iterasyonlar sırasında eşik değerini (threshold) dinamik olarak değiştirmez veya düşürmez, sabit bir değer üzerinden budama yapar.",
+      "E": "Bu durum gözetimli öğrenmedeki (örneğin sinir ağları) geri yayılım iterasyonudur; Apriori model eğitmez ve bağımlı değişkene ait bir hata payı barındırmaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "İterasyon (Iteration)",
+        "definition": "Bir hesaplama sürecinin, istenilen sonuca veya durma koşuluna ulaşana kadar adım adım tekrarlanması."
+      }
+    ]
+  },
+  {
+    "id": "w7-v028",
+    "week": 7,
+    "topic": "birliktelik-kurallari-metrikleri",
+    "type": "verbal",
+    "tags": [
+      "metrik",
+      "fark",
+      "yorumlama"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir birliktelik kuralında {X} ürününün {Y} ürününü tetikleyip tetiklemediğini, aralarındaki ilişkinin pozitif mi yoksa negatif mi olduğunu anlamak isteyen bir analist, ağırlıklı olarak hangi metriğe odaklanmalıdır?",
+    "code": null,
+    "options": {
+      "A": "Support",
+      "B": "Accuracy",
+      "C": "Confidence",
+      "D": "Lift",
+      "E": "Euclidean"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Support genel görülme sıklığını verir, ilişkinin yönünü veya tetikleme gücünü belirtmez.",
+      "B": "Accuracy, sınıflandırma modellerinde doğru tahmin oranıdır.",
+      "C": "Confidence, X alındığında Y'nin alınma olasılığını verir ancak Y'nin tek başına alınma durumuna kıyasla bir artış/azalış (tetikleme) olup olmadığını Lift gösterir.",
+      "D": "Lift (Kaldıraç) metriği, ilişkinin yönünü (pozitif, negatif, bağımsız) ve tetikleme şiddetini (kaç kat arttırdığını) gösteren temel ölçüttür.",
+      "E": "Euclidean bir mesafe ölçütüdür."
+    },
+    "relatedTerms": [
+      {
+        "term": "Tetikleyici Etki",
+        "definition": "Bir ürünün alınmasının, başka bir ürünün alınma ihtimalini normalin üstüne çıkarması."
+      }
+    ]
+  },
+  {
+    "id": "w7-v029",
+    "week": 7,
+    "topic": "apriori-calisma-mekanizmasi",
+    "type": "verbal",
+    "tags": [
+      "esik-degeri",
+      "kavram",
+      "mekanizma"
+    ],
+    "sourceNotebook": null,
+    "question": "Apriori algoritması kural çıkarırken eşik (Threshold) değerini yüksek tutmanın (Örn: %50) veri analizi sürecine yapacağı en temel etki aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Elde edilecek kural sayısının artması ve veri tabanında çok fazla örüntü bulunması",
+      "B": "Sadece çok sık birlikte satılan (çok popüler) ürün kombinasyonlarının kurallara dahil edilmesi",
+      "C": "Algoritmanın çalışma süresinin uzaması ve sistemin yavaşlaması",
+      "D": "Negatif ilişkiye (Lift < 1) sahip ürünlerin oranının otomatik olarak sıfırlanması",
+      "E": "Veri setindeki eksik ve aykırı değerlerin daha kolay tespit edilmesi"
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Eşik yüksek tutulursa birçok ürün eleneceği için kural sayısı artmaz, aksine ciddi şekilde düşer.",
+      "B": "Eşik %50 olursa, bir ürünün kural oluşturabilmesi için fişlerin yarısında bulunması gerekir. Bu da ancak ekmek, su gibi çok popüler öğelerin kural oluşturabilmesine imkan tanır.",
+      "C": "Eşik yüksek olduğunda budama işlemi çok sert olacağından algoritma çok hızlı biter.",
+      "D": "Eşik değeri frekansı belirler, ilişkinin negatif veya pozitif (Lift) olmasıyla doğrudan bağlantılı bir filtre değildir.",
+      "E": "Apriori'nin eksik veri tespiti gibi bir işlevi yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Yüksek Support Eşiği",
+        "definition": "Sadece en baskın ve sık geçen örüntülerin dikkate alınmasına neden olan kısıtlayıcı sınır."
+      }
+    ]
+  },
+  {
+    "id": "w7-v030",
+    "week": 7,
+    "topic": "birliktelik-kurallari-temelleri",
+    "type": "verbal",
+    "tags": [
+      "denetimsiz-ogrenme",
+      "fark",
+      "kavram"
+    ],
+    "sourceNotebook": null,
+    "question": "Aşağıdakilerden hangisi Birliktelik Kuralları yaklaşımının, Gözetimli/Denetimli Öğrenme (Supervised Learning) tekniklerinden ayrıldığı en kritik noktadır?",
+    "code": null,
+    "options": {
+      "A": "Birliktelik kurallarının veriyi işlemek için güçlü bilgisayarlara ihtiyaç duymaması",
+      "B": "Gözetimli öğrenmede bağımsız değişkenlerin (X) bulunmaması",
+      "C": "Birliktelik kurallarında tahmin edilmesi gereken bir bağımlı değişkenin (Y - Hedef Etiket) bulunmaması",
+      "D": "Birliktelik kurallarının sadece görsel verilerle çalışacak şekilde tasarlanması",
+      "E": "Gözetimli öğrenmenin iteratif bir süreç barındırmaması"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Her iki yaklaşım da veri boyutuna göre güçlü bilgisayarlara ihtiyaç duyabilir; ayırıcı fark donanım değildir.",
+      "B": "Gözetimli öğrenmede tahmini yapabilmek için bağımsız değişkenler (X) mutlaka bulunur.",
+      "C": "Gözetimli öğrenmede verinin bir etiketi/sonucu (Y) vardır ve model bunu öğrenir. Birliktelik kurallarında ise hedef etiket yoktur, verinin içindeki doğal ilişkiler incelenir.",
+      "D": "Birliktelik kuralları çoğunlukla metinsel/kategorik sepet verisiyle çalışır, görselle değil.",
+      "E": "Gözetimli öğrenme algoritmaları da (örn. gradient descent) iteratif çalışabilir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Bağımlı Değişken (Y)",
+        "definition": "Makine öğrenmesinde modelin tahmin etmeye veya sınıflandırmaya çalıştığı hedef etiket."
+      }
+    ]
+  },
+  {
+    "id": "w07-q001",
+    "week": 7,
+    "topic": "apriori-pipeline-gozetimsiz",
+    "type": "code",
+    "tags": [
+      "apriori",
+      "unsupervised",
+      "tuzak"
+    ],
+    "sourceNotebook": "Apriori.ipynb",
+    "question": "Bir veri bilimi ekibi, e-ticaret sepet verileri üzerinde Apriori algoritmasını kullanarak birliktelik kuralları çıkarmak istemektedir. Aşağıdaki kod bloklarından hangisinin bu veri madenciliği boru hattında (pipeline) kullanılması kesinlikle yanlıştır?",
+    "code": "A) data.groupby(['InvoiceNo', 'Description'])['Description'].count().unstack().fillna(0)\nB) basket_bool = basket > 0\nC) X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)\nD) frequent_itemsets = apriori(basket_bool, min_support=0.02)\nE) rules = association_rules(frequent_itemsets, metric=\"lift\", min_threshold=1.0)",
+    "options": {
+      "A": "A",
+      "B": "B",
+      "C": "C",
+      "D": "D",
+      "E": "E"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Bu kod sepet matrisini oluşturur, Apriori'nin temel adımıdır.",
+      "B": "Bu kod frekans matrisini bool (1/0) formatına çevirir, algoritma için zorunludur.",
+      "C": "Apriori gözetimsiz (unsupervised) bir algoritmadır. Hedef değişken (y) yoktur ve model tahmini yapılmaz. Bu nedenle veri setini train/test olarak bölmek bu algoritmada kullanılamaz.",
+      "D": "Bu kod sık geçen öğe kümelerini bulur, algoritmanın ana fonksiyonudur.",
+      "E": "Bu kod bulunan kümelerden kuralları üretir, pipeline'ın son aşamasıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Gözetimsiz Öğrenme (Unsupervised Learning)",
+        "definition": "Veride etiket (hedef değişken) bulunmayan, verinin kendi içindeki yapı ve kuralların keşfedilmeye çalışıldığı makine öğrenmesi türü."
+      }
+    ]
+  },
+  {
+    "id": "w07-q002",
+    "week": 7,
+    "topic": "veri-temizleme",
+    "type": "code",
+    "tags": [
+      "cleaning",
+      "pandas",
+      "filtreleme"
+    ],
+    "sourceNotebook": "Apriori1.ipynb",
+    "question": "Gerçek dünya e-ticaret verisi (Online Retail) üzerinde Apriori analizi yapılmadan önce aşağıdaki veri temizleme adımı uygulanmıştır. Bu kod satırının veri madenciliği bağlamındaki temel amacı nedir?",
+    "code": "df = df[~df['InvoiceNo'].astype(str).str.startswith('C')]",
+    "options": {
+      "A": "Fatura numarası eksik (NaN) olan satırları veri setinden silmek.",
+      "B": "Sadece 'C' ile başlayan promosyonlu ürünlerin analiz edilmesini sağlamak.",
+      "C": "İptal/iade edilmiş siparişleri veriden çıkararak algoritmanın yanlış kurallar üretmesini engellemek.",
+      "D": "Kredi kartı ile yapılmış (Credit) alışverişleri filtrelemek.",
+      "E": "Fatura numaralarını string formatından integer formatına dönüştürmek."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Eksik verileri silmek için dropna() kullanılır, bu kodun amacı o değildir.",
+      "B": "Kodun başındaki '~' (değil) operatörü, 'C' ile başlayanları tutmaz, tam tersine veriden atar.",
+      "C": "E-ticaret verilerinde 'C' (Canceled) iptal edilmiş işlemleri gösterir. Bunlar çıkarılmazsa algoritma 'Müşteriler bu ürünü alıp iptal etmeyi seviyor' gibi hatalı birliktelikler bulur.",
+      "D": "Veri setinde 'C' kredi kartını değil, iptal durumunu temsil eder.",
+      "E": "Kod astype(str) ile geçici bir dönüşüm yapsa da asıl amacı dönüşüm değil, filtrelemedir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Veri Temizleme (Data Cleaning)",
+        "definition": "Ham verideki hatalı, eksik veya analizi bozacak gürültülü kayıtların düzeltilmesi veya silinmesi işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w07-q003",
+    "week": 7,
+    "topic": "sepet-matrisi-donusumu",
+    "type": "code",
+    "tags": [
+      "matrix",
+      "groupby",
+      "unstack"
+    ],
+    "sourceNotebook": "Apriori.ipynb",
+    "question": "Aşağıdaki kod bloğu, ham işlem verisini Apriori algoritmasına uygun hale getirmek için yazılmıştır. Bu işlemin sonucunda oluşan `basket` değişkeninin veri yapısı (shape/satır-sütun mantığı) aşağıdakilerden hangisidir?",
+    "code": "basket = (\n    data.groupby([transaction_col, item_col])[item_col]\n        .count()\n        .unstack()\n        .fillna(0)\n)",
+    "options": {
+      "A": "Satırlarda ürünler, sütunlarda ürünlerin toplam satış miktarları yer alır.",
+      "B": "Satırlarda işlemler (fatura/fiş), sütunlarda mağazadaki tüm ürünler yer alır. Kesişimler ürünün o işlemde bulunma frekansıdır.",
+      "C": "Satırlarda müşteriler, sütunlarda işlemler yer alır. Kesişimler işlem tutarıdır.",
+      "D": "Satır ve sütunlarda ürünler yer alır. Kesişimler iki ürünün birlikte alınma sayısıdır (Korelasyon matrisi).",
+      "E": "Satırlarda sadece en çok satılan ürünler, sütunlarda ise 1 ve 0 değerleri yer alır."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Bu yapı basit bir frekans tablosudur (value_counts), sepet matrisi değildir.",
+      "B": "groupby ve unstack işlemleriyle veri pivotlanır. Satırlar (index) transaction_col (fişler), sütunlar ise item_col (ürünler) olur. Bu yapıya Sepet Matrisi denir.",
+      "C": "Kodda müşteri ID'si veya işlem tutarı ile ilgili bir değişken kullanılmamıştır.",
+      "D": "Bu bir ürün-ürün matrisi değil, işlem-ürün matrisidir.",
+      "E": "Kod henüz veriyi 1/0 formatına çevirmemiştir (count kullanılmış) ve ürün filtrelemesi yapmamıştır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Sepet Matrisi (Basket Matrix)",
+        "definition": "Satırların işlemleri, sütunların ürünleri temsil ettiği, algoritmaların girdi olarak kullandığı pivot tablo."
+      }
+    ]
+  },
+  {
+    "id": "w07-q004",
+    "week": 7,
+    "topic": "bool-donusumu",
+    "type": "code",
+    "tags": [
+      "boolean",
+      "apriori-sartlari"
+    ],
+    "sourceNotebook": "Apriori1.ipynb",
+    "question": "Sepet matrisi oluşturulduktan sonra aşağıdaki kod satırı çalıştırılmaktadır. Bu dönüşümün yapılma nedeni aşağıdakilerden hangisidir?",
+    "code": "basket_bool = basket > 0",
+    "options": {
+      "A": "Veri setindeki negatif değerli (iade edilmiş) faturaları filtrelemek.",
+      "B": "Algoritmanın ürünlerin kaç adet alındığıyla değil, o işlemde 'var olup olmadığıyla' ilgilenmesi.",
+      "C": "Sıfıra bölme (ZeroDivisionError) hatalarını engellemek.",
+      "D": "Sadece yüksek kâr marjı olan (değeri 0'dan büyük) ürünleri analizde tutmak.",
+      "E": "Eksik verilerin (NaN) yerine 0 atanmasını sağlamak."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "İade faturaları temizlik aşamasında 'C' filtresi ile atılmıştı. Bu kodun amacı o değildir.",
+      "B": "Apriori algoritması frekans bazlı (bir fişte 5 ekmek) değil, varlık bazlı (ekmek alındı: True/1, alınmadı: False/0) çalışır. Bu kod matrisi Bool formatına çevirir.",
+      "C": "Bu işlemin matematiksel bir sıfıra bölme hatasıyla ilgisi yoktur.",
+      "D": "Kod fiyat veya kâr sütunu üzerinde değil, ürünün varlık/yokluk matrisi üzerinde çalışır.",
+      "E": "Eksik veriler bir önceki adımda fillna(0) ile doldurulmuştur."
+    }
+  },
+  {
+    "id": "w07-q005",
+    "week": 7,
+    "topic": "apriori-fonksiyonu",
+    "type": "code",
+    "tags": [
+      "frequent-itemsets",
+      "min_support"
+    ],
+    "sourceNotebook": "Apriori.ipynb",
+    "question": "Aşağıdaki kod bloğu çalıştırıldığında ürettiği `frequent_itemsets` veri çerçevesinin (DataFrame) içeriği nedir?",
+    "code": "frequent_itemsets = apriori(\n    basket_bool,\n    min_support=0.02,\n    use_colnames=True\n)",
+    "options": {
+      "A": "Lift ve Confidence değerleri hesaplanmış nihai birliktelik kuralları tablosu.",
+      "B": "Sadece birbiriyle en yüksek korelasyona sahip ürün çiftleri.",
+      "C": "Tüm işlemler içinde bulunma oranı (support) %2'nin üzerinde olan sık geçen ürünler ve ürün kümeleri.",
+      "D": "Mağazadaki ürünlerin hangi müşteriler tarafından alındığını gösteren yönlü ağ grafiği verisi.",
+      "E": "Sadece tekil olarak en çok satılan ilk 10 ürünün listesi."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Kurallar apriori() ile değil, association_rules() fonksiyonu ile üretilir.",
+      "B": "Bu fonksiyon korelasyon hesaplamaz, sadece eşik değeri aşan kombinasyonları bulur.",
+      "C": "apriori() fonksiyonunun tek görevi, verilen min_support eşiğinin (burada %2) üzerinde kalan tekli, ikili, üçlü vb. sık ürün kümelerini (frequent itemsets) tespit etmektir.",
+      "D": "Ağ grafiği verisi NetworkX ile sonraki aşamalarda oluşturulur.",
+      "E": "Sadece tekil ürünleri değil, eşiği geçen ikili/üçlü kombinasyonları da içerir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Frequent Itemsets",
+        "definition": "Veri setinde belirlenen minimum destek (support) eşiğinden daha fazla bir arada görülen öğe kümeleri."
+      }
+    ]
+  },
+  {
+    "id": "w07-q006",
+    "week": 7,
+    "topic": "parametre-yorumu",
+    "type": "code",
+    "tags": [
+      "min_support",
+      "hata-ayiklama",
+      "pruning"
+    ],
+    "sourceNotebook": "Apriori1.ipynb",
+    "question": "Bir veri madencisi kodunu çalıştırdığında konsolda şu çıktıyı almıştır:\n\n`Uyarı: Belirtilen min_support değeri ile sık ürün kümesi bulunamadı.`\n\nBu sorunu çözmek ve algoritmanın gereksiz kombinasyonlarla sistemi yormadan (memory error) sonuç üretmesini sağlamak için koddaki hangi parametreye nasıl bir müdahale yapılmalıdır?",
+    "code": "frequent_itemsets = apriori(basket_bool, min_support=0.40, use_colnames=True)",
+    "options": {
+      "A": "use_colnames parametresi False yapılmalıdır.",
+      "B": "min_support değeri düşürülmelidir (örn: 0.05).",
+      "C": "min_support değeri artırılmalıdır (örn: 0.60).",
+      "D": "basket_bool matrisi tekrar frekans matrisine (integer) çevrilmelidir.",
+      "E": "Veri setindeki tüm eksik veriler (NaN) 1 ile doldurulmalıdır."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "use_colnames sadece çıktıdaki sütun isimlerinin string mi yoksa indeks mi olacağını belirler, sonuç bulamamasıyla ilgisi yoktur.",
+      "B": "min_support eşiği çok yüksek (%40) tutulduğu için hiçbir ürün grubu bu frekansı sağlayamamıştır. Eşik düşürülürse (budama/pruning gevşetilir) daha nadir ürün kümeleri de yakalanabilir.",
+      "C": "Eşik artırılırsa algoritmanın kural bulması daha da imkansız hale gelir.",
+      "D": "Apriori algoritması integer matrisle değil, bool (1/0) matrisle çalışır.",
+      "E": "Eksik verileri 1 yapmak veriyi tamamen bozar ve sahte kurallar üretir."
+    }
+  },
+  {
+    "id": "w07-q007",
+    "week": 7,
+    "topic": "association-rules",
+    "type": "code",
+    "tags": [
+      "kurallar",
+      "lift",
+      "min_threshold"
+    ],
+    "sourceNotebook": "Apriori.ipynb",
+    "question": "Sık öğe kümeleri bulunduktan sonra aşağıdaki kod çalıştırılarak kurallar elde edilmektedir. Koddaki `metric=\"lift\"` ve `min_threshold=1.0` parametrelerinin veri madenciliği açısından anlamı nedir?",
+    "code": "rules = association_rules(\n    frequent_itemsets,\n    metric=\"lift\",\n    min_threshold=1.0\n)",
+    "options": {
+      "A": "Sadece destek (support) değeri %1'den büyük olan kuralları filtreler.",
+      "B": "Ürünlerin birbiriyle olan ilişkisinin tesadüfi olmadığını ve birbirlerinin satışını pozitif yönde (kaldıraç etkisiyle) artırdığını garanti eden kuralları getirir.",
+      "C": "Bir ürünü alan müşterilerin en az %100'ünün diğer ürünü de almasını zorunlu kılar.",
+      "D": "Sadece tekli ürünlerin (antecedent uzunluğu 1 olan) kurallarını listeler.",
+      "E": "Sık öğe kümelerini küçükten büyüğe doğru ağırlıklandırarak sıralar."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Support değeri bu aşamada değil, bir önceki apriori() adımında (min_support) filtrelenir.",
+      "B": "Lift > 1 olması, X ürününün alınmasının Y ürününün alınma ihtimalini tesadüfün ötesinde artırdığı anlamına gelir. min_threshold=1.0 bu pozitif kaldıraç etkisini filtreler.",
+      "C": "Bu tanım Confidence = 1.0 (veya %100) için geçerlidir, Lift için değil.",
+      "D": "Kod, antecedent veya consequent uzunluğuna dair bir kısıtlama yapmamaktadır.",
+      "E": "Sıralama işlemi bu fonksiyonda değil, sonrasındaki sort_values() ile yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Lift (Kaldıraç)",
+        "definition": "Bir ürünün alınmasının, diğer ürünün alınma olasılığını normal duruma göre kaç kat artırdığını gösteren metrik."
+      }
+    ]
+  },
+  {
+    "id": "w07-q008",
+    "week": 7,
+    "topic": "cikti-yorumu",
+    "type": "code",
+    "tags": [
+      "dataframe",
+      "antecedents",
+      "consequents"
+    ],
+    "sourceNotebook": "Apriori1.ipynb",
+    "question": "Aşağıdaki kod bloğu ile kurallar bir DataFrame'e dönüştürülmüş ve sıralanmıştır. Çıktı tablosundaki bir satırda `antecedents` sütununda 'Cake', `consequents` sütununda 'Coffee' ve `lift` sütununda 2.5 yazmaktadır. Bu satırın iş zekası (BI) açısından doğru yorumu hangisidir?",
+    "code": "rules = rules.sort_values(['lift', 'confidence'], ascending=False)\nprint(rules[['antecedents', 'consequents', 'support', 'confidence', 'lift']].head(1))",
+    "options": {
+      "A": "Coffee alan müşteriler, %2.5 ihtimalle Cake de almaktadır.",
+      "B": "Cake satışı, Coffee satışını tek başına %250 oranında artırmıştır.",
+      "C": "Müşterinin sepetine ilk olarak Cake (Öncül) koyması, Coffee (Sonuç) alma ihtimalini normal tesadüfe göre 2.5 kat artırmaktadır.",
+      "D": "Cake ve Coffee tüm mağaza satışlarının %2.5'ini oluşturmaktadır.",
+      "E": "Coffee ve Cake birbirinin rakibidir, biri satıldığında diğerinin satışı 2.5 kat düşer."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Bu tanım Lift'i değil, çok düşük bir Confidence değerini tarif etmektedir.",
+      "B": "Lift bir yüzde artışı değil, bir katsayıdır (kat artışı).",
+      "C": "Antecedents (Öncül) ilk alınan üründür. Lift değeri 2.5 ise, öncülün alınması sonucun (Consequents) alınma ihtimalini 2.5 kat tetikler/artırır.",
+      "D": "Tüm satışlar içindeki oran Support metriği ile ifade edilir.",
+      "E": "Lift > 1 ise ürünler birbirini destekler. Eğer birbirinin rakibi olsalardı Lift < 1 olurdu."
+    }
+  },
+  {
+    "id": "w07-q009",
+    "week": 7,
+    "topic": "gorsellestirme-network",
+    "type": "code",
+    "tags": [
+      "networkx",
+      "lift",
+      "weight"
+    ],
+    "sourceNotebook": "Apriori.ipynb",
+    "question": "Kuralları görselleştirmek için NetworkX kütüphanesi kullanılmıştır. Koddaki `weight=row['lift']` ve `width=weights_scaled` parametreleri ağ grafiğinde (Network Graph) görsel olarak neyi ifade eder?",
+    "code": "for _, row in top_rules.iterrows():\n    for ant in row['antecedents'].split(', '):\n        for cons in row['consequents'].split(', '):\n            G.add_edge(ant, cons, weight=row['lift'])\n\nweights = [G[u][v]['weight'] for u, v in G.edges()]\nweights_scaled = [w * 2 for w in weights]\n\nnx.draw_networkx_edges(G, pos, width=weights_scaled, arrows=True)",
+    "options": {
+      "A": "Düğümlerin (ürünlerin) büyüklüğünü belirler.",
+      "B": "Ürünlerin toplam satış miktarını (Support) gösterir.",
+      "C": "İlişki oklarının (kenarların) kalınlığını belirler; çizgi ne kadar kalınsa Lift (ilişki gücü) o kadar yüksektir.",
+      "D": "Ağ grafiğinin arka plan rengini belirler.",
+      "E": "Sadece Antecedents uzunluğu 2'den büyük olan kuralları filtreler."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Düğümlerin büyüklüğü nx.draw_networkx_nodes içindeki node_size parametresi ile belirlenir.",
+      "B": "Satış miktarı (Support) burada kullanılmamıştır; ağırlık (weight) Lift değerine atanmıştır.",
+      "C": "add_edge ile eklenen kenarların (çizgilerin) ağırlığı Lift değeridir. width parametresi de bu ağırlığa göre çizgi kalınlığını ayarlar. Kalın çizgi, güçlü ilişki demektir.",
+      "D": "Renklerle ilgili bir parametre değildir.",
+      "E": "Bu kodda herhangi bir uzunluk filtresi yapılmamaktadır."
+    }
+  },
+  {
+    "id": "w07-q010",
+    "week": 7,
+    "topic": "gorsellestirme-scatter",
+    "type": "code",
+    "tags": [
+      "matplotlib",
+      "scatter",
+      "support"
+    ],
+    "sourceNotebook": "Apriori.ipynb",
+    "question": "Birliktelik kurallarının dağılımını incelemek için aşağıdaki saçılım grafiği (scatter plot) kodu yazılmıştır. Bu koda göre grafikteki balonların (noktaların) büyüklüğü hangi metriği temsil etmektedir?",
+    "code": "plt.scatter(\n    rules_display['confidence'],\n    rules_display['lift'],\n    s=rules_display['support'] * 2000\n)",
+    "options": {
+      "A": "Kuralların güvenilirliğini (Confidence).",
+      "B": "Ürünlerin kaldıraç etkisini (Lift).",
+      "C": "Kuralın mağazadaki genel geçerliliğini ve satış hacmini (Support).",
+      "D": "Antecedents (Öncül) ürün sayısını.",
+      "E": "Kuralların tespit edilme süresini."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Confidence metriği plt.scatter fonksiyonunda X eksenini (ilk parametre) temsil eder.",
+      "B": "Lift metriği Y eksenini (ikinci parametre) temsil eder.",
+      "C": "s (size) parametresi balonların büyüklüğünü ayarlar. Kodda s=rules_display['support'] * 2000 kullanılarak, satış hacmi (Support) büyük olan kuralların grafikte daha büyük balonlarla gösterilmesi sağlanmıştır.",
+      "D": "Öğe sayısıyla ilgili bir parametre verilmemiştir.",
+      "E": "Süreyle (işlem zamanı) ilgili bir veri tutulmamaktadır."
+    }
+  },
+  {
+    "id": "w07-q011",
+    "week": 7,
+    "topic": "is-mantigi-donusumu",
+    "type": "code",
+    "tags": [
+      "lambda",
+      "apply",
+      "business-logic"
+    ],
+    "sourceNotebook": "Apriori.ipynb",
+    "question": "Aşağıdaki `relation_level` fonksiyonu, veri madenciliği çıktısını iş birimlerinin anlayabileceği kategorilere ayırmak için yazılmıştır. Bu koda göre bir kuralın 'Çok Güçlü' sayılabilmesi için hangi şartları sağlaması gerekir?",
+    "code": "def relation_level(lift, confidence):\n    if lift >= 1.50 and confidence >= 0.50:\n        return \"Çok Güçlü\"\n    elif lift >= 1.20 and confidence >= 0.40:\n        return \"Güçlü\"\n    elif lift >= 1.00 and confidence >= 0.20:\n        return \"Orta\"\n    else:\n        return \"Zayıf\"",
+    "options": {
+      "A": "Lift değeri 1.50'den büyük VEYA Confidence değeri 0.50'den büyük olmalıdır.",
+      "B": "Sadece Lift değerinin 1.50'den büyük olması yeterlidir.",
+      "C": "Kuralın, öncül alındığında sonucun alınma ihtimalini en az 1.5 kat artırması VE öncülü alanların en az %50'sinin sonucu da almış olması gerekir.",
+      "D": "Support değerinin %50'nin üzerinde olması zorunludur.",
+      "E": "Lift ve Confidence değerlerinin toplamının 2.00'ı geçmesi gerekir."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Kodda 'or' değil 'and' (VE) operatörü kullanılmıştır, iki şart da aynı anda sağlanmalıdır.",
+      "B": "Confidence şartı da (>= 0.50) sağlanmalıdır.",
+      "C": "Kod açıkça lift >= 1.50 (1.5 kat artış) ve confidence >= 0.50 (en az %50 gerçekleşme) koşullarının ikisini birden ('and') aramaktadır.",
+      "D": "Bu fonksiyonda support metriği hiç kullanılmamıştır.",
+      "E": "Kod değerleri toplamaz, ayrı ayrı eşiklerle kıyaslar."
+    }
+  },
+  {
+    "id": "w07-q012",
+    "week": 7,
+    "topic": "veri-temizleme",
+    "type": "code",
+    "tags": [
+      "str.strip",
+      "preprocessing"
+    ],
+    "sourceNotebook": "Apriori.ipynb",
+    "question": "Apriori pipeline'ının başında ürün isimlerini temizlemek için aşağıdaki kod kullanılmıştır. Eğer bu `str.strip()` işlemi KULLANILMAZSA, veri madenciliği algoritması nasıl bir hataya düşer?",
+    "code": "data[item_col] = data[item_col].astype(str).str.strip()",
+    "options": {
+      "A": "Sayısal olmayan değerler algoritmayı çökerterek TypeError verir.",
+      "B": "Algoritma 'Coffee' ve 'Coffee ' (sonunda boşluk olan) ürünlerini iki tamamen farklı ürün gibi algılar ve support değerleri yapay olarak düşer.",
+      "C": "Eksik veriler (NaN) string'e dönüşüp analizde yeni bir ürünmüş gibi görünür.",
+      "D": "Sepet matrisi oluşturulurken bellek hatası (MemoryError) alınır.",
+      "E": "Lift değerleri negatif sonuçlar üretmeye başlar."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Apriori algoritması zaten string ürün isimleriyle (veya onların varlık matrisiyle) çalışır, sayısal olma zorunluluğu yoktur.",
+      "B": "str.strip() baştaki ve sondaki boşlukları siler. Eğer silinmezse, veritabanına yanlışlıkla boşlukla girilmiş aynı ürün, farklı bir ürün gibi değerlendirilir. Bu da ürünün gerçek frekansının (support) bölünmesine ve kuralların zayıflamasına neden olur.",
+      "C": "NaN veriler dropna() veya notna() filtreleriyle ayrıca temizlenmektedir, strip() bunu yapmaz.",
+      "D": "Boşluklu stringler doğrudan memory error sebebi değildir.",
+      "E": "Lift değerinin formülü ile string boşlukları arasında matematiksel negatiflik ilişkisi yoktur."
+    }
+  },
+  {
+    "id": "w07-q013",
+    "week": 7,
+    "topic": "eda-oncesi",
+    "type": "code",
+    "tags": [
+      "eda",
+      "value_counts",
+      "bar-plot"
+    ],
+    "sourceNotebook": "Apriori.ipynb",
+    "question": "Apriori algoritması çalıştırılmadan hemen önce, veri setinin genel yapısını anlamak için aşağıdaki Keşifçi Veri Analizi (EDA) kodu çalıştırılmıştır. Bu grafiğin Apriori bağlamındaki önemi nedir?",
+    "code": "top_items = df['Item'].value_counts().head(10)\nplt.figure()\ntop_items.plot(kind='bar')",
+    "options": {
+      "A": "Algoritmanın bulacağı birliktelik kurallarının Lift değerlerini önceden hesaplamak.",
+      "B": "Hangi iki ürünün birlikte en çok satıldığını tespit etmek.",
+      "C": "Mağazadaki genel satış karakterini anlamak; çünkü burada en yüksek frekansa sahip tekil ürünler, muhtemelen kuralların içinde de en çok karşımıza çıkacak ürünlerdir.",
+      "D": "Eksik veya hatalı girilmiş ürün isimlerini grafikten okuyarak temizlemek.",
+      "E": "Veri setini eğitim (train) ve test kümelerine ayırmak için kesme noktasını belirlemek."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "value_counts() sadece tekil ürün sayısını verir, Lift hesaplamaz.",
+      "B": "Bu kod tekil ürünleri sayar, ürün çiftlerini (birliktelikleri) değil.",
+      "C": "Apriori destek (support) temelli çalışır. En çok satılan bireysel ürünler, doğal olarak ikili veya üçlü kombinasyonlarda da en yüksek support'a sahip olma eğilimindedir. Bu EDA, kurallarda kimleri beklememiz gerektiğini gösterir.",
+      "D": "Hatalı veriler grafik üzerinden değil, kodla temizlenir.",
+      "E": "Apriori gözetimsizdir, train/test ayrımı yapılmaz."
+    }
+  },
+  {
+    "id": "w07-q014",
+    "week": 7,
+    "topic": "cikti-kod-eslestirme",
+    "type": "code",
+    "tags": [
+      "barh",
+      "cross-selling",
+      "aksiyon"
+    ],
+    "sourceNotebook": "Apriori1.ipynb",
+    "question": "Bir e-ticaret yöneticisi sizden, web sitesindeki 'Bunu alan bunu da aldı' pop-up'ları için en güçlü ürün önerilerini gösteren yatay bir çubuk grafik istemiştir. Notebook'taki hangi kod bloğu bu ihtiyacı karşılar?",
+    "code": null,
+    "options": {
+      "A": "plt.scatter(rules_display['confidence'], rules_display['lift'])",
+      "B": "nx.draw_networkx_edges(G, pos, arrows=True)",
+      "C": "df['Description'].value_counts().head(10).plot(kind='bar')",
+      "D": "top_rules = rules_display.sort_values(by='lift', ascending=False).head(10)\nlabels = top_rules['antecedents'] + \" → \" + top_rules['consequents']\nplt.barh(labels, top_rules['lift'])",
+      "E": "basket = data.groupby([transaction_col, item_col])[item_col].count().unstack()"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Bu scatter plot (saçılım grafiği) tüm kuralların dağılımını gösterir, yöneticinin istediği net sıralı öneriler değildir.",
+      "B": "Bu network grafiğidir (ağ yapısı), yatay çubuk grafik değildir.",
+      "C": "Bu sadece tekil ürünlerin satış frekansını gösterir, birliktelik (cross-selling) önerisi değildir.",
+      "D": "En yüksek Lift değerine sahip ilk 10 kuralı seçer, X -> Y formatında etiketler oluşturur ve plt.barh() ile yatay çubuk grafik çizer. Çapraz satış (cross-selling) için tam istenen koddur.",
+      "E": "Bu sadece veriyi matris formatına çevirir, görselleştirme yapmaz."
+    }
+  },
+  {
+    "id": "w07-q015",
+    "week": 7,
+    "topic": "hata-ayiklama",
+    "type": "code",
+    "tags": [
+      "dataframe-empty",
+      "exception-handling"
+    ],
+    "sourceNotebook": "Apriori.ipynb",
+    "question": "`apriori_analysis` fonksiyonunun içinde aşağıdaki gibi bir kontrol bloğu bulunmaktadır. Bu kod bloğu, veri madenciliği sürecinin hangi aşamasındaki olası bir hatayı nezaketle (gracefully) yakalamayı amaçlar?",
+    "code": "if frequent_itemsets.empty:\n    print(\"\\nUyarı: Belirtilen min_support değeri ile sık ürün kümesi bulunamadı.\")\n    return basket, frequent_itemsets, pd.DataFrame()",
+    "options": {
+      "A": "Kullanıcının yanlış veri seti (örn. resim dosyası) yüklemesini engellemeyi.",
+      "B": "Sepet matrisinin belleğe (RAM) sığmaması durumunda oluşacak çökmeyi yakalamayı.",
+      "C": "Algoritmanın belirlenen yüksek eşik değeri nedeniyle hiçbir kural bulamaması durumunda kodun hata verip (IndexError vb.) durmasını engellemeyi.",
+      "D": "Veri setinde hiç eksik değer (NaN) kalmadığını doğrulamayı.",
+      "E": "Ürün isimlerinin çok uzun olması durumunda tablo formatının bozulmasını önlemeyi."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Dosya formatı kontrolü read_csv veya read_excel aşamasında yapılır.",
+      "B": "MemoryError yakalamak için try-except bloğu gerekir, .empty kontrolü belleği korumaz.",
+      "C": "Eğer min_support çok yüksek verilirse, apriori() boş bir DataFrame döner. Sonraki adım olan association_rules() boş bir DataFrame alırsa kod çöker. Bu if bloğu çöküşü engelleyip süreci zarifçe sonlandırır.",
+      "D": "Eksik değer kontrolü .notna() ile üst satırlarda yapılmıştır.",
+      "E": "Tablo formatı veya string uzunluğu ile ilgili bir kontrol değildir."
+    }
+  },
+  {
+    "id": "w07-q016",
+    "week": 7,
+    "topic": "apriori-pipeline-gozetimsiz",
+    "type": "code",
+    "tags": [
+      "antecedents",
+      "consequents",
+      "string-manipulation"
+    ],
+    "sourceNotebook": "Apriori.ipynb",
+    "question": "Makine öğrenmesi modelinin çıktısını bir satış elemanının okuyabileceği formata getirmek için aşağıdaki fonksiyon yazılmıştır. Fonksiyondaki `row['antecedents']` kavramının satış dilindeki karşılığı nedir?",
+    "code": "def explain_rule_structure(row):\n    antecedent = row['antecedents']\n    consequent = row['consequents']\n    return f\"Eğer '{antecedent}' alınırsa, '{consequent}' de alınır.\"",
+    "options": {
+      "A": "Sistemin müşteriye tavsiye edeceği hedef ürün.",
+      "B": "Müşterinin sepetine ilk attığı, eylemi başlatan öncül ürün.",
+      "C": "Sepetteki ürünlerin toplam fiyatı.",
+      "D": "Satışın iptal edilme olasılığı.",
+      "E": "Ürünün mağazadaki toplam stok miktarı."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Tavsiye edilecek sonuç ürünü Consequent'tir.",
+      "B": "Antecedent (Öncül), müşterinin halihazırda aldığı veya sepete eklediği, kuralı tetikleyen 'Eğer X ise' kısmındaki X ürünüdür.",
+      "C": "Apriori fiyat hesaplaması yapmaz.",
+      "D": "İptaller temizlik aşamasında çıkarılmıştır.",
+      "E": "Stok miktarı ile ilgilenmez, sadece satış gerçekleşmeleriyle ilgilenir."
+    }
   }
 ]

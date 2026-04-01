@@ -178,6 +178,10 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     "data-mining": "static/data-mining-module/index.html",
     "veri-madenciligi": "static/data-mining-module/index.html",
     verimadenciliği: "static/data-mining-module/index.html",
+    web: "static/web-module/index.html",
+    webtasarim: "static/web-module/index.html",
+    "web-tasarim": "static/web-module/index.html",
+    "web-tasarım": "static/web-module/index.html",
   }
 
   // Special commands that trigger events instead of redirects

@@ -1,0 +1,2978 @@
+{
+  "id": "hafta7_apriori_bread",
+  "title": "Hafta 7: Apriori ile Bread Basket Analizi",
+  "week": 7,
+  "csvFiles": [
+    "bread basket.csv"
+  ],
+  "blocks": [
+    {
+      "id": "hafta7_apriori_bread-b001",
+      "title": "Genel Apriori pipeline fonksiyonu",
+      "blockExplanation": "Bu hücre, transaction ve item sütunları verilen herhangi bir veri seti için tam Apriori boru hattını kurar; temizleme, sepet matrisi, sık ürün kümeleri, kurallar ve okunur mesajlar burada üretilir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# ============================================",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '============================================' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# ============================================",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "# GENEL APRIORI PIPELINE",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'GENEL APRIORI PIPELINE' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# GENEL APRIORI PIPELINE",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "# Her veri setinde kullanılabilir",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Her veri setinde kullanılabilir' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Her veri setinde kullanılabilir",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "# Şart: transaction_col ve item_col verilmelidir",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Şart: transaction_col ve item_col verilmelidir' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Şart: transaction_col ve item_col verilmelidir",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "# ============================================",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '============================================' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# ============================================",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "import pandas as pd",
+          "lineExplanation": "pandas modülünü pd takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "pandas modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "pd",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 7,
+          "code": "from mlxtend.frequent_patterns import apriori, association_rules",
+          "lineExplanation": "mlxtend.frequent_patterns modülünden apriori, association_rules bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "mlxtend.frequent_patterns",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "apriori, association_rules",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "def apriori_analysis(df, transaction_col, item_col, min_support=0.02, min_threshold=1.0):",
+          "lineExplanation": "Transaction ve item sütunlarını alıp tam Apriori akışını çalıştıracak ana fonksiyonu tanımlar. `def` sentaksının kendisi sınav için ikincildir; asıl önemli olan bu bloğun tüm Apriori boru hattını tek yerde toplamasıdır.",
+          "tokens": [
+            {
+              "token": "def apriori_analysis",
+              "explanation": "Apriori boru hattını isimlendiren fonksiyon tanımıdır.",
+              "turkce": "Fonksiyon",
+              "amac": "Tüm birliktelik kuralı akışını tek yerden çağırmak."
+            },
+            {
+              "token": "min_support=0.02",
+              "explanation": "Sık ürün kümesi eşiğini belirler.",
+              "turkce": "Destek Eşiği",
+              "amac": "Hangi itemsetlerin yeterince sık sayılacağını kontrol etmek."
+            },
+            {
+              "token": "min_threshold=1.0",
+              "explanation": "Kural üretimindeki minimum lift/confidence eşiği için temel parametredir.",
+              "turkce": "Kural Eşiği",
+              "amac": "Zayıf kuralları elemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda tüm Apriori akışının giriş kapısını tanımlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "    \"\"\"",
+          "lineExplanation": "Fonksiyonun hangi girdileri beklediğini açıklayan docstring satırıdır.",
+          "tokens": [
+            {
+              "token": "\"\"\"",
+              "explanation": "Fonksiyonun kullanım sözleşmesini yazılı hale getirir.",
+              "turkce": "Docstring",
+              "amac": "Fonksiyonun ne beklediğini okuyucuya açıklamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda fonksiyonun giriş parametrelerini belgeler."
+        },
+        {
+          "lineNumber": 10,
+          "code": "    df              : pandas DataFrame",
+          "lineExplanation": "Fonksiyonun hangi girdileri beklediğini açıklayan docstring satırıdır.",
+          "tokens": [
+            {
+              "token": "df              : pandas DataFrame",
+              "explanation": "Fonksiyonun kullanım sözleşmesini yazılı hale getirir.",
+              "turkce": "Docstring",
+              "amac": "Fonksiyonun ne beklediğini okuyucuya açıklamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda fonksiyonun giriş parametrelerini belgeler."
+        },
+        {
+          "lineNumber": 11,
+          "code": "    transaction_col : işlem numarasını tutan sütun adı",
+          "lineExplanation": "Fonksiyonun hangi girdileri beklediğini açıklayan docstring satırıdır.",
+          "tokens": [
+            {
+              "token": "transaction_col : işlem numarasını tutan sütun adı",
+              "explanation": "Fonksiyonun kullanım sözleşmesini yazılı hale getirir.",
+              "turkce": "Docstring",
+              "amac": "Fonksiyonun ne beklediğini okuyucuya açıklamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda fonksiyonun giriş parametrelerini belgeler."
+        },
+        {
+          "lineNumber": 12,
+          "code": "    item_col        : ürün/öğe sütun adı",
+          "lineExplanation": "Fonksiyonun hangi girdileri beklediğini açıklayan docstring satırıdır.",
+          "tokens": [
+            {
+              "token": "item_col        : ürün/öğe sütun adı",
+              "explanation": "Fonksiyonun kullanım sözleşmesini yazılı hale getirir.",
+              "turkce": "Docstring",
+              "amac": "Fonksiyonun ne beklediğini okuyucuya açıklamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda fonksiyonun giriş parametrelerini belgeler."
+        },
+        {
+          "lineNumber": 13,
+          "code": "    min_support     : apriori minimum support değeri",
+          "lineExplanation": "Fonksiyonun hangi girdileri beklediğini açıklayan docstring satırıdır.",
+          "tokens": [
+            {
+              "token": "min_support     : apriori minimum support değeri",
+              "explanation": "Fonksiyonun kullanım sözleşmesini yazılı hale getirir.",
+              "turkce": "Docstring",
+              "amac": "Fonksiyonun ne beklediğini okuyucuya açıklamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda fonksiyonun giriş parametrelerini belgeler."
+        },
+        {
+          "lineNumber": 14,
+          "code": "    min_threshold   : association_rules için minimum threshold",
+          "lineExplanation": "Fonksiyonun hangi girdileri beklediğini açıklayan docstring satırıdır.",
+          "tokens": [
+            {
+              "token": "min_threshold   : association_rules için minimum threshold",
+              "explanation": "Fonksiyonun kullanım sözleşmesini yazılı hale getirir.",
+              "turkce": "Docstring",
+              "amac": "Fonksiyonun ne beklediğini okuyucuya açıklamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda fonksiyonun giriş parametrelerini belgeler."
+        },
+        {
+          "lineNumber": 15,
+          "code": "    \"\"\"",
+          "lineExplanation": "Fonksiyonun hangi girdileri beklediğini açıklayan docstring satırıdır.",
+          "tokens": [
+            {
+              "token": "\"\"\"",
+              "explanation": "Fonksiyonun kullanım sözleşmesini yazılı hale getirir.",
+              "turkce": "Docstring",
+              "amac": "Fonksiyonun ne beklediğini okuyucuya açıklamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda fonksiyonun giriş parametrelerini belgeler."
+        },
+        {
+          "lineNumber": 16,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 17,
+          "code": "    # 1) Kopya al",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '1) Kopya al' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 1) Kopya al",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 18,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 19,
+          "code": "    data = df.copy()",
+          "lineExplanation": "Orijinal DataFrame'i bozmamak için çalışma kopyasını data değişkenine alır.",
+          "tokens": [
+            {
+              "token": "df.copy()",
+              "explanation": "DataFrame'in bağımsız bir kopyasını üretir.",
+              "turkce": "Kopya",
+              "amac": "Temizlik ve dönüşümlerin ana veriyi etkilemesini önlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda güvenli çalışma kopyasını oluşturur."
+        },
+        {
+          "lineNumber": 20,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 21,
+          "code": "    # 2) Sütun adlarını temizle",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '2) Sütun adlarını temizle' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 2) Sütun adlarını temizle",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 22,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 23,
+          "code": "    data.columns = data.columns.str.strip()",
+          "lineExplanation": "Sütun adlarının baş ve sonundaki boşlukları temizler.",
+          "tokens": [
+            {
+              "token": ".columns.str.strip()",
+              "explanation": "Sütun adlarını metin olarak kırpar.",
+              "turkce": "Sütun Temizliği",
+              "amac": "Kolon isim eşleşmelerini daha güvenilir hale getirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda sütun adlarını normalize eder."
+        },
+        {
+          "lineNumber": 24,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 25,
+          "code": "    # 3) Gerekli sütunları kontrol et",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '3) Gerekli sütunları kontrol et' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 3) Gerekli sütunları kontrol et",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 26,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 27,
+          "code": "    if transaction_col not in data.columns:",
+          "lineExplanation": "Gerekli sütun adının veri setinde gerçekten bulunup bulunmadığını kontrol eder.",
+          "tokens": [
+            {
+              "token": "not in data.columns",
+              "explanation": "İstenen sütun adının kolon listesinde yer alıp almadığını sınar.",
+              "turkce": "Sütun Doğrulama",
+              "amac": "Yanlış şema ile analizi sürdürmemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda zorunlu sütun doğrulamasını başlatır."
+        },
+        {
+          "lineNumber": 28,
+          "code": "        raise KeyError(f\"'{transaction_col}' sütunu bulunamadı. Mevcut sütunlar: {data.columns.tolist()}\")",
+          "lineExplanation": "Gerekli sütun yoksa kullanıcıya mevcut kolonları da gösteren bir KeyError yükseltir.",
+          "tokens": [
+            {
+              "token": "KeyError",
+              "explanation": "Eksik veya yanlış sütun adı durumunda kullanılan hatadır.",
+              "turkce": "Şema Hatası",
+              "amac": "Yanlış kolon adıyla sessizce ilerlememek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda şema problemi varsa yürütmeyi bilinçli biçimde keser."
+        },
+        {
+          "lineNumber": 29,
+          "code": "    if item_col not in data.columns:",
+          "lineExplanation": "Gerekli sütun adının veri setinde gerçekten bulunup bulunmadığını kontrol eder.",
+          "tokens": [
+            {
+              "token": "not in data.columns",
+              "explanation": "İstenen sütun adının kolon listesinde yer alıp almadığını sınar.",
+              "turkce": "Sütun Doğrulama",
+              "amac": "Yanlış şema ile analizi sürdürmemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda zorunlu sütun doğrulamasını başlatır."
+        },
+        {
+          "lineNumber": 30,
+          "code": "        raise KeyError(f\"'{item_col}' sütunu bulunamadı. Mevcut sütunlar: {data.columns.tolist()}\")",
+          "lineExplanation": "Gerekli sütun yoksa kullanıcıya mevcut kolonları da gösteren bir KeyError yükseltir.",
+          "tokens": [
+            {
+              "token": "KeyError",
+              "explanation": "Eksik veya yanlış sütun adı durumunda kullanılan hatadır.",
+              "turkce": "Şema Hatası",
+              "amac": "Yanlış kolon adıyla sessizce ilerlememek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda şema problemi varsa yürütmeyi bilinçli biçimde keser."
+        },
+        {
+          "lineNumber": 31,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 32,
+          "code": "    # 4) Temizlik",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '4) Temizlik' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 4) Temizlik",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 33,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 34,
+          "code": "    data[item_col] = data[item_col].astype(str).str.strip()",
+          "lineExplanation": "Ürün sütununu metne çevirir ve ürün adlarındaki baş/son boşlukları temizler.",
+          "tokens": [
+            {
+              "token": "astype(str)",
+              "explanation": "Değerleri metin tipine çevirir.",
+              "turkce": "Tip Dönüşümü",
+              "amac": "Ürün adlarını tutarlı metin olarak işlemek."
+            },
+            {
+              "token": ".str.strip()",
+              "explanation": "Metinlerin çevresindeki boşlukları temizler.",
+              "turkce": "Metin Temizliği",
+              "amac": "Aynı ürünün boşluk farkıyla iki farklı değer gibi görünmesini önlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda ürün adlarını temiz ve tutarlı hale getirir."
+        },
+        {
+          "lineNumber": 35,
+          "code": "    data = data[data[transaction_col].notna()]",
+          "lineExplanation": "İlgili ana sütunda boş değer bulunan satırları veri setinden düşürür.",
+          "tokens": [
+            {
+              "token": ".notna()",
+              "explanation": "Boş olmayan hücreleri True olarak işaretler.",
+              "turkce": "Boş Olmayan Filtre",
+              "amac": "İşlem veya ürün bilgisi eksik satırları ayıklamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda zorunlu alanı boş olan satırları temizler."
+        },
+        {
+          "lineNumber": 36,
+          "code": "    data = data[data[item_col].notna()]",
+          "lineExplanation": "İlgili ana sütunda boş değer bulunan satırları veri setinden düşürür.",
+          "tokens": [
+            {
+              "token": ".notna()",
+              "explanation": "Boş olmayan hücreleri True olarak işaretler.",
+              "turkce": "Boş Olmayan Filtre",
+              "amac": "İşlem veya ürün bilgisi eksik satırları ayıklamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda zorunlu alanı boş olan satırları temizler."
+        },
+        {
+          "lineNumber": 37,
+          "code": "    data = data[data[item_col] != \"\"]",
+          "lineExplanation": "Ürün adı boş string olan kayıtları veri setinden çıkarır.",
+          "tokens": [
+            {
+              "token": "!= \"\"",
+              "explanation": "Boş metinleri filtre dışına atar.",
+              "turkce": "Boş String Temizliği",
+              "amac": "Gerçek ürün adı içermeyen kayıtları elemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda boş ürün adı içeren satırları kaldırır."
+        },
+        {
+          "lineNumber": 38,
+          "code": "    data = data[data[item_col].str.upper() != \"NONE\"]",
+          "lineExplanation": "Ürün adı NONE olan anlamsız kayıtları büyük-küçük harf farkı gözetmeden temizler.",
+          "tokens": [
+            {
+              "token": ".str.upper()",
+              "explanation": "Metni büyük harfe çevirerek karşılaştırmayı normalize eder.",
+              "turkce": "Normalize Karşılaştırma",
+              "amac": "none/NONE/None farklarını ortadan kaldırmak."
+            },
+            {
+              "token": "!= \"NONE\"",
+              "explanation": "NONE değerlerini veri seti dışında bırakır.",
+              "turkce": "Anlamsız Değer Temizliği",
+              "amac": "Gerçek ürün olmayan etiketleri elemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda anlamsız ürün etiketlerini ayıklar."
+        },
+        {
+          "lineNumber": 39,
+          "code": "    print(\"Temizlik sonrası veri boyutu:\", data.shape)",
+          "lineExplanation": "İlgili ara sonucun boyutunu veya sayısını terminale yazar.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "Ara sonucu görünür kılar.",
+              "turkce": "Yazdırma",
+              "amac": "Temizlik ve modelleme adımının etkisini sayıyla görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda ara durum bilgisini terminal çıktısına dönüştürür."
+        },
+        {
+          "lineNumber": 40,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 41,
+          "code": "    # 5) Sepet matrisi oluştur",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '5) Sepet matrisi oluştur' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 5) Sepet matrisi oluştur",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 42,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 43,
+          "code": "    basket = (",
+          "lineExplanation": "Transaction-item bazlı sepet matrisini kuracak çok satırlı ifadeyi başlatır.",
+          "tokens": [
+            {
+              "token": "basket",
+              "explanation": "Sepet matrisini saklayacak değişkendir.",
+              "turkce": "Sepet Matrisi",
+              "amac": "Apriori için transaction-item yapısını hazırlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda sepet matrisi kurulumunu başlatır."
+        },
+        {
+          "lineNumber": 44,
+          "code": "        data.groupby([transaction_col, item_col])[item_col]",
+          "lineExplanation": "Veriyi transaction ve item bazında gruplayıp item sayımı için hazırlar.",
+          "tokens": [
+            {
+              "token": "groupby([transaction_col, item_col])",
+              "explanation": "Her işlemi ve içindeki ürünü gruplar.",
+              "turkce": "Gruplama",
+              "amac": "Sepet matrisinin temel yapısını kurmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda transaction-item bazlı gruplamayı yapar."
+        },
+        {
+          "lineNumber": 45,
+          "code": "            .count()",
+          "lineExplanation": "Her transaction-item eşleşmesinin kaç kez geçtiğini sayar.",
+          "tokens": [
+            {
+              "token": ".count()",
+              "explanation": "Gruplanmış kayıtların sayısını verir.",
+              "turkce": "Sayım",
+              "amac": "Sepet hücre değerlerini oluşturmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda transaction-item sayımını üretir."
+        },
+        {
+          "lineNumber": 46,
+          "code": "            .unstack()",
+          "lineExplanation": "İkinci seviye index'i sütunlara açarak transaction x item matrisine geçer.",
+          "tokens": [
+            {
+              "token": ".unstack()",
+              "explanation": "Satır index yapısını sütunlara açar.",
+              "turkce": "Matrisleştirme",
+              "amac": "Sepet matrisini geniş formda üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda gruplu veriyi matris formuna çevirir."
+        },
+        {
+          "lineNumber": 47,
+          "code": "            .fillna(0)",
+          "lineExplanation": "Sepet matrisindeki eksik kombinasyonları 0 ile doldurur.",
+          "tokens": [
+            {
+              "token": ".fillna(0)",
+              "explanation": "Boş hücreleri 0 yapar.",
+              "turkce": "Sıfırla Doldurma",
+              "amac": "Ürün alınmayan sepet hücrelerini açıkça sıfırlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda sepet matrisini sayısal tamlığa kavuşturur."
+        },
+        {
+          "lineNumber": 48,
+          "code": "    )",
+          "lineExplanation": "Bir önceki çok satırlı fonksiyon çağrısını veya matematiksel ifadeyi kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Açık bırakılmış çağrıyı veya ifadeyi sonlandırır.",
+              "turkce": "Kapanış",
+              "amac": "Çok satırlı yapının sentaksını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
+        },
+        {
+          "lineNumber": 49,
+          "code": "    print(\"\\nSepet matrisi boyutu:\", basket.shape)",
+          "lineExplanation": "İlgili ara sonucun boyutunu veya sayısını terminale yazar.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "Ara sonucu görünür kılar.",
+              "turkce": "Yazdırma",
+              "amac": "Temizlik ve modelleme adımının etkisini sayıyla görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda ara durum bilgisini terminal çıktısına dönüştürür."
+        },
+        {
+          "lineNumber": 50,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 51,
+          "code": "    # 6) Bool formata çevir",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '6) Bool formata çevir' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 6) Bool formata çevir",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 52,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 53,
+          "code": "    basket_bool = basket > 0",
+          "lineExplanation": "Sepet matrisini sayımdan bağımsız olarak ürün var/yok biçimindeki boolean forma çevirir.",
+          "tokens": [
+            {
+              "token": "basket > 0",
+              "explanation": "Sıfırdan büyük hücreleri True yapar.",
+              "turkce": "Boolean Sepet",
+              "amac": "Apriori için ürün var/yok bilgisini kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda sepet matrisini Apriori'nin beklediği boolean yapıya çevirir."
+        },
+        {
+          "lineNumber": 54,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 55,
+          "code": "    # 7) Sık ürün kümeleri",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '7) Sık ürün kümeleri' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 7) Sık ürün kümeleri",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 56,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 57,
+          "code": "    frequent_itemsets = apriori(",
+          "lineExplanation": "Apriori veya association rules çağrısını başlatır.",
+          "tokens": [
+            {
+              "token": "apriori",
+              "explanation": "Sık ürün kümeleri veya kural üretim fonksiyonudur.",
+              "turkce": "Algoritma Çağrısı",
+              "amac": "Birliktelik kurallarını üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda ana birliktelik kuralı hesaplamasını başlatır."
+        },
+        {
+          "lineNumber": 58,
+          "code": "        basket_bool,",
+          "lineExplanation": "Fonksiyona verilecek ana tabloyu argüman olarak geçirir.",
+          "tokens": [
+            {
+              "token": "basket_bool",
+              "explanation": "Algoritmanın üzerinde çalışacağı veriyi temsil eder.",
+              "turkce": "Argüman",
+              "amac": "Doğru girdiyi ilgili fonksiyona vermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda algoritma girdisini fonksiyona iletir."
+        },
+        {
+          "lineNumber": 59,
+          "code": "        min_support=min_support,",
+          "lineExplanation": "Apriori veya kural üretiminin davranışını belirleyen parametrelerden birini ayarlar.",
+          "tokens": [
+            {
+              "token": "min_support=min_support",
+              "explanation": "Algoritmanın eşik veya çıktı davranışını belirler.",
+              "turkce": "Parametre",
+              "amac": "Kural üretiminin hassasiyetini ayarlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda algoritma parametresini yapılandırır."
+        },
+        {
+          "lineNumber": 60,
+          "code": "        use_colnames=True",
+          "lineExplanation": "Apriori veya kural üretiminin davranışını belirleyen parametrelerden birini ayarlar.",
+          "tokens": [
+            {
+              "token": "use_colnames=True",
+              "explanation": "Algoritmanın eşik veya çıktı davranışını belirler.",
+              "turkce": "Parametre",
+              "amac": "Kural üretiminin hassasiyetini ayarlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda algoritma parametresini yapılandırır."
+        },
+        {
+          "lineNumber": 61,
+          "code": "    )",
+          "lineExplanation": "Bir önceki çok satırlı fonksiyon çağrısını veya matematiksel ifadeyi kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Açık bırakılmış çağrıyı veya ifadeyi sonlandırır.",
+              "turkce": "Kapanış",
+              "amac": "Çok satırlı yapının sentaksını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
+        },
+        {
+          "lineNumber": 62,
+          "code": "    print(\"\\nSık ürün kümeleri sayısı:\", len(frequent_itemsets))",
+          "lineExplanation": "İlgili ara sonucun boyutunu veya sayısını terminale yazar.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "Ara sonucu görünür kılar.",
+              "turkce": "Yazdırma",
+              "amac": "Temizlik ve modelleme adımının etkisini sayıyla görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda ara durum bilgisini terminal çıktısına dönüştürür."
+        },
+        {
+          "lineNumber": 63,
+          "code": "    # Eğer hiç sonuç yoksa",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Eğer hiç sonuç yoksa' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Eğer hiç sonuç yoksa",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 64,
+          "code": "    if frequent_itemsets.empty:",
+          "lineExplanation": "Sık ürün kümesi veya kural üretilememişse uyarı yoluna girmek için kontrol yapar.",
+          "tokens": [
+            {
+              "token": ".empty",
+              "explanation": "DataFrame'in boş olup olmadığını kontrol eder.",
+              "turkce": "Boş Sonuç Kontrolü",
+              "amac": "Hiç kural çıkmayan durumda kontrollü dönüş yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda boş sonuç senaryosunu kontrol eder."
+        },
+        {
+          "lineNumber": 65,
+          "code": "        print(\"\\nUyarı: Belirtilen min_support değeri ile sık ürün kümesi bulunamadı.\")",
+          "lineExplanation": "Belirtilen eşiklerle sonuç üretilemediğini kullanıcıya uyarı mesajı olarak bildirir.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "Uyarı mesajını terminale yazar.",
+              "turkce": "Uyarı",
+              "amac": "Boş sonuç durumunu açık şekilde belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda boş sonuç durumunu kullanıcıya açıklar."
+        },
+        {
+          "lineNumber": 66,
+          "code": "        return basket, frequent_itemsets, pd.DataFrame()",
+          "lineExplanation": "Fonksiyonun ürettiği temel çıktıları çağırana geri döndürür.",
+          "tokens": [
+            {
+              "token": "return",
+              "explanation": "Fonksiyonun çıktısını dışarı verir.",
+              "turkce": "Dönüş",
+              "amac": "Üretilen tablo ve kuralları sonraki hücrelerde kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda fonksiyon çıktısını dışarı aktarır."
+        },
+        {
+          "lineNumber": 67,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 68,
+          "code": "    # 8) Kurallar",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '8) Kurallar' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 8) Kurallar",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 69,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 70,
+          "code": "    rules = association_rules(",
+          "lineExplanation": "Apriori veya association rules çağrısını başlatır.",
+          "tokens": [
+            {
+              "token": "association_rules",
+              "explanation": "Sık ürün kümeleri veya kural üretim fonksiyonudur.",
+              "turkce": "Algoritma Çağrısı",
+              "amac": "Birliktelik kurallarını üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda ana birliktelik kuralı hesaplamasını başlatır."
+        },
+        {
+          "lineNumber": 71,
+          "code": "        frequent_itemsets,",
+          "lineExplanation": "Fonksiyona verilecek ana tabloyu argüman olarak geçirir.",
+          "tokens": [
+            {
+              "token": "frequent_itemsets",
+              "explanation": "Algoritmanın üzerinde çalışacağı veriyi temsil eder.",
+              "turkce": "Argüman",
+              "amac": "Doğru girdiyi ilgili fonksiyona vermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda algoritma girdisini fonksiyona iletir."
+        },
+        {
+          "lineNumber": 72,
+          "code": "        metric=\"lift\",",
+          "lineExplanation": "Apriori veya kural üretiminin davranışını belirleyen parametrelerden birini ayarlar.",
+          "tokens": [
+            {
+              "token": "metric=\"lift\"",
+              "explanation": "Algoritmanın eşik veya çıktı davranışını belirler.",
+              "turkce": "Parametre",
+              "amac": "Kural üretiminin hassasiyetini ayarlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda algoritma parametresini yapılandırır."
+        },
+        {
+          "lineNumber": 73,
+          "code": "        min_threshold=min_threshold",
+          "lineExplanation": "Apriori veya kural üretiminin davranışını belirleyen parametrelerden birini ayarlar.",
+          "tokens": [
+            {
+              "token": "min_threshold=min_threshold",
+              "explanation": "Algoritmanın eşik veya çıktı davranışını belirler.",
+              "turkce": "Parametre",
+              "amac": "Kural üretiminin hassasiyetini ayarlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda algoritma parametresini yapılandırır."
+        },
+        {
+          "lineNumber": 74,
+          "code": "    )",
+          "lineExplanation": "Bir önceki çok satırlı fonksiyon çağrısını veya matematiksel ifadeyi kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Açık bırakılmış çağrıyı veya ifadeyi sonlandırır.",
+              "turkce": "Kapanış",
+              "amac": "Çok satırlı yapının sentaksını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
+        },
+        {
+          "lineNumber": 75,
+          "code": "    if rules.empty:",
+          "lineExplanation": "Sık ürün kümesi veya kural üretilememişse uyarı yoluna girmek için kontrol yapar.",
+          "tokens": [
+            {
+              "token": ".empty",
+              "explanation": "DataFrame'in boş olup olmadığını kontrol eder.",
+              "turkce": "Boş Sonuç Kontrolü",
+              "amac": "Hiç kural çıkmayan durumda kontrollü dönüş yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda boş sonuç senaryosunu kontrol eder."
+        },
+        {
+          "lineNumber": 76,
+          "code": "        print(\"\\nUyarı: Kural üretilemedi. min_support veya min_threshold değerini düşürmeyi deneyin.\")",
+          "lineExplanation": "Belirtilen eşiklerle sonuç üretilemediğini kullanıcıya uyarı mesajı olarak bildirir.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "Uyarı mesajını terminale yazar.",
+              "turkce": "Uyarı",
+              "amac": "Boş sonuç durumunu açık şekilde belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda boş sonuç durumunu kullanıcıya açıklar."
+        },
+        {
+          "lineNumber": 77,
+          "code": "        return basket, frequent_itemsets, rules",
+          "lineExplanation": "Fonksiyonun ürettiği temel çıktıları çağırana geri döndürür.",
+          "tokens": [
+            {
+              "token": "return",
+              "explanation": "Fonksiyonun çıktısını dışarı verir.",
+              "turkce": "Dönüş",
+              "amac": "Üretilen tablo ve kuralları sonraki hücrelerde kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda fonksiyon çıktısını dışarı aktarır."
+        },
+        {
+          "lineNumber": 78,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 79,
+          "code": "    # 9) Kuralları sırala",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '9) Kuralları sırala' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 9) Kuralları sırala",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 80,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 81,
+          "code": "    rules = rules.sort_values(['lift', 'confidence'], ascending=False)",
+          "lineExplanation": "Kuralları önce lift, sonra confidence değerine göre büyükten küçüğe sıralar.",
+          "tokens": [
+            {
+              "token": "sort_values(['lift', 'confidence'], ascending=False)",
+              "explanation": "Kuralları güç sırasına dizer.",
+              "turkce": "Kural Sıralama",
+              "amac": "En güçlü kuralları üstte görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda kural listesini güç sırasına göre düzenler."
+        },
+        {
+          "lineNumber": 82,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 83,
+          "code": "    # 10) Okunur hale getir",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '10) Okunur hale getir' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 10) Okunur hale getir",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 84,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 85,
+          "code": "    rules_display = rules.copy()",
+          "lineExplanation": "Ham kural tablosunun okunur hale getirilecek kopyasını oluşturur.",
+          "tokens": [
+            {
+              "token": "rules.copy()",
+              "explanation": "Kuralların bağımsız kopyasını üretir.",
+              "turkce": "Kopya",
+              "amac": "Görsel ve metinsel düzenlemeleri ham tabloyu bozmadan yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda sunuma uygun kural tablosunu ayırır."
+        },
+        {
+          "lineNumber": 86,
+          "code": "    rules_display['antecedents'] = rules_display['antecedents'].apply(lambda x: ', '.join(sorted(list(x))))",
+          "lineExplanation": "frozenset biçimindeki antecedent/consequent alanını sıralı ve okunur metne çevirir.",
+          "tokens": [
+            {
+              "token": "lambda x: ', '.join(sorted(list(x)))",
+              "explanation": "Öğe kümesini sıralayıp virgülle ayrılmış metne dönüştürür.",
+              "turkce": "Okunur Metin Dönüşümü",
+              "amac": "Kural çıktısını insan gözüyle daha rahat okumak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda kural taraflarını okunur metne çevirir."
+        },
+        {
+          "lineNumber": 87,
+          "code": "    rules_display['consequents'] = rules_display['consequents'].apply(lambda x: ', '.join(sorted(list(x))))",
+          "lineExplanation": "frozenset biçimindeki antecedent/consequent alanını sıralı ve okunur metne çevirir.",
+          "tokens": [
+            {
+              "token": "lambda x: ', '.join(sorted(list(x)))",
+              "explanation": "Öğe kümesini sıralayıp virgülle ayrılmış metne dönüştürür.",
+              "turkce": "Okunur Metin Dönüşümü",
+              "amac": "Kural çıktısını insan gözüyle daha rahat okumak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda kural taraflarını okunur metne çevirir."
+        },
+        {
+          "lineNumber": 88,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 89,
+          "code": "    # 11) Mesaj üretme",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '11) Mesaj üretme' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 11) Mesaj üretme",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 90,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 91,
+          "code": "    def relation_level(lift, confidence):",
+          "lineExplanation": "Kuralları sınıflandıracak veya insan diline çevirecek yardımcı fonksiyonu tanımlar. Bu satırın Python fonksiyon sentaksı sınavda ikincildir; asıl önemli olan üretilen kural açıklamasının neyi anlattığıdır.",
+          "tokens": [
+            {
+              "token": "def",
+              "explanation": "Yeni yardımcı fonksiyon tanımı başlatır.",
+              "turkce": "Fonksiyon",
+              "amac": "Tekrarlanan yorum üretimini tek yerde toplamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda yardımcı açıklama fonksiyonunu tanımlar."
+        },
+        {
+          "lineNumber": 92,
+          "code": "        if lift >= 1.50 and confidence >= 0.50:",
+          "lineExplanation": "Lift ve confidence değerine göre ilişkinin güç seviyesini belirleyen koşul zincirinin bir parçasıdır. `if/elif/else` sentaksı sınav için ikincildir; asıl nokta kural gücünü nasıl sınıflandırdığıdır.",
+          "tokens": [
+            {
+              "token": "if/elif/else",
+              "explanation": "Kuralların seviyesini eşiklere göre seçer.",
+              "turkce": "Koşul Zinciri",
+              "amac": "Kural gücünü kategorik etikete dönüştürmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda kural gücü sınıflandırmasını yürütür."
+        },
+        {
+          "lineNumber": 93,
+          "code": "            return \"Çok Güçlü\"",
+          "lineExplanation": "Koşul zincirinde seçilen ilişki gücü etiketini fonksiyon çıktısı olarak döndürür. `return` kelimesinin sentaksı sınav için kritik değildir; önemli olan lift-confidence aralığının hangi etikete çevrildiğidir.",
+          "tokens": [
+            {
+              "token": "return \"Çok Güçlü\"",
+              "explanation": "Seçilen güç seviyesini metin olarak geri verir.",
+              "turkce": "Güç Etiketi",
+              "amac": "Kurallara okunur güç etiketi atamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda ilişki düzeyi etiketini geri döndürür."
+        },
+        {
+          "lineNumber": 94,
+          "code": "        elif lift >= 1.20 and confidence >= 0.40:",
+          "lineExplanation": "Lift ve confidence değerine göre ilişkinin güç seviyesini belirleyen koşul zincirinin bir parçasıdır. `if/elif/else` sentaksı sınav için ikincildir; asıl nokta kural gücünü nasıl sınıflandırdığıdır.",
+          "tokens": [
+            {
+              "token": "if/elif/else",
+              "explanation": "Kuralların seviyesini eşiklere göre seçer.",
+              "turkce": "Koşul Zinciri",
+              "amac": "Kural gücünü kategorik etikete dönüştürmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda kural gücü sınıflandırmasını yürütür."
+        },
+        {
+          "lineNumber": 95,
+          "code": "            return \"Güçlü\"",
+          "lineExplanation": "Koşul zincirinde seçilen ilişki gücü etiketini fonksiyon çıktısı olarak döndürür. `return` kelimesinin sentaksı sınav için kritik değildir; önemli olan lift-confidence aralığının hangi etikete çevrildiğidir.",
+          "tokens": [
+            {
+              "token": "return \"Güçlü\"",
+              "explanation": "Seçilen güç seviyesini metin olarak geri verir.",
+              "turkce": "Güç Etiketi",
+              "amac": "Kurallara okunur güç etiketi atamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda ilişki düzeyi etiketini geri döndürür."
+        },
+        {
+          "lineNumber": 96,
+          "code": "        elif lift >= 1.00 and confidence >= 0.20:",
+          "lineExplanation": "Lift ve confidence değerine göre ilişkinin güç seviyesini belirleyen koşul zincirinin bir parçasıdır. `if/elif/else` sentaksı sınav için ikincildir; asıl nokta kural gücünü nasıl sınıflandırdığıdır.",
+          "tokens": [
+            {
+              "token": "if/elif/else",
+              "explanation": "Kuralların seviyesini eşiklere göre seçer.",
+              "turkce": "Koşul Zinciri",
+              "amac": "Kural gücünü kategorik etikete dönüştürmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda kural gücü sınıflandırmasını yürütür."
+        },
+        {
+          "lineNumber": 97,
+          "code": "            return \"Orta\"",
+          "lineExplanation": "Koşul zincirinde seçilen ilişki gücü etiketini fonksiyon çıktısı olarak döndürür. `return` kelimesinin sentaksı sınav için kritik değildir; önemli olan lift-confidence aralığının hangi etikete çevrildiğidir.",
+          "tokens": [
+            {
+              "token": "return \"Orta\"",
+              "explanation": "Seçilen güç seviyesini metin olarak geri verir.",
+              "turkce": "Güç Etiketi",
+              "amac": "Kurallara okunur güç etiketi atamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda ilişki düzeyi etiketini geri döndürür."
+        },
+        {
+          "lineNumber": 98,
+          "code": "        else:",
+          "lineExplanation": "Lift ve confidence değerine göre ilişkinin güç seviyesini belirleyen koşul zincirinin bir parçasıdır. `if/elif/else` sentaksı sınav için ikincildir; asıl nokta kural gücünü nasıl sınıflandırdığıdır.",
+          "tokens": [
+            {
+              "token": "if/elif/else",
+              "explanation": "Kuralların seviyesini eşiklere göre seçer.",
+              "turkce": "Koşul Zinciri",
+              "amac": "Kural gücünü kategorik etikete dönüştürmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda kural gücü sınıflandırmasını yürütür."
+        },
+        {
+          "lineNumber": 99,
+          "code": "            return \"Zayıf\"",
+          "lineExplanation": "Koşul zincirinde seçilen ilişki gücü etiketini fonksiyon çıktısı olarak döndürür. `return` kelimesinin sentaksı sınav için kritik değildir; önemli olan lift-confidence aralığının hangi etikete çevrildiğidir.",
+          "tokens": [
+            {
+              "token": "return \"Zayıf\"",
+              "explanation": "Seçilen güç seviyesini metin olarak geri verir.",
+              "turkce": "Güç Etiketi",
+              "amac": "Kurallara okunur güç etiketi atamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda ilişki düzeyi etiketini geri döndürür."
+        },
+        {
+          "lineNumber": 100,
+          "code": "    def make_rule_message(row):",
+          "lineExplanation": "Kuralları sınıflandıracak veya insan diline çevirecek yardımcı fonksiyonu tanımlar. Bu satırın Python fonksiyon sentaksı sınavda ikincildir; asıl önemli olan üretilen kural açıklamasının neyi anlattığıdır.",
+          "tokens": [
+            {
+              "token": "def",
+              "explanation": "Yeni yardımcı fonksiyon tanımı başlatır.",
+              "turkce": "Fonksiyon",
+              "amac": "Tekrarlanan yorum üretimini tek yerde toplamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda yardımcı açıklama fonksiyonunu tanımlar."
+        },
+        {
+          "lineNumber": 101,
+          "code": "        support_pct = round(row['support'] * 100, 2)",
+          "lineExplanation": "Mesaj üretimi için kullanılacak ara metrik değerlerinden birini hazırlar.",
+          "tokens": [
+            {
+              "token": "support_pct",
+              "explanation": "Kural metninde kullanılacak ara değeri saklar.",
+              "turkce": "Ara Değer",
+              "amac": "Mesajı daha okunur ve sayısal hale getirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda kural mesajının bir ara bileşenini hazırlar."
+        },
+        {
+          "lineNumber": 102,
+          "code": "        confidence_pct = round(row['confidence'] * 100, 2)",
+          "lineExplanation": "Mesaj üretimi için kullanılacak ara metrik değerlerinden birini hazırlar.",
+          "tokens": [
+            {
+              "token": "confidence_pct",
+              "explanation": "Kural metninde kullanılacak ara değeri saklar.",
+              "turkce": "Ara Değer",
+              "amac": "Mesajı daha okunur ve sayısal hale getirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda kural mesajının bir ara bileşenini hazırlar."
+        },
+        {
+          "lineNumber": 103,
+          "code": "        lift_val = round(row['lift'], 2)",
+          "lineExplanation": "Mesaj üretimi için kullanılacak ara metrik değerlerinden birini hazırlar.",
+          "tokens": [
+            {
+              "token": "lift_val",
+              "explanation": "Kural metninde kullanılacak ara değeri saklar.",
+              "turkce": "Ara Değer",
+              "amac": "Mesajı daha okunur ve sayısal hale getirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda kural mesajının bir ara bileşenini hazırlar."
+        },
+        {
+          "lineNumber": 104,
+          "code": "        level = relation_level(row['lift'], row['confidence'])",
+          "lineExplanation": "Mesaj üretimi için kullanılacak ara metrik değerlerinden birini hazırlar.",
+          "tokens": [
+            {
+              "token": "level",
+              "explanation": "Kural metninde kullanılacak ara değeri saklar.",
+              "turkce": "Ara Değer",
+              "amac": "Mesajı daha okunur ve sayısal hale getirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda kural mesajının bir ara bileşenini hazırlar."
+        },
+        {
+          "lineNumber": 105,
+          "code": "        return (",
+          "lineExplanation": "Birden fazla satıra yayılmış açıklama cümlesinin dönüşünü başlatır. Bu yapı Python biçimlendirme detayıdır; sınavda asıl önemli olan kurala ait okunur mesajın üretilmesidir.",
+          "tokens": [
+            {
+              "token": "return (",
+              "explanation": "Çok satırlı metin ifadesini fonksiyon çıktısı olarak başlatır.",
+              "turkce": "Dönüş Başlangıcı",
+              "amac": "Uzun açıklama cümlesini okunur biçimde kurmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda çok satırlı mesaj dönüşünü başlatır."
+        },
+        {
+          "lineNumber": 106,
+          "code": "            f\"{row['antecedents']} alan müşterilerin %{confidence_pct}'i \"",
+          "lineExplanation": "Kural mesajının ilgili cümle parçasını f-string ile üretir. F-string sentaksını ezberlemek sınav için ana hedef değildir; asıl kritik kısım antecedent ve consequent taraflarının nasıl yorumlandığıdır.",
+          "tokens": [
+            {
+              "token": "f-string",
+              "explanation": "Değişkenleri cümle içine yerleştirir.",
+              "turkce": "Biçimlendirilmiş Metin",
+              "amac": "Kuralı okunur Türkçe cümleye dönüştürmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda açıklama cümlesinin bir bölümünü üretir."
+        },
+        {
+          "lineNumber": 107,
+          "code": "            f\"{row['consequents']} de almaktadır. \"",
+          "lineExplanation": "Kural mesajının ilgili cümle parçasını f-string ile üretir. F-string sentaksını ezberlemek sınav için ana hedef değildir; asıl kritik kısım antecedent ve consequent taraflarının nasıl yorumlandığıdır.",
+          "tokens": [
+            {
+              "token": "f-string",
+              "explanation": "Değişkenleri cümle içine yerleştirir.",
+              "turkce": "Biçimlendirilmiş Metin",
+              "amac": "Kuralı okunur Türkçe cümleye dönüştürmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda açıklama cümlesinin bir bölümünü üretir."
+        },
+        {
+          "lineNumber": 108,
+          "code": "            f\"Destek=%{support_pct}, Lift={lift_val}, İlişki Düzeyi={level}.\"",
+          "lineExplanation": "f\"Destek değişkenine %{support_pct}, Lift={lift_val}, İlişki Düzeyi={level}.\" ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "f\"Destek",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "%{support_pct}, Lift={lift_val}, İlişki Düzeyi={level}.\"",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 109,
+          "code": "        )",
+          "lineExplanation": "Bir önceki çok satırlı fonksiyon çağrısını veya matematiksel ifadeyi kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Açık bırakılmış çağrıyı veya ifadeyi sonlandırır.",
+              "turkce": "Kapanış",
+              "amac": "Çok satırlı yapının sentaksını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
+        },
+        {
+          "lineNumber": 110,
+          "code": "    rules_display['relationship_level'] = rules_display.apply(",
+          "lineExplanation": "Her kural satırı için yardımcı fonksiyonu çalıştırıp yeni açıklama sütunu üretir.",
+          "tokens": [
+            {
+              "token": ".apply(..., axis=1)",
+              "explanation": "Fonksiyonu satır satır uygular.",
+              "turkce": "Satır Bazlı Uygulama",
+              "amac": "Her kural için ayrı açıklama üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda her kurala açıklama üreten dönüşümü başlatır."
+        },
+        {
+          "lineNumber": 111,
+          "code": "        lambda row: relation_level(row['lift'], row['confidence']), axis=1",
+          "lineExplanation": "Her satırın lift ve confidence değerine bakıp ilişki düzeyi etiketini üretir.",
+          "tokens": [
+            {
+              "token": "relation_level(...)",
+              "explanation": "Lift ve confidence değerlerinden güç etiketi çıkarır.",
+              "turkce": "Güç Etiketi",
+              "amac": "Kuralları insan dilinde güç seviyelerine ayırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda satır bazlı güç sınıflandırmasını tanımlar."
+        },
+        {
+          "lineNumber": 112,
+          "code": "    )",
+          "lineExplanation": "Bir önceki çok satırlı fonksiyon çağrısını veya matematiksel ifadeyi kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Açık bırakılmış çağrıyı veya ifadeyi sonlandırır.",
+              "turkce": "Kapanış",
+              "amac": "Çok satırlı yapının sentaksını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
+        },
+        {
+          "lineNumber": 113,
+          "code": "    rules_display['message'] = rules_display.apply(make_rule_message, axis=1)",
+          "lineExplanation": "Her kural satırı için yardımcı fonksiyonu çalıştırıp yeni açıklama sütunu üretir.",
+          "tokens": [
+            {
+              "token": ".apply(..., axis=1)",
+              "explanation": "Fonksiyonu satır satır uygular.",
+              "turkce": "Satır Bazlı Uygulama",
+              "amac": "Her kural için ayrı açıklama üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda her kurala açıklama üreten dönüşümü başlatır."
+        },
+        {
+          "lineNumber": 114,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 115,
+          "code": "    # 12) Özet çıktılar",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '12) Özet çıktılar' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 12) Özet çıktılar",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 116,
+          "code": "    # --------------------------------------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '--------------------------------------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# --------------------------------------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 117,
+          "code": "    print(\"\\nEn sık ürün kümeleri:\")",
+          "lineExplanation": "Sık ürün kümeleri veya ilk kurallarla ilgili özet tabloyu terminale yazar.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "İlgili özet tabloyu görünür kılar.",
+              "turkce": "Yazdırma",
+              "amac": "Apriori sonucunu doğrudan terminalde incelemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda Apriori özet çıktısını ekrana basar."
+        },
+        {
+          "lineNumber": 118,
+          "code": "    print(frequent_itemsets.sort_values(by='support', ascending=False).head(10))",
+          "lineExplanation": "Sık ürün kümeleri veya ilk kurallarla ilgili özet tabloyu terminale yazar.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "İlgili özet tabloyu görünür kılar.",
+              "turkce": "Yazdırma",
+              "amac": "Apriori sonucunu doğrudan terminalde incelemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda Apriori özet çıktısını ekrana basar."
+        },
+        {
+          "lineNumber": 119,
+          "code": "    print(\"\\nİlk 10 kural:\")",
+          "lineExplanation": "Sık ürün kümeleri veya ilk kurallarla ilgili özet tabloyu terminale yazar.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "İlgili özet tabloyu görünür kılar.",
+              "turkce": "Yazdırma",
+              "amac": "Apriori sonucunu doğrudan terminalde incelemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda Apriori özet çıktısını ekrana basar."
+        },
+        {
+          "lineNumber": 120,
+          "code": "    print(rules_display[['antecedents', 'consequents', 'support', 'confidence', 'lift', 'message']].head(10))",
+          "lineExplanation": "Sık ürün kümeleri veya ilk kurallarla ilgili özet tabloyu terminale yazar.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "İlgili özet tabloyu görünür kılar.",
+              "turkce": "Yazdırma",
+              "amac": "Apriori sonucunu doğrudan terminalde incelemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda Apriori özet çıktısını ekrana basar."
+        },
+        {
+          "lineNumber": 121,
+          "code": "    return basket, frequent_itemsets, rules_display",
+          "lineExplanation": "Fonksiyonun ürettiği temel çıktıları çağırana geri döndürür.",
+          "tokens": [
+            {
+              "token": "return",
+              "explanation": "Fonksiyonun çıktısını dışarı verir.",
+              "turkce": "Dönüş",
+              "amac": "Üretilen tablo ve kuralları sonraki hücrelerde kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda fonksiyon çıktısını dışarı aktarır."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+    },
+    {
+      "id": "hafta7_apriori_bread-b002",
+      "title": "Bread Basket verisini yükleme ve pipeline'ı çalıştırma",
+      "blockExplanation": "Bu hücre, bread basket veri setini okur ve az önce tanımlanan Apriori fonksiyonunu gerçek veride çalıştırır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df = pd.read_csv(\"bread basket.csv\")",
+          "lineExplanation": "Kaynak veri dosyasını pandas ile okuyup df adlı DataFrame'e yükler.",
+          "tokens": [
+            {
+              "token": "pd.read_csv",
+              "explanation": "Veri dosyasını DataFrame olarak okur.",
+              "turkce": "Dosya Okuma",
+              "amac": "Ham veriyi pandas tablosuna çevirmek."
+            },
+            {
+              "token": "\"bread basket.csv\"",
+              "explanation": "Notebook'ta kullanılan gerçek veri dosyasıdır.",
+              "turkce": "Veri Dosyası",
+              "amac": "Doğru kaynağı yüklemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bread Basket verisini yükleme ve pipeline'ı çalıştırma' bloğunda veri kaynağını belleğe alır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "basket, frequent_itemsets, rules_display = apriori_analysis(",
+          "lineExplanation": "Hazırlanan veri seti üzerinde Apriori fonksiyonunu çağırıp sepet matrisi, sık kümeler ve kural tablosunu aynı anda alır.",
+          "tokens": [
+            {
+              "token": "apriori_analysis(",
+              "explanation": "Tanımlanmış Apriori pipeline fonksiyonunu çağırır.",
+              "turkce": "Fonksiyon Çağrısı",
+              "amac": "Tüm birliktelik analizi akışını tek satırda yürütmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bread Basket verisini yükleme ve pipeline'ı çalıştırma' bloğunda Apriori analizini başlatır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    df=df,",
+          "lineExplanation": "Apriori fonksiyonuna hangi veri ve hangi sütun adlarıyla çalışacağını söyler.",
+          "tokens": [
+            {
+              "token": "df=df",
+              "explanation": "Fonksiyon çağrısının temel parametresidir.",
+              "turkce": "Argüman",
+              "amac": "Apriori analizinin doğru sütunlarla çalışmasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bread Basket verisini yükleme ve pipeline'ı çalıştırma' bloğunda Apriori çağrısının girişlerini yapılandırır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    transaction_col='Transaction',",
+          "lineExplanation": "Apriori fonksiyonuna hangi veri ve hangi sütun adlarıyla çalışacağını söyler.",
+          "tokens": [
+            {
+              "token": "transaction_col='Transaction'",
+              "explanation": "Fonksiyon çağrısının temel parametresidir.",
+              "turkce": "Argüman",
+              "amac": "Apriori analizinin doğru sütunlarla çalışmasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bread Basket verisini yükleme ve pipeline'ı çalıştırma' bloğunda Apriori çağrısının girişlerini yapılandırır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    item_col='Item',",
+          "lineExplanation": "Apriori fonksiyonuna hangi veri ve hangi sütun adlarıyla çalışacağını söyler.",
+          "tokens": [
+            {
+              "token": "item_col='Item'",
+              "explanation": "Fonksiyon çağrısının temel parametresidir.",
+              "turkce": "Argüman",
+              "amac": "Apriori analizinin doğru sütunlarla çalışmasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bread Basket verisini yükleme ve pipeline'ı çalıştırma' bloğunda Apriori çağrısının girişlerini yapılandırır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    min_support=0.02,",
+          "lineExplanation": "Apriori veya kural üretiminin davranışını belirleyen parametrelerden birini ayarlar.",
+          "tokens": [
+            {
+              "token": "min_support=0.02",
+              "explanation": "Algoritmanın eşik veya çıktı davranışını belirler.",
+              "turkce": "Parametre",
+              "amac": "Kural üretiminin hassasiyetini ayarlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bread Basket verisini yükleme ve pipeline'ı çalıştırma' bloğunda algoritma parametresini yapılandırır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    min_threshold=1.0",
+          "lineExplanation": "Apriori veya kural üretiminin davranışını belirleyen parametrelerden birini ayarlar.",
+          "tokens": [
+            {
+              "token": "min_threshold=1.0",
+              "explanation": "Algoritmanın eşik veya çıktı davranışını belirler.",
+              "turkce": "Parametre",
+              "amac": "Kural üretiminin hassasiyetini ayarlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bread Basket verisini yükleme ve pipeline'ı çalıştırma' bloğunda algoritma parametresini yapılandırır."
+        },
+        {
+          "lineNumber": 8,
+          "code": ")",
+          "lineExplanation": "Bir önceki çok satırlı fonksiyon çağrısını veya matematiksel ifadeyi kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Açık bırakılmış çağrıyı veya ifadeyi sonlandırır.",
+              "turkce": "Kapanış",
+              "amac": "Çok satırlı yapının sentaksını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bread Basket verisini yükleme ve pipeline'ı çalıştırma' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
+        }
+      ],
+      "expectedOutput": "Temizlik sonrası veri boyutu: (20507, 5)\n\nSepet matrisi boyutu: (9465, 94)\n\nSık ürün kümeleri sayısı: 33\n\nEn sık ürün kümeleri:\n    support         itemsets\n0  0.478394         (Coffee)\n1  0.327205          (Bread)\n2  0.142631            (Tea)\n3  0.103856           (Cake)\n4  0.090016  (Coffee, Bread)\n5  0.086107         (Pastry)\n6  0.071844       (Sandwich)\n7  0.061807      (Medialuna)\n8  0.058320  (Hot chocolate)\n9  0.054728   (Cake, Coffee)\n\nİlk 10 kural:\n  antecedents  ...                                            message\n0         Tea  ...  Tea alan müşterilerin %16.67'i Cake de almakta...\n1        Cake  ...  Cake alan müşterilerin %22.89'i Tea de almakta...\n2       Toast  ...  Toast alan müşterilerin %70.44'i Coffee de alm...\n3      Coffee  ...  Coffee alan müşterilerin %4.95'i Toast de alma...\n4   Medialuna  ...  Medialuna alan müşterilerin %56.92'i Coffee de...\n5      Coffee  ...  Coffee alan müşterilerin %7.35'i Medialuna de ...\n6      Pastry  ...  Pastry alan müşterilerin %55.21'i Coffee de al...\n7      Coffee  ...  Coffee alan müşterilerin %9.94'i Pastry de alm...\n8       Juice  ...  Juice alan müşterilerin %53.42'i Coffee de alm...\n9      Coffee  ...  Coffee alan müşterilerin %4.31'i Juice de alma...\n\n[10 rows x 6 columns]"
+    },
+    {
+      "id": "hafta7_apriori_bread-b003",
+      "title": "En çok geçen 10 ürünü görselleştirme",
+      "blockExplanation": "Bu hücre, veri setinde en sık geçen ürünleri sayar ve çubuk grafik olarak gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "matplotlib.pyplot modülünü plt takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "matplotlib.pyplot modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "plt",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'En çok geçen 10 ürünü görselleştirme' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "# En sık 10 ürün",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'En sık 10 ürün' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# En sık 10 ürün",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'En çok geçen 10 ürünü görselleştirme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "top_items = df['Item'].value_counts().head(10)",
+          "lineExplanation": "En sık geçen 10 ürünü frekans sırasıyla çıkarır.",
+          "tokens": [
+            {
+              "token": "value_counts().head(10)",
+              "explanation": "Ürün frekanslarını sayıp ilk 10 taneyi alır.",
+              "turkce": "Top 10 Ürün",
+              "amac": "En popüler ürünleri grafiğe hazırlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'En çok geçen 10 ürünü görselleştirme' bloğunda en popüler ürünleri seçer."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.figure()",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu varsayılan ölçü olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'En çok geçen 10 ürünü görselleştirme' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "top_items.plot(kind='bar')",
+          "lineExplanation": "Top 10 ürün serisini çubuk grafik olarak çizer.",
+          "tokens": [
+            {
+              "token": "kind='bar'",
+              "explanation": "Grafik tipini çubuk olarak belirler.",
+              "turkce": "Çubuk Grafik",
+              "amac": "Frekansları kategorik olarak karşılaştırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'En çok geçen 10 ürünü görselleştirme' bloğunda ürün frekanslarını çubuk grafiğe dönüştürür."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.title(\"En Çok Geçen 10 Ürün\")",
+          "lineExplanation": "Grafiğin başlığını \"En Çok Geçen 10 Ürün\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'En çok geçen 10 ürünü görselleştirme' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.xlabel(\"Ürün\")",
+          "lineExplanation": "X ekseninin etiketini \"Ürün\" olarak yazar.",
+          "tokens": [
+            {
+              "token": "plt.xlabel",
+              "explanation": "Yatay eksenin adını belirler.",
+              "turkce": "X Etiketi",
+              "amac": "Grafiğin hangi değişkeni yatay eksende taşıdığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'En çok geçen 10 ürünü görselleştirme' bloğunda yatay ekseni isimlendirir."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.ylabel(\"Frekans\")",
+          "lineExplanation": "Y ekseninin etiketini \"Frekans\" olarak yazar.",
+          "tokens": [
+            {
+              "token": "plt.ylabel",
+              "explanation": "Dikey eksenin adını belirler.",
+              "turkce": "Y Etiketi",
+              "amac": "Grafiğin hangi değişkeni dikey eksende taşıdığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'En çok geçen 10 ürünü görselleştirme' bloğunda dikey ekseni isimlendirir."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.xticks(rotation=45)",
+          "lineExplanation": "plt.xticks(rotation değişkenine 45) ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "plt.xticks(rotation",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "45)",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'En çok geçen 10 ürünü görselleştirme' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'En çok geçen 10 ürünü görselleştirme' bloğunda görsel üretimini tamamlar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h7-bread-b003.png"
+    },
+    {
+      "id": "hafta7_apriori_bread-b004",
+      "title": "Ürün ilişki ağı grafiği",
+      "blockExplanation": "Bu hücre, lift değeri en yüksek ilk 20 kuralı düğüm ve kenar ağı şeklinde görselleştirir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# ============================================",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '============================================' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# ============================================",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "# İLİŞKİ AĞ GRAFİĞİ (NETWORK GRAPH)",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'İLİŞKİ AĞ GRAFİĞİ (NETWORK GRAPH)' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# İLİŞKİ AĞ GRAFİĞİ (NETWORK GRAPH)",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "# ============================================",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '============================================' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# ============================================",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "import networkx as nx",
+          "lineExplanation": "networkx modülünü nx takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "networkx",
+              "explanation": "networkx modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "nx",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "matplotlib.pyplot modülünü plt takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "matplotlib.pyplot modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "plt",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 6,
+          "code": "# Grafik oluştur",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Grafik oluştur' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Grafik oluştur",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "G = nx.DiGraph()",
+          "lineExplanation": "Yönlü ilişki ağını tutacak boş graf nesnesini oluşturur.",
+          "tokens": [
+            {
+              "token": "nx.DiGraph()",
+              "explanation": "Yönlü kenarlara sahip graf yapısı üretir.",
+              "turkce": "Yönlü Graf",
+              "amac": "Antecedent -> consequent ilişkilerini yönlü çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda kural ağını tutacak grafı başlatır."
+        },
+        {
+          "lineNumber": 8,
+          "code": "# İlk 20 güçlü kuralı al (çok kalabalık olmasın)",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'İlk 20 güçlü kuralı al (çok kalabalık olmasın)' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# İlk 20 güçlü kuralı al (çok kalabalık olmasın)",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "top_rules = rules_display.sort_values(by='lift', ascending=False).head(20)",
+          "lineExplanation": "Kuralları lift değerine göre sıralar ve en üstteki güçlü kuralları seçer. Buradaki Python zinciri sentaksından çok, en güçlü kuralların lift ile öne alınması sınav açısından önemlidir.",
+          "tokens": [
+            {
+              "token": "sort_values(by='lift', ascending=False)",
+              "explanation": "Kuralları lift gücüne göre büyükten küçüğe dizer.",
+              "turkce": "Lift Sıralaması",
+              "amac": "En güçlü ilişkileri üstte görmek."
+            },
+            {
+              "token": "head(20)",
+              "explanation": "Sadece ilk güçlü kuralları bırakır.",
+              "turkce": "İlk N Kural",
+              "amac": "Grafiği veya tabloyu okunur tutmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda görselleştirilecek güçlü kural altkümesini seçer."
+        },
+        {
+          "lineNumber": 10,
+          "code": "# Kenarları ekle",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Kenarları ekle' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Kenarları ekle",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "for _, row in top_rules.iterrows():",
+          "lineExplanation": "Kural tablosu veya kuralın içindeki ürünler üzerinde döngü kurar. `for` döngüsünün Python sentaksı sınav için ikincildir; asıl önemli kısım kuralların tek tek ağa veya metne dönüştürülmesidir.",
+          "tokens": [
+            {
+              "token": "for",
+              "explanation": "Tekrarlı işlem başlatır.",
+              "turkce": "Döngü",
+              "amac": "Kuralları ve ürünleri tek tek ağa dönüştürmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda kural öğeleri üzerinde yineleme yapar."
+        },
+        {
+          "lineNumber": 12,
+          "code": "    for ant in row['antecedents'].split(', '):",
+          "lineExplanation": "Kural tablosu veya kuralın içindeki ürünler üzerinde döngü kurar. `for` döngüsünün Python sentaksı sınav için ikincildir; asıl önemli kısım kuralların tek tek ağa veya metne dönüştürülmesidir.",
+          "tokens": [
+            {
+              "token": "for",
+              "explanation": "Tekrarlı işlem başlatır.",
+              "turkce": "Döngü",
+              "amac": "Kuralları ve ürünleri tek tek ağa dönüştürmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda kural öğeleri üzerinde yineleme yapar."
+        },
+        {
+          "lineNumber": 13,
+          "code": "        for cons in row['consequents'].split(', '):",
+          "lineExplanation": "Kural tablosu veya kuralın içindeki ürünler üzerinde döngü kurar. `for` döngüsünün Python sentaksı sınav için ikincildir; asıl önemli kısım kuralların tek tek ağa veya metne dönüştürülmesidir.",
+          "tokens": [
+            {
+              "token": "for",
+              "explanation": "Tekrarlı işlem başlatır.",
+              "turkce": "Döngü",
+              "amac": "Kuralları ve ürünleri tek tek ağa dönüştürmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda kural öğeleri üzerinde yineleme yapar."
+        },
+        {
+          "lineNumber": 14,
+          "code": "            G.add_edge(ant, cons, weight=row['lift'])",
+          "lineExplanation": "Antecedent üründen consequent ürüne lift ağırlıklı yönlü kenar ekler.",
+          "tokens": [
+            {
+              "token": "add_edge(ant, cons, weight=row['lift'])",
+              "explanation": "İki ürün arasında lift değerini taşıyan yönlü ilişki kurar.",
+              "turkce": "Kenar Ekleme",
+              "amac": "Kural gücünü ağ yapısına taşımak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda ürünler arası ilişkiyi ağa işler."
+        },
+        {
+          "lineNumber": 15,
+          "code": "# Layout (yerleşim)",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Layout (yerleşim)' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Layout (yerleşim)",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 16,
+          "code": "pos = nx.spring_layout(G, k=0.5)",
+          "lineExplanation": "Graf düğümleri için yay tabanlı yerleşim koordinatlarını hesaplar.",
+          "tokens": [
+            {
+              "token": "spring_layout(G, k=0.5)",
+              "explanation": "Düğümleri dengeli ve ayrık yerleştirmeye çalışır.",
+              "turkce": "Yerleşim",
+              "amac": "Ağ grafiğini okunur konumlarda çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda ağ grafiğinin düğüm konumlarını belirler."
+        },
+        {
+          "lineNumber": 17,
+          "code": "# Kenar kalınlıkları (lift'e göre)",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Kenar kalınlıkları (lift'e göre)' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Kenar kalınlıkları (lift'e göre)",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 18,
+          "code": "weights = [G[u][v]['weight'] for u, v in G.edges()]",
+          "lineExplanation": "Kenar kalınlıklarını lift değerine göre hazırlayan ara listeyi üretir.",
+          "tokens": [
+            {
+              "token": "weight",
+              "explanation": "Kenarın lift gücünü temsil eder.",
+              "turkce": "Kenar Ağırlığı",
+              "amac": "Güçlü ilişkileri daha kalın çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda kenar görsel ağırlığını hazırlar."
+        },
+        {
+          "lineNumber": 19,
+          "code": "weights_scaled = [w * 2 for w in weights]",
+          "lineExplanation": "Kenar kalınlıklarını lift değerine göre hazırlayan ara listeyi üretir.",
+          "tokens": [
+            {
+              "token": "weight",
+              "explanation": "Kenarın lift gücünü temsil eder.",
+              "turkce": "Kenar Ağırlığı",
+              "amac": "Güçlü ilişkileri daha kalın çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda kenar görsel ağırlığını hazırlar."
+        },
+        {
+          "lineNumber": 20,
+          "code": "# Çizim",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Çizim' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Çizim",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 21,
+          "code": "plt.figure(figsize=(12, 8))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 12, 8 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 22,
+          "code": "nx.draw_networkx_nodes(G, pos, node_size=2000)",
+          "lineExplanation": "Ağın düğüm, etiket veya kenar katmanlarından birini matplotlib figürüne çizer.",
+          "tokens": [
+            {
+              "token": "nx.draw_networkx_nodes",
+              "explanation": "Network grafiğinin ilgili görsel katmanını çizer.",
+              "turkce": "Ağ Çizimi",
+              "amac": "Grafiğin yapısını görsel hale getirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda ilişki ağının bir katmanını çizer."
+        },
+        {
+          "lineNumber": 23,
+          "code": "nx.draw_networkx_labels(G, pos, font_size=10)",
+          "lineExplanation": "Ağın düğüm, etiket veya kenar katmanlarından birini matplotlib figürüne çizer.",
+          "tokens": [
+            {
+              "token": "nx.draw_networkx_labels",
+              "explanation": "Network grafiğinin ilgili görsel katmanını çizer.",
+              "turkce": "Ağ Çizimi",
+              "amac": "Grafiğin yapısını görsel hale getirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda ilişki ağının bir katmanını çizer."
+        },
+        {
+          "lineNumber": 24,
+          "code": "nx.draw_networkx_edges(",
+          "lineExplanation": "Ağın düğüm, etiket veya kenar katmanlarından birini matplotlib figürüne çizer.",
+          "tokens": [
+            {
+              "token": "nx.draw_networkx_edges",
+              "explanation": "Network grafiğinin ilgili görsel katmanını çizer.",
+              "turkce": "Ağ Çizimi",
+              "amac": "Grafiğin yapısını görsel hale getirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda ilişki ağının bir katmanını çizer."
+        },
+        {
+          "lineNumber": 25,
+          "code": "    G,",
+          "lineExplanation": "NetworkX çizim fonksiyonuna graf nesnesini veya düğüm konumlarını ayrı argüman olarak geçirir.",
+          "tokens": [
+            {
+              "token": "G",
+              "explanation": "Çizim fonksiyonunun temel girdilerinden biridir.",
+              "turkce": "Çizim Argümanı",
+              "amac": "Ağın hangi yapı ve konumla çizileceğini iletmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda ağ çiziminin temel argümanını sağlar."
+        },
+        {
+          "lineNumber": 26,
+          "code": "    pos,",
+          "lineExplanation": "NetworkX çizim fonksiyonuna graf nesnesini veya düğüm konumlarını ayrı argüman olarak geçirir.",
+          "tokens": [
+            {
+              "token": "pos",
+              "explanation": "Çizim fonksiyonunun temel girdilerinden biridir.",
+              "turkce": "Çizim Argümanı",
+              "amac": "Ağın hangi yapı ve konumla çizileceğini iletmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda ağ çiziminin temel argümanını sağlar."
+        },
+        {
+          "lineNumber": 27,
+          "code": "    width=weights_scaled,",
+          "lineExplanation": "width değişkenine weights_scaled, ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "width",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "weights_scaled,",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 28,
+          "code": "    arrows=True",
+          "lineExplanation": "arrows değişkenine True ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "arrows",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "True",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 29,
+          "code": ")",
+          "lineExplanation": "Bir önceki çok satırlı fonksiyon çağrısını veya matematiksel ifadeyi kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Açık bırakılmış çağrıyı veya ifadeyi sonlandırır.",
+              "turkce": "Kapanış",
+              "amac": "Çok satırlı yapının sentaksını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
+        },
+        {
+          "lineNumber": 30,
+          "code": "plt.title(\"Ürün İlişki Ağı (Apriori Kuralları)\")",
+          "lineExplanation": "Grafiğin başlığını \"Ürün İlişki Ağı (Apriori Kuralları)\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 31,
+          "code": "plt.axis('off')",
+          "lineExplanation": "Ağ grafiğinde eksen çizgilerini ve tikleri gizler.",
+          "tokens": [
+            {
+              "token": "axis('off')",
+              "explanation": "Eksenleri görünmez yapar.",
+              "turkce": "Eksen Gizleme",
+              "amac": "Grafiği diyagram gibi temiz göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda ağ grafiğinin gereksiz eksenlerini gizler."
+        },
+        {
+          "lineNumber": 32,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ürün ilişki ağı grafiği' bloğunda görsel üretimini tamamlar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h7-bread-b004.png"
+    },
+    {
+      "id": "hafta7_apriori_bread-b005",
+      "title": "Kuralların confidence-lift dağılımı",
+      "blockExplanation": "Bu hücre, tüm kuralları confidence ve lift eksenlerinde scatter plot olarak gösterir; nokta boyutu support ile ölçeklenir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.figure(figsize=(8,6))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 8,6 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kuralların confidence-lift dağılımı' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.scatter(",
+          "lineExplanation": "Kuralları confidence ve lift düzleminde nokta grafiği olarak çizmeyi başlatır.",
+          "tokens": [
+            {
+              "token": "plt.scatter",
+              "explanation": "Nokta bulutu grafiği üretir.",
+              "turkce": "Scatter Plot",
+              "amac": "Kuralların dağılımını iki metrik ekseninde görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kuralların confidence-lift dağılımı' bloğunda kural dağılımı grafiğini başlatır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    rules_display['confidence'],",
+          "lineExplanation": "Scatter grafiğin eksen veya nokta boyutu girdilerinden birini verir.",
+          "tokens": [
+            {
+              "token": "rules_display['confidence']",
+              "explanation": "Grafikte kullanılacak ölçütü belirtir.",
+              "turkce": "Grafik Girdisi",
+              "amac": "Kuralların confidence, lift ve support bilgisini görsele taşımak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kuralların confidence-lift dağılımı' bloğunda scatter grafiğin metrik girdisini sağlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    rules_display['lift'],",
+          "lineExplanation": "Scatter grafiğin eksen veya nokta boyutu girdilerinden birini verir.",
+          "tokens": [
+            {
+              "token": "rules_display['lift']",
+              "explanation": "Grafikte kullanılacak ölçütü belirtir.",
+              "turkce": "Grafik Girdisi",
+              "amac": "Kuralların confidence, lift ve support bilgisini görsele taşımak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kuralların confidence-lift dağılımı' bloğunda scatter grafiğin metrik girdisini sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    s=rules_display['support'] * 2000",
+          "lineExplanation": "Scatter grafiğin eksen veya nokta boyutu girdilerinden birini verir.",
+          "tokens": [
+            {
+              "token": "s=rules_display['support'] * 2000",
+              "explanation": "Grafikte kullanılacak ölçütü belirtir.",
+              "turkce": "Grafik Girdisi",
+              "amac": "Kuralların confidence, lift ve support bilgisini görsele taşımak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kuralların confidence-lift dağılımı' bloğunda scatter grafiğin metrik girdisini sağlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": ")",
+          "lineExplanation": "Bir önceki çok satırlı fonksiyon çağrısını veya matematiksel ifadeyi kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Açık bırakılmış çağrıyı veya ifadeyi sonlandırır.",
+              "turkce": "Kapanış",
+              "amac": "Çok satırlı yapının sentaksını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kuralların confidence-lift dağılımı' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.xlabel(\"Confidence\")",
+          "lineExplanation": "X ekseninin etiketini \"Confidence\" olarak yazar.",
+          "tokens": [
+            {
+              "token": "plt.xlabel",
+              "explanation": "Yatay eksenin adını belirler.",
+              "turkce": "X Etiketi",
+              "amac": "Grafiğin hangi değişkeni yatay eksende taşıdığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kuralların confidence-lift dağılımı' bloğunda yatay ekseni isimlendirir."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.ylabel(\"Lift\")",
+          "lineExplanation": "Y ekseninin etiketini \"Lift\" olarak yazar.",
+          "tokens": [
+            {
+              "token": "plt.ylabel",
+              "explanation": "Dikey eksenin adını belirler.",
+              "turkce": "Y Etiketi",
+              "amac": "Grafiğin hangi değişkeni dikey eksende taşıdığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kuralların confidence-lift dağılımı' bloğunda dikey ekseni isimlendirir."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.title(\"Association Rules Dağılımı\")",
+          "lineExplanation": "Grafiğin başlığını \"Association Rules Dağılımı\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kuralların confidence-lift dağılımı' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kuralların confidence-lift dağılımı' bloğunda görsel üretimini tamamlar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h7-bread-b005.png"
+    },
+    {
+      "id": "hafta7_apriori_bread-b006",
+      "title": "En güçlü 10 kuralı barh ile gösterme",
+      "blockExplanation": "Bu hücre, lift değeri en yüksek 10 kuralı yatay çubuk grafik olarak sıralar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "top_rules = rules_display.sort_values(by='lift', ascending=False).head(10)",
+          "lineExplanation": "Kuralları lift değerine göre sıralar ve en üstteki güçlü kuralları seçer. Buradaki Python zinciri sentaksından çok, en güçlü kuralların lift ile öne alınması sınav açısından önemlidir.",
+          "tokens": [
+            {
+              "token": "sort_values(by='lift', ascending=False)",
+              "explanation": "Kuralları lift gücüne göre büyükten küçüğe dizer.",
+              "turkce": "Lift Sıralaması",
+              "amac": "En güçlü ilişkileri üstte görmek."
+            },
+            {
+              "token": "head(10)",
+              "explanation": "Sadece ilk güçlü kuralları bırakır.",
+              "turkce": "İlk N Kural",
+              "amac": "Grafiği veya tabloyu okunur tutmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'En güçlü 10 kuralı barh ile gösterme' bloğunda görselleştirilecek güçlü kural altkümesini seçer."
+        },
+        {
+          "lineNumber": 2,
+          "code": "labels = top_rules['antecedents'] + \" → \" + top_rules['consequents']",
+          "lineExplanation": "Antecedent ve consequent metinlerini ok yönüyle birleştirip barh etiketi üretir.",
+          "tokens": [
+            {
+              "token": "antecedents + ' → ' + consequents",
+              "explanation": "Kuralı tek satırlık okunur etikete çevirir.",
+              "turkce": "Etiket Birleştirme",
+              "amac": "Yatay çubuk grafikte kuralı tam metinle göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'En güçlü 10 kuralı barh ile gösterme' bloğunda kural etiketlerini bar grafik için hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.figure(figsize=(10,6))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 10,6 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'En güçlü 10 kuralı barh ile gösterme' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.barh(labels, top_rules['lift'])",
+          "lineExplanation": "Kural etiketlerini yatay çubuk, lift değerlerini çubuk uzunluğu olarak çizer.",
+          "tokens": [
+            {
+              "token": "plt.barh",
+              "explanation": "Yatay çubuk grafik üretir.",
+              "turkce": "Yatay Çubuk Grafik",
+              "amac": "Uzun kural etiketlerini daha okunur biçimde göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'En güçlü 10 kuralı barh ile gösterme' bloğunda güçlü kuralları yatay çubuk grafiğe dönüştürür."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.xlabel(\"Lift\")",
+          "lineExplanation": "X ekseninin etiketini \"Lift\" olarak yazar.",
+          "tokens": [
+            {
+              "token": "plt.xlabel",
+              "explanation": "Yatay eksenin adını belirler.",
+              "turkce": "X Etiketi",
+              "amac": "Grafiğin hangi değişkeni yatay eksende taşıdığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'En güçlü 10 kuralı barh ile gösterme' bloğunda yatay ekseni isimlendirir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.title(\"En Güçlü Ürün İlişkileri\")",
+          "lineExplanation": "Grafiğin başlığını \"En Güçlü Ürün İlişkileri\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'En güçlü 10 kuralı barh ile gösterme' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.gca().invert_yaxis()",
+          "lineExplanation": "Y eksenini ters çevirerek en güçlü kuralın grafiğin üstünde görünmesini sağlar.",
+          "tokens": [
+            {
+              "token": "invert_yaxis()",
+              "explanation": "Y eksen sırasını tersine çevirir.",
+              "turkce": "Eksen Ters Çevirme",
+              "amac": "En yüksek lift değerini üst sıraya taşımak."
+            }
+          ],
+          "codeContext": "Bu satır, 'En güçlü 10 kuralı barh ile gösterme' bloğunda bar grafiğin sırasını okunur hale getirir."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'En güçlü 10 kuralı barh ile gösterme' bloğunda görsel üretimini tamamlar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h7-bread-b006.png"
+    },
+    {
+      "id": "hafta7_apriori_bread-b007",
+      "title": "Antecedent-consequent yapısını insan diline çevirme",
+      "blockExplanation": "Bu hücre, Apriori kural yapısını anlaşılır Türkçe cümlelere dönüştürür ve ilk 10 kuralı yazdırır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# ============================================",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '============================================' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# ============================================",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Antecedent-consequent yapısını insan diline çevirme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "# ANTECEDENTS / CONSEQUENTS AÇIKLAMA",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'ANTECEDENTS / CONSEQUENTS AÇIKLAMA' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# ANTECEDENTS / CONSEQUENTS AÇIKLAMA",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Antecedent-consequent yapısını insan diline çevirme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "# ============================================",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '============================================' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# ============================================",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Antecedent-consequent yapısını insan diline çevirme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "def explain_rule_structure(row):",
+          "lineExplanation": "Kuralları sınıflandıracak veya insan diline çevirecek yardımcı fonksiyonu tanımlar. Bu satırın Python fonksiyon sentaksı sınavda ikincildir; asıl önemli olan üretilen kural açıklamasının neyi anlattığıdır.",
+          "tokens": [
+            {
+              "token": "def",
+              "explanation": "Yeni yardımcı fonksiyon tanımı başlatır.",
+              "turkce": "Fonksiyon",
+              "amac": "Tekrarlanan yorum üretimini tek yerde toplamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Antecedent-consequent yapısını insan diline çevirme' bloğunda yardımcı açıklama fonksiyonunu tanımlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    antecedent = row['antecedents']",
+          "lineExplanation": "antecedent değişkenine row['antecedents'] ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "antecedent",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "row['antecedents']",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Antecedent-consequent yapısını insan diline çevirme' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    consequent = row['consequents']",
+          "lineExplanation": "consequent değişkenine row['consequents'] ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "consequent",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "row['consequents']",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Antecedent-consequent yapısını insan diline çevirme' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    return f\"Eğer '{antecedent}' alınırsa, '{consequent}' de alınır.\"",
+          "lineExplanation": "Antecedent ve consequent alanlarını kullanarak tek satırlık satış dili cümlesi döndürür. Buradaki f-string/return sentaksı ikincildir; asıl önemli olan öncül ve sonuç ürünlerinin satış diline çevrilmesidir.",
+          "tokens": [
+            {
+              "token": "f-string",
+              "explanation": "İki ürün tarafını okunur cümle içine yerleştirir.",
+              "turkce": "Biçimlendirilmiş Metin",
+              "amac": "Kuralı satış ekibinin anlayacağı düz cümleye çevirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Antecedent-consequent yapısını insan diline çevirme' bloğunda kuralı insan dilinde tek cümleye dönüştürür."
+        },
+        {
+          "lineNumber": 8,
+          "code": "rules_display['basic_explanation'] = rules_display.apply(explain_rule_structure, axis=1)",
+          "lineExplanation": "Her kural satırı için yardımcı fonksiyonu çalıştırıp yeni açıklama sütunu üretir.",
+          "tokens": [
+            {
+              "token": ".apply(..., axis=1)",
+              "explanation": "Fonksiyonu satır satır uygular.",
+              "turkce": "Satır Bazlı Uygulama",
+              "amac": "Her kural için ayrı açıklama üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Antecedent-consequent yapısını insan diline çevirme' bloğunda her kurala açıklama üreten dönüşümü başlatır."
+        },
+        {
+          "lineNumber": 9,
+          "code": "# İlk 10 taneyi yazdır",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'İlk 10 taneyi yazdır' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# İlk 10 taneyi yazdır",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Antecedent-consequent yapısını insan diline çevirme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "for i, row in rules_display.head(10).iterrows():",
+          "lineExplanation": "İlk 10 kural üzerinde satır satır dönerek metinsel açıklamaları yazdırır.",
+          "tokens": [
+            {
+              "token": "head(10).iterrows()",
+              "explanation": "İlk 10 satırı sıra sıra dolaşır.",
+              "turkce": "İlk 10 Döngü",
+              "amac": "Kural açıklamalarını tek tek üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Antecedent-consequent yapısını insan diline çevirme' bloğunda ilk kurallar için yazdırma döngüsünü başlatır."
+        },
+        {
+          "lineNumber": 11,
+          "code": "    print(f\"Kural {i+1}: {row['basic_explanation']}\")",
+          "lineExplanation": "Her kuralın insan diline çevrilmiş açıklamasını numaralı biçimde terminale yazar. `print` kullanımı sentaks olarak ikincildir; sınavda önemli olan bu çıktının hangi kuralı anlattığıdır.",
+          "tokens": [
+            {
+              "token": "f-string",
+              "explanation": "Değişkenleri metin içine yerleştirir.",
+              "turkce": "Biçimlendirilmiş Metin",
+              "amac": "Kural cümlesini okunur formatta yazdırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Antecedent-consequent yapısını insan diline çevirme' bloğunda kural açıklamasını numaralı metin olarak yazar."
+        }
+      ],
+      "expectedOutput": "Kural 1: Eğer 'Tea' alınırsa, 'Cake' de alınır.\nKural 2: Eğer 'Cake' alınırsa, 'Tea' de alınır.\nKural 3: Eğer 'Toast' alınırsa, 'Coffee' de alınır.\nKural 4: Eğer 'Coffee' alınırsa, 'Toast' de alınır.\nKural 5: Eğer 'Medialuna' alınırsa, 'Coffee' de alınır.\nKural 6: Eğer 'Coffee' alınırsa, 'Medialuna' de alınır.\nKural 7: Eğer 'Pastry' alınırsa, 'Coffee' de alınır.\nKural 8: Eğer 'Coffee' alınırsa, 'Pastry' de alınır.\nKural 9: Eğer 'Juice' alınırsa, 'Coffee' de alınır.\nKural 10: Eğer 'Coffee' alınırsa, 'Juice' de alınır."
+    }
+  ]
+}

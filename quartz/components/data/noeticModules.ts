@@ -1,4 +1,4 @@
-export type NoeticModuleIcon = "oop" | "language" | "ybs" | "finance"
+export type NoeticModuleIcon = "oop" | "language" | "ybs" | "finance" | "web"
 
 export interface NoeticModuleDefinition {
   id: string
@@ -8,6 +8,8 @@ export interface NoeticModuleDefinition {
   periodOrder: number
   moduleUrl: string
   iconType: NoeticModuleIcon
+  subtitle?: string
+  warningNote?: string
 }
 
 export const NOETIC_MODULES: NoeticModuleDefinition[] = [
@@ -55,6 +57,15 @@ export const NOETIC_MODULES: NoeticModuleDefinition[] = [
     periodOrder: 2,
     moduleUrl: "static/data-mining-module/index.html",
     iconType: "ybs",
+  },
+  {
+    id: "web",
+    slugPattern: "web-tasarim|web-tasarım|web-programlama|web-programlama",
+    title: "Web Tasarım ve Programlama",
+    periodLabel: "2. Sınıf • Bahar",
+    periodOrder: 2,
+    moduleUrl: "static/web-module/index.html",
+    iconType: "web",
   },
   {
     id: "ybs",

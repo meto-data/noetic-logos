@@ -75,6 +75,24 @@ const ICONS = {
       <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
     </svg>
   ),
+  web: (
+    <svg
+      class="module-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18" />
+      <path d="M12 3c2.5 2.7 4 5.7 4 9s-1.5 6.3-4 9c-2.5-2.7-4-5.7-4-9s1.5-6.3 4-9Z" />
+    </svg>
+  ),
 }
 
 const ModuleBanner: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
@@ -95,7 +113,9 @@ const ModuleBanner: QuartzComponent = ({ fileData, displayClass }: QuartzCompone
         <span class="module-banner-icon">{ICONS[matchingModule.iconType]}</span>
         <div class="module-banner-text">
           <span class="module-banner-title">{matchingModule.title}</span>
-          <span class="module-banner-subtitle">{matchingModule.subtitle}</span>
+          <span class="module-banner-subtitle">
+            {matchingModule.subtitle ?? "Test ve pratik modülü hazır!"}
+          </span>
           {matchingModule.warningNote && (
             <span class="module-banner-warning">{matchingModule.warningNote}</span>
           )}
