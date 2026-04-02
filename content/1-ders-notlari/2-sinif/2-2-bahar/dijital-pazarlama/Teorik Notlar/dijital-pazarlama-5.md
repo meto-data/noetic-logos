@@ -16,7 +16,7 @@ created: 2026-03-19
 
 # Ders Notları
 ## 1. Makine Öğrenmesi (Machine Learning) ve Pazarlama
-Geçen haftanın kısa bir özeti minvalindeydi bu kısım. Pazarlamdaki sezgisel yaklaşımlardan veri tabanlı (data-driven) yaklaşımlara geçil anlatıldı. Verinin (açık, statik, yapılandırılmış, yapılandırılmamış) tek başına bir anlam ifade etmediği, **işlendikçe değer kazandığı vurgulandı**.
+Geçen haftanın kısa bir özeti minvalindeydi bu kısım. Pazarlamadaki sezgisel yaklaşımlardan veri tabanlı (data-driven) yaklaşımlara geçiş anlatıldı. Verinin (açık, statik, yapılandırılmış, yapılandırılmamış) tek başına bir anlam ifade etmediği, **işlendikçe değer kazandığı vurgulandı**.
 
 Makine öğrenimi, sistemin tıpkı bir işletme gibi **Girdi (Input)** $\to$ **Süreç/İşlem (Process)** $\to$ **Çıktı (Output)** mantığıyla (bkz. [[3- Modern Yönetim Anlayışı#Sistemin Ögeleri|Sistemin Öğeleri]]) çalışmasına dayanır. Pazarlamada bu süreç ürünün ilk girişinden satış sonrası desteğe (örn: e-ticaret sitelerindeki 5 yıldızlı yorumların algoritma tarafından öne çıkarılması) kadar her aşamada aktiftir.
 
@@ -51,13 +51,14 @@ Endüstriyel devrimlerin (1.0 buhar, 2.0 elektrik/seri üretim) ardından 2011 y
 >[!important] Müşteri Tatmini (Customer Satisfaction) - Sınav Vurgusu
 >Hoca bu formülü not almamızı özellikle istemişti: <br>
 >**Müşteri Tatmini = Hâlihazırda Elde Edilen Durum (Deneyim) - Beklentiler** <br>
->Eğer hâlihazırda elde edilen durum, yani deneyimimiz, tasavvur ettiğimiz o beklentiden/beklentilerden fazlaysa (pozitifse), müşteri tatmini sağlanır. Buna mukabil, beklentimiz arşa çıkmışken, deneyimimiz ondan azsa (negatifse), bu sefer müşteri tatmini sağlanmaz. Daha ziyade, tatminsizlik doğar.
+>Eğer hâlihazırda elde edilen durum (yani **deneyimimiz**), tasavvur ettiğimiz o beklentiden/beklentilerden fazlaysa (pozitifse) müşteri tatmini sağlanır. Buna mukabil beklentimiz arşa çıkmışken deneyimimiz ondan azsa (negatifse), bu sefer müşteri tatmini sağlanmaz; daha ziyade tatminsizlik doğar.
 
-- **Dinamik Fiyatlandırma (Kişiselleştirme)**: Sözgelimi bir alışveriş uygulamasında, bir kişi, aynı ürüne diğer kişilerden daha sık bakıyorsa ve alışveriş de yapıyorsa, algoritma bu kişiye daha cazip bir fiyat teklifi sunabilir. Veriye dayalı bir pazarlama stratejisine örnektir bu.
+- **Dinamik Fiyatlandırma (Kişiselleştirme)**: Söz gelimi, bir alışveriş uygulamasında bir kişi, aynı ürüne diğer kişilerden daha sık bakıyorsa ve alışveriş de yapıyorsa, algoritma bu kişiye daha cazip bir fiyat teklifi sunabilir. Veriye dayalı bir pazarlama stratejisine örnektir bu.
 
 ---
 
 ## 3. Artırılmış Gerçeklik (Augmented Reality - AR)
+
 Gerçek dünya ile 3 boyutlu dijital içeriklerin bileşkesidir. Tüketicilerin fiziksel dünya algısına dijital nesnelerin entegre edilmesidir. Artırılmış gerçeklik kavramı ilk kez 1990'larda Boeing araştırmacısı Tim Caudell tarafından kavramsallaştırılmıştır. Ancak teknolojik temeli 1968'de Ivan Sutherland’ın geliştirdiği başa takılan görüntüleme sistemine dayanır. Ayrıca Azuma'ya göre bir sistemin AR sayılabilmesi için üç kural vardır: 
 
 
@@ -65,7 +66,7 @@ Gerçek dünya ile 3 boyutlu dijital içeriklerin bileşkesidir. Tüketicilerin 
 2. Gerçek zamanlı etkileşim
 3. 3D ortamda çalışması.
 
-- **Kullanım Alanları**: Akıllı aynalar(kıyafet denemeden üstünde görme), IKEA Place uygulaması (mobilyayı odaya yerleştirme), Sephora (makyaj deneme), konum tabanlı oyunlar (Pokemon Go).
+- **Kullanım Alanları**: Akıllı aynalar (kıyafet denemeden üstünde görme), IKEA Place uygulaması (mobilyayı odaya yerleştirme), Sephora (makyaj deneme), konum tabanlı oyunlar (Pokemon Go).
 - **Pazarlamadaki Yeri**: Tüketiciye satın almadan önce (pre-purchase), mekâna dahi gelmesine gerek duymaksızın  sanal bir deneyim yaşatır. Sanal gerçekliği artırır, ürünü kendi mekânına yerleştirebileceği gibi (söz gelimi, bilgisayar alacaksa boyutlarını görebilir, mobilya alacaksa da aynı cümleden) istediği kıyafeti de yine mekâna gitmeksizin, kendi üzerinde sanal gerçekliği artırarak deneyebilir. Bu da ürünle bağ kurmasını kolaylaştıracağı gibi, satın alma ve tekrar tekrar satın alma süreçlerini de atıracaktır; nitekim, kolay bir şekilde deneyebilecek ve alabilecektir.
 - **Dezavantajları**: Kötü tasarlanmış uygulamalar marka algısını zedeler; gizlilik ve güvenlik sorunları yaratır. **Aşırı bilgi yüklemesi de satın alma kararını olumsuz etkileyebilir**. Yani tüketiciyi dijital katmanlara ve bilgiye boğmak, karar felcine (paradox of choice) yol açar. Bu yüzden bilgi kesinlikle kişiselleştirilmelidir.
 

@@ -79,6 +79,9 @@ Pazarlama daha uzun vadeli ve stratejik bir vizyon çizerken, satış daha kısa
 Ancak burada hocanın da bilhassa vurguladığı devasa bir kriz baş gösterir: Personelin teknolojiye adaptasyonu ve eğitimi. Yapay zekâ veri analizinde ne kadar üstün olursa olsun, nihai kararı verecek olan insan faktörüdür. Satış personelinin bu teknolojiyi bir tehdit değil, bir asistan olarak görüp özgüvenle kullanabilmesi için eğitilmesi şarttır. Aksi takdirde, makine ile insanın entegrasyonu (iş birliği) sağlanamaz, çalışan kendi ürettiği araca yabancılaşır ve sistem çöker.
 
 
+---
+
+
 ## İngilizce Terimler
 - **Data**: Veri
 - **Information**: Enformasyon
@@ -86,10 +89,3 @@ Ancak burada hocanın da bilhassa vurguladığı devasa bir kriz baş gösterir:
 - **Artificial Intelligence (AI)**: Yapay Zekâ
 - **Augmented Realıty (AR)**: Artırılmış Gerçeklik
 - **Mass Production / Mass Customization**: Seri Üretim / Kitlesel Kişiselleştirme
-
----
-
-## Derse Aşkın: Örüntüler, Bağlantılar ve Kritikler
-
-
-
