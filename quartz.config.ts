@@ -186,7 +186,16 @@ const config: QuartzConfig = {
     analytics: analyticsConfig,
     locale: "tr-TR",
     baseUrl: "meto-data.github.io/noetic-logos",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    ignorePatterns: [
+      "private",
+      "templates",
+      ".obsidian",
+      "5- Linux Notları",
+      "6- Kritikler",
+      "7- Yapay Zekâ",
+      "9-dil-ogrenimi",
+      "10-mitoloji-notlari",
+    ],
     defaultDateType: "created",
     features: {
       ...defaultFeatures,

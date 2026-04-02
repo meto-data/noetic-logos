@@ -100,7 +100,7 @@ Elemanın **çerçevesinin dışından**, etrafındaki diğer elemanlarla arası
 
 ---
 
-### 💻 Derste Bahsedilenlerin Kod Hâli (Özet)
+## 💻 Derste Bahsedilenlerin Kod Hâli (Özet)
 
 **stil.css (Dış CSS Dosyamız):**
 ```css

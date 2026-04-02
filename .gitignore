@@ -63,3 +63,10 @@ vercel.json
 # === Diğer ===
 prof/
 Infrastructure/
+
+# === Sitede Gizlenecek Klasörler ===
+content/5- Linux Notları/
+content/6- Kritikler/
+content/7- Yapay Zekâ/
+content/9-dil-ogrenimi/
+content/10-mitoloji-notlari/
