@@ -1,0 +1,8 @@
+---
+draft: true
+---
+Yenilikçi ve kısa vadede rakibi olmayan bir dijital ürün için belirlenmesi gereken strateji **Pazarın Kaymağını Alma** stratejisidir. Sebebini açıklamadan önce 4P bağlamında ele almam gerekir.
+
+İlkin mekânı (place) ele alalım. Zaten dijital bir ürün olduğu için, dağıtım kanalı dijitalde olacak ve kademeli olarak herkesin kullanımına açılacaktır. Bunun sebebi piyasaya ilk giren ben olduğum için kısa vadede sadece benim pazarlayacağım bu ürünün ulaşılamaz, premium olduğu hissiyatını uyandırmam gerekir; öyle ki arayüz tasarımını (product'a girer) bile premium bir hissiyat veren tasarım ile yapılmalıdır ve ilk safhalarda pek az kişinin kullanımına açılmalıdır. Sonrasında, ürün (product) ve promotion (tutundurma) ile bağlantılı olarak, bu ürünü sosyal kanallarda kanaat önderleri/fikir liderleri aracılığıyla ulaşılamaz bir ürün olarak pazarlar, hâlihazırda sınırlı sayıda kullanıcı için açık olduğundan bahsettirir ve fiyatı da yüksekte tutardım. Bu yapılanlar kullanıcıda FOMO hissiyatını uyandıracak ve duygularıyla hareket ederek ürünü almasına ön ayak olacaktır. Kaldı ki, sosyal medya etkileyicileri ile ilgili Düzce'deki çoğunluğu kadın olan kişilerle yapılan bir ankete göre, sosyal medya etkileyicisi güvenilirse, uzmansa ve çekiciyse, bu unsurlar kişilerin reklama daha olumlu bakmasına sebebiyet verdiği gözlemlenmiştir. Tek başına satın alma kararı yaratmasa dahi reklamı sevdirmesi önemlidir, nitekim reklam sevildiği vakit Mouth-to-Mouth Marketing (ağızdan ağza pazarlama) aracılığıyla bu reklam kitleler arası yayılabilir. 
+
+İşte, Pazarın Kaymağını Alma stratejisinin arka planında yatan psikolojik sebep budur, savunum da budur.
