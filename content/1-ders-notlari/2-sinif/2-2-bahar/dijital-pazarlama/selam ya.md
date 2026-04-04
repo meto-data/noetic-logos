@@ -1,33 +1,40 @@
 ---
 draft: false
 ---
-## **Tâlim falan**
+### DİJİTAL PAZARLAMA VİZE / FİNAL SORU HAVUZU
 
-**A. 5 pts** | Günlük hayatta sadece "fonksiyonel" bir ihtiyaç için yola çıkıp, sosyal medyadaki "Sosyal Kanıt (Social Proof)" baskısıyla "hedonik" bir tüketime dönüştürdüğünüz bir satın alma deneyiminizi kısaca yazınız.
+**Puan Tipi | Soru (Sadece soru havuzundan toplamı 100 puan edecek biçimde soruları seçiniz)**
 
-**B. 10 pts** | Web 1.0 dönemindeki "pasif bilgi alıcısı" konumundan, Web 2.0 ve 3.0 ile birlikte "üretüketici (prosumer)" konumuna geçişimizi, kendi internet kullanım alışkanlıklarınızdan somut bir örnekle açıklayınız.
+**A. 5 pts** | Bu derste öğrendiğiniz kavramların (Örn: Hedonik tüketim, FOMO, Sosyal Kanıt vb.) günlük hayattaki çevrim içi alışveriş davranışlarınızı nasıl etkilediğine dair somut bir örnek veriniz.
 
-**C. 10 pts** | İnsanların sosyal medyadaki kusursuz vitrinlerini ifade eden "Ördek Sendromu" ile markaların bize dayattığı "Hedonik Tüketim" arasında nasıl bir simbiyotik (karşılıklı beslenen) ilişki vardır?
+**B. 10 pts** | Müşteri tatmini (Customer Satisfaction) formülünü yazınız. Günümüz dijital pazarında tüketicinin bu formüldeki konumunu pazarlama açısından kısaca yorumlayınız.
 
-**D. 20 pts** | Henry Ford’un işçilerine günlük 5 dolar maaş vermesi ve tek tip "Model T" üretimi sadece başarılı bir İnsan Kaynakları ve endüstri hamlesi midir; yoksa Teknoloji Kabul Modeli (TAM) ve "kendi tüketicisini bizzat üretme" bağlamında tarihin en büyük makro-pazarlama stratejilerinden biri midir? Tartışınız.
+**C. 10 pts** | İnternetten en son satın aldığınız bir ürünü hangi satın alma güdüsü ile aldınız? Kararınızı derste işlenen pazarlama kavramlarıyla gerekçelendiriniz.
 
-**E. 20 pts** | Manuel Castells'in "Ağ Toplumu" kavramını göz önüne aldığınızda; dijital ağlarda bir içeriğin viral olması tamamen tesadüfi midir, yoksa "Sosyal Bulaşma" dinamikleri kullanılarak tüketicinin AIDA modelindeki "Eylem (Action)" aşamasına itildiği algoritmik bir manipülasyon mudur? 
+**D. 10 pts** | Tüketicinin Web 2.0 ile birlikte "üretüketici (prosumer)" konumuna geçmesi, markalar için bir pazarlama avantajı mıdır, yoksa yönetilemeyen bir itibar riski midir? Tartışınız.
 
-**F. 20 pts** | Geleneksel reklam bombardımanının (Ad Fatigue) yerini günümüzde "Ağızdan Ağıza Pazarlama (WOMM)" almıştır. Tüketicinin binlerce olumlu yorum varken tek bir kötü yoruma odaklanıp satın almadan vazgeçmesini "Olumsuzluk Önyargısı (Negativity Bias)" kavramı çerçevesinde nasıl açıklarsınız?
+**E. 20 pts** | Henry Ford’un üretim ve ücret politikalarının (Fordizm) pazarlama disiplini ile olan tarihsel ve stratejik bağlantısını tartışınız.
 
-**G. 20 pts** | Muniz ve O'Guinn'in "Marka Toplulukları" modelini (Biz bilinci, ritüeller ve gelenekler, ahlaki sorumluluk) günümüzde tutkuyla bağlı olduğunuz veya gözlemlediğiniz bir marka (Örn: Apple, Tesla, Harley Davidson vb.) üzerinden örneklendirerek açıklayınız.
+**F. 20 pts** | Porter’ın 5 Güç Modelini dikkate alarak, dijitalleşmenin bir sektördeki rekabet yapısını ve tüketici dinamiklerini pazarlama açısından nasıl dönüştürdüğünü açıklayınız.
 
-**H. 30 pts** | E-ticaret platformlarındaki "Dinamik Fiyatlandırma" stratejilerinin arka planında yatan Makine Öğrenmesi (Gözetimli Öğrenme ve Takviyeli Öğrenme) mekanizmalarını açıklayınız. Algoritmaların bizi bizden daha iyi tanıdığı bu sistemde tüketici "özgür iradesiyle" mi alışveriş yapmaktadır?
+**G. 20 pts** | Aşağıdaki atasözlerini/deyimleri derste öğrendiğiniz pazarlama teorileri, kavramları veya stratejileri ile eşleştirerek ilişkilendiriniz.
+* “Sürümden kazanmak” = 
+* “Meyve veren ağaç taşlanır” = 
+* “Görünen köy kılavuz istemez” = 
+* “Körle yatan şaşı kalkar” = 
 
-**I. 30 pts** | Artırılmış Gerçeklik (AR) teknolojilerinin (örneğin sanal kıyafet deneme kabinleri veya akıllı aynalar) tüketici davranışlarına etkisini, Teknoloji Kabul Modeli'ndeki (TAM) "Algılanan Fayda" ve "Algılanan Kullanım Kolaylığı" kavramları üzerinden analiz ediniz. Bu süreçte oluşabilecek "aşırı bilgi yüklemesinin" yaratacağı riskleri de belirtiniz.
+**H. 20 pts** | AIDA modelinin aşamalarını yazınız ve bu modelin pazarlama bağlamında tüketiciyi nasıl yönlendirdiğini bildiğiniz bir dijital reklam/kampanya üzerinden tartışınız.
 
-**J. 30 pts** | Soyut bir hizmet pazarladığınızı (örneğin bir dijital danışmanlık veya yazılım ajansı) düşünün. Geleneksel Pazarlama Karmasına (4P) eklenen 3P'yi (İnsan, Fiziksel Kanıt, Süreç) bu dijital hizmet bağlamında nasıl kurgularsınız?
+**I. 20 pts** | Muniz ve O'Guinn’in "Marka Topluluğu Modelini", güncel bir marka üzerinden örneklendirerek açıklayınız.
 
-**K. 50 pts** | Derste öğrendiğiniz 20 adet kavramının İngilizce karşılıklarını yazınız. 
+**J. 30 pts** | Ağızdan ağıza pazarlama (WOMM) ve "Sosyal Bulaşma" dinamiklerinin, geleneksel tutundurma faaliyetlerine kıyasla tüketici üzerindeki etkisini tüketici davranışları ekseninde tartışınız.
 
-**L. 50 pts** | Piyasaya tamamen yenilikçi, rakibi olmayan dijital bir ürün sunuyorsunuz. Bu ürünün fiyatlandırmasında "Pazarın Kaymağını Alma (Price Skimming)" stratejisini mi, yoksa "Pazara Nüfuz Etme (Market Penetration)" stratejisini mi tercih edersiniz? Seçtiğiniz stratejiyi ürününüzün Pazarlama Karmasındaki (4P) diğer unsurlarıyla destekleyerek savununuz.
+**K. 30 pts** | Pazarlamanın 4P bileşenini bir internet sitesi tasarımı yahut Nesnelerin İnterneti (IoT) ekosistemi bağlamında nasıl kullanacağınızı somut örneklerle açıklayınız.
 
-**M. 100 pts** | Bir girişimci olarak, yapay zeka ve artırılmış gerçeklik (AR) destekli yepyeni bir sanal platform/web sitesi kurduğunuzu hayal ediniz. Bu platformun kuruluşundan tüketiciye ulaşma sürecine kadar olan tüm adımlarını;
-1) Ürün, Fiyat, Dağıtım ve Tutundurma (4P) stratejinizle,
-2) Hedef kitlenizin bu sistemi neden benimseyeceğini açıklayan Teknoloji Kabul Modeli (TAM) dinamikleriyle (Algılanan Fayda ve Kolaylık),
-3) Markanız etrafında bir "Modern Kabile" (Marka Topluluğu) yaratıp, Kanaat Önderleri aracılığıyla bu platformu AIDA modeliyle nasıl viral (Sosyal Bulaşma) hale getireceğinizle birleştirerek **tek bir tutarlı senaryo (vaka)** halinde detaylıca kurgulayınız.
+**L. 30 pts** | Kendi kurguladığınız sanal bir internet sayfası veya uygulama fikri üzerinden, Teknoloji Kabul Modeli (TAM) aşamalarını sisteminize nasıl entegre ederdiniz? Açıklayınız.
+
+**M. 30 pts** | Chatbot teknolojilerinin pazarlamadaki rolünü; çift yönlü iletişim (two-way communication) ve müşteri tatmini ekseninde değerlendiriniz.
+
+**N. 50 pts** | Derste öğrendiğiniz pazarlama, teknoloji ve sosyoloji kavramlarından en az 20 tanesinin hem İngilizcesini hem de Türkçe karşılıklarını bir liste halinde yazınız.
+
+**O. 100 pts** | Bir web sayfası veya e-ticaret platformu kurduğunuzu varsayınız. Bu projenizi; pazarlamanın 4P'si ile nasıl şekillendireceğinizi (web tasarım algoritması adı altında) ve tüketicilerin bu siteyi benimsemesini Teknoloji Kabul Modeli (TAM) üzerinden nasıl sağlayacağınızı bütünleşik bir senaryo halinde açıklayınız.

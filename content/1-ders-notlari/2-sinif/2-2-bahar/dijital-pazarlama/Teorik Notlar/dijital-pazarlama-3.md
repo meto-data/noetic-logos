@@ -90,7 +90,6 @@ Geleneksel pazarlamadan daha etkilidir çünkü kaynağı markanın kendisi değ
 - **Normatif Baskı:** Akran onayı alma veya sosyal uyum ihtiyacı. *"Herkesin iPhone'u var, benim de olmalı"* hissi. (Bkz. [[Sosyal Kanıt]]). 
 - **[[Ördek Sendromu]] (Duck Syndrome):** Ördekler suyun üzerinde çok sakin, estetik ve mutlu süzülürler. Ancak suyun altına baktığınızda ayaklarını hayatta kalmak/ilerlemek için çılgınca çırptıklarını görürsünüz.
 	- **Sosyal Medya Bağlantısı:** İnsanlar Instagram'da mükemmel hayatlar, mutlu evlilikler, harika tatiller sergiler (suyun üstü). Ancak arka planda kavgalar, borçlar, depresyon vardır (suyun altı). Sosyal medya tamamen "iyi görünme" sanrısıdır.
-		- Bunun sosyolojideki karşılığı Debord'un "Gösteri Toplumu" ve Goffman'ın "Vitrin/Arka Plan" teorisidir. Sosyal medya, bireyin kendi hayatını bir meta olarak sergilediği vitrindir aslında.
 
 ### 5. Marka Toplulukları (Brand Communities)
 Tüketicilerin sadece bir ürünü satın almakla kalmayıp, o marka etrafında bir **"kabile" (tribe)** oluşturmasıdır. (Michel Maffesoli'nin 'Modern Kabileler' kavramına dayanır).
