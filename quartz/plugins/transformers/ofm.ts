@@ -13,12 +13,13 @@ import { ReplaceFunction, findAndReplace as mdastFindReplace } from "mdast-util-
 import rehypeRaw from "rehype-raw"
 import { SKIP, visit } from "unist-util-visit"
 import path from "path"
-import { splitAnchor } from "../../util/path"
 import { JSResource, CSSResource } from "../../util/resources"
 // @ts-ignore
 import calloutScript from "../../components/scripts/callout.inline"
 // @ts-ignore
 import checkboxScript from "../../components/scripts/checkbox.inline"
+// @ts-ignore
+import obsidianColumnsScript from "../../components/scripts/obsidianColumns.inline"
 // @ts-ignore
 import mermaidScript from "../../components/scripts/mermaid.inline"
 import mermaidStyle from "../../components/styles/mermaid.inline.scss"
@@ -27,6 +28,10 @@ import { toHast } from "mdast-util-to-hast"
 import { toHtml } from "hast-util-to-html"
 import { capitalize } from "../../util/lang"
 import { PluggableList } from "unified"
+import { unified } from "unified"
+import remarkParse from "remark-parse"
+import remarkMath from "remark-math"
+import remarkGfm from "remark-gfm"
 
 export interface Options {
   comments: boolean
@@ -148,6 +153,71 @@ const wikilinkImageEmbedRegex = new RegExp(
   /^(?<alt>(?!^\d*x?\d*$).*?)?(\|?\s*?(?<width>\d+)(x(?<height>\d+))?)?$/,
 )
 
+type ParsedColumn = {
+  flexGrow?: number
+  markdown: string
+}
+
+const colMdStartRegex = /^```col-md\s*$/
+const fenceEndRegex = /^```\s*$/
+const flexGrowOptionRegex = /^flexGrow\s*=\s*([0-9]*\.?[0-9]+)\s*$/
+
+function parseObsidianColumns(raw: string): ParsedColumn[] {
+  const lines = raw.split("\n")
+  const columns: ParsedColumn[] = []
+  let i = 0
+
+  while (i < lines.length) {
+    if (!colMdStartRegex.test(lines[i].trim())) {
+      i += 1
+      continue
+    }
+
+    i += 1
+    const blockLines: string[] = []
+    while (i < lines.length && !fenceEndRegex.test(lines[i].trim())) {
+      blockLines.push(lines[i])
+      i += 1
+    }
+
+    if (i < lines.length) {
+      i += 1
+    }
+
+    let contentStart = 0
+    let foundSeparator = false
+    let flexGrow: number | undefined
+    while (contentStart < blockLines.length) {
+      const current = blockLines[contentStart].trim()
+      if (current === "===") {
+        contentStart += 1
+        foundSeparator = true
+        break
+      }
+
+      const maybeFlex = current.match(flexGrowOptionRegex)
+      if (maybeFlex) {
+        const value = Number.parseFloat(maybeFlex[1])
+        if (Number.isFinite(value) && value > 0) {
+          flexGrow = value
+        }
+      }
+
+      contentStart += 1
+    }
+
+    columns.push({
+      flexGrow,
+      markdown: blockLines
+        .slice(foundSeparator ? contentStart : 0)
+        .join("\n")
+        .trim(),
+    })
+  }
+
+  return columns
+}
+
 export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
   const opts = { ...defaultOptions, ...userOpts }
 
@@ -210,6 +280,48 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
     },
     markdownPlugins(ctx) {
       const plugins: PluggableList = []
+
+      plugins.push(() => {
+        const mdParser = unified().use(remarkParse).use(remarkMath).use(remarkGfm)
+
+        return (tree: Root) => {
+          visit(tree, "code", (node: Code, index, parent) => {
+            if (!parent || index === undefined || node.lang !== "col") {
+              return
+            }
+
+            const columns = parseObsidianColumns(node.value)
+            if (columns.length === 0) {
+              return
+            }
+
+            const replacement: BlockContent[] = [
+              { type: "html", value: `<div class="obsidian-cols">` },
+            ]
+
+            for (const col of columns) {
+              const flexAttr =
+                typeof col.flexGrow === "number" ? ` data-flex-grow="${col.flexGrow}"` : ""
+              replacement.push({
+                type: "html",
+                value: `<div class="obsidian-col"${flexAttr}>`,
+              })
+
+              if (col.markdown.length > 0) {
+                const parsed = mdParser.parse(col.markdown) as Root
+                replacement.push(...(parsed.children as BlockContent[]))
+              }
+
+              replacement.push({ type: "html", value: `</div>` })
+            }
+
+            replacement.push({ type: "html", value: `</div>` })
+            parent.children.splice(index, 1, ...replacement)
+
+            return [SKIP, index + replacement.length]
+          })
+        }
+      })
 
       // regex replacements
       plugins.push(() => {
@@ -765,6 +877,12 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
           contentType: "inline",
         })
       }
+
+      js.push({
+        script: obsidianColumnsScript,
+        loadTime: "afterDOMReady",
+        contentType: "inline",
+      })
 
       if (opts.callouts) {
         js.push({

@@ -31,7 +31,7 @@ TRA'nın eleştirdiğimiz öznel normlar boyutunu psikometrik ve teorik belirsiz
 
 1. **Dışsal Değişkenler (External Variables)**: Sürecin sıfır noktasıdır. Bireyin dışındaki her şeyi; sistemin tasarım özelliklerini, teknik altyapıyı, kullanıcıya verilen eğitimi, kurumsal dayatmaları, bireyin cinsiyet ve yaş gibi farklılıklarını kapsar.
 
-2. **Algılanan Fayda (Perceived Usefulness - PU)**: Bireyin söz konusu sistemi kullanmasının kendi iş performansını yahut mesleki verimliliğini artıracağına dair taşıdığı subjektif inanç. **Kuramın mutlak merkezidir** desek yeridir. Nitekim araştırmalar da bir sistem zor ve karmaık olsa bile eğer kullanıcıya yüksek bir fayda sağlıyorsa kullanıcının o zorluğa katlanacağını ve buna mukabil kullanımı dünyanın en kolay sistemi bile olsa işe yaramıyorsa (faydasızsa) kabul görmeyeceğini göstermektedir.
+2. **Algılanan Fayda (Perceived Usefulness - PU)**: Bireyin söz konusu sistemi kullanmasının kendi iş performansını yahut mesleki verimliliğini artıracağına dair taşıdığı subjektif inanç. **Kuramın mutlak merkezidir** desek yeridir. Nitekim araştırmalar da bir sistem zor ve karmaşık olsa bile eğer kullanıcıya yüksek bir fayda sağlıyorsa kullanıcının o zorluğa katlanacağını ve buna mukabil kullanımı dünyanın en kolay sistemi bile olsa işe yaramıyorsa (faydasızsa) kabul görmeyeceğini göstermektedir.
 
 3. **Algılanan Kullanım Kolaylığı (Perceived Ease of Use - PEOU)**: Bireyin söz konusu sistemi kullanmanın zihinsel veya fiziksel hiçbir zahmet gerektirmeyeceğine, yani sistemin kolay olacağına dair inancının derecesi.
 

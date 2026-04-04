@@ -23,7 +23,7 @@ Diğer notlarda hepsi mevcut, ancak o notlardaki birçok terimi hoca "yazın" di
 18. Customer Satisfaction
 19. Augmented Reality
 20. Social Proff
-21. Negative Bias
+21. Negativity Bias
 22. Word-of-Mouth Marketing -yahut *Mouth-to-Mouth Marketing*
 23. Internet of Things
 24. Search Engine

@@ -30,7 +30,6 @@ body.modules-modal-open {
   overscroll-behavior: none !important;
 }
 
-
 // ==========================================
 // NOETIC LOGOS THEME v19 - TEMA UYUMLU MOBİL
 // ==========================================
@@ -40,7 +39,8 @@ body.modules-modal-open {
   font-family: "Material Icons Outlined";
   font-style: normal;
   font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v109/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2) format("woff2");
+  src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v109/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2)
+    format("woff2");
 }
 
 .material-icons-outlined {
@@ -95,7 +95,7 @@ article .callout-content {
   line-height: var(--noetic-line-height, 1.6) !important;
 }
 
-.center>article {
+.center > article {
   max-width: var(--noetic-content-max-width, none);
 }
 
@@ -116,11 +116,11 @@ html.noetic-custom-typo article {
 }
 
 // Kod Satır Numaraları
-html.noetic-code-line-numbers pre>code {
+html.noetic-code-line-numbers pre > code {
   counter-reset: line;
 
-  &>.line::before,
-  &>span[class]::before {
+  & > .line::before,
+  & > span[class]::before {
     counter-increment: line;
     content: counter(line);
     display: inline-block;
@@ -137,18 +137,18 @@ html.noetic-code-line-numbers pre>code {
 }
 
 // Katlanabilir Kod Blokları
-html.noetic-code-collapsible pre>code {
+html.noetic-code-collapsible pre > code {
   max-height: 300px;
   overflow: hidden;
   position: relative;
   display: block;
 }
 
-html.noetic-code-collapsible pre.code-expanded>code {
+html.noetic-code-collapsible pre.code-expanded > code {
   max-height: none;
 }
 
-html.noetic-code-collapsible pre>.code-expand-btn {
+html.noetic-code-collapsible pre > .code-expand-btn {
   display: block;
   width: 100%;
   padding: 0.3rem;
@@ -163,13 +163,12 @@ html.noetic-code-collapsible pre>.code-expand-btn {
   border-radius: 0 0 6px 6px;
 }
 
-html:not(.noetic-code-collapsible) pre>.code-expand-btn {
+html:not(.noetic-code-collapsible) pre > .code-expand-btn {
   display: none;
 }
 
 // Baskı Dostu Stiller
 @media print {
-
   .sidebar,
   .hamburger-menu,
   .mobile-overlay,
@@ -732,7 +731,7 @@ img {
 
 // TOC Progress Bar Stili (Tüm Temalar İçin)
 // TOC başlığını Grafik Görünümü ile aynı stile getir
-.toc>.toc-header h3,
+.toc > .toc-header h3,
 .toc-header h3 {
   font-family: var(--headerFont) !important;
   font-size: 1rem !important;
@@ -914,8 +913,8 @@ img {
   }
 
   // Graph header
-  .graph-outer>h3,
-  .backlinks>h3 {
+  .graph-outer > h3,
+  .backlinks > h3 {
     color: #71717a !important;
     border-bottom: 1px solid #27272a !important;
   }
@@ -1063,7 +1062,7 @@ body {
 $global-radius: 0.75rem;
 $global-radius-lg: 1rem;
 
-.graph>.graph-outer {
+.graph > .graph-outer {
   border-radius: $global-radius-lg !important;
 }
 
@@ -1095,13 +1094,12 @@ li.section-li {
 // DESKTOP (min-width: 1200px) - FIXED SIDEBARS
 // ==========================================
 @media all and (min-width: 1200px) {
-
   html,
   body {
     overflow-x: hidden !important;
   }
 
-  .page>#quartz-body {
+  .page > #quartz-body {
     display: block !important;
     width: 100% !important;
     min-height: 100vh !important;
@@ -1153,13 +1151,12 @@ li.section-li {
 // TABLET (800px - 1199px) - FIXED SIDEBAR
 // ==========================================
 @media all and (min-width: 800px) and (max-width: 1199px) {
-
   html,
   body {
     overflow-x: hidden !important;
   }
 
-  .page>#quartz-body {
+  .page > #quartz-body {
     display: block !important;
     width: 100% !important;
     min-height: 100vh !important;
@@ -1241,7 +1238,7 @@ li.section-li {
     overflow-x: hidden !important;
   }
 
-  .page>#quartz-body {
+  .page > #quartz-body {
     display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
@@ -1321,8 +1318,6 @@ li.section-li {
       background-color: transparent !important;
     }
 
-
-
     .explorer button h2 {
       color: var(--text) !important;
       font-weight: 600 !important;
@@ -1332,7 +1327,7 @@ li.section-li {
       overscroll-behavior: auto !important;
     }
 
-    .explorer-content ul li>a {
+    .explorer-content ul li > a {
       color: var(--text) !important;
       font-size: 0.9rem !important;
       padding: 0.5rem 0.75rem !important;
@@ -1349,21 +1344,19 @@ li.section-li {
       display: flex !important;
       width: 100% !important;
 
-
-      >div {
+      > div {
         flex: 1 1 auto;
         min-width: 0;
       }
 
-      div>a,
-      div>button {
+      div > a,
+      div > button {
         display: flex !important;
         width: 100% !important;
-
       }
 
-      div>a,
-      div>button span {
+      div > a,
+      div > button span {
         color: var(--text) !important;
         font-size: 0.9rem !important;
       }
@@ -1377,10 +1370,9 @@ li.section-li {
       }
     }
 
-    li.folder-open>.folder-container {
-
-      div>a,
-      div>button span {
+    li.folder-open > .folder-container {
+      div > a,
+      div > button span {
         color: var(--secondary) !important;
         font-weight: 600 !important;
       }
@@ -1425,7 +1417,7 @@ li.section-li {
     }
   }
 
-  .page>#quartz-body .page-header {
+  .page > #quartz-body .page-header {
     display: none !important;
   }
 
@@ -1593,7 +1585,6 @@ li.section-li {
   }
 
   &:hover {
-
     .menu-icon,
     .close-icon {
       color: var(--secondary);
@@ -1635,7 +1626,7 @@ li.section-li {
   gap: 0.5rem !important;
   margin-bottom: 1.5rem;
 
-  >div:first-child {
+  > div:first-child {
     flex-grow: 1 !important;
   }
 }
@@ -1711,7 +1702,7 @@ li.section-li {
 }
 
 .explorer-content {
-  ul li>a {
+  ul li > a {
     color: var(--muted) !important;
     font-size: 0.875rem;
     padding: 0.25rem 0.5rem;
@@ -1730,8 +1721,8 @@ li.section-li {
   border-radius: 0.25rem;
   background-color: transparent !important;
 
-  div>a,
-  div>button span {
+  div > a,
+  div > button span {
     color: var(--muted) !important;
     font-weight: 500;
     font-size: 0.875rem;
@@ -1744,24 +1735,24 @@ li.section-li {
   &:hover {
     background-color: var(--greek-blue) !important;
 
-    div>a,
-    div>button span {
+    div > a,
+    div > button span {
       color: var(--secondary) !important;
     }
   }
 }
 
-li.folder-open>.folder-container {
+li.folder-open > .folder-container {
   background-color: transparent !important;
 
-  div>a,
-  div>button span {
+  div > a,
+  div > button span {
     color: var(--secondary) !important;
     font-weight: 600;
   }
 }
 
-.explorer-content .folder-outer>ul {
+.explorer-content .folder-outer > ul {
   border-left: 1px solid var(--border-color);
   margin-left: 0.5rem;
   padding-left: 0.75rem;
@@ -1792,7 +1783,7 @@ li.folder-open>.folder-container {
 }
 
 // ===== ARTICLE =====
-article>h1,
+article > h1,
 .article-title {
   font-size: 2.25rem !important;
   font-weight: 700 !important;
@@ -1800,10 +1791,28 @@ article>h1,
 }
 
 @media all and (max-width: 799px) {
-
-  article>h1,
+  article > h1,
   .article-title {
     font-size: 1.5rem !important;
+  }
+}
+
+// Obsidian callout-columns compatibility (`col` / `col-md` fenced blocks)
+article .obsidian-cols {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin: 1rem 0;
+}
+
+article .obsidian-col {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+@media all and (max-width: 799px) {
+  article .obsidian-cols {
+    flex-direction: column;
   }
 }
 
@@ -1834,7 +1843,7 @@ article>h1,
 
 // ===== GRAPH =====
 .graph {
-  >h3 {
+  > h3 {
     font-size: 0.6875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -1842,7 +1851,7 @@ article>h1,
     font-weight: 700;
   }
 
-  >.graph-outer {
+  > .graph-outer {
     background-color: var(--light) !important;
     border: 1px solid var(--border-color) !important;
     border-radius: 0.5rem !important;
@@ -1851,7 +1860,7 @@ article>h1,
 }
 
 // ===== TOC =====
-ul.toc-content.overflow>li>a {
+ul.toc-content.overflow > li > a {
   color: var(--muted) !important;
   font-size: 0.8125rem !important;
   background-color: transparent !important;
@@ -1894,15 +1903,15 @@ li.section-li {
     box-shadow: 0 4px 12px color-mix(in srgb, var(--secondary) 15%, transparent);
   }
 
-  >a.section-link {
+  > a.section-link {
     display: block !important;
     padding: 1rem 1.25rem !important;
 
-    >.section {
+    > .section {
       display: flex !important;
       justify-content: space-between !important;
 
-      >.desc h3 {
+      > .desc h3 {
         margin: 0 !important;
         display: flex !important;
         align-items: center !important;
@@ -1918,7 +1927,7 @@ li.section-li {
         }
       }
 
-      >.meta {
+      > .meta {
         color: var(--gray) !important;
         font-size: 0.8125rem !important;
       }
@@ -2550,7 +2559,6 @@ article h3 {
 // DEEP-VOID TEMASI - KaTeX BEYAZ RENK
 // ==========================================
 [saved-theme="deep-void"] {
-
   // KaTeX formülleri beyaz olmalı
   .katex,
   .katex * {
@@ -2567,7 +2575,6 @@ article h3 {
 // VOID TEMASI - KaTeX RENK DÜZELTMESİ
 // ==========================================
 [saved-theme="void"] {
-
   .katex,
   .katex * {
     color: #e4e4e7 !important;
@@ -2581,7 +2588,6 @@ article h3 {
 [saved-theme="stone-dark"],
 [saved-theme="olive-dark"],
 [saved-theme="deep-sea"] {
-
   .katex,
   .katex * {
     color: var(--dark) !important;
@@ -2592,7 +2598,6 @@ article h3 {
 // ZEN MODU
 // ==========================================
 html.noetic-zen-mode {
-
   .sidebar,
   .hamburger-menu,
   .mobile-header,
@@ -2614,7 +2619,7 @@ html.noetic-zen-mode {
     display: none !important;
   }
 
-  .settings>.settings-trigger {
+  .settings > .settings-trigger {
     position: fixed;
     top: 12px;
     right: 12px;
@@ -2622,7 +2627,7 @@ html.noetic-zen-mode {
   }
 
   .page-footer {
-    &>*:not(.noetic-toast-container):not(#noetic-toast-container) {
+    & > *:not(.noetic-toast-container):not(#noetic-toast-container) {
       display: none !important;
     }
   }
@@ -2669,7 +2674,9 @@ html.noetic-zen-mode {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: border-color 0.15s ease, color 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
   &:hover {
