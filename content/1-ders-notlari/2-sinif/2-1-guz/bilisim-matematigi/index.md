@@ -16,6 +16,8 @@ Eğer gerçekten öğrenmek için alınıyorsa alınmaması gereken bir ders; ha
 
 Her derste aşağı yukarı 2-3 soru sorulur +5 puanlık, genelde 3 dakika süre verilir ve bu süre zarfında soruyu doğru biçimde çözen ilk 3 kişiye vize ya da final sınavında ilave puan verilir. Bu nedenle bu dersin notlarını da İstatistik dersinde yaptığım gibi paylaşmayacağım. Haksız puan almanın önüne geçmenin başka yolu yok pek. Puan verdiği soruları kaldırsam, bu sefer o soru biçimlerini de komple kaldırmam gerekir ki, ders notlarının %30-40 civarını kaldırmam gerekir bu sebeple. Sınavda da ekseriyetle bu sorulardan sorulduğunu hesaba katarsak, sınava hazırlanmak için uygun olmaz bu notlar. Etik bakımdan baktığımızda tamamını paylaşsam sıkıntı olacak; tamamını değil de puanlı olanları eleyip paylaşsam bu sefer sınav için yararlı olmayacak. Bu nedenle **İstatistik** dersi için olduğu gibi **bu ders** için de notlar paylaşılmayacaktır.
 
+### Not Paylaşımı Gerekçesi
+
 **Ek**: Fikrim değişti, aylar sonra. Nitekim notları korumaktaki amacım "adaleti korumak" idi; oysa korunacak bir adalet söz konusu değil, sistem baştan sıkıntılı. Sebeplerini detaylıca açımlayacağım, kopya örneği üzerinden.
 
 Eskiden, bundan daha 1-2 ay önce, kopya çekmeyi kendime karşı yapılmış bir hak gaspı olarak görür ve kopya çekenleri gayri-ahlâkîlik ile suçlardım. Gelgelelim bu mesnetli bir suçlama değildi. Her nasıl ki "Özel okullarda obp kasıyorlar, kopya çekmemiz meşru" denilerek kopya çekmek ahlâkî olmayacaksa, "Ben kendi emeğimle aldım sen emeksizlikle aldın" denildiği için diye gayri-ahlâkî de olmuyor.

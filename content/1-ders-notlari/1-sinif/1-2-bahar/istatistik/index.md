@@ -2,7 +2,7 @@
 title: İstatistik
 created: 2026-04-05
 ---
-İstatistik notlarıdır. Bir yılın ardından paylaşmaya karar kıldım, gerekçesini şu kısımda detaylı olarak anlattım: **[[ATLAS/1-ders-notlari/2-sinif/2-1-guz/bilisim-matematigi/index#Değişim ve Gerekçe|Bilişim Matematiği - Index]]**.
+İstatistik notlarıdır. Bir yılın ardından paylaşmaya karar kıldım, gerekçesini şu kısımda detaylı olarak anlattım: **[[ATLAS/1-ders-notlari/2-sinif/2-1-guz/bilisim-matematigi/index#Not Paylaşımı Gerekçesi|Bilişim Matematiği - Index]]**.
 
 **Not**: Daha iyi bir hizalama ve PDF için, aşağıdakilere tıklayarak indirin: <br><br>
 
