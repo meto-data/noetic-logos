@@ -22,24 +22,24 @@ SORT file.name ASC
 
 ### 📂 Hafta 1: Dijital Pazarlamaya Giriş
 *İnternet ortamı, dijital teknolojiler ve temel kavramlar.*
-- [[Teorik Notlar/dijital-pazarlama-1|1. Hafta Ders Notu]]
+- [[dijital-pazarlama-1|1. Hafta Ders Notu]]
 
 ### 📂 Hafta 2: Dijital Pazarlama Temelleri
-- [[Teorik Notlar/dijital-pazarlama-2|2. Hafta Ders Notu]]
+- [[dijital-pazarlama-2|2. Hafta Ders Notu]]
 
 ### 📂 Hafta 3: Dijital Pazarlama Stratejileri
-- [[Teorik Notlar/dijital-pazarlama-3|3. Hafta Ders Notu]]
+- [[dijital-pazarlama-3|3. Hafta Ders Notu]]
 
 ### 📂 Hafta 4: Dijital Pazarlama Karması
-- [[Teorik Notlar/dijital-pazarlama-4|4. Hafta Ders Notu]]
+- [[dijital-pazarlama-4|4. Hafta Ders Notu]]
 
 ### 📂 Hafta 5: Dijital Platformlar ve Sosyal Ağlar
 *İlişkisel Pazarlama kavramları.*
-- [[Teorik Notlar/dijital-pazarlama-5|5. Hafta Ders Notu]]
+- [[dijital-pazarlama-5|5. Hafta Ders Notu]]
 
 ### 📂 Hafta 6: Arama Motoru Pazarlaması
 *SEM ve SEO temelleri.*
-- [[Teorik Notlar/dijital-pazarlama-6|6. Hafta Ders Notu]]
+- [[dijital-pazarlama-6|6. Hafta Ders Notu]]
 
 ---
 
