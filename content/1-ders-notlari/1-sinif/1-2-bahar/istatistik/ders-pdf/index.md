@@ -10,5 +10,4 @@ title: İstatistik - Ders PDF'leri
 - [[İstatistik - 10. Hafta.pdf]]
 - [[İstatistik - 11. Hafta.pdf]]
 - [[İstatistik - 12. Hafta.pdf]]
-- [[İstatistik - 13. Hafta.pdf]]
 - [[İstatistik - 13-14. Hafta.pdf]]
