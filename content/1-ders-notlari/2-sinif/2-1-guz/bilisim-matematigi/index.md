@@ -2,6 +2,7 @@
 title: Bilişim Matematiği
 tags:
   - akademi/dersler/bilisim-matematigi
+draft: true
 created: 2025-09-25
 ---
 - Bu index 2025-2026 eğitim yılı bağlamında girilmiştir.
@@ -24,7 +25,7 @@ Eskiden, bundan daha 1-2 ay önce, kopya çekmeyi kendime karşı yapılmış bi
 
 Bağlam eksikliği var nitekim burada; kopya çekme ediminin ahlâkî yahut gayri-ahlâkîliği, içerisinde bulunulan sistem ve hiyerarşi dışında düşünülemez. "Yüksek not > ortalama not; zeki > aptal; çalışkan > tembel" gibi, benim nezdimde en makul tabiriyle sikindirik olan, büyük olanı yüceltip küçük olanı aşağılayan ve ötekileştiren bu hiyerarşilerin sonucu olarak kopya çekme edimi gerçekleşiyor.
 
-Eğer birisi kopya çekiyorsa, bunu ahlâksız demek için bir sebep göremiyorum ben. Kimin hakkını gaspediyor? Peki ya doğuştan zekâ bahşedilen kişiler? Onlar da bize karşı haksızlık yapmıyor mu? Yapay zekâya para verip daha iyi konu anlatımıyla başarılı olan kişiler? Ailesi zengin olduğu için özel okullarda büyüyen kişiler? Bunlara da ahlâksız demek gerekir bu durumda, ola ki kopya çekmenin gayri-ahlâkîliğini bir eşitsizlik ve hak gaspı olarak göreceksek. Ancak bu tutarlı bir iddia değil, dolayısıyla kopya çekmeye bu gibi sebeplerden ötürü etik değil, gayri-ahlâkî yakıştırmaları yapmaktan vazgeçtim, nitekim tutarlı değildim bu yakıştırmaları gerçekleştirirken.
+Eğer birisi kopya çekiyorsa, buna ahlâksız demek için bir sebep göremiyorum ben. Kimin hakkını gaspediyor? Peki ya doğuştan zekâ bahşedilen kişiler? Onlar da bize karşı haksızlık yapmıyor mu? Yapay zekâya para verip daha iyi konu anlatımıyla başarılı olan kişiler? Ailesi zengin olduğu için özel okullarda büyüyen kişiler? Bunlara da ahlâksız demek gerekir bu durumda, ola ki kopya çekmenin gayri-ahlâkîliğini bir eşitsizlik ve hak gaspı olarak göreceksek. Ancak bu tutarlı bir iddia değil, dolayısıyla kopya çekmeye bu gibi sebeplerden ötürü etik değil, gayri-ahlâkî yakıştırmaları yapmaktan vazgeçtim, nitekim tutarlı değildim bu yakıştırmaları gerçekleştirirken.
 
 İster kopya çeksin ister çekmesin, ben çekmeyeceğim. Benim çekip çekmemem başkalarının yapıp yapmamasıyla alakalı değil, kendi kendime yaptığım dayatım ile alakalı. Oyunu kurallarına göre oynayacak ve kuralları esnetmeyeceğim, nitekim bu hiyerarşide "üstün" gelmek için kendimi de başkalarını da kandırmaya girecektir. Başkaları umurumda değil, kendimi kandırmaktan kurallara sığınırım.  
 

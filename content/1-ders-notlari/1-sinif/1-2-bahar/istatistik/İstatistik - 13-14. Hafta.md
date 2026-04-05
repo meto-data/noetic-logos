@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 
 
 <h1><span>Binom Dağılımı</span> | <span>08.05.2025 - 15.05.2025</span></h1>

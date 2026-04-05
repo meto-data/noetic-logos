@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # *Ünite 6: Temel Olasılık Teorisi | 17.04.2025*
 ## <h2>Faktöriyel Kavramı</p>
 ##### $$n! = n \times (n-1) \times (n-2) \times \dots \times 2 \times 1$$

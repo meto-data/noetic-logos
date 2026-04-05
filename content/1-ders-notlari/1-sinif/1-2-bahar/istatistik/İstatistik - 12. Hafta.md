@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 <br>
 
 <h1><span>Ünite 7: Dağılımlar</span> | <span>03.05.2025 (Telafi)</span></h1>

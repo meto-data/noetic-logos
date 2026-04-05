@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # *Ünite 3: Ortalamalar ve Merkezî Eğilim Ölçüleri | 06.03.2025*
 ## [[Duyarlı Ortalamalar]]
 ### 4- Kareli Ortalama

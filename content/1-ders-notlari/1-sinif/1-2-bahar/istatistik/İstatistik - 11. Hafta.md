@@ -1,4 +1,8 @@
 ---
+draft: true
+---
+
+---
 title: İstatistik - 11. Hafta
 ---
 

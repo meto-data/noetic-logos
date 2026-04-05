@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # *Vizeye Hazırlık | 27.03.2025*
 
 <br>

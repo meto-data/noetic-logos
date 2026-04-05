@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # *13.03.2025*
 
 ## Çeyreklikler <br>
