@@ -35,7 +35,7 @@ dv.table(["Pratik Notu", "Python Snippet"], tableRows);
 ### Hafta 1: Veri Madenciliğine Giriş
 > CRISP-DM, Veri Türleri, ML vs DM
 
-- **Teorik Notlar:** [[Teorik Notlar/veri-madenciligi-1|1. Hafta Teorik Notları]]
+- **Teorik Notlar:** [[veri-madenciligi-1|1. Hafta Teorik Notları]]
 - **Ders Slaytı:** [[PDF/hafta_1_giris_110819.pdf|hafta_1_giris_110819.pdf]]
 - **Kurulum Rehberi:** [[PDF/VERİ MADENCILIGI ALTYAPI KURULUM REHBERI_092924.pdf|Altyapı Kurulum Rehberi]]
 
