@@ -1,7 +1,7 @@
 <br>
 
-<h1 style="text-align:center"><span style="color:darkblue; text-align:center">Ünite 7: Dağılımlar</span> | <span style="color:#bf3f36">03.05.2025 (Telafi)</span></h1>
-<h6 style="text-align:center"><span style="color:darkblue; text-align:center">Konu Başlıkları</span> <br> <span style="color:#bf3f36">7.1- Olasılık Dağılımı <br> 7.2- Binom Dağılımı <br> 7.3- Poisson Dağılımı <br> 7.4- Normal Dağılım</span></h1> <br>
+<h1><span>Ünite 7: Dağılımlar</span> | <span>03.05.2025 (Telafi)</span></h1>
+<h6><span>Konu Başlıkları</span> <br> <span>7.1- Olasılık Dağılımı <br> 7.2- Binom Dağılımı <br> 7.3- Poisson Dağılımı <br> 7.4- Normal Dağılım</span></h1> <br>
 
 ## 7.1- Olasılık Dağılımı
 - **Dağılım**: Bir sosyal bilimler deneyinde elde edilen <u>sıralı verilerin tümüne</u> "**dağılım**" denir.
@@ -9,7 +9,7 @@
 ##### **1-**  $0\leq P(X) \leq {1}$
 ##### **2-** $\sum{} P(X) = 1$
 
-<h4 style="color:darkblue; text-align:center;">Matematiksel Beklenti</h3>
+<h4>Matematiksel Beklenti</h3>
 
 
 #### $$E(X) = \mu = X_{1} .P_{1} + X_{2} . P_{2} + \dots + X_{n} . P_{n}$$
@@ -17,7 +17,7 @@
 
 
 
-<h3 style="margin-bottom:-30px; text-align:center; font-weight:bolder; color:darkblue"> X Rastgele Kesikli Değişkenin Standart Sapması</h3>
+<h3> X Rastgele Kesikli Değişkenin Standart Sapması</h3>
 
 ![[rastgelekesikli.svg#center|500]]
 <br>
@@ -26,7 +26,7 @@
 ###  **Soru 1**:  Bir çift zar atıldığında üst yüzeye gelen sayıların toplamı X olsun. Buna göre; 
 
 ##### *a)* Olasılık değeri tablosunu oluşturun.
-- $6^2 = 36$ olduğundan, <span style="color:darkbrown; font-weight:bolder">36</span> olasılık vardır. 
+- $6^2 = 36$ olduğundan, <span>36</span> olasılık vardır. 
 - Zarların toplamı en az **2**, en çok **12** olduğundan, **11** farklı sayı gelme ihtimali vardır.   
 
 

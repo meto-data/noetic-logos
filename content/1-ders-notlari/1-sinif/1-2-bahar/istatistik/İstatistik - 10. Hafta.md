@@ -1,9 +1,9 @@
 # *Ünite 6: Temel Olasılık Teorisi | 17.04.2025*
-## <h2 style="text-align: center;">Faktöriyel Kavramı</p>
+## <h2>Faktöriyel Kavramı</p>
 ##### $$n! = n \times (n-1) \times (n-2) \times \dots \times 2 \times 1$$
-## <h2 style="text-align: center;">Saymanın Temel Prensibi</p>
+## <h2>Saymanın Temel Prensibi</p>
 #### a) Toplama
-### <h3 style="text-align: center;">b) Çarpma</p>
+### <h3>b) Çarpma</p>
 
 
 ````col
@@ -11,7 +11,7 @@
 flexGrow=1
 ===
 
-<h5 style="text-align:center">Örnek 1:</h5> 
+<h5>Örnek 1:</h5> 
 
 40 kişilik bir sınıftan bir başkan yardımcısı, ardından 1 onun kadar da başkan seçilecektir. Kaç farklı şekilde seçim yapılır?
 
@@ -21,7 +21,7 @@ flexGrow=1
 ```col-md
 flexGrow=1
 ===
-<h5 style="text-align:center">Örnek 1:</h5> 
+<h5>Örnek 1:</h5> 
 
 6 gömleği ve 4 pantolonu bulunan biri, bir gömlek ve bir pantolon seçerek kaç farklı şekilde giyinebilir? 
 
@@ -77,11 +77,11 @@ $9.8.7.1 = 504$
 
 <br>
 
-<h2 style="text-align:center"> Permütasyon (Sıralama/Dizileme)</h2>
+<h2> Permütasyon (Sıralama/Dizileme)</h2>
 
 #### $$P(n,r) = \frac{n!}{(n-r)!}$$ <br><br>
 
-<h3 style="text-align:center"> Genel Permütasyon </h3>
+<h3> Genel Permütasyon </h3>
 
 ````col
 ```col-md
@@ -119,11 +119,11 @@ $P(4,4) = \frac{10!}{6!} = 10.9.8.7 = 5040$
 
 <br><br><br><br>
 
-<h3 style="text-align:center">Dairesel Permütasyon (<span style="color:red">Çıkabilir</span>)</h3>
+<h3>Dairesel Permütasyon (<span>Çıkabilir</span>)</h3>
 
 #### $$\text{Formül: } (n-1)!$$
 
-<h4 style="text-align:center">Örnek 1 <span style="color:darkred">(Finalde Çıkabilir)</span></h4>
+<h4>Örnek 1 <span>(Finalde Çıkabilir)</span></h4>
 
 ````col
 ```col-md
@@ -175,7 +175,7 @@ flexGrow=1
 ```
 ````
 
-<h4 style="text-align:center"> Örnek 2 <span style="color:darkred">(Finalde Çıkabilir):</span> <br> <br>8 kişi yuvarlak masa etrafında; </h4> <br>
+<h4> Örnek 2 <span>(Finalde Çıkabilir):</span> <br> <br>8 kişi yuvarlak masa etrafında; </h4> <br>
 
 
 ````col
@@ -205,7 +205,7 @@ flexGrow=1
 ````
  <br><br><br><br><br><br><br><br><br><br>
  
-<h3 style="text-align:center">Tekrarlı Permütasyon  <span style="color:darkred">(Çıkabilir)</span></h3> <br>
+<h3>Tekrarlı Permütasyon  <span>(Çıkabilir)</span></h3> <br>
 
 #### **Örnek 1:** "$223331$" sayısının rakamları kullanılarak;
 
@@ -217,7 +217,7 @@ flexGrow=1
 
 ###### $\frac{6!}{2!.3!.1!} = \frac{6.5.4}{2!} = 60$
 
-###### *c)* <span style="color:#836258; font-weight=bolder">1</span> ile başlayan <span style="color:#836258; font-weight:bolder">3</span> ile biten kaç **farklı** sayı yazılabilir?
+###### *c)* <span>1</span> ile başlayan <span>3</span> ile biten kaç **farklı** sayı yazılabilir?
 
 ![[tekrarlip2.svg|250]]
 
@@ -227,7 +227,7 @@ flexGrow=1
 ```col-md
 flexGrow=1
 ===
-###### *b)* **<span style="color:#836258; font-weight:bolder">1</span>** ile başlayan kaç **farklı** sayı yazılabilir?
+###### *b)* **<span>1</span>** ile başlayan kaç **farklı** sayı yazılabilir?
 
 ![[tekrarlip.svg|400]]
 
@@ -263,7 +263,7 @@ flexGrow=2
 
 |Pozisyon|1|2|3|4|5|6|7|8|
 |---|---|---|---|---|---|---|---|---|
-|Harf|<span style="color:#bf3f36; font-weight:bolder">R</span>|_|_|_|_|_|_|<span style="color:#bf3f36; font-weight:bolder">Y</span>|
+|Harf|<span>R</span>|_|_|_|_|_|_|<span>Y</span>|
 
 **Kalan Harf Frekansları:** <br>
 	**A**: 4  

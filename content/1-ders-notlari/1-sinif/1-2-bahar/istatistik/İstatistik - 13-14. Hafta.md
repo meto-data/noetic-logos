@@ -1,6 +1,6 @@
 
 
-<h1 style="text-align:center"><span style="color:darkblue; text-align:center">Binom Dağılımı</span> | <span style="color:#bf3f36">08.05.2025 - 15.05.2025</span></h1>
+<h1><span>Binom Dağılımı</span> | <span>08.05.2025 - 15.05.2025</span></h1>
 
 #### **Tanım:** Eğer bir sosyal olay aşağıdaki şartları sağlıyorsa, binom dağılımına uygundur:
 
@@ -17,7 +17,7 @@
 <br><br>
 
 
-<h4 style="text-align:center"><span style="color:darkblue">Soru 1</span> Bir madeni para 6 kez atıldığında;</h4>
+<h4><span>Soru 1</span> Bir madeni para 6 kez atıldığında;</h4>
 
 `
 ##### *a)* İki kez tura gelme olasılığı
@@ -47,7 +47,7 @@ $P(X=6) = \frac{1}{64}$ <br>
 
 
 
-<h4 style="text-align:center"><span style="color:darkblue">Soru 2: </span>Bir zar 4 kez atıldığında;</h4>
+<h4><span>Soru 2: </span>Bir zar 4 kez atıldığında;</h4>
 
 <br>
 
@@ -82,7 +82,7 @@ $= \boxed{\frac{21}{6^4}}$
 
 
 
-<h4 style="text-align:justify"><span style="color:darkblue">Soru 3: </span>Bir kargo şirketi teslim aldığı paketlerin %2'sini belirlenen sürede yerine <u>ulaştıramamaktadır</u>. Bir müşteri 10 paketini bu kargoya verdiğinde;</h4> 
+<h4><span>Soru 3: </span>Bir kargo şirketi teslim aldığı paketlerin %2'sini belirlenen sürede yerine <u>ulaştıramamaktadır</u>. Bir müşteri 10 paketini bu kargoya verdiğinde;</h4> 
 
 <br>
 
@@ -121,7 +121,7 @@ $= \boxed{\frac{21}{6^4}}$
 
 
 
-<h4 style="text-align:justify"><span style="color:darkblue">Soru 4: </span> Bir kargo şirketi teslim aldığı paketlerden yüzde üçünü belirlenen sürede yerine <u>ulaştıramamaktadır</u>. Bir müşteri 8 paketini kargo şirketine verdiğinde;</h4>
+<h4><span>Soru 4: </span> Bir kargo şirketi teslim aldığı paketlerden yüzde üçünü belirlenen sürede yerine <u>ulaştıramamaktadır</u>. Bir müşteri 8 paketini kargo şirketine verdiğinde;</h4>
 
 <br>
 
@@ -152,7 +152,7 @@ $= \boxed{\frac{21}{6^4}}$
 
 <br>
 
-<h1 style="text-align:center"><span style="color:darkblue; text-align:center">Poisson Dağılımı</span> | <span style="color:#bf3f36">08.05.2025 - 14.05.2025</span></h1>
+<h1><span>Poisson Dağılımı</span> | <span>08.05.2025 - 14.05.2025</span></h1>
 ##### **Tanım:** X kesikli rastgele değişken ve belirli bir aralıkta bir olayın kaç defa gerçekleştiği ($\lambda$) olmak üzere; 
 
 ##### $e=2,71$
@@ -164,7 +164,7 @@ $= \boxed{\frac{21}{6^4}}$
 
 
 
-<h4 style="text-align:justify"><span style="color:darkblue">Soru 1: </span> Bir araştırmaya göre belli bir yaş grubundaki tüketicilerin ayda ortalama 6,9 kez alışverişe çıktığı bilinmekte. Poisson dağılımına uyduğu düşünülen X rastgele değişkeni için bu yaş grubu aralığının;</h4>
+<h4><span>Soru 1: </span> Bir araştırmaya göre belli bir yaş grubundaki tüketicilerin ayda ortalama 6,9 kez alışverişe çıktığı bilinmekte. Poisson dağılımına uyduğu düşünülen X rastgele değişkeni için bu yaş grubu aralığının;</h4>
 
 ##### *a)* Ayda tam 4 kez alışverişe çıkma ihtimalini bulun
 - $\lambda = 6,9 \space \space \space x=4$
@@ -192,7 +192,7 @@ $= \boxed{\frac{21}{6^4}}$
 ## $$\boxed{\lambda = n.p}$$
 
 
-<h4 style="text-align:justify"><span style="color:darkblue">Soru 2: </span> Bir fabrikada üretilen cihazların %5'i kusurludur. Buna göre rastgele seçilen 8 cihazdan tam 2 tanesinin kusurlu olma ihtimalini binom dağılımı ve poisson dağılımı ile bulunuz.</h4>
+<h4><span>Soru 2: </span> Bir fabrikada üretilen cihazların %5'i kusurludur. Buna göre rastgele seçilen 8 cihazdan tam 2 tanesinin kusurlu olma ihtimalini binom dağılımı ve poisson dağılımı ile bulunuz.</h4>
 
 #### Binom Dağılımına Göre
 
@@ -218,7 +218,7 @@ $= \boxed{\frac{21}{6^4}}$
 
 
 
-<h5 style="text-align:justify"><span style="color:darkblue">Soru 3 (<span style="color:darkred">Sınavda benzeri kesinlikle çıkacak</span>): </span> Bir atölyede üretilen cihazların %6'sı hatalı üretilmektedir. Rastgele seçilen 10 cihazdan 3'ünün kusurlu olma ihtimalini binom dağılımı ve poisson dağılımına göre bulunuz.</h4>
+<h5><span>Soru 3 (<span>Sınavda benzeri kesinlikle çıkacak</span>): </span> Bir atölyede üretilen cihazların %6'sı hatalı üretilmektedir. Rastgele seçilen 10 cihazdan 3'ünün kusurlu olma ihtimalini binom dağılımı ve poisson dağılımına göre bulunuz.</h4>
 
 
 #### Binom Dağılımına Göre
@@ -242,7 +242,7 @@ $= \boxed{\frac{21}{6^4}}$
 
 
 
-###  **12. Hafta - Soru 2 (<span style="color:darkblue">Sınavda benzeri çıkacağı için tekrar işlendi</span>)**: X, 3 çocuklu bir ailedeki erkek çocuk sayısıdır. Buna göre;
+###  **12. Hafta - Soru 2 (<span>Sınavda benzeri çıkacağı için tekrar işlendi</span>)**: X, 3 çocuklu bir ailedeki erkek çocuk sayısıdır. Buna göre;
 
 ##### *a)* Olasılık değerleri tablosu oluşturun.
 

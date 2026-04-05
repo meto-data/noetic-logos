@@ -3,19 +3,19 @@ title: İstatistik - 11. Hafta
 ---
 
 
-<h1 style="text-align:center"><span style="color:darkblue; text-align:center">Ünite 6: Temel Olasılık Teorisi</span> | <span style="color:#bf3f36">24.04.2025</span></h1>
+<h1><span>Ünite 6: Temel Olasılık Teorisi</span> | <span>24.04.2025</span></h1>
 
-<h2 style="text-align:center"><span style="color:2a475e; text-align:center">Kombinasyon (Gruplama)</span></h1>
+<h2><span>Kombinasyon (Gruplama)</span></h1>
 
-**Tanım**: "n" elemanlı bir kümenin içinden "r" elemanlı alt kümelerin seçilip gruplanmasına <span style="color:2a475e; font-weight:bolder">kombinasyon (gruplama)</span> denir.
+**Tanım**: "n" elemanlı bir kümenin içinden "r" elemanlı alt kümelerin seçilip gruplanmasına <span>kombinasyon (gruplama)</span> denir.
 
 ## $$\text{C(n,r)} =\binom{n}{r} = \frac{n!}{(n-r).r!}$$ 
 ### Kombinasyonun Özellikleri 
 #### $\binom{5}{3} = \binom{5}{2} \space \space \space \space | \space \space \space \space\binom{5}{0} = \binom{5}{5} = 1 \space \space \space \space |\space \space \space \space \binom{5}{1} = 5$
 
-<h3 style="text-align:left"><span style="color:2a475e; text-align:center">a) Genel Kombinasyon</span></h3>
+<h3><span>a) Genel Kombinasyon</span></h3>
 
-<h4 style="text-align:center"><span style="color:darkred">Örnek 1</span>: 10 cisim arasından;</h4>
+<h4><span>Örnek 1</span>: 10 cisim arasından;</h4>
 
 ````col
 ```col-md
@@ -46,7 +46,7 @@ flexGrow=1
 <br>
 
 
-<h4 style="text-align:center"><span style="color:darkred">Örnek 2</span>: 8 kişi arasından;</h4>
+<h4><span>Örnek 2</span>: 8 kişi arasından;</h4>
 
 ````col
 ```col-md
@@ -77,9 +77,9 @@ flexGrow=1
 
 <br>
 
-<h3 style="text-align:center"><span style="color:2a475e; text-align:center"> Ekip Oluşturma Soruları </span><span style="color:#bf3f36">(Finalde Gelebilir)</span></h3>
+<h3><span> Ekip Oluşturma Soruları </span><span>(Finalde Gelebilir)</span></h3>
 
-<h4 style="text-align:justify"><span style="color:darkred">Örnek 1</span>: 6 doktor, 7 hemşire arasından <span style="font-weight=bolder">4</span> kişilik bir sağlık ekibi oluşturulacaktır.</h4>
+<h4><span>Örnek 1</span>: 6 doktor, 7 hemşire arasından <span>4</span> kişilik bir sağlık ekibi oluşturulacaktır.</h4>
 
 ````col
 ```col-md
@@ -106,7 +106,7 @@ flexGrow=1
 ```
 ````
 	
-<h4 style="text-align:left"><span style="color:darkred">Örnek 2</span>: 5 Profesör ve 6 Doçent arasından  <span style="font-weight=bolder">3</span> kişilik bir bilim kurulu oluşturulacaktır.</h4>
+<h4><span>Örnek 2</span>: 5 Profesör ve 6 Doçent arasından  <span>3</span> kişilik bir bilim kurulu oluşturulacaktır.</h4>
 
 ````col
 ```col-md
@@ -133,7 +133,7 @@ flexGrow=1
 ```
 ````
 
-<h2 style="text-align:center"><span style="color:2a475e; text-align:center">Olasılık</span></h1>
+<h2><span>Olasılık</span></h1>
 
 **Tanım**: Bir olayı eşit olabilirliğe sahip sonuçları var olsun ve bu olasılıklı sonuçlar istenen ve istenmeyen şekilde 2 gruba ayrılsın. Buna göre; <br> <br>
 
@@ -147,7 +147,7 @@ flexGrow=1
 
 <br><br>
 
-<h4 style="text-align:left"><span style="color:darkred">Örnek 1</span>: Aşağıdaki olayların her biri için olasılıkları hesaplayınız.</h4>
+<h4><span>Örnek 1</span>: Aşağıdaki olayların her biri için olasılıkları hesaplayınız.</h4>
 
 ````col
 ```col-md
@@ -193,7 +193,7 @@ $4 \space\space\space  4$
 <br>
 <br>
 
-<h4 style="text-align:left"><span style="color:darkred">Örnek 2</span>: İçinde aynı büyüklükte 4 kırmızı, 6 mavi ve 8 yeşil bilye bulunan bir kutudan geriye koymadan ardarda 3 bilye çekiliyor.</h4> 
+<h4><span>Örnek 2</span>: İçinde aynı büyüklükte 4 kırmızı, 6 mavi ve 8 yeşil bilye bulunan bir kutudan geriye koymadan ardarda 3 bilye çekiliyor.</h4> 
 
 <br>
 
@@ -236,7 +236,7 @@ $\text{Üçünün de aynı renk gelme olasığı: } \frac{{56+20+4}}{816}$
 ````
 
 
-<h4 style="text-align:left"><span style="color:darkred">Örnek 3</span>: İçinde aynı büyüklükte 7 kırmızı, 5 mavi bilye bulunan kutudan aynı anda 5 bilye çekiliyor. Buna göre;</h4>
+<h4><span>Örnek 3</span>: İçinde aynı büyüklükte 7 kırmızı, 5 mavi bilye bulunan kutudan aynı anda 5 bilye çekiliyor. Buna göre;</h4>
 
 ````col
 ```col-md
@@ -265,7 +265,7 @@ flexGrow=1
 ````
 
 
-<h4 style="text-align:left"><span style="color:darkred">Örnek 4</span>: Bir madeni para ile bir çift zar birlikte atılıyor; paranın tura veya zarların üst yüzüne aynı sayı gelme ihtimali nedir?</h4>
+<h4><span>Örnek 4</span>: Bir madeni para ile bir çift zar birlikte atılıyor; paranın tura veya zarların üst yüzüne aynı sayı gelme ihtimali nedir?</h4>
 
 $$P(T \lor Zar) = P(T) + P(Zar) - P(T \land Zar)$$
 
