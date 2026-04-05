@@ -6,7 +6,7 @@ konu: Mantık
 created: 2025-10-03
 cssclasses:
   - ders-notu
-draft: false
+draft: true
 tags:
   - akademi/dersler/bilisim-matematigi
 ---

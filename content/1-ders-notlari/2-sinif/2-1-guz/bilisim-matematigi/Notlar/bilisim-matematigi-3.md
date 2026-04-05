@@ -5,7 +5,7 @@ ders: Bilişim Matematiği
 created: 2025-10-10
 cssclasses:
   - ders-notu
-draft: false
+draft: true
 tags:
   - akademi/dersler/bilisim-matematigi
 ---
