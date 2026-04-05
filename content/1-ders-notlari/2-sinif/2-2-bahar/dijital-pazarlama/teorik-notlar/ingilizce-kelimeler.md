@@ -1,5 +1,6 @@
 ---
 title: Kasten Yazdırılan İngilizce Kelimeler
+created: 2026-03-27
 ---
 Diğer notlarda hepsi mevcut, ancak o notlardaki birçok terimi hoca "yazın" diye söylemedi, veya diğer derslerde de defaatle vurgulamadı. Bunlar sadece kasten yazın diyerek söylediklerini ve defaatle vurguladıklarını içeriyor. Çevirilerini kendiniz bulun, alıştırma mahiyetinde.
 
@@ -31,3 +32,4 @@ Diğer notlarda hepsi mevcut, ancak o notlardaki birçok terimi hoca "yazın" di
 26. Social Contagion
 27. Marketing Mavens
 28. Network Society
+29. Duck Syndrome
