@@ -22,18 +22,16 @@ Her derste aşağı yukarı 2-3 soru sorulur +5 puanlık, genelde 3 dakika süre
 
 Eskiden, bundan daha 1-2 ay önce, kopya çekmeyi kendime karşı yapılmış bir hak gaspı olarak görür ve kopya çekenleri gayri-ahlâkîlik ile suçlardım. Gelgelelim bu mesnetli bir suçlama değildi. Her nasıl ki "Özel okullarda obp kasıyorlar, kopya çekmemiz meşru" denilerek kopya çekmek ahlâkî olmayacaksa, "Ben kendi emeğimle aldım sen emeksizlikle aldın" denildiği için diye gayri-ahlâkî de olmuyor.
 
-Bağlam eksikliği var zira, kopya çekme ediminin ahlâkî yahut gayri-ahlâkîliği içerisinde bulunulan sistem ve hiyerarşi çerçevesinde belirleniyor. Yüksek not > ortalama not; zeki > aptal; çalışkan > tembel gibi, büyük olanı yüceltip küçük olanı aşağılayan hiyerarşiler neticesinde kopya çekme edimi gerçekleşiyor.
+Bağlam eksikliği var nitekim burada; kopya çekme ediminin ahlâkî yahut gayri-ahlâkîliği, içerisinde bulunulan sistem ve hiyerarşi dışında düşünülemez. "Yüksek not > ortalama not; zeki > aptal; çalışkan > tembel" gibi, benim nezdimde en makul tabiriyle sikindirik olan, büyük olanı yüceltip küçük olanı aşağılayan ve ötekileştiren bu hiyerarşilerin sonucu olarak kopya çekme edimi gerçekleşiyor.
 
 Eğer birisi kopya çekiyorsa, bunu ahlâksız demek için bir sebep göremiyorum ben. Kimin hakkını gaspediyor? Peki ya doğuştan zekâ bahşedilen kişiler? Onlar da bize karşı haksızlık yapmıyor mu? Yapay zekâya para verip daha iyi konu anlatımıyla başarılı olan kişiler? Ailesi zengin olduğu için özel okullarda büyüyen kişiler? Bunlara da ahlâksız demek gerekir bu durumda, ola ki kopya çekmenin gayri-ahlâkîliğini bir eşitsizlik ve hak gaspı olarak göreceksek. Ancak bu tutarlı bir iddia değil, dolayısıyla kopya çekmeye bu gibi sebeplerden ötürü etik değil, gayri-ahlâkî yakıştırmaları yapmaktan vazgeçtim, nitekim tutarlı değildim bu yakıştırmaları gerçekleştirirken.
 
-İster kopya çeksin ister çekmesin, ben çekmeyeceğim. Oyunu kurallarına göre oynayacağım, kuralları hiyerarşide üstün gelmek için sahteliğe dayanarak esnetmeyeceğim. 
+İster kopya çeksin ister çekmesin, ben çekmeyeceğim. Benim çekip çekmemem başkalarının yapıp yapmamasıyla alakalı değil, kendi kendime yaptığım dayatım ile alakalı. Oyunu kurallarına göre oynayacak ve kuralları esnetmeyeceğim, nitekim bu hiyerarşide "üstün" gelmek için kendimi de başkalarını da kandırmaya girecektir. Başkaları umurumda değil, kendimi kandırmaktan kurallara sığınırım.  
 
-Eşitlik diye bir şey söz konusu değil, eşitlik denklemi ile kurulan bir önermenin ahlâkîlık imlemesi yahut olumsuzlaması mümkün değil. 
+Eşitlik diye bir şey söz konusu değildir ezcümle. Eşitlik denklemi ile kurulan bir önermenin ahlâkîlik imlemesi yahut olumsuzlaması mümkün değil.
 
-Ne adilliğinden bahsediyorsun derim bu bağlamda not paylaşma hususunda da. Sistemi sarsmak için o sistemin kesatlığı ortaya koyulmalı, her yıl aynı soruları koyan o yapı ifşa edilmeli. Yapı ifşa edildiğinde belki öğretim elemanı değiştirir yapıyı, ne dersin? 
+Kaldı ki, 3 dakikada yapana +5 puan verilmesine de oldum olası karşı çıktım içimden, ilk zamanlar yaptığım hâlde vermezdim bile mesela, kendi içimden "Yarış atı mıyız biz?" diyerek. Sonraları ben de dâhil oldum tabiî. Anlama edimini de öldürüyor bu nitekim. Anlamayı ortadan kaldırıp hocanın söylediğini, yaptığını, soru çözme biçimini ezberlemeye götürüyor bizi. Anlayamadığın müddet ezberini konuştursan ne olacak? Farklı bir soru biçimi geledursun çözemeyeceksin bu sefer. Konuyu anlayan değil, ezberleyen bir öğrenci yetiştirmenin esas gaye olduğu bu derste not yarışını savunmayacağım bu sebeple. 
 
-Kaldı ki, 3 dakikada yapana + puan verilmesine de oldum olası karşı çıktım, ilk zamanlar yaptığım hâlde vermedim bile. Yarış atı mıyız biz? Anlamayı öldürüyor, ezberlemeyi ön plana çıkarıyor bu. Bir önceki soruda yaptığını taklit edip (mimesis) aynısını yapar, sonuç nedir? Konuyu anlayan değil, ezberleyen bir öğrenci yetişir. En azından böyle bir at yarışını iptal eder sisteminin ifşa edildiğini görerek.
+Kendine yakıştıran bu notlara bakarak hocanın puan vereceği sorular hakkında bilgi sahibi olup kendini de diğerlerini de kandırabilir, benim meselem değil artık bu.
 
-Gibi gibi sebeplerle bu notları kamuya arz edeyim diyorum. Evet, sen ne diyorsun? 
-
-Sınavlar klasiktir.
+Bu gibi ve yazmaya üşendiğim daha birçok sebepten dolayı İstatistik notlarını da Bilişim Matematiği notlarını da kamuya arz etmeye karar kıldım.
