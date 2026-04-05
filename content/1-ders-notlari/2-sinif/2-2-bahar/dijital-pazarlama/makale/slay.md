@@ -1,8 +1,7 @@
 ---
+draft: true
 created: 2026-04-02
 ---
-
-
 # Sosyal Medya Etkileyicilerinin Güvenilirliğinin, Reklama Yönelik Tutum Aracılığıyla Tüketicinin Satın Alma Niyetleri Üzerindeki Etkisi
 
 **Serhat Ata**
