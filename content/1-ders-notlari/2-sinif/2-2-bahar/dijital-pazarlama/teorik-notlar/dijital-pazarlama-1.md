@@ -70,8 +70,6 @@ Pazara sunulan, bir ihtiyacı veya isteği karşılayan her türlü somut nesne 
 - **Ambalajlama ve Tasarım**: Ürünün kutusu sadece onu korumakla kalmaz. Müşteriye de bir mesaj verir aynı zamanda.
 - **Renk Psikolojisi**: Markalar renkleri bilinçli kullanırlar; söz gelişi, McDonald's'ın kırmızı ve sarı kullanımı iştah açıcı ve acele ettirici bir etki yaratır.
 - **Yeşil Pazarlama (Green Marketing)**: Çevreye duyarlı, geri dönüştürülebilir ambalaj kullanımıdır. Pozitif bir marka algısı yaratılır bu şekilde. 
-	- *Doğayı katleden şirketlerin o plastiğin üzerine geri dönüşüm logosu basarak vicdanlarını rahatlatması ve o ürünü iki katı fiyata satarak bizleri gezegeni kurtardıklarına inandırmalarıdır da diyebiliriz. Para hırsıyla katledilen doğa, yine para hırsıyla "çevreye duyarlı" imajıyla gösterime sokulur burada.*
-		- Bu ürünler bir ihtiyacı gidermek için değil de göstergelerin manipülasyonu için alınır daha ziyade, üreten firmalar da bunun farkında. "Yeşil pazarlama" logolu ürünü alırken dünyayı kurtarmıyoruz, "çevreci" göstergesini satın alıp kendi narsisizmimizi parlatıyoruz. Kahve alırken de sadece kahve almıyoruz, Afrikalı çocuklara yardım etme hissini (vicdanı) satın alıyoruz.
 
 ### 2. Fiyat (Price)
 Ürünün veya hizmetin parasal karşılığıdır. İşletmeler pazara girerken veya ürün konumlandırırken farkı stratejileri izler:
@@ -100,7 +98,7 @@ Markanın ve ürünün hedef kitleye duyurulması, hatırlatılması ve ikna edi
 ## Tüketici Davranışları ve Tüketim Motivasyonları
 Tüketiciler her zaman rasyonel kararlar almazlar. Satın alma davranışını etkileyen farklı motivasyonlar vardır.
 
-- **Hedonik Tüketim (Hedonic Consumption)**: İhtiyaçtan ziyade zevk, haz ve anlık duygu değişimleri sebebiyle yapılan alışveriş türüdür.
+- **Hedonik Tüketim (Hedonic Consumption)**: İhtiyaçtan ziyade zevk, haz ve anlık duygu değişimleri sebebiyle yapılan alışveriş türüdür. 
 
 
 ## Teknoloji, İnternet ve Dijital Pazarlamanın Temelleri

@@ -4,7 +4,7 @@ tags:
 ---
 #### **Dijital Pazarlamanın Akıllı Arayüzü: Sohbotlar**
 
-**Sohbot** (*Ing.* "**chat**" + "**robot**" > "***chatbot***"), kullanıcılarla metin mesajları veya sesli komutlar aracılığıyla diyalog kurarak belirli işlemleri gerçekleştiren mahir makinelerdir. Türkçeye sohbet ve robot kelimelerinin kaynaşmasıyla "sohbot" olarak geçen bu sistemler; insanla iletişimde ivme ivme ilerleyen interaktif arayüzler sunarak dijital ortamlardaki etkileşimi en üst seviyeye taşır.
+**Sohbot** (*Ing.* "**chat**" + "**robot**" > "***chatbot***"), kullanıcılarla metin mesajları veya sesli komutlar aracılığıyla diyalog kurarak belirli işlemleri gerçekleştiren mahir makinelerdir. Türkçeye sohbet ve robot kelimelerinin kaynaşmasıyla "sohbot" olarak geçen bu sistemler insanla iletişimde hızlı ilerleyen interaktif arayüzler sunarak dijital ortamlardaki etkileşimi en üst seviyeye taşır.
 
 Teknolojik yapılarına göre sohbotları kural bazlı ve yapay zekâ tabanlı olarak ikiye ayırıyoruz. **Kural bazlı sohbotlar**, kısıtlı kalıplarla kurulan, sadece kodlanmış kelimeleri kavrayan durağan yapılardır; karmaşık cümleleri anlayamazlar. Oysa **yapay zekâ destekli sohbotlar**; Doğal Dil İşleme (NLP) ve Makine Öğrenmesi (ML) gibi ileri teknolojilerle donanarak dilleri derinlemesine deşifre eder. Bu akıllı yapılar, kullanıcının cümlesindeki anahtar kelimelere takılı kalmaz; cümlenin bağlamını, kişinin niyetini ve hatta duygusunu anında analiz ederek tıpkı bir insan gibi esnek, hatasız ve doğal bir sohbet akışı sunar.
 

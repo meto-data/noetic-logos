@@ -6,7 +6,7 @@ created: 2026-03-27
 ---
 ## Bilgilendirme
 - **Sınav Formatı**: Soru Havuzu mantığı benimsenecek. Sınav kâğıdında 5, 10, 20, 50 ve 100 puanlık çeşitli klasik/açık uçlu sorular yer alacak. Toplamda 100 puanı aşmayacak şekilde istenilen sorular seçilerek cevaplanabilecektir. Misal, sadece 100 puanlık tek bir soruyu çözüp çıkmak veya küçük puanlı soruları toplayarak 100'e ulaşmak mümkün. 
-- **Sınav İçeriği ve Beklenti**: [[dijital-pazarlama-3|Dijital Pazarlama]]'nın 3. Dersinde belirttiğim gibi, ödevleri keyfinden vermiyor hoca. Sınavda bu ödevlerden ve bu ödevlerle ders ile bağlantı kurulmasını konu alan sorular gelecek. Salt slaytlara çalışmak yeteresiz kalır. Hoca **%100 soru gelecek** diye belirtti ödevlerden. Kavramların ezberlenmesi değil; pazarlama ile ilişki ağı kurulması ve bu bağların yorumlanması beklenmektedir. Kategorik ayrımlar değil, ilgili teknolojinin pazarlamadaki yeri nedir minvalinde yorum odaklı ve bağlantı kurma odaklı sorular gelecek.
+- **Sınav İçeriği ve Beklenti**: [[dijital-pazarlama-3|Dijital Pazarlama]]'nın 3. Dersinde belirttiğim gibi, ödevleri keyfinden vermiyor hoca. Sınavda bu ödevlerden ve bu ödevlerle ders ile bağlantı kurulmasını konu alan sorular gelecek. Salt slaytlara çalışmak yetersiz kalır. Hoca **%100 soru gelecek** diye belirtti ödevlerden. Kavramların ezberlenmesi değil; pazarlama ile ilişki ağı kurulması ve bu bağların yorumlanması beklenmektedir. Kategorik ayrımlar değil, ilgili teknolojinin pazarlamadaki yeri nedir minvalinde yorum odaklı ve bağlantı kurma odaklı sorular gelecek.
 
 ---
 
@@ -17,7 +17,6 @@ Geleneksel pazarlamadaki tek yönlü bilgi akışının aksine sosyal medya, ara
 
 1. **Maliyet ve Hız**: Hedef kitleye çok düşük bütçelerle ve anında ulaşabilme imkânı. Dijital Ekonomi dersinden bildiğimiz üzere, dijitaldeki ürünlerin de reklamların da **marjinal maliyeti sıfırdır**. Bir birim ekstra üretmenin maliyeti yoktur, ayrıca bunlar devinim içerisinde yayılır internet üzerinde.
 2. **Müşteri Tatmini (Customer Satisfaction)**: Geçmiş haftalarda formülü verilen (Mevcut Deneyim - Beklentiler) kavramını anımsamak lazım. Sosyal medya aracılığıyla tüketicinin hem **hedonik** hem de **fonksiyonel** beklentileri hızlıca ölçülüp karşılanabilir. Ayriyeten, daha önce işlenen [[Sosyal Bulaşma]] dinamiği sosyal medyada vücut bulur; olumlu bir kampanya da olumsuz bir kriz de ağdaki kullanıcılar aracılığıyla saniyeler içerisinde yayılır. Reklamın iyisi kötüsü olmaz ya, o mesele.
-3. **Aracının Yok-Oluşu**: Bu kısım derste konuşulmadı ancak ben ekleme yapayım. Manuel Castells'in Ağ Toplumu bağlamında ele almak mümkün bunu. Eskilerde hiyerarşik ve bu hiyerarşilerin aracılığına muhtaç bir yapı söz konusuydu. Mektup göndermek istiyorsan aracı gerekirdi, telgraf çekmek istiyorsan da benzer şekilde. Gelgelelim günümüz toplumunda bu hiyerarşi büyük ölçüde bertaraf edilmiş, [[Bilgi asimetrisi|bilgi asimetrisi]] de gitgide ortadan kaldırılmıştır. İnternetin ortaya çıkışıyla birlikte bu aracılar olmadan istenilen kişiye kolayca erişmek, istenilen bildiriyi kolayca yaymak mümkün. Eskilerde hiyerarşi öyle büyük bir desibelle yankılanıyordu ki, yanlış bir hamlede bu desibelin kendi nosyonuna aykırı düşen gayri-sesleri susturması içten bile değildi. Hiyerarşilere ve otoritelere yalakalık yapmadan da ürün kolayca pazarlanabilir günümüzde. Pazarlama hususundaki hiyerarşik engel de aracı engeli de büyük ölçüde kaldırılmıştır dolayısıyla.
 
 
 ---
@@ -58,7 +57,7 @@ Robotik teknolojiler geleneksel 4P bileşenlerini şu şekilde dönüştürmekte
 
 >[!important] Hizmet Pazarlaması (7P) ve Teknoloji Kabul Modeli
 >Pazarlamanın geleneksek 4P'sine (Ürün, Fiyat, Dağıtım, Tutundurma) hizmet söz konusu olduğunda 3 yeni 'P' eklenir (bkz. [[Hizmet Pazarlaması]]). [[teknoloji-kabul-modeli#Teorinin Temel Kavramları, İşleyişi vs.|Teknoloji Kabul Modeli (TAM)]] ile ilişkilendirilip sınavda sorulabilir. <br>
-> 1.  **People (İnsan)**: Hizmeti sunnan ve alan arasındaki etkileşim.
+> 1.  **People (İnsan)**: Hizmeti sunan ve alan arasındaki etkileşim.
 > 2. **Fiziksel Kanıt (Physical Evidence)**: Hizmet soyut olsa dahi sunulduğu ortamın somutluğu. Mağaza atmosferi, internet sitesinin tasarımı, arayüzün kullanım kolaylığı (TAM'daki *Algılanan Kullanım Kolaylığı*) bu kapsama girer.
 > 3. **Süreç (Process)**: Hizmetin başından sonuna, müşteri memnuniyetini de kapsayan tüm adımlar.
 
@@ -101,5 +100,4 @@ Tüketicilerin arama geçmişleri, GPS hareketleri ve konum verileri büyük bir
 ---
 
 ## İngilizce Terimler
-- **Content Marketing**: İçerik Pazarlaması
-- **Augmented Reality**: Artırılmış Gerçeklik. Derste GTA-6 örneği verildi ama yanlış. Ekranda oynan hiçbir hiper-gerçekçi oyun AR değildir. Yüksek grafikli bir simülasyon yahut sanal gerçekliktir anca. Pokemon Go gibi *fiziksel dünya ile dijital nesnelerin* kamera aracılığıyla eşzamanlı birleşimine AR (Augmented Reality) diyoruz.
+- **Augmented Reality**: Artırılmış Gerçeklik. Pokemon Go gibi *fiziksel dünya ile dijital nesnelerin* kamera aracılığıyla eşzamanlı birleşimine AR (Augmented Reality) diyoruz.
