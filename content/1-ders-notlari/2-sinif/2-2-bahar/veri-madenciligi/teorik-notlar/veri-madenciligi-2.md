@@ -9,7 +9,7 @@ slug: veri-madenciligi-2
 
 - **Sınav Soru Tipi**: Hoca sınavlarda kesinlikle kod soracağını belirtti. Bir kod verip kodun çıktısı aşağıdakilerden hangisi olur diye sorabilir. Dolayısıyla kod ezberlemekten ziyade kodun ne işe yaradığını (çıktısını) okuyabilmek çok önemli.
 - **Kod Pratiği**: Gönderilen kod ile ilgili dosyaların çalıştırılması şart. Boşuna verilmiyor onlar.
-- **Potansiyel Sınav Soruları**: Sınav test olacak, zaten biliniyor bu. Soru kökünde bir Pandas kodu olacak:` df.isnull().sum().` gibi. Bu kodun "**Veri setindeki her bir sütundaki boş (eksik) veri sayısını toplar ve ekrana basar**" demek olduğunu bilmeliyiz. Pandas kütüphanesindeki `merge()`, `concat()`, `dropna()`, `fillna()` fonksiyonlarının ne iş yaptığını bilmeliyiz. `df.groupby("Sinif")["col"].transform(lambda x: x.fillna(x.mean()))` kodunu verip, "Bu kod ne iş yapar?" diye sorabilir gibi gibi. Bu minvalde sorular gelecetir daha ziyade kod ile ilintili olarak. "Hatalı kod, hatasız kod; sözdiizimi hatası" minvalinde sorular geleceğini zannetmiyorum. Nihayetinde bu sıralar ilgili dili bilmeye yatıyor, oysa biz dili bilmekten ziyade dilde yazılanların ne işe yaradığını bilmeye odaklanıyoruz. Yine de sözdizimi mevzusunda iddialı konuşmayayım. 
+- **Potansiyel Sınav Soruları**: Sınav test olacak, zaten biliniyor bu. Soru kökünde bir Pandas kodu olacak:` df.isnull().sum().` gibi. Bu kodun "**Veri setindeki her bir sütundaki boş (eksik) veri sayısını toplar ve ekrana basar**" demek olduğunu bilmeliyiz. Pandas kütüphanesindeki `merge()`, `concat()`, `dropna()`, `fillna()` fonksiyonlarının ne iş yaptığını bilmeliyiz. `df.groupby("Sinif")["col"].transform(lambda x: x.fillna(x.mean()))` kodunu verip, "Bu kod ne iş yapar?" diye sorabilir gibi gibi. Bu minvalde sorular gelecektir daha ziyade kod ile ilintili olarak. "Hatalı kod, hatasız kod; sözdizimi hatası" minvalinde sorular geleceğini zannetmiyorum. Nihayetinde bu sorular ilgili dili bilmekte yatıyor, oysa biz dili bilmekten ziyade dilde yazılanların ne işe yaradığını bilmeye odaklanıyoruz. 
 - **Hata Ayıklama**: Hocanın verdiği kodları ezbere çalıştırmaktan ziyade, hatalarla (`ModuleNotFoundError` vb.) karşılaşıp bunları çözmek daha önemli.
 - **Platform Seçimi**: VS Code veya Jupyter Notebook kullanılabilir. Ancak hoca Jupyter'i daha görsel, sade ve hücre bazlı (satır satır) çalışmaya uygun bulduğu için tavsiye ediyor.
 
@@ -31,7 +31,7 @@ slug: veri-madenciligi-2
 >
 > - **1 Boyutlu Veri**: Sadece tek bir sütun vardır. Görselleştirilemez.
 > - **2 Boyutlu Veri**: Satır ve sütunlardan (X ve Y ekseni) oluşan standart tablolardır. Veri madenciliğinde en çok bu boyut kullanılır.
-> - **3 Boyutlu Veri**: Derinlik (Z analizi) katar. 4 veya 5 boyutlu veriler insan gözüyle (grafiksek olarak) anlamsızlaşır.
+> - **3 Boyutlu Veri**: Derinlik (Z analizi) katar. 4 ve daha büyük boyutlu veriler insan gözüyle (grafiksek olarak) anlamsızlaşır.
 
 ## 1.2. İstatistiksel Veri Türleri
 
@@ -50,7 +50,7 @@ Sayısal bir büyüklük ifade etmezler. "Daha fazla" yahut "daha büyük" anlam
 - **Çok Kategorili**: Şehirler, renkler, forma numaraları.
 
 ### C. Ordinal (Sıralı Kategorik) Veriler
-Kategoriktir ama kendi içerisinde hiyerarşisi vardır. Eğitim düzeyi (Lise < Üniversite), kariyer, sosyoekonomik statü vb.
+Kategoriktir ama kendi içerisinde hiyerarşisi vardır. Eğitim düzeyi (Lise < Üniversite), kariyer, sosyo-ekonomik statü vb.
 
 ### D. Ratio (Oransal) Veriler
 Nümerik verilere benzerler *ancak* **mutlak sıfır** noktası vardır ve oranlanabilir. **Birbirine bölündüğünde matematiksel olarak anlam ifade eden veri türüdür**.
@@ -60,7 +60,7 @@ Nümerik verilere benzerler *ancak* **mutlak sıfır** noktası vardır ve oranl
 >100 Santigrat derece, 50 Santigrat derecenin iki katı **değildir**. Oransal (*ratio*) bir değer elde etmek istiyorsak mutlak sıfırı olan bir birime, yani **Kelvin**'e çevirmeliyiz. 60 Kelvin, 30 Kelvin'in tam 2 katıdır.
 
 
-## 1.3. Veri Önişleme (Data Preprocessing) Süreci
+## 1.3. Veri Ön İşleme (Data Preprocessing) Süreci
 Veriler insanlar veya makineler tarafından toplanır ve doğası gereği her zaman **kirlidir**. Modelin içine çöp girerse çöp çıkar ([[LLM'lerde Halüsinasyonların Anatomisi#GIGO (Garbage In, Garbage Out)|GIGO - Garbage In Garbage Out]]).
 
 Doğru veri akışı (profesyonel pipeline) şu şekilde olmalıdır:
@@ -77,7 +77,7 @@ graph LR
     A[Ham Veri] --> B(İlk Temizleme)
     B --> C(Veri Birleştirme)
     C --> D(İkinci Temizleme)
-    D --> E(Veri Dönüşümü)
+    D --> E(Veri Dönüşümü -Feature Engineering-)
     E --> F((Modelleme))
 ```
 
@@ -112,7 +112,7 @@ Eksik veriyle başa çıkmak için şu yöntemler kullanılır:
 
 >[!example] Örnekler
 > - **Takım Örneği**: A takımındaki Metin isimli oyuncunun maaşı girilmemişse, Metin'in maaşı tüm şirketin ortalamasıyla değil de **sadece A takımının maaş ortalamasıyla** doldurulmalıdır. Sınıfsal ayrımla alakalıdır.
-> - **Sınav Örneği**: Sınav kâğıdı kaybolan öğrenciye ne not vereceğimizi düşünelim. Eğer diğerleriyle aynı sınıftaysa sınıf ortalaması verilir. Ancak o öğrencinin geçmiş notları belli biliniyorsa, geçmiş yıllardaki kendi genel ortalamasına dayalı bir not da verilebilir. Bağlam (context) önemlidir.
+> - **Sınav Örneği**: Sınav kâğıdı kaybolan öğrenciye ne not vereceğimizi düşünelim. Eğer diğerleriyle aynı sınıftaysa sınıf ortalaması verilir. Ancak o öğrencinin geçmiş notları biliniyorsa, geçmiş yıllardaki kendi genel ortalamasına dayalı bir not da verilebilir. Bağlam (context) önemlidir.
 
 ###### **Python / Pandas: Eksik Veri Yönetimi**
 
@@ -129,7 +129,7 @@ df.dropna() # İçinde NaN olan tüm satırları siler atar.
 ---
 
 ## B. Gürültülü Veri (Noisy Data / Outliers)
-Hücre boş değildir ancak ölçüm yahut giriş hatası vardır. Söz gelişi, maaşın -10 TL girilmesi veya yaşın 1000 TL girilmesi veya finansal bir grafikte genel trendin çok dışında bir sıçrama olması gibi. 
+Hücre boş değildir ancak ölçüm yahut giriş hatası vardır. Söz gelişi, maaşın -10 TL girilmesi veya yaşın *1000* girilmesi veya finansal bir grafikte genel trendin çok dışında bir sıçrama olması gibi. 
 
 **Sentetik veri de denilebilir bu verilere.**
 
@@ -145,7 +145,7 @@ Gürültülü veriyi onarmak/minimize etmek için üç ana matematiksel yöntem 
 
 #### 2. Bölmeleme (Binning)
 - Sürekli (devamlı) verileri belirli aralıklara bölerek sepetlere atma işlemidir. İkiye ayrılır:
-	1. **Eşit Genişlikli (Equal-Width)**: Veri aralığını eşit parçalara böler (örn: 0-20 yaş, 20-40 yaş).. **Riski** ise bazı sepetler ([[bin]]) tamamen boş kalabilir. Pandas'taki karşılığı `pd.cut()` fonksiyonudur. 
+	1. **Eşit Genişlikli (Equal-Width)**: Veri aralığını eşit parçalara böler (örn: 0-20 yaş, 20-40 yaş). **Riski** ise bazı sepetler ([[bin]]) tamamen boş kalabilir. Pandas'taki karşılığı `pd.cut()` fonksiyonudur. 
 	2. **Eşit Frekanslı (Equal-Frequency)**: Her sepete eşit sayıda veri koyar (örn: toplam 9 veri varsa, her septe 3'er veri düşecek şekilde böler). Boş sepet riski olmaması ve verinin dengeli dağılması bakımından avantajlıdır. Aykırı değerleri bulmakta etkilidir. Pandas'taki karşılığı `pd.qcut()` fonksiyonudur.
 
 
@@ -179,7 +179,7 @@ Verilerin kendi içinde mantıksal olarak çelişmesidir. Veri giriş formların
 ---
 
 # 4. Veri Birleştirme (Integration)
-Farklı kaynaklardan gelen `.csv` verilerini tek potada eritmektir. Excel değil de CSV kullanmamızın sebebi, CSV'nin virgülle ayrılmış değerlerden oluşmuş olmasıdır ki, bu da dosya boyutu olarak çok daha az yer kaplar (CSV = Comma Seperated Values - Virgülle Ayrılmış Değerler).
+Farklı kaynaklardan gelen `.csv` verilerini tek potada eritmektir. Excel değil de CSV kullanmamızın sebebi, CSV'nin virgülle ayrılmış değerlerden oluşmuş olmasıdır ki, bu da dosya boyutu olarak çok daha az yer kaplar (*CSV = Comma Seperated Values - Virgülle Ayrılmış Değerle*r).
 
 - `concat()`: Verileri körü körüne alt alta veya yan yana ekler.
 - `merge()`: SQL'deki **Join** mantığıdır. Ortak bir sütuna (*ID*) göre akıllıca birleştirir.
@@ -194,7 +194,10 @@ Farklı kaynaklardan gelen `.csv` verilerini tek potada eritmektir. Excel değil
 Makinenin matematiği doğru yapabilmesi için elzemdir.
 
 ## 5.1. Normalizasyon
-- İncelenecek veriyileri normalden sapmayan bir ölçüy egöre inceleme, **aynı seviyeye getirme** işlemidir. 
+- İncelenecek veriyileri normalden sapmayan bir ölçüye göre inceleme, **aynı seviyeye getirme** işlemidir. Aynı kulvarda değilsek yarışamayız.
+
+>	*"Senin dedenden sana ev, araba miras kalır; benim dedemden bana aksi ve takıntılı ruh hâli. Nasıl yarışacaksın ki? Denk değiliz."*
+
 - Oyunlardaki eşleştirme/matchmaking algoritmaları buna benzer mesela. 
 - Min-Max Scaling ile tüm veriler 0 ile 1 arasında sıkıştırılır.
 
@@ -202,4 +205,4 @@ Makinenin matematiği doğru yapabilmesi için elzemdir.
 - Sözel (**Nominal**/**Ordinal**) verileri sayısala çevirmektir.
 
 1. **Label Encoding**: Kategorilere sayı atanmasıdır (Bilgisayar=0, Elektrik=1).
-2. **One-Hot Encoding**: Kategorielrin sütunlara ayrılıp matris mantığıyla 1 ve 0 (var/yok) olarak basılmasıdır.
+2. **One-Hot Encoding**: Kategorilerin sütunlara ayrılıp matris mantığıyla 1 ve 0 (var/yok) olarak basılmasıdır.

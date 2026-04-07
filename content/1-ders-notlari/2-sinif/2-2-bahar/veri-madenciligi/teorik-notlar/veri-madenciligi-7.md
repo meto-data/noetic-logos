@@ -8,7 +8,7 @@ konu: Birliktelik Kuralları ve Apriori Algoritması
 ---
 ## Bilgilendirme falan
 - Sınavda en az 30-35, muhtemelen 40-45 arası soru olacak. Süre **60 dakika**.
-- Apriori algoritması dönem sonu projesi kapsamında **kullanılamayacak** algoritmalardan biridir. Zira proje kapsamında bizden bir tahminde bulunmamız ve `Accuracy` artırmamız beklenmektedir; oysa **Apriori** bir tahmin algoritması değil, **kural çıkarım algoritmasıdır**.
+- Apriori algoritması dönem sonu projesi kapsamında **kullanılamayacak** algoritmalardan biridir zira proje kapsamında bizden bir tahminde bulunmamız ve `Accuracy` artırmamız beklenmektedir; oysa **Apriori** bir tahmin algoritması değil, **kural çıkarım algoritmasıdır**.
 
 ---
 

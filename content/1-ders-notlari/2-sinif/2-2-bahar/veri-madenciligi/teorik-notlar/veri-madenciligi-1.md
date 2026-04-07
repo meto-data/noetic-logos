@@ -29,7 +29,7 @@ Bkz. [[2- Zekâ, DIKW#DIKW Piramidi (Data-Information-Knowledge-Wisdom)|DIKW Pir
    >Büyük ölçekli veri setleri (big data) içerisinden; gizli, daha önce bilinmeyen (novel), potansiyel olarak yararlı ve anlaşılabilir örüntülerin algoritmik yöntemlerle çıkarılması sürecidir. Teorik olarak KDD (Knowledge Discovery in Databases) sürecinin bir adımıdır, ancak pratikte tüm süreci kapsar.
 
 ### 2. KDD Süreci (Knowledge Discovery in Databases) 
-Veri madenciliği tek atımlık bir işlem değildir. **Veri Tabanlarında Bilgi Keşfi** (KDD) sürecinin sadece bir adımıdır. Bu süreç lineer görünse de aslında iteratiftir; bir aşamadaki hata önceki aşamaya dönmeyi gerektirir.
+Veri madenciliği tek atımlık bir işlem değildir. **Veri Tabanlarında Bilgi Keşfi** (KDD) sürecinin sadece bir adımıdır. Bu süreç lineer görünse de aslında **[[iterasyon|iteratiftir]]**; bir aşamadaki hata önceki aşamaya dönmeyi gerektirir, **tekrarlıdır**.
 
 
 ```mermaid
@@ -46,10 +46,9 @@ graph TD
     C
     D
     end
-    
-    style D fill:#f9f,stroke:#333,stroke-width:2px
-    style E fill:#ff9,stroke:#333,stroke-width:2px
 ```
+
+
 
 
 1. **Veri Temizleme (Cleaning)**: [[LLM'lerde Halüsinasyonların Anatomisi#GIGO (Garbage In, Garbage Out)|GIGO]] (Garbage-In, Garbage-Out) prensibinin yönetildiği yerdir. Gürültülü (noisy) veriler, eksik değerler (missing values) ve aykırı değerler (outliers) bu aşamada temizlenir.
@@ -98,7 +97,7 @@ Veri artışı lineer değil, [[eksponansiyel]] bir eğri izlemektedir. Geleneks
 ## 4. Veri Madenciliği İşlevleri ve Algoritmaları
 - Veri madenciliği algoritmaları verinin etiketli (labeled) olup olmamasına göre iki ana paradigmaya ayrılır.
 
-### A. Öngörü Yöntemleri (Predictive/Supervised Learning)
+### A. Öngörü Yöntemleri (Kestirimci) (Predictive/Supervised Learning)
 
 Verinin sonucu (hedef değişkeni) önceden bellidir. Geçmiş veriden öğrenerek geleceği tahmin eder.
 
