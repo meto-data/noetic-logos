@@ -24,7 +24,7 @@ slug: veri-madenciligi-3
 1. **Veriyi Tanımak**: Kaç satır (gözlem), kaç sütun (değişken) var?
 2. **Kalite Kontrolü**: Veri temizleme prensibi gereği; eksik veri, gürültülü veri veya tutarsız veri var mı?
 3. **Hipotez Testi**: Değişkenler arasında ilişki (korelasyon) var mı?
-4. **Model Seçimi**: Proglem sınıflandırma mı? Regresyon mu? Kümeleme mi?
+4. **Model Seçimi**: Problem sınıflandırma mı? Regresyon mu? Kümeleme mi?
 
 ---
 
@@ -42,10 +42,10 @@ $$
 
 
 >[!info] Boyut, Satır, Hedef vb.
->- **Satır (Row)**: Gözlem sayısıdır (örn: 1000 müşteri). Veri sayıdıır ayrıca. 1 milyon kişiyi aradıysak 1 milyon satır vardır.
+>- **Satır (Row)**: Gözlem sayısıdır (örn: 1000 müşteri). Veri sayısıdır ayrıca. 1 milyon kişiyi aradıysak 1 milyon satır vardır.
 >- **Sütun/Boyut (Column/Dimension) X - Bağımsız Değişkenler**: Değişken sayısıdır (örn: yaş, maaş, cinsiyet = 3 boyut).
 >- **Hedef (Y- Bağımlı Değişken)**: Bulmak istediğimiz sonuçtur, tahmin etmeye çalıştığımız sonuç veya. Evin fiyatı gibi, müşteri krediyi alacak mı gibi. 
->- *İsim (Ad-Soyad)* genelde bir boyut olarak *kullanılmaz**, zira kategorize edilemez (Nominal ama çok fazla unique değer var). Ancak "Cinsiyet" (Kadın/Erkek) kategorize edilebilir.
+>- *İsim (Ad-Soyad)* genelde bir boyut olarak **kullanılmaz**, zira kategorize edilemez (Nominal ama çok fazla unique değer var). Ancak "Cinsiyet" (Kadın/Erkek) kategorize edilebilir.
 
 
 > [!question] İsim Sütunu Neden İşe Yaramaz?
@@ -158,7 +158,7 @@ df['y'].value_counts(normalize=True)
 
 
 #### Örnek Uygulama: Adult Income Veri Seti
-Bu veri setinin amacı kişinin gelirinin 50.000$'ın altında mı üstünde mi olduğunu tahmin etmektir. (`income = <=50K / >50K`) $\to$ *İkili Sınıflandırma*
+Bu veri setinin amacı kişinin gelirinin 50.000\$'ın altında mı üstünde mi olduğunu tahmin etmektir. (`income = <=50K / >50K`) $\to$ *İkili Sınıflandırma*
 
 1. **Sütun İsimleri Yoksa:** Veri setinde "yaş, eğitim" gibi başlıklar yoksa, analiz programına bu veriler yüklenirken başlıkların manuel olarak tanımlanması (etiketlenmesi) gerekir.
 2. **Duplicate (Çift Kayıt) Temizliği:** Veride tekrar eden satırlar bulunabilir (Örn: 24 adet tekrar eden satır). Analize başlamadan önce bunlar silinmelidir.

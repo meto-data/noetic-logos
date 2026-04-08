@@ -3776,20 +3776,20 @@
       "in-star"
     ],
     "sourceNotebook": null,
-    "question": "Aşağıdaki notebook görünümünde `In [*]` ifadesi neyi gösterir?",
+    "question": "Aşağıdaki kod ortamı göstergesindeki `In [*]` ifadesi neyi gösterir?",
     "code": "In [*]:\nimport time\ntime.sleep(30)",
     "options": {
       "A": "Hücre daha önce hiç çalıştırılmamıştır.",
       "B": "Hücre çalışmayı bitirmiş ama çıktı üretmemiştir.",
       "C": "Kernel o hücreyi o anda çalıştırmaktadır; işlem henüz tamamlanmamıştır.",
       "D": "Kod sözdizimi hatası nedeniyle hücre kilitlenmiştir.",
-      "E": "Notebook otomatik olarak kaydedilmiştir."
+      "E": "Ortam otomatik olarak kaydedilmiştir."
     },
     "correct": "C",
     "explanations": {
       "A": "Yanlış. Hiç çalışmayan hücrede yıldız değil boş sayaç görünür.",
       "B": "Yanlış. İşlem bitince `[*]` yerini bir çalıştırma numarasına bırakır.",
-      "C": "Doğru. Hoca'nın dikkat çektiği gibi `In [*]`, kernelin o hücre üzerinde hâlâ çalıştığını gösterir.",
+      "C": "Doğru. `In [*]`, kernelin ilgili kod bloğu üzerinde hâlâ çalıştığını gösterir.",
       "D": "Yanlış. Sözdizimi hatası ayrı hata çıktısı üretir; yıldız doğrudan 'çalışıyor' anlamındadır.",
       "E": "Yanlış. Bu gösterge kayıt değil çalıştırma durumudur."
     },
@@ -3812,20 +3812,20 @@
       "to_csv"
     ],
     "sourceNotebook": "pandas.ipynb",
-    "question": "Aşağıdaki kod çalıştırılıp notebook kapatılırsa orijinal `imdb_veri.csv` dosyası için hangi ifade doğrudur?",
+    "question": "Aşağıdaki kod çalıştırılıp oturum kapatılırsa orijinal `imdb_veri.csv` dosyası için hangi ifade doğrudur?",
     "code": "import pandas as pd\n\ndf = pd.read_csv(\"imdb_veri.csv\")\ndf = df.dropna()",
     "options": {
       "A": "CSV dosyasındaki eksik satırlar kalıcı olarak silinmiş olur.",
       "B": "CSV dosyası otomatik olarak temizlenmiş yeni sürümüyle güncellenir.",
       "C": "Değişiklik yalnızca RAM'deki DataFrame üzerinde yapılır; diskteki orijinal CSV değişmez.",
       "D": "Pandas bu işlemi yapabilmek için önce `.csv` dosyasını `.xlsx` formatına çevirir.",
-      "E": "Notebook kapanınca `dropna()` işlemi tersine dönmez ve değişiklik zorunlu olarak diske yazılır."
+      "E": "Oturum kapanınca `dropna()` işlemi tersine dönmez ve değişiklik zorunlu olarak diske yazılır."
     },
     "correct": "C",
     "explanations": {
       "A": "Yanlış. Kalıcı silme için ayrıca dosyaya yazmak gerekir.",
       "B": "Yanlış. `to_csv()` gibi açık bir kayıt komutu olmadan Pandas dosyayı otomatik güncellemez.",
-      "C": "Doğru. Hoca'nın özellikle vurguladığı gibi veri önce RAM'e alınır; yapılan manipülasyon bu kopya üzerinde gerçekleşir.",
+      "C": "Doğru. Veri önce RAM'e okunur; yapılan manipülasyon bu kopya üzerinde gerçekleşir.",
       "D": "Yanlış. Format dönüşümüyle ilgili bir adım yoktur.",
       "E": "Yanlış. Otomatik diske yazma davranışı yoktur."
     },
@@ -3998,7 +3998,7 @@
       "debug"
     ],
     "sourceNotebook": "matplotlib.ipynb",
-    "question": "Aşağıdaki hücrede en olası hata nedir?",
+    "question": "Aşağıdaki kod bloğude en olası hata nedir?",
     "code": "x = [1,2,3,4]\ny = [1,4,9,16]\nplt.plot(x, y)\nplt.show()",
     "options": {
       "A": "Kod sorunsuz çalışır çünkü `plt` Python'da varsayılan olarak tanımlıdır.",
@@ -5753,19 +5753,19 @@
       "persistence"
     ],
     "sourceNotebook": "hafta_3_cls1.ipynb",
-    "question": "Aşağıdaki hücre çalıştırılıp notebook kapatıldığında orijinal `.csv` dosyası için hangisi doğrudur?",
+    "question": "Aşağıdaki kod bloğu çalıştırılıp oturum kapatıldığında orijinal `.csv` dosyası için hangisi doğrudur?",
     "code": "df = pd.read_csv(\"bank-full.csv\", sep=\";\")\ndf = df.drop_duplicates()",
     "options": {
       "A": "Orijinal CSV içindeki duplicate satırlar otomatik ve kalıcı olarak silinmiştir.",
       "B": "Değişiklik yalnızca RAM'deki DataFrame üzerinde yapılır; dosyaya yazmak için ayrıca `to_csv()` gerekir.",
       "C": "Pandas duplicate temizliği yapınca dosyayı aynı isimle zorunlu olarak yeniden kaydeder.",
-      "D": "Notebook kapanırken DataFrame her zaman otomatik olarak `.pkl` dosyasına çevrilir.",
+      "D": "Oturum kapanırken DataFrame her zaman otomatik olarak `.pkl` dosyasına çevrilir.",
       "E": "Bu kod sadece ekrandaki görüntüyü değiştirir, DataFrame'i bile değiştirmez."
     },
     "correct": "B",
     "explanations": {
       "A": "Yanlış. Kalıcı kayıt için ayrıca yazma komutu gerekir.",
-      "B": "Doğru. Hoca'nın bellek mimarisi vurgusu tam olarak budur: Pandas işlemleri RAM üzerindeki kopyada yapar.",
+      "B": "Doğru. Pandas işlemleri RAM üzerindeki kopyada yapar; kalıcı kayıt için ayrıca `to_csv()` gerekir.",
       "C": "Yanlış. Otomatik yeniden yazma davranışı yoktur.",
       "D": "Yanlış. Böyle varsayılan bir kayıt mekanizması yoktur.",
       "E": "Yanlış. DataFrame içeriği değişir; sadece dosyaya yansımaz."
@@ -5910,7 +5910,7 @@
       "B": "Doğru. Adult veri setindeki `?` karakterleri normal string olarak gelir; NaN'a çevrilmeden `dropna()` bunları eksik veri saymaz.",
       "C": "Yanlış. `replace` olmadan satırlar değil, tam tersine çoğu `?` içeren kayıt yerinde kalır.",
       "D": "Yanlış. Bu adım doğrudan veri temizleme ve model kalitesiyle ilgilidir.",
-      "E": "Yanlış. Notebook'un önemli noktalarından biri tam olarak bunun otomatik yapılmamasıdır."
+      "E": "Yanlış. Önemli nokta, `?` değerlerinin Pandas tarafından otomatik NaN sayılmamasıdır."
     },
     "relatedTerms": [
       {
@@ -5930,7 +5930,7 @@
       "duplicates"
     ],
     "sourceNotebook": "decision_tree.ipynb",
-    "question": "Notebook'taki gerçek akışa göre aşağıdaki kod çalıştırıldığında hangi boyut değişimi gözlenir?",
+    "question": "`df` bu adımdan hemen önce `(30162, 15)` boyutundadır ve 23 adet yinelenen satır içerir. Aşağıdaki kod çalıştırıldığında hangi boyut/değer sırası gözlenir?",
     "code": "df = df.dropna()\ndf.shape\ndf.duplicated().sum()\ndf = df.drop_duplicates()\ndf.shape",
     "options": {
       "A": "Önce `(32561, 15)`, sonra `0`, sonra yine `(32561, 15)`",
@@ -5979,7 +5979,7 @@
     "explanations": {
       "A": "Yanlış. Bu satır eksik veri doldurma yapmaz.",
       "B": "Yanlış. Sıralama değil, koşullu etiketleme yapılıyor.",
-      "C": "Doğru. Notebook'ta `>50K` geçen kayıtlar 1, diğerleri 0 olacak şekilde hedef değişken sayısallaştırılıyor.",
+      "C": "Doğru. `>50K` geçen kayıtlar 1, diğerleri 0 olacak şekilde hedef değişken sayısallaştırılır.",
       "D": "Yanlış. Sütun korunuyor, sadece içeriği dönüştürülüyor.",
       "E": "Yanlış. Dummy sütun üretimi `pd.get_dummies` ile yapılır."
     },
@@ -6016,7 +6016,7 @@
       "B": "Yanlış. Sayısal sütunlar kopyalanmaz; asıl artış kategorik alanların açılmasından gelir.",
       "C": "Yanlış. Yeni satır değil, yeni sütun üretilir.",
       "D": "Yanlış. Eksik veri çoğaltması yapan bir işlem yoktur.",
-      "E": "Yanlış. Notebook'ta boyut gerçekten 97 sütuna genişler."
+      "E": "Yanlış. Sütun sayısı gerçekten artar; burada yalnızca indeks değişmiyor."
     },
     "relatedTerms": [
       {
@@ -6036,7 +6036,7 @@
       "feature-target"
     ],
     "sourceNotebook": "decision_tree.ipynb",
-    "question": "Aşağıdaki kodun beklenen çıktısı aşağıdakilerden hangisidir?",
+    "question": "`df_encoded` veri çerçevesi bu aşamada `(30139, 97)` boyutundadır ve hedef değişken `income` sütunudur. Aşağıdaki kodun beklenen çıktısı hangisidir?",
     "code": "X = df_encoded.drop(\"income\", axis=1)\ny = df_encoded[\"income\"]\nX.shape, y.shape",
     "options": {
       "A": "(30139, 97) (30139, 1)",
@@ -6048,7 +6048,7 @@
     "correct": "B",
     "explanations": {
       "A": "Yanlış. `income` X'ten çıkarıldığı için X 97 değil 96 sütun içerir; y de tek boyutlu seridir.",
-      "B": "Doğru. Encoding sonrası 97 sütunlu tabloda hedef sütun ayrılınca X `(30139, 96)`, y ise `(30139,)` olur.",
+      "B": "Doğru. `df_encoded` toplam 30139 satır ve 97 sütun içerir. `income` hedef sütunu X'ten çıkarılınca X `(30139, 96)`, y ise tek boyutlu seri olarak `(30139,)` olur.",
       "C": "Yanlış. Bu, encoding öncesi temiz veri boyutuna daha yakındır.",
       "D": "Yanlış. Bu boyutlar train-test bölme sonrasına aittir.",
       "E": "Yanlış. X ve y yer değiştirmiş gibi düşünülmüştür; böyle bir çıktı oluşmaz."
@@ -6106,7 +6106,7 @@
       "split"
     ],
     "sourceNotebook": "decision_tree.ipynb",
-    "question": "Notebook'taki aşağıdaki hücrenin beklenen çıktısı hangisidir?",
+    "question": "`X` veri matrisi bu aşamada `(30139, 96)` boyutundadır. Aşağıdaki kod bloğunun beklenen çıktısı hangisidir?",
     "code": "X_train, X_test, y_train, y_test = train_test_split(\n    X, y,\n    test_size=0.2,\n    random_state=42,\n    stratify=y\n)\n\nX_train.shape, X_test.shape",
     "options": {
       "A": "((30139, 96), (30139, 96))",
@@ -6118,7 +6118,7 @@
     "correct": "B",
     "explanations": {
       "A": "Yanlış. Train-test ayrımı sonrası iki parçanın boyutu böyle kalmaz.",
-      "B": "Doğru. Notebook'ta X toplam 30139 satır içerir; `%20` test ayrımı sonrası çıktı `((24111, 96), (6028, 96))` olur.",
+      "B": "Doğru. X toplam 30139 satır içerir; `%20` test ayrımı sonrası çıktı `((24111, 96), (6028, 96))` olur.",
       "C": "Yanlış. 15 sütun encoding öncesi yapıya aittir.",
       "D": "Yanlış. Sıra `X_train.shape, X_test.shape` olduğu için önce eğitim boyutu gelir.",
       "E": "Yanlış. Bu çıktı X ve y ayrımına aittir, train-test split çıktısına değil."
@@ -6212,7 +6212,7 @@
       "yorum"
     ],
     "sourceNotebook": "decision_tree.ipynb",
-    "question": "Notebook'ta aşağıdaki satır yaklaşık `0.8389` değeri yazdırıyorsa bu sayı en doğru biçimde neyi ifade eder?",
+    "question": "Aşağıdaki satır yaklaşık `0.8389` değeri yazdırıyorsa bu sayı en doğru biçimde neyi ifade eder?",
     "code": "print(\"Decision Tree Accuracy:\", accuracy_score(y_test, y_pred_dt))",
     "options": {
       "A": "Modelin eğitim verisindeki yaprak düğüm sayısını",
@@ -6247,7 +6247,7 @@
       "eksen"
     ],
     "sourceNotebook": "decision_tree.ipynb",
-    "question": "Notebook'taki aşağıdaki confusion matrix görselleştirmesinde gerçek sınıflar hangi eksende gösterilmektedir?",
+    "question": "Aşağıdaki confusion matrix görselleştirmesinde gerçek sınıflar hangi eksende gösterilmektedir?",
     "code": "cm_dt = confusion_matrix(y_test, y_pred_dt)\n\nplt.figure(figsize=(5,4))\nsns.heatmap(cm_dt, annot=True, fmt=\"d\", cmap=\"Blues\")\nplt.title(\"Decision Tree - Confusion Matrix\")\nplt.xlabel(\"Tahmin\")\nplt.ylabel(\"Gerçek\")\nplt.show()",
     "options": {
       "A": "X ekseninde",
@@ -6258,7 +6258,7 @@
     },
     "correct": "B",
     "explanations": {
-      "A": "Yanlış. Notebook'ta X ekseni açıkça `Tahmin` olarak etiketlenmiştir.",
+      "A": "Yanlış. X ekseni `Tahmin` olarak etiketlenmiştir.",
       "B": "Doğru. `plt.ylabel(\"Gerçek\")` satırı gerçek sınıfların Y ekseninde gösterildiğini açıkça söyler.",
       "C": "Yanlış. Eksenlerin görevleri ayrıdır.",
       "D": "Yanlış. Etiketler net biçimde yazılmıştır.",
@@ -6317,22 +6317,22 @@
       "output"
     ],
     "sourceNotebook": "decision_tree.ipynb",
-    "question": "Notebook'taki aynı `new_person` örneği için aşağıdaki kod çalıştırıldığında beklenen çıktı hangisidir?",
+    "question": "`DecisionTreeClassifier` ile eğitilmiş bir modelde aşağıdaki kod çalıştırıldığında çıktı biçimi için en doğru ifade hangisidir?",
     "code": "prediction = dt_model.predict(new_person_encoded)\n\nprediction",
     "options": {
-      "A": "`0`",
-      "B": "`[0]`",
-      "C": "`1`",
-      "D": "`[1]`",
-      "E": "`'>50K'`"
+      "A": "Her zaman tek bir skaler integer (`0` veya `1`) döner.",
+      "B": "Tahmin sonucu dizi biçiminde döner (ör. `[0]` veya `[1]`).",
+      "C": "Her zaman string etiket (ör. `'>50K'`) döner.",
+      "D": "Her zaman boolean (`True/False`) döner.",
+      "E": "Modelin doğruluk skoru (accuracy) döner."
     },
-    "correct": "D",
+    "correct": "B",
     "explanations": {
-      "A": "Yanlış. `predict` burada tek başına skaler integer değil, dizi döndürür.",
-      "B": "Yanlış. Notebook'taki örnek kişi için model negatif değil pozitif sınıf tahmini üretir.",
-      "C": "Yanlış. Tahmin sınıfı 1 olsa da çıktı dizi biçimindedir.",
-      "D": "Doğru. `predict` tek kayıt için bile bir dizi döndürür ve notebook'taki örnekte çıktı `[1]` olur.",
-      "E": "Yanlış. Model sayısal kodlu hedef üzerinde çalıştığı için metin etiket değil sayısal sınıf döndürür."
+      "A": "Yanlış. `predict` çıktısı skaler değil, örnek sayısı kadar eleman içeren bir dizi döndürür.",
+      "B": "Doğru. Tek bir kayıt için bile çıktı genellikle tek elemanlı dizi biçimindedir (ör. `[1]`).",
+      "C": "Yanlış. Model sayısal etiketlerle eğitildiyse sayı döner; ayrıca çıktı biçimi yine dizidir.",
+      "D": "Yanlış. `predict` fonksiyonu sınıf tahmini döndürür, boolean zorunluluğu yoktur.",
+      "E": "Yanlış. Accuracy için `accuracy_score(...)` gibi ayrı bir metrik hesabı gerekir."
     },
     "relatedTerms": [
       {
@@ -9375,7 +9375,7 @@
     "explanations": {
       "A": "Yanlış. Manhattan metriği, p=1 değeri ile ifade edilen özel bir uzaklık formülüdür, varsayılan değildir.",
       "B": "Yanlış. Öklid (Euclidean) metriği pratikte çok kullanılsa da, scikit-learn'de parametre ismi olarak varsayılan tanımlama bu değildir.",
-      "C": "Doğru. KNN fonksiyonunun resmi dökümantasyonunda ve notebook HTML çıktısında görüldüğü üzere varsayılan metrik 'minkowski'dir. (p=2 değeri ile birlikte standart Öklid mesafesine denk gelir).",
+      "C": "Doğru. KNN'de varsayılan metrik `minkowski`'dir (`p=2` ile Öklid mesafesine denk gelir).",
       "D": "Yanlış. Cosine similarity genellikle metin madenciliğinde vektörler arası açı ölçümünde kullanılır.",
       "E": "Yanlış. Jaccard indeksi kümeler arası benzerlik içindir."
     },
@@ -14044,7 +14044,7 @@
       "aksiyon"
     ],
     "sourceNotebook": "Apriori1.ipynb",
-    "question": "Bir e-ticaret yöneticisi sizden, web sitesindeki 'Bunu alan bunu da aldı' pop-up'ları için en güçlü ürün önerilerini gösteren yatay bir çubuk grafik istemiştir. Notebook'taki hangi kod bloğu bu ihtiyacı karşılar?",
+    "question": "Bir e-ticaret yöneticisi sizden, web sitesindeki 'Bunu alan bunu da aldı' pop-up'ları için en güçlü ürün önerilerini gösteren yatay bir çubuk grafik istemiştir. Hangi kod bloğu bu ihtiyacı karşılar?",
     "code": null,
     "options": {
       "A": "plt.scatter(rules_display['confidence'], rules_display['lift'])",

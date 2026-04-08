@@ -51,7 +51,7 @@ konu: Veri Madenciliği Algoritmaları
 
 Veri madenciliği sadece tablo temizlemek değildir. O tablolardan [[makine öğrenmesi]] algoritmalarıyla anlamlı kurallar ve tahminler (*pattern/örüntü*) çıkarmaktır. 
 
-- **Sepet Analizi (Market Basket Analysis)**: Ders esnasında yurt dışından bir örnek vermişti hoca bunun için: Yurt dışında bebek bezleri ile alkol reyonu yan yana. Bunun nedeni, çocuğu olan aile babasının bezi alırken yanına içkisini de almasından kaynaklı. Türkiye'de de cips ve kola birlikteliği böyledir. 
+- **Sepet Analizi (Market Basket Analysis)**: Ders esnasında yurt dışından bir örnek vermişti hoca bunun için, yurt dışında bebek bezleri ile alkol reyonu yan yana. Bunun nedeni, çocuğu olan aile babasının bezi alırken yanına içkisini de almasından kaynaklı. Türkiye'de de cips ve kola birlikteliği böyledir. 
 - **Tavsiye Sistemleri (Recommendation Systems)**: Netflix'in "Bunu izleyenler şunu da izledi" demesi veya Trendyol'un sepet önermeleri tamamen arka planda çalışan yapay zekâ/makine öğrenmesi örüntüleridir.
 
 ## 2. Makine Öğrenmesi Türleri
@@ -178,7 +178,7 @@ graph TD
     Node2 -->|NO| Leaf4("🟩 LEAF NODES / YAPRAKLAR <br> (Nihai Karar)")
 ```
 
-z
+
 #### Örnek Bir Karar Ağacı: "İş Teklifini Kabul Etmeli Miyim?"
 
 ```mermaid
@@ -224,14 +224,14 @@ Makinenin amacı $X$ (Girdiler) ile çarpıldığında $Y$'yi (Hedef) verecek en
 1. **Veri Seti (Dataset)**: Önce tablo yüklenir.
 2. **X ve Y Ayrımı (Kritik)** 
 	- **X (Girdi Değişkenleri / Features)**: Yaş, eğitim, çalışma saati gibi tahmin yapmak için kullanılacak sütunlar.
-	- **Y (Hedef Değişken / Label)**: Tahmin edilmek istenen sonuç sütunu (örn: gelir 50k'dan küçük mü?).
+	- **Y (Hedef Değişken / Label)**: Tahmin edilmek istenen sonuç sütunu (örn: gelir 50K'dan küçük mü?).
 3. **Eğitim ve Test Ayrımı (`train_test_split`)**: Veri seti körü körüne eğitime sokulmaz. Genellikle **%80 Eğitim (Train)** ve **%20 Test** olarak bölünür. Model %80'lik kısımla çalışır, öğrenir; kalan %20'lik kısımla ise daha önce hiç görmediği bu veriler üzerinde sınava tabi tutulur.
 	- Modeli hiç görmediği %20'lik veriyle test edip ezberleyip ezberlemediğini (`accuracy`) ölçeceğiz.
-4. **Model Eğitimi (Training / `fit`)**: Algoritma çalışır ve verideki örüntüleri (pattern) öğrenir. Matematiksel olarak $f(x) = W \cdot X = Y$ denklemindeki en iyi $W$ (Ağırlık/Weight) değerlerinib ulmaya çalışır. Zamanla hata (`loss`) sıfıra yaklaşır.
+4. **Model Eğitimi (Training / `fit`)**: Algoritma çalışır ve verideki örüntüleri (pattern) öğrenir. Matematiksel olarak $f(x) = W \cdot X = Y$ denklemindeki en iyi $W$ (Ağırlık/Weight) değerlerini bulmaya çalışır. Zamanla hata (`loss`) sıfıra yaklaşır.
 5. **Tahmin (Prediction / `predict`)**: Eğitilen model, test için ayrılan X verilerine bakarak Y'leri tahmin eder.
-6. **Değerlendirme (Eveluation)**: Modelin tahminleri ile gerçek Y değerleri karşılaştırılır. **Accuracy (Doğruluk Oranı)**, Precision, Recall, F1 Score gibi metrikler ve **Confusion Matrix (Karmaşıklık Matrisi)** ile modelin başarılı ölçülür (örn: Model %83 başarılı).
+6. **Değerlendirme (Eveluation)**: Modelin tahminleri ile gerçek Y değerleri karşılaştırılır. **Accuracy (Doğruluk Oranı)**, Precision, Recall, F1 Score gibi metrikler ve **Confusion Matrix (Karmaşıklık Matrisi)** ile modelin başarısı ölçülür (örn: Model %83 başarılı).
 
-> 	**Confusion Matrix (Karmaşıklık Matrisi) Mantığı**: Modelin nerede kafasının karıştığını gösterir. Örneğin hoca dersteki çıktıda şunu okumuştur: *"Gerçekte 0 (Maaşı 50K altı) olanı gerçekten 0 tahmin edenler 4300 kişi. Gerçekte 1 olanı 0 tahmin edenler (Hata)..."* şeklinde matrisin çapraz okuması yapılır.
+> 	**Confusion Matrix (Karmaşıklık Matrisi) Mantığı**: Modelin nerede kafasının karıştığını gösterir.
 
 #### ML Pipeline (Makine Öğrenmesi Boru Hattı)
 Profesyonel bir veri madenciliği sürecinin 7 adımının temsilidir. Dikkat edilecek en önemli husus **veri ön işlemenin (preprocessing), veriyi `Train` ve `Test` olarak ikiye böldükten sonra yapılmasıdır!** Aksi takdirde modele gelecekten bilgi sızar (Data Leakage).
