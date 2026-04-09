@@ -60,28 +60,28 @@ Bilgisayar bilimi, temelde insan davranışlarını anlama ve modelleme çabası
 | Metrik                 | Temel Tanımı ve Anlamı                                                                                                                    | Modeldeki İşlevi ve Rolü                                                                                                                                                |
 | :--------------------- | :---------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Support (Destek)**   | Bir ürünün veya kuralın tüm alışveriş fişleri içindeki **görülme sıklığı** ve mağazadaki genel satış hacmidir.                            | Algoritmanın devasa verilerde kilitlenmemesi ve çok nadir satılan ürünleri analizden dışlaması için bir **eşik değeri (threshold)** ve budama aracı olarak görev yapar. |
-| **Confidence (Güven)** | X ürününü satın alan bir müşterinin Y ürününü de sepete atma ihtimalini gösteren **koşullu olasılıktır**.                                 | Üretilen "Eğer X alınırsa Y de alınır" kuralının **gerçekleşme güvenilirliğini** ifade eder.                                                                            |
+| **Confidence (Güven)** | X ürününü satın alan bir müşterinin Y ürününü de sepete atma ihtimalini gösteren **koşullu olasılıktır**.                                 | Üretilen "Eğer X alınırsa Y de alınır" kuralı, **gerçekleşme güvenilirliğini** ifade eder.                                                                              |
 | **Lift (Kaldıraç)**    | İki ürün arasındaki **ilişkinin gücünü** ve birbirlerinin satılma ihtimalini tesadüfün ötesinde kaç kat artırdığını (katsayıyı) gösterir. | Kuralın sadece ürünlerin popülerliğinden kaynaklı bir **tesadüf mü yoksa birbirini gerçekten tetikleyen (Lift > 1)** mantıklı bir ilişki mi olduğunu kanıtlar.          |
-
 
 
 <br>
 
-Apriori algoritması, kural çıkartırken **Aşağıdan-Yukarıya (Bottom-Up)** ve **[[iterasyon|İteratif]] (Tekrarlayıcı)** bir yaklaşım sergiler. Bu süreci anlamak için bir kırtasiye veritabanı düşünelim.
+
+Apriori algoritması, kural çıkartırken **Aşağıdan-Yukarıya (Bottom-Up)** ve **[[iterasyon|İteratif]] (Tekrarlayıcı)** bir yaklaşım sergiler. Bu süreci anlamak için bir kırtasiye veri tabanı düşünelim.
 
 - **Toplam İşlem (N):** 8 adet alışveriş fişi var.
 - **Eşik Değeri (Threshold/Support):** %25 (Yani 8 fişin en az 2'sinde geçmeyen ürünler elenecektir).
 
-| İşlem (Fiş) | Alınan Ürünler |
-| :--- | :--- |
-| **Fiş 1** | Defter, kalem, silgi, ataç |
-| **Fiş 2** | Defter, kalem, silgi |
-| **Fiş 3** | Defter, kalem |
-| **Fiş 4** | Defter, kağıt |
-| **Fiş 5** | Açacak, kalem, silgi, ataç |
-| **Fiş 6** | Açacak, kalem, silgi, defter |
-| **Fiş 7** | Açacak, kalem |
-| **Fiş 8** | Açacak, kağıt |
+| İşlem (Fiş) | Alınan Ürünler               |
+| :---------- | :--------------------------- |
+| **Fiş 1**   | Defter, kalem, silgi, ataç   |
+| **Fiş 2**   | Defter, kalem, silgi         |
+| **Fiş 3**   | Defter, kalem                |
+| **Fiş 4**   | Defter, kağıt                |
+| **Fiş 5**   | Açacak, kalem, silgi, ataç   |
+| **Fiş 6**   | Açacak, kalem, silgi, defter |
+| **Fiş 7**   | Açacak, kalem                |
+| **Fiş 8**   | Açacak, kağıt                |
 
 
 | Adım        | Yapılan İşlem                   | Açıklama                                                                                                                           |

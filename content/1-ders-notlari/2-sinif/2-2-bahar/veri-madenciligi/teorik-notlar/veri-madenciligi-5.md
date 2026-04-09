@@ -98,12 +98,12 @@ Modelin **daha önce görmediği veri üzerindeki başarısıdır**.
 - **Son iki satırda** ciddi overfitting sorunu yoktur; model dengelidir.
 
 >[!warning] Not
->`0.95/0.94` gibi bir sonuç çok güçlüdür. **Son üç satır daha ziyade Random Forest tarafında görülür.** Ama veri aşırı temi ve aşırı kaliteli ise **Decision Tree**'de de görülebilir.
+>`0.95/0.94` gibi bir sonuç çok güçlüdür. **Son üç satır daha ziyade Random Forest tarafında görülür.** Ama veri aşırı temiz ve aşırı kaliteli ise **Decision Tree**'de de görülebilir.
 
 (*Not: Test accuracy'nin %75'in altında olması makine öğrenmesi projelerinde genellikle kabul edilemez bir durumdur.*)
 
 
->[!warning]
+>[!warning] Not
 >Random Forest, **overfitting**'i tamamen yok etmez; ama **Decision Tree'ye göre daha dayanıklıdır**. Yani "asla hata yapmaz" değil de "tek ağaca göre daha güvenilirdir" demeliyiz.
 
 
@@ -113,14 +113,14 @@ Modelin **daha önce görmediği veri üzerindeki başarısıdır**.
 ### Decision Tree ve Random Forest Karşılaştırması
 
 
-| Özellik     | Decision Tree                                                | Random Forest                                                      |
-| ----------- | ------------------------------------------------------------ | ------------------------------------------------------------------ |
-| Yapı        | Tek bir ağaç                                                 | Birçok ağacın birleşimi                                            |
-| Eğitim      | Hızlı ve basit                                               | Daha uzun sürer                                                    |
-| Overfitting | Kolay ezberleyebilir                                         | Ezberlemeye daha dayanıklıdır                                      |
-| Doğruluk    | Genellikle daha düşük                                        | Genellikle daha yüksek                                             |
-| Yorumlama   | Çok kolay                                                    | Tek tek ağaçlar anlaşılır ama tüm orman daha karmaşıktır           |
-| Kullanım    | Küçük veri ve açıklanabilirlik gereken durumlarda kullanılır | Daha güçlü ve daha güvenilir tahmşin gereken durumlarda kullanılır 
+| Özellik     | Decision Tree                                                | Random Forest                                                     |
+| ----------- | ------------------------------------------------------------ | ----------------------------------------------------------------- |
+| Yapı        | Tek bir ağaç                                                 | Birçok ağacın birleşimi                                           |
+| Eğitim      | Hızlı ve basit                                               | Daha uzun sürer                                                   |
+| Overfitting | Kolay ezberleyebilir                                         | Ezberlemeye daha dayanıklıdır                                     |
+| Doğruluk    | Genellikle daha düşük                                        | Genellikle daha yüksek                                            |
+| Yorumlama   | Çok kolay                                                    | Tek tek ağaçlar anlaşılır ama tüm orman daha karmaşıktır          |
+| Kullanım    | Küçük veri ve açıklanabilirlik gereken durumlarda kullanılır | Daha güçlü ve daha güvenilir tahmin gereken durumlarda kullanılır 
 
 
 ---
@@ -173,11 +173,11 @@ graph LR
 KNN'nin öğrenmesini sağlayan şey veriler arasındaki uzaklığı hesaplayan matematiksel metriklerdir. En çok bilinen 3 mesafe ölçümü şunlardır:
 
 1. **Euclidean (Öklid) Distance**: Geometriden bildiğimiz Pisagor bağıntısıdır. İki nokta arasındaki en kısa (kuş uçuşu) mesafeyi ölçer.
-2. **Manhattan Distance**: Noktalar arasındaki mesafeyi ızgara (grid) planlı bir şehirde (Manhattan gibi) binaların etrafından dolaşarak ölçer gibi dik açılarla hesaplar.
+2. **Manhattan Distance**: Noktalar arasındaki mesafeyi ızgara (grid) planlı bir şehirde (Manhattan gibi) binaların etrafından dolaşarak ölçer gibi dik açılarla hesaplar.z
 3. **Minkowski Distance**: Euclidean ve Manhattan mesafesinin genelleştirilmiş hâlidir. **Scikit-learn kütüphanesinde KNN varsayılan olarak Minkowski kullanır**.
 
 >[!example] Edit Distance: "Bunu mu demek istediniz?"
->Sadece sayılar değil, kelimeler arasında da mesafe vardır. Buna yazılımda **Edit Distance** veya **Hamming Distance** denir. Söz gelimi "Merhaba" yerine "Merhebe" yazdığınızda, Google aradaki harf farklılıklarını sıfırlar ve birler üzerinden hesaplayarak mesafeyi ölçer. "Bu kelimenin 'Merhaba'ya olan mesafesi çok yakın, bunu mu demek istediniz?" diye sorar. İşte KNN'nin mesafe mantığı tam olarak bu temel üzerine kuruludur.
+>Sadece sayılar değil, kelimeler arasında da mesafe vardır. Buna yazılımda **Edit Distance** veya **Hamming Distance** denir. Söz gelimi, "Merhaba" yerine "Merhebe" yazdığınızda, Google aradaki harf farklılıklarını sıfırlar ve birler üzerinden hesaplayarak mesafeyi ölçer. "Bu kelimenin 'Merhaba'ya olan mesafesi çok yakın, bunu mu demek istediniz?" diye sorar. İşte **KNN'nin mesafe mantığı tam olarak bu temel üzerine kuruludur.**
 
 
 KNN algoritmasındaki en büyük problem $K$ değerinin (kaç komşuya bakılacağının) ne olması gerektiğidir. <br>
@@ -194,9 +194,8 @@ KNN algoritmasındaki en büyük problem $K$ değerinin (kaç komşuya bakılaca
 Hangi algoritmanın seçileceği tamamen verinin **[[veri-madenciligi-2#Boyut|boyutuna]]** ve **yapısına** bağlıdır.
 
 
-
-| Özellik            | Decision Tree                     | KNN                                        |
-| ------------------ | --------------------------------- | ------------------------------------------ |
+| Özellik                | Decision Tree                     | KNN                                        |
+| ---------------------- | --------------------------------- | ------------------------------------------ |
 | **Model Yapısı**       | Kural tabanlı (If-Else)           | Mesafe tabanlı (Matematiksel)              |
 | **Öğrenme Tipi**       | Model kurar (Eager Learner)       | Model kurmaz, veriyi saklar (Lazy Learner) |
 | **Tahmin Hızı**        | Çok hızlıdır                      | **Çok yavaş** (Her veriyi tek tek tarar)   |

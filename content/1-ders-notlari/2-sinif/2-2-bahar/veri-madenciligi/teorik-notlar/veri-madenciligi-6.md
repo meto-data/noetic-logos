@@ -40,10 +40,10 @@ Kümeleme, **tahmin (prediction) yapmaz!**
 
 >[!info] X ve Y Değişkenleri Mantığı
 >- Sınıflandırma (Classification) algoritmalarında hastanın tahlilleri ($X$) ve karşılığında "Hasta/Sağlıklı" gibi bir sonuç sütunu ($Y$ - Hedef/Label) vardır. Yeni gelen kişinin ne olacağı **tahmin** edilir.
->- **Kümelemede ise $Y$ sütunu (hedef) YOKTUR.** Sadece $X$'ler (bağımsız değişkenler) vardır. Makine, veriyi alır ve benzerliklerini göre gruplara ayırır. NEYİ GRUPLADIĞINI BİLMEZ!!!
+>- **Kümelemede ise $Y$ sütunu (hedef) YOKTUR.** Sadece $X$'ler (bağımsız değişkenler) vardır. Makine, veriyi alır ve benzerliklerine göre gruplara ayırır. NEYİ GRUPLADIĞINI BİLMEZ!!!
 
 <br>
-**Örnek**: Markete gittiniz ve fişler oluştu diyelim. Bu fişler sizin "zengin" yahut "fakir" olduğunuzu söylemez. Sadece 1000 kişinin alışveriş verisidir bu. K-Means Algoritması bu 1000 kişiyi "sadece ekmek alanlar", "peynir alanlar" diye kümelere ayırır. Kümeleme bittikten sonra o gruplara bakıp "**Bunlar "Zenginler" kümesi**" **diye isim vermeyi BİZ yaparız. Buna [[Etiketleme (Labelling)]] denir.** Yani K-Means, gelecekteki sınıflandırma algoritmaları için **otomatik etiketleme (auto-labeling** altyapısı sunar.
+**Örnek**: Markete gittiniz ve fişler oluştu diyelim. Bu fişler sizin "zengin" yahut "fakir" olduğunuzu söylemez. Sadece 1000 kişinin alışveriş verisidir bu. K-Means Algoritması bu 1000 kişiyi "sadece ekmek alanlar", "peynir alanlar" diye kümelere ayırır. Kümeleme bittikten sonra o gruplara bakıp "**Bunlar "Zenginler" kümesi**" **diye isim vermeyi BİZ yaparız. Buna [[Etiketleme (Labelling)]] denir., K-MEANS İSE ETİKETLEME YAPMAZ!** K-Means, gelecekteki sınıflandırma algoritmaları için **otomatik etiketleme (auto-labeling)** altyapısı sunar, etiketleyen biziz.
 
 
 ### 1.2. Gerçek Hayatta Kullanım Alanları
@@ -57,11 +57,11 @@ Kümeleme, **tahmin (prediction) yapmaz!**
 ---
 
 ## 2. K-Means Algoritması
-Denetimsiz öğrenme içinde yer alan mesafeye dayalı bir algoritmadır. "K", oluşturulacak küme sayısını temsil eder.
+Denetimsiz öğrenme içinde yer alan mesafeye dayalı bir algoritmadır. "$K$", oluşturulacak küme sayısını temsil eder.
 
 ### 2.1. Nasıl Çalışır
 
-1. $K$ **sayısı belirlenir** (Örn: Veriyi 3 kümeye böl).
+1. $K$ **sayısı belirlenir** (Örn: Veriyi 3 kümeye böl $K=3$).
 2. Uzaya rastgele $K$ adet **merkez noktası (centroid)** atanır.
 3. Her veri noktası, kendisine **en yakın** merkeze atanır.
 4. Oluşan yeni kümenin tam ortası hesaplanır ve merkez nokta oraya kaydırılır.
@@ -75,27 +75,27 @@ Verilerin birbirine yakınlığı matematiksel olarak ölçülür. Varsayılan y
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Öklid (Euclidean)** | Düşük boyutlu, düzgün dağılımlı veriler (varsayılan). Geometrideki hipotenüs (Pisagor) mantığıdır. İki nokta arasındaki en kısa "kuş uçuşu" mesafedir. Sayısal ve sürekli verilerde kullanılır. K-Means'in varsayılan (default) değeridir.                                    |
 | **Manhattan**         | Grid-tabanlı (ızgara planlı) veriler, şehir haritaları. Noktalar arasındaki mesafeyi çapraz (kuş uçuşu) değil, ızgara planlı bir şehirde binaların etrafından dik açılarla dolaşarak ölçer gibi hesaplar. Veride uç değerler (outliers) varsa Öklid'e göre daha güvenilirdir. |
-| **Kosinüs**           | Metin madenciliği, NLP (Doğal Dil İşleme).  Yönelime bakar, büyüklüğe bakmaz. Metin madenciliğinde veya "İki müşteri alışveriş sepetinde benzer yönelimde mi?" diye bakarken kullanılır.                                                                                      |
+| **Kosinüs**           | Metin madenciliği, NLP (Doğal Dil İşleme). Yönelime bakar, büyüklüğe bakmaz. Metin madenciliğinde veya "İki müşteri alışveriş sepetinde benzer yönelimde mi?" diye bakarken kullanılır.                                                                                       |
 | **Mahalanobis**       | Korelasyonlu veriler, finansal analiz.                                                                                                                                                                                                                                        |
-| **Minkowski**         | Genel amaçlı, esnek (Öklid ve Manhattan'ın genelleşmiş hâli). Öklid ve Manhattan'ın genelleştirilmiş, babası sayılan formüldür. Formüldeki "p" değeri 1 olursa Manhattan, 2 olursa Öklid olur.                                                                                |
+| **Minkowski**         | Genel amaçlı, esnek (Öklid ve Manhattan'ın genelleşmiş hâli). Öklid ve Manhattan'ın genelleştirilmiş, babası sayılan formüldür. Formüldeki "p" değeri 1 olursa Manhattan, 2 olursa Öklid olur. KNN'in varsayılanı buydu hatırlarsak.                                          |
 | **Hamming**           | Binary (ikili) veriler. (Google'ın "Bunu mu demek istediniz") mantığı. Sayısal değil, kategorik (metin) veya Binary (1-0) verilerde kullanılır. "Kaç harf/bit farklı?" diye sayar.                                                                                            |
 
 ### 2.3. K-Means Avantajları ve Dezavantajları
 
 
-| Avantajlar +                               | Dezavantajlar -                                                                                                     |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
-| Çok hızlı çalışır ve algoritması basittir. | $K$ değerinin baştan bilinmesi gerekir.                                                                             |
-| **Büyük Veri** için çok uygundur.          | Başlangıç merkezlerinin rastgele atılmasına duyarlıdır.                                                             |
-| Görselleştirmesi ve yorumlaması kolaydır.  | **Outlier (Aykırı Değer)**'lardan çok etilenir (savaş çıkınca altının fırlaması gibi uç veriler algoritmayı bozar). |
-|                                            | Kümelerin küresel (yuvarlak) olduğunu varsayar.                                                                     |
+| Avantajlar +                               | Dezavantajlar -                                                                                                      |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| Çok hızlı çalışır ve algoritması basittir. | $K$ değerinin baştan bilinmesi gerekir.                                                                              |
+| **Büyük Veri** için çok uygundur.          | Başlangıç merkezlerinin rastgele atılmasına duyarlıdır.                                                              |
+| Görselleştirmesi ve yorumlaması kolaydır.  | **Outlier (Aykırı Değer)**'lardan çok etkilenir (savaş çıkınca altının fırlaması gibi uç veriler algoritmayı bozar). |
+|                                            | Kümelerin küresel (yuvarlak) olduğunu varsayar.                                                                      |
 
 ---
 
 ## 3. K Değeri Problemi: Elbow (Dirsek) Metodu
 K-Means'in en büyük derdi "Peki veriyi kaç kümeye böleceğiz?" sorusudur. Bunu çözmek için **Elbow (Dirsek)** metodu kullanır. 
 
-- **Mantık**: Bir `for` döngüsü kurularak K=1'den K=15'e kadar tüm ihtimaller denenir ve hr adımdaki **Hata Oranı (Inertia / WSS)** hesaplanır.
+- **Mantık**: Bir `for` döngüsü kurularak K=1'den K=15'e kadar tüm ihtimaller denenir ve her adımdaki **Hata Oranı (Inertia / WSS)** hesaplanır.
 - $K$ sayısı arttıkça hata oranı sürekli azalır. Ancak bir noktadan sonra bu azalma **yavaşlar**.
 - Grafikte hatanın düşüşünün yavaşladığı, **dirsek (elbow)** şeklini aldığı kırılma noktası, **Optimum $K$** değeridir.
 
@@ -104,7 +104,6 @@ K-Means'in en büyük derdi "Peki veriyi kaç kümeye böleceğiz?" sorusudur. B
 
 ## 4. Boyut Azaltma: PCA (Principal Component Analysis)
 
-<br>
 **Curse Dimensionality (Boyut Laneti)**: Veri setinde çok fazla sütun (boyut) varsa, mesafelerin anlamı kaybolur, makine aşırı yorulur ve veriyi görselleştirmek imkânsızlaşır.
 
 **Çözüm**: PCA (Temel Bileşen Analizi). Yüksek boyutlu veriyi, minimum bilgi kaybıyla daha az boyuta indirgeme işlemi.
