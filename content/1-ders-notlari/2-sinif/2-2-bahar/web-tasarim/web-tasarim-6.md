@@ -22,7 +22,7 @@ Kullanıcıdan farklı formatlarda veri almak için `type` özelliğini değişt
 * **`text`:** Varsayılan input türüdür. Kısa metinler almak için kullanıyoruz.
 * **`email`:** E-posta girişi içindir. Tarayıcı tabanlı doğrulama (validation) sağlar. Kullanıcının `@` işareti koyup koymadığını arka plana gerek kalmadan tarayıcı otomatik olarak test eder.
 * **`submit`:** Formu gönderen butondur. Varsayılan metni tarayıcı diline göre değişir ("Gönder" veya "Send"). Üzerindeki yazıyı değiştirmek için `value="Verileri Gönder"` özelliğini kullanıyoruz.
-* **`color`:** Renk seçici penceresi açar. Seçilen renk URL'ye Hexadecimal formatta gider. URL'deki `%23` işareti `#` (diyez/şarp) simgesini temsil eder (Örn: `%23E0E0FD`).
+* **`color`:** Renk seçici penceresi açar. Seçilen renk URL'ye Hexadecimal formatta gider. URL'deki `%23` işareti `#` (diyez/sharp) simgesini temsil eder (Örn: `%23E0E0FD`).
 * **`reset`:** Formun içindeki tüm verileri temizleyip varsayılan/boş hâline döndürür.
 * **`checkbox`:** Birden fazla seçim yapılabilen onay kutularıdır.
     * **`value`:** Kutu seçildiğinde arka plana hangi değerin gideceğini belirler (örn: `value="1"`).
@@ -35,7 +35,7 @@ Kullanıcıdan farklı formatlarda veri almak için `type` özelliğini değişt
 * **`number`:** Sadece sayı girilebilen alandır. Klavyeden harf girilmesini engeller. `min`, `max` ve artış miktarını belirleyen `step` özelliklerini alabiliyor.
 * **`password`:** Girilen karakterleri gizler (nokta veya yıldız yapar). 
 * **`range`:** Bir kaydırıcı (slider) çubuğu oluşturur. Memnuniyet anketi gibi yerlerde kullanıyoruz. `min`, `max` ve `step` özellikleri ile aralığı belirliyoruz.
-* **Diğer Türler:** `search` (satır sonu boşluklarını temizler), `time` (saat seçici), `month`, `url`, `week`.
+* **Diğer Türler:** `search` (satır sonu boşluklarını da temizler arama yaparken), `time` (saat seçici), `month`, `url`, `week`.
 
 ---
 
@@ -45,7 +45,7 @@ Kullanıcıdan farklı formatlarda veri almak için `type` özelliğini değişt
 * **`id` ve `for` İlişkisi:** Bir `<label>` etiketindeki `for` değeri ile `<input>` etiketindeki `id` değeri aynı olduğunda, bu iki elemanı birbirine bağlıyoruz. Böylece yazıya tıklandığında da kutu aktifleşiyor.
 * **`required`:** Alanın doldurulmasını zorunlu kılıyoruz. Boş bırakıp gönder'e basılırsa tarayıcı "Lütfen bu alanı doldurun" uyarısı veriyor.
 * **`minlength` / `maxlength`:** Metin kutusuna girilebilecek minimum ve maksimum karakter sayısını sınırlandırıyoruz.
-* **`readonly`:** Alanın kullanıcı tarafından değiştirilmesini engelliyoruz (sadece okunabilir yapıyoruz).
+* **`readonly`:** Alanın kullanıcı tarafından değiştirilmesini engelliyoruz (salt-okunur yapıyoruz).
 
 ---
 

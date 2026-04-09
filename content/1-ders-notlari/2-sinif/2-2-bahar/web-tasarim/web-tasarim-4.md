@@ -73,7 +73,7 @@ Eskiden web sayfalarının ana iskeletini (layout) kurmak için kullanılırdı 
 ---
 
 ## 4. Block ve Inline (Blok ve Satıriçi) Elemanlar
-HTML elemanlarının ekranda nasıl davranacağını belirleyen iki temel varsayılan görüntüleme türü vardır.
+TML elemanlarının ekranda nasıl davranacağını belirleyen iki temel varsayılan görüntüleme türü vardır.H
 
 * **Block-Level (Blok Seviyesi) Elemanlar:**
     * Her zaman **yeni bir satırda** başlarlar.

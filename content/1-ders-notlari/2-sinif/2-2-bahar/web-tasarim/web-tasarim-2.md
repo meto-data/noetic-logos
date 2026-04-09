@@ -12,7 +12,7 @@ slug: web-tasarim-2
 > 1. Repo ismi **Ad-Soyad** formatında olacak.
 > 2. **Küçük harfler** kullanılacak.
 > 3. **Boşluk** kesinlikle olmayacak.
-> 4. Tire (`-`) veya alt çizgi (`_`) kullanımı önerilmiyor ("tire mire koymadan" dedi).
+> 4. Tire (`-`) veya alt çizgi (`_`) kullanımı önerilmiyor.
 
 
 ---
