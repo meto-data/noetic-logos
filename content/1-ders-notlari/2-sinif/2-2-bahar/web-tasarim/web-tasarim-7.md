@@ -51,7 +51,7 @@ CSS kodlarını sayfamıza 3 farklı şekilde dâhil edebiliyoruz:
 
 **Cascading (Basamaklanma) ve Öncelik Sırası:**
 Aynı elemana farklı yerlerden renk verirsek hangisi geçerli olur? Kural şu: **En içteki, en baskındır.**
-* **Öncelik Sırası:** Inline CSS > Internal/External CSS > Tarayıcı Varsayılanı.
+* **Öncelik Sırası:** Inline CSS > Internal CSS > External CSS > Tarayıcı Varsayılanı.
 * **Seçici Önceliği:** ID Seçici (`#`) **>** Class Seçici (`.`) **>** Element Seçici (`p`).
 
 ---
