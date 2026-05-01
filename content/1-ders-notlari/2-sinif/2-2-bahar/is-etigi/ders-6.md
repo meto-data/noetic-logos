@@ -1,6 +1,6 @@
 ---
 title: Başlık yok ya, son not muhtemelen.
-draft: false
+draft: true
 created: 2026-03-27
 tags:
   - akademi/dersler/is-etigi
