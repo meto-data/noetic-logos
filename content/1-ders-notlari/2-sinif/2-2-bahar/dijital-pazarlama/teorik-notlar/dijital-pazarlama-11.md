@@ -3,7 +3,7 @@ title: Dijital Pazarlama - 11
 tags:
   - akademi/dersler/dijital-pazarlama
 created: 2026-04-30
-draft: true
+draft: false
 ---
 ## 1. Biyometrik Sistemler ve Akıllı Kartlar
 Dijital dönüşümle birlikte güvenlik ve kimlik doğrulama süreçleri, pazarlamanın en büyük veri kaynağına dönüşmüştür. Tüketici bir veri kaynağı hâline gelmiştir.
