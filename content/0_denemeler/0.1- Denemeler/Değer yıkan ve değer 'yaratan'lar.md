@@ -36,14 +36,14 @@ kendilerini ***prangaya*** vurup yürümeye çalışıyorlar ***zincirleriyle.**
 
 Sevgi barınmaz içlerinde, hâkimiyetten yoksunlar duygu ve dürtülerinde, rüyalarında ne gördükleri bile anlaşılıyor ***öfkelerinde.***
 
-***“Sanat, hayatı onaylamaktır.”*** — böyle söyler dionysosçu 'bilge'.
+***“Sanat, hayatı onaylamaktır.”*** — böyle söyler dionysosçu bilge.
 Sanatın zerresi bile gözükmüyor onların ***yozlaşmakta*** olan ***tinlerinde.***
 
 İp cambazı gibi dolaşmaktalar değer köprüsünün zincirlerinde, uygun zaman kolluyorlar yıkmak için zinciri çekiçleriyle.
 
 Binlerce köprü gözüküyor ***değer*** ***yıkanların*** gözlerinde, hepsini yıkmak için adeta savaşıyorlar birbirleriyle.
 
-En ufak sevgi kırıntısı dâhi bulunmuyor içlerinde, öfkelerinin akıllarını körelttiği görülüyor eylemlerinde.
+En ufak sevgi kırıntısı bile bulunmuyor içlerinde, öfkelerinin akıllarını körelttiği görülüyor eylemlerinde.
 
 ***‘Değer yıkan’*** diyorlar kendilerine, o hâlde soruyorum sizlere, köprüler yıkılırken yıkılmıyor mu — sizlerin ***tini*** de?
 

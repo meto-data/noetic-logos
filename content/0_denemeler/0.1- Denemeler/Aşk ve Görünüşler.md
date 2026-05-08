@@ -1,7 +1,8 @@
 ---
-draft: true
+draft: false
 tags:
   - uretim/yazi
+date: 2025-05-05
 ---
 
 

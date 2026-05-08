@@ -6,7 +6,7 @@ title: "İrade Eğitimi: 1. Hafta (İzlenim)"
 ---
 [[Olabildiğince şeffaf.]]'ın son cümlesine bakıyorum da, sahi, neydi sarsılmazlık? Bugün sarsılınca tekrar aklıma geldi; alet, ortadan kaybolduğunda anımsatırmış meğer aslolan değerini.
 
-İlk denemelerimi hatırlıyorum da, şiirlerden sonra bile, epey şiiri andıran denemelerdi aslında. Çoğunu sildim tabii vasat altı olduğunu düşünerekten; [[Uykunun Kürsüleri]] ve [[Değer yıkan ve değer 'yaratan'lar -ya da diyonizyakça yapılmış bir mürit kritiği-]] ile benzer bir yapıya sahipti. Düşüncelerimi ve hislerimi metne dökmeye *şiir* ile başlamıştım. Kimi zaman bunları öfkemi dindirmek için yazıyor, kimi zamansa bir başkasına hissettiğim sevgi dolu duyguları dışavurmak yahut içimden atmak için yazıyordum. Hepsinin ortak noktası taşkın duygularımı hizaya getirmek için bir araç olmasıydı *yazı*nın.
+İlk denemelerimi hatırlıyorum da, şiirlerden sonra bile, epey şiiri andıran denemelerdi aslında. Çoğunu sildim tabii vasat altı olduğunu düşünerekten; [[Uykunun Kürsüleri]] ve [[Değer yıkan ve değer 'yaratan'lar]] ile benzer bir yapıya sahipti. Düşüncelerimi ve hislerimi metne dökmeye *şiir* ile başlamıştım. Kimi zaman bunları öfkemi dindirmek için yazıyor, kimi zamansa bir başkasına hissettiğim sevgi dolu duyguları dışavurmak yahut içimden atmak için yazıyordum. Hepsinin ortak noktası taşkın duygularımı hizaya getirmek için bir araç olmasıydı *yazı*nın.
 
 Kavramlarla hâkimiyet kuruyordum kendime, başka türlü nasıl hizaya getirebilirdim ki içimdeki taşkını? Ne birisi vardı yanımda "*bu taşkın, gel bunu beraber yenelim*" diyecek, ne de bir başkası vardı "*gel bu taşkınlığı beraber yapalım*" diyecek; kendi kendimeydim tamamıyla -hepsi de benim tercihimdi ya. 
 

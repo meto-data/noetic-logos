@@ -1,1 +1,0 @@
-Focuses on threat actors who can exploit vulnerabilities.

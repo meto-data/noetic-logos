@@ -21,8 +21,8 @@ Medin Madenciliği (Text Mining); haberler, tweetler, e-postalar, ürün yorumla
 >[!example] Madencilik Analojisi
 >Dağdaki ham kayalar (tweetler, blog yazılarıdır, maillerdir) tek başlarına bir anlam ifade etmezler ve çok karmaşıktırlar. Metin madenciliği süreci ise bu kayaları kırıp, yıkayıp, eleyip içlerindeki altın külçelerini (yapısal ve analiz edilebilir veriyi) ortaya çıkarma sürecidir.
 
-**Neden Gerekli?**
 
+**Neden Gerekli?**
 1. **Veri Patlaması**: Her gün milyonlarca *yapısal olmayan* veri üretiliyor.
 2. **Anlam Çıkarma**: Ham metinden duygu, konu, eğilim (trend) belirleme ihtiyacı.
 3. **Karar Destek**: Şirketlerin müşteri geri bildirimlerini okuyarak değil, analiz ederek strateji geliştirmesi.
@@ -30,7 +30,7 @@ Medin Madenciliği (Text Mining); haberler, tweetler, e-postalar, ürün yorumla
 
 
 ## Metin Ön İşleme (Preprocessing) Aşamaları
-Bir makine "Merhaba" kelimesi ile "merhaba!" kelimesini aynı şey olarak algılamaz. Metni makine öğrenmesi algoritmalarına sokmadan önce mutlak surette temizlememiz ve standartlaştırmamız gerekir. Bu işlem sırasıyla şu 4 adımdan oluşur:
+Bir makine "Merhaba" kelimesi ile "merhaba!" kelimesini aynı şey olarak algılamaz. Metni makine öğrenmesi algoritmalarına sokmadan önce mutlak sûrette temizlememiz ve standartlaştırmamız gerekir. Bu işlem sırasıyla şu 4 adımdan oluşur:
 
 1. **Küçük Harfe Çevirme (Lowercasing)**: Bilgisayar büyük/küçük harfle duyarlıdır. 
 2. **Noktalama İşaretlerini Kaldırma**: Virgül, ünlem gibi semboller kelimenin yapısını bozar.
@@ -45,7 +45,7 @@ Bir makine "Merhaba" kelimesi ile "merhaba!" kelimesini aynı şey olarak algıl
 - **Enformasyon Getirimi (Information Retrieval)**: Derlem (corpus) hakkında ön bilginin toplandığı ilk aşamadır. Web sayfalarının URL'leri gibi, dosya tarihleri gibi, yazar bilgileri gibi.
 - **Doğal Dil İşleme (NLP - Natural Language Processing)**: Cümlelerin dilbilgisi kurallarına göre analiz edilmesidir. Kelimelerin fiil, isim, sıfat olarak etiketlenmesi (Part of Speech Tagging) bu aşamada yapılır.
 - **Adlandırılmış Varlık Tanıma (Named Entity Recognition - NER)**: Metindeki özel isimlerin (Kişi, Şehir, Kurum, Sembol) tespit edilmesidir. 
-	- *Zorluk (Bağlam Problemi)*: "Osman bey" ifadesi, bir insanı imleyebileceği gibi, İstanbul'daki bir semti de imliyor olabilir. NER, bu ayrımı istatistiksel bağlamdan çözer.
+	- *Zorluk (Bağlam Problemi)*: "Osman Bey" ifadesi, bir insanı imleyebileceği gibi, İstanbul'daki bir semti de imliyor olabilir. NER, bu ayrımı istatistiksel bağlamdan çözer.
 - **Örüntüsü Tanımlı Varlıkların Bulunması (Pattern Matching)**: Düzenli ifadeler (regex) kullanılarak metin içindeki e-posta adresleri, telefon numaraları veya tarih formatlarının cımbızlanmasıdır.
 - **Duygu Analizi (Sentimental Analysis)**: Metnin kutupsallığını (polarity) ölçer. Yorum veya tweet'in **olumlu** mu yoksa **olumsuz** mu olduğunu belirler. Daha gelişmiş versiyonları doğrudan ruh hâli ve kanaat tespiti yaparlar.
 

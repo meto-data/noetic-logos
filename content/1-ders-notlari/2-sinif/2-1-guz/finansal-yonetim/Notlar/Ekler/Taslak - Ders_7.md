@@ -1,7 +1,7 @@
 ---
 title: Taslak_Ders_6
 type: ogrenis
-ders: "[[Hapishanenin Doğuşu/Notlar]]"
+ders: "[[Ivır Zıvır/felsefe-notlari/Hapishanenin Doğuşu/Notlar]]"
 created: 2025-11-05
 HUB:
 cssclasses:

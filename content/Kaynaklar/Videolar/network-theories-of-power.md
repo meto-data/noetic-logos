@@ -8,6 +8,7 @@ author:
 status: izlenecek
 title: Network Theories of Power - Manuel Castells
 cssclasses:
+draft: true
 created: 2026-03-05
 ---
 >[!video] Video Oynatıcı

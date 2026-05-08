@@ -8,7 +8,7 @@ draft: false
 ## 1. Biyometrik Sistemler ve Akıllı Kartlar
 Dijital dönüşümle birlikte güvenlik ve kimlik doğrulama süreçleri, pazarlamanın en büyük veri kaynağına dönüşmüştür. Tüketici bir veri kaynağı hâline gelmiştir.
 
-#### Biyometri Türleri
+#### Biyometrik Türleri
 1. **Fizyolojik Biyometrikler**: Parmak izi, yüz tanıma, iris/retina, damar yapısı, DNA. (*Değişmez ve kalıcıdır*).
 2. **Davranışsal Biyometrikler**: Ses kalıpları, imza dinamikleri, tuş vuruş analizi, yürüyüş biçimi vs.
 

@@ -1,3 +1,8 @@
+---
+draft: true
+---
+
+
 Görmeyecek bu gözler seni
 bundan böyle
 parçaların bütünleşmeyecek bundan böyle zihnimde! 

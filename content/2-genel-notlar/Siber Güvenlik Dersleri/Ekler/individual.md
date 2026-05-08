@@ -1,1 +1,0 @@
-birey, kişi
