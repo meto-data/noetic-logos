@@ -26,23 +26,23 @@ Benim köşkümde olmasıydı işte onu değerli kılan; başkasının köşkün
 *yere düşmüş bir yaprakmış meğersem*
 
 *tasavvur etmeyecek bu zihin seni bundan böyle*  
-*parçaların bütünleşmeyecek bundan böyle zihnimde!*
+*parçaların bütünleşmeyecek bundan böyle zihnimde*
 
 *kalmasın sende zerre-i miktar hatırım*  
 *zaten yoktu ya*  
-*gösterirdin herkese aynı hatırı!*  
+*gösterirdin herkese aynı hatırı*
 *özel olmasını isterken ben*  
-*hayıra çevirirdin sen hatırı!*
+*hayıra çevirirdin sen hatırı*
 
 *kalmasın bende zerre-i miktar anın*  
-*yok sevilmeye değer bir tek yanın!*  
-*al senin olsun, beş para etmez kalıntın!*
+*yok sevilmeye değer bir tek yanın.*  
+*al senin olsun, beş para etmez kalıntın*
 
 *nasıl sevilir ki bir tek parçan?*  
 *paramparça olmuş iken*  
 *bütünden kopan her parçan*
 
-*yok sevilmeye değer bir tek parçan!*  
+*yok sevilmeye değer bir tek parçan*  
   
 *sıradan artık, diğerleri gibi her bir parçan*
 

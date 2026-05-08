@@ -1,10 +1,11 @@
 ---
 tags:
   - uretim/yazi
+draft: true
 ---
 Ortaokul yıllarıma bakıyorum da, meğersem hayatın tadını çıkardığım yegâne anlarmış. Bir yanda teneffüs zilinin Pavlov'u andıran şartlanmasıyla kendini koşarak basketbol sahasına atan, tek gayesi o turuncu topu çemberden geçirmek olan bir çocuk; diğer yanda eve kapandığı 2 GB RAM'lik antik çağdan kalma bilgisayarıyla, oyun sürekli donduğu için ekranın yarısını kaplayarak akışı sağlamaya çalışan bir çocuk.
 
-Bir de lamerlık anları vardı tabii, Hacker forumlarında sürtüp hex kodları araklayarak Visual Basic Express'de hile kodlayan o çocuk... Görseniz, tam bir script-kiddie. Oyunun o *pay-to-win* sistemine karşı çıkmak, "parayı veren düdüğü çalar" diyen oyunculara "ben de senin o paralı KD'ni yerle yeksan ederim" diyerek kafa tutmak... Wolfteam oynarken slotlara sırasıyla "Hak Yiyen Hack Yer" yazmak epey çelişkili isyanlardı. Epey güzel günlerdi, cringe'ın dibiydi belki ama güzeldi.
+Bir de lamerlık anları vardı tabii, hacker forumlarında sürtüp hex kodları araklayarak Visual Basic Express'de hile kodlayan o çocuk... Görseniz, tam bir script-kiddie. Oyunun o *pay-to-win* sistemine karşı çıkmak, "parayı veren düdüğü çalar" diyen oyunculara "ben de senin o paralı KD'ni yerle yeksan ederim" diyerek kafa tutmak... Wolfteam oynarken slotlara sırasıyla "Hak Yiyen Hack Yer" yazmak epey çelişkili isyanlardı. Epey güzel günlerdi, cringe'ın dibiydi belki ama güzeldi.
 
 Bir oyun buladurayım, her daim oyunun bir açığından, zafiyetinden yararlanmaya çalışan o zihniyetimi seviyordum. Eğer sen sistemini zayıf bırakıyorsan ben bir şekilde oraya girecek ve faydalanacaktım o zayıflıktan. Opak olan bir şey göredurayım, en ufak bir yarığını bulmak ve o yarığı daha da genişletip şeffaf hâle getirmeyi seviyordum. Hatırlıyorum, Facebook'taki birçok açıktan yararlanıp birçok kişinin hesabını kapatmıştım. Başka zaman sahte takipçi hilesini andıran internet sitesi açıp Facebook'un iskeletini ve stilini kopyalamıştım, Facebook'a ait giriş ekranı sanıyorlardı orayı, böylelikle birçok kişinin Facebook hesabına sızmıştım. Epey güzel ve eğlenceli günlerdi, mahremiyet etiği hak getire tabiî, öyle hassasiyetlerim yoktu o zamanlar.
 
@@ -28,7 +29,7 @@ Sarsılmaz bir karaktere ihtiyacım vardı ya, stoa felsefesine, o "apatheia" li
 
 Önceleri, duygularımı dökmek için şiir de yazardım tabii, kavramlarla ifade etmekten ziyade o şiirleri sahiplenmekti amacım. Bir kadına yazdığım en son şiiri hatırlıyorum da, söyleyemem gerçi. Mahrem bunlar.
 
-Şiirin bir bağlamı da vardı tabii, geçmişte yazılan şiirlerle ilişkisi. Ancak dedim ya, mahrem bunlar. Sildim sonrasında şiiri, tüm şiirlerimi. Beni birilerine bağlayan, bir parçam olarak gördüğüm o satırların hepsini silmem gerekiyordu. Hâlâ ezberimdedir birçoğu, eskiden tamamı ezberimdeydi, şimdiyse unutulmaya yüz tutuyor. Varsın unutulsun, hâfıza-ı beşer nisyan ile mâlûldür ne de olsa.
+Şiirin bir bağlamı da vardı tabiî, geçmişte yazılan şiirlerle ilişkisi. Ancak dedim ya, mahrem bunlar. Sildim sonrasında şiiri, tüm şiirlerimi. Beni birilerine bağlayan, bir parçam olarak gördüğüm o satırların hepsini silmem gerekiyordu. Hâlâ ezberimdedir birçoğu, eskiden tamamı ezberimdeydi, şimdiyse unutulmaya yüz tutuyor. Varsın unutulsun, hâfıza-ı beşer nisyan ile mâlûldür ne de olsa.
 
 Hiçbir zaman oturup da "şiir yazayım" diyemedim, her ne zaman dediysem kaleme alamadım. Yoğun, özellikle negatif yoğun duygular neticesinde kaleme alınmamış bir şiir pornografikti benim için, samimi değildi; sadece olanı değil, olanı bir örtü giydirmeden bütün çıplaklığıyla anlatan her türlü metin pornografikti, göz ile imge arasındaki mesafenin katledilmesi pornografikti. Tek bir şiir vardı pozitif duygularla kaleme alıp sevgilime verdiğim, hiçbir satırını hatırlayamıyorum. Gerçekten, hiçbir satırını hatırlayamıyorum. Varsın unutulsun.
 
