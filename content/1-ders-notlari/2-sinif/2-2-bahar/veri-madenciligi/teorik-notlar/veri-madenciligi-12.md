@@ -1,10 +1,10 @@
 ---
-title: Veri Madenciliği - 13
-created: 2026-05-12
+title: Veri Madenciliği - 12
+created: 2026-05-05
 draft: false
 tags: akademi/dersler/veri-madenciligi
-slug: veri-madenciligi-13
-konu: Görüntü Verilerinde Madencilik
+slug: veri-madenciligi-12
+konu: Büyük Veri
 ---
 
 ## Dersin Bürokrasisi
