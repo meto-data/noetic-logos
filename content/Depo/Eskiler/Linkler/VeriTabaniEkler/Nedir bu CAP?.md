@@ -120,8 +120,9 @@ tags:
 - **Örnekler**: Tek sunuculu veri tabanları, yerel ağlardaki küçük sistemler.
 
 
-##
+---
+
 
 - Yani özetle şunu söylemek gerekiyor: Mükemmel çözüm diye bir şey söz konusu değil dağıtık sistemlerde. Fiziksel gerçeklik üç özelliği de aynı anda garanti etmeyi imkânsız kılmakta. 
-- Bu nedense ola ki para transferi gibi bir durum varsa **[[CP Sistemleri]]** seçilir zira *tutarlılık* kritiktir; Instagram gibi bir sosyal medyada ise **[[AP Sistemleri]]** seçilir zira *erişilebilirlik* kritiktir. Küçük şirket içi sistemde ise belki [[CA Sistemleri]] yeterlidir ola ki ağ bölünmesi nadir yahut hiç yoksa. 
+- Bu nedense ola ki para transferi gibi bir durum varsa **[[CP Sistemleri]]** seçilir zira *tutarlılık* kritiktir; Instagram gibi bir sosyal medyada ise **[[AP Sistemleri]]** seçilir zira *erişilebilirlik* kritiktir. Küçük şirket içi sistemde ise belki **[[CA Sistemleri]]** yeterlidir ola ki ağ bölünmesi nadir yahut hiç yoksa. 
 - İyi belirlemek gerekir, zira sistemin temel mimarisini bu tercih belirleyecektir. İnşa edilen binanın temelini değiştirmenin zor olacağı bellidir herhâlde?
