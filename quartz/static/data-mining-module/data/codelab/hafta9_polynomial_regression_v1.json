@@ -1,0 +1,755 @@
+{
+  "id": "hafta9_polynomial_regression_v1",
+  "title": "Hafta 9: Polinomal Regresyon V1",
+  "week": 9,
+  "csvFiles": [
+    "Salary.csv"
+  ],
+  "blocks": [
+    {
+      "id": "hafta9_polynomial_regression_v1-b001",
+      "title": "Kütüphaneleri hazırlama",
+      "blockExplanation": "Bu hücre, polinomal regresyon akışı için pandas, numpy, matplotlib ve sklearn bileşenlerini yükler.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# 📦 Gerekli kütüphaneler----------------",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '📦 Gerekli kütüphaneler----------------' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 📦 Gerekli kütüphaneler----------------",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import pandas as pd              # Veri okuma ve işleme",
+          "lineExplanation": "pandas modülünü pd takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "pandas modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "pd",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "import numpy as np               # Sayısal işlemler",
+          "lineExplanation": "numpy modülünü np takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "numpy modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "np",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "import matplotlib.pyplot as plt  # Grafik çizimi",
+          "lineExplanation": "matplotlib.pyplot modülünü plt takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "matplotlib.pyplot modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "plt",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "from sklearn.preprocessing import PolynomialFeatures  # Polynomial dönüşüm",
+          "lineExplanation": "sklearn.preprocessing modülünden PolynomialFeatures  # Polynomial dönüşüm bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "sklearn.preprocessing",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "PolynomialFeatures  # Polynomial dönüşüm",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "from sklearn.linear_model import LinearRegression     # Regresyon modeli",
+          "lineExplanation": "sklearn.linear_model modülünden LinearRegression     # Regresyon modeli bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "sklearn.linear_model",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "LinearRegression     # Regresyon modeli",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+    },
+    {
+      "id": "hafta9_polynomial_regression_v1-b002",
+      "title": "Salary.csv verisini okuma",
+      "blockExplanation": "Bu hücre, Salary.csv dosyasını okuyup ilk satırlarını gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# 📊 CSV dosyasını oku",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '📊 CSV dosyasını oku' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 📊 CSV dosyasını oku",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Salary.csv verisini okuma' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df = pd.read_csv(\"Salary.csv\")   # dosya adını değiştir",
+          "lineExplanation": "Salary.csv dosyasını okuyup df adlı DataFrame'e yükler.",
+          "tokens": [
+            {
+              "token": "pd.read_csv",
+              "explanation": "CSV dosyasını pandas DataFrame olarak okur.",
+              "turkce": "Dosya Okuma",
+              "amac": "Salary veri setini belleğe almak."
+            },
+            {
+              "token": "\"Salary.csv\"",
+              "explanation": "Okunan veri dosyasının adıdır.",
+              "turkce": "Veri Dosyası",
+              "amac": "Doğru veri kaynağını açmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Salary.csv verisini okuma' bloğunda Salary veri setini okur."
+        },
+        {
+          "lineNumber": 3,
+          "code": "# ilk 5 satırı göster",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'ilk 5 satırı göster' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# ilk 5 satırı göster",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Salary.csv verisini okuma' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "df.head()",
+          "lineExplanation": "DataFrame'in ilk 5 satırını gösterir.",
+          "tokens": [
+            {
+              "token": ".head()",
+              "explanation": "İlk 5 satırı getirir.",
+              "turkce": "Önizleme",
+              "amac": "Dosyanın doğru okunup okunmadığını hızlıca görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Salary.csv verisini okuma' bloğunda veri setinin ilk satırlarını gösterir."
+        }
+      ],
+      "expectedOutput": "   YearsExperience  Salary\n0              1.1   39343\n1              1.3   46205\n2              1.5   37731\n3              2.0   43525\n4              2.2   39891"
+    },
+    {
+      "id": "hafta9_polynomial_regression_v1-b003",
+      "title": "Bağımsız ve bağımlı değişkenleri ayırma",
+      "blockExplanation": "Bu hücre, ilk sütunu X, ikinci sütunu y olarak ayırır ve şekillerini gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# 🎯 Bağımsız (X) ve bağımlı (y) değişkenler",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '🎯 Bağımsız (X) ve bağımlı (y) değişkenler' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 🎯 Bağımsız (X) ve bağımlı (y) değişkenler",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bağımsız ve bağımlı değişkenleri ayırma' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "X = df.iloc[:, 0:1].values   # 1. sütun (bağımsız değişken)",
+          "lineExplanation": "X değişkenine df.iloc[:, 0:1].values   # 1. sütun (bağımsız değişken) ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "X",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "df.iloc[:, 0:1].values   # 1. sütun (bağımsız değişken)",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bağımsız ve bağımlı değişkenleri ayırma' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "y = df.iloc[:, 1].values     # 2. sütun (bağımlı değişken)",
+          "lineExplanation": "y değişkenine df.iloc[:, 1].values     # 2. sütun (bağımlı değişken) ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "y",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "df.iloc[:, 1].values     # 2. sütun (bağımlı değişken)",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bağımsız ve bağımlı değişkenleri ayırma' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "print(\"X shape:\", X.shape)",
+          "lineExplanation": "Üretilen matris veya vektör boyutunu terminal çıktısı olarak gösterir.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "Ara yapının boyutunu ekrana yazar.",
+              "turkce": "Boyut Yazdırma",
+              "amac": "Model girdisinin şeklinin doğru oluştuğunu doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bağımsız ve bağımlı değişkenleri ayırma' bloğunda veri şekli bilgisini yazdırır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "print(\"y shape:\", y.shape)",
+          "lineExplanation": "Üretilen matris veya vektör boyutunu terminal çıktısı olarak gösterir.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "Ara yapının boyutunu ekrana yazar.",
+              "turkce": "Boyut Yazdırma",
+              "amac": "Model girdisinin şeklinin doğru oluştuğunu doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bağımsız ve bağımlı değişkenleri ayırma' bloğunda veri şekli bilgisini yazdırır."
+        }
+      ],
+      "expectedOutput": "X shape: (35, 1)\n\ny shape: (35,)"
+    },
+    {
+      "id": "hafta9_polynomial_regression_v1-b004",
+      "title": "Polynomial dönüşüm",
+      "blockExplanation": "Bu hücre, X verisini 9. derece polinom uzayına taşır ve oluşan yeni matrisin boyutunu gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# 🔁 Polynomial dönüşüm",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '🔁 Polynomial dönüşüm' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 🔁 Polynomial dönüşüm",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Polynomial dönüşüm' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "poly_reg = PolynomialFeatures(degree = 9)",
+          "lineExplanation": "X verisini belirtilen derecede polinom özelliklere dönüştürecek nesneyi oluşturur.",
+          "tokens": [
+            {
+              "token": "PolynomialFeatures",
+              "explanation": "X değerinden 1, x, x², x³ ... gibi yeni sütunlar üretir.",
+              "turkce": "Polinom Dönüşüm",
+              "amac": "Eğrisel ilişkiyi lineer modele anlatmak."
+            },
+            {
+              "token": "degree = 9",
+              "explanation": "Kaçıncı dereceye kadar polinom terimi üretileceğini belirler.",
+              "turkce": "Derece",
+              "amac": "Model esnekliğini artırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Polynomial dönüşüm' bloğunda polynomial feature üreticisini kurar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "X_poly = poly_reg.fit_transform(X)",
+          "lineExplanation": "X verisini polynomial feature uzayına dönüştürüp X_poly içine yazar.",
+          "tokens": [
+            {
+              "token": "fit_transform(X)",
+              "explanation": "Gerekli polinom yapısını öğrenir ve X'i genişletilmiş forma dönüştürür.",
+              "turkce": "Dönüşüm",
+              "amac": "Eğrisel ilişkiyi modele özellik olarak taşımak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Polynomial dönüşüm' bloğunda polynomial feature matrisini üretir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "print(\"Yeni veri boyutu:\", X_poly.shape)",
+          "lineExplanation": "Üretilen matris veya vektör boyutunu terminal çıktısı olarak gösterir.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "Ara yapının boyutunu ekrana yazar.",
+              "turkce": "Boyut Yazdırma",
+              "amac": "Model girdisinin şeklinin doğru oluştuğunu doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Polynomial dönüşüm' bloğunda veri şekli bilgisini yazdırır."
+        }
+      ],
+      "expectedOutput": "Yeni veri boyutu: (35, 10)"
+    },
+    {
+      "id": "hafta9_polynomial_regression_v1-b005",
+      "title": "Modeli eğitme",
+      "blockExplanation": "Bu hücre, polinomal dönüşmüş veri üzerinde lineer regresyon modelini eğitir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# 🤖 Modeli eğit",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '🤖 Modeli eğit' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 🤖 Modeli eğit",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Modeli eğitme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "model = LinearRegression()",
+          "lineExplanation": "Doğrusal regresyon model nesnesini oluşturur.",
+          "tokens": [
+            {
+              "token": "LinearRegression()",
+              "explanation": "Sklearn'ün doğrusal regresyon modelidir.",
+              "turkce": "Model",
+              "amac": "Veri ile hedef arasındaki doğrusal ilişkiyi öğrenmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Modeli eğitme' bloğunda regresyon modelini oluşturur."
+        },
+        {
+          "lineNumber": 3,
+          "code": "model.fit(X_poly, y)",
+          "lineExplanation": "Regresyon modelini verilen X ve hedef veri üzerinde eğitir.",
+          "tokens": [
+            {
+              "token": ".fit(...)",
+              "explanation": "Modelin katsayılarını veriden öğrenmesini sağlar.",
+              "turkce": "Eğitim",
+              "amac": "Veri ile hedef arasındaki ilişkiyi öğrenmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Modeli eğitme' bloğunda modeli veri üzerinde eğitir."
+        }
+      ],
+      "expectedOutput": "LinearRegression()"
+    },
+    {
+      "id": "hafta9_polynomial_regression_v1-b006",
+      "title": "Gerçek veri ve model eğrisini çizme",
+      "blockExplanation": "Bu hücre, gerçek noktaları ve pürüzsüz tahmin eğrisini aynı grafikte gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# 📈 Gerçek veri ve model eğrisi",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '📈 Gerçek veri ve model eğrisi' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 📈 Gerçek veri ve model eğrisi",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gerçek veri ve model eğrisini çizme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.scatter(X, y, color=\"blue\", label=\"Gerçek Veri\")",
+          "lineExplanation": "Model grafiğinde gerçek veri noktalarını scatter olarak çizer.",
+          "tokens": [
+            {
+              "token": "plt.scatter",
+              "explanation": "Gerçek gözlemleri nokta olarak çizer.",
+              "turkce": "Scatter Plot",
+              "amac": "Tahmin çizgisiyle gerçek veriyi birlikte göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gerçek veri ve model eğrisini çizme' bloğunda gerçek veri noktalarını grafiğe ekler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "# düzgün eğri çizmek için",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'düzgün eğri çizmek için' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# düzgün eğri çizmek için",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gerçek veri ve model eğrisini çizme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "X_range = np.linspace(X.min(), X.max(), 100).reshape(-1,1)",
+          "lineExplanation": "Grafikte pürüzsüz eğri çizmek için X aralığında 100 noktalı düzenli bir ızgara üretir.",
+          "tokens": [
+            {
+              "token": "np.linspace",
+              "explanation": "Minimum ve maksimum arasında eşit aralıklı değerler üretir.",
+              "turkce": "Düzenli Izgara",
+              "amac": "Tahmin eğrisini pürüzsüz çizmek."
+            },
+            {
+              "token": ".reshape(-1,1)",
+              "explanation": "Vektörü sklearn'ün beklediği sütun matrisine çevirir.",
+              "turkce": "Matris Şekli",
+              "amac": "Tahmin girdisini uygun forma sokmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gerçek veri ve model eğrisini çizme' bloğunda düzgün eğri için tahmin ızgarası oluşturur."
+        },
+        {
+          "lineNumber": 5,
+          "code": "X_range_poly = poly_reg.transform(X_range)",
+          "lineExplanation": "Yeni veriyi eğitimde kullanılan aynı polynomial dönüşüme tabi tutar.",
+          "tokens": [
+            {
+              "token": ".transform(...)",
+              "explanation": "Yeni veriyi mevcut polynomial yapıya göre dönüştürür.",
+              "turkce": "Tahmin Öncesi Dönüşüm",
+              "amac": "Modelin eğitimde gördüğü formatı tahminde de korumak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gerçek veri ve model eğrisini çizme' bloğunda tahmin öncesi veriyi aynı feature uzayına taşır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.plot(X_range, model.predict(X_range_poly),",
+          "lineExplanation": "SSE değerlerini çizgi grafiği olarak çizer.",
+          "tokens": [
+            {
+              "token": "plt.plot",
+              "explanation": "Sayısal değerler arasında çizgi grafiği üretir.",
+              "turkce": "Çizgi Grafiği",
+              "amac": "Elbow eğrisini gözle izlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gerçek veri ve model eğrisini çizme' bloğunda hesaplanan değerleri çizgi grafiğine dönüştürür."
+        },
+        {
+          "lineNumber": 7,
+          "code": "         color=\"red\", label=\"Model Eğrisi\")",
+          "lineExplanation": "color değişkenine \"red\", label=\"Model Eğrisi\") ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "color",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "\"red\", label=\"Model Eğrisi\")",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gerçek veri ve model eğrisini çizme' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.title(\"Polynomial Regression\")",
+          "lineExplanation": "Grafiğin başlığını \"Polynomial Regression\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gerçek veri ve model eğrisini çizme' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.legend()",
+          "lineExplanation": "Grafikteki renk veya işaretlerin neyi temsil ettiğini anlatan legend kutusunu gösterir.",
+          "tokens": [
+            {
+              "token": "plt.legend",
+              "explanation": "Grafik açıklama kutusunu ekler.",
+              "turkce": "Legend",
+              "amac": "Renklerin veya işaretlerin anlamını kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gerçek veri ve model eğrisini çizme' bloğunda görseldeki sınıf/seri bilgisini okunur kılar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gerçek veri ve model eğrisini çizme' bloğunda görsel üretimini tamamlar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h9-poly-v1-b006.png"
+    },
+    {
+      "id": "hafta9_polynomial_regression_v1-b007",
+      "title": "4.5 için örnek tahmin",
+      "blockExplanation": "Bu hücre, 4.5 değeri için polinomal modele tahmin yaptırır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# 🎯 Örnek tahmin",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '🎯 Örnek tahmin' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 🎯 Örnek tahmin",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, '4.5 için örnek tahmin' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "test_value = np.array([[4.5]])",
+          "lineExplanation": "test_value değişkenine np.array([[4.5]]) ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "test_value",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "np.array([[4.5]])",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, '4.5 için örnek tahmin' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "test_poly = poly_reg.transform(test_value)",
+          "lineExplanation": "Yeni veriyi eğitimde kullanılan aynı polynomial dönüşüme tabi tutar.",
+          "tokens": [
+            {
+              "token": ".transform(...)",
+              "explanation": "Yeni veriyi mevcut polynomial yapıya göre dönüştürür.",
+              "turkce": "Tahmin Öncesi Dönüşüm",
+              "amac": "Modelin eğitimde gördüğü formatı tahminde de korumak."
+            }
+          ],
+          "codeContext": "Bu satır, '4.5 için örnek tahmin' bloğunda tahmin öncesi veriyi aynı feature uzayına taşır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "prediction_test = model.predict(test_poly)",
+          "lineExplanation": "Eğitilmiş model ile verilen giriş için tahmin üretir.",
+          "tokens": [
+            {
+              "token": "predict(...)",
+              "explanation": "Modelin yeni girdi için hedef tahmini yapmasını sağlar.",
+              "turkce": "Tahmin",
+              "amac": "Yeni örnekler üzerinde model çıktısı üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, '4.5 için örnek tahmin' bloğunda model tahmini üretir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "print(\"Örnek Tahmin (4.5 için):\", prediction_test[0])",
+          "lineExplanation": "Belirtilen metni veya değişkeni terminal çıktısı olarak ekrana basar.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "Metin veya değişken değerini stdout'a yazar.",
+              "turkce": "Yazdırma",
+              "amac": "Ara sonucu kullanıcıya görünür kılmak."
+            }
+          ],
+          "codeContext": "Bu satır, '4.5 için örnek tahmin' bloğunda ara sonucu kullanıcıya yazılı olarak bildirir."
+        }
+      ],
+      "expectedOutput": "Örnek Tahmin (4.5 için): 63521.15058294125"
+    },
+    {
+      "id": "hafta9_polynomial_regression_v1-b008",
+      "title": "6.5 için reel tahmin",
+      "blockExplanation": "Bu hücre, 6.5 değeri için aynı dönüşümü uygulayıp tahmin üretir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# 🚀 Reel tahmin",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını '🚀 Reel tahmin' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# 🚀 Reel tahmin",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, '6.5 için reel tahmin' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "new_data = np.array([[6.5]])",
+          "lineExplanation": "new_data değişkenine np.array([[6.5]]) ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "new_data",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "np.array([[6.5]])",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, '6.5 için reel tahmin' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "# aynı dönüşüm uygulanmalı!",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'aynı dönüşüm uygulanmalı!' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# aynı dönüşüm uygulanmalı!",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, '6.5 için reel tahmin' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "new_data_poly = poly_reg.transform(new_data)",
+          "lineExplanation": "Yeni veriyi eğitimde kullanılan aynı polynomial dönüşüme tabi tutar.",
+          "tokens": [
+            {
+              "token": ".transform(...)",
+              "explanation": "Yeni veriyi mevcut polynomial yapıya göre dönüştürür.",
+              "turkce": "Tahmin Öncesi Dönüşüm",
+              "amac": "Modelin eğitimde gördüğü formatı tahminde de korumak."
+            }
+          ],
+          "codeContext": "Bu satır, '6.5 için reel tahmin' bloğunda tahmin öncesi veriyi aynı feature uzayına taşır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "prediction_real = model.predict(new_data_poly)",
+          "lineExplanation": "Eğitilmiş model ile verilen giriş için tahmin üretir.",
+          "tokens": [
+            {
+              "token": "predict(...)",
+              "explanation": "Modelin yeni girdi için hedef tahmini yapmasını sağlar.",
+              "turkce": "Tahmin",
+              "amac": "Yeni örnekler üzerinde model çıktısı üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, '6.5 için reel tahmin' bloğunda model tahmini üretir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "print(\"Reel Tahmin (6.5 için):\", prediction_real[0])",
+          "lineExplanation": "Belirtilen metni veya değişkeni terminal çıktısı olarak ekrana basar.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "Metin veya değişken değerini stdout'a yazar.",
+              "turkce": "Yazdırma",
+              "amac": "Ara sonucu kullanıcıya görünür kılmak."
+            }
+          ],
+          "codeContext": "Bu satır, '6.5 için reel tahmin' bloğunda ara sonucu kullanıcıya yazılı olarak bildirir."
+        }
+      ],
+      "expectedOutput": "Reel Tahmin (6.5 için): 93169.14868690551"
+    }
+  ]
+}

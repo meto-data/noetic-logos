@@ -1,0 +1,928 @@
+{
+  "id": "hafta10_wordcloud",
+  "title": "Hafta 10: WordCloud ve Metin Ön İşleme",
+  "week": 10,
+  "csvFiles": [],
+  "blocks": [
+    {
+      "id": "hafta10_wordcloud-b001",
+      "title": "WordCloud için kavram listesini tanımlama",
+      "blockExplanation": "Bu hücre, görselleştirmede kullanılacak yapay zeka ve veri madenciliği terimlerini liste halinde tanımlar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "metinler = [",
+          "lineExplanation": "metinler değişkenine [ ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "metinler",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "[",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'WordCloud için kavram listesini tanımlama' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "\"Yapay Zekâ\", \"Makine Öğrenmesi\", \"Derin Öğrenme\", \"Doğal Dil İşleme\", \"Bilgisayarla Görü\",",
+          "lineExplanation": "Kümeleme listesine Yapay Zekâ, Makine Öğrenmesi, Derin Öğrenme, Doğal Dil İşleme ve Bilgisayarla Görü sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "Yapay Zekâ",
+              "explanation": "Yapay Zekâ bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Makine Öğrenmesi",
+              "explanation": "Makine Öğrenmesi bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Derin Öğrenme",
+              "explanation": "Derin Öğrenme bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Doğal Dil İşleme",
+              "explanation": "Doğal Dil İşleme bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Bilgisayarla Görü",
+              "explanation": "Bilgisayarla Görü bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'WordCloud için kavram listesini tanımlama' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "\"Otonom Sistemler\", \"Büyük Veri\", \"Karar Ağaçları\", \"Yapay Sinir Ağları\", \"Lojistik Regresyon\",",
+          "lineExplanation": "Kümeleme listesine Otonom Sistemler, Büyük Veri, Karar Ağaçları, Yapay Sinir Ağları ve Lojistik Regresyon sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "Otonom Sistemler",
+              "explanation": "Otonom Sistemler bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Büyük Veri",
+              "explanation": "Büyük Veri bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Karar Ağaçları",
+              "explanation": "Karar Ağaçları bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Yapay Sinir Ağları",
+              "explanation": "Yapay Sinir Ağları bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Lojistik Regresyon",
+              "explanation": "Lojistik Regresyon bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'WordCloud için kavram listesini tanımlama' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "\"Sınıflandırma\", \"Kümeleme\", \"Takviyeli Öğrenme\", \"Chatbot\", \"GPT\", \"LLM\",",
+          "lineExplanation": "Kümeleme listesine Sınıflandırma, Kümeleme, Takviyeli Öğrenme, Chatbot, GPT ve LLM sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "Sınıflandırma",
+              "explanation": "Sınıflandırma bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Kümeleme",
+              "explanation": "Kümeleme bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Takviyeli Öğrenme",
+              "explanation": "Takviyeli Öğrenme bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Chatbot",
+              "explanation": "Chatbot bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "GPT",
+              "explanation": "GPT bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "LLM",
+              "explanation": "LLM bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'WordCloud için kavram listesini tanımlama' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "\"Konuşma Tanıma\", \"Görüntü Tanıma\", \"Etik\", \"Verimlilik\", \"Akıllı Sistemler\",",
+          "lineExplanation": "Kümeleme listesine Konuşma Tanıma, Görüntü Tanıma, Etik, Verimlilik ve Akıllı Sistemler sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "Konuşma Tanıma",
+              "explanation": "Konuşma Tanıma bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Görüntü Tanıma",
+              "explanation": "Görüntü Tanıma bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Etik",
+              "explanation": "Etik bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Verimlilik",
+              "explanation": "Verimlilik bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Akıllı Sistemler",
+              "explanation": "Akıllı Sistemler bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'WordCloud için kavram listesini tanımlama' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "\"Robotik\", \"Python\", \"TensorFlow\", \"PyTorch\", \"Veri Madenciliği\", \"Anomali Tespiti\",",
+          "lineExplanation": "Kümeleme listesine Robotik, Python, TensorFlow, PyTorch, Veri Madenciliği ve Anomali Tespiti sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "Robotik",
+              "explanation": "Robotik bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Python",
+              "explanation": "Python bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "TensorFlow",
+              "explanation": "TensorFlow bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "PyTorch",
+              "explanation": "PyTorch bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Veri Madenciliği",
+              "explanation": "Veri Madenciliği bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Anomali Tespiti",
+              "explanation": "Anomali Tespiti bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'WordCloud için kavram listesini tanımlama' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "\"Sıralı Veri\", \"Derin Sinir Ağları\", \"Sözlükler\", \"Vektörler\", \"Embedding\", \"TF-IDF\",",
+          "lineExplanation": "Kümeleme listesine Sıralı Veri, Derin Sinir Ağları, Sözlükler, Vektörler, Embedding ve TF-IDF sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "Sıralı Veri",
+              "explanation": "Sıralı Veri bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Derin Sinir Ağları",
+              "explanation": "Derin Sinir Ağları bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Sözlükler",
+              "explanation": "Sözlükler bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Vektörler",
+              "explanation": "Vektörler bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Embedding",
+              "explanation": "Embedding bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "TF-IDF",
+              "explanation": "TF-IDF bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'WordCloud için kavram listesini tanımlama' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 8,
+          "code": "\"Duygu Analizi\", \"Model Eğitimi\", \"Tahminleme\", \"Otomasyon\", \"Yapay Zeka Etiği\",",
+          "lineExplanation": "Kümeleme listesine Duygu Analizi, Model Eğitimi, Tahminleme, Otomasyon ve Yapay Zeka Etiği sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "Duygu Analizi",
+              "explanation": "Duygu Analizi bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Model Eğitimi",
+              "explanation": "Model Eğitimi bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Tahminleme",
+              "explanation": "Tahminleme bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Otomasyon",
+              "explanation": "Otomasyon bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Yapay Zeka Etiği",
+              "explanation": "Yapay Zeka Etiği bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'WordCloud için kavram listesini tanımlama' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 9,
+          "code": "\"Veri Ön İşleme\", \"A/B Testi\", \"Sentetik Veri\", \"Model Değerlendirme\", \"Cross Validation\",",
+          "lineExplanation": "Kümeleme listesine Veri Ön İşleme, A/B Testi, Sentetik Veri, Model Değerlendirme ve Cross Validation sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "Veri Ön İşleme",
+              "explanation": "Veri Ön İşleme bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "A/B Testi",
+              "explanation": "A/B Testi bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Sentetik Veri",
+              "explanation": "Sentetik Veri bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Model Değerlendirme",
+              "explanation": "Model Değerlendirme bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Cross Validation",
+              "explanation": "Cross Validation bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'WordCloud için kavram listesini tanımlama' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 10,
+          "code": "\"Parametre Ayarlama\", \"Veri Temizleme\", \"Yapay Zeka Güvenliği\", \"Öznitelik Çıkarımı\",",
+          "lineExplanation": "Kümeleme listesine Parametre Ayarlama, Veri Temizleme, Yapay Zeka Güvenliği ve Öznitelik Çıkarımı sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "Parametre Ayarlama",
+              "explanation": "Parametre Ayarlama bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Veri Temizleme",
+              "explanation": "Veri Temizleme bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Yapay Zeka Güvenliği",
+              "explanation": "Yapay Zeka Güvenliği bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Öznitelik Çıkarımı",
+              "explanation": "Öznitelik Çıkarımı bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'WordCloud için kavram listesini tanımlama' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 11,
+          "code": "\"Varlık Tanıma\", \"Transformer\", \"BERT\", \"ChatGPT\", \"Generative AI\", \"Otomatik Kodlama\",",
+          "lineExplanation": "Kümeleme listesine Varlık Tanıma, Transformer, BERT, ChatGPT, Generative AI ve Otomatik Kodlama sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "Varlık Tanıma",
+              "explanation": "Varlık Tanıma bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Transformer",
+              "explanation": "Transformer bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "BERT",
+              "explanation": "BERT bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "ChatGPT",
+              "explanation": "ChatGPT bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Generative AI",
+              "explanation": "Generative AI bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "Otomatik Kodlama",
+              "explanation": "Otomatik Kodlama bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'WordCloud için kavram listesini tanımlama' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 12,
+          "code": "\"LLM Uygulamaları\"",
+          "lineExplanation": "Kümeleme listesine LLM Uygulamaları sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "LLM Uygulamaları",
+              "explanation": "LLM Uygulamaları bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'WordCloud için kavram listesini tanımlama' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 13,
+          "code": "]",
+          "lineExplanation": "Bir önceki çok satırlı liste tanımını kapatır.",
+          "tokens": [
+            {
+              "token": "]",
+              "explanation": "Liste tanımının kapanış işaretidir.",
+              "turkce": "Liste Kapanışı",
+              "amac": "Çok satırlı listeyi bitirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'WordCloud için kavram listesini tanımlama' bloğunda sütun listesini tamamlar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; wordCloud için kavram listesini tanımlama adımının sonucu bellekte tutulur."
+    },
+    {
+      "id": "hafta10_wordcloud-b002",
+      "title": "Stopwords ve noktalama temizliği",
+      "blockExplanation": "Bu hücre, terimleri küçük harfe çevirir, noktalama işaretlerini temizler ve Türkçe stopwords süzgecinden geçirir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import nltk",
+          "lineExplanation": "nltk modülünü içe aktarır.",
+          "tokens": [
+            {
+              "token": "nltk",
+              "explanation": "nltk modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Gerekli fonksiyon ve sınıfları kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords ve noktalama temizliği' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "from nltk.corpus import stopwords",
+          "lineExplanation": "nltk.corpus modülünden stopwords bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "nltk.corpus",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "stopwords",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords ve noktalama temizliği' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "import string",
+          "lineExplanation": "string modülünü içe aktarır.",
+          "tokens": [
+            {
+              "token": "string",
+              "explanation": "string modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Gerekli fonksiyon ve sınıfları kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords ve noktalama temizliği' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "nltk.download(\"stopwords\")",
+          "lineExplanation": "Stopwords kaynağının kullanılabilir olmasını sağlar.",
+          "tokens": [
+            {
+              "token": "nltk.download('stopwords')",
+              "explanation": "Stopwords veri kaynağını yüklemeyi dener.",
+              "turkce": "Kaynak Hazırlama",
+              "amac": "Stopwords listesini kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords ve noktalama temizliği' bloğunda stopwords kaynağını hazırlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "temiz_metinler = []",
+          "lineExplanation": "temiz_metinler değişkenine [] ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "temiz_metinler",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "[]",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords ve noktalama temizliği' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "for metin in metinler:",
+          "lineExplanation": "Listedeki metinler veya review satırları üzerinde döngü kurarak aynı işlemi tek tek uygular.",
+          "tokens": [
+            {
+              "token": "for",
+              "explanation": "Tekrarlı işlem başlatır.",
+              "turkce": "Döngü",
+              "amac": "Tüm metin örneklerine aynı temizleme adımını uygulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords ve noktalama temizliği' bloğunda metinler üzerinde döngü başlatır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    metin = metin.lower()",
+          "lineExplanation": "Metni küçük harfe çevirerek büyük-küçük harf farkını ortadan kaldırır.",
+          "tokens": [
+            {
+              "token": ".lower()",
+              "explanation": "Tüm harfleri lowercase yapar.",
+              "turkce": "Lowercase",
+              "amac": "Aynı kelimenin farklı harf biçimlerini tek forma indirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords ve noktalama temizliği' bloğunda büyük-küçük harf farkını siler."
+        },
+        {
+          "lineNumber": 8,
+          "code": "    metin = metin.translate(str.maketrans(\"\", \"\", string.punctuation))",
+          "lineExplanation": "metin değişkenine metin.translate(str.maketrans(\"\", \"\", string.punctuation)) ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "metin",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "metin.translate(str.maketrans(\"\", \"\", string.punctuation))",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords ve noktalama temizliği' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "    kelimeler = metin.split()",
+          "lineExplanation": "Metni boşluklara göre bölerek kelime listesine dönüştürür.",
+          "tokens": [
+            {
+              "token": ".split()",
+              "explanation": "Metni token listesine çevirir.",
+              "turkce": "Tokenizasyon",
+              "amac": "Metni kelime bazında işlemeye başlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords ve noktalama temizliği' bloğunda metni kelime listesine böler."
+        },
+        {
+          "lineNumber": 10,
+          "code": "    kelimeler = [k for k in kelimeler if k not in stopwords.words(\"turkish\")]",
+          "lineExplanation": "Stopwords kelimelerini listeden çıkararak anlamsal yükü düşük kelimeleri temizler.",
+          "tokens": [
+            {
+              "token": "stopwords.words(...)",
+              "explanation": "Seçilen dil için stopwords listesini getirir.",
+              "turkce": "Stopwords Kaynağı",
+              "amac": "Anlamsız sık kelimeleri elemek."
+            },
+            {
+              "token": "if ... not in ...",
+              "explanation": "Kelimeyi stopwords dışında bırakacak filtreyi kurar.",
+              "turkce": "Filtre",
+              "amac": "Modelin asıl anlam taşıyan kelimelere odaklanmasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords ve noktalama temizliği' bloğunda stopwords temizliği yapar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "    temiz_metinler.append(\" \".join(kelimeler))",
+          "lineExplanation": "Kelime listesini tekrar boşluklarla birleştirip tek parça metne dönüştürür.",
+          "tokens": [
+            {
+              "token": "\" \".join(...)",
+              "explanation": "Liste içindeki kelimeleri tek metin halinde birleştirir.",
+              "turkce": "Metin Yeniden İnşası",
+              "amac": "Temiz tokenleri WordCloud ya da vectorizer için tekrar metin yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords ve noktalama temizliği' bloğunda temizlenmiş kelimeleri tekrar metin biçimine toplar."
+        }
+      ],
+      "expectedOutput": "True"
+    },
+    {
+      "id": "hafta10_wordcloud-b003",
+      "title": "Temiz metinlerden WordCloud üretme",
+      "blockExplanation": "Bu hücre, temizlenen metinleri birleştirir ve beyaz arka planlı bir WordCloud görseli üretir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "from wordcloud import WordCloud",
+          "lineExplanation": "wordcloud modülünden WordCloud bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "wordcloud",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "WordCloud",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Temiz metinlerden WordCloud üretme' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "matplotlib.pyplot modülünü plt takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "matplotlib.pyplot modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "plt",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Temiz metinlerden WordCloud üretme' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "tum_metin = \" \".join(temiz_metinler)",
+          "lineExplanation": "Kelime listesini tekrar boşluklarla birleştirip tek parça metne dönüştürür.",
+          "tokens": [
+            {
+              "token": "\" \".join(...)",
+              "explanation": "Liste içindeki kelimeleri tek metin halinde birleştirir.",
+              "turkce": "Metin Yeniden İnşası",
+              "amac": "Temiz tokenleri WordCloud ya da vectorizer için tekrar metin yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Temiz metinlerden WordCloud üretme' bloğunda temizlenmiş kelimeleri tekrar metin biçimine toplar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "wc = WordCloud(width=800, height=400, background_color=\"white\").generate(tum_metin)",
+          "lineExplanation": "Belirtilen metinden WordCloud nesnesini oluşturur.",
+          "tokens": [
+            {
+              "token": "WordCloud",
+              "explanation": "Kelime sıklıklarını görsel buluta dönüştürür.",
+              "turkce": "WordCloud",
+              "amac": "Metindeki baskın kavramları görselleştirmek."
+            },
+            {
+              "token": "generate(...)",
+              "explanation": "Verilen metinden kelime frekanslarını çıkarıp bulutu üretir.",
+              "turkce": "Bulut Üretimi",
+              "amac": "Metni görsel özet haline getirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Temiz metinlerden WordCloud üretme' bloğunda WordCloud görselini üretir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.figure(figsize=(8,4))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 8,4 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Temiz metinlerden WordCloud üretme' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.imshow(wc, interpolation=\"bilinear\")",
+          "lineExplanation": "Üretilen WordCloud nesnesini görsel olarak figüre yerleştirir.",
+          "tokens": [
+            {
+              "token": "plt.imshow",
+              "explanation": "Resim benzeri veriyi figürde gösterir.",
+              "turkce": "Görsel Gösterim",
+              "amac": "WordCloud çıktısını ekrana basmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Temiz metinlerden WordCloud üretme' bloğunda WordCloud görselini figüre çizer."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.axis(\"off\")",
+          "lineExplanation": "WordCloud görselleştirmesinde eksen çizgilerini ve tikleri gizler.",
+          "tokens": [
+            {
+              "token": "axis(\"off\")",
+              "explanation": "Eksenleri görünmez yapar.",
+              "turkce": "Eksen Gizleme",
+              "amac": "Sadece kelime bulutunu temiz biçimde göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Temiz metinlerden WordCloud üretme' bloğunda görselin eksenlerini gizler."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Temiz metinlerden WordCloud üretme' bloğunda görsel üretimini tamamlar."
+        }
+      ],
+      "expectedOutput": "(np.float64(-0.5), np.float64(799.5), np.float64(399.5), np.float64(-0.5))",
+      "plotImage": "h10-wordcloud-b003.png"
+    },
+    {
+      "id": "hafta10_wordcloud-b004",
+      "title": "Ham terimlerden ikinci WordCloud üretme",
+      "blockExplanation": "Bu hücre, orijinal terim listesini tek metne dönüştürür ve başlıklı ikinci bir WordCloud görselleştirmesi yapar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "metin = \" \".join(metinler)",
+          "lineExplanation": "Kelime listesini tekrar boşluklarla birleştirip tek parça metne dönüştürür.",
+          "tokens": [
+            {
+              "token": "\" \".join(...)",
+              "explanation": "Liste içindeki kelimeleri tek metin halinde birleştirir.",
+              "turkce": "Metin Yeniden İnşası",
+              "amac": "Temiz tokenleri WordCloud ya da vectorizer için tekrar metin yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ham terimlerden ikinci WordCloud üretme' bloğunda temizlenmiş kelimeleri tekrar metin biçimine toplar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "# WordCloud oluştur",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'WordCloud oluştur' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# WordCloud oluştur",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ham terimlerden ikinci WordCloud üretme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "wordcloud = WordCloud(width=800, height=400, background_color=\"gar\", font_path=None).generate(metin)",
+          "lineExplanation": "Belirtilen metinden WordCloud nesnesini oluşturur.",
+          "tokens": [
+            {
+              "token": "WordCloud",
+              "explanation": "Kelime sıklıklarını görsel buluta dönüştürür.",
+              "turkce": "WordCloud",
+              "amac": "Metindeki baskın kavramları görselleştirmek."
+            },
+            {
+              "token": "generate(...)",
+              "explanation": "Verilen metinden kelime frekanslarını çıkarıp bulutu üretir.",
+              "turkce": "Bulut Üretimi",
+              "amac": "Metni görsel özet haline getirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ham terimlerden ikinci WordCloud üretme' bloğunda WordCloud görselini üretir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "# Görselleştir",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Görselleştir' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Görselleştir",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ham terimlerden ikinci WordCloud üretme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.figure(figsize=(12, 6))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 12, 6 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ham terimlerden ikinci WordCloud üretme' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.imshow(wordcloud, interpolation=\"bilinear\")",
+          "lineExplanation": "Üretilen WordCloud nesnesini görsel olarak figüre yerleştirir.",
+          "tokens": [
+            {
+              "token": "plt.imshow",
+              "explanation": "Resim benzeri veriyi figürde gösterir.",
+              "turkce": "Görsel Gösterim",
+              "amac": "WordCloud çıktısını ekrana basmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ham terimlerden ikinci WordCloud üretme' bloğunda WordCloud görselini figüre çizer."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.axis(\"off\")",
+          "lineExplanation": "WordCloud görselleştirmesinde eksen çizgilerini ve tikleri gizler.",
+          "tokens": [
+            {
+              "token": "axis(\"off\")",
+              "explanation": "Eksenleri görünmez yapar.",
+              "turkce": "Eksen Gizleme",
+              "amac": "Sadece kelime bulutunu temiz biçimde göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ham terimlerden ikinci WordCloud üretme' bloğunda görselin eksenlerini gizler."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.title(\"Yapay Zekâ Konu Başlıkları\", fontsize=18)",
+          "lineExplanation": "WordCloud görseline açıklayıcı bir başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafik başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Görselin ne anlattığını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ham terimlerden ikinci WordCloud üretme' bloğunda WordCloud başlığını ekler."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ham terimlerden ikinci WordCloud üretme' bloğunda görsel üretimini tamamlar."
+        }
+      ],
+      "expectedOutput": "(np.float64(-0.5), np.float64(799.5), np.float64(399.5), np.float64(-0.5))",
+      "plotImage": "h10-wordcloud-b004.png"
+    }
+  ]
+}

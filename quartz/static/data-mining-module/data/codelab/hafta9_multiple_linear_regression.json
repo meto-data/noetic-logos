@@ -1,0 +1,786 @@
+{
+  "id": "hafta9_multiple_linear_regression",
+  "title": "Hafta 9: Multiple Linear Regression",
+  "week": 9,
+  "csvFiles": [
+    "multilinearregression.csv"
+  ],
+  "blocks": [
+    {
+      "id": "hafta9_multiple_linear_regression-b001",
+      "title": "Veriyi yükleme ve warning filtresi",
+      "blockExplanation": "Bu hücre, multilinearregression.csv veri setini okuyup çoklu doğrusal regresyon için gerekli kütüphaneleri ve warning filtresini hazırlar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import pandas as pd",
+          "lineExplanation": "pandas modülünü pd takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "pandas modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "pd",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veriyi yükleme ve warning filtresi' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "matplotlib.pyplot modülünü plt takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "matplotlib.pyplot modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "plt",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veriyi yükleme ve warning filtresi' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "# sklearn library",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'sklearn library' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# sklearn library",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veriyi yükleme ve warning filtresi' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "from sklearn import linear_model",
+          "lineExplanation": "sklearn modülünden linear_model bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "sklearn",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "linear_model",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veriyi yükleme ve warning filtresi' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "# veri setimizi import ediyoruz, ayraç olarak noktalı virgül olduğu için bunu belirtiyoruz:",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'veri setimizi import ediyoruz, ayraç olarak noktalı virgül olduğu için bunu belirtiyoruz:' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# veri setimizi import ediyoruz, ayraç olarak noktalı virgül olduğu için bunu belirtiyoruz:",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veriyi yükleme ve warning filtresi' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "df = pd.read_csv(\"multilinearregression.csv\",sep = \";\")",
+          "lineExplanation": "multilinearregression.csv dosyasını pandas ile okuyup df adlı DataFrame'e yükler.",
+          "tokens": [
+            {
+              "token": "pd.read_csv",
+              "explanation": "CSV ya da benzeri düz metin dosyalarını tablo olarak okur.",
+              "turkce": "Dosya Okuma",
+              "amac": "Veriyi pandas DataFrame biçimine almak."
+            },
+            {
+              "token": "multilinearregression.csv",
+              "explanation": "Okunan veri dosyasının adıdır.",
+              "turkce": "Veri Dosyası",
+              "amac": "Hangi kaynağın kullanılacağını belirtmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veriyi yükleme ve warning filtresi' bloğunda ham dosyayı pandas tablosuna dönüştürür."
+        },
+        {
+          "lineNumber": 7,
+          "code": "import warnings",
+          "lineExplanation": "warnings modülünü içe aktarır.",
+          "tokens": [
+            {
+              "token": "warnings",
+              "explanation": "warnings modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Gerekli fonksiyon ve sınıfları kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veriyi yükleme ve warning filtresi' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 8,
+          "code": "warnings.filterwarnings(\"ignore\", message=\"X does not have valid feature names\")",
+          "lineExplanation": "Tahmin sırasında görülebilen belirli sklearn warning mesajını gizler.",
+          "tokens": [
+            {
+              "token": "filterwarnings(...)",
+              "explanation": "Belirli uyarıyı bastırır.",
+              "turkce": "Warning Filtresi",
+              "amac": "Notebook çıktısını gereksiz warning satırlarından temiz tutmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veriyi yükleme ve warning filtresi' bloğunda belirli warning mesajını gizler."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b002",
+      "title": "Veri setini tablo olarak görme",
+      "blockExplanation": "Bu hücre, yüklenen konut veri setini tablo olarak gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Veri setimizi görelim ve doğru import ettiğiniz kontrol edelim:",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Veri setimizi görelim ve doğru import ettiğiniz kontrol edelim:' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Veri setimizi görelim ve doğru import ettiğiniz kontrol edelim:",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veri setini tablo olarak görme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df",
+          "lineExplanation": "Mevcut DataFrame'i olduğu gibi ekrana getirir.",
+          "tokens": [
+            {
+              "token": "df",
+              "explanation": "Bellekteki veri çerçevesini temsil eder.",
+              "turkce": "DataFrame",
+              "amac": "Tablonun güncel halini görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veri setini tablo olarak görme' bloğunda veri setini doğrudan gösterir."
+        }
+      ],
+      "expectedOutput": "   alan  odasayisi  binayasi   fiyat\n0   180          5        10  510000\n1   225          4        18  508000\n2   260          3         2  548000\n3   320          6        10  650000\n4   335          4         9  628000\n5   345          5        14  632000\n6   355          3         0  680000\n7   400          4        10  725000"
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b003",
+      "title": "Bağımsız değişkenleri seçme",
+      "blockExplanation": "Bu hücre, modelde kullanılacak alan, odasayısı ve binayasi sütunlarını seçer.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df[['alan', 'odasayisi', 'binayasi']]",
+          "lineExplanation": "Modele girdi olacak üç bağımsız değişken sütununu birlikte gösterir.",
+          "tokens": [
+            {
+              "token": "[['alan', 'odasayisi', 'binayasi']]",
+              "explanation": "Alan, oda sayısı ve bina yaşı sütunlarını seçer.",
+              "turkce": "Özellik Seçimi",
+              "amac": "Çoklu doğrusal regresyonun kullandığı feature setini görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bağımsız değişkenleri seçme' bloğunda model giriş değişkenlerini birlikte gösterir."
+        }
+      ],
+      "expectedOutput": "   alan  odasayisi  binayasi\n0   180          5        10\n1   225          4        18\n2   260          3         2\n3   320          6        10\n4   335          4         9\n5   345          5        14\n6   355          3         0\n7   400          4        10"
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b004",
+      "title": "Bağımlı değişkeni seçme",
+      "blockExplanation": "Bu hücre, hedef değişken olan fiyat sütununu gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df['fiyat']",
+          "lineExplanation": "Hedef değişken olan fiyat sütununu tek başına gösterir.",
+          "tokens": [
+            {
+              "token": "df['fiyat']",
+              "explanation": "Tahmin edilmek istenen hedef sütundur.",
+              "turkce": "Hedef Değişken",
+              "amac": "Modelin hangi sonucu öğrenmeye çalıştığını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bağımlı değişkeni seçme' bloğunda bağımlı değişkeni görünür kılar."
+        }
+      ],
+      "expectedOutput": "0    510000\n1    508000\n2    548000\n3    650000\n4    628000\n5    632000\n6    680000\n7    725000\nName: fiyat, dtype: int64"
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b005",
+      "title": "Multiple linear regression modelini eğitme",
+      "blockExplanation": "Bu hücre, LinearRegression modelini seçilen üç özellik ile eğitir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# linear regression modeli tanımlıyoruz:",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'linear regression modeli tanımlıyoruz:' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# linear regression modeli tanımlıyoruz:",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Multiple linear regression modelini eğitme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "reg = linear_model.LinearRegression()",
+          "lineExplanation": "reg değişkenine linear_model.LinearRegression() ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "reg",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "linear_model.LinearRegression()",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Multiple linear regression modelini eğitme' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "reg.fit(df[['alan', 'odasayisi', 'binayasi']], df['fiyat'])",
+          "lineExplanation": "Regresyon modelini verilen X ve hedef veri üzerinde eğitir.",
+          "tokens": [
+            {
+              "token": ".fit(...)",
+              "explanation": "Modelin katsayılarını veriden öğrenmesini sağlar.",
+              "turkce": "Eğitim",
+              "amac": "Veri ile hedef arasındaki ilişkiyi öğrenmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Multiple linear regression modelini eğitme' bloğunda modeli veri üzerinde eğitir."
+        }
+      ],
+      "expectedOutput": "LinearRegression()"
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b006",
+      "title": "İlk tahmini yapma",
+      "blockExplanation": "Bu hücre, belirli bir ev özelliği kombinasyonu için fiyat tahmini yapar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Prediction yapalım..",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Prediction yapalım..' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Prediction yapalım..",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk tahmini yapma' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "reg.predict([[230,4,10]])",
+          "lineExplanation": "Eğitilmiş model ile verilen giriş için tahmin üretir.",
+          "tokens": [
+            {
+              "token": "predict(...)",
+              "explanation": "Modelin yeni girdi için hedef tahmini yapmasını sağlar.",
+              "turkce": "Tahmin",
+              "amac": "Yeni örnekler üzerinde model çıktısı üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk tahmini yapma' bloğunda model tahmini üretir."
+        }
+      ],
+      "expectedOutput": "array([530243.29284619])"
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b007",
+      "title": "İkinci tahmini yapma",
+      "blockExplanation": "Bu hücre, başka bir ev kombinasyonu için fiyat tahmini üretir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "reg.predict([[230,6,0]])",
+          "lineExplanation": "Eğitilmiş model ile verilen giriş için tahmin üretir.",
+          "tokens": [
+            {
+              "token": "predict(...)",
+              "explanation": "Modelin yeni girdi için hedef tahmini yapmasını sağlar.",
+              "turkce": "Tahmin",
+              "amac": "Yeni örnekler üzerinde model çıktısı üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'İkinci tahmini yapma' bloğunda model tahmini üretir."
+        }
+      ],
+      "expectedOutput": "array([586097.7833456])"
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b008",
+      "title": "Üçüncü tahmini yapma",
+      "blockExplanation": "Bu hücre, üçüncü ev örneği için fiyat tahmini verir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "reg.predict([[355,3,20]])",
+          "lineExplanation": "Eğitilmiş model ile verilen giriş için tahmin üretir.",
+          "tokens": [
+            {
+              "token": "predict(...)",
+              "explanation": "Modelin yeni girdi için hedef tahmini yapmasını sağlar.",
+              "turkce": "Tahmin",
+              "amac": "Yeni örnekler üzerinde model çıktısı üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Üçüncü tahmini yapma' bloğunda model tahmini üretir."
+        }
+      ],
+      "expectedOutput": "array([616657.45791365])"
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b009",
+      "title": "Toplu tahmin yapma",
+      "blockExplanation": "Bu hücre, birden fazla satırı aynı anda modele verip toplu tahmin üretir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "reg.predict([[230,4,10], [230,6,0], [355,3,20]])",
+          "lineExplanation": "Eğitilmiş model ile verilen giriş için tahmin üretir.",
+          "tokens": [
+            {
+              "token": "predict(...)",
+              "explanation": "Modelin yeni girdi için hedef tahmini yapmasını sağlar.",
+              "turkce": "Tahmin",
+              "amac": "Yeni örnekler üzerinde model çıktısı üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Toplu tahmin yapma' bloğunda model tahmini üretir."
+        }
+      ],
+      "expectedOutput": "array([530243.29284619, 586097.7833456 , 616657.45791365])"
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b010",
+      "title": "Katsayıları görme",
+      "blockExplanation": "Bu hücre, modelin her özellik için öğrendiği katsayıları verir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "reg.coef_",
+          "lineExplanation": "Modelin her özellik için öğrendiği katsayıları verir.",
+          "tokens": [
+            {
+              "token": "coef_",
+              "explanation": "Özellik katsayılarını tutar.",
+              "turkce": "Katsayılar",
+              "amac": "Her değişkenin fiyat üzerindeki etkisini görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Katsayıları görme' bloğunda model katsayılarını gösterir."
+        }
+      ],
+      "expectedOutput": "array([ 1018.99865454, 14893.82374984, -2606.68429997])"
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b011",
+      "title": "Intercept değerini görme",
+      "blockExplanation": "Bu hücre, modelin sabit terimini yani intercept değerini gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "reg.intercept_",
+          "lineExplanation": "Modelin sabit terimini yani intercept değerini verir.",
+          "tokens": [
+            {
+              "token": "intercept_",
+              "explanation": "Regresyon doğrusunun sabit terimini tutar.",
+              "turkce": "Intercept",
+              "amac": "Formüldeki başlangıç değerini görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Intercept değerini görme' bloğunda sabit terimi gösterir."
+        }
+      ],
+      "expectedOutput": "np.float64(262365.1503032055)"
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b012",
+      "title": "Formülü elle doğrulama",
+      "blockExplanation": "Bu hücre, intercept ve katsayıları kullanarak çoklu doğrusal regresyon formülünü elle hesaplar ve model tahminini doğrular.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Multiple Linear regression formülümüze dönersek hatırlayalım:",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Multiple Linear regression formülümüze dönersek hatırlayalım:' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Multiple Linear regression formülümüze dönersek hatırlayalım:",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Formülü elle doğrulama' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "# y= a + b1X1 + b2X2 + b3X3 + ... formülümüzdü",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'y= a + b1X1 + b2X2 + b3X3 + ... formülümüzdü' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# y= a + b1X1 + b2X2 + b3X3 + ... formülümüzdü",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Formülü elle doğrulama' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "a = reg.intercept_",
+          "lineExplanation": "Regresyon formülünü elle yazmak için intercept veya katsayı değerini ayrı değişkene alır.",
+          "tokens": [
+            {
+              "token": "a",
+              "explanation": "Formülde kullanılacak katsayı/sabit değişkenidir.",
+              "turkce": "Formül Bileşeni",
+              "amac": "Elle hesaplama için model parametrelerini ayırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Formülü elle doğrulama' bloğunda formül doğrulaması için model parametresini ayırır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "b1 = reg.coef_[0]",
+          "lineExplanation": "Regresyon formülünü elle yazmak için intercept veya katsayı değerini ayrı değişkene alır.",
+          "tokens": [
+            {
+              "token": "b1",
+              "explanation": "Formülde kullanılacak katsayı/sabit değişkenidir.",
+              "turkce": "Formül Bileşeni",
+              "amac": "Elle hesaplama için model parametrelerini ayırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Formülü elle doğrulama' bloğunda formül doğrulaması için model parametresini ayırır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "b2 = reg.coef_[1]",
+          "lineExplanation": "Regresyon formülünü elle yazmak için intercept veya katsayı değerini ayrı değişkene alır.",
+          "tokens": [
+            {
+              "token": "b2",
+              "explanation": "Formülde kullanılacak katsayı/sabit değişkenidir.",
+              "turkce": "Formül Bileşeni",
+              "amac": "Elle hesaplama için model parametrelerini ayırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Formülü elle doğrulama' bloğunda formül doğrulaması için model parametresini ayırır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "b3 = reg.coef_[2]",
+          "lineExplanation": "Regresyon formülünü elle yazmak için intercept veya katsayı değerini ayrı değişkene alır.",
+          "tokens": [
+            {
+              "token": "b3",
+              "explanation": "Formülde kullanılacak katsayı/sabit değişkenidir.",
+              "turkce": "Formül Bileşeni",
+              "amac": "Elle hesaplama için model parametrelerini ayırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Formülü elle doğrulama' bloğunda formül doğrulaması için model parametresini ayırır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "x1 = 230",
+          "lineExplanation": "Elle hesaplanacak örnek evin özellik değerlerinden birini tanımlar.",
+          "tokens": [
+            {
+              "token": "x1",
+              "explanation": "Elle formülde kullanılacak giriş değişkenidir.",
+              "turkce": "Örnek Girdi",
+              "amac": "Regresyon formülünü örnek veri ile test etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Formülü elle doğrulama' bloğunda elle hesaplama için örnek özellik değeri tanımlar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "x2 = 4",
+          "lineExplanation": "Elle hesaplanacak örnek evin özellik değerlerinden birini tanımlar.",
+          "tokens": [
+            {
+              "token": "x2",
+              "explanation": "Elle formülde kullanılacak giriş değişkenidir.",
+              "turkce": "Örnek Girdi",
+              "amac": "Regresyon formülünü örnek veri ile test etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Formülü elle doğrulama' bloğunda elle hesaplama için örnek özellik değeri tanımlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "x3 = 10",
+          "lineExplanation": "Elle hesaplanacak örnek evin özellik değerlerinden birini tanımlar.",
+          "tokens": [
+            {
+              "token": "x3",
+              "explanation": "Elle formülde kullanılacak giriş değişkenidir.",
+              "turkce": "Örnek Girdi",
+              "amac": "Regresyon formülünü örnek veri ile test etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Formülü elle doğrulama' bloğunda elle hesaplama için örnek özellik değeri tanımlar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "y = a + b1*x1 + b2*x2 + b3*x3",
+          "lineExplanation": "Regresyon formülünü katsayılar ve örnek özelliklerle elle hesaplar.",
+          "tokens": [
+            {
+              "token": "a + b1*x1 + b2*x2 + b3*x3",
+              "explanation": "Çoklu doğrusal regresyonun kapalı formülünü temsil eder.",
+              "turkce": "Elle Formül",
+              "amac": "Model tahminini matematiksel olarak doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Formülü elle doğrulama' bloğunda regresyon formülünü elle uygular."
+        },
+        {
+          "lineNumber": 11,
+          "code": "y",
+          "lineExplanation": "Bir önceki satırda elle hesaplanan fiyat sonucunu ekrana getirir.",
+          "tokens": [
+            {
+              "token": "y",
+              "explanation": "Elle formülden elde edilen tahmin sonucunu tutar.",
+              "turkce": "Elle Tahmin",
+              "amac": "Matematiksel doğrulamayı doğrudan görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Formülü elle doğrulama' bloğunda elle hesaplanan sonucu gösterir."
+        }
+      ],
+      "expectedOutput": "np.float64(530243.2928461881)"
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b013",
+      "title": "Pickle kütüphanesini içe aktarma",
+      "blockExplanation": "Bu hücre, eğitilmiş modeli diske kaydetmek ve geri yüklemek için pickle kütüphanesini içe aktarır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import pickle",
+          "lineExplanation": "Modeli diske kaydetmek veya geri yüklemek için pickle kütüphanesini içe aktarır.",
+          "tokens": [
+            {
+              "token": "pickle",
+              "explanation": "Python nesnelerini ikili dosyaya yazıp geri okumaya yarar.",
+              "turkce": "Serileştirme",
+              "amac": "Eğitilmiş modeli saklamak ve tekrar kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pickle kütüphanesini içe aktarma' bloğunda model serileştirme aracını yükler."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b014",
+      "title": "Model dosyası adını tanımlama",
+      "blockExplanation": "Bu hücre, kaydedilecek pickle dosyasının adını belirler.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "model_dosyasi = \"konutfiyat_tahmini.pickle\"",
+          "lineExplanation": "Kaydedilecek model dosyasının adını belirler.",
+          "tokens": [
+            {
+              "token": "model_dosyasi",
+              "explanation": "Model dosya yolunu tutan değişkendir.",
+              "turkce": "Dosya Adı",
+              "amac": "Kaydetme ve yükleme adımlarında aynı dosyayı kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Model dosyası adını tanımlama' bloğunda model dosyasının adını tanımlar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; model dosyası adını tanımlama adımının sonucu bellekte tutulur."
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b015",
+      "title": "Örnek dump satırını yorum olarak gösterme",
+      "blockExplanation": "Bu hücre, pickle ile model kaydetmenin örnek sentaksını yorum satırı olarak gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "#pickle.dump(model_ismi,open(model_dosyasi, 'wb'))",
+          "lineExplanation": "Pickle ile model kaydetmenin örnek sentaksını yorum satırı olarak gösterir.",
+          "tokens": [
+            {
+              "token": "pickle.dump(...)",
+              "explanation": "Modelin ikili dosyaya nasıl yazılacağını örnekler.",
+              "turkce": "Örnek Sentaks",
+              "amac": "Gerçek kaydetme adımının mantığını göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Örnek dump satırını yorum olarak gösterme' bloğunda model kaydetmenin örnek kullanımını yorum olarak gösterir."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; örnek dump satırını yorum olarak gösterme adımının sonucu bellekte tutulur."
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b016",
+      "title": "Eğitilmiş modeli pickle ile kaydetme",
+      "blockExplanation": "Bu hücre, eğitilmiş regresyon modelini .pickle dosyasına yazar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "pickle.dump(reg,open(model_dosyasi, 'wb'))",
+          "lineExplanation": "Eğitilmiş reg modelini binary modda pickle dosyasına yazar.",
+          "tokens": [
+            {
+              "token": "pickle.dump",
+              "explanation": "Python nesnesini dosyaya serileştirir.",
+              "turkce": "Model Kaydetme",
+              "amac": "Eğitilmiş modeli daha sonra tekrar kullanmak."
+            },
+            {
+              "token": "'wb'",
+              "explanation": "Dosyayı ikili yazma modunda açar.",
+              "turkce": "Binary Yazma",
+              "amac": "Pickle verisini doğru formatta diske yazmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitilmiş modeli pickle ile kaydetme' bloğunda eğitilmiş modeli pickle dosyasına kaydeder."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; eğitilmiş modeli pickle ile kaydetme adımının sonucu bellekte tutulur."
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b017",
+      "title": "Pickle kütüphanesini tekrar içe aktarma",
+      "blockExplanation": "Bu hücre, modeli yükleme bölümünde pickle kütüphanesini tekrar çağırır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import pickle",
+          "lineExplanation": "Modeli diske kaydetmek veya geri yüklemek için pickle kütüphanesini içe aktarır.",
+          "tokens": [
+            {
+              "token": "pickle",
+              "explanation": "Python nesnelerini ikili dosyaya yazıp geri okumaya yarar.",
+              "turkce": "Serileştirme",
+              "amac": "Eğitilmiş modeli saklamak ve tekrar kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pickle kütüphanesini tekrar içe aktarma' bloğunda model serileştirme aracını yükler."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b018",
+      "title": "Kaydedilen modeli geri yükleme",
+      "blockExplanation": "Bu hücre, diskten .pickle dosyasını okuyup modeli belleğe yükler.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "mymodel = pickle.load(open(\"konutfiyat_tahmini.pickle\", 'rb'))",
+          "lineExplanation": "Kaydedilmiş pickle dosyasını okuyup modeli tekrar belleğe yükler.",
+          "tokens": [
+            {
+              "token": "pickle.load",
+              "explanation": "Serileştirilmiş nesneyi dosyadan geri okur.",
+              "turkce": "Model Yükleme",
+              "amac": "Eğitimi tekrar etmeden modeli kullanmak."
+            },
+            {
+              "token": "'rb'",
+              "explanation": "Dosyayı ikili okuma modunda açar.",
+              "turkce": "Binary Okuma",
+              "amac": "Pickle dosyasını doğru modda okumak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kaydedilen modeli geri yükleme' bloğunda kaydedilmiş modeli geri yükler."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; kaydedilen modeli geri yükleme adımının sonucu bellekte tutulur."
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b019",
+      "title": "Yüklenen modelle ilk tahmin",
+      "blockExplanation": "Bu hücre, pickle ile geri yüklenen model üzerinden yeni tahmin yapar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "mymodel.predict([[230,6,0]])",
+          "lineExplanation": "Eğitilmiş model ile verilen giriş için tahmin üretir.",
+          "tokens": [
+            {
+              "token": "predict(...)",
+              "explanation": "Modelin yeni girdi için hedef tahmini yapmasını sağlar.",
+              "turkce": "Tahmin",
+              "amac": "Yeni örnekler üzerinde model çıktısı üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Yüklenen modelle ilk tahmin' bloğunda model tahmini üretir."
+        }
+      ],
+      "expectedOutput": "array([586097.7833456])"
+    },
+    {
+      "id": "hafta9_multiple_linear_regression-b020",
+      "title": "Yüklenen modelle ikinci tahmin",
+      "blockExplanation": "Bu hücre, geri yüklenen modelle başka bir örnek için ikinci tahmini üretir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "mymodel.predict([[355,3,20]])",
+          "lineExplanation": "Eğitilmiş model ile verilen giriş için tahmin üretir.",
+          "tokens": [
+            {
+              "token": "predict(...)",
+              "explanation": "Modelin yeni girdi için hedef tahmini yapmasını sağlar.",
+              "turkce": "Tahmin",
+              "amac": "Yeni örnekler üzerinde model çıktısı üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Yüklenen modelle ikinci tahmin' bloğunda model tahmini üretir."
+        }
+      ],
+      "expectedOutput": "array([616657.45791365])"
+    }
+  ]
+}

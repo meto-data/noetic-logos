@@ -1,0 +1,1624 @@
+{
+  "id": "hafta10_nlp_proje",
+  "title": "Hafta 10: NLP Projesi ve Duygu Analizi",
+  "week": 10,
+  "csvFiles": [
+    "NLPlabeledData.tsv"
+  ],
+  "blocks": [
+    {
+      "id": "hafta10_nlp_proje-b001",
+      "title": "Kütüphaneleri hazırlama",
+      "blockExplanation": "Bu hücre, NLP projesinde kullanılacak pandas, sklearn, BeautifulSoup, regex ve nltk araçlarını içe aktarır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import numpy as np",
+          "lineExplanation": "numpy modülünü np takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "numpy modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "np",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import pandas as pd",
+          "lineExplanation": "pandas modülünü pd takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "pandas modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "pd",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "matplotlib.pyplot modülünü plt takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "matplotlib.pyplot modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "plt",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "from sklearn.feature_extraction.text import CountVectorizer",
+          "lineExplanation": "sklearn.feature_extraction.text modülünden CountVectorizer bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "sklearn.feature_extraction.text",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "CountVectorizer",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "from sklearn.ensemble import RandomForestClassifier",
+          "lineExplanation": "sklearn.ensemble modülünden RandomForestClassifier bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "sklearn.ensemble",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "RandomForestClassifier",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "from sklearn.metrics import roc_auc_score",
+          "lineExplanation": "sklearn.metrics modülünden roc_auc_score bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "sklearn.metrics",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "roc_auc_score",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "from bs4 import BeautifulSoup",
+          "lineExplanation": "bs4 modülünden BeautifulSoup bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "bs4",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "BeautifulSoup",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "import re",
+          "lineExplanation": "re modülünü içe aktarır.",
+          "tokens": [
+            {
+              "token": "re",
+              "explanation": "re modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Gerekli fonksiyon ve sınıfları kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 9,
+          "code": "import nltk",
+          "lineExplanation": "nltk modülünü içe aktarır.",
+          "tokens": [
+            {
+              "token": "nltk",
+              "explanation": "nltk modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Gerekli fonksiyon ve sınıfları kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 10,
+          "code": "from sklearn.model_selection import train_test_split",
+          "lineExplanation": "sklearn.model_selection modülünden train_test_split bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "sklearn.model_selection",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "train_test_split",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "from nltk.corpus import stopwords",
+          "lineExplanation": "nltk.corpus modülünden stopwords bileşenlerini doğrudan içe aktarır.",
+          "tokens": [
+            {
+              "token": "nltk.corpus",
+              "explanation": "İlgili sınıf veya fonksiyonların geldiği modüldür.",
+              "turkce": "Kaynak Modül",
+              "amac": "Gereken sınıfları doğru yerden çağırmak."
+            },
+            {
+              "token": "stopwords",
+              "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
+              "turkce": "Doğrudan İçe Aktarma",
+              "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+    },
+    {
+      "id": "hafta10_nlp_proje-b002",
+      "title": "NLP etiketli veri setini yükleme",
+      "blockExplanation": "Bu hücre, tab ayraclı NLPlabeledData.tsv dosyasını okuyup temel veri çerçevesini oluşturur.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Veri setlerimizi yüklüyoruz..",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Veri setlerimizi yüklüyoruz..' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Veri setlerimizi yüklüyoruz..",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'NLP etiketli veri setini yükleme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df = pd.read_csv('NLPlabeledData.tsv',  delimiter=\"\\t\", quoting=3)",
+          "lineExplanation": "Tab ayraclı duygu analizi veri setini pandas ile okuyup df adlı DataFrame'e yükler.",
+          "tokens": [
+            {
+              "token": "pd.read_csv",
+              "explanation": "Düz metin veri dosyasını tabloya çevirir.",
+              "turkce": "Dosya Okuma",
+              "amac": "Etiketli review veri setini belleğe almak."
+            },
+            {
+              "token": "delimiter=\"\\t\"",
+              "explanation": "Dosyanın tab karakteriyle ayrıldığını belirtir.",
+              "turkce": "Ayraç",
+              "amac": "TSV verisini doğru sütunlara bölmek."
+            },
+            {
+              "token": "quoting=3",
+              "explanation": "Tırnak işaretlerini özel quote işleme sokmadan okur.",
+              "turkce": "Okuma Ayarı",
+              "amac": "Review metnindeki tırnakların veri yapısını bozmamasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'NLP etiketli veri setini yükleme' bloğunda NLP veri setini doğru okuma ayarlarıyla yükler."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; nLP etiketli veri setini yükleme adımının sonucu bellekte tutulur."
+    },
+    {
+      "id": "hafta10_nlp_proje-b003",
+      "title": "İlk satırları önizleme",
+      "blockExplanation": "Bu hücre, veri setinin ilk satırlarını göstererek review ve sentiment yapısını görmeyi sağlar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Verimize bakalım",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Verimize bakalım' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Verimize bakalım",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk satırları önizleme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df.head()",
+          "lineExplanation": "DataFrame'in ilk 5 satırını göstererek verinin görünümünü hızlıca kontrol ettirir.",
+          "tokens": [
+            {
+              "token": ".head()",
+              "explanation": "Varsayılan olarak ilk 5 satırı getirir.",
+              "turkce": "Önizleme",
+              "amac": "Dosyanın doğru okunup okunmadığını hızlıca görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk satırları önizleme' bloğunda tablonun ilk satırlarını önizleme amaçlı ekrana getirir."
+        }
+      ],
+      "expectedOutput": "         id  sentiment                                             review\n0  \"5814_8\"          1  \"With all this stuff going down at the moment ...\n1  \"2381_9\"          1  \"\\\"The Classic War of the Worlds\\\" by Timothy ...\n2  \"7759_3\"          0  \"The film starts with a manager (Nicholas Bell...\n3  \"3630_4\"          0  \"It must be assumed that those who praised thi...\n4  \"9495_8\"          1  \"Superbly trashy and wondrously unpretentious ..."
+    },
+    {
+      "id": "hafta10_nlp_proje-b004",
+      "title": "Toplam kayıt sayısını görme",
+      "blockExplanation": "Bu hücre, veri setindeki toplam satır sayısını verir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "len(df)",
+          "lineExplanation": "İlgili veri yapısının uzunluğunu sayısal olarak ölçer.",
+          "tokens": [
+            {
+              "token": "len(...)",
+              "explanation": "Liste, seri veya DataFrame'in uzunluğunu verir.",
+              "turkce": "Uzunluk Ölçümü",
+              "amac": "Veri miktarını veya token sayısını kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Toplam kayıt sayısını görme' bloğunda ilgili yapının uzunluğunu ölçer."
+        }
+      ],
+      "expectedOutput": "25000"
+    },
+    {
+      "id": "hafta10_nlp_proje-b005",
+      "title": "Review sütununun uzunluğunu görme",
+      "blockExplanation": "Bu hücre, review sütunundaki metin örneği sayısını ölçer.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "len(df[\"review\"])",
+          "lineExplanation": "İlgili veri yapısının uzunluğunu sayısal olarak ölçer.",
+          "tokens": [
+            {
+              "token": "len(...)",
+              "explanation": "Liste, seri veya DataFrame'in uzunluğunu verir.",
+              "turkce": "Uzunluk Ölçümü",
+              "amac": "Veri miktarını veya token sayısını kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Review sütununun uzunluğunu görme' bloğunda ilgili yapının uzunluğunu ölçer."
+        }
+      ],
+      "expectedOutput": "25000"
+    },
+    {
+      "id": "hafta10_nlp_proje-b006",
+      "title": "Stopwords kaynağını hazırlama",
+      "blockExplanation": "Bu hücre, İngilizce stopwords listesinin kullanılabilir olmasını sağlar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# stopwords'ü temizlemek için nltk kütüphanesinden stopwords kelime setini bilgisayarımıza indirmemiz gerekiyor. ",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'stopwords'ü temizlemek için nltk kütüphanesinden stopwords kelime setini bilgisayarımıza indirmemiz gerekiyor.' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# stopwords'ü temizlemek için nltk kütüphanesinden stopwords kelime setini bilgisayarımıza indirmemiz gerekiyor.",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords kaynağını hazırlama' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "# Bu işlemi nltk ile yapıyoruz",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Bu işlemi nltk ile yapıyoruz' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Bu işlemi nltk ile yapıyoruz",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords kaynağını hazırlama' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "nltk.download('stopwords')",
+          "lineExplanation": "Stopwords kaynağının kullanılabilir olmasını sağlar.",
+          "tokens": [
+            {
+              "token": "nltk.download('stopwords')",
+              "explanation": "Stopwords veri kaynağını yüklemeyi dener.",
+              "turkce": "Kaynak Hazırlama",
+              "amac": "Stopwords listesini kullanabilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords kaynağını hazırlama' bloğunda stopwords kaynağını hazırlar."
+        }
+      ],
+      "expectedOutput": "True"
+    },
+    {
+      "id": "hafta10_nlp_proje-b007",
+      "title": "Örnek review seçme",
+      "blockExplanation": "Bu hücre, ilk review metnini örnek olarak ayırır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "sample_review= df.review[0]",
+          "lineExplanation": "sample_review değişkenine df.review[0] ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "sample_review",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "df.review[0]",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Örnek review seçme' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "sample_review",
+          "lineExplanation": "Bir önceki adımda üretilen ara veri yapısını olduğu gibi ekrana getirir.",
+          "tokens": [
+            {
+              "token": "sample_review",
+              "explanation": "Önceki adımda hazırlanan veri yapısını temsil eder.",
+              "turkce": "Ara Çıktı",
+              "amac": "Dönüşüm sonucunu doğrudan gözle kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Örnek review seçme' bloğunda ara veri yapısını gösterir."
+        }
+      ],
+      "expectedOutput": "'\"With all this stuff going down at the moment with MJ i\\'ve started listening to his music, watching the odd documentary here and there, watched The Wiz and watched Moonwalker again. Maybe i just want to get a certain insight into this guy who i thought was really cool in the eighties just to maybe make up my mind whether he is guilty or innocent. Moonwalker is part biography, part feature film which i remember going to see at the cinema when it was originally released. Some of it has subtle messages about MJ\\'s feeling towards the press and also the obvious message of drugs are bad m\\'kay.<br /><br />Visually impressive but of course this is all about Michael Jackson so unless you remotely like MJ in anyway then you are going to hate this and find it boring. Some may call MJ an egotist for consenting to the making of this movie BUT MJ and most of his fans would say that he made it for the fans which if true is really nice of him.<br /><br />The actual feature film bit when it finally starts is only on for 20 minutes or so excluding the Smooth Criminal sequence and Joe Pesci is convincing as a psychopathic all powerful drug lord. Why he wants MJ dead so bad is beyond me. Because MJ overheard his plans? Nah, Joe Pesci\\'s character ranted that he wanted people to know it is he who is supplying drugs etc so i dunno, maybe he just hates MJ\\'s music.<br /><br />Lots of cool things in this like MJ turning into a car and a robot and the whole Speed Demon sequence. Also, the director must have had the patience of a saint when it came to filming the kiddy Bad sequence as usually directors hate working with one kid let alone a whole bunch of them performing a complex dance scene.<br /><br />Bottom line, this movie is for people who like MJ on one level or another (which i think is most people). If not, then stay away. It does try and give off a wholesome message and ironically MJ\\'s bestest buddy in this movie is a girl! Michael Jackson is truly one of the most talented people ever to grace this planet but is he guilty? Well, with all the attention i\\'ve gave this subject....hmmm well i don\\'t know because people can be different behind closed doors, i know this for a fact. He is either an extremely nice but stupid guy or one of the most sickest liars. I hope he is not the latter.\"'"
+    },
+    {
+      "id": "hafta10_nlp_proje-b008",
+      "title": "HTML etiketlerini temizleme",
+      "blockExplanation": "Bu hücre, örnek review içindeki HTML etiketlerini BeautifulSoup ile kaldırır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# HTML tagleri temizlendikten sonra..",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'HTML tagleri temizlendikten sonra..' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# HTML tagleri temizlendikten sonra..",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'HTML etiketlerini temizleme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "sample_review = BeautifulSoup(sample_review).get_text()",
+          "lineExplanation": "HTML etiketlerini metin içeriğinden ayırıp yalnızca düz yazıyı bırakır.",
+          "tokens": [
+            {
+              "token": "BeautifulSoup(...).get_text()",
+              "explanation": "HTML taglerini temizleyip saf metni çıkarır.",
+              "turkce": "HTML Temizliği",
+              "amac": "Review içindeki işaretleme etiketlerini modele taşımamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'HTML etiketlerini temizleme' bloğunda HTML etiketlerini temizler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "sample_review",
+          "lineExplanation": "Bir önceki adımda üretilen ara veri yapısını olduğu gibi ekrana getirir.",
+          "tokens": [
+            {
+              "token": "sample_review",
+              "explanation": "Önceki adımda hazırlanan veri yapısını temsil eder.",
+              "turkce": "Ara Çıktı",
+              "amac": "Dönüşüm sonucunu doğrudan gözle kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'HTML etiketlerini temizleme' bloğunda ara veri yapısını gösterir."
+        }
+      ],
+      "expectedOutput": "'\"With all this stuff going down at the moment with MJ i\\'ve started listening to his music, watching the odd documentary here and there, watched The Wiz and watched Moonwalker again. Maybe i just want to get a certain insight into this guy who i thought was really cool in the eighties just to maybe make up my mind whether he is guilty or innocent. Moonwalker is part biography, part feature film which i remember going to see at the cinema when it was originally released. Some of it has subtle messages about MJ\\'s feeling towards the press and also the obvious message of drugs are bad m\\'kay.Visually impressive but of course this is all about Michael Jackson so unless you remotely like MJ in anyway then you are going to hate this and find it boring. Some may call MJ an egotist for consenting to the making of this movie BUT MJ and most of his fans would say that he made it for the fans which if true is really nice of him.The actual feature film bit when it finally starts is only on for 20 minutes or so excluding the Smooth Criminal sequence and Joe Pesci is convincing as a psychopathic all powerful drug lord. Why he wants MJ dead so bad is beyond me. Because MJ overheard his plans? Nah, Joe Pesci\\'s character ranted that he wanted people to know it is he who is supplying drugs etc so i dunno, maybe he just hates MJ\\'s music.Lots of cool things in this like MJ turning into a car and a robot and the whole Speed Demon sequence. Also, the director must have had the patience of a saint when it came to filming the kiddy Bad sequence as usually directors hate working with one kid let alone a whole bunch of them performing a complex dance scene.Bottom line, this movie is for people who like MJ on one level or another (which i think is most people). If not, then stay away. It does try and give off a wholesome message and ironically MJ\\'s bestest buddy in this movie is a girl! Michael Jackson is truly one of the most talented people ever to grace this planet but is he guilty? Well, with all the attention i\\'ve gave this subject....hmmm well i don\\'t know because people can be different behind closed doors, i know this for a fact. He is either an extremely nice but stupid guy or one of the most sickest liars. I hope he is not the latter.\"'"
+    },
+    {
+      "id": "hafta10_nlp_proje-b009",
+      "title": "Regex ile harf dışı karakter temizliği",
+      "blockExplanation": "Bu hücre, noktalama ve sayıları regex ile temizleyip yalnızca harfleri bırakır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# noktalama işaretleri ve sayılardan temizliyoruz - regex kullanarak..",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'noktalama işaretleri ve sayılardan temizliyoruz - regex kullanarak..' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# noktalama işaretleri ve sayılardan temizliyoruz - regex kullanarak..",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Regex ile harf dışı karakter temizliği' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "sample_review = re.sub(\"[^a-zA-Z]\",' ',sample_review)",
+          "lineExplanation": "Regex ile harf dışındaki karakterleri temizleyip metni daha sade hale getirir.",
+          "tokens": [
+            {
+              "token": "re.sub",
+              "explanation": "Eşleşen karakterleri başka değerle değiştirir.",
+              "turkce": "Regex Temizliği",
+              "amac": "Sayı, noktalama ve gürültüyü temizlemek."
+            },
+            {
+              "token": "\"[^a-zA-Z]\"",
+              "explanation": "A'dan Z'ye harf olmayan her karakteri temsil eder.",
+              "turkce": "Regex Deseni",
+              "amac": "Sadece harfleri bırakmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Regex ile harf dışı karakter temizliği' bloğunda regex tabanlı gürültü temizliği yapar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "sample_review",
+          "lineExplanation": "Bir önceki adımda üretilen ara veri yapısını olduğu gibi ekrana getirir.",
+          "tokens": [
+            {
+              "token": "sample_review",
+              "explanation": "Önceki adımda hazırlanan veri yapısını temsil eder.",
+              "turkce": "Ara Çıktı",
+              "amac": "Dönüşüm sonucunu doğrudan gözle kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Regex ile harf dışı karakter temizliği' bloğunda ara veri yapısını gösterir."
+        }
+      ],
+      "expectedOutput": "' With all this stuff going down at the moment with MJ i ve started listening to his music  watching the odd documentary here and there  watched The Wiz and watched Moonwalker again  Maybe i just want to get a certain insight into this guy who i thought was really cool in the eighties just to maybe make up my mind whether he is guilty or innocent  Moonwalker is part biography  part feature film which i remember going to see at the cinema when it was originally released  Some of it has subtle messages about MJ s feeling towards the press and also the obvious message of drugs are bad m kay Visually impressive but of course this is all about Michael Jackson so unless you remotely like MJ in anyway then you are going to hate this and find it boring  Some may call MJ an egotist for consenting to the making of this movie BUT MJ and most of his fans would say that he made it for the fans which if true is really nice of him The actual feature film bit when it finally starts is only on for    minutes or so excluding the Smooth Criminal sequence and Joe Pesci is convincing as a psychopathic all powerful drug lord  Why he wants MJ dead so bad is beyond me  Because MJ overheard his plans  Nah  Joe Pesci s character ranted that he wanted people to know it is he who is supplying drugs etc so i dunno  maybe he just hates MJ s music Lots of cool things in this like MJ turning into a car and a robot and the whole Speed Demon sequence  Also  the director must have had the patience of a saint when it came to filming the kiddy Bad sequence as usually directors hate working with one kid let alone a whole bunch of them performing a complex dance scene Bottom line  this movie is for people who like MJ on one level or another  which i think is most people   If not  then stay away  It does try and give off a wholesome message and ironically MJ s bestest buddy in this movie is a girl  Michael Jackson is truly one of the most talented people ever to grace this planet but is he guilty  Well  with all the attention i ve gave this subject    hmmm well i don t know because people can be different behind closed doors  i know this for a fact  He is either an extremely nice but stupid guy or one of the most sickest liars  I hope he is not the latter  '"
+    },
+    {
+      "id": "hafta10_nlp_proje-b010",
+      "title": "Küçük harfe dönüştürme",
+      "blockExplanation": "Bu hücre, büyük-küçük harf farklılığını ortadan kaldırmak için review metnini lowercase yapar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# küçük harfe dönüştürüyoruz, makine öğrenim algoritmalarımızın büyük harfle başlayan kelimeleri farklı kelime olarak",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'küçük harfe dönüştürüyoruz, makine öğrenim algoritmalarımızın büyük harfle başlayan kelimeleri farklı kelime olarak' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# küçük harfe dönüştürüyoruz, makine öğrenim algoritmalarımızın büyük harfle başlayan kelimeleri farklı kelime olarak",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Küçük harfe dönüştürme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "# algılamaması için yapıyoruz bunu:",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'algılamaması için yapıyoruz bunu:' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# algılamaması için yapıyoruz bunu:",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Küçük harfe dönüştürme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "sample_review = sample_review.lower()",
+          "lineExplanation": "Metni küçük harfe çevirerek büyük-küçük harf farkını ortadan kaldırır.",
+          "tokens": [
+            {
+              "token": ".lower()",
+              "explanation": "Tüm harfleri lowercase yapar.",
+              "turkce": "Lowercase",
+              "amac": "Aynı kelimenin farklı harf biçimlerini tek forma indirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Küçük harfe dönüştürme' bloğunda büyük-küçük harf farkını siler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "sample_review",
+          "lineExplanation": "Bir önceki adımda üretilen ara veri yapısını olduğu gibi ekrana getirir.",
+          "tokens": [
+            {
+              "token": "sample_review",
+              "explanation": "Önceki adımda hazırlanan veri yapısını temsil eder.",
+              "turkce": "Ara Çıktı",
+              "amac": "Dönüşüm sonucunu doğrudan gözle kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Küçük harfe dönüştürme' bloğunda ara veri yapısını gösterir."
+        }
+      ],
+      "expectedOutput": "' with all this stuff going down at the moment with mj i ve started listening to his music  watching the odd documentary here and there  watched the wiz and watched moonwalker again  maybe i just want to get a certain insight into this guy who i thought was really cool in the eighties just to maybe make up my mind whether he is guilty or innocent  moonwalker is part biography  part feature film which i remember going to see at the cinema when it was originally released  some of it has subtle messages about mj s feeling towards the press and also the obvious message of drugs are bad m kay visually impressive but of course this is all about michael jackson so unless you remotely like mj in anyway then you are going to hate this and find it boring  some may call mj an egotist for consenting to the making of this movie but mj and most of his fans would say that he made it for the fans which if true is really nice of him the actual feature film bit when it finally starts is only on for    minutes or so excluding the smooth criminal sequence and joe pesci is convincing as a psychopathic all powerful drug lord  why he wants mj dead so bad is beyond me  because mj overheard his plans  nah  joe pesci s character ranted that he wanted people to know it is he who is supplying drugs etc so i dunno  maybe he just hates mj s music lots of cool things in this like mj turning into a car and a robot and the whole speed demon sequence  also  the director must have had the patience of a saint when it came to filming the kiddy bad sequence as usually directors hate working with one kid let alone a whole bunch of them performing a complex dance scene bottom line  this movie is for people who like mj on one level or another  which i think is most people   if not  then stay away  it does try and give off a wholesome message and ironically mj s bestest buddy in this movie is a girl  michael jackson is truly one of the most talented people ever to grace this planet but is he guilty  well  with all the attention i ve gave this subject    hmmm well i don t know because people can be different behind closed doors  i know this for a fact  he is either an extremely nice but stupid guy or one of the most sickest liars  i hope he is not the latter  '"
+    },
+    {
+      "id": "hafta10_nlp_proje-b011",
+      "title": "Tokenlere ayırma",
+      "blockExplanation": "Bu hücre, temizlenmiş metni kelime listesine bölerek tokenizasyon yapar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# stopwords (yani the, is, are gibi kelimeler yapay zeka tarafından kullanılmamasını istiyoruz. Bunlar gramer kelimeri..)",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'stopwords (yani the, is, are gibi kelimeler yapay zeka tarafından kullanılmamasını istiyoruz. Bunlar gramer kelimeri..)' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# stopwords (yani the, is, are gibi kelimeler yapay zeka tarafından kullanılmamasını istiyoruz. Bunlar gramer kelimeri..)",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tokenlere ayırma' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "# önce split ile kelimeleri bölüyoruz ve listeye dönüştürüyoruz. amacımız stopwords kelimelerini çıkarmak..",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'önce split ile kelimeleri bölüyoruz ve listeye dönüştürüyoruz. amacımız stopwords kelimelerini çıkarmak..' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# önce split ile kelimeleri bölüyoruz ve listeye dönüştürüyoruz. amacımız stopwords kelimelerini çıkarmak..",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tokenlere ayırma' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "sample_review = sample_review.split()",
+          "lineExplanation": "Metni boşluklara göre bölerek kelime listesine dönüştürür.",
+          "tokens": [
+            {
+              "token": ".split()",
+              "explanation": "Metni token listesine çevirir.",
+              "turkce": "Tokenizasyon",
+              "amac": "Metni kelime bazında işlemeye başlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tokenlere ayırma' bloğunda metni kelime listesine böler."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; tokenlere ayırma adımının sonucu bellekte tutulur."
+    },
+    {
+      "id": "hafta10_nlp_proje-b012",
+      "title": "Token listesini görme",
+      "blockExplanation": "Bu hücre, tokenizasyon sonrası oluşan kelime listesini gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "sample_review",
+          "lineExplanation": "Bir önceki adımda üretilen ara veri yapısını olduğu gibi ekrana getirir.",
+          "tokens": [
+            {
+              "token": "sample_review",
+              "explanation": "Önceki adımda hazırlanan veri yapısını temsil eder.",
+              "turkce": "Ara Çıktı",
+              "amac": "Dönüşüm sonucunu doğrudan gözle kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Token listesini görme' bloğunda ara veri yapısını gösterir."
+        }
+      ],
+      "expectedOutput": "['with',\n 'all',\n 'this',\n 'stuff',\n 'going',\n 'down',\n 'at',\n 'the',\n 'moment',\n 'with',\n 'mj',\n 'i',\n 've',\n 'started',\n 'listening',\n 'to',\n 'his',\n 'music',\n 'watching',\n 'the',\n 'odd',\n 'documentary',\n 'here',\n 'and',\n 'there',\n 'watched',\n 'the',\n 'wiz',\n 'and',\n 'watched',\n 'moonwalker',\n 'again',\n 'maybe',\n 'i',\n 'just',\n 'want',\n 'to',\n 'get',\n 'a',\n 'certain',\n 'insight',\n 'into',\n 'this',\n 'guy',\n 'who',\n 'i',\n 'thought',\n 'was',\n 'really',\n 'cool',\n 'in',\n 'the',\n 'eighties',\n 'just',\n 'to',\n 'maybe',\n 'make',\n 'up',\n 'my',\n 'mind',\n 'whether',\n 'he',\n 'is',\n 'guilty',\n 'or',\n 'innocent',\n 'moonwalker',\n 'is',\n 'part',\n 'biography',\n 'part',\n 'feature',\n 'film',\n 'which',\n 'i',\n 'remember',\n 'going',\n 'to',\n 'see',\n 'at',\n 'the',\n 'cinema',\n 'when',\n 'it',\n 'was',\n 'originally',\n 'released',\n 'some',\n 'of',\n 'it',\n 'has',\n 'subtle',\n 'messages',\n 'about',\n 'mj',\n 's',\n 'feeling',\n 'towards',\n 'the',\n 'press',\n 'and',\n 'also',\n 'the',\n 'obvious',\n 'message',\n 'of',\n 'drugs',\n 'are',\n 'bad',\n 'm',\n 'kay',\n 'visually',\n 'impressive',\n 'but',\n 'of',\n 'course',\n 'this',\n 'is',\n 'all',\n 'about',\n 'michael',\n 'jackson',\n 'so',\n 'unless',\n 'you',\n 'remotely',\n 'like',\n 'mj',\n 'in',\n 'anyway',\n 'then',\n 'you',\n 'are',\n 'going',\n 'to',\n 'hate',\n 'this',\n 'and',\n 'find',\n 'it',\n 'boring',\n 'some',\n 'may',\n 'call',\n 'mj',\n 'an',\n 'egotist',\n 'for',\n 'consenting',\n 'to',\n 'the',\n 'making',\n 'of',\n 'this',\n 'movie',\n 'but',\n 'mj',\n 'and',\n 'most',\n 'of',\n 'his',\n 'fans',\n 'would',\n 'say',\n 'that',\n 'he',\n 'made',\n 'it',\n 'for',\n 'the',\n 'fans',\n 'which',\n 'if',\n 'true',\n 'is',\n 'really',\n 'nice',\n 'of',\n 'him',\n 'the',\n 'actual',\n 'feature',\n 'film',\n 'bit',\n 'when',\n 'it',\n 'finally',\n 'starts',\n 'is',\n 'only',\n 'on',\n 'for',\n 'minutes',\n 'or',\n 'so',\n 'excluding',\n 'the',\n 'smooth',\n 'criminal',\n 'sequence',\n 'and',\n 'joe',\n 'pesci',\n 'is',\n 'convincing',\n 'as',\n 'a',\n 'psychopathic',\n 'all',\n 'powerful',\n 'drug',\n 'lord',\n 'why',\n 'he',\n 'wants',\n 'mj',\n 'dead',\n 'so',\n 'bad',\n 'is',\n 'beyond',\n 'me',\n 'because',\n 'mj',\n 'overheard',\n 'his',\n 'plans',\n 'nah',\n 'joe',\n 'pesci',\n 's',\n 'character',\n 'ranted',\n 'that',\n 'he',\n 'wanted',\n 'people',\n 'to',\n 'know',\n 'it',\n 'is',\n 'he',\n 'who',\n 'is',\n 'supplying',\n 'drugs',\n 'etc',\n 'so',\n 'i',\n 'dunno',\n 'maybe',\n 'he',\n 'just',\n 'hates',\n 'mj',\n 's',\n 'music',\n 'lots',\n 'of',\n 'cool',\n 'things',\n 'in',\n 'this',\n 'like',\n 'mj',\n 'turning',\n 'into',\n 'a',\n 'car',\n 'and',\n 'a',\n 'robot',\n 'and',\n 'the',\n 'whole',\n 'speed',\n 'demon',\n 'sequence',\n 'also',\n 'the',\n 'director',\n 'must',\n 'have',\n 'had',\n 'the',\n 'patience',\n 'of',\n 'a',\n 'saint',\n 'when',\n 'it',\n 'came',\n 'to',\n 'filming',\n 'the',\n 'kiddy',\n 'bad',\n 'sequence',\n 'as',\n 'usually',\n 'directors',\n 'hate',\n 'working',\n 'with',\n 'one',\n 'kid',\n 'let',\n 'alone',\n 'a',\n 'whole',\n 'bunch',\n 'of',\n 'them',\n 'performing',\n 'a',\n 'complex',\n 'dance',\n 'scene',\n 'bottom',\n 'line',\n 'this',\n 'movie',\n 'is',\n 'for',\n 'people',\n 'who',\n 'like',\n 'mj',\n 'on',\n 'one',\n 'level',\n 'or',\n 'another',\n 'which',\n 'i',\n 'think',\n 'is',\n 'most',\n 'people',\n 'if',\n 'not',\n 'then',\n 'stay',\n 'away',\n 'it',\n 'does',\n 'try',\n 'and',\n 'give',\n 'off',\n 'a',\n 'wholesome',\n 'message',\n 'and',\n 'ironically',\n 'mj',\n 's',\n 'bestest',\n 'buddy',\n 'in',\n 'this',\n 'movie',\n 'is',\n 'a',\n 'girl',\n 'michael',\n 'jackson',\n 'is',\n 'truly',\n 'one',\n 'of',\n 'the',\n 'most',\n 'talented',\n 'people',\n 'ever',\n 'to',\n 'grace',\n 'this',\n 'planet',\n 'but',\n 'is',\n 'he',\n 'guilty',\n 'well',\n 'with',\n 'all',\n 'the',\n 'attention',\n 'i',\n 've',\n 'gave',\n 'this',\n 'subject',\n 'hmmm',\n 'well',\n 'i',\n 'don',\n 't',\n 'know',\n 'because',\n 'people',\n 'can',\n 'be',\n 'different',\n 'behind',\n 'closed',\n 'doors',\n 'i',\n 'know',\n 'this',\n 'for',\n 'a',\n 'fact',\n 'he',\n 'is',\n 'either',\n 'an',\n 'extremely',\n 'nice',\n 'but',\n 'stupid',\n 'guy',\n 'or',\n 'one',\n 'of',\n 'the',\n 'most',\n 'sickest',\n 'liars',\n 'i',\n 'hope',\n 'he',\n 'is',\n 'not',\n 'the',\n 'latter']"
+    },
+    {
+      "id": "hafta10_nlp_proje-b013",
+      "title": "Token uzunluğunu ölçme",
+      "blockExplanation": "Bu hücre, stopwords temizliği öncesindeki token sayısını verir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "len(sample_review)",
+          "lineExplanation": "İlgili veri yapısının uzunluğunu sayısal olarak ölçer.",
+          "tokens": [
+            {
+              "token": "len(...)",
+              "explanation": "Liste, seri veya DataFrame'in uzunluğunu verir.",
+              "turkce": "Uzunluk Ölçümü",
+              "amac": "Veri miktarını veya token sayısını kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Token uzunluğunu ölçme' bloğunda ilgili yapının uzunluğunu ölçer."
+        }
+      ],
+      "expectedOutput": "437"
+    },
+    {
+      "id": "hafta10_nlp_proje-b014",
+      "title": "Stopwords temizliği yapma",
+      "blockExplanation": "Bu hücre, İngilizce stopwords kelimelerini listeden çıkarır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# sample_review without stopwords",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'sample_review without stopwords' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# sample_review without stopwords",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords temizliği yapma' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "swords = set(stopwords.words(\"english\"))                      # conversion into set for fast searching",
+          "lineExplanation": "Stopwords kelimelerini listeden çıkararak anlamsal yükü düşük kelimeleri temizler.",
+          "tokens": [
+            {
+              "token": "stopwords.words(...)",
+              "explanation": "Seçilen dil için stopwords listesini getirir.",
+              "turkce": "Stopwords Kaynağı",
+              "amac": "Anlamsız sık kelimeleri elemek."
+            },
+            {
+              "token": "set(...)",
+              "explanation": "Kelimeyi stopwords dışında bırakacak filtreyi kurar.",
+              "turkce": "Filtre",
+              "amac": "Modelin asıl anlam taşıyan kelimelere odaklanmasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords temizliği yapma' bloğunda stopwords temizliği yapar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "sample_review = [w for w in sample_review if w not in swords]               ",
+          "lineExplanation": "Stopwords kelimelerini listeden çıkararak anlamsal yükü düşük kelimeleri temizler.",
+          "tokens": [
+            {
+              "token": "stopwords.words(...)",
+              "explanation": "Seçilen dil için stopwords listesini getirir.",
+              "turkce": "Stopwords Kaynağı",
+              "amac": "Anlamsız sık kelimeleri elemek."
+            },
+            {
+              "token": "if ... not in ...",
+              "explanation": "Kelimeyi stopwords dışında bırakacak filtreyi kurar.",
+              "turkce": "Filtre",
+              "amac": "Modelin asıl anlam taşıyan kelimelere odaklanmasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords temizliği yapma' bloğunda stopwords temizliği yapar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "sample_review",
+          "lineExplanation": "Bir önceki adımda üretilen ara veri yapısını olduğu gibi ekrana getirir.",
+          "tokens": [
+            {
+              "token": "sample_review",
+              "explanation": "Önceki adımda hazırlanan veri yapısını temsil eder.",
+              "turkce": "Ara Çıktı",
+              "amac": "Dönüşüm sonucunu doğrudan gözle kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Stopwords temizliği yapma' bloğunda ara veri yapısını gösterir."
+        }
+      ],
+      "expectedOutput": "['stuff',\n 'going',\n 'moment',\n 'mj',\n 'started',\n 'listening',\n 'music',\n 'watching',\n 'odd',\n 'documentary',\n 'watched',\n 'wiz',\n 'watched',\n 'moonwalker',\n 'maybe',\n 'want',\n 'get',\n 'certain',\n 'insight',\n 'guy',\n 'thought',\n 'really',\n 'cool',\n 'eighties',\n 'maybe',\n 'make',\n 'mind',\n 'whether',\n 'guilty',\n 'innocent',\n 'moonwalker',\n 'part',\n 'biography',\n 'part',\n 'feature',\n 'film',\n 'remember',\n 'going',\n 'see',\n 'cinema',\n 'originally',\n 'released',\n 'subtle',\n 'messages',\n 'mj',\n 'feeling',\n 'towards',\n 'press',\n 'also',\n 'obvious',\n 'message',\n 'drugs',\n 'bad',\n 'kay',\n 'visually',\n 'impressive',\n 'course',\n 'michael',\n 'jackson',\n 'unless',\n 'remotely',\n 'like',\n 'mj',\n 'anyway',\n 'going',\n 'hate',\n 'find',\n 'boring',\n 'may',\n 'call',\n 'mj',\n 'egotist',\n 'consenting',\n 'making',\n 'movie',\n 'mj',\n 'fans',\n 'would',\n 'say',\n 'made',\n 'fans',\n 'true',\n 'really',\n 'nice',\n 'actual',\n 'feature',\n 'film',\n 'bit',\n 'finally',\n 'starts',\n 'minutes',\n 'excluding',\n 'smooth',\n 'criminal',\n 'sequence',\n 'joe',\n 'pesci',\n 'convincing',\n 'psychopathic',\n 'powerful',\n 'drug',\n 'lord',\n 'wants',\n 'mj',\n 'dead',\n 'bad',\n 'beyond',\n 'mj',\n 'overheard',\n 'plans',\n 'nah',\n 'joe',\n 'pesci',\n 'character',\n 'ranted',\n 'wanted',\n 'people',\n 'know',\n 'supplying',\n 'drugs',\n 'etc',\n 'dunno',\n 'maybe',\n 'hates',\n 'mj',\n 'music',\n 'lots',\n 'cool',\n 'things',\n 'like',\n 'mj',\n 'turning',\n 'car',\n 'robot',\n 'whole',\n 'speed',\n 'demon',\n 'sequence',\n 'also',\n 'director',\n 'must',\n 'patience',\n 'saint',\n 'came',\n 'filming',\n 'kiddy',\n 'bad',\n 'sequence',\n 'usually',\n 'directors',\n 'hate',\n 'working',\n 'one',\n 'kid',\n 'let',\n 'alone',\n 'whole',\n 'bunch',\n 'performing',\n 'complex',\n 'dance',\n 'scene',\n 'bottom',\n 'line',\n 'movie',\n 'people',\n 'like',\n 'mj',\n 'one',\n 'level',\n 'another',\n 'think',\n 'people',\n 'stay',\n 'away',\n 'try',\n 'give',\n 'wholesome',\n 'message',\n 'ironically',\n 'mj',\n 'bestest',\n 'buddy',\n 'movie',\n 'girl',\n 'michael',\n 'jackson',\n 'truly',\n 'one',\n 'talented',\n 'people',\n 'ever',\n 'grace',\n 'planet',\n 'guilty',\n 'well',\n 'attention',\n 'gave',\n 'subject',\n 'hmmm',\n 'well',\n 'know',\n 'people',\n 'different',\n 'behind',\n 'closed',\n 'doors',\n 'know',\n 'fact',\n 'either',\n 'extremely',\n 'nice',\n 'stupid',\n 'guy',\n 'one',\n 'sickest',\n 'liars',\n 'hope',\n 'latter']"
+    },
+    {
+      "id": "hafta10_nlp_proje-b015",
+      "title": "Temizlik sonrası token sayısını ölçme",
+      "blockExplanation": "Bu hücre, stopwords çıkarıldıktan sonraki token sayısını gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "len(sample_review)",
+          "lineExplanation": "İlgili veri yapısının uzunluğunu sayısal olarak ölçer.",
+          "tokens": [
+            {
+              "token": "len(...)",
+              "explanation": "Liste, seri veya DataFrame'in uzunluğunu verir.",
+              "turkce": "Uzunluk Ölçümü",
+              "amac": "Veri miktarını veya token sayısını kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Temizlik sonrası token sayısını ölçme' bloğunda ilgili yapının uzunluğunu ölçer."
+        }
+      ],
+      "expectedOutput": "219"
+    },
+    {
+      "id": "hafta10_nlp_proje-b016",
+      "title": "Genel temizleme fonksiyonunu tanımlama",
+      "blockExplanation": "Bu hücre, review metinleri için HTML temizleme, regex temizliği, lowercase, split ve stopwords filtreleme adımlarını tek fonksiyonda toplar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "def process(review):",
+          "lineExplanation": "Tek bir review metnini baştan sona temizleyecek yardımcı fonksiyonu tanımlar.",
+          "tokens": [
+            {
+              "token": "def process",
+              "explanation": "Review temizleme akışını isimlendiren fonksiyon tanımıdır.",
+              "turkce": "Temizleme Fonksiyonu",
+              "amac": "Aynı ön işleme adımlarını tüm review'lere tekrar uygulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel temizleme fonksiyonunu tanımlama' bloğunda genel temizleme fonksiyonunu başlatır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    # review without HTML tags",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'review without HTML tags' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# review without HTML tags",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel temizleme fonksiyonunu tanımlama' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    review = BeautifulSoup(review).get_text()",
+          "lineExplanation": "HTML etiketlerini metin içeriğinden ayırıp yalnızca düz yazıyı bırakır.",
+          "tokens": [
+            {
+              "token": "BeautifulSoup(...).get_text()",
+              "explanation": "HTML taglerini temizleyip saf metni çıkarır.",
+              "turkce": "HTML Temizliği",
+              "amac": "Review içindeki işaretleme etiketlerini modele taşımamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel temizleme fonksiyonunu tanımlama' bloğunda HTML etiketlerini temizler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    # review without punctuation and numbers",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'review without punctuation and numbers' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# review without punctuation and numbers",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel temizleme fonksiyonunu tanımlama' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    review = re.sub(\"[^a-zA-Z]\",' ',review)",
+          "lineExplanation": "Regex ile harf dışındaki karakterleri temizleyip metni daha sade hale getirir.",
+          "tokens": [
+            {
+              "token": "re.sub",
+              "explanation": "Eşleşen karakterleri başka değerle değiştirir.",
+              "turkce": "Regex Temizliği",
+              "amac": "Sayı, noktalama ve gürültüyü temizlemek."
+            },
+            {
+              "token": "\"[^a-zA-Z]\"",
+              "explanation": "A'dan Z'ye harf olmayan her karakteri temsil eder.",
+              "turkce": "Regex Deseni",
+              "amac": "Sadece harfleri bırakmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel temizleme fonksiyonunu tanımlama' bloğunda regex tabanlı gürültü temizliği yapar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    # converting into lowercase and splitting to eliminate stopwords",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'converting into lowercase and splitting to eliminate stopwords' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# converting into lowercase and splitting to eliminate stopwords",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel temizleme fonksiyonunu tanımlama' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    review = review.lower()",
+          "lineExplanation": "Metni küçük harfe çevirerek büyük-küçük harf farkını ortadan kaldırır.",
+          "tokens": [
+            {
+              "token": ".lower()",
+              "explanation": "Tüm harfleri lowercase yapar.",
+              "turkce": "Lowercase",
+              "amac": "Aynı kelimenin farklı harf biçimlerini tek forma indirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel temizleme fonksiyonunu tanımlama' bloğunda büyük-küçük harf farkını siler."
+        },
+        {
+          "lineNumber": 8,
+          "code": "    review = review.split()",
+          "lineExplanation": "Metni boşluklara göre bölerek kelime listesine dönüştürür.",
+          "tokens": [
+            {
+              "token": ".split()",
+              "explanation": "Metni token listesine çevirir.",
+              "turkce": "Tokenizasyon",
+              "amac": "Metni kelime bazında işlemeye başlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel temizleme fonksiyonunu tanımlama' bloğunda metni kelime listesine böler."
+        },
+        {
+          "lineNumber": 9,
+          "code": "    # review without stopwords",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'review without stopwords' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# review without stopwords",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel temizleme fonksiyonunu tanımlama' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "    swords = set(stopwords.words(\"english\"))                      # conversion into set for fast searching",
+          "lineExplanation": "Stopwords kelimelerini listeden çıkararak anlamsal yükü düşük kelimeleri temizler.",
+          "tokens": [
+            {
+              "token": "stopwords.words(...)",
+              "explanation": "Seçilen dil için stopwords listesini getirir.",
+              "turkce": "Stopwords Kaynağı",
+              "amac": "Anlamsız sık kelimeleri elemek."
+            },
+            {
+              "token": "set(...)",
+              "explanation": "Kelimeyi stopwords dışında bırakacak filtreyi kurar.",
+              "turkce": "Filtre",
+              "amac": "Modelin asıl anlam taşıyan kelimelere odaklanmasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel temizleme fonksiyonunu tanımlama' bloğunda stopwords temizliği yapar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "    review = [w for w in review if w not in swords]               ",
+          "lineExplanation": "Stopwords kelimelerini listeden çıkararak anlamsal yükü düşük kelimeleri temizler.",
+          "tokens": [
+            {
+              "token": "stopwords.words(...)",
+              "explanation": "Seçilen dil için stopwords listesini getirir.",
+              "turkce": "Stopwords Kaynağı",
+              "amac": "Anlamsız sık kelimeleri elemek."
+            },
+            {
+              "token": "if ... not in ...",
+              "explanation": "Kelimeyi stopwords dışında bırakacak filtreyi kurar.",
+              "turkce": "Filtre",
+              "amac": "Modelin asıl anlam taşıyan kelimelere odaklanmasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel temizleme fonksiyonunu tanımlama' bloğunda stopwords temizliği yapar."
+        },
+        {
+          "lineNumber": 12,
+          "code": "    # splitted paragraph'ları space ile birleştiriyoruz return",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'splitted paragraph'ları space ile birleştiriyoruz return' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# splitted paragraph'ları space ile birleştiriyoruz return",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel temizleme fonksiyonunu tanımlama' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 13,
+          "code": "    return(\" \".join(review))",
+          "lineExplanation": "Kelime listesini tekrar boşluklarla birleştirip tek parça metne dönüştürür.",
+          "tokens": [
+            {
+              "token": "\" \".join(...)",
+              "explanation": "Liste içindeki kelimeleri tek metin halinde birleştirir.",
+              "turkce": "Metin Yeniden İnşası",
+              "amac": "Temiz tokenleri WordCloud ya da vectorizer için tekrar metin yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Genel temizleme fonksiyonunu tanımlama' bloğunda temizlenmiş kelimeleri tekrar metin biçimine toplar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; genel temizleme fonksiyonunu tanımlama adımının sonucu bellekte tutulur."
+    },
+    {
+      "id": "hafta10_nlp_proje-b017",
+      "title": "Tüm review'leri döngüyle temizleme",
+      "blockExplanation": "Bu hücre, tüm review sütununu temizleme fonksiyonundan geçirip yeni temiz metin listesini üretir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# training datamızı yukardaki fonksiyon yardımıyla temizliyoruz: ",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'training datamızı yukardaki fonksiyon yardımıyla temizliyoruz:' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# training datamızı yukardaki fonksiyon yardımıyla temizliyoruz:",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tüm review'leri döngüyle temizleme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "# her 1000 review sonrası bir satır yazdırarak review işleminin durumunu görüyoruz..",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'her 1000 review sonrası bir satır yazdırarak review işleminin durumunu görüyoruz..' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# her 1000 review sonrası bir satır yazdırarak review işleminin durumunu görüyoruz..",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tüm review'leri döngüyle temizleme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "train_x_tum = []",
+          "lineExplanation": "train_x_tum değişkenine [] ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "train_x_tum",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "[]",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tüm review'leri döngüyle temizleme' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "for r in range(len(df[\"review\"])):        ",
+          "lineExplanation": "Listedeki metinler veya review satırları üzerinde döngü kurarak aynı işlemi tek tek uygular.",
+          "tokens": [
+            {
+              "token": "for",
+              "explanation": "Tekrarlı işlem başlatır.",
+              "turkce": "Döngü",
+              "amac": "Tüm metin örneklerine aynı temizleme adımını uygulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tüm review'leri döngüyle temizleme' bloğunda metinler üzerinde döngü başlatır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    if (r+1)%1000 == 0:        ",
+          "lineExplanation": "Her 1000 review işlendiğinde ilerleme bilgisi yazdırmak için kontrol yapar.",
+          "tokens": [
+            {
+              "token": "%1000 == 0",
+              "explanation": "İşlenen review sayısının 1000'in katı olup olmadığını sınar.",
+              "turkce": "İlerleme Kontrolü",
+              "amac": "Uzun süren temizleme işleminde durum bilgisi üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tüm review'leri döngüyle temizleme' bloğunda ilerleme yazdırma koşulunu kontrol eder."
+        },
+        {
+          "lineNumber": 6,
+          "code": "        print(\"No of reviews processed =\", r+1)",
+          "lineExplanation": "Kaç review işlendiğini terminale yazar.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "İşleme ilerleme bilgisini ekrana basar.",
+              "turkce": "İlerleme Yazdırma",
+              "amac": "Uzun döngüde hangi aşamaya gelindiğini görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tüm review'leri döngüyle temizleme' bloğunda review işleme ilerlemesini yazdırır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    train_x_tum.append(process(df[\"review\"][r]))",
+          "lineExplanation": "Temizlenen review metnini toplu eğitim listesine ekler.",
+          "tokens": [
+            {
+              "token": "append(process(...))",
+              "explanation": "Temizlenmiş metni listeye ekler.",
+              "turkce": "Listeye Ekleme",
+              "amac": "Tüm review'lerin temizlenmiş sürümünü toplamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tüm review'leri döngüyle temizleme' bloğunda temizlenen review'yi eğitim listesine ekler."
+        }
+      ],
+      "expectedOutput": "No of reviews processed = 1000\nNo of reviews processed = 2000\nNo of reviews processed = 3000\nNo of reviews processed = 4000\nNo of reviews processed = 5000\nNo of reviews processed = 6000\nNo of reviews processed = 7000\nNo of reviews processed = 8000\nNo of reviews processed = 9000\nNo of reviews processed = 10000\nNo of reviews processed = 11000\nNo of reviews processed = 12000\nNo of reviews processed = 13000\nNo of reviews processed = 14000\nNo of reviews processed = 15000\nNo of reviews processed = 16000\nNo of reviews processed = 17000\nNo of reviews processed = 18000\nNo of reviews processed = 19000\nNo of reviews processed = 20000\nNo of reviews processed = 21000\nNo of reviews processed = 22000\nNo of reviews processed = 23000\nNo of reviews processed = 24000\nNo of reviews processed = 25000"
+    },
+    {
+      "id": "hafta10_nlp_proje-b018",
+      "title": "Train-test split hazırlama",
+      "blockExplanation": "Bu hücre, temiz review listesini X olarak, sentiment sütununu y olarak alır ve veriyi eğitim/test olarak böler.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "x = train_x_tum",
+          "lineExplanation": "x değişkenine train_x_tum ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "x",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "train_x_tum",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Train-test split hazırlama' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "y = np.array(df[\"sentiment\"])",
+          "lineExplanation": "y değişkenine np.array(df[\"sentiment\"]) ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "y",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "np.array(df[\"sentiment\"])",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Train-test split hazırlama' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "# train test split",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'train test split' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# train test split",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Train-test split hazırlama' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "train_x, test_x, y_train, y_test = train_test_split(x,y, test_size = 0.1)",
+          "lineExplanation": "Veriyi eğitim ve test parçalarına ayırır.",
+          "tokens": [
+            {
+              "token": "train_test_split",
+              "explanation": "Veriyi eğitim ve test kümelerine böler.",
+              "turkce": "Veri Bölme",
+              "amac": "Modelin genelleme başarısını ayrı test verisinde görmek."
+            },
+            {
+              "token": "test_size = 0.1",
+              "explanation": "Verinin %10'unu test için ayırır.",
+              "turkce": "Test Oranı",
+              "amac": "Modeli ayrılmış veriyle değerlendirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Train-test split hazırlama' bloğunda veriyi eğitim ve test olarak böler."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; train-test split hazırlama adımının sonucu bellekte tutulur."
+    },
+    {
+      "id": "hafta10_nlp_proje-b019",
+      "title": "Bag of Words matrisini oluşturma",
+      "blockExplanation": "Bu hücre, CountVectorizer ile en fazla 5000 özellikli Bag of Words temsili oluşturur.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# sklearn içinde bulunan countvectorizer fonksiyonunu kullanarak max 5000 kelimelik bag of words oluşturuyoruz...",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'sklearn içinde bulunan countvectorizer fonksiyonunu kullanarak max 5000 kelimelik bag of words oluşturuyoruz...' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# sklearn içinde bulunan countvectorizer fonksiyonunu kullanarak max 5000 kelimelik bag of words oluşturuyoruz...",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bag of Words matrisini oluşturma' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "vectorizer = CountVectorizer( max_features = 5000 )",
+          "lineExplanation": "Metinleri Bag of Words matrisine çevirecek CountVectorizer nesnesini oluşturur.",
+          "tokens": [
+            {
+              "token": "CountVectorizer",
+              "explanation": "Metni kelime frekans tabanlı sayısal matrise çevirir.",
+              "turkce": "Bag of Words",
+              "amac": "Metin verisini modele uygun sayılara dönüştürmek."
+            },
+            {
+              "token": "max_features = 5000",
+              "explanation": "En fazla 5000 kelime özelliği tutulacağını belirler.",
+              "turkce": "Özellik Sınırı",
+              "amac": "Boyutu kontrol altında tutmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bag of Words matrisini oluşturma' bloğunda kelime vektörleştiriciyi kurar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "# train verilerimizi feature vektöre matrisine çeviriyoruz",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'train verilerimizi feature vektöre matrisine çeviriyoruz' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# train verilerimizi feature vektöre matrisine çeviriyoruz",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bag of Words matrisini oluşturma' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "train_x = vectorizer.fit_transform(train_x)",
+          "lineExplanation": "Metin listesini CountVectorizer ile seyrek özellik matrisine dönüştürür.",
+          "tokens": [
+            {
+              "token": "fit_transform",
+              "explanation": "Metni öğrenilen kelime uzayına göre sayısal matrise çevirir.",
+              "turkce": "Vektörleştirme",
+              "amac": "Metinleri modele verilebilir hale getirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Bag of Words matrisini oluşturma' bloğunda metni özellik matrisine dönüştürür."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; bag of Words matrisini oluşturma adımının sonucu bellekte tutulur.",
+      "plotImages": [
+        "h10-bag.jpg"
+      ]
+    },
+    {
+      "id": "hafta10_nlp_proje-b020",
+      "title": "Sparse BoW çıktısını görme",
+      "blockExplanation": "Bu hücre, CountVectorizer sonrası oluşan seyrek matris temsilini gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "train_x",
+          "lineExplanation": "Bir önceki adımda üretilen ara veri yapısını olduğu gibi ekrana getirir.",
+          "tokens": [
+            {
+              "token": "train_x",
+              "explanation": "Önceki adımda hazırlanan veri yapısını temsil eder.",
+              "turkce": "Ara Çıktı",
+              "amac": "Dönüşüm sonucunu doğrudan gözle kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sparse BoW çıktısını görme' bloğunda ara veri yapısını gösterir."
+        }
+      ],
+      "expectedOutput": "<Compressed Sparse Row sparse matrix of dtype 'int64'\n\twith 1775588 stored elements and shape (22500, 5000)>"
+    },
+    {
+      "id": "hafta10_nlp_proje-b021",
+      "title": "Eğitim matrisini dense array'e çevirme",
+      "blockExplanation": "Bu hücre, eğitim verisini dense array'e dönüştürür ve hedef vektörünü train_y adıyla ayırır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Bunu array'e dönüştürüyoruz çünkü fit işlemi için array istiyor..",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Bunu array'e dönüştürüyoruz çünkü fit işlemi için array istiyor..' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Bunu array'e dönüştürüyoruz çünkü fit işlemi için array istiyor..",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim matrisini dense array'e çevirme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "train_x = train_x.toarray()",
+          "lineExplanation": "Seyrek matrisi dense NumPy array biçimine çevirir.",
+          "tokens": [
+            {
+              "token": ".toarray()",
+              "explanation": "Sparse matrisi tam sayısal diziye dönüştürür.",
+              "turkce": "Dense Dönüşüm",
+              "amac": "Modelin doğrudan işlem yapacağı array yapısını üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim matrisini dense array'e çevirme' bloğunda sparse matrisi dense diziye çevirir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "train_y = y_train",
+          "lineExplanation": "train_y değişkenine y_train ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "train_y",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "y_train",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim matrisini dense array'e çevirme' bloğunda ara sonucu bir değişkende saklar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; eğitim matrisini dense array'e çevirme adımının sonucu bellekte tutulur."
+    },
+    {
+      "id": "hafta10_nlp_proje-b022",
+      "title": "Eğitim matrisinin boyutlarını görme",
+      "blockExplanation": "Bu hücre, train_x ve train_y boyutlarını birlikte gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "train_x.shape, train_y.shape",
+          "lineExplanation": "Özellik matrisinin ve etiket dizisinin boyut bilgisini birlikte gösterir.",
+          "tokens": [
+            {
+              "token": ".shape",
+              "explanation": "Dizinin satır-sütun boyutunu verir.",
+              "turkce": "Boyut",
+              "amac": "Özellik matrisinin doğru oluştuğunu kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eğitim matrisinin boyutlarını görme' bloğunda veri şekli bilgisini verir."
+        }
+      ],
+      "expectedOutput": "((22500, 5000), (22500,))"
+    },
+    {
+      "id": "hafta10_nlp_proje-b023",
+      "title": "Train etiketlerini önizleme",
+      "blockExplanation": "Bu hücre, eğitim etiketlerini doğrudan ekrana getirir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "train_y",
+          "lineExplanation": "Bir önceki adımda üretilen ara veri yapısını olduğu gibi ekrana getirir.",
+          "tokens": [
+            {
+              "token": "train_y",
+              "explanation": "Önceki adımda hazırlanan veri yapısını temsil eder.",
+              "turkce": "Ara Çıktı",
+              "amac": "Dönüşüm sonucunu doğrudan gözle kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Train etiketlerini önizleme' bloğunda ara veri yapısını gösterir."
+        }
+      ],
+      "expectedOutput": "array([1, 1, 0, ..., 0, 1, 0], shape=(22500,))"
+    },
+    {
+      "id": "hafta10_nlp_proje-b024",
+      "title": "Random Forest modelini eğitme",
+      "blockExplanation": "Bu hücre, 100 ağaçlı Random Forest sınıflandırıcısını kurup eğitim verisi üzerinde fit eder.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "model = RandomForestClassifier(n_estimators = 100, random_state=42)",
+          "lineExplanation": "Duygu analizi için Random Forest sınıflandırıcı modelini oluşturur.",
+          "tokens": [
+            {
+              "token": "RandomForestClassifier",
+              "explanation": "Karar ağaçlarından oluşan topluluk modelidir.",
+              "turkce": "Random Forest",
+              "amac": "Metin sınıflandırmasında etiket tahmini yapmak."
+            },
+            {
+              "token": "n_estimators = 100",
+              "explanation": "Ormandaki ağaç sayısını belirler.",
+              "turkce": "Ağaç Sayısı",
+              "amac": "Modelin öğrenme kapasitesini ayarlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Random Forest modelini eğitme' bloğunda sınıflandırma modelini kurar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "model.fit(train_x, train_y)",
+          "lineExplanation": "Random Forest modelini eğitim verisi üzerinde fit ederek duyguyu öğrenmesini sağlar.",
+          "tokens": [
+            {
+              "token": ".fit(...)",
+              "explanation": "Modelin X ve y verisinden öğrenmesini sağlar.",
+              "turkce": "Eğitim",
+              "amac": "Sınıflandırma modelini kurmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Random Forest modelini eğitme' bloğunda modeli eğitim verisi üzerinde fit eder."
+        }
+      ],
+      "expectedOutput": "RandomForestClassifier(random_state=42)"
+    },
+    {
+      "id": "hafta10_nlp_proje-b025",
+      "title": "Test verisini vectorizer ile dönüştürme",
+      "blockExplanation": "Bu hücre, test review metinlerini eğitimde öğrenilen kelime uzayıyla aynı feature matrisine dönüştürür.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Test verilerimizi feature vektöre matrisine çeviriyoruz",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Test verilerimizi feature vektöre matrisine çeviriyoruz' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Test verilerimizi feature vektöre matrisine çeviriyoruz",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisini vectorizer ile dönüştürme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "# Yani aynı işlemleri(bag of wordse dönüştürme) tekrarlıyoruz bu sefer test datamız için:",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Yani aynı işlemleri(bag of wordse dönüştürme) tekrarlıyoruz bu sefer test datamız için:' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Yani aynı işlemleri(bag of wordse dönüştürme) tekrarlıyoruz bu sefer test datamız için:",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisini vectorizer ile dönüştürme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "test_xx = vectorizer.transform(test_x)",
+          "lineExplanation": "Metin listesini CountVectorizer ile seyrek özellik matrisine dönüştürür.",
+          "tokens": [
+            {
+              "token": "transform",
+              "explanation": "Metni öğrenilen kelime uzayına göre sayısal matrise çevirir.",
+              "turkce": "Vektörleştirme",
+              "amac": "Metinleri modele verilebilir hale getirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisini vectorizer ile dönüştürme' bloğunda metni özellik matrisine dönüştürür."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; test verisini vectorizer ile dönüştürme adımının sonucu bellekte tutulur."
+    },
+    {
+      "id": "hafta10_nlp_proje-b026",
+      "title": "Test sparse matrisini görme",
+      "blockExplanation": "Bu hücre, test seti için oluşan seyrek matris çıktısını gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "test_xx",
+          "lineExplanation": "Bir önceki adımda üretilen ara veri yapısını olduğu gibi ekrana getirir.",
+          "tokens": [
+            {
+              "token": "test_xx",
+              "explanation": "Önceki adımda hazırlanan veri yapısını temsil eder.",
+              "turkce": "Ara Çıktı",
+              "amac": "Dönüşüm sonucunu doğrudan gözle kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test sparse matrisini görme' bloğunda ara veri yapısını gösterir."
+        }
+      ],
+      "expectedOutput": "<Compressed Sparse Row sparse matrix of dtype 'int64'\n\twith 199348 stored elements and shape (2500, 5000)>"
+    },
+    {
+      "id": "hafta10_nlp_proje-b027",
+      "title": "Test matrisini dense array'e çevirme",
+      "blockExplanation": "Bu hücre, test feature matrisini dense array biçimine çevirir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "test_xx = test_xx.toarray()",
+          "lineExplanation": "Seyrek matrisi dense NumPy array biçimine çevirir.",
+          "tokens": [
+            {
+              "token": ".toarray()",
+              "explanation": "Sparse matrisi tam sayısal diziye dönüştürür.",
+              "turkce": "Dense Dönüşüm",
+              "amac": "Modelin doğrudan işlem yapacağı array yapısını üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test matrisini dense array'e çevirme' bloğunda sparse matrisi dense diziye çevirir."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; test matrisini dense array'e çevirme adımının sonucu bellekte tutulur."
+    },
+    {
+      "id": "hafta10_nlp_proje-b028",
+      "title": "Test matrisinin boyutunu görme",
+      "blockExplanation": "Bu hücre, test feature matrisinin boyutunu yazdırır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "test_xx.shape",
+          "lineExplanation": "Özellik matrisinin ve etiket dizisinin boyut bilgisini birlikte gösterir.",
+          "tokens": [
+            {
+              "token": ".shape",
+              "explanation": "Dizinin satır-sütun boyutunu verir.",
+              "turkce": "Boyut",
+              "amac": "Özellik matrisinin doğru oluştuğunu kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test matrisinin boyutunu görme' bloğunda veri şekli bilgisini verir."
+        }
+      ],
+      "expectedOutput": "(2500, 5000)"
+    },
+    {
+      "id": "hafta10_nlp_proje-b029",
+      "title": "Tahmin ve ROC-AUC hesaplama",
+      "blockExplanation": "Bu hücre, test verisinde tahmin yapar ve ROC-AUC tabanlı doğruluk skorunu hesaplar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "test_predict = model.predict(test_xx)",
+          "lineExplanation": "Eğitilmiş model ile test verisindeki review'ler için sentiment tahmini üretir.",
+          "tokens": [
+            {
+              "token": "predict(...)",
+              "explanation": "Modelin yeni örnekler için sınıf tahmini yapmasını sağlar.",
+              "turkce": "Tahmin",
+              "amac": "Test verisindeki etiketleri tahmin etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tahmin ve ROC-AUC hesaplama' bloğunda test tahmini üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "dogruluk = roc_auc_score(y_test, test_predict)",
+          "lineExplanation": "Tahminlerle gerçek etiketleri karşılaştırıp ROC-AUC tabanlı başarı skorunu hesaplar.",
+          "tokens": [
+            {
+              "token": "roc_auc_score",
+              "explanation": "İkili sınıflandırma başarısını ölçen ROC-AUC skorunu hesaplar.",
+              "turkce": "ROC-AUC",
+              "amac": "Model performansını sayısal olarak değerlendirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tahmin ve ROC-AUC hesaplama' bloğunda model başarısını ölçer."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; tahmin ve ROC-AUC hesaplama adımının sonucu bellekte tutulur."
+    },
+    {
+      "id": "hafta10_nlp_proje-b030",
+      "title": "Doğruluk oranını yazdırma",
+      "blockExplanation": "Bu hücre, hesaplanan başarı oranını yüzde olarak terminale yazar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "print(\"Doğruluk oranı : % \", dogruluk * 100)",
+          "lineExplanation": "Hesaplanan başarı oranını yüzde olarak terminale yazar.",
+          "tokens": [
+            {
+              "token": "print(...)",
+              "explanation": "Başarı skorunu görünür hale getirir.",
+              "turkce": "Sonuç Yazdırma",
+              "amac": "Model performansını kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Doğruluk oranını yazdırma' bloğunda model başarısını terminale yazar."
+        }
+      ],
+      "expectedOutput": "Doğruluk oranı : %  84.39913417086488"
+    }
+  ],
+  "csvOptions": {
+    "delimiter": "\t"
+  }
+}
