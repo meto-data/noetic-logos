@@ -1,2 +1,2 @@
 :HL["/noetic-logos/static/turk-dili-2-module/_next/static/css/fb3e582882b3a0d0.css","style"]
-0:{"buildId":"9v0xDW-5o0jzaQYqko6kB","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"YRpkSv8fCen6rXo6x-s9x","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
