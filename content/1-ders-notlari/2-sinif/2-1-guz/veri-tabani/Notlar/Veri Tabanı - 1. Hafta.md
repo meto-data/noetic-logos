@@ -86,7 +86,7 @@ tags:
 2. Performans iyileştirme
 3. Verilerin silinme ihtimali (siber saldırı)
 4. Veri tabanı yedekleme
-5. Organizasyonel direnç (bkz. [[]])
+5. Organizasyonel direnç (bkz. [[Değişime Karşı Organizasyonel Direnç]])
 ### Yaygın VTYS Programları
 - Oracle, MySQL, Microsot SQL Server, PostgreSQL, MongoDB, IBM DB2... 
 
