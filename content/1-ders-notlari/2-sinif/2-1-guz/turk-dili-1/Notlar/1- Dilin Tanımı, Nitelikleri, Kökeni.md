@@ -1,5 +1,6 @@
 ---
 title: 1- Dilin Tanımı, Nitelikleri, Kökeni
+created: 2025-11-11
 tags:
   - akademi/dersler/turk-dili-1
 ---

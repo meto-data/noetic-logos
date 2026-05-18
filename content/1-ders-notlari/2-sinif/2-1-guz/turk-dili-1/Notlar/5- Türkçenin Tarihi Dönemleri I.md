@@ -1,5 +1,6 @@
 ---
 title: 5- Türkçenin Tarihi Dönemleri I
+created: 2025-11-11
 tags:
   - akademi/dersler/turk-dili-1
 ---

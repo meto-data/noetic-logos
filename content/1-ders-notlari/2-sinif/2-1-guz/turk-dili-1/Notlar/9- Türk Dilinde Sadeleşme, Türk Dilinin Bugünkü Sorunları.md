@@ -1,5 +1,6 @@
 ---
 title: 9- Türk Dilinde Sadeleşme, Türk Dilinin Bugünkü Sorunları
+created: 2025-11-11
 tags:
   - akademi/dersler/turk-dili-1
 ---

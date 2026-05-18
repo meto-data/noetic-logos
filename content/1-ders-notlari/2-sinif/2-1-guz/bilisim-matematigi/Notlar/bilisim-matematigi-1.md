@@ -1,10 +1,11 @@
 ---
 title: Bilişim Mat. - 1. Ders
+created: 2025-10-02
 tags:
   - akademi/dersler/bilisim-matematigi
-draft: true
-created: 2025-09-29
+draft: false
 ---
+
 <h2 style="text-align:center"><span style="color:darkblue; text-align:center">Ünite 1: Temel Kavramlar</span> | <span style="color:#bf3f36">26.09.2025</span></h2>
 
 

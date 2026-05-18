@@ -6,7 +6,7 @@ created: 2025-10-17
 date: 2025-10-17
 cssclasses:
   - ders-notu
-draft: true
+draft: false
 tags:
   - akademi/dersler/bilisim-matematigi
 ---

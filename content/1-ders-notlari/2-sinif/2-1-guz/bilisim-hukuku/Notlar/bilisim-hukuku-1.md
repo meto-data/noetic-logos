@@ -1,6 +1,7 @@
 ---
 title: Bilişim Hukuku - 1. Ders
 date: 2025-10-02
+created: 2025-10-02
 tags:
   - akademi/dersler/bilisim-hukuku
 ---

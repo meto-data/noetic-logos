@@ -5,15 +5,17 @@ created: 2021-07-18
 ---
 # Noetic Logos
 
-Gerek Yönetim Bilişim Sistemleri dersi hakkında gerekse bilişime ve felsefeye değgin konularda yaptığım araştırmalar, incelediğim ve özetlediğim, kritize ettiğim kitaplar hakkında notlarımı paylaştığım mekân. Sol taraftaki menü üzerinden sitede gezinebilirsiniz.
+Ekserisi Yönetim Bilişim Sistemleri özelinde olmak üzere ders notlarımı ve bilişime değgin muhtelif konulardaki araştırmalardan derlediğim notları kapsayan bir bilgi deposudur **Noetic Logos**. Bilişim patikasından saparak kimi zaman felsefeye ve psikolojiye değgin konulara da girilmekte ve yeri geldiğinde -ki epey seyrek- denemelerimi de paylaşmaktayım. 
 
-Bağlantılardan da anlaşılacağı üzere birçok ders ve birçok konu başka ders ve konularla bağlantı hâlinde. Obsidian kullanmaya aslında bu bağlantıları somut bir şekilde görebilmek için başlamıştım, kavrama hususunda bağlantıları göstermesi bakımından epey önemli olduğunu düşünmekteyim. 
+İşbu bilgi deposu Obsidian ile oluşturulmuş olup Quartz aracılığıyla yayımlanmıştır. Obsidian kullanmamda yatan temel sebep bağlantı kurmayı kolaylaştırması, bir ders ile diğer ders arasındaki bağlantıyı kolayca görebilmek ve teknolojik aletlerin sağladığı mobiliteden faydalanabilmek idi; el yazımın berbat olması da cabası tabii, estetik kaygımın da etkisi vardı dolayısıyla. 
 
-*"noësis"* kelimesini zihinsel algı, düşünce, kavrayış gibi anlamlarla ele alabiliriz. Yunanca'ya noētikós (düşünceyle ilgili) olarak evrilmiştir kabaca.
+Notlarda dolaşırken görüleceği üzere, birçok konu diğer konu(lar) ile bağlantı içerisindedir. Dolayısıyla, zaten öğrenilmiş bir konu üzerine başka bir konu ile bağ kurulduğunda, ilişki ağını daha kolay bir biçimde kurmak zor olmasa gerek. İlgili konuyu kavrama hususunda da atiklik sağlayacaktır bu bize. Her ne kadar bu bağlantıları kusursuz bir biçimde kuramasam bile elden geldikçe kurmaya çalışıyorum.
+ 
+**Noetic Logos**'a gelirsek; **noos** "zihin, düşünce" + **-tikos** "-e dair, ile ilgili" > **noētikos** "akılsal, düşünsel olan" > **noetic** biçimine evrilmiştir. Zihnin görme ve kavrama yetisiyle ilişkilidir **noetic** kelimesi; zihinsel süreçlere, akıl yürütmeye yahut doğrudan entelektüel kavrayışa dair de diyebiliriz.
 
-*λόγος* (lógos) kelimesi Yunanca "söylemek, ifade etmek, toplamak" anlamlarına geliyor. Ancak daha ziyade söz, mantık, bilim, akıl, ölçü gibi anlamlarda kullanılır. Bilhassa stoacılarda **logos** *"tanrısallık, tanrısal akıl, evrensel akıl"* şekillerinde göze çarpar.
+Logos (*λόγος*) ise **\*leg-** "toplamak, bir araya getirmek" + **-os** > **logos** "kelimeleri seçip bir araya getirme, akıl yürütme, hesap" anlamlarındadır. Bu bağlamda söz, akıl, oran, ölçü; ilerleyen tarihlerde bilim; stoacılarda tanrısallık, tanrısal akıl, evrensel akıl biçimlerinde gösteren bir kavramdır kendini **logos**.
 
-Bu ikisini birleştirirsek kabaca kavranılan söz, düşünülen söz diyebiliriz. Birçok çeşitli kombinasyonu olacaktır hâliyle.
+Birleştirirsek; kabaca **kavranılan söz**, **düşünülen söz** diyebiliriz. Birçok çeşitli kombinasyonu olacaktır elbet. Gelgelelim ben amatör bir bilgi bankası için böylesine iddialı bir isim koymaya karar kıldım.
 
 ##### Sosyal Medya Hesaplarım
 - **Instagram**: [meto.data](https://www.instagram.com/meto.data)

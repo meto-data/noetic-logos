@@ -1,7 +1,9 @@
 ---
 title: Veri Tabanı Yönetim Sistemleri - 3. Ders
+created: 2025-11-11
 tags:
   - akademi/dersler/veri-tabani
+date: 2025-11-11
 ---
 
 

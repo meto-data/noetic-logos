@@ -1,5 +1,6 @@
 ---
 title: 7- Türkçenin Tarihi Dönemleri III
+created: 2025-11-11
 tags:
   - akademi/dersler/turk-dili-1
 ---

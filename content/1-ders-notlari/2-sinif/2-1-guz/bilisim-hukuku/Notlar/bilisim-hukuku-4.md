@@ -1,6 +1,7 @@
 ---
 title: Bilişim Hukuku - 4. Ders
-date: 2025-10-16
+date: 2025-10-23
+created: 2025-10-23
 tags:
   - akademi/dersler/bilisim-hukuku
 ---

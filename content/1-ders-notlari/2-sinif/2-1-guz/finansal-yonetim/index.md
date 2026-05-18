@@ -2,15 +2,12 @@
 title: Finansal Yönetim
 tags:
   - akademi/dersler/finansal-yonetim
+created: 2025-09-24
 ---
-
-
-- Bu index 2025-2026 eğitim yılı bağlamında girilmiştir.
+- Bu index 2025-2026 eğitim yılında girilmiştir.
 <br>
 
 
 Dersi veren: [Doç. Dr. Nevin Özer](https://akademik.duzce.edu.tr/nevinozer)
 
-Vize ve final test olacak, kâğıt üzerinde matematiksel işlemleri de görmek istiyor. Söylediğine göre cevap yanlış olsa dâhi matematiksel işlemlerde doğru yoldaysa test olmasına rağmen ilave puan verecekmiş. Derste zorlanma gibi bir durum söz konusu olacağını zannetmiyorum (haftalar sonra düzeltme, söz konusu. dersten ziyade anlatımdan kaynaklı).
-
-Velhasılkelam kolay ders anlaşılacağı üzere (haftalar sonradan not: değil). Esas gayesi gerçek hayatta işimize yarayacak olan kısımlar üzerinde durmak ilk dersten anlattığı kadarıyla.
+Vize ve final test idi. Kâğıt üzerinde matematiksel işlemleri de görmek istiyor. Söylediğine göre cevap yanlış olsa bile matematiksel işlemlerde doğru yoldaysa test olmasına rağmen ilave puan verecekmiş. Dersin esas gayesi gerçek hayatta işimize yarayacak olan kısımlar üzerinde durmak. 

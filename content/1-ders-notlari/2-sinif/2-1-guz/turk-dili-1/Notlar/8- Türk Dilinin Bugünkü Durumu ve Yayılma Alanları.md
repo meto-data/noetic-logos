@@ -1,5 +1,6 @@
 ---
 title: 8- Türk Dilinin Bugünkü Durumu ve Yayılma Alanları
+created: 2025-11-11
 tags:
   - akademi/dersler/turk-dili-1
 ---

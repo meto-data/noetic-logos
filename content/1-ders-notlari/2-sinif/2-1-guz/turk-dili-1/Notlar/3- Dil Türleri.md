@@ -1,5 +1,6 @@
 ---
 title: 3- Dil Türleri
+created: 2025-11-11
 tags:
   - akademi/dersler/turk-dili-1
 ---
