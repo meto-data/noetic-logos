@@ -43,18 +43,18 @@ Boşluk doldurma veya çoktan seçmeli sorularda TDK tanımları veya Ontoloji'n
 
 #### **Antik Çağ Okulları (Klasik veya Kısa Cevaplı Soru):**
 
-Antik Çağ Helenistik dönem felsefesinde ahlakın temel problemi "en yüksek iyinin" (telos) ne olduğudur. Bu dönemdeki okulların tamamı, en yüksek iyiyi **"doğaya uygun yaşamak"** olarak belirlemiştir. Yunan aklında doğaya uygunluk, insanın kendi özüne, potansiyeline ve evrensel akla en uygun hâlde bulunması demektir. Farklılık, bu doğaya uygun yaşamın "ne ile" sağlanacağı konusundaki tartışmada yatar.
+Antik Çağ Helenistik dönem felsefesinde ahlakın temel problemi "en yüksek iyinin" (telos) ne olduğudur. 
 
 **1. Kinik Okulu (Diogenes)**
 * **En Yüce İyi (İdeal):** Erdemli yaşamaktır.
-* **Hocanın Düştüğü Yanılgı:** Hocanın notlarında "sadelik ve masumiyet" ideal olarak sunulmuştur. Oysa insanın tıpkı doğadaki bir hayvan gibi yalnızca temel ihtiyaçlarıyla yetinmesi, toplumsal uzlaşımları reddetmesi bir ideal değil; **"Autarkeia"ya (kendi kendine yetme, bağımsızlık hâline)** ulaşmak için kullanılan bir **yöntemdir**. Kinikler için asıl amaç her türlü dünyevi bağdan kurtularak salt erdeme ulaşmaktır. "Sadelik" burada ayırt edici bir şey değildir, hoca yanlış biliyor.
+> 	Hocanın notlarında "sadelik ve masumiyet" ideal olarak sunulmuştur. Oysa insanın tıpkı doğadaki bir hayvan gibi yalnızca temel ihtiyaçlarıyla yetinmesi, toplumsal uzlaşımları reddetmesi bir ideal değildir. **"Autarkeia"ya (kendi kendine yetme, bağımsızlık hâline)** ulaşmak için kullanılan bir **yöntemdir**. Kinikler için asıl amaç her türlü dünyevi bağdan kurtularak salt erdeme ulaşmaktır. "Sadelik" burada ayırt edici bir şey değildir dolayısıyla.
 
 **2. Stoa Okulu (Zenon)**
 * **En Yüce İyi (İdeal):** Evrensel akılla (*logos*) uyum içinde yaşamak, yani doğaya uygun yaşamaktır. Kinik felsefeden peydah olup erdemi merkeze alan bir felsefedir. 
 
 **3. Epikürosçu Okul (Epiküros)**
 * **En Yüce İyi (İdeal):** Haz (Hedone). Epikürosçuluk, Stoa'nın baş rakibidir. Stoa merkeze erdemi koyarken Epiküros merkeze hazzı koyar.
-* **Hocanın Düştüğü Yanılgı:** Hoca, Epiküros'u kişisel gelişimci gibi "kendini suçlatacak iş yapma" şeklinde özetlemiştir. Hâlbuki Epiküros'un bahsettiği haz şehvet, oburluk veya anlık bedensel zevkler kesinlikle değildir. Epikürosçu haz, **erdem tarafından denetlenen ölçülü bir hazdır.**
+* **Hocanın Düştüğü Yanılgı:** Hoca, Epiküros'u "kendini suçlatacak iş yapma" şeklinde özetliyor. Hâlbuki öyle bir şey değil ideal. Epiküros'un bahsettiği ideal hazdır. Haz da şehvet, oburluk veya anlık bedensel zevkler kesinlikle değildir. Epikürosçu haz, **erdem tarafından denetlenen ölçülü ve doğaya uygun bir hazdır.**
 * **Hazzın Gerçek Tanımı:** Epiküros felsefesinde hedeflenen haz iki boyutludur: Bedende acının bulunmaması durumu olan **aponia** ve ruhta hiçbir sarsıntının, kaygının bulunmadığı derin bir dinginlik hâli olan **ataraxia**'dır. Yani ideal olan, erdemli bir ölçülülükle ruhsal ve bedensel huzura (doğaya uygunluğa) erişmektir.
 
 #### **Filozoflar ve Temel Kavramları:**
@@ -73,8 +73,6 @@ Antik Çağ Helenistik dönem felsefesinde ahlakın temel problemi "en yüksek i
 
 ### DERS 4: Etik Teoriler
 
-İş ahlakı alanında en çok kullanılan kısımdır. Burayı vaka analizi (klasik soru) şeklinde sorabilir.
-
 **A. İnceleme Alanına Göre:** (Ders 2'de bahsettiğimiz Normatif, Betimsel ve Metaetik.)
 
 **B. Amaçlarına Göre Etik Teoriler:**
@@ -91,7 +89,7 @@ Etimolojik olarak Yunanca "deon" (ödev/yükümlülük) kelimesinden gelir. Eyle
 
 Sonuçsalcı (teleolojik) teorilerin tam zıddıdır. Sonuçsalcılar eylemin ahlakiliğini dışsal bir faydaya bağlarken, deontologlar eylemin *kendi içindeki* ahlaki değere bakar. Eylemin sonucu felaket bile olsa, doğru olan ahlaki ilke çiğnenemez.
 
-* **Immanuel Kant ve Saf Ödev Bilinci:** Deontolojinin kurucusu ve merkezî figürü Kant'tır. Kant'a göre ahlak; dışsal bir otoriteye, bir beklentiye, hazza veya toplumsal faydaya dayandırılamaz. Ahlak, salt aklın kendi kendisine koyduğu evrensel yasaya, yani "ödev"e dayanmalıdır. Eylemi ahlaki yapan yegâne şey, onu "iyi niyet" (iyi istenç) ile yapmış olmaktır.
+* **Immanuel Kant ve Saf Ödev Bilinci:** Deontolojinin kurucusu ve merkezî figürü Kant'tır. Kant'a göre ahlak dışsal bir otoriteye, bir beklentiye, hazza veya toplumsal faydaya dayandırılamaz. Ahlak, salt aklın kendi kendisine koyduğu evrensel yasaya, yani "ödev"e dayanmalıdır. Eylemi ahlaki yapan yegâne şey onu "iyi niyet" (iyi istenç) ile yapmış olmaktır.
 
 * **Kategorik İmperatif (Kesin Buyruk):** Kant'ın ahlak felsefesinin temel ölçütüdür. İki temel formülasyonu vardır:
     1. *Evrenselleştirilebilirlik:* "Öyle davran ki, eylemine temel aldığın ilke, aynı zamanda evrensel bir doğa yasası olabilsin."
@@ -109,9 +107,9 @@ Deontolojik ahlakın birey merkezli uzantısıdır. İnsanın, sırf insan olmas
 
 Tarafsızlık, eşitlik ve hakkaniyet kavramlarına odaklanır. Eylemlerin ahlakiliğini, iyinin (kazancın) ve külfetin (yükün) bireyler arasında ne kadar tarafsız ve adil bir şekilde dağıtıldığı belirler.
 
-* **Dağıtıcı Adalet (Distributive Justice):** Aristoteles'ten bu yana gelen felsefi bir ilkedir. Özü şudur: "Eşitlere eşit, eşit olmayanlara orantılı muamele edilmelidir." Bir farklılık yapılacaksa, bu farklılığın ahlaki olarak savunulabilir, nesnel ve tarafsız bir gerekçesi olmalıdır.
-*   **İş Etiğinde Adalet ):** 
-    1. *Eşit işe eşit ücret ödenmemesi:* Sadece cinsiyet, etnik köken veya kişisel yakınlık gibi ilgisiz nedenlerle aynı işi yapan iki kişiye farklı ücret ödenmesi, dağıtıcı adaleti bozar. Tarafsızlık ilkesi ihlal edildiği için etik değildir.
+* **Dağıtıcı Adalet (Distributive Justice):** Aristoteles'ten bu yana gelen felsefi bir ilkedir. Özü şudur: "*Eşitlere eşit, eşit olmayanlara orantılı muamele edilmelidir*." Bir farklılık yapılacaksa, bu farklılığın ahlaki olarak savunulabilir, nesnel ve tarafsız bir gerekçesi olmalıdır.
+*   **İş Etiğinde Adalet:** 
+    1. *Eşit işe eşit ücret ödenmemesi:* Sadece cinsiyet, etnik köken veya kişisel yakınlık gibi ilgisiz nedenlerle aynı işi yapan iki kişiye farklı ücret ödenmesi dağıtıcı adaleti bozar. Tarafsızlık ilkesi ihlal edildiği için etik değildir.
     2. *Hasta olmadığı hâlde işe gelmemek:* Kişinin kurumu kandırarak işe gelmemesi, o kurumdaki diğer dürüst çalışanların omuzlarına fazladan külfet yükler. Bu durum yükümlülüklerin adil dağılımını bozar, dürüst çalışanlara karşı yapılmış ahlaki bir haksızlıktır. Fırsat ve muamele eşitliğini yok eder. Adaletin bozulduğu yerde hiçbir eylem ahlaki olarak temellendirilemez.
 
 **3. Görecelilik (Rölativizm) Teorisi:**
@@ -137,8 +135,7 @@ Hoca burada ciddi bir endişe taşıyor ve şu soruyu soruyor: "Geniş ailede pe
 * **Dinin Tanımları:** Sosyolojik olarak din; sosyal bir kurum, semboller ve değerler bütünüdür. İslam'a göre ise; yaratılış gayesini bildiren, Yaratıcı'nın koyduğu kanunlardır.
 * **Dinin İşlevleri:** Sosyal birliktelik (insanları ortak sembollerde birleştirir), Sosyal kontrol (uyumu ve düzeni teşvik eder), Anlam ve amaç verme ("Ben kimim, nereye gidiyorum?" sorularını yanıtlar).
 
-**Sekülerizm ve Ahlak Çatışması:**
-İşte burası klasik veya kompozisyon sorusu olarak karşımıza çıkabilir.
+#### **Sekülerizm ve Ahlak Çatışması:**
 
 **1. Seküler Ahlak Anlayışı (Dini dışlayan görüş):**
 * Ahlaki ilkeler, herhangi bir inanç sisteminden bağımsız, sadece akla, doğaya ve insan mantığına dayandırılmalıdır.
@@ -161,9 +158,7 @@ Ahlak felsefesinin en büyük destekçilerinden biri ahlak psikolojisidir. Nitek
 
 Piaget’ye göre ahlak bir **kurallar sistemidir** ve ahlaklılığın temeli kurallara duyulan saygıdır. Piaget çocukların kurallara yaklaşımını iki boyutta inceler: Kuralların pratiği (uygulanması) ve kuralların bilinci (anlayışı).
 
-**Sınav İçin Kritik Ayrım: Heteronom Ahlak ve Otonom Ahlak (Klasik Soru Potansiyeli)**
-
-Sınavda karşılaştırma tablosu veya vaka sorusu olarak bu iki kavram arasındaki farklar gelebilir.
+#### **Kritik Ayrım: Heteronom Ahlak ve Otonom Ahlak (Klasik Soru Potansiyeli)**
 
 **1. Heteronom Ahlak (Dışa Bağımlı Ahlak / 5-9 Yaş)**
 Etimolojik olarak "hetero" (farklı/dış) ve "nomos" (yasa) kelimelerinden gelir. Kuralı başkası koyar.
@@ -364,15 +359,3 @@ Ahilik sıkı bir ekonomik denetim mekanizmasıdır:
 * **Kanaatkârlık ve Tüketici Hakkı:** Sadece ihtiyaç oranında üretim yapılır. İsraf haramdır.
 * **Stokçuluğun (İhtikâr) Yasaklanması:** Malı piyasadan çekip fiyatlar yükseldiğinde satmak (karaborsacılık) kesinlikle yasaktır ve meslekten ihraç (pabucunun dama atılması) sebebidir.
 *  **İşbölümü ve Usta-Çırak İlişkisi:** Eğitim hiyerarşiktir. Çırak -> Kalfa -> Usta sıralaması izlenir. Liyakat esastır. Bir kişi ustalık makamına erişmeden, Ahi Başkanından "icazet" (yeterlilik belgesi/diploma) almadan asla kendi başına dükkân açamaz. Bu sayede piyasadaki kalite kontrolü sağlanır.
-
----
-
-
-*"Merkezine insanı alan Ahilik anlayışının yerine, insanı fabrikasyon üretimin bir dişlisi hâline getiren kapitalist sistem..."* 
-
-Sınavda klasik bir soru geldiğinde ("Günümüz kapitalist sistemi ile Ahilik felsefesini iş etiği bağlamında karşılaştırınız" gibi), hocanın duymak istediği bu romantik ve yerli eleştiriyi kâğıda dök. Ancak bir felsefeci adayı olarak cevabını şu akademik derinlikle taçlandır:
-
-
-
-
-*"Modern dönemde Karl Marx'ın 'yabancılaşma' (alienation) kavramıyla eleştirdiği kapitalist seri üretim modeli, çalışanı ürettiği nesneye, emeğine ve nihayetinde kendi özüne yabancılaştırmıştır. İnsan, devasa bir makinenin ruhsuz bir dişlisine dönüşmüştür. Buna mukabil, 13. yüzyılda Anadolu'da kurumsallaşan Ahilik felsefesi, insanı 'eşref-i mahlûkat' (yaratılmışların en şereflisi) olarak konumlandırır. Ahilikte zanaatkâr, ürettiği cilde, çeşmeye veya kaftana kendi varoluşunu, sanat dehasını ve ahlakını yansıtır. Günümüzün devasa küresel tedarik zincirlerinde Ahilik modelini birebir uygulamak iktisadi olarak mümkün görünmese de; Ahiliğin temelini oluşturan 'sözünde durma, kalite kontrolü, haksız rekabeti (stokçuluğu) engelleme ve usta-çırak liyakati' gibi ilkeler, aslında bugün modern şirketlerin yüz binlerce dolar harcayarak yazmaya çalıştığı 'Etik Kodlar'ın ta kendisidir. Dolayısıyla Ahilik, sadece tarihsel bir nostalji değil; vahşi kapitalizmin yarattığı etik tahribatı onarmak için modern iş etiğine entegre edilmesi gereken evrensel bir ahlak reçetesidir."*
