@@ -1,6 +1,6 @@
 ---
 title: "III. Kritik (Tramvay ve Etik): 4. Ders"
-draft: false
+draft: true
 created: 2026-03-13
 tags:
   - akademi/dersler/is-etigi

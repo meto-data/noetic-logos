@@ -116,7 +116,7 @@ HTML elemanlarına hareket ve animasyon kazandırmak için JavaScript'in zamanla
 * **`clearInterval(degisken_adi)`:** `setInterval` sonsuza kadar çalıştığı için, onu belirli bir şarta bağlayıp durdurmamız gerekir. `setInterval`'i bir değişkene atarız ve durmasını istediğimiz yerde `clearInterval` içine o değişkeni yazarak döngüyü kırıp animasyonu bitiririz.
 
 ### Kutuyu Sağa Doğru Hareket Ettirme
-Kırmızı bir kutuyu soldan sağa hareket ettirmek için konum değeri sürekli artırılıp CSS'in `left` özelliğine atandı. Hoca burada şu çok önemli detayı belirtti: *"Left yazdım diye sola gitmiyor. Left, 'soldan uzaklık' demektir. Soldan uzaklığı artırdığınız için kutu sağa doğru itilmiş olur."*
+Kırmızı bir kutuyu soldan sağa hareket ettirmek için konum değeri sürekli artırılıp CSS'in `left` özelliğine atandı. Hoca burada şu çok önemli detayı belirtti: *"Left yazdım diye s1ola gitmiyor. Left, 'soldan uzaklık' demektir. Soldan uzaklığı artırdığınız için kutu sağa doğru itilmiş olur."*
 
 ```html
 <div id="kutu" style="width: 100px; height: 100px; background-color: red; position: relative;"></div>

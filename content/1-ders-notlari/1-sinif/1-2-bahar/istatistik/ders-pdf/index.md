@@ -1,6 +1,6 @@
 ---
 title: İstatistik - Ders PDF'leri
-draft: true
+draft: false
 created: 2026-04-05
 ---
 - [[İstatistiğe Giriş - 2. Hafta.pdf]]
