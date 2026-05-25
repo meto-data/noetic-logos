@@ -5,6 +5,11 @@ draft: false
 tags:
   - akademi/dersler/is-etigi
 ---
+>[!important] Not
+>Bu dersten not çıkarmaya gerçekten üşendim, o yüzden bu özetin ekserisi yapay zekâya yazdırıldı. Sadece birkaç noktada hocanın hatalı olduğu yerleri kendim düzelttim o kadar. Slayttan çalışsanız daha iyi olabilir dolayısıyla...
+
+
+<br>
 
 ### DERS 1: Varlık Sorgusu (Ontoloji)
 
@@ -47,15 +52,14 @@ Antik Çağ Helenistik dönem felsefesinde ahlakın temel problemi "en yüksek i
 
 **1. Kinik Okulu (Diogenes)**
 * **En Yüce İyi (İdeal):** Erdemli yaşamaktır.
-> 	Hocanın notlarında "sadelik ve masumiyet" ideal olarak sunulmuştur. Oysa insanın tıpkı doğadaki bir hayvan gibi yalnızca temel ihtiyaçlarıyla yetinmesi, toplumsal uzlaşımları reddetmesi bir ideal değildir. **"Autarkeia"ya (kendi kendine yetme, bağımsızlık hâline)** ulaşmak için kullanılan bir **yöntemdir**. Kinikler için asıl amaç her türlü dünyevi bağdan kurtularak salt erdeme ulaşmaktır. "Sadelik" burada ayırt edici bir şey değildir dolayısıyla.
+> 	Hocanın notlarında "sadelik ve masumiyet" ideal olarak sunulmuş. Oysa sadelik ve masumiyet kiniklerin ideali değildir, olsa olsa idealin getirilerinden birisi olur o kadar. Bunlar daha ziyade *autarkeia* dediğimiz "kendi kendine yetme, bağımsızlık hâli"ne ulaşmak için kullanılan bir **yöntemdir**. Kinikler için asıl amaç her türlü dünyevi bağdan kurtularak salt erdeme ulaşmaktır. "Sadelik" yahut "masumiyet" burada ayırt edici bir şey değildir dolayısıyla; nitekim zaten Stoa okulu da, Epikürosçuluk da, Kinizm de doğaya uygun yaşamayı ideal olarak görüyor.
 
 **2. Stoa Okulu (Zenon)**
-* **En Yüce İyi (İdeal):** Evrensel akılla (*logos*) uyum içinde yaşamak, yani doğaya uygun yaşamaktır. Kinik felsefeden peydah olup erdemi merkeze alan bir felsefedir. 
+* **En Yüce İyi (İdeal):** Evrensel akılla (*logos*) uyum içinde yaşamak, yani doğaya uygun yaşamaktır. Kinik felsefeden peydah olmuş olup erdemi merkeze alan bir felsefedir. 
 
 **3. Epikürosçu Okul (Epiküros)**
-* **En Yüce İyi (İdeal):** Haz (Hedone). Epikürosçuluk, Stoa'nın baş rakibidir. Stoa merkeze erdemi koyarken Epiküros merkeze hazzı koyar.
-* **Hocanın Düştüğü Yanılgı:** Hoca, Epiküros'u "kendini suçlatacak iş yapma" şeklinde özetliyor. Hâlbuki öyle bir şey değil ideal. Epiküros'un bahsettiği ideal hazdır. Haz da şehvet, oburluk veya anlık bedensel zevkler kesinlikle değildir. Epikürosçu haz, **erdem tarafından denetlenen ölçülü ve doğaya uygun bir hazdır.**
-* **Hazzın Gerçek Tanımı:** Epiküros felsefesinde hedeflenen haz iki boyutludur: Bedende acının bulunmaması durumu olan **aponia** ve ruhta hiçbir sarsıntının, kaygının bulunmadığı derin bir dinginlik hâli olan **ataraxia**'dır. Yani ideal olan, erdemli bir ölçülülükle ruhsal ve bedensel huzura (doğaya uygunluğa) erişmektir.
+* **En Yüce İyi (İdeal):** Haz (Hedone). Epikürosçuluk, Stoa'nın baş rakibidir. Stoa merkeze erdemi koyarken Epiküros merkeze hazzı koyar. <br>
+> Hoca, Epiküros'u "kendini suçlatacak iş yapma" şeklinde özetliyor. Hâlbuki Epikürcülerin ideali öyle bir şey değil. Epiküros'un bahsettiği ideal **haz**dır. Hazdan kasıt da şehvet, oburluk veya anlık bedensel zevkler değildir. Epikürosçu haz, **erdem tarafından denetlenen ölçülü ve doğaya uygun bir hazdır.** Epiküros'un felsefesinde hedeflenen haz iki boyutludur: Bedende acının bulunmaması durumu olan **aponia** ve ruhta hiçbir sarsıntının, kaygının bulunmadığı derin bir dinginlik hâli olan **ataraxia**'dır. Yani ideal olan, erdemli bir ölçülülükle ruhsal ve bedensel huzura (doğaya uygunluğa) erişmektir.
 
 #### **Filozoflar ve Temel Kavramları:**
 * **Sokrates:** "Sorgulanmamış hayat yaşanmaya değmez."
@@ -94,7 +98,7 @@ Sonuçsalcı (teleolojik) teorilerin tam zıddıdır. Sonuçsalcılar eylemin ah
 * **Kategorik İmperatif (Kesin Buyruk):** Kant'ın ahlak felsefesinin temel ölçütüdür. İki temel formülasyonu vardır:
     1. *Evrenselleştirilebilirlik:* "Öyle davran ki, eylemine temel aldığın ilke, aynı zamanda evrensel bir doğa yasası olabilsin."
     2. *İnsanın Amaç Olması:* "İnsanı, kendi şahsında veya bir başkasının şahsında, hiçbir zaman sadece bir araç olarak değil, daima bir amaç olarak görecek şekilde davran."
-* **Yalan Söyleme Vakası:** Faydacı (teleolojik) bir yaklaşımla, "birinin hayatını kurtarmak" gibi ulvi bir sonuç için yalan söylemek meşru ve ahlaki görülebilir. Ancak Kantçı deontolojide bu kesinlikle yasaktır. Evrenselleştirilebilirlik ilkesi gereği; "Zor durumda kalınca yalan söylenebilir" kuralı evrensel bir yasa olamaz. Eğer herkes zor durumda yalan söylerse, güven, hakîkat ve iletişim mefhumları çöker. Dolayısıyla, bir canı kurtaracak bile olsan, yalan söylemek prensip olarak evrensel ahlak yasasına aykırıdır ve yapılamaz.
+* **Yalan Söyleme Vakası:** Faydacı (teleolojik) bir yaklaşımla, "birinin hayatını kurtarmak" gibi ulvi bir sonuç için yalan söylemek meşru ve ahlaki görülebilir. Ancak Kantçı deontolojide bu kesinlikle yasaktır. Evrenselleştirilebilirlik ilkesi gereği; "Zor durumda kalınca yalan söylenebilir" kuralı evrensel bir yasa olamaz. Eğer herkes zor durumda yalan söylerse, güven, hakîkat ve iletişim mefhumları çöker. Dolayısıyla, bir canı kurtaracak bile olsak, yalan söylemek prensip olarak evrensel ahlak yasasına aykırıdır ve yapılamaz.
 
 **A. Haklar Yaklaşımı (The Rights Approach)**
 
