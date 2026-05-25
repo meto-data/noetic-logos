@@ -18,7 +18,7 @@ slug: web-tasarim-1
 ### 1. Web'in Çalışma Mantığı
 Bir web sitesine girmek istediğimizde arka planda şu işlemler gerçekleşir:
 *  **Tarayıcı (Browser):** İnternete açıldığımız araçtır (Chrome, Firefox vb.).
-*  **DNS (Domain Name System):** Tarayıcıya bir alan adı (örn: *meto-data.github.io*) yazıldığında, tarayıcı bunu DNS sunucusuna sorar. DNS ise bu alan adının hangi **IP adresi** ile eşleştiğini söyler. (İlk girişte sorulur, sonra tarayıcı hafızasına alır).
+*  **DNS (Domain Name System):** Tarayıcıya bir alan adı (örn: *meto-data.github.io/noetic-logos*) yazıldığında, tarayıcı bunu DNS sunucusuna sorar. DNS ise bu alan adının hangi **IP adresi** ile eşleştiğini söyler. (İlk girişte sorulur, sonra tarayıcı hafızasına alır).
 *  **İstemci-Sunucu (Client-Server) İlişkisi:**
     *   **İstemci (Client):** İstekte bulunan (*Request*) taraf (Bizim bilgisayarımız).
     *   **Sunucu (Server):** Cevap veren (*Response*) taraf (Web sitesinin dosyalarının barındığı bilgisayar).
