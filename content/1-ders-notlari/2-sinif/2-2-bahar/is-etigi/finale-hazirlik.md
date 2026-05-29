@@ -1,7 +1,7 @@
 ---
 title: İş Etiği Geniş Özet
 created: 2026-05-08
-draft: false
+draft: true
 tags:
   - akademi/dersler/is-etigi
 ---
