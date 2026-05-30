@@ -54,13 +54,14 @@ Varlığı bu şekilde ele aldıktan sonra, etiğin ve ahlâkın ne olduğunu ir
 ## Orta Çağ
 - Merkezde **teoloji** ve **metafizik** vardır. Ölçü Tanrıdır ve dinsel etik savunulur. Derste değinilmese dahi, Batı'da İncil'in yanı sıra Aristoteles'in metinleri de bir nevi kutsal kabul ediliyordu. Aldoux Huxley, Algı Kapıları'nda şöyle diyor:  <br>
 > 	"*Sıkıcı ahlâkî sembollerden başka bir şey olmayan Doğal Tarihe, sözcükleri şeylerin işaretleri olarak algılayacağına, şeyleri ve olayları İncil veya Aristo sözcükleri olarak algılayan bir teolojinin dişlilerine rağmen atalarımız görece akıllı kaldılar.* 
-<br>
-- Orta çağ'ın doğa tarihi anlayışı her olayı tanrısal bir mesaj olarak görmekte ve kilisenin, Aristoteles mantığını kendi dogmalarıyla birleştirmesinden ibaretti. Ağaca baktıklarında, meteorolojik bir olaya baktıklarında ona kendiliğinden yalıtıp sanki Tanrı'nın veya Aristoteles'in yazdığı kutsal bir metnin harfleri gibi, her birinin gizli bir anlamı varmış gibi algılıyorlardı; her şeyin arkasında bir ahlâkî ders veya dinî bir anlam aranıyordu. Huxley'in burada kastettiği bu ve Orta Çağ'da, en azından Batı'da hâkim olan paradigma da buydu o dönemler.
+
+
+- Orta çağ'ın doğa tarihi anlayışı her olayı tanrısal bir mesaj olarak görmekte ve kilisenin, Aristoteles mantığını kendi dogmalarıyla birleştirmesinden ibaretti. Ağaca baktıklarında, meteorolojik bir olaya baktıklarında onu kendiliğinden yalıtıp sanki Tanrı'nın veya Aristoteles'in yazdığı kutsal bir metnin harfleri gibi, her birinin gizli bir anlamı varmış gibi algılıyorlardı; her şeyin arkasında bir ahlâkî ders veya dinî bir anlam aranıyordu. Huxley'in burada kastettiği bu ve Orta Çağ'da, en azından Batı'da hâkim olan paradigma da buydu o dönemler.
 
 
 ## Yeni Çağ
 - Merkezde **epistemoloji** vardır. Ölçü akıl ve bilgidir. Ampirizm (deneycilik) ve rasyonalizm (akılcılık) öne çıkar. Antropolojik (insan merkezli) temellendirme yapılır.
-	- Bu kısım özellikle derste hocanın anlattığıyla epey çelişiyor. Nitekim hocanın övdüğü Descartes'in sözü, hani şu "Düşünüyorum, öyleyse varım". Orijinal hâliyle "cogito, ergo sum." Zaten her ders yerilen bireyciliğin temelini atan söz bu. Sanayi Devrimi'ne ön ayak olan Descartes'in bu sözü. Modernizme ön ayak olan Descartes'in bu sözü. Kapitalizme de ön ayak olan Descartes'in bu sözü. Nitekim Descartes zaten bu şekilde **özne**yi keşfediyor ve merkeze insanı yerleştiriyor. Yunan'ın doğa ölçütü bu şekilde bir kenara atılıyor. Neyse, bu konu hakkında zaten [[ATLAS/1-ders-notlari/2-sinif/2-2-bahar/is-etigi/ders-1|İş Etiği 1. Ders'in Kritiği]]'nde konuştum. 
+	- Bu kısım özellikle derste hocanın anlattığıyla epey çelişiyor. Nitekim hocanın övdüğü Descartes'in sözü, hani şu "Düşünüyorum, öyleyse varım". Orijinal hâliyle "cogito, ergo sum." Zaten her ders yerilen bireyciliğin temelini atan söz bu. Sanayi Devrimi'ne ön ayak olan Descartes'in bu sözü. Modernizme ön ayak olan Descartes'in bu sözü. Kapitalizme de ön ayak olan Descartes'in bu sözü. Nitekim Descartes zaten bu şekilde **özne**yi keşfediyor ve merkeze insanı yerleştiriyor. Yunan'ın doğa ölçütü bu şekilde bir kenara atılıyor. Neyse, bu konu hakkında zaten [[ders-1|İş Etiği 1. Ders'in Kritiği]]'nde konuştum. 
 
 
 ## Filozoflar ve Temel Kavramlar
@@ -163,6 +164,9 @@ Eskiden geniş aileler içinde farklı rol modeller eşliğinde büyüyen çocuk
 **Araştırma Bulguları:**
 * **Özyer ve Azizoğlu:** Annenin eğitim düzeyi düştükçe çocuğun ahlâkî algısı düşüyor. (İlk ahlâkî temeli anne atar).
 * **Kohlberg'in Ahlâkî Gelişim Evreleri (Nisan & Kohlberg araştırması):** Kırsal kesimdeki bireylerin ahlâkî değerlendirmeleri **normlara ve faydacılığa** (teleolojik) dayanırken; şehirde yaşayanlar **mükemmeliyetçi ve deontolojik** (Ödev temelli) gerekçelere dayanmaktadır. 
+
+
+*Not*: Bu Kohlberg olsun, Piager olsun, Özyer ve Azizoğlu'nun araştırması olsun feci bir şekilde zırvalık. Konu hakkında eleştirim [[teoriymis-yersen|şurada mevcut]].
 
 
 ---
