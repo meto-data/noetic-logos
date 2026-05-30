@@ -64,9 +64,7 @@ Bilgisayar bilimi, temelde insan davranışlarını anlama ve modelleme çabası
 | **Lift (Kaldıraç)**    | İki ürün arasındaki **ilişkinin gücünü** ve birbirlerinin satılma ihtimalini tesadüfün ötesinde kaç kat artırdığını (katsayıyı) gösterir. | Kuralın sadece ürünlerin popülerliğinden kaynaklı bir **tesadüf mü yoksa birbirini gerçekten tetikleyen (Lift > 1)** mantıklı bir ilişki mi olduğunu kanıtlar.          |
 
 
-<br>
-
-
+ 
 Apriori algoritması, kural çıkartırken **Aşağıdan-Yukarıya (Bottom-Up)** ve **[[iterasyon|İteratif]] (Tekrarlayıcı)** bir yaklaşım sergiler. Bu süreci anlamak için bir kırtasiye veri tabanı düşünelim.
 
 - **Toplam İşlem (N):** 8 adet alışveriş fişi var.
