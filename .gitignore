@@ -5,15 +5,6 @@ Thumbs.db
 # === Node.js ===
 node_modules/
 tsconfig.tsbuildinfo
-android/.gradle/
-android/local.properties
-android/build/
-android/app/build/
-android/.idea/
-android/capacitor-cordova-android-plugins/
-android/.cxx/
-.android-sdk/
-.gradle-home/
 
 # Others
 yaptiklarim.md
@@ -64,6 +55,12 @@ vercel.json
 prof/
 Infrastructure/
 
+# === Obsidian & Syncthing Yerel Önlek Bellekleri ===
+content/.smart-env/
+content/.space/
+content/.makemd/
+content/.stfolder*/
+
 # === Sitede Gizlenecek Klasörler ===
 content/5- Linux Notları/
 content/6- Kritikler/
@@ -71,3 +68,51 @@ content/7- Yapay Zekâ/
 content/9-dil-ogrenimi/
 content/10-mitoloji-notlari/
 content/_projects
+
+# === AUTO-DRAFT-IGNORE-START ===
+# Draft:true notes are intentionally kept local only
+content/0_denemeler/0.1-\ Denemeler/Olabildiğince\ şeffaf..md
+content/0_denemeler/0.1-\ Denemeler/We\ suffer\ more\ often\ in\ imagination\ than\ in\ reality..md
+content/1-ders-notlari/1-sinif/1-2-bahar/istatistik/İstatistik\ -\ 10.\ Hafta.md
+content/1-ders-notlari/1-sinif/1-2-bahar/istatistik/İstatistik\ -\ 11.\ Hafta.md
+content/1-ders-notlari/1-sinif/1-2-bahar/istatistik/İstatistik\ -\ 12.\ Hafta.md
+content/1-ders-notlari/1-sinif/1-2-bahar/istatistik/İstatistik\ -\ 13-14.\ Hafta.md
+content/1-ders-notlari/1-sinif/1-2-bahar/istatistik/İstatistik\ -\ 4.\ Hafta.md
+content/1-ders-notlari/1-sinif/1-2-bahar/istatistik/İstatistik\ -\ 5.\ Hafta.md
+content/1-ders-notlari/1-sinif/1-2-bahar/istatistik/İstatistik\ -\ 6.\ Hafta.md
+content/1-ders-notlari/1-sinif/1-2-bahar/istatistik/İstatistik\ -\ 7.\ Hafta.md
+content/1-ders-notlari/2-sinif/2-1-guz/bilisim-hukuku/soru-cevap/Soru\ 1.md
+content/1-ders-notlari/2-sinif/2-1-guz/bilisim-hukuku/soru-cevap/Soru\ 2.md
+content/1-ders-notlari/2-sinif/2-1-guz/bilisim-hukuku/soru-cevap/Soru\ 3.md
+content/1-ders-notlari/2-sinif/2-1-guz/bilisim-hukuku/soru-cevap/Soru\ 4.md
+content/1-ders-notlari/2-sinif/2-1-guz/bilisim-hukuku/soru-cevap/Soru\ 5.md
+content/1-ders-notlari/2-sinif/2-1-guz/bilisim-hukuku/soru-cevap/Soru\ 6\ 1.md
+content/1-ders-notlari/2-sinif/2-1-guz/bilisim-hukuku/soru-cevap/Soru\ 6.md
+content/1-ders-notlari/2-sinif/2-2-bahar/dijital-pazarlama/dijital-pazarlama.md
+content/1-ders-notlari/2-sinif/2-2-bahar/dijital-pazarlama/makale/slay.md
+content/1-ders-notlari/2-sinif/2-2-bahar/dijital-pazarlama/teorik-notlar/dijital-pazarlama-9.md
+content/1-ders-notlari/2-sinif/2-2-bahar/dijital-pazarlama/teorik-notlar/Simülasyon/Untitled\ 1.md
+content/1-ders-notlari/2-sinif/2-2-bahar/dijital-pazarlama/teorik-notlar/Simülasyon/Untitled.md
+content/1-ders-notlari/2-sinif/2-2-bahar/irade-egitimi/ders-izlenimleri/Ders-1.md
+content/1-ders-notlari/2-sinif/2-2-bahar/irade-egitimi/Kritikler/kadercilik-kritik.md
+content/1-ders-notlari/2-sinif/2-2-bahar/irade-egitimi/Kritikler/olumlu-kritik.md
+content/1-ders-notlari/2-sinif/2-2-bahar/is-etigi/ders-4.md
+content/1-ders-notlari/2-sinif/2-2-bahar/is-etigi/finale-hazirlik.md
+content/1-ders-notlari/2-sinif/2-2-bahar/veri-madenciligi/teorik-notlar/veri-madenciligi-4-sorular.md
+content/1-ders-notlari/2-sinif/2-2-bahar/veri-madenciligi/teorik-notlar/veri-madenciligi-7-taslak.md
+content/1-ders-notlari/2-sinif/2-2-bahar/veri-madenciligi/veri-madenciligi.md
+content/1-ders-notlari/2-sinif/2-2-bahar/web-tasarim/index\ 1.md
+content/10-mitoloji-notlari/Dersler/1.\ Ders.md
+content/6-\ Kritikler/İrade\ Terbiyesi/0-\ Girizgâh\ ve\ Terminoloji.md
+content/6-\ Kritikler/İrade\ Terbiyesi/1.\ Kitap\ -\ Genel\ Bilgiler/I.\ Bölüm\ -\ Temel\ Değerlendirmeler/1-\ İrade\ Nedir.md
+content/6-\ Kritikler/İrade\ Terbiyesi/1.\ Kitap\ -\ Genel\ Bilgiler/I.\ Bölüm\ -\ Temel\ Değerlendirmeler/2-\ İrade\ Terbiyesinin\ Gerekliliği.md
+content/6-\ Kritikler/İrade\ Terbiyesi/1.\ Kitap\ -\ Genel\ Bilgiler/I.\ Bölüm\ -\ Temel\ Değerlendirmeler/3-\ İradenin\ Güçlendirilmesi\ ve\ Nefsin\ Terbiyesi\ Mümkün\ Mü.md
+content/6-\ Kritikler/Jules\ Payot\ -\ İrade\ Eğitimi/Eklenecekler.md
+content/6-\ Kritikler/Jules\ Payot\ -\ İrade\ Eğitimi/fikirlerin\ ortaklaşması.md
+content/6-\ Kritikler/Jules\ Payot\ -\ İrade\ Eğitimi/Gerçek\ ve\ üretken\ enerji.md
+content/6-\ Kritikler/Jules\ Payot\ -\ İrade\ Eğitimi/Girizgâh.md
+content/8-\ Makale\ İnceleme\ ve\ Özet/Bilişim/Alan\ Turing\ -\ Makineler\ Düşünebilir\ Mi/3-\ Kritik\ (Henüz\ Tamamlanmadı).md
+content/8-\ Makale\ İnceleme\ ve\ Özet/Bilişim/Alan\ Turing\ -\ Makineler\ Düşünebilir\ Mi/index.md
+content/8-\ Makale\ İnceleme\ ve\ Özet/Bilişim/index.md
+content/Kaynaklar/Videolar/network-theories-of-power.md
+# === AUTO-DRAFT-IGNORE-END ===

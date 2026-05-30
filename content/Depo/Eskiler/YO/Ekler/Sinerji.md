@@ -1,7 +1,6 @@
 ---
 tags:
   - akademi/dersler/yonetim-organizasyon
-created: 2025-08-31
 ---
 - Sinerji, **farklı bileşenlerin birlikte çalışarak bireysel etkilerinden daha büyük bir etki yaratmasıdır.** Bu durum sistemin verimliliğini artırarak daha etkin sonuçlar elde edilmesini sağlar. **Sinerji, sadece bileşenlerin toplamı değil, onların birlikte ürettikleri değeri ifade eder.**
 - **Bir başka tanımla, bir organizasyondaki farklı birimlerin bütünleştirilmesiyle elde edilen, parçaların toplamından daha büyük bir etki yaratma çabasıdır**.

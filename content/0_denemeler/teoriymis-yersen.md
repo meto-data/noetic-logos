@@ -1,7 +1,3 @@
----
-created: 2026-05-30
----
-
 
 >[!tip] Eleştiri
 >Bir şey diyeyim mi, mesnetsiz araştırmalar bunlar. Psikoloji bilimi dediğin mesnetsiz, hakîkati asla veremeyecek ve kendi dar çerçevesindeki örneklemleri tüm dünyaya yedirmeye çalışan bir disiplinden gayrısı değil şu araştırmalar göz önüne alınınca. Hele bu bulguların millete evrensel diye kakalanması... <br>

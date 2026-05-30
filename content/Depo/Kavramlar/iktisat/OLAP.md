@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar/iktisat
-created: 2026-03-03
 ---
 Çok büyük veriler üzerinde hızlı, çok boyutlu analiz yapmaya yarayan yaklaşım <br>
 

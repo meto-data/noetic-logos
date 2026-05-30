@@ -16,15 +16,12 @@
     "build": "rm -rf .quartz-cache && npx quartz build",
     "build:serve": "rm -rf .quartz-cache && npx quartz build --serve",
     "docs": "npx quartz build --serve -d docs",
-    "android:add": "npx cap add android",
-    "android:sync": "npx cap sync android",
-    "android:open": "npx cap open android",
-    "android:run": "npx cap run android",
-    "android:apk:debug": "node scripts/build-android-debug.mjs",
     "check": "tsc --noEmit && npx prettier . --check",
     "dates:check": "node scripts/manage-created-dates.mjs",
     "dates:write": "node scripts/manage-created-dates.mjs --write",
     "dates:write:changed": "node scripts/manage-created-dates.mjs --write --scope=changed",
+    "drafts:sync": "node scripts/sync-draft-ignore.mjs --write-ignore --untrack",
+    "drafts:check": "node scripts/sync-draft-ignore.mjs",
     "format": "npx prettier . --write",
     "test": "tsx --test",
     "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1"
@@ -45,9 +42,6 @@
     "quartz": "./quartz/bootstrap-cli.mjs"
   },
   "dependencies": {
-    "@capacitor/android": "^8.2.0",
-    "@capacitor/cli": "^8.2.0",
-    "@capacitor/core": "^8.2.0",
     "@clack/prompts": "^0.11.0",
     "@floating-ui/dom": "^1.7.4",
     "@myriaddreamin/rehype-typst": "^0.6.0",
@@ -57,6 +51,7 @@
     "async-mutex": "^0.5.0",
     "chokidar": "^4.0.3",
     "cli-spinner": "^0.2.10",
+    "cliui": "^9.0.1",
     "d3": "^7.9.0",
     "esbuild-sass-plugin": "^3.3.1",
     "flexsearch": "^0.8.205",
@@ -120,6 +115,7 @@
     "@types/ws": "^8.18.1",
     "@types/yargs": "^17.0.33",
     "esbuild": "^0.25.9",
+    "node-gyp": "^12.3.0",
     "prettier": "^3.6.2",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2"

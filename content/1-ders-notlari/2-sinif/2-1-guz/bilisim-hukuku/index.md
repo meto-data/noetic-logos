@@ -2,8 +2,8 @@
 title: Bilişim Hukuku
 tags:
   - akademi/dersler/bilisim-hukuku
-created: 2025-09-25
 ---
+
 *Bu index 2025-2026 eğitim yılı içinde girilmiştir.*
 
 **Dersi Veren**: [Şerife Büşra ÜMİT IŞIK](https://akademik.duzce.edu.tr/sbusraumitisik)

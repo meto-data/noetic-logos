@@ -29,7 +29,7 @@
 .explorer {
   display: flex;
   flex-direction: column;
-  overflow-y: hidden;
+  overflow: visible;
 
   min-height: 1.2rem;
   flex: 0 1 auto;
@@ -108,8 +108,8 @@ button.desktop-explorer {
 
 .explorer-content {
   list-style: none;
-  overflow: hidden;
-  overflow-y: auto;
+  overflow: visible;
+  overflow-y: visible;
   margin-top: 0.5rem;
 
   & ul {

@@ -1,7 +1,3 @@
----
-created: 2026-03-15
----
-
 Fordizm temelde **kitle üretimi (mass production)** ile **kitle tüketiminin (mass consumption)** birleştirildiği ekonomik ve endüstriyel bir sistemdir. Sembolik olarak 1913-1914 yıllarında doğduğu kabul edilen Fordizm, Henry Ford'un 1908'de **Model T** aracını piyasayı sürmesinin ardından 1913'te fabrikasında **yürüyen montaj hattını** kurmuş, 1914'de ise işçilerine günlük 5 dolar ücret verme politikasını başlatarak bu sistemi tamamlamıştır.
 
 İşçilerin parçaların yanına gitmesi yerine, parçaların işçilerin önüne mekanik bir sistemle gelmesini sağlayan yürüyen montaj hattı Fordizmin üretimdeki en devrimsel icadı olsa gerek. Nitekim bu bantlar sayesinde üretim kesintisiz bir akış hâline getirilmiştir. Bu yenilik inanılmaz bir ivme yaratmış; örneğin bir otomobil şasisinin montaj süresi 12.5 saatten 2 saatin altına inmiş ve üretim hızı her 29 saniyede bir araç üretme gibi o dönem için hayal dahi edilemeyen bir kapasiteye ulaşmıştır.

@@ -8,7 +8,6 @@ parent: Kavramlar
 Kavramlar: "```dataview\rLIST from outgoing([[Kalite]])\r```"
 Konu: Üretim Yönetiminde Çağdaş Yaklaşımlar
 Ders: Üretim ve Hizmetler Yönetimi
-created: 2025-08-31
 ---
 Kalite, standartlara uyan bir ürünün/hizmetin kendisinin ve verildiği koşulların aynı kategorideki diğer ürünlere/hizmetlere ve verildiği koşullara kıyasen daha nitelikli olması durumudur.
 

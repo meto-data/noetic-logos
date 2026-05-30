@@ -336,3 +336,57 @@ function setFolderState(folderElement: HTMLElement, collapsed: boolean) {
 
   syncFolderItemState(folderElement)
 }
+
+// Sol ve Sağ sabit paneller için (desktop) wheel (tekerlek) kaydırma sorununu düzeltir.
+// Mouse koordinatlarını kontrol eder, Firefox ve farklı işletim sistemlerindeki yavaş kaydırma (line-mode)
+// sorunlarını gidermek için tekerlek hareketini normalleştirir ve hem ana paneli hem de
+// altındaki explorer/TOC elementlerini çift-yönlü olarak kaydırarak 100% kararlı çalışır.
+document.addEventListener("wheel", (e) => {
+  const x = e.clientX
+  const w = window.innerWidth
+
+  // Sadece masaüstü/tablet görünümünde (sabit paneller aktifken) çalıştır
+  if (w >= 800) {
+    const isTablet = w < 1200
+    const leftWidth = isTablet ? 285 : 345
+    const rightWidth = 280
+
+    // Delta normalizasyonu (Firefox ve bazı işletim sistemlerindeki yavaşlık sorununu çözer)
+    let delta = e.deltaY
+    if (e.deltaMode === 1) { // Satır modu (Firefox vb.)
+      delta *= 24
+    } else if (e.deltaMode === 2) { // Sayfa modu
+      delta *= window.innerHeight
+    }
+    const finalScrollAmount = delta * 1.5
+
+    // Sol Panel sınırlarındaysa (x: 0 ile panel genişliği arası)
+    if (x >= 0 && x <= leftWidth) {
+      const leftSidebar = document.querySelector(".sidebar.left") as HTMLElement | null
+      if (leftSidebar) {
+        e.preventDefault()
+        leftSidebar.scrollTop += finalScrollAmount
+        
+        // Eğer tarayıcı/tema scrollbarı explorer listesinin kendisine atadıysa onu da kaydır
+        const explorerUl = leftSidebar.querySelector(".explorer-ul") as HTMLElement | null
+        if (explorerUl) {
+          explorerUl.scrollTop += finalScrollAmount
+        }
+      }
+    } 
+    // Sağ Panel sınırlarındaysa (x: sağ panel başlangıcı ile ekran sonu arası)
+    else if (!isTablet && x >= (w - rightWidth) && x <= w) {
+      const rightSidebar = document.querySelector(".sidebar.right") as HTMLElement | null
+      if (rightSidebar) {
+        e.preventDefault()
+        rightSidebar.scrollTop += finalScrollAmount
+        
+        // İçerideki TOC veya backlinks listelerini de kaydır
+        const subScrollables = rightSidebar.querySelectorAll(".toc-content, .backlinks ul.overflow")
+        subScrollables.forEach((el) => {
+          (el as HTMLElement).scrollTop += finalScrollAmount
+        })
+      }
+    }
+  }
+}, { passive: false })

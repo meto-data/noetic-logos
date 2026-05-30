@@ -1,8 +1,8 @@
 ---
 title: Ana Sayfa
 date: 2025-01-01
-created: 2021-07-18
 ---
+
 # Noetic Logos
 
 Ekserisi Yönetim Bilişim Sistemleri özelinde olmak üzere ders notlarımı ve bilişime değgin muhtelif konulardaki araştırmalardan derlediğim notları kapsayan bir bilgi deposudur **Noetic Logos**. Bilişim patikasından saparak kimi zaman felsefeye ve psikolojiye değgin konulara da girilmekte ve yeri geldiğinde -ki epey seyrek- denemelerimi de paylaşmaktayım. 

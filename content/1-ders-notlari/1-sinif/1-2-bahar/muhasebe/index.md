@@ -2,7 +2,6 @@
 title: Muhasebe Uygulamaları
 tags:
   - akademi/dersler/muhasebe
-created: 2025-09-20
 ---
 Ders anlatımı hakkında konuşmayacağım, normalde gizli olmasını istediğim ve öğretmen ile aramızda geçen konuşmaları paylaşacağım o kadar, nihayetinde gizliliğe artık o kadar da gerek yok, epey zaman geçti üzerinden: [[Ders Anlatımı Hakkında – Muhasebe Uygulamaları.pdf#page=1&selection=4,10,4,12|Ders Anlatımı Hakkında – Muhasebe Uygulamaları]]
 

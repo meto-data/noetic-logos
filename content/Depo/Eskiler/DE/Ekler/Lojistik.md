@@ -1,6 +1,5 @@
 ---
 tags:
   - akademi/dersler/dijital-ekonomi
-created: 2025-08-31
 ---
 Lojistik, bir ürünün üretildiği yerden tüketildiği yere kadar geçen süreç boyunca yapılan tüm planlama, uygulama ve kontrol faaliyetlerinin tamamıdır.

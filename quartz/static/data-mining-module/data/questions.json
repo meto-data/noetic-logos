@@ -5920,41 +5920,6 @@
     ]
   },
   {
-    "id": "w04-q003",
-    "week": 4,
-    "topic": "karar-agaci-adult",
-    "type": "code",
-    "tags": [
-      "shape",
-      "dropna",
-      "duplicates"
-    ],
-    "sourceNotebook": "decision_tree.ipynb",
-    "question": "Notebook'taki gerçek akışa göre aşağıdaki kod çalıştırıldığında hangi boyut değişimi gözlenir?",
-    "code": "df = df.dropna()\ndf.shape\ndf.duplicated().sum()\ndf = df.drop_duplicates()\ndf.shape",
-    "options": {
-      "A": "Önce `(32561, 15)`, sonra `0`, sonra yine `(32561, 15)`",
-      "B": "Önce `(30162, 15)`, sonra `23`, sonra `(30139, 15)`",
-      "C": "Önce `(30139, 15)`, sonra `23`, sonra `(30162, 15)`",
-      "D": "Önce `(24111, 96)`, sonra `23`, sonra `(6028, 96)`",
-      "E": "Önce `(32561, 97)`, sonra `97`, sonra `(30139, 96)`"
-    },
-    "correct": "B",
-    "explanations": {
-      "A": "Yanlış. `dropna()` sonrası boyut düşer; duplicate sayısı da sıfır değildir.",
-      "B": "Doğru. `dropna()` sonrası veri `(30162, 15)` olur, `duplicated().sum()` 23 döndürür, `drop_duplicates()` sonrası `(30139, 15)` kalır.",
-      "C": "Yanlış. Sıra terstir; önce eksik veri temizliği yapılır, sonra duplicate silinir.",
-      "D": "Yanlış. Bu boyutlar train-test bölme sonrası özellik matrisine aittir.",
-      "E": "Yanlış. 97 sütun bilgisi encoding sonrasına aittir; burada hala 15 sütun vardır."
-    },
-    "relatedTerms": [
-      {
-        "term": "drop_duplicates",
-        "definition": "Tamamen aynı olan tekrar kayıtları veri setinden kaldıran Pandas metodu."
-      }
-    ]
-  },
-  {
     "id": "w04-q004",
     "week": 4,
     "topic": "karar-agaci-adult",
@@ -6026,41 +5991,6 @@
     ]
   },
   {
-    "id": "w04-q006",
-    "week": 4,
-    "topic": "karar-agaci-adult",
-    "type": "code",
-    "tags": [
-      "x-y",
-      "shape",
-      "feature-target"
-    ],
-    "sourceNotebook": "decision_tree.ipynb",
-    "question": "Aşağıdaki kodun beklenen çıktısı aşağıdakilerden hangisidir?",
-    "code": "X = df_encoded.drop(\"income\", axis=1)\ny = df_encoded[\"income\"]\nX.shape, y.shape",
-    "options": {
-      "A": "(30139, 97) (30139, 1)",
-      "B": "(30139, 96) (30139,)",
-      "C": "(32561, 15) (32561,)",
-      "D": "(24111, 96) (6028,)",
-      "E": "(30139, 15) (30139, 96)"
-    },
-    "correct": "B",
-    "explanations": {
-      "A": "Yanlış. `income` X'ten çıkarıldığı için X 97 değil 96 sütun içerir; y de tek boyutlu seridir.",
-      "B": "Doğru. Encoding sonrası 97 sütunlu tabloda hedef sütun ayrılınca X `(30139, 96)`, y ise `(30139,)` olur.",
-      "C": "Yanlış. Bu, encoding öncesi temiz veri boyutuna daha yakındır.",
-      "D": "Yanlış. Bu boyutlar train-test bölme sonrasına aittir.",
-      "E": "Yanlış. X ve y yer değiştirmiş gibi düşünülmüştür; böyle bir çıktı oluşmaz."
-    },
-    "relatedTerms": [
-      {
-        "term": "Özellik Matrisi (X)",
-        "definition": "Modelin giriş olarak kullandığı bağımsız değişkenler tablosu."
-      }
-    ]
-  },
-  {
     "id": "w04-q007",
     "week": 4,
     "topic": "karar-agaci-adult",
@@ -6092,41 +6022,6 @@
       {
         "term": "stratify",
         "definition": "Sınıf dağılımını bölme sırasında korumaya çalışan train-test parametresi."
-      }
-    ]
-  },
-  {
-    "id": "w04-q008",
-    "week": 4,
-    "topic": "karar-agaci-adult",
-    "type": "code",
-    "tags": [
-      "train-test",
-      "shape",
-      "split"
-    ],
-    "sourceNotebook": "decision_tree.ipynb",
-    "question": "Notebook'taki aşağıdaki hücrenin beklenen çıktısı hangisidir?",
-    "code": "X_train, X_test, y_train, y_test = train_test_split(\n    X, y,\n    test_size=0.2,\n    random_state=42,\n    stratify=y\n)\n\nX_train.shape, X_test.shape",
-    "options": {
-      "A": "((30139, 96), (30139, 96))",
-      "B": "((24111, 96), (6028, 96))",
-      "C": "((24111, 15), (6028, 15))",
-      "D": "((6028, 96), (24111, 96))",
-      "E": "((30139, 15), (30139, 1))"
-    },
-    "correct": "B",
-    "explanations": {
-      "A": "Yanlış. Train-test ayrımı sonrası iki parçanın boyutu böyle kalmaz.",
-      "B": "Doğru. Notebook'ta X toplam 30139 satır içerir; `%20` test ayrımı sonrası çıktı `((24111, 96), (6028, 96))` olur.",
-      "C": "Yanlış. 15 sütun encoding öncesi yapıya aittir.",
-      "D": "Yanlış. Sıra `X_train.shape, X_test.shape` olduğu için önce eğitim boyutu gelir.",
-      "E": "Yanlış. Bu çıktı X ve y ayrımına aittir, train-test split çıktısına değil."
-    },
-    "relatedTerms": [
-      {
-        "term": "Train-Test Bölme",
-        "definition": "Veriyi eğitim ve değerlendirme amaçlı iki parçaya ayırma işlemi."
       }
     ]
   },
@@ -6201,42 +6096,6 @@
     ]
   },
   {
-    "id": "w04-q011",
-    "week": 4,
-    "topic": "karar-agaci-adult",
-    "type": "code",
-    "tags": [
-      "accuracy",
-      "metric",
-      "accuracy",
-      "yorum"
-    ],
-    "sourceNotebook": "decision_tree.ipynb",
-    "question": "Notebook'ta aşağıdaki satır yaklaşık `0.8389` değeri yazdırıyorsa bu sayı en doğru biçimde neyi ifade eder?",
-    "code": "print(\"Decision Tree Accuracy:\", accuracy_score(y_test, y_pred_dt))",
-    "options": {
-      "A": "Modelin eğitim verisindeki yaprak düğüm sayısını",
-      "B": "Test verisinde doğru tahmin oranını",
-      "C": "Veri setindeki toplam sütun sayısını",
-      "D": "Sadece pozitif sınıf için recall değerini",
-      "E": "Confusion matrix içindeki false positive oranını"
-    },
-    "correct": "B",
-    "explanations": {
-      "A": "Yanlış. Yaprak sayısı farklı bir model özelliğidir.",
-      "B": "Doğru. `accuracy_score`, gerçek etiketlerle tahminlerin ne oranda eşleştiğini, yani test başarısını verir.",
-      "C": "Yanlış. Sütun sayısı 96'dır; accuracy bununla ilgili değildir.",
-      "D": "Yanlış. Recall sınıf bazlı ayrı bir metriktir; accuracy genel başarı oranıdır.",
-      "E": "Yanlış. False positive oranı confusion matrix üzerinden ayrıca yorumlanır."
-    },
-    "relatedTerms": [
-      {
-        "term": "Accuracy",
-        "definition": "Doğru tahmin sayısının toplam tahmin sayısına oranı."
-      }
-    ]
-  },
-  {
     "id": "w04-q012",
     "week": 4,
     "topic": "karar-agaci-adult",
@@ -6303,41 +6162,6 @@
       {
         "term": "Feature Mismatch",
         "definition": "Eğitim ve tahmin verilerinin sütun uzaylarının uyuşmaması durumu."
-      }
-    ]
-  },
-  {
-    "id": "w04-q014",
-    "week": 4,
-    "topic": "karar-agaci-adult",
-    "type": "code",
-    "tags": [
-      "predict",
-      "new-person",
-      "output"
-    ],
-    "sourceNotebook": "decision_tree.ipynb",
-    "question": "Notebook'taki aynı `new_person` örneği için aşağıdaki kod çalıştırıldığında beklenen çıktı hangisidir?",
-    "code": "prediction = dt_model.predict(new_person_encoded)\n\nprediction",
-    "options": {
-      "A": "`0`",
-      "B": "`[0]`",
-      "C": "`1`",
-      "D": "`[1]`",
-      "E": "`'>50K'`"
-    },
-    "correct": "D",
-    "explanations": {
-      "A": "Yanlış. `predict` burada tek başına skaler integer değil, dizi döndürür.",
-      "B": "Yanlış. Notebook'taki örnek kişi için model negatif değil pozitif sınıf tahmini üretir.",
-      "C": "Yanlış. Tahmin sınıfı 1 olsa da çıktı dizi biçimindedir.",
-      "D": "Doğru. `predict` tek kayıt için bile bir dizi döndürür ve notebook'taki örnekte çıktı `[1]` olur.",
-      "E": "Yanlış. Model sayısal kodlu hedef üzerinde çalıştığı için metin etiket değil sayısal sınıf döndürür."
-    },
-    "relatedTerms": [
-      {
-        "term": "predict",
-        "definition": "Eğitilmiş modelin yeni veriler için sınıf veya değer tahmini üretmesini sağlayan metod."
       }
     ]
   },
@@ -9317,41 +9141,6 @@
     ]
   },
   {
-    "id": "w05-q010",
-    "week": 5,
-    "topic": "knn-modelleme",
-    "type": "code",
-    "tags": [
-      "for_loop",
-      "accuracy_score",
-      "knn"
-    ],
-    "sourceNotebook": "knn.ipynb",
-    "question": "Aşağıdaki kod bloğunda farklı K değerleri için KNN modelinin performansı test edilerek `scores` listesine kaydedilmek istenmektedir. Kodu işlevsel hale getirmek için # EKSİK SATIR yerine ne yazılmalıdır?",
-    "code": "k_values = range(1, 21)\nscores = []\n\nfor k in k_values:\n    model = KNeighborsClassifier(n_neighbors=k)\n    model.fit(X_train_scaled, y_train)\n    pred = model.predict(X_test_scaled)\n    # EKSİK SATIR",
-    "options": {
-      "A": "scores.append(confusion_matrix(y_test, pred))",
-      "B": "model.score(X_test_scaled, y_test)",
-      "C": "scores.append(k_values)",
-      "D": "scores.append(accuracy_score(y_test, pred))",
-      "E": "accuracy_score = model.predict(X_test_scaled)"
-    },
-    "correct": "D",
-    "explanations": {
-      "A": "Yanlış. Karmaşıklık matrisi (confusion matrix) listeye eklenebilir ancak grafiğini çizmek için tek bir performans metriği (örneğin accuracy) gereklidir. Matris, y ekseninde gösterilemez.",
-      "B": "Yanlış. Bu satır skoru hesaplar ancak `scores` listesine eklemediği (append) için değerler kaybolur.",
-      "C": "Yanlış. Bu işlem K değerlerinin kendisini listeye ekler, modelin başarımını ölçmez.",
-      "D": "Doğru. Her bir K değeri için üretilen tahminlerin (pred) gerçek değerlerle (y_test) karşılaştırılarak hesaplanan doğruluk skoru (accuracy_score) `append` fonksiyonu ile `scores` listesine eklenmelidir.",
-      "E": "Yanlış. `accuracy_score` bir fonksiyondur, bu atama Python'da fonksiyonu ezer ve sentaks hatasına yol açar."
-    },
-    "relatedTerms": [
-      {
-        "term": "Model Tuning",
-        "definition": "Bir makine öğrenmesi algoritmasının hiperparametrelerini (örneğin KNN için K değeri) test ederek en iyi performansı veren değeri bulma süreci."
-      }
-    ]
-  },
-  {
     "id": "w05-q011",
     "week": 5,
     "topic": "knn-modelleme",
@@ -9628,41 +9417,6 @@
     ]
   },
   {
-    "id": "w05-q019",
-    "week": 5,
-    "topic": "veri-kesfi",
-    "type": "code",
-    "tags": [
-      "value_counts",
-      "normalize",
-      "pandas"
-    ],
-    "sourceNotebook": "random_forest.ipynb",
-    "question": "Aşağıdaki Pandas kod satırının sonuna eklenen `normalize=True` parametresinin çıktısı üzerindeki etkisi hangisidir?",
-    "code": "df[\"target\"].value_counts(normalize=True).sort_index()",
-    "options": {
-      "A": "Sınıfların frekanslarını (adetlerini) doğrudan göstermek yerine, her sınıfın veri seti içindeki yüzdelik (oransal) dağılımını gösterir.",
-      "B": "Hedef değişken içindeki aykırı değerleri (outliers) normalize ederek siler.",
-      "C": "Sınıf dağılımlarını büyükten küçüğe doğru otomatik olarak sıralar.",
-      "D": "Sayısal sınıfları 0 ile 1 aralığında Min-Max metoduyla ölçeklendirir.",
-      "E": "Eksik değerlerin (NaN) oranını hesaplayarak çıktıya ekler."
-    },
-    "correct": "A",
-    "explanations": {
-      "A": "Doğru. `value_counts()` normalde o sınıftan kaç adet olduğunu (örn: 211840) döndürürken, `normalize=True` parametresi bu adedi toplam satır sayısına bölerek (örn: 0.364) sınıfın oransal ağırlığını verir.",
-      "B": "Yanlış. Outlier silme işlemi yapmaz.",
-      "C": "Yanlış. Sıralama işlemini `value_counts` kendisi veya sonuna eklenen `sort_index()` / `sort_values()` yapar.",
-      "D": "Yanlış. Makine öğrenmesindeki Min-Max ölçeklendirmesi ile Pandas'taki `normalize` parametresinin isim benzerliği dışında bir ilgisi yoktur.",
-      "E": "Yanlış. `value_counts` varsayılan olarak NaN değerleri dahil etmez, bunun için `dropna=False` kullanılmalıdır."
-    },
-    "relatedTerms": [
-      {
-        "term": "Class Imbalance (Sınıf Dengesizliği)",
-        "definition": "Sınıflandırma problemlerinde hedef değişkenin kategorileri arasında büyük bir oransal eşitsizlik bulunması durumu."
-      }
-    ]
-  },
-  {
     "id": "w05-q020",
     "week": 5,
     "topic": "veri-hazirligi",
@@ -9871,40 +9625,6 @@
     ]
   },
   {
-    "id": "w05-q026",
-    "week": 5,
-    "topic": "veri-kesfi",
-    "type": "code",
-    "tags": [
-      "pandas",
-      "describe"
-    ],
-    "sourceNotebook": "knn.ipynb",
-    "question": "Aşağıdaki Pandas kodunun çıktısı olan tablo (mean, std, min, 25%, max vb. değerler) incelendiğinde, bu işlemin veri madenciliği projesindeki temel amacı nedir?",
-    "code": "# Sayısal özelliklerin temel istatistikleri\ndf.describe().T",
-    "options": {
-      "A": "Metin tabanlı kategorik değişkenlerin frekans dağılımlarını hesaplamak.",
-      "B": "Veri setindeki sayısal sütunların ölçek farklılıklarını (min-max), merkezi eğilimlerini (ortalama) ve dağılımını görerek StandardScaler gibi ön işleme adımlarına karar vermek.",
-      "C": "Eğitim ve test veri setlerinin accuracy skorlarını karşılaştırmak.",
-      "D": "Veri setindeki sütunlar arasındaki çoklu doğrusal bağlantıyı (korelasyonu) ölçmek.",
-      "E": "Hedef değişkenin (target) veri seti içindeki oransal dağılımını (class imbalance) tespit etmek."
-    },
-    "correct": "B",
-    "explanations": {
-      "A": "Yanlış. `describe()` varsayılan olarak sadece sayısal (numeric) sütunlar için istatistik üretir.",
-      "B": "Doğru. `describe().T` çıktısı ile sütunların minimum, maksimum, ortalama ve standart sapma değerleri incelenir. Örneğin bir sütun 0-1 arasında iken diğeri 100-2500 arasındaysa, KNN gibi mesafeye duyarlı algoritmalar için ölçeklendirme (Scaling) yapılması gerektiğine karar verilir.",
-      "C": "Yanlış. Skorlar modelleme sonrası `score` veya `accuracy_score` ile bulunur.",
-      "D": "Yanlış. Korelasyon `df.corr()` ile ölçülür.",
-      "E": "Yanlış. Hedef değişken dağılımı `value_counts()` ile tespit edilir."
-    },
-    "relatedTerms": [
-      {
-        "term": "Descriptive Statistics (Betimsel İstatistikler)",
-        "definition": "Bir veri setinin temel özelliklerini (ortalama, medyan, standart sapma vb.) özetleyen istatistiksel ölçümler."
-      }
-    ]
-  },
-  {
     "id": "w05-q027",
     "week": 5,
     "topic": "random-forest",
@@ -10009,41 +9729,6 @@
     ]
   },
   {
-    "id": "w05-q030",
-    "week": 5,
-    "topic": "gorsellestirme",
-    "type": "code",
-    "tags": [
-      "matplotlib",
-      "plot",
-      "model_tuning"
-    ],
-    "sourceNotebook": "knn.ipynb",
-    "question": "Optimal K değerini bulmak için yazılan döngünün (for k in k_values) ardından aşağıdaki görselleştirme kodu çalıştırılmıştır. Bu grafiğin yorumlanması sonucunda elde edilecek bilgi nedir?",
-    "code": "plt.figure(figsize=(8,5))\nplt.plot(k_values, scores, marker=\"o\")\nplt.title(\"K Değerine Göre KNN Performansı\")\nplt.xlabel(\"K değeri\")\nplt.ylabel(\"Accuracy\")\nplt.show()",
-    "options": {
-      "A": "Veri setindeki eksik değerlerin K sayısına göre nasıl azaldığı.",
-      "B": "Modelin eğitim süresinin K parametresi arttıkça ne kadar uzadığı.",
-      "C": "K-En Yakın Komşu modelinde komşu sayısının (K) değişimine karşılık modelin doğruluk (Accuracy) skorunun nasıl değiştiği ve en yüksek skorun hangi K değerinde alındığı.",
-      "D": "Karar ağacının derinliğinin (K) test verisi üzerindeki overfitting etkisi.",
-      "E": "Hangi özniteliklerin (features) sınıflandırmada daha önemli olduğu."
-    },
-    "correct": "C",
-    "explanations": {
-      "A": "Yanlış. Grafiğin y ekseni Accuracy, eksik verilerle ilgisi yoktur.",
-      "B": "Yanlış. Y ekseni eğitim süresini değil, modelin başarısını (Accuracy) göstermektedir.",
-      "C": "Doğru. `plt.plot(k_values, scores)` kodu, X eksenine K değerlerini (1, 2, 3... 20), Y eksenine ise bu K değerlerine karşılık gelen accuracy skorlarını çizer. Zirve (pik) noktası, modelin en başarılı olduğu optimal K değerini gösterir.",
-      "D": "Yanlış. K değeri ağaç derinliği değil, KNN algoritmasındaki komşu sayısıdır.",
-      "E": "Yanlış. Öznitelik önemi `feature_importances_` ile elde edilir ve bar grafiğiyle gösterilir."
-    },
-    "relatedTerms": [
-      {
-        "term": "Hiperparametre Optimizasyonu",
-        "definition": "Bir makine öğrenmesi modelinin performansını en üst düzeye çıkarmak için modelin eğitim öncesi ayarlanan parametrelerinin (hiperparametreler) en iyi kombinasyonunu bulma işlemi."
-      }
-    ]
-  },
-  {
     "id": "w05-q031",
     "week": 5,
     "topic": "karar-agaci",
@@ -10075,146 +9760,6 @@
       {
         "term": "Underfitting / Overfitting",
         "definition": "Modelin veriyi yeterince öğrenememesi (Underfitting) veya verideki her detayı ve gürültüyü ezberleyerek yeni verilerde başarısız olması (Overfitting)."
-      }
-    ]
-  },
-  {
-    "id": "w05-q032",
-    "week": 5,
-    "topic": "veri-kesfi",
-    "type": "code",
-    "tags": [
-      "countplot",
-      "sinif-dagilimi",
-      "seaborn"
-    ],
-    "sourceNotebook": "knn.ipynb",
-    "question": "Veri keşfi (EDA) aşamasında hedef değişkenin (target) dağılımını görmek için aşağıdaki kod çalıştırılmıştır. Bu grafiğin sonucunda sınıflar arasında büyük bir fark (örneğin hedef 1: 500 adet, hedef 0: 50 adet) görülmesi veri madenciliği için ne anlama gelir?",
-    "code": "sns.countplot(x=\"target\", data=df)\nplt.title(\"Sınıf Dağılımı\")\nplt.show()",
-    "options": {
-      "A": "Sayısal öznitelikler arasında yüksek bir korelasyon (multicollinearity) olduğunu gösterir.",
-      "B": "Test veri setinin eğitim veri setinden daha büyük olduğunu kanıtlar.",
-      "C": "Hedef değişkende Sınıf Dengesizliği (Class Imbalance) problemi olduğunu gösterir ve modelin çoğunluk sınıfına taraflı (biased) olabileceği uyarısını verir.",
-      "D": "Karar ağacı algoritmasının bu veri seti için kullanılamayacağını, sadece KNN kullanılması gerektiğini gösterir.",
-      "E": "Veri setinde çok fazla eksik değer (NaN) bulunduğunu işaret eder."
-    },
-    "correct": "C",
-    "explanations": {
-      "A": "Yanlış. Korelasyon, bağımsız değişkenler (X) arasındaki ilişkiyi inceler. Bu grafik sadece tek bir hedef sütunun adetlerini gösterir.",
-      "B": "Yanlış. Eğitim/test ayrımı henüz yapılmamış, tüm `df` üzerinden grafik çizilmiştir.",
-      "C": "Doğru. `countplot` sınıfların sayısını çubuk grafik olarak verir. Biri 500, diğeri 50 ise Sınıf Dengesizliği (Imbalance) vardır. Algoritma kolaya kaçıp her şeye çoğunluk sınıfını tahmin etme eğilimine girebilir.",
-      "D": "Yanlış. Karar ağaçları sınıf dengesizliğine rağmen kullanılabilir, ancak gerekirse `class_weight` parametresi ile dengelenmelidir.",
-      "E": "Yanlış. Eksik değerler bu grafikten doğrudan anlaşılamaz."
-    },
-    "relatedTerms": [
-      {
-        "term": "Class Imbalance",
-        "definition": "Veri setindeki hedef sınıf örneklerinin birbirine yakın oranda olmaması durumu (Örn: %95 Sağlam, %5 Hatalı üretim)."
-      }
-    ]
-  },
-  {
-    "id": "w05-q033",
-    "week": 5,
-    "topic": "veri-yapisi",
-    "type": "code",
-    "tags": [
-      "shape",
-      "pandas",
-      "boyut"
-    ],
-    "sourceNotebook": "random_forest.ipynb",
-    "question": "Veri setinin eğitim ve test olarak ayrılmasının hemen ardından boyut kontrolü yapılmış ve aşağıdaki çıktı elde edilmiştir. Bu çıktıya göre eğitim (X_train) ve test (X_test) verilerinin satır ve sütun sayıları aşağıdakilerden hangisinde doğru yorumlanmıştır?",
-    "code": "X_train.shape, X_test.shape\n# Çıktı: ((464809, 54), (116203, 54))",
-    "options": {
-      "A": "Eğitim setinde 464809 sütun, 54 satır; test setinde ise 116203 sütun, 54 satır vardır.",
-      "B": "Eğitim setinde 54 sınıf, test setinde 54 hedef değişken bulunmaktadır.",
-      "C": "Veri seti 464809 adet ağaç (estimator) kullanılarak eğitilmiş ve 116203 kez test edilmiştir.",
-      "D": "Eğitim seti 464809 satır ve 54 sütundan (öznitelik); test seti ise 116203 satır ve aynı 54 sütundan oluşmaktadır.",
-      "E": "Model %54 accuracy ile eğitilmiş, %54 accuracy ile test edilmiştir."
-    },
-    "correct": "D",
-    "explanations": {
-      "A": "Yanlış. Pandas'ta `.shape` fonksiyonu her zaman (Satır Sayısı, Sütun Sayısı) tuple'ını döndürür. Satır ve sütun yer değiştirmiştir.",
-      "B": "Yanlış. Sınıf sayısını (target) göstermez, X veri setinin boyutunu gösterir.",
-      "C": "Yanlış. Ağaç sayısıyla (n_estimators) ilgisi yoktur.",
-      "D": "Doğru. `shape` çıktısındaki ilk eleman satır (örnek/gözlem) sayısını, ikinci eleman ise sütun (feature/öznitelik) sayısını verir. X_train için 464,809 satır ve 54 sütun vardır.",
-      "E": "Yanlış. Çıktı veri boyutunu gösterir, modelin başarı skorunu değil."
-    },
-    "relatedTerms": [
-      {
-        "term": "Dimensionality (Boyutsallık)",
-        "definition": "Bir veri setindeki değişken (sütun/öznitelik) sayısını ifade eder. Pandas'ta .shape ile sorgulanır."
-      }
-    ]
-  },
-  {
-    "id": "w05-q034",
-    "week": 5,
-    "topic": "gorsellestirme",
-    "type": "code",
-    "tags": [
-      "plot",
-      "barh",
-      "feature_importances"
-    ],
-    "sourceNotebook": "r_forest.ipynb",
-    "question": "Random Forest modelinde öznitelik önem derecelerini (feature_importances_) bulduktan sonra, sonuçları yatay sütun grafiği şeklinde ekrana çizdirmek için `plot` fonksiyonunun içine hangi parametre eklenmiştir?",
-    "code": "# Grafik olarak gösterelim\nrf_importance.sort_values(ascending=False).head(10).plot(\n    # EKSİK PARAMETRE\n    figsize=(8,5)\n)\nplt.title(\"Random Forest - En Önemli 10 Özellik\")\nplt.show()",
-    "options": {
-      "A": "kind=\"pie\"",
-      "B": "kind=\"barh\"",
-      "C": "kind=\"scatter\"",
-      "D": "kind=\"hist\"",
-      "E": "kind=\"line\""
-    },
-    "correct": "B",
-    "explanations": {
-      "A": "Yanlış. 'pie' pasta grafiği (pie chart) çizer.",
-      "B": "Doğru. Pandas'ın yerleşik `.plot()` fonksiyonunda `kind=\"barh\"` (horizontal bar) parametresi kullanıldığında veriler yatay çubuk grafik olarak çizilir. Bu, uzun öznitelik isimlerinin (feature names) okunabilirliği için sıklıkla tercih edilir.",
-      "C": "Yanlış. 'scatter' dağılım (nokta) grafiği çizer ve iki değişkene ihtiyaç duyar.",
-      "D": "Yanlış. 'hist' histogram çizer.",
-      "E": "Yanlış. 'line' çizgi grafiği çizer."
-    },
-    "relatedTerms": [
-      {
-        "term": "Barh (Horizontal Bar Plot)",
-        "definition": "Kategorik verilerin yatay çubuklar kullanılarak gösterildiği ve kategorilerin genellikle Y ekseninde yer aldığı grafik türü."
-      }
-    ]
-  },
-  {
-    "id": "w05-q035",
-    "week": 5,
-    "topic": "veri-donusumu",
-    "type": "code",
-    "tags": [
-      "one-hot-encoding",
-      "get_dummies",
-      "pandas"
-    ],
-    "sourceNotebook": "r_forest.ipynb",
-    "question": "Adult veri seti üzerinde çalışılırken sütun sayısı 15 iken, Pandas ile bir işlem uygulandıktan sonra sütun sayısı 97'ye çıkmıştır. Aşağıdaki kodlardan hangisi veri madenciliğinde bu sütun patlamasına (column expansion) yol açan işlemdir?",
-    "code": "# İşlem öncesi df.shape: (30139, 15)\n# İşlem sonrası df.shape: (30139, 97)",
-    "options": {
-      "A": "df_encoded = pd.get_dummies(df, drop_first=True)",
-      "B": "df = df.replace(\"?\", np.nan)",
-      "C": "df_encoded = StandardScaler().fit_transform(df)",
-      "D": "df = df.dropna()",
-      "E": "df[\"income\"] = df[\"income\"].apply(lambda x: 1 if \">50K\" in x else 0)"
-    },
-    "correct": "A",
-    "explanations": {
-      "A": "Doğru. `get_dummies` fonksiyonu One-Hot Encoding işlemi yapar. Kategorik bir sütunun içinde örneğin 40 farklı ülke varsa, veri setine bu ülkeleri temsil eden 40 adet yeni 0-1 sütunu ekler. Sütun sayısındaki devasa artışın sebebi budur.",
-      "B": "Yanlış. Sadece hücre içindeki değerleri değiştirir, boyut aynı kalır.",
-      "C": "Yanlış. StandardScaler sayısal verileri ölçeklendirir, mevcut sütunların değerlerini değiştirir ancak yeni sütun eklemez.",
-      "D": "Yanlış. `dropna()` satır (row) siler, sütun sayısını değiştirmez.",
-      "E": "Yanlış. Sadece mevcut tek bir sütunun (income) içindeki metinleri sayıya (1-0) çevirir, sütun eklemez."
-    },
-    "relatedTerms": [
-      {
-        "term": "Curse of Dimensionality (Boyutluluk Laneti)",
-        "definition": "Veri setindeki değişken (sütun) sayısının çok fazla artması durumunda modellerin eğitiminin zorlaşması ve aşırı öğrenme (overfitting) riskinin artması."
       }
     ]
   },
@@ -18027,8 +17572,8 @@
       "type-conversion"
     ],
     "sourceNotebook": "airline_passenger_prediction_using_lstm.ipynb",
-    "question": "Aşağıdaki kod bloğu çalıştırıldıktan sonra `data` değişkeninin veri tipi nedir ve makine öğrenmesi modelleri için neden hemen ardından bir dönüşüm işlemine ihtiyaç duyulur?\n\n```python\ndata = pd.read_csv('AirPassengers.csv')\ndata.rename(columns={'#Passengers':'passengers'},inplace=True)\ndata = data['passengers']\n```",
-    "code": null,
+    "question": "Aşağıdaki kod bloğu çalıştırıldıktan sonra `data` değişkeninin veri tipi nedir ve makine öğrenmesi modelleri için neden hemen ardından bir dönüşüm işlemine ihtiyaç duyulur?",
+    "code": "data = pd.read_csv('AirPassengers.csv')\ndata.rename(columns={'#Passengers':'passengers'},inplace=True)\ndata = data['passengers']",
     "options": {
       "A": "Veri tipi 'DataFrame' olarak kalır; LSTM modelleri sadece DataFrame kabul ettiği için doğrudan modele verilebilir.",
       "B": "Veri tipi 'Pandas Series' haline gelir; ancak matematiksel ölçeklendirme (MinMaxScaler) ve LSTM matris işlemleri için bu verinin 2 boyutlu bir NumPy dizisine dönüştürülmesi gerekir.",
@@ -18062,8 +17607,8 @@
       "array"
     ],
     "sourceNotebook": "airline_passenger_prediction_using_lstm.ipynb",
-    "question": "Aşağıdaki kod parçasında kullanılan `reshape(-1, 1)` işleminin temel amacı aşağıdakilerden hangisidir?\n\n```python\ndata = np.array(data).reshape(-1, 1)\n```",
-    "code": null,
+    "question": "Aşağıdaki kod parçasında kullanılan `reshape(-1, 1)` işleminin temel amacı aşağıdakilerden hangisidir?",
+    "code": "data = np.array(data).reshape(-1, 1)",
     "options": {
       "A": "Verideki eksik (NaN) değerleri silerek dizinin boyutunu otomatik olarak küçültmek.",
       "B": "Diziyi tersine çevirerek (sondan başa doğru) zaman serisi tahminine uygun hale getirmek.",
@@ -18097,8 +17642,8 @@
       "indexing"
     ],
     "sourceNotebook": "airline_passenger_prediction_using_lstm.ipynb",
-    "question": "Aşağıdaki kod parçası ile veri eğitim ve test seti olarak ayrılmaktadır.\n\n```python\ntrain = data[0:110,:]\ntest = data[110:,:]\n```\n\nZaman serilerinde veri ayırma işlemi yapılırken `sklearn.model_selection.train_test_split` fonksiyonu kullanılarak rastgele bir ayırım yapmak yerine, kodda görüldüğü gibi manuel ve sıralı bir indeksleme (0'dan 110'a, 110'dan sona) yapılmasının en temel nedeni nedir?",
-    "code": null,
+    "question": "Aşağıdaki kod parçası ile veri eğitim ve test seti olarak ayrılmaktadır.\nZaman serilerinde veri ayırma işlemi yapılırken `sklearn.model_selection.train_test_split` fonksiyonu kullanılarak rastgele bir ayırım yapmak yerine, kodda görüldüğü gibi manuel ve sıralı bir indeksleme (0'dan 110'a, 110'dan sona) yapılmasının en temel nedeni nedir?",
+    "code": "train = data[0:110,:]\ntest = data[110:,:]",
     "options": {
       "A": "Keras modellerinin sadece manuel olarak bölünmüş verileri kabul edebilmesi.",
       "B": "Zaman serilerinde olayların birbirine kronolojik olarak bağlı olması ve rastgele bölmenin zamanın akış (örüntü) yapısını bozacak olması.",
@@ -18132,8 +17677,8 @@
       "indexing"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Borsa fiyatı tahmini uygulamasında veriler aşağıdaki gibi iki ayrı gruba bölünmüştür:\n\n```python\ntraining_set = dataset[:'2016'].iloc[:,1:2].values\ntest_set = dataset['2017':].iloc[:,1:2].values\n```\n\nBu kodun herhangi bir hata üretmeden, verileri yıllara göre başarıyla filtreleyebilmesinin altyapısındaki ana sebep aşağıdakilerden hangisidir?",
-    "code": null,
+    "question": "Borsa fiyatı tahmini uygulamasında veriler aşağıdaki gibi iki ayrı gruba bölünmüştür:\nBu kodun herhangi bir hata üretmeden, verileri yıllara göre başarıyla filtreleyebilmesinin altyapısındaki ana sebep aşağıdakilerden hangisidir?",
+    "code": "training_set = dataset[:'2016'].iloc[:,1:2].values\ntest_set = dataset['2017':].iloc[:,1:2].values",
     "options": {
       "A": "`iloc` fonksiyonunun doğrudan string formatındaki yılları anlayıp ona göre satır atlayabilmesi.",
       "B": "Borsa verilerinde her zaman ilk 2016 satırın eğitim verisi olarak kabul edilmesi.",
@@ -18167,8 +17712,8 @@
       "for-loop"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Aşağıdaki döngü, LSTM modeline verilecek eğitim verisini oluşturmaktadır:\n\n```python\nX_train = []\ny_train = []\nfor i in range(60, 2769):\n    X_train.append(training_set_scaled[i-60:i, 0])\n    y_train.append(training_set_scaled[i, 0])\n```\n\nBu kod bloğunun veri madenciliği sürecindeki amacı ve ürettiği `X_train` ile `y_train` yapısının mantığı nedir?",
-    "code": null,
+    "question": "Aşağıdaki döngü, LSTM modeline verilecek eğitim verisini oluşturmaktadır:\nBu kod bloğunun veri madenciliği sürecindeki amacı ve ürettiği `X_train` ile `y_train` yapısının mantığı nedir?",
+    "code": "X_train = []\ny_train = []\nfor i in range(60, 2769):\n    X_train.append(training_set_scaled[i-60:i, 0])\n    y_train.append(training_set_scaled[i, 0])",
     "options": {
       "A": "Verideki her 60 satırı bir araya getirip ortalamasını alarak modeli eğitmek ve 2769. güne ait tek bir tahminde bulunmak.",
       "B": "Önceki 60 zaman adımındaki (günlük) borsa fiyatlarını özellik (X) olarak alıp, tam olarak 61. günün borsa fiyatını hedef (y) etiket olarak ayarlamak.",
@@ -18202,8 +17747,8 @@
       "array"
     ],
     "sourceNotebook": "airline_passenger_prediction_using_lstm.ipynb",
-    "question": "Zaman serisi verisini hazırlamak için aşağıdaki fonksiyon yazılmıştır:\n\n```python\ndef get_data(data, steps):      \n    dataX = []\n    dataY = []\n    for i in range(len(data)-steps-1):\n        a = data[i:(i+steps), 0]\n        dataX.append(a)\n        dataY.append(data[i+steps, 0])\n    return np.array(dataX), np.array(dataY)\n```\n\nEğer fonksiyona `data = [[112], [118], [132], [129], [121]]` dizisi ve `steps = 2` değeri verilirse, fonksiyonun döngüsünün ilk iterasyonunda (yani `i=0` iken) listelere hangi değerler `append` edilir?",
-    "code": null,
+    "question": "Zaman serisi verisini hazırlamak için aşağıdaki fonksiyon yazılmıştır:\nEğer fonksiyona `data = [[112], [118], [132], [129], [121]]` dizisi ve `steps = 2` değeri verilirse, fonksiyonun döngüsünün ilk iterasyonunda (yani `i=0` iken) listelere hangi değerler `append` edilir?",
+    "code": "def get_data(data, steps):      \n    dataX = []\n    dataY = []\n    for i in range(len(data)-steps-1):\n        a = data[i:(i+steps), 0]\n        dataX.append(a)\n        dataY.append(data[i+steps, 0])\n    return np.array(dataX), np.array(dataY)",
     "options": {
       "A": "dataX'e `[112]`, dataY'ye `[118]` eklenir.",
       "B": "dataX'e `[112, 118, 132]`, dataY'ye `[129]` eklenir.",
@@ -18237,8 +17782,8 @@
       "dimensions"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Oluşturulan eğitim dizisi `X_train`, LSTM modeline verilmeden hemen önce aşağıdaki gibi yeniden şekillendirilmektedir:\n\n```python\nX_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1))\n```\n\nBu satırdaki `1` parametresi neyi temsil etmektedir ve neden bu yeniden şekillendirmeye ihtiyaç duyulur?",
-    "code": null,
+    "question": "Oluşturulan eğitim dizisi `X_train`, LSTM modeline verilmeden hemen önce aşağıdaki gibi yeniden şekillendirilmektedir:\nBu satırdaki `1` parametresi neyi temsil etmektedir ve neden bu yeniden şekillendirmeye ihtiyaç duyulur?",
+    "code": "X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1))",
     "options": {
       "A": "Çıktı katmanındaki nöron sayısını temsil eder; modelin tek bir tahmin (fiyat) yapacağını belirtir.",
       "B": "Zaman adımı sayısını temsil eder; modelin bir önceki güne bakacağını Keras'a bildirir.",
@@ -18272,8 +17817,8 @@
       "return_sequences"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Aşağıda bir ardışık model (Sequential) kurulumunun bir kesiti yer almaktadır:\n\n```python\nregressor = Sequential()\nregressor.add(LSTM(units=50, return_sequences=True, input_shape=(X_train.shape[1],1)))\nregressor.add(LSTM(units=50, return_sequences=True))\nregressor.add(LSTM(units=50))\nregressor.add(Dense(units=1))\n```\n\nBu kod bloğunda, ilk iki LSTM katmanında `return_sequences=True` kullanılırken, üçüncü LSTM katmanında bu parametre **kullanılmamıştır** (varsayılan olarak False olmuştur). Bunun teknik sebebi aşağıdakilerden hangisidir?",
-    "code": null,
+    "question": "Aşağıda bir ardışık model (Sequential) kurulumunun bir kesiti yer almaktadır:\nBu kod bloğunda, ilk iki LSTM katmanında `return_sequences=True` kullanılırken, üçüncü LSTM katmanında bu parametre **kullanılmamıştır** (varsayılan olarak False olmuştur). Bunun teknik sebebi aşağıdakilerden hangisidir?",
+    "code": "regressor = Sequential()\nregressor.add(LSTM(units=50, return_sequences=True, input_shape=(X_train.shape[1],1)))\nregressor.add(LSTM(units=50, return_sequences=True))\nregressor.add(LSTM(units=50))\nregressor.add(Dense(units=1))",
     "options": {
       "A": "İlk iki katman veri hazırlığı yaptığı için sadece 50 döngü üretir, üçüncü katman ise Dropout uygulamak için doğrudan modeli kapatır.",
       "B": "Peş peşe eklenen LSTM katmanlarının birbirine veri aktarabilmesi için, her bir zaman adımı dizisinin (sequence) tam olarak bir sonraki LSTM'ye geçmesi gerekir. Son LSTM ise artık tek bir özet vektör çıkarıp onu `Dense` katmanına aktarır.",
@@ -18307,8 +17852,8 @@
       "overfitting"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Model kurulum aşamasında düzenli olarak `Dropout` katmanları eklenmiştir:\n\n```python\nregressor.add(LSTM(units=50, return_sequences=True))\nregressor.add(Dropout(0.2))\n```\n\n`Dropout(0.2)` satırının bu aşamada üstlendiği görev ve beklenen sonuç aşağıdakilerden hangisidir?",
-    "code": null,
+    "question": "Model kurulum aşamasında düzenli olarak `Dropout` katmanları eklenmiştir:\n`Dropout(0.2)` satırının bu aşamada üstlendiği görev ve beklenen sonuç aşağıdakilerden hangisidir?",
+    "code": "regressor.add(LSTM(units=50, return_sequences=True))\nregressor.add(Dropout(0.2))",
     "options": {
       "A": "Eğitim verisinin %20'sini test setine aktararak doğrulama (validation) yapılmasını sağlamak.",
       "B": "Hesaplama maliyetini artırmak pahasına, verideki eksik (NaN) değerlerin %20'sini sıfırlarla tamamlamak.",
@@ -18342,8 +17887,8 @@
       "optimizer"
     ],
     "sourceNotebook": "airline_passenger_prediction_using_lstm.ipynb",
-    "question": "Havayolu yolcu tahmini projesinde model aşağıdaki gibi derlenmiştir:\n\n```python\nmodel.compile(loss = 'mean_squared_error', optimizer = 'adam')\n```\n\nModelin derlenme aşamasında `loss` fonksiyonu olarak örneğin `binary_crossentropy` yerine `mean_squared_error` kullanılmasının nedeni verinin ve problemin hangi özelliğiyle ilgilidir?",
-    "code": null,
+    "question": "Havayolu yolcu tahmini projesinde model aşağıdaki gibi derlenmiştir:\nModelin derlenme aşamasında `loss` fonksiyonu olarak örneğin `binary_crossentropy` yerine `mean_squared_error` kullanılmasının nedeni verinin ve problemin hangi özelliğiyle ilgilidir?",
+    "code": "model.compile(loss = 'mean_squared_error', optimizer = 'adam')",
     "options": {
       "A": "Kullanılan Keras kütüphanesinin zaman serilerinde yalnızca bu fonksiyonu kabul etmesi.",
       "B": "Problemin bir sınıflandırma (0 veya 1 gibi) değil, sürekli bir sayısal değer (yolcu sayısı) tahmini olan bir regresyon problemi olması.",
@@ -18377,8 +17922,8 @@
       "batch_size"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Aşağıdaki kod modelin veriler üzerinden eğitilmesini (fit) başlatmaktadır:\n\n```python\nregressor.fit(X_train, y_train, epochs=50, batch_size=32)\n```\n\nBu kod satırı çalışırken arka planda gerçekleşen işlem akışı hangi seçenekte doğru tanımlanmıştır?",
-    "code": null,
+    "question": "Aşağıdaki kod modelin veriler üzerinden eğitilmesini (fit) başlatmaktadır:\nBu kod satırı çalışırken arka planda gerçekleşen işlem akışı hangi seçenekte doğru tanımlanmıştır?",
+    "code": "regressor.fit(X_train, y_train, epochs=50, batch_size=32)",
     "options": {
       "A": "Model toplam 50 adet veriyi alır, bunları 32'şer kez üzerinden geçerek ağı eğitir ve işlemi bitirir.",
       "B": "Model tüm eğitim setini bir defada hafızaya alır, ağırlıkları 50 kez rastgele değiştirir ve her iterasyonda en iyi 32 veriyi kenara ayırır.",
@@ -18416,8 +17961,8 @@
       "data-preparation"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Borsa fiyat tahmini projesinde, test verisi üzerinde tahmin yapmadan önce veriler üzerinde şöyle bir birleştirme işlemi uygulanmıştır:\n\n```python\ndataset_total = pd.concat((dataset[\"High\"][:'2016'], dataset[\"High\"]['2017':]), axis=0)\ninputs = dataset_total[len(dataset_total)-len(test_set) - 60:].values\n```\n\nBu aşamada eğitim ve test setleri `pd.concat` ile tekrar birleştirilip, içinden belirli bir aralık (test seti uzunluğu + 60) çekilmiştir. Bu karmaşık işlemin mantıksal sebebi nedir?",
-    "code": null,
+    "question": "Borsa fiyat tahmini projesinde, test verisi üzerinde tahmin yapmadan önce veriler üzerinde şöyle bir birleştirme işlemi uygulanmıştır:\nBu aşamada eğitim ve test setleri `pd.concat` ile tekrar birleştirilip, içinden belirli bir aralık (test seti uzunluğu + 60) çekilmiştir. Bu karmaşık işlemin mantıksal sebebi nedir?",
+    "code": "dataset_total = pd.concat((dataset[\"High\"][:'2016'], dataset[\"High\"]['2017':]), axis=0)\ninputs = dataset_total[len(dataset_total)-len(test_set) - 60:].values",
     "options": {
       "A": "Test setindeki NaN değerlerin eğitim setindeki ortalamalarla doldurulmasını sağlamak.",
       "B": "Test verisinin ilk gününü (Örn: 1 Ocak 2017) tahmin edebilmek için modelin o günden önceki 60 günün fiyatlarını da girdi olarak görme zorunluluğu.",
@@ -18451,8 +17996,8 @@
       "data-leakage"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Aynı kod bloğunun devamında, test tahminleri için hazırlanan `inputs` dizisi şu işlemden geçirilir:\n\n```python\ninputs = inputs.reshape(-1,1)\ninputs = sc.transform(inputs)\n```\n\nBurada `sc` değişkeni eğitim aşamasında oluşturulan `MinMaxScaler` nesnesidir. Bu noktada neden `sc.fit_transform(inputs)` yerine sadece `sc.transform(inputs)` kullanılmıştır?",
-    "code": null,
+    "question": "Aynı kod bloğunun devamında, test tahminleri için hazırlanan `inputs` dizisi şu işlemden geçirilir:\nBurada `sc` değişkeni eğitim aşamasında oluşturulan `MinMaxScaler` nesnesidir. Bu noktada neden `sc.fit_transform(inputs)` yerine sadece `sc.transform(inputs)` kullanılmıştır?",
+    "code": "inputs = inputs.reshape(-1,1)\ninputs = sc.transform(inputs)",
     "options": {
       "A": "`inputs` matrisinin boyutu `X_train`'den çok daha küçük olduğu için `fit` işlemi başarısız olacağından.",
       "B": "Test verisinin minimum ve maksimum değerlerinin eğitim verisinden farklı olma ihtimalini sıfırlamak için.",
@@ -18486,8 +18031,8 @@
       "scaling"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Modelin `predict` fonksiyonu ile test verisi üzerinde ürettiği sonuçlar için şu kod satırı çalıştırılır:\n\n```python\npredicted_stock_price = regressor.predict(X_test)\npredicted_stock_price = sc.inverse_transform(predicted_stock_price)\n```\n\nBu kod bloğunda ikinci satırda yer alan `inverse_transform` işleminin yapılmaması durumunda, elde edilecek çıktı ve yapılacak grafik çizimi ile ilgili aşağıdakilerden hangisi doğrudur?",
-    "code": null,
+    "question": "Modelin `predict` fonksiyonu ile test verisi üzerinde ürettiği sonuçlar için şu kod satırı çalıştırılır:\nBu kod bloğunda ikinci satırda yer alan `inverse_transform` işleminin yapılmaması durumunda, elde edilecek çıktı ve yapılacak grafik çizimi ile ilgili aşağıdakilerden hangisi doğrudur?",
+    "code": "predicted_stock_price = regressor.predict(X_test)\npredicted_stock_price = sc.inverse_transform(predicted_stock_price)",
     "options": {
       "A": "Tahmin edilen borsa fiyatları eksi değerlerde (örneğin -150) çıkar, çünkü LSTM doğal olarak negatif ağırlıklar üretir.",
       "B": "Grafik çizdirildiğinde tahmin çizgisi orijinal borsa fiyatlarının (örneğin 150-180 dolar) çok uzağında, 0 ile 1 aralığında düz bir çizgi gibi çok düşük seviyelerde görünür.",
@@ -18521,8 +18066,8 @@
       "regression"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Projenin değerlendirme (evaluation) aşamasında aşağıdaki metrikler hesaplanmıştır:\n\n```python\nmse = mean_squared_error(test_set, predicted_stock_price)\nrmse = np.sqrt(mse)\nmae = mean_absolute_error(test_set, predicted_stock_price)\nr2 = r2_score(test_set, predicted_stock_price)\n```\n\nYukarıda hesaplanan regresyon performans metriklerinin doğası gereği, modelin **çok başarılı** olduğu bir senaryoda bu değerlerin sırasıyla nasıl olması beklenir?",
-    "code": null,
+    "question": "Projenin değerlendirme (evaluation) aşamasında aşağıdaki metrikler hesaplanmıştır:\nYukarıda hesaplanan regresyon performans metriklerinin doğası gereği, modelin **çok başarılı** olduğu bir senaryoda bu değerlerin sırasıyla nasıl olması beklenir?",
+    "code": "mse = mean_squared_error(test_set, predicted_stock_price)\nrmse = np.sqrt(mse)\nmae = mean_absolute_error(test_set, predicted_stock_price)\nr2 = r2_score(test_set, predicted_stock_price)",
     "options": {
       "A": "MSE, RMSE ve MAE değerlerinin 1'e çok yakın olması; R2 değerinin ise 0'a yakın olması.",
       "B": "Tüm metriklerin (MSE, RMSE, MAE ve R2) 100 civarında yüksek pozitif değerler alması.",
@@ -18556,8 +18101,8 @@
       "visualization"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Aşağıdaki fonksiyon, borsa tahmini sonuçlarını görselleştirmek için kullanılmıştır:\n\n```python\ndef plot_predictions(test, predicted):\n    plt.plot(test, color='red', label='Real IBM Stock Price')\n    plt.plot(predicted, color='blue', label='Predicted IBM Stock Price')\n    plt.title('IBM Stock Price Prediction')\n    plt.xlabel('Time')\n    plt.ylabel('IBM Stock Price')\n    plt.legend()\n    plt.show()\n```\n\nBu grafiği inceleyen bir araştırmacı, kırmızı çizginin test seti veri boyutu boyunca çizildiğini, ancak mavi çizginin grafiğin sadece ilk çeyreğinde kalıp sonrasında kaybolduğunu gözlemliyor. Bu sorunun koda (veya kod akışına) dayalı en olası nedeni aşağıdakilerden hangisidir?",
-    "code": null,
+    "question": "Aşağıdaki fonksiyon, borsa tahmini sonuçlarını görselleştirmek için kullanılmıştır:\nBu grafiği inceleyen bir araştırmacı, kırmızı çizginin test seti veri boyutu boyunca çizildiğini, ancak mavi çizginin grafiğin sadece ilk çeyreğinde kalıp sonrasında kaybolduğunu gözlemliyor. Bu sorunun koda (veya kod akışına) dayalı en olası nedeni aşağıdakilerden hangisidir?",
+    "code": "def plot_predictions(test, predicted):\n    plt.plot(test, color='red', label='Real IBM Stock Price')\n    plt.plot(predicted, color='blue', label='Predicted IBM Stock Price')\n    plt.title('IBM Stock Price Prediction')\n    plt.xlabel('Time')\n    plt.ylabel('IBM Stock Price')\n    plt.legend()\n    plt.show()",
     "options": {
       "A": "`predicted` dizisi üretilirken test setindeki toplam gün sayısına göre değil, yanlışlıkla `batch_size` boyutunda (örneğin 32) üretilmiş veya filtrelenmiş olabilir.",
       "B": "`plt.legend()` satırı çağrıldığı için grafiğin kalan kısmını bir açıklama kutusu tamamen kapatmıştır.",
@@ -18591,8 +18136,8 @@
       "dense"
     ],
     "sourceNotebook": "airline_passenger_prediction_using_lstm.ipynb",
-    "question": "Airline passenger tahmin uygulamasında model şu şekilde oluşturulmuştur:\n\n```python\nmodel = Sequential()\nmodel.add(LSTM(64, input_shape = (1, steps)))\nmodel.add(Dense(64))\nmodel.add(Dense(1))\n```\n\nBu model derlendikten sonra `model.summary()` komutu çalıştırıldığında çıktının yapısında aşağıdaki bileşenlerden hangisi **görünmez**?",
-    "code": null,
+    "question": "Airline passenger tahmin uygulamasında model şu şekilde oluşturulmuştur:\nBu model derlendikten sonra `model.summary()` komutu çalıştırıldığında çıktının yapısında aşağıdaki bileşenlerden hangisi **görünmez**?",
+    "code": "model = Sequential()\nmodel.add(LSTM(64, input_shape = (1, steps)))\nmodel.add(Dense(64))\nmodel.add(Dense(1))",
     "options": {
       "A": "Sırasıyla `lstm_...`, `dense_...` ve `dense_...` katman isimleri.",
       "B": "Her bir katmandaki eğitilebilir parametre sayısı (Param #).",
@@ -18626,8 +18171,8 @@
       "deep-learning"
     ],
     "sourceNotebook": "airline_passenger_prediction_using_lstm.ipynb",
-    "question": "Aynı (havayolu) model mimarisinde yer alan orta katman ile ilgili:\n\n```python\nmodel.add(LSTM(64, input_shape = (1, steps)))\nmodel.add(Dense(64))\nmodel.add(Dense(1))\n```\n\nBurada ikinci satırda kullanılan `model.add(Dense(64))` katmanının modele kattığı temel işlev nedir?",
-    "code": null,
+    "question": "Aynı (havayolu) model mimarisinde yer alan orta katman ile ilgili:\nBurada ikinci satırda kullanılan `model.add(Dense(64))` katmanının modele kattığı temel işlev nedir?",
+    "code": "model.add(LSTM(64, input_shape = (1, steps)))\nmodel.add(Dense(64))\nmodel.add(Dense(1))",
     "options": {
       "A": "Eğitim setindeki 64 farklı yolcu bilgisini aynı anda modelin girişine aktarır.",
       "B": "LSTM'den çıkan 64 hücreli özet veriyi, 64 nöronlu bir gizli katmandan (hidden layer) geçirerek doğrusal olmayan ilişkileri daha da derinleştirmek.",
@@ -18661,8 +18206,8 @@
       "pandas-plot"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Borsa tahmin sürecinin veri keşfi aşamasında veriler sadece yılları belirterek şöyle görselleştirilmiştir:\n\n```python\ndataset[\"High\"][:'2016'].plot(figsize=(16,4),legend=True)\ndataset[\"High\"]['2017':].plot(figsize=(16,4),legend=True)\nplt.legend(['Training set (Before 2017)','Test set (2017 and beyond)'])\nplt.show()\n```\n\nBu kodun çalıştırılması sonucunda ekranda nasıl bir grafik şekli veya çıktı oluşması beklenir?",
-    "code": null,
+    "question": "Borsa tahmin sürecinin veri keşfi aşamasında veriler sadece yılları belirterek şöyle görselleştirilmiştir:\nBu kodun çalıştırılması sonucunda ekranda nasıl bir grafik şekli veya çıktı oluşması beklenir?",
+    "code": "dataset[\"High\"][:'2016'].plot(figsize=(16,4),legend=True)\ndataset[\"High\"]['2017':].plot(figsize=(16,4),legend=True)\nplt.legend(['Training set (Before 2017)','Test set (2017 and beyond)'])\nplt.show()",
     "options": {
       "A": "Alt alta 2 ayrı çerçevede (subplot) çizilmiş iki farklı çizgi grafiği oluşur.",
       "B": "Aynı tek çerçeve ve tek zaman ekseni üzerinde, 2016 sonuna kadar bir renkte, 2017'den sonra ise farklı renkte devam eden kesintisiz bir çizgi grafiği bütünü görülür.",
@@ -18696,8 +18241,8 @@
       "error-analysis"
     ],
     "sourceNotebook": "airline_passenger_prediction_using_lstm.ipynb",
-    "question": "Havayolu projesinde veriler ölçeklendirilirken şu sıra izlenmiştir:\n\n```python\nscaler = MinMaxScaler()\ndata = scaler.fit_transform(data)\ntrain = data[0:110,:]\ntest = data[110:,:]\n```\n\nBu uygulanan yaklaşım çalışabilir olsa da (hata üretmese de), veri madenciliği ve makine öğrenmesi standartlarına göre bu sıralamada teknik veya kavramsal olarak nasıl bir mantık problemi (tuzak) bulunmaktadır?",
-    "code": null,
+    "question": "Havayolu projesinde veriler ölçeklendirilirken şu sıra izlenmiştir:\nBu uygulanan yaklaşım çalışabilir olsa da (hata üretmese de), veri madenciliği ve makine öğrenmesi standartlarına göre bu sıralamada teknik veya kavramsal olarak nasıl bir mantık problemi (tuzak) bulunmaktadır?",
+    "code": "scaler = MinMaxScaler()\ndata = scaler.fit_transform(data)\ntrain = data[0:110,:]\ntest = data[110:,:]",
     "options": {
       "A": "MinMaxScaler'ın `.fit_transform` fonksiyonu aynı anda çalıştırılamaz, önce `.fit()`, sonra `.transform()` yapılmalıdır.",
       "B": "Tüm verisetinin en büyük ve en küçük değeri bulunarak ölçekleme yapıldığı için, 'gelecek' olan test verisinin bilgisi modelin girdi yapısına sızmış (Data Leakage) olur.",
@@ -18731,8 +18276,8 @@
       "model-evaluation"
     ],
     "sourceNotebook": "airline_passenger_prediction_using_lstm.ipynb",
-    "question": "Eğitim ve test işlemleri sonrasında kodun son aşamasında orijinal değerler ile tahmin değerleri matplotlib ile çizdirilmeden hemen önce aşağıdaki tersine çevirme kodları uygulanmıştır:\n\n```python\ny_pred = scaler.inverse_transform(y_pred)\ny_test = y_test.reshape(-1, 1)\ny_test = scaler.inverse_transform(y_test)\n```\n\nNeden ikinci satırda `y_test` üzerinde doğrudan ters işlem yapılmayıp öncelikle `.reshape(-1, 1)` uygulanmıştır?",
-    "code": null,
+    "question": "Eğitim ve test işlemleri sonrasında kodun son aşamasında orijinal değerler ile tahmin değerleri matplotlib ile çizdirilmeden hemen önce aşağıdaki tersine çevirme kodları uygulanmıştır:\nNeden ikinci satırda `y_test` üzerinde doğrudan ters işlem yapılmayıp öncelikle `.reshape(-1, 1)` uygulanmıştır?",
+    "code": "y_pred = scaler.inverse_transform(y_pred)\ny_test = y_test.reshape(-1, 1)\ny_test = scaler.inverse_transform(y_test)",
     "options": {
       "A": "Test setinin sıralamasını sondan başa almak için.",
       "B": "y_test verisi eğitim aşamasındaki `get_data` fonksiyonundan 1 boyutlu bir vektör olarak döndüğü için, Scaler'ın zorunlu olarak beklediği 2 boyutlu (2D) matris formatına uygun hale getirmek amacıyla.",
@@ -18766,8 +18311,8 @@
       "regression"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Aşağıdaki fonksiyon, farklı metrikleri konsola yazdırmak için tasarlanmıştır:\n\n```python\ndef return_rmse(test, predicted):\n    # ... [MSE, RMSE hesaplamaları] ...\n    mae = mean_absolute_error(test, predicted)\n    # ... [diğer hesaplamalar] ...\n    print(f\"MAE\\t\\t: {mae:.2f}\")\n```\n\nRegresyon modellerinde sıkça kullanılan MAE (Mean Absolute Error) hesaplamasının temel mantığı, değerlerin karesini alan MSE'den (Mean Squared Error) farklı olarak nedir ve büyük veri setlerindeki sapan (outlier) değerlere tepkisi nasıldır?",
-    "code": null,
+    "question": "Aşağıdaki fonksiyon, farklı metrikleri konsola yazdırmak için tasarlanmıştır:\nRegresyon modellerinde sıkça kullanılan MAE (Mean Absolute Error) hesaplamasının temel mantığı, değerlerin karesini alan MSE'den (Mean Squared Error) farklı olarak nedir ve büyük veri setlerindeki sapan (outlier) değerlere tepkisi nasıldır?",
+    "code": "def return_rmse(test, predicted):\n    # ... [MSE, RMSE hesaplamaları] ...\n    mae = mean_absolute_error(test, predicted)\n    # ... [diğer hesaplamalar] ...\n    print(f\"MAE\\t\\t: {mae:.2f}\")",
     "options": {
       "A": "MAE gerçek ile tahmin arasındaki farkın mutlak değerini alır; bu nedenle sapan/uç değerlerin (outlier) yarattığı hatayı aşırı büyütmez ve MSE'ye kıyasla uç değerlere daha dirençlidir.",
       "B": "MAE değerlerin sadece karesini değil küpünü aldığı için MSE'ye göre daha büyük cezalar keser.",
@@ -18800,8 +18345,8 @@
       "optimizer"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Aşağıdaki kod bloğunda LSTM modelinin optimizasyon algoritması tanımlanmıştır:\n\n```python\nregressor.compile(optimizer='rmsprop', loss='mean_squared_error')\n```\n\nBu satırda `optimizer` parametresinin modelin eğitim sürecinde matematiksel olarak yerine getirdiği asıl görev nedir?",
-    "code": null,
+    "question": "Aşağıdaki kod bloğunda LSTM modelinin optimizasyon algoritması tanımlanmıştır:\nBu satırda `optimizer` parametresinin modelin eğitim sürecinde matematiksel olarak yerine getirdiği asıl görev nedir?",
+    "code": "regressor.compile(optimizer='rmsprop', loss='mean_squared_error')",
     "options": {
       "A": "Verileri `MinMaxScaler` ile 0-1 aralığına sıkıştıran ana matematiksel fonksiyondur.",
       "B": "Tahmin edilen sonuçları eski ölçeğe (inverse transform) döndürmekten sorumlu modüldür.",
@@ -19921,8 +19466,8 @@
       "overhead"
     ],
     "sourceNotebook": "pandas_vs_spark_no_pandas_to_spark_ders_demo.ipynb",
-    "question": "Aşağıdaki işlem süreleri `N = 50_000` satırlık bir veri seti için elde edilmiştir. Spark'ın bu veri boyutunda Pandas'tan daha yavaş çalışmasının temel nedeni nedir?\n\n```text\nPandas ürün bazlı ortalama fiyat süresi: 0.002 saniye\nSpark ürün bazlı ortalama fiyat süresi: 0.850 saniye\n```",
-    "code": null,
+    "question": "Aşağıdaki işlem süreleri `N = 50_000` satırlık bir veri seti için elde edilmiştir. Spark'ın bu veri boyutunda Pandas'tan daha yavaş çalışmasının temel nedeni nedir?",
+    "code": "Pandas ürün bazlı ortalama fiyat süresi: 0.002 saniye\nSpark ürün bazlı ortalama fiyat süresi: 0.850 saniye",
     "options": {
       "A": "Pandas'ın işlemi paralel çekirdeklerde bölerek yapması, Spark'ın ise tek çekirdek kullanması.",
       "B": "Spark'ın küçük verilerde bile paralel mimariyi ve çekirdekleri ayağa kaldırmak için hantallık (overhead) yaratması.",
@@ -19956,8 +19501,8 @@
       "transformation"
     ],
     "sourceNotebook": "pandas_vs_spark_no_pandas_to_spark_ders_demo.ipynb",
-    "question": "Aşağıdaki Spark kod bloğu çalıştırıldığında `spark_create_plan_time` değişkeni 0.01 saniye gibi çok küçük bir değer döndürmektedir.\n\n```python\nstart = time.time()\n\nsdf = spark.range(0, 50_000_000)\nsdf = sdf.withColumn(\"price\", rand() * 100)\nsdf = sdf.withColumn(\"quantity\", rand() * 5)\nsdf = sdf.withColumn(\"total\", col(\"price\") * col(\"quantity\"))\n\nspark_create_plan_time = time.time() - start\n```\n\n50 milyon satırlık işlemin bu kadar kısa sürede tamamlanmış görünmesinin asıl sebebi nedir?",
-    "code": null,
+    "question": "Aşağıdaki Spark kod bloğu çalıştırıldığında `spark_create_plan_time` değişkeni 0.01 saniye gibi çok küçük bir değer döndürmektedir.\n50 milyon satırlık işlemin bu kadar kısa sürede tamamlanmış görünmesinin asıl sebebi nedir?",
+    "code": "start = time.time()\n\nsdf = spark.range(0, 50_000_000)\nsdf = sdf.withColumn(\"price\", rand() * 100)\nsdf = sdf.withColumn(\"quantity\", rand() * 5)\nsdf = sdf.withColumn(\"total\", col(\"price\") * col(\"quantity\"))\n\nspark_create_plan_time = time.time() - start",
     "options": {
       "A": "Spark, DataFrame üzerindeki bu işlemleri asenkron olarak arka planda çalıştırmaktadır.",
       "B": "`rand()` fonksiyonu Spark'ta bellekte yer kaplamayan sabit bir değer üretir.",
@@ -19992,8 +19537,8 @@
       "count"
     ],
     "sourceNotebook": "pandas_vs_spark_no_pandas_to_spark_ders_demo.ipynb",
-    "question": "Aşağıdaki kod parçalarında Spark DataFrame'i (`sdf`) üzerinde çeşitli işlemler yapılmıştır.\n\n```python\n# Satır 1\nsdf_filtered = sdf.filter(col(\"total\") > 100_000)\n\n# Satır 2\nsdf_grouped = sdf_filtered.groupBy(\"city\")\n\n# Satır 3\nsdf_agg = sdf_grouped.agg(spark_sum(\"total\"))\n\n# Satır 4\nresult_count = sdf_agg.count()\n```\n\nSpark motorunun, lazy execution prensibini bırakıp disk/RAM üzerinden gerçek veriyi okuyarak işlemi fiziksel olarak başlattığı yer hangi satırdır?",
-    "code": null,
+    "question": "Aşağıdaki kod parçalarında Spark DataFrame'i (`sdf`) üzerinde çeşitli işlemler yapılmıştır.\nSpark motorunun, lazy execution prensibini bırakıp disk/RAM üzerinden gerçek veriyi okuyarak işlemi fiziksel olarak başlattığı yer hangi satırdır?",
+    "code": "# Satır 1\nsdf_filtered = sdf.filter(col(\"total\") > 100_000)\n\n# Satır 2\nsdf_grouped = sdf_filtered.groupBy(\"city\")\n\n# Satır 3\nsdf_agg = sdf_grouped.agg(spark_sum(\"total\"))\n\n# Satır 4\nresult_count = sdf_agg.count()",
     "options": {
       "A": "Satır 1",
       "B": "Satır 2",
@@ -20027,8 +19572,8 @@
       "sutun-olusturma"
     ],
     "sourceNotebook": "pandas_vs_spark_no_pandas_to_spark_ders_demo.ipynb",
-    "question": "Aşağıdaki PySpark kod bloğu, `r_product` adlı 0 ile 1 arasında rastgele sayılar barındıran bir sütunu kullanarak yeni bir `product` sütunu oluşturmaktadır.\n\n```python\nsdf = sdf.withColumn(\n    \"product\",\n    when(col(\"r_product\") < 0.20, \"Telefon\")\n    .when(col(\"r_product\") < 0.40, \"Laptop\")\n    .when(col(\"r_product\") < 0.60, \"Tablet\")\n    .otherwise(\"Monitor\")\n)\n```\n\nEğer bir satırda `r_product` değeri `0.55` ise, bu satırın `product` sütunundaki değeri ne olur?",
-    "code": null,
+    "question": "Aşağıdaki PySpark kod bloğu, `r_product` adlı 0 ile 1 arasında rastgele sayılar barındıran bir sütunu kullanarak yeni bir `product` sütunu oluşturmaktadır.\nEğer bir satırda `r_product` değeri `0.55` ise, bu satırın `product` sütunundaki değeri ne olur?",
+    "code": "sdf = sdf.withColumn(\n    \"product\",\n    when(col(\"r_product\") < 0.20, \"Telefon\")\n    .when(col(\"r_product\") < 0.40, \"Laptop\")\n    .when(col(\"r_product\") < 0.60, \"Tablet\")\n    .otherwise(\"Monitor\")\n)",
     "options": {
       "A": "Telefon",
       "B": "Laptop",
@@ -20133,8 +19678,8 @@
       "pyspark-sql"
     ],
     "sourceNotebook": "pandas_vs_spark_no_pandas_to_spark_ders_demo.ipynb",
-    "question": "Pandas ortamında yüksek satış tutarlarını filtrelemek için aşağıdaki kod kullanılmaktadır:\n\n```python\npandas_filtered = pdf[pdf[\"total\"] > 100_000]\n```\n\nAynı işlemi Spark DataFrame'i (`sdf`) üzerinde yapmak için kullanılması gereken doğru kod satırı aşağıdakilerden hangisidir?",
-    "code": null,
+    "question": "Pandas ortamında yüksek satış tutarlarını filtrelemek için aşağıdaki kod kullanılmaktadır:\nAynı işlemi Spark DataFrame'i (`sdf`) üzerinde yapmak için kullanılması gereken doğru kod satırı aşağıdakilerden hangisidir?",
+    "code": "pandas_filtered = pdf[pdf[\"total\"] > 100_000]",
     "options": {
       "A": "spark_filtered = sdf.filter(col(\"total\") > 100_000)",
       "B": "spark_filtered = sdf[sdf.total > 100_000]",
@@ -20204,8 +19749,8 @@
       "spark-range"
     ],
     "sourceNotebook": "pandas_vs_spark_no_pandas_to_spark_ders_demo.ipynb",
-    "question": "Aşağıdaki kod bloğu Spark içinde veri üretmek için kullanılmaktadır.\n\n```python\nsdf = spark.range(0, 50_000).withColumnRenamed(\"id\", \"id\")\nsdf = sdf.withColumn(\"price\", spark_round(rand() * 49_500 + 500, 0).cast(\"int\"))\n```\n\nBu kodun veri madenciliği akışındaki temel işlevi nedir?",
-    "code": null,
+    "question": "Aşağıdaki kod bloğu Spark içinde veri üretmek için kullanılmaktadır.\nBu kodun veri madenciliği akışındaki temel işlevi nedir?",
+    "code": "sdf = spark.range(0, 50_000).withColumnRenamed(\"id\", \"id\")\nsdf = sdf.withColumn(\"price\", spark_round(rand() * 49_500 + 500, 0).cast(\"int\"))",
     "options": {
       "A": "Zaten var olan bir veri tabanından eksik verileri `rand()` fonksiyonu ile doldurmaktadır.",
       "B": "Pandas DataFrame'ini Spark ortamına kopyalayarak veri transferi yapmaktadır.",
@@ -20274,8 +19819,8 @@
       "deney-fonksiyonu"
     ],
     "sourceNotebook": "pandas_vs_spark_no_pandas_to_spark_ders_demo.ipynb",
-    "question": "Notebook içerisindeki `run_experiment` fonksiyonunda Spark'ın grup bazlı işlem süresi hesaplanırken aşağıdaki kod kullanılmıştır:\n\n```python\n# Spark groupBy\nstart = time.time()\nsdf_local.groupBy(\"product\").agg(spark_sum(\"total\").alias(\"total_sum\")).collect()\nspark_group = time.time() - start\n```\n\nBu kodun sonundaki `.collect()` komutu silinirse deneyin sonucu nasıl etkilenir?",
-    "code": null,
+    "question": "Notebook içerisindeki `run_experiment` fonksiyonunda Spark'ın grup bazlı işlem süresi hesaplanırken aşağıdaki kod kullanılmıştır:\nBu kodun sonundaki `.collect()` komutu silinirse deneyin sonucu nasıl etkilenir?",
+    "code": "# Spark groupBy\nstart = time.time()\nsdf_local.groupBy(\"product\").agg(spark_sum(\"total\").alias(\"total_sum\")).collect()\nspark_group = time.time() - start",
     "options": {
       "A": "Spark hata verir ve deney durur.",
       "B": "Veriler sadece ekranda gösterilir ama zaman ölçümü değişmez.",
@@ -20450,8 +19995,8 @@
       "vektorizasyon"
     ],
     "sourceNotebook": "pandas_vs_spark_no_pandas_to_spark_ders_demo.ipynb",
-    "question": "Aşağıdaki Pandas kod satırı veri ön işleme aşamasında ne iş yapmaktadır?\n\n```python\npdf[\"total\"] = pdf[\"price\"] * pdf[\"quantity\"]\n```",
-    "code": null,
+    "question": "Aşağıdaki Pandas kod satırı veri ön işleme aşamasında ne iş yapmaktadır?",
+    "code": "pdf[\"total\"] = pdf[\"price\"] * pdf[\"quantity\"]",
     "options": {
       "A": "Fiyat (price) ve Miktar (quantity) sütunlarını toplayıp 'total' adında yeni bir satır ekler.",
       "B": "Mevcut veri setindeki tüm fiyatların ortalamasını alarak miktarla çarpar.",
@@ -20485,8 +20030,8 @@
       "optimizasyon"
     ],
     "sourceNotebook": "pandas_vs_spark_no_pandas_to_spark_ders_demo.ipynb",
-    "question": "Aşağıdaki satır Spark oturumu başlatılırken konfigürasyona eklenmiştir:\n\n```python\n.config(\"spark.sql.shuffle.partitions\", \"2\")\n```\n\nVeri madenciliği sürecinde, özellikle bu demodaki gibi küçük/orta verilerle çalışırken bu parametrenin 2 olarak ayarlanmasının amacı nedir?",
-    "code": null,
+    "question": "Aşağıdaki satır Spark oturumu başlatılırken konfigürasyona eklenmiştir:\nVeri madenciliği sürecinde, özellikle bu demodaki gibi küçük/orta verilerle çalışırken bu parametrenin 2 olarak ayarlanmasının amacı nedir?",
+    "code": ".config(\"spark.sql.shuffle.partitions\", \"2\")",
     "options": {
       "A": "Spark'ın sadece 2 satır veri okumasını sağlamak.",
       "B": "Spark'ın varsayılan (genelde 200 olan) bölümleme sayısını düşürerek küçük veride gereksiz parça yönetimini ve yavaşlamayı önlemek.",
@@ -20520,8 +20065,8 @@
       "kod-yorumu"
     ],
     "sourceNotebook": "pandas_vs_spark_no_pandas_to_spark_ders_demo.ipynb",
-    "question": "Notebook içerisindeki tüm işlem bloklarında aşağıdaki yapı kullanılmıştır:\n\n```python\nstart = time.time()\n# ... veri madenciliği işlemi ...\nprocess_time = time.time() - start\n```\n\nBu yapının kullanılmasının temel amacı nedir?",
-    "code": null,
+    "question": "Notebook içerisindeki tüm işlem bloklarında aşağıdaki yapı kullanılmıştır:\nBu yapının kullanılmasının temel amacı nedir?",
+    "code": "start = time.time()\n# ... veri madenciliği işlemi ...\nprocess_time = time.time() - start",
     "options": {
       "A": "Veri setindeki işlemlere zaman damgası (timestamp) sütunu eklemek.",
       "B": "İşlemlerin asenkron (arka planda) çalışmasını sağlamak.",
