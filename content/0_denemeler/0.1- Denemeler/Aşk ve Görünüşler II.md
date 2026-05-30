@@ -35,8 +35,7 @@ Benim köşkümde olmasıydı işte onu değerli kılan; başkasının köşkün
 *hayıra çevirirdin sen hatırı*
 
 *kalmasın bende zerre-i miktar anın*  
-*yok sevilmeye değer bir tek yanın.*  
-*al senin olsun, beş para etmez kalıntın*
+*yok sevilmeye değer bir tek yanın.*
 
 *nasıl sevilir ki bir tek parçan?*  
 *paramparça olmuş iken*  

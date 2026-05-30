@@ -38,7 +38,7 @@ Arzulamayacak kadar özgür değilim. Evet, henüz özgür değilim; arzularım 
 
 Amacım ve anlamım var, ancak bunlar olması gerektiği gibi kuvvetli değil. Zayıflamış durumda ve güçlenmeleri gerekiyor; bu da ancak tinselliğe daha da yaklaşırsam olabilir. Şöyle söylüyordu şair: _“Düşüncelerim olgun, fakat ben olgun değilim yeteri kadar; tekrar yalnızlığa çekiliyorum, olgunluğa erişene kadar.”_
 
-Evet, bu satırları kulaklığımda _“I Don’t Want to Set the World On F_ire” dinleyerek yazıyorum. Döngüye aldım: Bu şarkı, bende eski zamanların tasavvurunu açığa çıkarıyor. Ancak bu konuda Novalis’e katılmıyorum. Ne diyordu Novalis?
+Evet, bu satırları bir yandan “*I Don’t Want to Set the World On Fire*” dinleyerek yazıyorum. Döngüye aldım: Bu şarkı, bende eski zamanların tasavvurunu açığa çıkarıyor. Ancak bu konuda Novalis’e katılmıyorum. Ne diyordu Novalis?
 
 _“Eski zamanları tasavvur etme, bizi ölüme, kaçıp gitmeye çeker; istikbali tasavvur etme, bizi canlandırmaya, somutlaştırmaya, asimile edici etkiye çeker. Bu nedenle bütün hatırlama hüzünlüdür, bütün sezgi sevinçli. Hatırlama, gereğinden fazla canlılığı, sezgi ise gereğinden fazla zayıf hayatı dizginler.”_
 
