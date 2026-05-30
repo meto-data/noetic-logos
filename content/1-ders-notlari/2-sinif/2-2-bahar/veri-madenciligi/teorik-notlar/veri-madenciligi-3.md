@@ -7,7 +7,7 @@ slug: veri-madenciligi-3
 ---
 ## Çalışma Tüyoları vs.
 
-- **Yapay Zekâ Kullanımı ve Tecrübe**: Hata aldığınızda yahut "Bu sağa çarpık grafiği nasıl merkeze çekerim?" diye merak ettiğinizde kodları dil modellerine atarak soru sorun. Hocanın derste tavsiyesi buydu, nitekim bunlara benzer sorular gelebilir. Sınavda kodların mantığını ve çıktıların yorumunun sorulacağını tekrar belirtti hoca bu derste, bozarak öğrenmemiz gerektiğini de söyledi. "Tecrübe, negatifle karşılaşmaktır" der Byung-Chul Han. Hocanın verdiği kodları bozarak, yanlış çalışan kodla karşılarak tecrübe kazanacağız vesselam. O yüzden arada sıra kodları bozmak gerekiyor, değerleri değiştirmek gerekiyor ki ne işe yaradığını, sözdiziminde yahut sayılarda bir hata/farklılık olduğunda çıktının ne olacağını görmemiz gerkeiyor. Bu şekilde tecrübe edilir ancak.
+- **Yapay Zekâ Kullanımı ve Tecrübe**: Hata aldığınızda yahut "Bu sağa çarpık grafiği nasıl merkeze çekerim?" diye merak ettiğinizde kodları dil modellerine atarak soru sorun. Hocanın derste tavsiyesi buydu, nitekim bunlara benzer sorular gelebilir. Sınavda kodların mantığını ve çıktıların yorumunun sorulacağını tekrar belirtti hoca bu derste, bozarak öğrenmemiz gerektiğini de söyledi. "Tecrübe, negatifle karşılaşmaktır" der Byung-Chul Han. Hocanın verdiği kodları bozarak, yanlış çalışan kodla karşılarak tecrübe kazanacağız vesselam. O yüzden arada sıra kodları bozmak gerekiyor, değerleri değiştirmek gerekiyor ki ne işe yaradığını, sözdiziminde yahut sayılarda bir hata/farklılık olduğunda çıktının ne olacağını görmemiz gerekiyor. Bu şekilde tecrübe edilir ancak.
 
 
 ---
@@ -29,7 +29,7 @@ slug: veri-madenciligi-3
 ---
 
 ## 2. Verinin Anatomisi ve Temel Formül
-Makine öğrenmesi ve veri madenciliğinfde her şey şu temel fonksiyona dayanır:
+Makine öğrenmesi ve veri madenciliğinde her şey şu temel fonksiyona dayanır:
 
 $$
 \Large
@@ -49,7 +49,7 @@ $$
 
 
 > [!question] İsim Sütunu Neden İşe Yaramaz?
-> Derste kritik bir soru sorulmuştu: *"İsim, yaş, maaş sütunlarında ismin neden bir anlamı yoktur?"* <br>
+> Derste bir soru sorulmuştu: *"İsim, yaş, maaş sütunlarında ismin neden bir anlamı yoktur?"* <br>
 > İsim sayısal bir veri de değil kategorik bir veri de değil. İsim verisinin tek işe yarayabileceği şey milyonlarca veri arasından isim dağılımının yüzdesini bulmak gibi bir şey söz konusu olduğunda olabilir ancak. Nüfusa göre isim dağılımı gibi gibi ölçümler yapıldığında. **İsim ne sayısaldır, ne kategoriktir, ne de kategorize edilebilirdir.** Eğitim durumu (İlkokul, Lise, Doktora) kategorize edilebilir (1'den 6'ya kadar numaralandırılabilir). Cinsiyet (Kadın/Erkek) 0-1 yapılabilir. Ancak "Ahmet, Mehmet" model için anlamsızdır. İsim sütunu bu sebeplerden dolayı ilgili bağlam içerisinde anlamsızdır.
 
 
@@ -105,6 +105,7 @@ Veri setindeki hedef değişkenin ($y$) sınıflarının eşit dağılmamasıdı
 
 
 ### **B. Veri Sızıntısı (Data Leakage)**
+
 Modelin eğitim sırasında gerçek hayatta (tahmin anında) sahip olamayacağı "gelecekten gelen" bilgiyi görmesidir.
 
 

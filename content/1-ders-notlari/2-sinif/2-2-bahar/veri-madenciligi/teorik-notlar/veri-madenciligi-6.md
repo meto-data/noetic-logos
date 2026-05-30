@@ -43,6 +43,7 @@ Kümeleme, **tahmin (prediction) yapmaz!**
 >- **Kümelemede ise $Y$ sütunu (hedef) YOKTUR.** Sadece $X$'ler (bağımsız değişkenler) vardır. Makine, veriyi alır ve benzerliklerine göre gruplara ayırır. NEYİ GRUPLADIĞINI BİLMEZ!!!
 
 <br>
+
 **Örnek**: Markete gittiniz ve fişler oluştu diyelim. Bu fişler sizin "zengin" yahut "fakir" olduğunuzu söylemez. Sadece 1000 kişinin alışveriş verisidir bu. K-Means Algoritması bu 1000 kişiyi "sadece ekmek alanlar", "peynir alanlar" diye kümelere ayırır. Kümeleme bittikten sonra o gruplara bakıp "**Bunlar "Zenginler" kümesi**" **diye isim vermeyi BİZ yaparız. Buna [[Etiketleme (Labelling)]] denir., K-MEANS İSE ETİKETLEME YAPMAZ!** K-Means, gelecekteki sınıflandırma algoritmaları için **otomatik etiketleme (auto-labeling)** altyapısı sunar, etiketleyen biziz.
 
 
@@ -109,7 +110,7 @@ K-Means'in en büyük derdi "Peki veriyi kaç kümeye böleceğiz?" sorusudur. B
 **Çözüm**: PCA (Temel Bileşen Analizi). Yüksek boyutlu veriyi, minimum bilgi kaybıyla daha az boyuta indirgeme işlemi.
 
 ### PCA Neden Yapılır?
-1. **Eğitim Süresini Kısaltmak**: 1 Milyon satır $x$ 20 sütun = 20 Milyon işlem demektir. Eğer PCA ile 20 sütunu 3 sütuna indirgersek, işlem sayısı 3 Milyona düşer. %85 tasarruf sağlanır, makine yorulmaz.
+1. **Eğitim Süresini Kısaltmak**: 1 Milyon satır $\times$ 20 sütun = 20 Milyon işlem demektir. Eğer PCA ile 20 sütunu 3 sütuna indirgersek, işlem sayısı 3 Milyona düşer. %85 tasarruf sağlanır, makine yorulmaz.
 2. **Görselleştirme İmkânı**: İnsan gözü 1D (nokta), 2D (grafik), 3D (küp) görebilir. Elimizde değerli olan 8 sütun varsa, bunu grafiksel olarak çizemeyiz. PCA ile o 8 sütunu 2 sütuna (Component 1, Component 2) indirgersek, ekrandaki kümeleri netçe görebiliriz.
 
 ### PCA'in Kırmızı Çizgisi: **VARYANS**

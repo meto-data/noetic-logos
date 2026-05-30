@@ -56,7 +56,7 @@ Veri madenciliği sadece tablo temizlemek değildir. O tablolardan [[makine öğ
 
 ## 2. Makine Öğrenmesi Türleri
 
-Makine öğrenmesi, bilgisayarların açıkça programlanmadan verilerden öğrenmesi (*pattern keşfi*) işidir. Pekiştirmeli öğrenmeyi saymazsak temelde ikiye ayılır (Not: Bu dersin işlendiği hafta tesadüf eseri aynı konu Dijital Pazarlama dersinde de işlendi. Oraya da bakmanız önerilir: [[dijital-pazarlama-4#Makine Öğrenmesi|Makine Öğrenmesi]]):
+Makine öğrenmesi, bilgisayarların açıkça programlanmadan verilerden öğrenmesi (*pattern keşfi*) işidir. Pekiştirmeli öğrenmeyi saymazsak temelde ikiye ayrılır (Not: Bu dersin işlendiği hafta tesadüf eseri aynı konu Dijital Pazarlama dersinde de işlendi. Oraya da bakmanız önerilir: [[dijital-pazarlama-4#Makine Öğrenmesi|Makine Öğrenmesi]]):
 
 
 ```mermaid
@@ -231,7 +231,7 @@ Makinenin amacı $X$ (Girdiler) ile çarpıldığında $Y$'yi (Hedef) verecek en
 5. **Tahmin (Prediction / `predict`)**: Eğitilen model, test için ayrılan X verilerine bakarak Y'leri tahmin eder.
 6. **Değerlendirme (Eveluation)**: Modelin tahminleri ile gerçek Y değerleri karşılaştırılır. **Accuracy (Doğruluk Oranı)**, Precision, Recall, F1 Score gibi metrikler ve **Confusion Matrix (Karmaşıklık Matrisi)** ile modelin başarısı ölçülür (örn: Model %83 başarılı).
 
-> 	**Confusion Matrix (Karmaşıklık Matrisi) Mantığı**: Modelin nerede kafasının karıştığını gösterir.
+> **Confusion Matrix (Karmaşıklık Matrisi) Mantığı**: Modelin nerede kafasının karıştığını gösterir.
 
 #### ML Pipeline (Makine Öğrenmesi Boru Hattı)
 Profesyonel bir veri madenciliği sürecinin 7 adımının temsilidir. Dikkat edilecek en önemli husus **veri ön işlemenin (preprocessing), veriyi `Train` ve `Test` olarak ikiye böldükten sonra yapılmasıdır!** Aksi takdirde modele gelecekten bilgi sızar (Data Leakage).

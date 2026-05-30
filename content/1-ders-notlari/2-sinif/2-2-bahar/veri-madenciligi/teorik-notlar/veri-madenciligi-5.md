@@ -4,7 +4,7 @@ created: 2026-03-17
 draft: false
 tags: akademi/dersler/veri-madenciligi
 slug: veri-madenciligi-5
-konu: Random Forest?
+konu: Random Forests ve KNN
 ---
 # Bilgilendirme falan
 
@@ -21,7 +21,7 @@ Geçen hafta işlenen [[veri-madenciligi-4#3. Sınıflandırma Algoritmaları Ka
 
 1. **Overfitting yapabilir.**
 2. **Veri değişimine karşı hassas olabilir.**
-3. **Tek ağaç her zaman güçlü olmayabilir.
+3. **Tek ağaç her zaman güçlü olmayabilir.**
 
 **Ensemble Learning (Topluluk Öğrenmesi)**, tek bir karar ağacının en büyük problemi olan **Overfitting (Aşırı Öğrenme)** sorununu ve bu gibi diğer sorunları da çözmek için geliştirilmiş bir yöntemdir. 
 
@@ -31,7 +31,7 @@ Birden fazla model birlikte çalışarak tek modele göre **daha güçlü ve dah
 
 >[!example] Majority Voting (Çoğunluk Oylaması)
 >Sınıfa bir kişi geliyor ve 5 kişiye aynı soruyu soruyor diyelim. 3 kişi "Evet", 2 kişi "Hayır" diyor. Sonuç olarak "Evet" kararı alınıyor. <br>
->**Bu bize şunu anlatıyor**: Tek bir modelin (tek ağaç) yanılma payı yüksektir ve veri değişimine karşı hassastır. Ancak birden fazla modelin (orman) ürettiği kararların oylamaya (*Majority Voting*) sunulması daha kararlı ve daha güvenilir bir sonuç doğuracaktır. **Son kararı tek bir ağacın keyfine bırakmıyoruz**. İnsanlık tarihinin hatrı sayılır kısmı zaten tek kişinin kararının bedelini ödeyerek geçmiştir, bari burada o hatayı azaltalım...
+>**Bu bize şunu anlatıyor**: Tek bir modelin (tek ağaç) yanılma payı yüksektir ve veri değişimine karşı hassastır. Ancak birden fazla modelin (orman) ürettiği kararların oylamaya (*Majority Voting*) sunulması daha kararlı ve daha güvenilir bir sonuç doğuracaktır. **Son kararı tek bir ağacın keyfine bırakmıyoruz**. İnsanlık tarihinin hatrı sayılır kısmı zaten tek kişilerin kararının bedelini ödeyerek geçmiştir, bari burada o hatayı azaltalım...
 
 
 ```mermaid
@@ -131,7 +131,7 @@ KNN, **etiketli verilerle çalışan bir sınıflandırma algoritmasıdır**. An
 
 >[!example] Örnek
 >Sınıfa yeni birisi geliyor ve boş bir sıraya oturuyor diyelim. "Ben hangi gruba dâhilim?" diye soruyor. Algoritma ona şunu söylüyor: "Konumunu belirle ve sana en yakın 3 kişiye bak." Yeni kişi bakıyor: 2'si kırmızı takım, 1'i mavi takım. "O hâlde ben kırmızı takımdayım!" diyor.  <br>
->**Bu bize şunu anlatıyor**: <u>İşbu algoritma geçmişten bir kural çıkarmaz</u>! Sadece yeni gelen verinin mevcut verilere olan uzaklığını ölçer ve çoğunluğa göre onu etiketler. <br> 
+>**Bu bize şunu anlatıyor**: <u>Bu algoritma geçmişten bir kural çıkarmaz</u>! Sadece yeni gelen verinin mevcut verilere olan uzaklığını ölçer ve çoğunluğa göre onu etiketler. <br> 
 >KNN şunu soruyor diyebiliriz: **"Bu yeni gözlem, daha önce gördüğüm hangi örneklere benziyor?”**
 
 

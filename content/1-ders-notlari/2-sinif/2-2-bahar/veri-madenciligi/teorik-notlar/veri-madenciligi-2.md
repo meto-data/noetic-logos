@@ -9,7 +9,7 @@ slug: veri-madenciligi-2
 
 - **Sınav Soru Tipi**: Hoca sınavlarda kesinlikle kod soracağını belirtti. Bir kod verip kodun çıktısı aşağıdakilerden hangisi olur diye sorabilir. Dolayısıyla kod ezberlemekten ziyade kodun ne işe yaradığını (çıktısını) okuyabilmek çok önemli.
 - **Kod Pratiği**: Gönderilen kod ile ilgili dosyaların çalıştırılması şart. Boşuna verilmiyor onlar.
-- **Potansiyel Sınav Soruları**: Sınav test olacak, zaten biliniyor bu. Soru kökünde bir Pandas kodu olacak:` df.isnull().sum().` gibi. Bu kodun "**Veri setindeki her bir sütundaki boş (eksik) veri sayısını toplar ve ekrana basar**" demek olduğunu bilmeliyiz. Pandas kütüphanesindeki `merge()`, `concat()`, `dropna()`, `fillna()` fonksiyonlarının ne iş yaptığını bilmeliyiz. `df.groupby("Sinif")["col"].transform(lambda x: x.fillna(x.mean()))` kodunu verip, "Bu kod ne iş yapar?" diye sorabilir gibi gibi. Bu minvalde sorular gelecektir daha ziyade kod ile ilintili olarak. "Hatalı kod, hatasız kod; sözdizimi hatası" minvalinde sorular geleceğini zannetmiyorum. Nihayetinde bu sorular ilgili dili bilmekte yatıyor, oysa biz dili bilmekten ziyade dilde yazılanların ne işe yaradığını bilmeye odaklanıyoruz. 
+- **Potansiyel Sınav Soruları**: Sınav test olacak, zaten biliniyor bu. Soru kökünde bir Pandas kodu olacak:` df.isnull().sum().` gibi. Bu kodun "**Veri setindeki her bir sütundaki boş (eksik) veri sayısını toplar ve ekrana basar**" demek olduğunu bilmeliyiz. Pandas kütüphanesindeki `merge()`, `concat()`, `dropna()`, `fillna()` fonksiyonlarının ne iş yaptığını bilmeliyiz. `df.groupby("Sinif")["col"].transform(lambda x: x.fillna(x.mean()))` kodunu verip, "Bu kod ne iş yapar?" diye sorabilir gibi gibi. Bu minvalde sorular gelecektir daha ziyade kod ile ilintili olarak. "Hatalı kod, hatasız kod; sözdizimi hatası..." minvalinde sorular geleceğini zannetmiyorum. Nihayetinde bu sorular ilgili dili bilmekte yatıyor, oysa biz dili bilmekten ziyade dilde yazılanların ne işe yaradığını bilmeye odaklanıyoruz. 
 - **Hata Ayıklama**: Hocanın verdiği kodları ezbere çalıştırmaktan ziyade, hatalarla (`ModuleNotFoundError` vb.) karşılaşıp bunları çözmek daha önemli.
 - **Platform Seçimi**: VS Code veya Jupyter Notebook kullanılabilir. Ancak hoca Jupyter'i daha görsel, sade ve hücre bazlı (satır satır) çalışmaya uygun bulduğu için tavsiye ediyor.
 
@@ -146,7 +146,7 @@ Gürültülü veriyi onarmak/minimize etmek için üç ana matematiksel yöntem 
 #### 2. Bölmeleme (Binning)
 - Sürekli (devamlı) verileri belirli aralıklara bölerek sepetlere atma işlemidir. İkiye ayrılır:
 	1. **Eşit Genişlikli (Equal-Width)**: Veri aralığını eşit parçalara böler (örn: 0-20 yaş, 20-40 yaş). **Riski** ise bazı sepetler ([[bin]]) tamamen boş kalabilir. Pandas'taki karşılığı `pd.cut()` fonksiyonudur. 
-	2. **Eşit Frekanslı (Equal-Frequency)**: Her sepete eşit sayıda veri koyar (örn: toplam 9 veri varsa, her septe 3'er veri düşecek şekilde böler). Boş sepet riski olmaması ve verinin dengeli dağılması bakımından avantajlıdır. Aykırı değerleri bulmakta etkilidir. Pandas'taki karşılığı `pd.qcut()` fonksiyonudur.
+	2. **Eşit Frekanslı (Equal-Frequency)**: Her sepete eşit sayıda veri koyar (örn: toplam 9 veri varsa, her sepete 3'er veri düşecek şekilde böler). Boş sepet riski olmaması ve verinin dengeli dağılması bakımından avantajlıdır. Aykırı değerleri bulmakta etkilidir. Pandas'taki karşılığı `pd.qcut()` fonksiyonudur.
 
 
 #### 3. Eğri Uydurma (Curve Fitting)
