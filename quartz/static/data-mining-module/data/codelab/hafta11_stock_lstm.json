@@ -187,7 +187,8 @@
           "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunun bir parçasıdır."
         }
       ],
-      "expectedOutput": "Yardımcı fonksiyonlar tanımlanır; henüz grafik veya metrik çıktısı üretilmez."
+      "expectedOutput": "Yardımcı fonksiyonlar tanımlanır; henüz grafik veya metrik çıktısı üretilmez.",
+      "outputInterpretation": "İşlevsel Amaç: Veri madenciliği ve derin öğrenme süreçlerinde kullanılacak temel yapı taşlarının (matris işlemleri, görselleştirme, ölçekleme, hata metrikleri) çalışma ortamına dahil edilmesidir. Parametrik/Metodik Kararlar: Regresyon (sürekli değişken tahminlemesi) yapılacağı için sınıflandırma metrikleri (Accuracy, F1 vb.) yerine MSE, RMSE, MAE ve R² tercih edilmiştir. Çıktı Analizi: Kod henüz bir çıktı üretmez, ancak projenin bir zaman serisi regresyon problemi olarak kurgulandığını ve performansın hata minimizasyonu üzerinden ölçüleceğini fısıldar."
     },
     {
       "id": "hafta11_stock_lstm-b002",
@@ -217,7 +218,8 @@
           "codeContext": "Bu satır, 'Hisse Verisini Yükleme' bloğunda verinin doğru okunup okunmadığını kontrol eder."
         }
       ],
-      "expectedOutput": "İlk 5 satırda Open, High, Low, Close gibi fiyat sütunları tarih indeksli biçimde görünür."
+      "expectedOutput": "İlk 5 satırda Open, High, Low, Close gibi fiyat sütunları tarih indeksli biçimde görünür.",
+      "outputInterpretation": "İşlevsel Amaç: Ham verinin sisteme entegre edilmesi ve zaman boyutu kazandırılmasıdır. Parametrik/Metodik Kararlar: 'index_col=Date' ve 'parse_dates' parametreleri kritik öneme sahiptir. Veri salt bir tablo olarak değil, kronolojik bir indeks yapısında (Time Series nesnesi) okunmuştur. Bu yapılmasaydı, model veriler arasındaki ardışıklık (geçmişin geleceği etkilemesi) örüntüsünü kavrayamazdı. Çıktı Analizi: İlk 5 satır incelendiğinde Open, High, Low, Close (OHLC) gibi çoklu değişkenler (multivariate) görülmektedir. Bir sonraki adım, hedef değişkenin (Y) seçilmesidir."
     },
     {
       "id": "hafta11_stock_lstm-b003",
@@ -239,7 +241,8 @@
           "codeContext": "Bu satır, 'Train-Test Dönemlerini Ayırma' bloğunda bir ara sonuç üretir."
         }
       ],
-      "expectedOutput": "training_set ve test_set yalnızca High sütununu içeren iki NumPy dizisine dönüşür."
+      "expectedOutput": "training_set ve test_set yalnızca High sütununu içeren iki NumPy dizisine dönüşür.",
+      "outputInterpretation": "İşlevsel Amaç: Veri sızıntısını (data leakage) engellemek ve modeli doğru değerlendirebilmek için verinin eğitim (Train) ve test (Test) setlerine ayrılmasıdır. Parametrik/Metodik Kararlar: Geleneksel makine öğrenmesindeki 'rastgele ayrım (random split)' yöntemi KESİNLİKLE kullanılmamıştır. Zaman serilerinde gelecek verisi ile geçmiş eğitilemeyeceği için kronolojik bir kesim (2016 sonu) yapılmıştır. Model sadeliği adına sadece 'High' sütunu (univariate) seçilmiştir. Çıktı Analizi: Veri artık geçmişi öğrenmek ve geleceği simüle etmek üzere iki izole matrise dönüşmüştür."
     },
     {
       "id": "hafta11_stock_lstm-b004",
@@ -291,7 +294,8 @@
         }
       ],
       "expectedOutput": "(Grafik çıktısı) 2016 öncesi eğitim çizgisi ile 2017 test çizgisi aynı eksende görünür.",
-      "plotImage": "h11-stock-b004.png"
+      "plotImage": "h11-stock-b004.png",
+      "outputInterpretation": "İşlevsel Amaç: Eğitim ve test setlerinin dağılımını, trendini ve rejim değişimlerini görsel olarak denetlemektir. Verinin durağan (stationary) olup olmadığına dair ön görü sağlar. Parametrik/Metodik Kararlar: İki farklı dönemin aynı eksende çizdirilmesi, test verisinin eğitim verisine kıyasla nasıl bir konjonktürel dalgalanma veya trend (yükseliş/düşüş) içinde olduğunu gösterir. Çıktı Analizi: Grafikte belirgin bir yukarı ve aşağı yönlü trend görülmektedir (durağan değil). Yüksek varyans ve genlik farkları, sinir ağlarının optimizasyonunu zorlaştıracağı için verinin acilen normalize edilmesi (ölçeklenmesi) gerektiğine işaret eder."
     },
     {
       "id": "hafta11_stock_lstm-b005",
@@ -363,7 +367,8 @@
           "codeContext": "Bu satır, 'Ölçekleme ve 60 Zaman Adımlı Pencereleme' bloğunda bir ara sonuç üretir."
         }
       ],
-      "expectedOutput": "X_train 60 günlük geçmişi, y_train ise bir sonraki günü temsil eden dizilere dönüşür."
+      "expectedOutput": "X_train 60 günlük geçmişi, y_train ise bir sonraki günü temsil eden dizilere dönüşür.",
+      "outputInterpretation": "İşlevsel Amaç: 1) Modelin patlayan veya sönen gradyan (exploding/vanishing gradients) problemine girmesini önlemek (Ölçekleme). 2) Zaman serisini denetimli öğrenme (Supervised Learning) formatına sokmak (Pencereleme/Sliding Window). Parametrik/Metodik Kararlar: LSTM ağları için MinMaxScaler (0-1 arası) standarttır. Pencere boyutu (window length) 60 olarak belirlenmiştir. Yani model, bugünün fiyatını tahmin etmek için geçmiş 60 işlem gününün (yaklaşık 3 ay) örüntüsüne bakacaktır. Çıktı Analizi: Elimizde artık bağımsız değişkeni (X) olmayan bir seri değil; her satırında geçmiş 60 günün verisini (X) ve hedef olarak 61. günü (Y) barındıran matrisler vardır."
     },
     {
       "id": "hafta11_stock_lstm-b006",
@@ -386,7 +391,8 @@
           "codeContext": "Bu satır, 'LSTM Giriş Tensörünü Hazırlama' bloğunda tensör boyutunu ayarlar."
         }
       ],
-      "expectedOutput": "X_train şekli (örnek_sayısı, 60, 1) biçimine dönüşür."
+      "expectedOutput": "X_train şekli (örnek_sayısı, 60, 1) biçimine dönüşür.",
+      "outputInterpretation": "İşlevsel Amaç: Veri yapısını Keras/TensorFlow tabanlı derin öğrenme modellerinin beklediği mimariye uydurmaktır. Parametrik/Metodik Kararlar: Klasik modeller 2D (satır, sütun) matris beklerken, LSTM ve RNN modelleri veriyi 3D tensörler (örnek_sayısı, zaman_adımı, özellik_sayısı) halinde ister. 'reshape' işlemi ile boyut (samples, 60, 1) şekline getirilmiştir. Çıktı Analizi: Veri, hafıza hücrelerine (memory cells) zaman adımları halinde beslenmeye hazır hale gelmiştir."
     },
     {
       "id": "hafta11_stock_lstm-b007",
@@ -595,7 +601,8 @@
           "codeContext": "Bu satır, 'Derin LSTM Mimarisi' bloğunda mimariyi kontrol etmeyi sağlar."
         }
       ],
-      "expectedOutput": "Model özeti katman katman görünür; dört LSTM ve dropout katmanı listelenir."
+      "expectedOutput": "Model özeti katman katman görünür; dört LSTM ve dropout katmanı listelenir.",
+      "outputInterpretation": "İşlevsel Amaç: Verideki karmaşık ve uzun vadeli zaman bağımlılıklarını (döngüsellik, trend) öğrenebilecek derin bir yapay zekâ mimarisi inşa etmektir. Parametrik/Metodik Kararlar: 4 katmanlı (Deep) bir LSTM kurulmuştur. 'return_sequences=True' parametresi, bir LSTM katmanının çıktısını dizilimini bozmadan bir sonraki LSTM katmanına aktarmak için zaruridir. Aşırı öğrenmeyi (Overfitting/Ezberleme) engellemek için her katman arasına %20 oranında 'Dropout' (nöron seyreltme) eklenmiştir. Çıktı Analizi: Model özeti (summary), ağın ne kadar derin olduğunu ve eğitilecek parametre sayısını gösterir. Son katman (Dense), regresyon gereği tek bir sürekli değer (fiyat) üretecektir."
     },
     {
       "id": "hafta11_stock_lstm-b008",
@@ -617,7 +624,8 @@
           "codeContext": "Bu satır, 'Modeli Derleme ve Eğitme' bloğunda öğrenme sürecini başlatır."
         }
       ],
-      "expectedOutput": "Epoch ilerleme satırları ve her epoch için loss değerleri görünür."
+      "expectedOutput": "Epoch ilerleme satırları ve her epoch için loss değerleri görünür.",
+      "outputInterpretation": "İşlevsel Amaç: Kurulan mimarinin parametrelerini (ağırlıklarını) geçmiş veriye bakarak optimize etmek (eğitmek). Parametrik/Metodik Kararlar: Zaman serilerinde momentumu iyi yönettiği için optimizasyon algoritması olarak 'RMSprop' (Adam da olabilirdi) seçilmiş, hata fonksiyonu olarak karesel hata (MSE) belirlenmiştir. Veri 50 tur (epoch) boyunca, 32'şerli paketler (batch_size) halinde işlenmiştir. Çıktı Analizi: Loss değerinin epoch'lar ilerledikçe düşmesi, modelin verideki örüntüyü kavradığını (öğrendiğini) kanıtlar."
     },
     {
       "id": "hafta11_stock_lstm-b009",
@@ -710,7 +718,8 @@
           "codeContext": "Bu satır, 'Test Setini Hazırlayıp Tahmin Üretme' bloğunda model öncesi normalizasyon yapar."
         }
       ],
-      "expectedOutput": "predicted_stock_price dizisi gerçek fiyat ölçeğine dönmüş tahminleri içerir."
+      "expectedOutput": "predicted_stock_price dizisi gerçek fiyat ölçeğine dönmüş tahminleri içerir.",
+      "outputInterpretation": "İşlevsel Amaç: Eğitilmiş modeli test verisi üzerinde sınamak için test girdilerini hazırlamak ve tahmin (prediction) üretmek. Parametrik/Metodik Kararlar: Test setinin ilk gününü tahmin edebilmek için eğitim setinin son 60 gününe ihtiyaç vardır (Sliding window doğası gereği). Bu yüzden veri geçici olarak birleştirilmiştir. ÇOK KRİTİK: Test verisi ölçeklenirken 'fit_transform' değil, SADECE 'transform' kullanılmıştır (Data Leakage'i önlemek için). Tahminler üretildikten sonra 'inverse_transform' ile 0-1 aralığındaki sayılar tekrar gerçek dolar kuruna çevrilmiştir. Çıktı Analizi: Modelin ürettiği sentetik fiyat tahminleri (Y_pred), gerçek dünyadaki karşılıklarına (dolar) dönüştürülmüş ve kıyaslamaya hazır hale gelmiştir."
     },
     {
       "id": "hafta11_stock_lstm-b010",
@@ -782,7 +791,8 @@
         }
       ],
       "expectedOutput": "(Grafik çıktısı) Gerçek ve tahmin fiyatları üst üste görünür; altında MSE, RMSE, MAE ve R² değerleri yazdırılır.",
-      "plotImage": "h11-stock-b010.png"
+      "plotImage": "h11-stock-b010.png",
+      "outputInterpretation": "İşlevsel Amaç: Modelin genelleme yeteneğini (görünmeyen veri üzerindeki başarısını) nicel ve nitel olarak değerlendirmek. Parametrik/Metodik Kararlar: Görselleştirme ile modelin trendi (yönü) yakalayıp yakalayamadığına bakılır. MSE/RMSE hataların büyüklüğünü, MAE aykırı değerlere dirençli ortalama hatayı, R² ise modelin gerçek verideki varyansı açıklama gücünü ölçer. Çıktı Analizi: Grafik, modelin ana trendi başarıyla takip ettiğini ancak çok ani piyasa şoklarını (outliers/gürültü) yakalamakta geciktiğini (tipik LSTM davranışı) gösterir. Elde edilen metrikler ışığında, bir sonraki adım pencere boyutunu değiştirmek, modele hacim (Volume) gibi yeni sütunlar eklemek veya epoch sayısını optimize etmek olabilir."
     }
   ]
 }

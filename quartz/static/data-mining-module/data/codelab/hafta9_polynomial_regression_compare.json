@@ -159,7 +159,8 @@
           "codeContext": "Bu satır, 'Polynomial veri setini yükleme ve X-Y ayırma' bloğunda ara sonucu bir değişkende saklar."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar.",
+      "outputInterpretation": "Bu blokta, veri madenciliği sürecinin hazırlık aşaması gerçekleştirilerek gerekli algoritmalar kütüphaneden çağrılmış ve veri seti bağımlı (Y) - bağımsız (X) değişkenler olarak ikiye ayrılmıştır. Çıktı üretilmemesi kodun hatasız çalıştığını gösterir. Bu aşamadan sonra verinin yapısını anlamak için Keşifçi Veri Analizi (EDA) adımlarına geçilmelidir."
     },
     {
       "id": "hafta9_polynomial_regression_compare-b002",
@@ -181,7 +182,8 @@
           "codeContext": "Bu satır, 'Veri setini tablo olarak görme' bloğunda veri setini doğrudan gösterir."
         }
       ],
-      "expectedOutput": "   deneyim    maas\n0        1    4500\n1        2    5000\n2        3    6000\n3        4    8000\n4        5   11000\n5        6   15000\n6        7   20000\n7        8   30000\n8        9   50000\n9       10  100000"
+      "expectedOutput": "   deneyim    maas\n0        1    4500\n1        2    5000\n2        3    6000\n3        4    8000\n4        5   11000\n5        6   15000\n6        7   20000\n7        8   30000\n8        9   50000\n9       10  100000",
+      "outputInterpretation": "Bu blokta, sisteme yüklenen veri setinin değerlerini ve dağılım aralığını ham olarak incelemek amaçlanmıştır. Tablo çıktısı incelendiğinde, deneyim arttıkça maaşın doğrusal değil, katlanarak (üstel) arttığı açıkça görülmektedir. Veri madenciliği bağlamında bu durum, basit doğrusal modellerin bu veride başarısız olacağının ilk sinyalidir."
     },
     {
       "id": "hafta9_polynomial_regression_compare-b003",
@@ -280,7 +282,8 @@
         }
       ],
       "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
-      "plotImage": "h9-poly-compare-b003.png"
+      "plotImage": "h9-poly-compare-b003.png",
+      "outputInterpretation": "Bu blokta, model seçimi öncesi değişkenler arasındaki ilişkinin geometrisini anlamak için görselleştirme yapılmıştır. Çıktıdaki scatter (dağılım) grafiği, noktaların düz bir çizgi yerine kavisli bir 'U' eğrisi şeklinde ilerlediğini gösterir. Bu sonuç, analizde kesinlikle doğrusal olmayan (non-lineer) veya polinomal bir regresyon algoritmasının kullanılması gerektiğini kanıtlar."
     },
     {
       "id": "hafta9_polynomial_regression_compare-b004",
@@ -316,7 +319,8 @@
           "codeContext": "Bu satır, 'Lineer regresyon modelini eğitme' bloğunda modeli veri üzerinde eğitir."
         }
       ],
-      "expectedOutput": "LinearRegression()"
+      "expectedOutput": "LinearRegression()",
+      "outputInterpretation": "Bu blokta, verinin yapısına uygun olmayan Basit Doğrusal Regresyon modeli kurularak makine öğrenmesi sürecindeki modelleme aşaması başlatılmıştır. 'LinearRegression()' çıktısı, modelin başarıyla eğitildiğini ifade eder. Veri madenciliği sürecinde bir sonraki adım, bu 'yanlış' modelin ne kadar hata yaptığını (underfitting durumunu) test etmektir."
     },
     {
       "id": "hafta9_polynomial_regression_compare-b005",
@@ -415,7 +419,8 @@
         }
       ],
       "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
-      "plotImage": "h9-poly-compare-b005.png"
+      "plotImage": "h9-poly-compare-b005.png",
+      "outputInterpretation": "Bu blokta, eğitilen doğrusal modelin tahmin performansı görselleştirilerek modelin veriye ne kadar uyduğu test edilmiştir. Çıktıdaki grafik, düz mavi çizginin kavisli noktalara uyum sağlayamadığını, uç değerlerde tahmini düşük tutarken orta değerlerde gereğinden yüksek tahmin yaptığını göstermektedir. Bu, makine öğrenmesinde 'Underfitting' (Eksik Öğrenme / Yüksek Bias) durumudur ve modelin değiştirilmesi gerektiğini net bir şekilde ifade eder."
     },
     {
       "id": "hafta9_polynomial_regression_compare-b006",
@@ -610,7 +615,8 @@
         }
       ],
       "expectedOutput": "LinearRegression()",
-      "plotImage": "h9-poly-compare-b006.png"
+      "plotImage": "h9-poly-compare-b006.png",
+      "outputInterpretation": "Bu blokta, farklı bir isimlendirme ile tekrar doğrusal model kurularak underfitting problemi pekiştirilmek istenmiştir. Çıktıdaki grafikte yeşil çizgi, verinin gerçek eğilimini yakalamaktan çok uzaktır. Modelin çok basit kaldığı ve veri setindeki karmaşık örüntüyü öğrenemediği tescillenmiş olup, çözüm için modele esneklik (polinom) katılması şarttır."
     },
     {
       "id": "hafta9_polynomial_regression_compare-b007",
@@ -694,7 +700,8 @@
           "codeContext": "Bu satır, 'Polinomal dönüşüm ve modeli eğitme' bloğunda modeli veri üzerinde eğitir."
         }
       ],
-      "expectedOutput": "PolynomialFeatures(degree=5)\n\nLinearRegression()"
+      "expectedOutput": "PolynomialFeatures(degree=5)\n\nLinearRegression()",
+      "outputInterpretation": "Bu blokta, eksik öğrenme problemini çözmek amacıyla Özellik Mühendisliği (Feature Engineering) yapılarak tek boyutlu X değişkeni 5. dereceden polinomal özelliklere dönüştürülmüş ve bu yeni verilerle regresyon modeli eğitilmiştir. Çıktı, dönüşümün ve model eğitiminin başarıyla tamamlandığını gösterir. Artık model, verideki kıvrımları öğrenebilecek esnekliğe kavuşmuştur."
     },
     {
       "id": "hafta9_polynomial_regression_compare-b008",
@@ -807,7 +814,8 @@
         }
       ],
       "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
-      "plotImage": "h9-poly-compare-b008.png"
+      "plotImage": "h9-poly-compare-b008.png",
+      "outputInterpretation": "Bu blokta, polinomal dönüşüm geçiren modelin veri üzerindeki performansı görsel olarak değerlendirilmiştir. Çıktıdaki kırmızı eğrinin, mavi veri noktalarının tam üzerinden pürüzsüz bir kavisle geçtiği görülmektedir. Veri madenciliği açısından bu sonuç 'Good Fit' (İyi Uyum) anlamına gelir; model verinin doğasını başarıyla öğrenmiştir."
     },
     {
       "id": "hafta9_polynomial_regression_compare-b009",
@@ -843,7 +851,8 @@
           "codeContext": "Bu satır, '5.3 için lineer tahmin' bloğunda tahmin değerini terminale taşır."
         }
       ],
-      "expectedOutput": "array([[23332.42424242]])"
+      "expectedOutput": "array([[23332.42424242]])",
+      "outputInterpretation": "Bu blokta, başarısız olan (underfitting) ilk doğrusal modelden, ara bir değer olan 5.3 yıllık deneyim için tahmin alınarak modelin sayısal hatası gözlemlenmek istenmiştir. Çıktıdaki 23.332 değeri, veri setinin gerçekliğiyle uyuşmamaktadır (5. yıl 11.000, 6. yıl 15.000 iken bu tahmin mantıksız derecede yüksektir). Bu durum yanlış model seçiminin yanıltıcı öngörülere yol açtığını gösterir."
     },
     {
       "id": "hafta9_polynomial_regression_compare-b010",
@@ -879,7 +888,8 @@
           "codeContext": "Bu satır, '5.3 için polinomal tahmin' bloğunda tahmin değerini terminale taşır."
         }
       ],
-      "expectedOutput": "array([12410.643803])"
+      "expectedOutput": "array([12410.643803])",
+      "outputInterpretation": "Bu blokta, başarılı olan polinomal modelden aynı 5.3 yıllık deneyim değeri için tahmin alınmıştır. Çıktıdaki 12.410 değeri, 5. yıl (11.000) ve 6. yıl (15.000) maaş bantlarının tam mantıklı bir ara noktasına denk gelmektedir. Bu sonuç, modelin hem örüntüyü öğrendiğini hem de yeni gelen verilere mantıklı (genellenebilir) tahminler üretebildiğini ispatlar."
     },
     {
       "id": "hafta9_polynomial_regression_compare-b011",
@@ -901,7 +911,8 @@
           "codeContext": "Bu satır, 'Veri setini tekrar gösterme' bloğunda veri setini doğrudan gösterir."
         }
       ],
-      "expectedOutput": "   deneyim    maas\n0        1    4500\n1        2    5000\n2        3    6000\n3        4    8000\n4        5   11000\n5        6   15000\n6        7   20000\n7        8   30000\n8        9   50000\n9       10  100000"
+      "expectedOutput": "   deneyim    maas\n0        1    4500\n1        2    5000\n2        3    6000\n3        4    8000\n4        5   11000\n5        6   15000\n6        7   20000\n7        8   30000\n8        9   50000\n9       10  100000",
+      "outputInterpretation": "Bu blokta, önceki hücrelerde yapılan model tahminlerinin doğruluğunu (12.410 vs 23.332) manuel olarak teyit etmek için veri tablosu tekrar ekrana basılmıştır. Çıktı tablosu ile kıyaslandığında polinomal tahminin ne kadar isabetli olduğu doğrulanmıştır."
     },
     {
       "id": "hafta9_polynomial_regression_compare-b012",
@@ -1034,7 +1045,8 @@
         }
       ],
       "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
-      "plotImage": "h9-poly-compare-b012.png"
+      "plotImage": "h9-poly-compare-b012.png",
+      "outputInterpretation": "Bu blokta, doğru ve yanlış algoritma seçimlerinin sonuçlarını aynı zemin üzerinde kıyaslamak amacıyla iki modelin çizgileri tek grafikte birleştirilmiştir. Çıktıdaki görsel, düz doğrunun (Lineer) yetersizliğini ve eğrinin (Polinomal) başarısını dramatik bir şekilde ortaya koyar. Veri madenciliğinde Model Seçimi (Model Selection) işleminin grafikler yardımıyla nasıl karara bağlandığının nihai özetidir."
     },
     {
       "id": "hafta9_polynomial_regression_compare-b013",
@@ -1156,7 +1168,8 @@
           "codeContext": "Bu satır, 'Salary örneği için kütüphaneleri hazırlama' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar.",
+      "outputInterpretation": "Bu blokta, çalışmanın ikinci kısmı (yeni bir veri seti ile yeni bir senaryo) için ortam hazırlığı yapılarak gerekli kütüphaneler tekrar tanımlanmıştır. Çıktı olmaması işlemin başarılı olduğunu gösterir."
     },
     {
       "id": "hafta9_polynomial_regression_compare-b014",
@@ -1246,7 +1259,8 @@
           "codeContext": "Bu satır, 'Salary örneği için mevcut df üstünden X-y ayırma' bloğunda veri şekli bilgisini yazdırır."
         }
       ],
-      "expectedOutput": "X shape: (10, 1)\n\ny shape: (10,)"
+      "expectedOutput": "X shape: (10, 1)\n\ny shape: (10,)",
+      "outputInterpretation": "Bu blokta, makine öğrenmesi algoritmalarının beklediği matris/vektör boyutlarının doğru ayarlanıp ayarlanmadığı kontrol edilmiştir. Çıktıdaki X boyutunun (10,1) iki boyutlu bir matris, y boyutunun (10,) tek boyutlu bir vektör olması, verinin Scikit-Learn algoritmalarına girmeye hazır olduğunu teyit eder."
     },
     {
       "id": "hafta9_polynomial_regression_compare-b015",
@@ -1316,7 +1330,8 @@
           "codeContext": "Bu satır, 'Salary.csv dosyasını okuma' bloğunda veri setinin ilk satırlarını gösterir."
         }
       ],
-      "expectedOutput": "   YearsExperience  Salary\n0              1.1   39343\n1              1.3   46205\n2              1.5   37731\n3              2.0   43525\n4              2.2   39891"
+      "expectedOutput": "   YearsExperience  Salary\n0              1.1   39343\n1              1.3   46205\n2              1.5   37731\n3              2.0   43525\n4              2.2   39891",
+      "outputInterpretation": "Bu blokta, ikinci örneklem için kullanılacak 'Salary.csv' veri seti sisteme yüklenmiş ve verinin genel yapısını anlamak için ilk 5 satırı incelenmiştir. Çıktı tablosu, yıllara göre küsuratlı deneyim süreleri ve karşılığındaki maaş değerlerini göstererek yeni veri seti hakkında fikir vermektedir."
     },
     {
       "id": "hafta9_polynomial_regression_compare-b016",
@@ -1386,7 +1401,8 @@
           "codeContext": "Bu satır, 'Salary örneğinde polynomial dönüşüm' bloğunda veri şekli bilgisini yazdırır."
         }
       ],
-      "expectedOutput": "Yeni veri boyutu: (10, 10)"
+      "expectedOutput": "Yeni veri boyutu: (10, 10)",
+      "outputInterpretation": "Bu blokta, özellik dönüşümü yapılarak bağımsız değişken (X), 9. dereceden polinomal özelliklere çıkarılmıştır. Çıktıda boyutun (10, 1) değerinden (10, 10) değerine çıkması, modele devasa bir esneklik katıldığını gösterir. Sadece 10 satırlık bir veriye 9. dereceden polinom uygulamak, veri madenciliğinde 'Overfitting' (Aşırı Öğrenme/Ezberleme) problemini kasıtlı olarak yaratmak ve gözlemlemek için atılmış bir adımdır."
     }
   ]
 }

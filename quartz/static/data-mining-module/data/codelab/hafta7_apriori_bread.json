@@ -1748,7 +1748,8 @@
           "codeContext": "Bu satır, 'Genel Apriori pipeline fonksiyonu' bloğunda fonksiyon çıktısını dışarı aktarır."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar.",
+      "outputInterpretation": "Bu kod bloğu, işlem bazlı verileri birliktelik kuralları analizine hazırlamak ve Apriori algoritmasını uçtan uca çalıştırabilmek amacıyla genel bir boru hattı (pipeline) fonksiyonu tanımlamak için çalıştırılmıştır. Çıktı üretilmemesi, fonksiyonun belleğe başarıyla yüklendiğini ve analiz edilmek istenen herhangi bir sepet verisi için temizleme, sepet matrisi oluşturma, kural üretimi ve anlamlı Türkçe iş cümlelerine dönüştürme adımlarına hazır olduğunu gösterir. Veri madenciliği sürecinde bu tür modüler fonksiyonlar, analizlerin tekrarlanabilirliğini ve doğruluğunu artırmak için kritik öneme sahiptir."
     },
     {
       "id": "hafta7_apriori_bread-b002",
@@ -1874,7 +1875,8 @@
           "codeContext": "Bu satır, 'Bread Basket verisini yükleme ve pipeline'ı çalıştırma' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
         }
       ],
-      "expectedOutput": "Temizlik sonrası veri boyutu: (20507, 5)\n\nSepet matrisi boyutu: (9465, 94)\n\nSık ürün kümeleri sayısı: 33\n\nEn sık ürün kümeleri:\n    support         itemsets\n0  0.478394         (Coffee)\n1  0.327205          (Bread)\n2  0.142631            (Tea)\n3  0.103856           (Cake)\n4  0.090016  (Coffee, Bread)\n5  0.086107         (Pastry)\n6  0.071844       (Sandwich)\n7  0.061807      (Medialuna)\n8  0.058320  (Hot chocolate)\n9  0.054728   (Cake, Coffee)\n\nİlk 10 kural:\n  antecedents  ...                                            message\n0         Tea  ...  Tea alan müşterilerin %16.67'i Cake de almakta...\n1        Cake  ...  Cake alan müşterilerin %22.89'i Tea de almakta...\n2       Toast  ...  Toast alan müşterilerin %70.44'i Coffee de alm...\n3      Coffee  ...  Coffee alan müşterilerin %4.95'i Toast de alma...\n4   Medialuna  ...  Medialuna alan müşterilerin %56.92'i Coffee de...\n5      Coffee  ...  Coffee alan müşterilerin %7.35'i Medialuna de ...\n6      Pastry  ...  Pastry alan müşterilerin %55.21'i Coffee de al...\n7      Coffee  ...  Coffee alan müşterilerin %9.94'i Pastry de alm...\n8       Juice  ...  Juice alan müşterilerin %53.42'i Coffee de alm...\n9      Coffee  ...  Coffee alan müşterilerin %4.31'i Juice de alma...\n\n[10 rows x 6 columns]"
+      "expectedOutput": "Temizlik sonrası veri boyutu: (20507, 5)\n\nSepet matrisi boyutu: (9465, 94)\n\nSık ürün kümeleri sayısı: 33\n\nEn sık ürün kümeleri:\n    support         itemsets\n0  0.478394         (Coffee)\n1  0.327205          (Bread)\n2  0.142631            (Tea)\n3  0.103856           (Cake)\n4  0.090016  (Coffee, Bread)\n5  0.086107         (Pastry)\n6  0.071844       (Sandwich)\n7  0.061807      (Medialuna)\n8  0.058320  (Hot chocolate)\n9  0.054728   (Cake, Coffee)\n\nİlk 10 kural:\n  antecedents  ...                                            message\n0         Tea  ...  Tea alan müşterilerin %16.67'i Cake de almakta...\n1        Cake  ...  Cake alan müşterilerin %22.89'i Tea de almakta...\n2       Toast  ...  Toast alan müşterilerin %70.44'i Coffee de alm...\n3      Coffee  ...  Coffee alan müşterilerin %4.95'i Toast de alma...\n4   Medialuna  ...  Medialuna alan müşterilerin %56.92'i Coffee de...\n5      Coffee  ...  Coffee alan müşterilerin %7.35'i Medialuna de ...\n6      Pastry  ...  Pastry alan müşterilerin %55.21'i Coffee de al...\n7      Coffee  ...  Coffee alan müşterilerin %9.94'i Pastry de alm...\n8       Juice  ...  Juice alan müşterilerin %53.42'i Coffee de alm...\n9      Coffee  ...  Coffee alan müşterilerin %4.31'i Juice de alma...\n\n[10 rows x 6 columns]",
+      "outputInterpretation": "Bu kod bloğu, hazırlanan boru hattı fonksiyonunu fırın satış verilerine uygulayarak en sık birlikte alınan ürün gruplarını ve birliktelik kurallarını tespit etmek amacıyla çalıştırılmıştır. Çıktılar incelendiğinde; 9465 benzersiz sepetten (fatura) elde edilen 33 sık ürün kümesi içinde en popüler ürünün %47.8 destek (support) oranı ile 'Coffee' (Kahve), ikinci sırada ise %32.7 ile 'Bread' (Ekmek) olduğu görülmektedir. Toast alanların %70.4'ünün Coffee de alması gibi yüksek güvene (confidence) sahip kurallar elde edilmiştir. Bu sonuçlar, veri kümesindeki temel tüketim eğilimlerini ortaya koyarak çapraz satış ve ürün konumlandırma stratejileri için sayısal bir temel sağlar."
     },
     {
       "id": "hafta7_apriori_bread-b003",
@@ -2035,7 +2037,8 @@
         }
       ],
       "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
-      "plotImage": "h7-bread-b003.png"
+      "plotImage": "h7-bread-b003.png",
+      "outputInterpretation": "Bu kod bloğu, mağazadaki genel satış karakteristiğini anlamak üzere en yüksek frekansa sahip ilk 10 ürünü görselleştirmek amacıyla çalıştırılmıştır. Grafikten elde edilen sonuç, fırın/kafe işletmesinde 'Coffee' ve 'Bread' ürünlerinin diğer tüm ürünlere kıyasla çok daha yüksek satış hacmine sahip olduğunu net bir şekilde göstermektedir. Veri madenciliği bağlamında bu durum, üretilecek birliktelik kurallarında bu baskın ürünlerin neden sıklıkla 'ardıl (consequent)' veya 'öncül (antecedent)' olarak karşımıza çıktığını açıklar. Sonraki aşamalarda sadece bu popüler ürünlerin kurallarını değil, lift değeri yüksek daha niş ürün ilişkilerini de dikkatle incelemek gerekir."
     },
     {
       "id": "hafta7_apriori_bread-b004",
@@ -2522,7 +2525,8 @@
         }
       ],
       "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
-      "plotImage": "h7-bread-b004.png"
+      "plotImage": "h7-bread-b004.png",
+      "outputInterpretation": "Bu kod bloğu, çıkarılan birliktelik kuralları arasındaki yönlü ilişkileri ve etkileşim gücünü (Lift) bir ağ grafiği (Network Graph) üzerinde toplu halde görmek amacıyla çalıştırılmıştır. Görsel incelendiğinde, 'Coffee' düğümünün (node) sistemin merkezi hedef noktası olduğu ve Cookies, Hot chocolate, Juice, Medialuna, Pastry, Sandwich, Toast gibi birçok farklı üründen gelen yönlü oklarla beslendiği görülmektedir. Ayrıca 'Tea' ve 'Cake' arasında karşılıklı güçlü bir bağ olduğu gözlemlenmektedir. Bu görsel analiz, mağaza içi yerleşim planlamasında kahve tezgahının konumuna göre diğer ürünlerin nasıl yerleştirilmesi gerektiği konusunda doğrudan kararlar verilmesine olanak tanır."
     },
     {
       "id": "hafta7_apriori_bread-b005",
@@ -2671,7 +2675,8 @@
         }
       ],
       "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
-      "plotImage": "h7-bread-b005.png"
+      "plotImage": "h7-bread-b005.png",
+      "outputInterpretation": "Bu kod bloğu, üretilen tüm birliktelik kurallarının kalite dağılımını (Güven ve Kaldıraç ilişkisini) destek değerine bağlı büyüklüklerle bir arada değerlendirmek amacıyla çalıştırılmıştır. Dağılım grafiğinde, görece düşük güvene (<0.15) sahip ancak lift değeri yüksek olan niş kuralların yanı sıra, %50 ila %70 arasında yüksek güven sunan orta kuvvetteki kurallar kümelenmektedir. Özellikle sağ üst köşede yer alan yüksek güvenli ve lift değeri 1.4'ün üzerindeki büyük noktalar (örn: Toast -> Coffee ilişkisi gibi yüksek destekli kurallar), işletme için en güvenilir ve ticari getirisi en yüksek olan 'altın kuralları' temsil eder. Bir sonraki adımda pazarlama bütçesi bu sağ üst bölgedeki kurallara odaklanarak planlanmalıdır."
     },
     {
       "id": "hafta7_apriori_bread-b006",
@@ -2798,7 +2803,8 @@
         }
       ],
       "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
-      "plotImage": "h7-bread-b006.png"
+      "plotImage": "h7-bread-b006.png",
+      "outputInterpretation": "Bu kod bloğu, rastlantısal birlikteliğin ötesinde birbirinin satış olasılığını en çok artıran (en yüksek Lift değerine sahip) ilk 10 kuralı sıralayıp görselleştirmek amacıyla çalıştırılmıştır. Grafik incelendiğinde, 'Tea -> Cake' ve 'Cake -> Tea' birlikteliğinin yaklaşık 1.6'lık Lift değeriyle en güçlü ilişkiyi sunduğu, bunu 'Toast -> Coffee' (Lift ~1.48) ilişkisinin takip ettiği görülmektedir. Bu durum, çay alan bir müşterinin kek alma olasılığının genel kek alma olasılığına göre 1.6 kat arttığını gösterir. Veri madenciliği açısından bu en güçlü 10 kural, çapraz promosyonlar, kombine menüler (combo) ve kasa arkası fırsat ürünleri tasarlanırken doğrudan kullanılacak öncelikli ilişkilerdir."
     },
     {
       "id": "hafta7_apriori_bread-b007",
@@ -2972,7 +2978,8 @@
           "codeContext": "Bu satır, 'Antecedent-consequent yapısını insan diline çevirme' bloğunda kural açıklamasını numaralı metin olarak yazar."
         }
       ],
-      "expectedOutput": "Kural 1: Eğer 'Tea' alınırsa, 'Cake' de alınır.\nKural 2: Eğer 'Cake' alınırsa, 'Tea' de alınır.\nKural 3: Eğer 'Toast' alınırsa, 'Coffee' de alınır.\nKural 4: Eğer 'Coffee' alınırsa, 'Toast' de alınır.\nKural 5: Eğer 'Medialuna' alınırsa, 'Coffee' de alınır.\nKural 6: Eğer 'Coffee' alınırsa, 'Medialuna' de alınır.\nKural 7: Eğer 'Pastry' alınırsa, 'Coffee' de alınır.\nKural 8: Eğer 'Coffee' alınırsa, 'Pastry' de alınır.\nKural 9: Eğer 'Juice' alınırsa, 'Coffee' de alınır.\nKural 10: Eğer 'Coffee' alınırsa, 'Juice' de alınır."
+      "expectedOutput": "Kural 1: Eğer 'Tea' alınırsa, 'Cake' de alınır.\nKural 2: Eğer 'Cake' alınırsa, 'Tea' de alınır.\nKural 3: Eğer 'Toast' alınırsa, 'Coffee' de alınır.\nKural 4: Eğer 'Coffee' alınırsa, 'Toast' de alınır.\nKural 5: Eğer 'Medialuna' alınırsa, 'Coffee' de alınır.\nKural 6: Eğer 'Coffee' alınırsa, 'Medialuna' de alınır.\nKural 7: Eğer 'Pastry' alınırsa, 'Coffee' de alınır.\nKural 8: Eğer 'Coffee' alınırsa, 'Pastry' de alınır.\nKural 9: Eğer 'Juice' alınırsa, 'Coffee' de alınır.\nKural 10: Eğer 'Coffee' alınırsa, 'Juice' de alınır.",
+      "outputInterpretation": "Bu kod bloğu, Apriori analizinden elde edilen teknik öncül (antecedent) ve ardıl (consequent) çıktılarını, mağaza yöneticileri veya satış personeli gibi teknik olmayan paydaşların doğrudan anlayabileceği mantıksal iş cümlelerine dönüştürmek amacıyla çalıştırılmıştır. Çıktıda yer alan 'Eğer Toast alınırsa, Coffee de alınır' benzeri net ifadeler, teknik analiz ile saha uygulaması arasındaki köprüyü kurar. Bu aşamadan sonra elde edilen bu net kurallar, satış elemanlarının eğitim materyallerine, dijital menü yönlendirmelerine veya kasa satış sistemlerindeki (POS) anlık öneri algoritmalarına entegre edilerek ticari değere dönüştürülmelidir."
     }
   ]
 }

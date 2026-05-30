@@ -134,7 +134,8 @@
           "codeContext": "Bu satır, 'Kütüphaneler ve GPU Kontrolü' bloğunda metinsel çıktı üretir."
         }
       ],
-      "expectedOutput": "TensorFlow version: 2.x ve GPU listesi yazdırılır; çoğu yerel ortamda GPU listesi boş olabilir."
+      "expectedOutput": "TensorFlow version: 2.x ve GPU listesi yazdırılır; çoğu yerel ortamda GPU listesi boş olabilir.",
+      "outputInterpretation": "Görsel veri madenciliği süreçlerinde (CRISP-DM'in veri hazırlama ve modelleme fazlarında) en büyük darboğaz 'Space/Time Complexity' (Hafıza ve Zaman Karmaşıklığı) problemidir. Bu blokta TensorFlow ortamının ve özellikle GPU donanımının kontrol edilmesinin stratejik amacı budur. Görüntüler (3D tensörler) üzerinde gezinen filtrelerin matris çarpımları, CPU'nun ardışık işlem yeteneğiyle değil, GPU'nun paralel işlem mimarisiyle çözülebilir. Ortamın donanımsal olarak bu devasa matris işlemlerine hazır olup olmadığının validasyonu yapılır."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b002",
@@ -177,7 +178,8 @@
           "codeContext": "Bu satır, 'Fashion-MNIST Veri Setini Yükleme' bloğunda metinsel çıktı üretir."
         }
       ],
-      "expectedOutput": "Eğitim veri boyutu: (60000, 28, 28)\nTest veri boyutu: (10000, 28, 28)\nEğitim etiket boyutu: (60000,)\nTest etiket boyutu: (10000,)"
+      "expectedOutput": "Eğitim veri boyutu: (60000, 28, 28)\nTest veri boyutu: (10000, 28, 28)\nEğitim etiket boyutu: (60000,)\nTest etiket boyutu: (10000,)",
+      "outputInterpretation": "Veri setinin belleğe alınması ve boyutlarının (shape) kontrol edilmesi adımıdır. Makine öğrenmesinde modelin ezberlemesini (memorization) önlemek ve gerçek genelleme yeteneğini (tümevarım) ölçmek için veri seti baştan eğitim (60.000) ve test (10.000) olarak ikiye ayrılmıştır. Bu hamle, 'Data Leakage' (veri sızıntısı) riskini ortadan kaldırır. Çıktıdaki (60000, 28, 28) boyutu, elimizde 60 bin adet satır/sütun matrisi olduğunu gösterir ancak CNN mimarisi için zorunlu olan 'kanal' (channel) boyutunun eksik olduğunu işaret eder."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b003",
@@ -300,7 +302,8 @@
         }
       ],
       "expectedOutput": "(Grafik çıktısı) İlk 10 Fashion-MNIST örneği 2x5 düzeninde gri tonlu olarak görünür.",
-      "plotImage": "h13-fashion-b003.png"
+      "plotImage": "h13-fashion-b003.png",
+      "outputInterpretation": "Veriyi anlama (Data Understanding) evresidir. Nominal etiketlerin (0-9 arası rakamlar) insan tarafından anlaşılabilir kategorik isimlere haritalanması işlemi yapılmıştır. Elde edilen görsel çıktı, veri setinin yapısı hakkında bize kritik bir bilgi fısıldar: Görüntüler düşük çözünürlüklü (28x28), gri tonlamalı, merkeze hizalanmış ve arka plan gürültüsünden (noise) arındırılmıştır. Bu durum, modelin bu veride yüksek başarı elde etmesini kolaylaştırırken, gerçek dünya (real-world) verilerindeki karmaşık arka planlarda modelin bocalama ihtimalinin yüksek olduğunu baştan gösterir."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b004",
@@ -394,7 +397,8 @@
           "codeContext": "Bu satır, 'CNN İçin Veri Hazırlama' bloğunda metinsel çıktı üretir."
         }
       ],
-      "expectedOutput": "Yeni X_train boyutu: (60000, 28, 28, 1)\nYeni X_test boyutu: (10000, 28, 28, 1)\nÖrnek ham etiket ve 10 boyutlu one-hot vektör birlikte görünür."
+      "expectedOutput": "Yeni X_train boyutu: (60000, 28, 28, 1)\nYeni X_test boyutu: (10000, 28, 28, 1)\nÖrnek ham etiket ve 10 boyutlu one-hot vektör birlikte görünür.",
+      "outputInterpretation": "Sinir ağlarının matematiksel doğası gereği yapılan kritik ön işleme (Data Preprocessing) adımıdır. Üç stratejik karar içerir: Birincisi, `reshape` ile matrise '1' kanal boyutu eklenerek veri 3D tensör (genişlik, yükseklik, kanal) formatına getirilir; çünkü CNN algoritmaları bu yapısal formata ihtiyaç duyar. İkincisi, pikseller `/ 255.0` ile [0, 1] aralığına normalize edilir. Bu işlem, Optimizasyon algoritmasının (Gradient Descent) global minimuma daha hızlı ve stabil inmesini sağlar, aksi takdirde büyük sayılar 'Exploding Gradients' (patlayan gradyanlar) sorununa yol açar. Üçüncüsü, hedef değişken `to_categorical` ile One-Hot Encoding formatına çevrilir. Sınıflar arası hiyerarşik veya matematiksel bir ilişki olmadığı (örn: Çanta, Ayakkabıdan büyüktür denilemez) makineye net bir şekilde ifade edilmiş olur."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b005",
@@ -550,7 +554,8 @@
           "codeContext": "Bu satır, 'CNN Modelini Kurma ve Özeti' bloğunda mimariyi kontrol etmeyi sağlar."
         }
       ],
-      "expectedOutput": "Model özeti metin olarak görünür; conv1, conv2, flatten, dense ve dropout katmanları listelenir."
+      "expectedOutput": "Model özeti metin olarak görünür; conv1, conv2, flatten, dense ve dropout katmanları listelenir.",
+      "outputInterpretation": "Manuel öznitelik çıkarma (Sobel, Canny, Renk Histogramı) devrini kapatan CNN mimarisinin kalbidir. Model hiyerarşik bir tasarıma sahiptir: `Conv2D` katmanları görüntü üzerinde filtreler gezdirerek kenar, köşe ve doku (edge/texture) özelliklerini otomatik cımbızlar. `MaxPooling2D` katmanları ise 'Lossy Compression' (kayıplı sıkıştırma) uygulayarak, piksellerdeki en baskın özellikleri korurken boyutları ve işlemci yükünü drastik şekilde düşürür. `Flatten` ile matris vektöre dönüştürülüp `Dense` (Yapay Sinir Ağı) katmanına sokulur. Araya eklenen `Dropout(0.3)`, nöronların %30'unu rastgele kapatarak modelin tek bir özniteliğe aşırı bağımlı olmasını (Overfitting) engeller. `Softmax` ise ağın son kararını bir olasılık dağılımı olarak sunar."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b006",
@@ -650,7 +655,8 @@
           "codeContext": "Bu satır, 'Modeli Derleme ve Eğitme' bloğunun bir parçasıdır."
         }
       ],
-      "expectedOutput": "Epoch ilerleme satırları görünür; accuracy yükselirken loss düşer."
+      "expectedOutput": "Epoch ilerleme satırları görünür; accuracy yükselirken loss düşer.",
+      "outputInterpretation": "Modelin ağırlıklarını (W) güncelleyerek örüntüleri öğrendiği aşamadır. `adam` optimizasyonu, öğrenme oranını (learning rate) dinamik olarak ayarladığı için hızlı yakınsama sağlar. Çok sınıflı bir problem olduğu için `categorical_crossentropy` hata fonksiyonu seçilmiştir. `batch_size=64` stratejisi, 60 bin görselin RAM'i şişirmesini engellerken (OOM hataları), ağırlık güncellemelerine stokastik bir yapı katarak yerel minimumlara (local minima) takılmayı önler. `validation_split=0.1` ise, modelin eğitim esnasında hiç görmediği bir %10'luk kesim üzerinde anlık genelleme testine tabi tutulmasını sağlar."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b007",
@@ -826,7 +832,8 @@
         }
       ],
       "expectedOutput": "(Grafik çıktısı) Accuracy eğrisi yükselir, loss eğrisi düşer; eğitim ve doğrulama çizgileri birlikte görünür.",
-      "plotImage": "h13-fashion-b007.png"
+      "plotImage": "h13-fashion-b007.png",
+      "outputInterpretation": "Eğitim sürecinin (Learning Curve) teşhis (diagnostic) grafiğidir. Grafiğe bakıldığında Eğitim Doğruluğunun (Train Accuracy) ~0.89 seviyelerine tırmandığı, Doğrulama Doğruluğunun (Validation Accuracy) ise onu stabil bir şekilde ~0.85 seviyesinde takip ettiği görülür. İki eğri arasındaki makasın dar olması ve validation eğrisinin aşağı doğru bir kırılma yaşamaması, modelin 'Overfitting' (ezberleme) tuzağına düşmediğini, aksine verinin varyansını doğru yakalayarak başarılı bir genelleme (tümevarım) yaptığını kanıtlar. Bu, parametre ayarlarının (Dropout, Pooling) doğru çalıştığının kesin bir göstergesidir."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b008",
@@ -965,7 +972,8 @@
         }
       ],
       "expectedOutput": "Test Loss ve Test Accuracy yazdırılır; seçilen örnek görseli ve model tahmini birlikte görülür.",
-      "plotImage": "h13-fashion-b008.png"
+      "plotImage": "h13-fashion-b008.png",
+      "outputInterpretation": "Modelin nihai sınav (Evaluation) aşamasıdır. Eğitimde ve validasyonda hiç kullanılmamış, tamamen izole edilmiş test seti üzerinden başarı metrikleri hesaplanır. Çıktıdaki görsel analiz, modelin pikselleri kaybolmuş, son derece düşük çözünürlüklü bir matrise bakmasına rağmen, özellik çıkarımı sayesinde bunun bir 'Sneaker' olduğunu doğru bir şekilde eşleştirebildiğini gösterir. İnsan gözünün bile zor seçtiği bu detayları modelin yakalaması, CNN'in hiyerarşik yapısal özellik çıkarma gücünü kanıtlar."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b009",
@@ -1154,7 +1162,8 @@
         }
       ],
       "expectedOutput": "(Grafik çıktısı) Önce sınıf olasılıkları çubuk grafiği, ardından 16 feature map’ten oluşan panel görünür.",
-      "plotImage": "h13-fashion-b009.png"
+      "plotImage": "h13-fashion-b009.png",
+      "outputInterpretation": "Modelin 'Kara Kutusunu' (Black Box) açıp açıklanabilirlik (Explainable AI / Feature Visualization) sunduğumuz kritik aşamadır. Çubuk grafik, yapay zekanın if-else mantığıyla çalışan bir güvenlik sistemi gibi %100 eşleşme aramadığını; olasılıksal bir tahmin yaptığını gösterir (Sneaker'a en yüksek olasılığı atamıştır). 4x4'lük özellik haritası (Feature Map) paneli ise CNN'in tam olarak ne öğrendiğinin röntgenidir. Filtreler nesneyi bütün bir ayakkabı olarak değil; taban çizgisi, bağcık dokusu, dış silüet gibi soyut pikseller bütünü olarak parçalamıştır. Ağın bu alt seviye (low-level) özellikleri nasıl cımbızladığı görsel olarak ispatlanmıştır."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b010",
@@ -1304,7 +1313,8 @@
           "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda metinsel çıktı üretir."
         }
       ],
-      "expectedOutput": "Harici görsel için bir tahmin etiketi, ardından kamera görüntüsü için ikinci bir tahmin etiketi yazdırılır."
+      "expectedOutput": "Harici görsel için bir tahmin etiketi, ardından kamera görüntüsü için ikinci bir tahmin etiketi yazdırılır.",
+      "outputInterpretation": "Modelin gerçek dünya verisiyle (Production/Deployment senaryosu) sınandığı testtir. İster statik bir jpeg dosyası olsun, ister kameradan akan anlık bir frame olsun; dışarıdan gelen verinin, modelin eğitildiği formata (28x28, gri tonlama, normalize edilmiş) birebir dönüştürülmesi zorunludur. Ancak bu test, genellikle Data Drift (veri kayması) problemini yüzümüze vurur. Model, arka planı temiz, mükemmel hizalanmış stüdyo verileriyle eğitildiği için; kameradan gelen gürültülü, farklı açılı ve karmaşık arka planlı verilerde büyük ihtimalle başarısız olacaktır. Bu çıktı bize, gerçek dünya projeleri için sıfırdan küçük bir CNN eğitmek yerine, devasa verilerle eğitilmiş (YOLO, ResNet gibi) hazır modellerin ağırlıklarını alarak 'Transfer Learning' yapmamız gerektiği yönünde stratejik bir karar aldırır."
     }
   ]
 }

@@ -168,7 +168,8 @@
           "codeContext": "Bu satır, 'Kütüphaneleri hazırlıyoruz' bloğunda grafiklerin görsel temasını ayarlar."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar.",
+      "outputInterpretation": "Bu blok, veri ön işleme, modelleme ve görselleştirme için gerekli kütüphaneleri çalışma ortamına dahil etmek amacıyla çalıştırılmıştır. Çıktı üretilmemiş olması, kütüphanelerin hatasız bir şekilde yüklendiğini gösterir. Bu aşamadan sonra veri setini yükleme ve analiz işlemlerine geçiş için ortam hazırdır."
     },
     {
       "id": "hafta6_cluster_0-b002",
@@ -252,7 +253,8 @@
           "codeContext": "Bu satır, 'Mall Customers verisini yüklüyoruz' bloğunda tablonun ilk satırlarını önizleme amaçlı ekrana getirir."
         }
       ],
-      "expectedOutput": "   CustomerID   Genre  Age  Annual Income (k$)  Spending Score (1-100)\n0           1    Male   19                  15                      39\n1           2    Male   21                  15                      81\n2           3  Female   20                  16                       6\n3           4  Female   23                  16                      77\n4           5  Female   31                  17                      40"
+      "expectedOutput": "   CustomerID   Genre  Age  Annual Income (k$)  Spending Score (1-100)\n0           1    Male   19                  15                      39\n1           2    Male   21                  15                      81\n2           3  Female   20                  16                       6\n3           4  Female   23                  16                      77\n4           5  Female   31                  17                      40",
+      "outputInterpretation": "Bu blok, veri setinin sisteme doğru bir şekilde yüklenip yüklenmediğini kontrol etmek ve verinin yapısına ilk bakışı atmak için çalıştırılmıştır. Çıktı, 5 sütunlu müşteri verisinin ilk 5 satırını göstermektedir; demografik ve finansal bilgilerin yer aldığı görülmektedir. Sütunların veri tiplerinin ve boyutunun incelenmesi aşamasına geçilebilir."
     },
     {
       "id": "hafta6_cluster_0-b003",
@@ -288,7 +290,8 @@
           "codeContext": "Bu satır, 'Sütun tiplerini inceliyoruz' bloğunda sütunların tip kontrolünü yapar."
         }
       ],
-      "expectedOutput": "CustomerID                 int64\nGenre                     object\nAge                        int64\nAnnual Income (k$)         int64\nSpending Score (1-100)     int64\ndtype: object"
+      "expectedOutput": "CustomerID                 int64\nGenre                     object\nAge                        int64\nAnnual Income (k$)         int64\nSpending Score (1-100)     int64\ndtype: object",
+      "outputInterpretation": "Bu blok, veri setindeki değişkenlerin tiplerini kontrol ederek makine öğrenmesi algoritmaları için uygunluklarını belirlemek amacıyla çalıştırılmıştır. Çıktıda 'Genre' (Cinsiyet) sütununun kategorik ('object'), diğer sütunların ise sayısal ('int64') olduğu görülmektedir. Mesafe tabanlı K-Means algoritması kullanılacağı için 'Genre' sütununun sayısallaştırılması gerektiği anlaşılmaktadır."
     },
     {
       "id": "hafta6_cluster_0-b004",
@@ -324,7 +327,8 @@
           "codeContext": "Bu satır, 'Veri boyutunu kontrol ediyoruz' bloğunda veri setinin boyut bilgisini verir."
         }
       ],
-      "expectedOutput": "(200, 5)"
+      "expectedOutput": "(200, 5)",
+      "outputInterpretation": "Bu blok, veri setinin hacmini anlamak, kaç gözlem ve kaç nitelik olduğunu doğrulamak için çalıştırılmıştır. Çıktıdaki '(200, 5)' değeri, veri setinde 200 müşteri kaydı ve 5 farklı özellik sütunu bulunduğunu ifade eder. Verinin küçük ölçekli olduğu anlaşıldığından ön işleme adımlarına başlanabilir."
     },
     {
       "id": "hafta6_cluster_0-b005",
@@ -360,7 +364,8 @@
           "codeContext": "Bu satır, 'CustomerID sütununu kaldırıyoruz' bloğunda tablonun ilk satırlarını önizleme amaçlı ekrana getirir."
         }
       ],
-      "expectedOutput": "    Genre  Age  Annual Income (k$)  Spending Score (1-100)\n0    Male   19                  15                      39\n1    Male   21                  15                      81\n2  Female   20                  16                       6\n3  Female   23                  16                      77\n4  Female   31                  17                      40"
+      "expectedOutput": "    Genre  Age  Annual Income (k$)  Spending Score (1-100)\n0    Male   19                  15                      39\n1    Male   21                  15                      81\n2  Female   20                  16                       6\n3  Female   23                  16                      77\n4  Female   31                  17                      40",
+      "outputInterpretation": "Bu blok, her müşteriye özel benzersiz bir kimlik olan 'CustomerID' sütununun, müşteriler arası mesafe ölçümüne analitik bir katkısı olmayacağı için veriden çıkarılması amacıyla çalıştırılmıştır. Çıktıda bu sütunun silindiği ve geriye analizde kullanılacak 4 anlamlı değişkenin kaldığı görülmektedir. Kalan verilerdeki kategorik değişkenin dönüştürülmesi işlemine geçilebilir."
     },
     {
       "id": "hafta6_cluster_0-b006",
@@ -408,7 +413,8 @@
           "codeContext": "Bu satır, 'Genre sütununu sayısallaştırıyoruz' bloğunda tablonun ilk satırlarını önizleme amaçlı ekrana getirir."
         }
       ],
-      "expectedOutput": "   Genre  Age  Annual Income (k$)  Spending Score (1-100)\n0      0   19                  15                      39\n1      0   21                  15                      81\n2      1   20                  16                       6\n3      1   23                  16                      77\n4      1   31                  17                      40"
+      "expectedOutput": "   Genre  Age  Annual Income (k$)  Spending Score (1-100)\n0      0   19                  15                      39\n1      0   21                  15                      81\n2      1   20                  16                       6\n3      1   23                  16                      77\n4      1   31                  17                      40",
+      "outputInterpretation": "Bu blok, K-Means algoritması yalnızca sayısal verilerle çalıştığı için, metinsel bir değişken olan 'Genre' sütununu modelin anlayabileceği formata dönüştürmek için çalıştırılmıştır. Çıktıda 'Female' değerlerinin 1'e, 'Male' değerlerinin 0'a dönüştürüldüğü görülmektedir. Veri tamamen sayısal hale geldiği için görselleştirme ve modelleme adımlarına geçilebilir."
     },
     {
       "id": "hafta6_cluster_0-b007",
@@ -557,7 +563,8 @@
         }
       ],
       "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
-      "plotImage": "h6-mall-b007.png"
+      "plotImage": "h6-mall-b007.png",
+      "outputInterpretation": "Bu blok, müşterilerin yıllık gelirleri ile harcama skorları arasındaki ilişkiyi ve cinsiyetin bu dağılımdaki rolünü görsel olarak keşfetmek amacıyla çalıştırılmıştır. Çıktıdaki grafikte verilerin 5 ana odakta toplanma eğiliminde olduğu görülmekte, ancak cinsiyet bazında belirgin bir ayrışma gözlenmemektedir. Verinin kümelenmeye yatkın olduğu teyit edildiğinden, ideal küme sayısını bulmak için matematiksel yöntemlere başvurulmalıdır."
     },
     {
       "id": "hafta6_cluster_0-b008",
@@ -661,7 +668,8 @@
           "codeContext": "Bu satır, 'SSE değerlerini hesaplıyoruz' bloğunda hesaplanan SSE sözlüğünü gözlemlemek için yazdırır."
         }
       ],
-      "expectedOutput": "{2: 75399.61541401484,\n 3: 75399.61541401484,\n 4: 75399.61541401484,\n 5: 75399.61541401484,\n 6: 75399.61541401484,\n 7: 75399.61541401484,\n 8: 75399.61541401484,\n 9: 75399.61541401484,\n 10: 75399.61541401484,\n 11: 75399.61541401483,\n 12: 75399.61541401484,\n 13: 75399.61541401484,\n 14: 75399.61541401484}"
+      "expectedOutput": "{2: 75399.61541401484,\n 3: 75399.61541401484,\n 4: 75399.61541401484,\n 5: 75399.61541401484,\n 6: 75399.61541401484,\n 7: 75399.61541401484,\n 8: 75399.61541401484,\n 9: 75399.61541401484,\n 10: 75399.61541401484,\n 11: 75399.61541401483,\n 12: 75399.61541401484,\n 13: 75399.61541401484,\n 14: 75399.61541401484}",
+      "outputInterpretation": "Bu blok, farklı k (küme) sayıları için modelin Hata Kareler Toplamı'nı (SSE) hesaplayarak dirsek (Elbow) yöntemi için veri hazırlamak amacıyla çalıştırılmıştır. Çıktı incelendiğinde, kodda yapılan bir mantık hatası sebebiyle döngüdeki 'k' değeri yerine sabit n_clusters=5 kullanıldığı, bu nedenle tüm k değerleri için aynı hatanın (75399.61) üretildiği görülmektedir. Bu durum, dirsek yönteminin bu haliyle doğru sonuç vermeyeceği anlamına gelir."
     },
     {
       "id": "hafta6_cluster_0-b009",
@@ -754,7 +762,8 @@
         }
       ],
       "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
-      "plotImage": "h6-mall-b009.png"
+      "plotImage": "h6-mall-b009.png",
+      "outputInterpretation": "Bu blok, hesaplanan SSE değerlerini görselleştirerek optimum küme sayısını belirlemek (dirsek noktasını bulmak) için çalıştırılmıştır. Çıktıdaki grafik, bir önceki adımdaki kod hatası nedeniyle sabit hesaplanan değerleri yansıtmış ve tamamen yatay düz bir çizgi oluşmuştur. Bu grafik üzerinden optimum küme sayısını belirlemek imkansızdır, analiz manuel bir k seçimiyle veya hatanın düzeltilmesiyle devam etmelidir."
     },
     {
       "id": "hafta6_cluster_0-b010",
@@ -872,7 +881,8 @@
           "codeContext": "Bu satır, 'K-Means modelini eğitip merkezleri alıyoruz' bloğunda hem örnek etiketleri hem de merkezleri birlikte gösterir."
         }
       ],
-      "expectedOutput": "KMeans(n_clusters=9, n_init=10, random_state=42)\n\n(array([7, 0, 3, 0, 7, 0, 3, 0, 3, 0], dtype=int32),\n array([[  0.6       ,  24.85      ,  24.95      ,  81.        ],\n        [  0.64285714,  27.57142857,  62.28571429,  47.32142857],\n        [  0.6       ,  32.2       , 109.7       ,  82.        ],\n        [  0.63157895,  46.15789474,  26.10526316,  17.42105263],\n        [  0.7       ,  41.        , 109.7       ,  22.        ],\n        [  0.51724138,  32.86206897,  78.55172414,  82.17241379],\n        [  0.55555556,  56.15555556,  53.37777778,  49.08888889],\n        [  0.6       ,  27.06666667,  38.6       ,  52.13333333],\n        [  0.33333333,  41.91666667,  80.        ,  14.58333333]]))"
+      "expectedOutput": "KMeans(n_clusters=9, n_init=10, random_state=42)\n\n(array([7, 0, 3, 0, 7, 0, 3, 0, 3, 0], dtype=int32),\n array([[  0.6       ,  24.85      ,  24.95      ,  81.        ],\n        [  0.64285714,  27.57142857,  62.28571429,  47.32142857],\n        [  0.6       ,  32.2       , 109.7       ,  82.        ],\n        [  0.63157895,  46.15789474,  26.10526316,  17.42105263],\n        [  0.7       ,  41.        , 109.7       ,  22.        ],\n        [  0.51724138,  32.86206897,  78.55172414,  82.17241379],\n        [  0.55555556,  56.15555556,  53.37777778,  49.08888889],\n        [  0.6       ,  27.06666667,  38.6       ,  52.13333333],\n        [  0.33333333,  41.91666667,  80.        ,  14.58333333]]))",
+      "outputInterpretation": "Bu blok, analiz için belirlenen 9 küme (n_clusters=9) ile K-Means modelini eğitmek, veri noktalarının hangi kümelere atandığını ve bu kümelerin uzaydaki merkezlerini bulmak için çalıştırılmıştır. Çıktıda, ilk 10 müşterinin atandığı küme numaraları (0-8 arası) ve her bir kümenin 4 boyutlu veri uzayındaki merkez koordinatları görülmektedir. Segmentasyonun mantığını incelemek için sonuçların görselleştirilmesi gereklidir."
     },
     {
       "id": "hafta6_cluster_0-b011",
@@ -1083,7 +1093,8 @@
         }
       ],
       "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
-      "plotImage": "h6-mall-b011.png"
+      "plotImage": "h6-mall-b011.png",
+      "outputInterpretation": "Bu blok, oluşturulan 9 kümeli modelin sonuçlarını Gelir ve Harcama Skoru eksenlerinde görselleştirerek, algoritmik ayrımın iş dünyası için mantığını değerlendirmek amacıyla çalıştırılmıştır. Çıktıdaki grafikte veri noktalarının 9 farklı renge boyandığı ve merkezlerin işaretlendiği görülmektedir; ancak verinin çok küçük parçalara (aşırı segmentasyon) bölündüğü anlaşılmaktadır. Veri madenciliği bağlamında daha anlamlı, genellenebilir ve pazarlama stratejilerine uygun müşteri segmentleri elde etmek için analiz daha düşük bir k değeri (örneğin grafiğin doğal yapısına uygun olan 5) ile tekrarlanmalıdır."
     }
   ]
 }

@@ -174,7 +174,8 @@
           "codeContext": "Bu satır, 'Live veri seti için araçları hazırlıyoruz' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar.",
+      "outputInterpretation": "Bu blok, veri madenciliği sürecinde kullanılacak veri işleme, görselleştirme ve K-Means kümeleme algoritmalarına ait kütüphaneleri çalışma ortamına dahil etmek için çalıştırılmıştır. Çıktıda görünür bir sonuç yoktur; ancak bu adım, veriyi yüklemek ve modelleme aşamasına geçmek için gereken teknik altyapının kurulduğu anlamına gelir."
     },
     {
       "id": "hafta6_cluster_2-b002",
@@ -278,7 +279,8 @@
           "codeContext": "Bu satır, 'Live.csv dosyasını yüklüyoruz' bloğunda tablonun ilk satırlarını önizleme amaçlı ekrana getirir."
         }
       ],
-      "expectedOutput": "Veri seti yüklendi.\n\n                          status_id status_type status_published  num_reactions  num_comments  num_shares  num_likes  num_loves  num_wows  num_hahas  \\\n0  246675545449582_1649696485147474       video   4/22/2018 6:00            529           512         262        432         92         3          1\n1  246675545449582_1649426988507757       photo  4/21/2018 22:45            150             0           0        150          0         0          0\n2  246675545449582_1648730588577397       video   4/21/2018 6:17            227           236          57        204         21         1          1\n3  246675545449582_1648576705259452       photo   4/21/2018 2:29            111             0           0        111          0         0          0\n4  246675545449582_1645700502213739       photo   4/18/2018 3:22            213             0           0        204          9         0          0\n\n   num_sads  num_angrys  Column1  Column2  Column3  Column4\n0         1           0      NaN      NaN      NaN      NaN\n1         0           0      NaN      NaN      NaN      NaN\n2         0           0      NaN      NaN      NaN      NaN\n3         0           0      NaN      NaN      NaN      NaN\n4         0           0      NaN      NaN      NaN      NaN"
+      "expectedOutput": "Veri seti yüklendi.\n\n                          status_id status_type status_published  num_reactions  num_comments  num_shares  num_likes  num_loves  num_wows  num_hahas  \\\n0  246675545449582_1649696485147474       video   4/22/2018 6:00            529           512         262        432         92         3          1\n1  246675545449582_1649426988507757       photo  4/21/2018 22:45            150             0           0        150          0         0          0\n2  246675545449582_1648730588577397       video   4/21/2018 6:17            227           236          57        204         21         1          1\n3  246675545449582_1648576705259452       photo   4/21/2018 2:29            111             0           0        111          0         0          0\n4  246675545449582_1645700502213739       photo   4/18/2018 3:22            213             0           0        204          9         0          0\n\n   num_sads  num_angrys  Column1  Column2  Column3  Column4\n0         1           0      NaN      NaN      NaN      NaN\n1         0           0      NaN      NaN      NaN      NaN\n2         0           0      NaN      NaN      NaN      NaN\n3         0           0      NaN      NaN      NaN      NaN\n4         0           0      NaN      NaN      NaN      NaN",
+      "outputInterpretation": "Veri setini belleğe yüklemek ve yapısına ilk bakışı (Keşifçi Veri Analizi) atmak için çalıştırılmıştır. Çıktıdaki tablo, etkileşim sayılarını (beğeni, yorum vb.) gösterirken, aynı zamanda tamamen NaN (boş) değerlerden oluşan gereksiz 'Column' sütunlarının varlığını ortaya koyar. Veri madenciliği bağlamında bu durum, modele girmeden önce gereksiz sütunların temizlenmesi ve veri ön işleme yapılması gerektiğine işaret eder."
     },
     {
       "id": "hafta6_cluster_2-b003",
@@ -300,7 +302,8 @@
           "codeContext": "Bu satır, 'Genel yapıyı df.info() ile inceliyoruz' bloğunda veri setinin genel yapısını özetler."
         }
       ],
-      "expectedOutput": "<class 'pandas.core.frame.DataFrame'>\nRangeIndex: 7050 entries, 0 to 7049\nData columns (total 16 columns):\n #   Column            Non-Null Count  Dtype\n---  ------            --------------  -----\n 0   status_id         7050 non-null   object\n 1   status_type       7050 non-null   object\n 2   status_published  7050 non-null   object\n 3   num_reactions     7050 non-null   int64\n 4   num_comments      7050 non-null   int64\n 5   num_shares        7050 non-null   int64\n 6   num_likes         7050 non-null   int64\n 7   num_loves         7050 non-null   int64\n 8   num_wows          7050 non-null   int64\n 9   num_hahas         7050 non-null   int64\n 10  num_sads          7050 non-null   int64\n 11  num_angrys        7050 non-null   int64\n 12  Column1           0 non-null      float64\n 13  Column2           0 non-null      float64\n 14  Column3           0 non-null      float64\n 15  Column4           0 non-null      float64\ndtypes: float64(4), int64(9), object(3)\nmemory usage: 881.4+ KB"
+      "expectedOutput": "<class 'pandas.core.frame.DataFrame'>\nRangeIndex: 7050 entries, 0 to 7049\nData columns (total 16 columns):\n #   Column            Non-Null Count  Dtype\n---  ------            --------------  -----\n 0   status_id         7050 non-null   object\n 1   status_type       7050 non-null   object\n 2   status_published  7050 non-null   object\n 3   num_reactions     7050 non-null   int64\n 4   num_comments      7050 non-null   int64\n 5   num_shares        7050 non-null   int64\n 6   num_likes         7050 non-null   int64\n 7   num_loves         7050 non-null   int64\n 8   num_wows          7050 non-null   int64\n 9   num_hahas         7050 non-null   int64\n 10  num_sads          7050 non-null   int64\n 11  num_angrys        7050 non-null   int64\n 12  Column1           0 non-null      float64\n 13  Column2           0 non-null      float64\n 14  Column3           0 non-null      float64\n 15  Column4           0 non-null      float64\ndtypes: float64(4), int64(9), object(3)\nmemory usage: 881.4+ KB",
+      "outputInterpretation": "Veri setindeki sütunların veri tiplerini ve doluluk oranlarını sistematik olarak incelemek için çalıştırılmıştır. Çıktı, toplam 7050 kayıt olduğunu ve son 4 sütunun (Column1-4) tamamen boş olduğunu doğrular. Bu sonuç, kümeleme algoritmasına dahil edilecek özniteliklerin seçimi sırasında bu boş sütunların ve metin tabanlı (object) sütunların dışarıda bırakılması gerektiği kararını kesinleştirir."
     },
     {
       "id": "hafta6_cluster_2-b004",
@@ -448,7 +451,8 @@
           "codeContext": "Bu satır, 'Kümeleme sütunlarını seçiyoruz' bloğunda daraltılmış tablonun önizlemesini verir."
         }
       ],
-      "expectedOutput": "   num_reactions  num_comments  num_shares  num_likes  num_loves  num_wows  num_hahas  num_sads  num_angrys\n0            529           512         262        432         92         3          1         1           0\n1            150             0           0        150          0         0          0         0           0\n2            227           236          57        204         21         1          1         0           0\n3            111             0           0        111          0         0          0         0           0\n4            213             0           0        204          9         0          0         0           0"
+      "expectedOutput": "   num_reactions  num_comments  num_shares  num_likes  num_loves  num_wows  num_hahas  num_sads  num_angrys\n0            529           512         262        432         92         3          1         1           0\n1            150             0           0        150          0         0          0         0           0\n2            227           236          57        204         21         1          1         0           0\n3            111             0           0        111          0         0          0         0           0\n4            213             0           0        204          9         0          0         0           0",
+      "outputInterpretation": "K-Means algoritması yalnızca sayısal veriler ve mesafeler üzerinden çalıştığı için, modele sokulacak ilgili etkileşim (özellik) sütunlarını filtrelemek amacıyla çalıştırılmıştır. Çıktı, ID, tarih veya tamamen boş sütunlardan arındırılmış temiz bir sayısal veriyi gösterir. Bu adım, modelin veri noktaları arasındaki Öklid mesafelerini doğru ve gürültüsüz bir şekilde hesaplayabilmesi için zorunlu bir özütleme (feature selection) adımıdır."
     },
     {
       "id": "hafta6_cluster_2-b005",
@@ -470,7 +474,8 @@
           "codeContext": "Bu satır, 'Eksik değerleri sayıyoruz' bloğunda eksik veri yoğunluğunu ölçer."
         }
       ],
-      "expectedOutput": "num_reactions    0\nnum_comments     0\nnum_shares       0\nnum_likes        0\nnum_loves        0\nnum_wows         0\nnum_hahas        0\nnum_sads         0\nnum_angrys       0\ndtype: int64"
+      "expectedOutput": "num_reactions    0\nnum_comments     0\nnum_shares       0\nnum_likes        0\nnum_loves        0\nnum_wows         0\nnum_hahas        0\nnum_sads         0\nnum_angrys       0\ndtype: int64",
+      "outputInterpretation": "Seçilen sayısal özellik kümesinde eksik (NaN) veri kalıp kalmadığını kontrol etmek için çalıştırılmıştır. Çıktı, seçili tüm sütunlardaki eksik değer sayısının 0 olduğunu göstermektedir. K-Means gibi algoritmalar eksik değerlere karşı hassas olduğundan, bu sonuç veri setinin temiz olduğunu ve güvenle bir sonraki aşamaya geçilebileceğini ifade eder."
     },
     {
       "id": "hafta6_cluster_2-b006",
@@ -548,7 +553,8 @@
           "codeContext": "Bu satır, 'Eksikleri sıfırla tamamlama kararını veriyoruz' bloğunda veri setinin temiz olduğunu kullanıcıya bildirir."
         }
       ],
-      "expectedOutput": "Eksik veri bulunmadı."
+      "expectedOutput": "Eksik veri bulunmadı.",
+      "outputInterpretation": "Gözden kaçabilecek olası eksik verileri imputation (0 ile doldurma) yöntemiyle gidermek için yazılmış defansif bir kontrol mekanizmasıdır. Çıktıdaki 'Eksik veri bulunmadı.' mesajı, bir önceki adımı doğrular. Veri madenciliği sürecinde bu, veriye dışarıdan sentetik bir müdahale (veri uydurma) yapılmasına gerek kalmadığı ve modelin orijinal değerlerle eğitileceği anlamına gelir."
     },
     {
       "id": "hafta6_cluster_2-b007",
@@ -598,7 +604,8 @@
           "codeContext": "Bu satır, 'Veriyi StandardScaler ile ölçeklendiriyoruz' bloğunda ölçeklenmiş verinin örnek görünümünü sunar."
         }
       ],
-      "expectedOutput": "array([[ 0.64610394,  0.32335035,  1.6868788 ,  0.48272661,  1.98326643,  0.1961959 ,  0.07671305,  0.47357035, -0.15574803],\n       [-0.17319166, -0.25220622, -0.3041444 , -0.14472021, -0.3184544 , -0.147879  , -0.17600986, -0.152587  , -0.15574803],\n       [-0.00673846,  0.01308938,  0.12901714, -0.02457082,  0.2069384 , -0.03318737,  0.07671305, -0.152587  , -0.15574803],\n       [-0.25749912, -0.25220622, -0.3041444 , -0.23149477, -0.3184544 , -0.147879  , -0.17600986, -0.152587  , -0.15574803],\n       [-0.03700268, -0.25220622, -0.3041444 , -0.02457082, -0.09328605, -0.147879  , -0.17600986, -0.152587  , -0.15574803]])"
+      "expectedOutput": "array([[ 0.64610394,  0.32335035,  1.6868788 ,  0.48272661,  1.98326643,  0.1961959 ,  0.07671305,  0.47357035, -0.15574803],\n       [-0.17319166, -0.25220622, -0.3041444 , -0.14472021, -0.3184544 , -0.147879  , -0.17600986, -0.152587  , -0.15574803],\n       [-0.00673846,  0.01308938,  0.12901714, -0.02457082,  0.2069384 , -0.03318737,  0.07671305, -0.152587  , -0.15574803],\n       [-0.25749912, -0.25220622, -0.3041444 , -0.23149477, -0.3184544 , -0.147879  , -0.17600986, -0.152587  , -0.15574803],\n       [-0.03700268, -0.25220622, -0.3041444 , -0.02457082, -0.09328605, -0.147879  , -0.17600986, -0.152587  , -0.15574803]])",
+      "outputInterpretation": "K-Means mesafe temelli bir algoritma olduğundan, farklı ölçeklerdeki sütunların (örneğin binlerce olan tepki sayısı ile tek haneli 'wow' sayısının) modele eşit ağırlıkta etki etmesini sağlamak için veriler standartlaştırılmıştır. Çıktıdaki dizi (array), değerlerin ortalaması 0 ve varyansı 1 olacak şekilde dönüştürüldüğünü gösterir. Bu işlem, algoritmanın sadece büyük sayılara sahip sütunlar tarafından domine edilmesini engeller."
     },
     {
       "id": "hafta6_cluster_2-b008",
@@ -691,7 +698,8 @@
         }
       ],
       "expectedOutput": "<__main__.build_fake_yellowbrick.<locals>.KElbowVisualizer at 0x7fb18033cec0>\n\nOptimum küme sayısı: 4",
-      "plotImage": "h6-live-b008.png"
+      "plotImage": "h6-live-b008.png",
+      "outputInterpretation": "K-Means algoritması için en uygun küme sayısını (k) hiperparametre optimizasyonu kapsamında belirlemek için Dirsek (Elbow) yöntemi uygulanmıştır. Çıktı metni ve çizilen grafikteki kırılma (dirsek) noktası, hata kareler toplamındaki (inertia) düşüş hızının yavaşladığı k=4 noktasını gösterir. Bu sonuç, analiz edilen Facebook canlı yayın etkileşimlerinin en anlamlı şekilde 4 farklı davranış profiline (kümeye) ayrılabileceğini ifade eder."
     },
     {
       "id": "hafta6_cluster_2-b009",
@@ -753,7 +761,8 @@
           "codeContext": "Bu satır, 'K-Means modelini eğitip etiketleri ekliyoruz' bloğunda kümelerin büyüklük dağılımını gösterir."
         }
       ],
-      "expectedOutput": "Cluster\n0    6322\n2     372\n1     330\n3      26\nName: count, dtype: int64"
+      "expectedOutput": "Cluster\n0    6322\n2     372\n1     330\n3      26\nName: count, dtype: int64",
+      "outputInterpretation": "Belirlenen optimum k=4 değeri ile K-Means modeli eğitilmiş ve her bir veri noktasına (gönderiye) ait küme etiketleri atanmıştır. Çıktıdaki dağılım, verilerin çok büyük bir kısmının (6322) tek bir kümeye düştüğünü, diğer kümelerin (özellikle 26 elemanlı 3. kümenin) çok daha spesifik veya azınlıkta kaldığını gösterir. Veri madenciliği açısından bu durum, standart/düşük etkileşimli gönderiler ile yüksek etkileşimli/viral gönderiler (potansiyel aykırı değerler) ayrımının başarıyla yapıldığına işaret eder."
     },
     {
       "id": "hafta6_cluster_2-b010",
@@ -958,7 +967,8 @@
         }
       ],
       "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
-      "plotImage": "h6-live-b010.png"
+      "plotImage": "h6-live-b010.png",
+      "outputInterpretation": "Oluşturulan 4 kümenin karakteristiğini anlamak için 'Beğeni' ve 'Paylaşım' eksenlerinde iki boyutlu bir dağılım grafiği (scatter plot) çizdirilmiştir. Çıktıdaki görsel (grafik), farklı renklerdeki kümelerin düzlemde nasıl kümelendiğini (örn: bazı kümelerin çok beğeni ama az paylaşım, bazılarının hem yüksek beğeni hem yüksek paylaşım alması) gösterir. Bu aşama, matematiksel sonuçların iş zekası perspektifinde yorumlanabilmesi ve kümelerin profillenebilmesi için kritik bir görsel analiz sunar."
     },
     {
       "id": "hafta6_cluster_2-b011",
@@ -980,7 +990,8 @@
           "codeContext": "Bu satır, 'Sonuç tablosunu görüyoruz' bloğunda daraltılmış tablonun önizlemesini verir."
         }
       ],
-      "expectedOutput": "   num_reactions  num_comments  num_shares  num_likes  num_loves  num_wows  num_hahas  num_sads  num_angrys  Cluster\n0            529           512         262        432         92         3          1         1           0        0\n1            150             0           0        150          0         0          0         0           0        0\n2            227           236          57        204         21         1          1         0           0        0\n3            111             0           0        111          0         0          0         0           0        0\n4            213             0           0        204          9         0          0         0           0        0"
+      "expectedOutput": "   num_reactions  num_comments  num_shares  num_likes  num_loves  num_wows  num_hahas  num_sads  num_angrys  Cluster\n0            529           512         262        432         92         3          1         1           0        0\n1            150             0           0        150          0         0          0         0           0        0\n2            227           236          57        204         21         1          1         0           0        0\n3            111             0           0        111          0         0          0         0           0        0\n4            213             0           0        204          9         0          0         0           0        0",
+      "outputInterpretation": "Uygulanan gözetimsiz makine öğrenmesi sürecinin nihai sonucunu görmek amacıyla çalıştırılmıştır. Çıktı, orijinal sayısal verilerin sonuna, algoritmanın tahmin ettiği 'Cluster' (Küme) etiketlerinin eklendiğini gösterir. Veri madenciliği sürecinde bu tablo, kümeleme işleminin başarıyla tamamlandığını temsil eder; artık bu veri seti gruplara göre gruplanarak (groupby) her bir kümenin karakteristiğini (ortalama beğeni, ortalama yorum vb.) özetleyen betimsel analizler yapmak için kullanılabilir."
     }
   ]
 }

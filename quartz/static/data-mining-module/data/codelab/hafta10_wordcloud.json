@@ -456,7 +456,8 @@
           "codeContext": "Bu satır, 'WordCloud için kavram listesini tanımlama' bloğunda sütun listesini tamamlar."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; wordCloud için kavram listesini tanımlama adımının sonucu bellekte tutulur."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; wordCloud için kavram listesini tanımlama adımının sonucu bellekte tutulur.",
+      "outputInterpretation": "İşlevsel Amaç ve Teorik Mantık: Metin madenciliği sürecinin başlangıç noktasıdır. Veri madenciliğinde sayısal ve yapısal verilerden ziyade, burada görüldüğü gibi 'yapısal olmayan (unstructured)' ve düzensiz elektronik metin yığınlarıyla çalışılır. Ders notlarındaki analojiyle ifade etmek gerekirse; bu hücre, madencilik sürecinde işlenecek olan 'ham kayaların' (işlenmemiş terimlerin) sisteme tanıtılması ve belleğe alınması adımıdır.\n\nParametrik ve Metodik Kararlar: Terimler yapısal olmayan bir formda, basit bir Python listesi olarak tutulmuştur. Eğer doğrudan web'den kazınmış karmaşık cümleler olsaydı boyutluluk laneti (curse of dimensionality) yaşanabilirdi. Burada spesifik bir alan (Yapay Zeka ve Veri Madenciliği) seçilerek derlem (corpus) sınırlandırılmış ve makinenin işi kolaylaştırılmıştır.\n\nÇıktı Analizi ve Stratejik Karar: Çıktı, bellekte tutulan yapısal olmayan ham veridir. Bilgisayarlar için metinler bu haldeyken hiçbir anlam ifade etmez ve matematiksel algoritmalarla (KNN vb.) işlenemezler. Stratejik olarak yapılması gereken, bu ham kayaları kırıp yıkamak, yani 'Metin Ön İşleme' (Text Preprocessing) adımına geçmektir."
     },
     {
       "id": "hafta10_wordcloud-b002",
@@ -642,7 +643,8 @@
           "codeContext": "Bu satır, 'Stopwords ve noktalama temizliği' bloğunda temizlenmiş kelimeleri tekrar metin biçimine toplar."
         }
       ],
-      "expectedOutput": "True"
+      "expectedOutput": "True",
+      "outputInterpretation": "İşlevsel Amaç ve Teorik Mantık: Algoritmaların metinleri anlamlandırabilmesi için zorunlu olan 'Metin Ön İşleme' gerçekleştirilmiştir. Makine 'Yapay' ile 'yapay' kelimelerini tamamen farklı algılayacağından, veriyi standartlaştırmak ve gürültüden arındırmak şarttır. Aksi halde model gürültüye aşırı uyum sağlar (overfitting).\n\nParametrik ve Metodik Kararlar: Ders notlarındaki 4 temel adım birebir uygulanmıştır: 1) lower() ile küçük harfe çevirme, 2) translate() ile noktalama işaretlerini atma, 3) split() ile tokenization (kelimeleri dizi elemanlarına parçalama), 4) stopwords.words('turkish') ile 've, için' gibi bağlamsal katkısı olmayan, ancak frekansı yüksek gereksiz kelimeleri filtreleme. Bu sayede modelin gereksiz varyansla uğraşması engellenmiştir.\n\nÇıktı Analizi ve Stratejik Karar: Elde edilen çıktı, 'token'lara ayrılmış, temizlenmiş ve anlamsal (semantik) yoğunluğu yüksek bir veri dizisidir. Sinyal/Gürültü oranı maksimize edilmiştir. Artık içinden altın külçeleri (yapısal ve analiz edilebilir veriler) çıkarılmaya, kelime frekans hesaplamalarına veya özellik çıkarımına (Feature Extraction) hazır hale gelmiştir."
     },
     {
       "id": "hafta10_wordcloud-b003",
@@ -781,7 +783,8 @@
         }
       ],
       "expectedOutput": "(np.float64(-0.5), np.float64(799.5), np.float64(399.5), np.float64(-0.5))",
-      "plotImage": "h10-wordcloud-b003.png"
+      "plotImage": "h10-wordcloud-b003.png",
+      "outputInterpretation": "İşlevsel Amaç ve Teorik Mantık: Ön işlemden geçirilmiş kelimelerin frekans (kullanım sıklığı) tabanlı olarak Keşifçi Veri Analizi (EDA) kapsamında görselleştirilmesidir. Özellik Çıkarımı (Feature Extraction) evresinde, hangi token'ların yapısal veriye dönüştürülüp modele (örneğin KNN'e) ağırlıklı olarak verileceğinin görsel bir ispatıdır.\n\nParametrik ve Metodik Kararlar: Girdi olarak 'temiz_metinler' listesi kullanılmış ve WordCloud'un kendi içindeki token frekans sayıcısı (term frequency) çalıştırılmıştır. Stopwords ve noktalama temizlendiği için grafiğin merkezine gerçekten bağlamsal ağırlığı olan 'yapay', 'veri', 'öğrenme' gibi kelimeler yerleşmiştir. interpolation='bilinear' parametresi görsel sınırları yumuşatarak okunabilirliği artırmıştır.\n\nÇıktı Analizi ve Stratejik Karar: Görseldeki (h10-wordcloud-b003.png) tüm kelimelerin küçük harfli olması ve noktalama içermemesi, ön işleme (preprocessing) stratejimizin mükemmel çalıştığını gösterir. Veri seti artık sınıflandırma (classification), duygu analizi (sentiment analysis) veya doküman kümeleme (clustering) gibi ileri makine öğrenmesi modelleri için yapısal hale dönüştürülmeye tamamen hazırdır."
     },
     {
       "id": "hafta10_wordcloud-b004",
@@ -922,7 +925,8 @@
         }
       ],
       "expectedOutput": "(np.float64(-0.5), np.float64(799.5), np.float64(399.5), np.float64(-0.5))",
-      "plotImage": "h10-wordcloud-b004.png"
+      "plotImage": "h10-wordcloud-b004.png",
+      "outputInterpretation": "İşlevsel Amaç ve Teorik Mantık: Metin madenciliğinde 'Ön İşleme' yapılmamasının maliyetini (baseline/taban çizgisi olarak) göstermek amacıyla ham veriden bulut üretilmesidir. İnsan gözü için estetik bir raporlama sunsa da, makine öğrenmesi mantığına ters düşen bir yaklaşımı simüle eder.\n\nParametrik ve Metodik Kararlar: 'metinler' listesi tokenize edilmeden veya küçültülmeden (lower yapılmadan) fonksiyona verilmiştir. Başlık (title) eklenerek sunum (BI raporlaması) estetiği artırılmıştır. Ancak makine, noktalama veya büyük harf farklılıkları olan kelimeleri ayrı token'lar olarak sayacağı için frekans/ağırlık dağılımları bölünmüştür (bias oluşmuştur).\n\nÇıktı Analizi ve Stratejik Karar: Çıktıdaki görsel (h10-wordcloud-b004.png) yöneticilere sunum yapmak için ideal gibi görünse de (baş harfleri büyük, okunması kolay), arka planda makinenin algı yapısını bozan bir veri setini temsil eder. Ders notlarında bahsedildiği gibi makine 'Merhaba' ile 'merhaba!' kelimesini aynı saymadığı için, bu şekilde eğitilecek bir modelin doğruluk (accuracy) oranı düşecek ve özellik uzayı gereksiz yere şişecektir. Veri analisti olarak kararımız, her zaman 3. bloktaki temizlenmiş yaklaşımı makineye beslemek yönünde olmalıdır."
     }
   ]
 }

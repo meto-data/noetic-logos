@@ -140,7 +140,8 @@
           "codeContext": "Bu satır, 'Görselleştirme ve kümeleme araçlarını yüklüyoruz' bloğunda matplotlib çizimlerinin genel stilini değiştirir."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar.",
+      "outputInterpretation": "Bu blok, veri işleme, kümeleme (K-Means) ve görselleştirme için gerekli kütüphaneleri çalışma ortamına dahil etmek amacıyla çalıştırılmıştır. Çıktı olarak metin veya görsel üretmez, arka planda ortam ayarlarını (tema, grafik stilleri) yapılandırır. Veri madenciliği bağlamında, analiz sürecine başlamadan önceki temel hazırlık aşamasının başarıyla tamamlandığını gösterir."
     },
     {
       "id": "hafta6_cluster_1-b002",
@@ -182,7 +183,8 @@
           "codeContext": "Bu satır, 'Housing verisini yüklüyoruz' bloğunda tablonun ilk satırlarını önizleme amaçlı ekrana getirir."
         }
       ],
-      "expectedOutput": "   MedInc  HouseAge  AveRooms  AveBedrms  Population  AveOccup  Latitude  Longitude  MedHouseVal\n0  8.3252      41.0  6.984127   1.023810       322.0  2.555556     37.88    -122.23        4.526\n1  8.3014      21.0  6.238137   0.971880      2401.0  2.109842     37.86    -122.22        3.585\n2  7.2574      52.0  8.288136   1.073446       496.0  2.802260     37.85    -122.24        3.521\n3  5.6431      52.0  5.817352   1.073059       558.0  2.547945     37.85    -122.25        3.413\n4  3.8462      52.0  6.281853   1.081081       565.0  2.181467     37.85    -122.25        3.422"
+      "expectedOutput": "   MedInc  HouseAge  AveRooms  AveBedrms  Population  AveOccup  Latitude  Longitude  MedHouseVal\n0  8.3252      41.0  6.984127   1.023810       322.0  2.555556     37.88    -122.23        4.526\n1  8.3014      21.0  6.238137   0.971880      2401.0  2.109842     37.86    -122.22        3.585\n2  7.2574      52.0  8.288136   1.073446       496.0  2.802260     37.85    -122.24        3.521\n3  5.6431      52.0  5.817352   1.073059       558.0  2.547945     37.85    -122.25        3.413\n4  3.8462      52.0  6.281853   1.081081       565.0  2.181467     37.85    -122.25        3.422",
+      "outputInterpretation": "Bu kod, veri setini (housing.csv) belleğe yüklemek ve yapısını incelemek için çalıştırılmıştır. Çıktıda veri setinin ilk 5 satırı yer alır; MedInc, Latitude, Longitude, MedHouseVal gibi çeşitli özniteliklerin sayısal formatta olduğu görülmektedir. Bu sonuç, verinin analize hazır şekilde başarıyla yüklendiğini ifade eder; bir sonraki adımda modelde kullanılacak ilgili sütunların seçilmesi gerektiğine zemin hazırlar."
     },
     {
       "id": "hafta6_cluster_1-b003",
@@ -286,7 +288,8 @@
           "codeContext": "Bu satır, 'Kullanılacak sütunları seçiyoruz' bloğunda seçilen sütunların ilk örneklerini kontrol ettirir."
         }
       ],
-      "expectedOutput": "   MedInc  Latitude  Longitude\n0  8.3252     37.88    -122.23\n1  8.3014     37.86    -122.22\n2  7.2574     37.85    -122.24\n3  5.6431     37.85    -122.25\n4  3.8462     37.85    -122.25"
+      "expectedOutput": "   MedInc  Latitude  Longitude\n0  8.3252     37.88    -122.23\n1  8.3014     37.86    -122.22\n2  7.2574     37.85    -122.24\n3  5.6431     37.85    -122.25\n4  3.8462     37.85    -122.25",
+      "outputInterpretation": "Bu blok, modele girdi olarak verilecek spesifik öznitelikleri (Medyan Gelir, Enlem ve Boylam) belirlemek ve veriyi daraltmak amacıyla çalıştırılmıştır. Çıktı, sadece modelde kullanılacak olan 3 sütundan oluşan yeni veri alt kümesini göstermektedir. Veri madenciliği bağlamında, gereksiz veya modeli yanıltabilecek özniteliklerin dışarıda bırakıldığını ve verinin coğrafi-ekonomik bir kümeleme analizi için izole edildiğini gösterir."
     },
     {
       "id": "hafta6_cluster_1-b004",
@@ -463,7 +466,8 @@
         }
       ],
       "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
-      "plotImage": "h6-housing-b004.png"
+      "plotImage": "h6-housing-b004.png",
+      "outputInterpretation": "Bu blok, verinin coğrafi dağılımını (Enlem/Boylam) ve bu dağılım üzerindeki gelir (MedInc) farklılıklarını görsel olarak keşfetmek için çalıştırılmıştır. Çıktıdaki grafik, veri noktalarının Kaliforniya haritasını andıran bir şekil oluşturduğunu; koyu kırmızı renkle gösterilen yüksek gelirli bölgelerin belirli sahil veya merkez lokasyonlarında toplandığını, iç kesimlerin ise daha düşük gelirli (mavi) olduğunu göstermektedir. Bu durum, gelir ve konum arasında güçlü bir mekansal ilişki olduğunu kanıtlar ve bu üç değişkenin K-Means için mantıklı bir seçim olduğunu doğrular."
     },
     {
       "id": "hafta6_cluster_1-b005",
@@ -485,7 +489,8 @@
           "codeContext": "Bu satır, 'Eksik değerleri kontrol ediyoruz' bloğunda eksik veri kontrolünü sayısallaştırır."
         }
       ],
-      "expectedOutput": "MedInc       0\nLatitude     0\nLongitude    0\ndtype: int64"
+      "expectedOutput": "MedInc       0\nLatitude     0\nLongitude    0\ndtype: int64",
+      "outputInterpretation": "Bu kod, K-Means algoritmasının mesafe hesaplamalarında hata vermemesi için seçilen özniteliklerde eksik (NaN) değer olup olmadığını kontrol etmek amacıyla çalıştırılmıştır. Çıktıda her üç değişken için de eksik değer sayısının '0' olduğu görülmektedir. Bu sonuç, verinin temiz olduğunu; eksik veri doldurma (imputation) adımlarına gerek kalmadan doğrudan ölçeklendirme aşamasına geçilebileceğini ifade eder."
     },
     {
       "id": "hafta6_cluster_1-b006",
@@ -535,7 +540,8 @@
           "codeContext": "Bu satır, 'Veriyi ölçeklendiriyoruz' bloğunda ölçeklenmiş verinin örnek kısmını görünür kılar."
         }
       ],
-      "expectedOutput": "array([[ 2.34476576,  1.05254828, -1.32783522],\n       [ 2.33223796,  1.04318455, -1.32284391],\n       [ 1.7826994 ,  1.03850269, -1.33282653],\n       [ 0.93296751,  1.03850269, -1.33781784],\n       [-0.012881  ,  1.03850269, -1.33781784]])"
+      "expectedOutput": "array([[ 2.34476576,  1.05254828, -1.32783522],\n       [ 2.33223796,  1.04318455, -1.32284391],\n       [ 1.7826994 ,  1.03850269, -1.33282653],\n       [ 0.93296751,  1.03850269, -1.33781784],\n       [-0.012881  ,  1.03850269, -1.33781784]])",
+      "outputInterpretation": "K-Means uzaklık temelli (Öklid vb.) bir algoritma olduğu için, farklı ölçeklerdeki değişkenlerin (koordinat değerleri ile gelir değerlerinin) birbirini ezmesini engellemek amacıyla veriler standartlaştırılmıştır. Çıktı, orijinal değerlerin ortalaması 0, varyansı 1 olacak şekilde z-skorlarına dönüştürülmüş matris halini göstermektedir. Bu işlem, modelin tüm değişkenlere eşit ağırlık vererek daha adil ve doğru kümeler oluşturmasını garanti eder."
     },
     {
       "id": "hafta6_cluster_1-b007",
@@ -625,7 +631,8 @@
           "codeContext": "Bu satır, '5 kümeli modeli kuruyoruz' bloğunda kümeli tablonun önizlemesini sunar."
         }
       ],
-      "expectedOutput": "   MedInc  Latitude  Longitude Cluster\n0  8.3252     37.88    -122.23       1\n1  8.3014     37.86    -122.22       1\n2  7.2574     37.85    -122.24       1\n3  5.6431     37.85    -122.25       1\n4  3.8462     37.85    -122.25       4"
+      "expectedOutput": "   MedInc  Latitude  Longitude Cluster\n0  8.3252     37.88    -122.23       1\n1  8.3014     37.86    -122.22       1\n2  7.2574     37.85    -122.24       1\n3  5.6431     37.85    -122.25       1\n4  3.8462     37.85    -122.25       4",
+      "outputInterpretation": "Bu blok, ölçeklendirilmiş veri üzerinde 5 kümeli bir K-Means modelini eğitmek ve her bir satırı belirli bir kümeye atamak için çalıştırılmıştır. Çıktıdaki tabloda, veri setine her bir gözlemin ait olduğu grubu belirten yeni bir 'Cluster' sütunu eklendiği görülmektedir. Model, mekansal ve ekonomik benzerliklere göre veriyi algoritmik olarak bölütlemiş olup, bu kümelerin anlamlandırılması aşamasına geçilebilir."
     },
     {
       "id": "hafta6_cluster_1-b008",
@@ -822,7 +829,8 @@
         }
       ],
       "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
-      "plotImage": "h6-housing-b008.png"
+      "plotImage": "h6-housing-b008.png",
+      "outputInterpretation": "Oluşturulan 5 kümenin coğrafi düzlemde nasıl dağıldığını görsel olarak değerlendirmek için bu kod çalıştırılmıştır. Çıktıdaki grafik, kümelerin hem kuzey-güney ekseninde hem de sahil-iç kesim ayrımında oldukça net ve bitişik coğrafi bölgelere ayrıldığını (örneğin güney sahillerinin farklı bir renk, kuzeyin farklı bir renk alması) göstermektedir. Bu durum, kümeleme işleminin mantıklı bir mekansal segmentasyon yaptığını kanıtlar; ancak hücredik yoruma istinaden, modelin en optimal küme sayısının (k) Dirsek (Elbow) yöntemiyle nesnel olarak doğrulanması iyi bir pratik olacaktır."
     },
     {
       "id": "hafta6_cluster_1-b009",
@@ -1047,7 +1055,8 @@
         }
       ],
       "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
-      "plotImage": "h6-housing-b009.png"
+      "plotImage": "h6-housing-b009.png",
+      "outputInterpretation": "Modelin oluşturduğu kümelerin, kümeleme eğitiminde kullanılmayan harici bir hedef değişkenle (MedHouseVal - Medyan Ev Değeri) olan ilişkisini analiz etmek için çalıştırılmıştır. Çıktıdaki Boxen grafiği, belirli kümelerin (örneğin en alttaki kırmızı küme ile ortadaki açık mavi kümenin) ev değerleri açısından belirgin şekilde farklı medyanlara ve dağılımlara sahip olduğunu göstermektedir. Bu, yalnızca 'gelir' ve 'konum' kullanılarak oluşturulan kümelerin, ev fiyatlarını tahmin etme veya gayrimenkul pazarı segmentasyonu yapma konusunda oldukça anlamlı profiller ürettiğini kanıtlar."
     },
     {
       "id": "hafta6_cluster_1-b010",
@@ -1069,7 +1078,8 @@
           "codeContext": "Bu satır, 'Sonuç tablosunu görüyoruz' bloğunda kümeli tablonun önizlemesini sunar."
         }
       ],
-      "expectedOutput": "   MedInc  Latitude  Longitude Cluster  MedHouseVal\n0  8.3252     37.88    -122.23       1        4.526\n1  8.3014     37.86    -122.22       1        3.585\n2  7.2574     37.85    -122.24       1        3.521\n3  5.6431     37.85    -122.25       1        3.413\n4  3.8462     37.85    -122.25       4        3.422"
+      "expectedOutput": "   MedInc  Latitude  Longitude Cluster  MedHouseVal\n0  8.3252     37.88    -122.23       1        4.526\n1  8.3014     37.86    -122.22       1        3.585\n2  7.2574     37.85    -122.24       1        3.521\n3  5.6431     37.85    -122.25       1        3.413\n4  3.8462     37.85    -122.25       4        3.422",
+      "outputInterpretation": "Tüm analiz adımları sonucunda nihai veri setinin durumunu gözlemlemek için çalıştırılmıştır. Çıktı tablosu; analize giren orijinal öznitelikleri, modelin atadığı 'Cluster' etiketlerini ve analiz için sonradan eklenen 'MedHouseVal' değişkenini bir bütün halinde sunmaktadır. Veri madenciliği bağlamında bu sonuç, veri setinin başarıyla zenginleştirildiğini gösterir; bu tablo artık iş raporlarına aktarılmaya veya başka denetimli öğrenme algoritmalarına girdi olarak verilmeye hazırdır."
     }
   ]
 }

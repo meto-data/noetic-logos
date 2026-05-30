@@ -94,7 +94,8 @@
           "codeContext": "Bu satır, 'Kütüphaneler ve Veri Setini Yükleme' bloğunda verinin doğru okunup okunmadığını kontrol eder."
         }
       ],
-      "expectedOutput": "İlk 5 satırda Month ve #Passengers sütunları görünür; veri 1949-1960 arası aylık yolcu sayılarından oluşur."
+      "expectedOutput": "İlk 5 satırda Month ve #Passengers sütunları görünür; veri 1949-1960 arası aylık yolcu sayılarından oluşur.",
+      "outputInterpretation": "CRISP-DM sürecinin 'Veriyi Anlama' adımıdır. Zaman serisi veri setine ilk bakış atılır. Analitik açıdan amacımız, verinin kronolojik yapısını ve hedef değişkenimizi ('#Passengers') teyit etmektir. MinMaxScaler'ın erkenden içeri aktarılması, Derin Öğrenme modellerinde (özellikle LSTM'de) gradyan güncellemelerinin stabil çalışabilmesi için verinin normalize edileceğinin stratejik bir göstergesidir."
     },
     {
       "id": "hafta11_airline_lstm-b002",
@@ -130,7 +131,8 @@
           "codeContext": "Bu satır, 'Yolcu Serisini Hazırlama' bloğunun bir parçasıdır."
         }
       ],
-      "expectedOutput": "<class 'numpy.ndarray'> çıktısı görülür ve veri 144x1 boyutlu dizi haline gelir."
+      "expectedOutput": "<class 'numpy.ndarray'> çıktısı görülür ve veri 144x1 boyutlu dizi haline gelir.",
+      "outputInterpretation": "'Veri Hazırlama' fazındayız. Zaman serisi analizlerinde, model için önemli olan ardışık değerlerin oluşturduğu örüntüdür, bu yüzden hedef değişken izole edilir. En kritik karar `reshape(-1, 1)` işlemidir. LSTM ve Scikit-learn ölçekleyicileri 2 boyutlu matris bekler; 1 boyutlu Pandas serisini modele vermek boyut uyuşmazlığı hatası yaratır."
     },
     {
       "id": "hafta11_airline_lstm-b003",
@@ -169,7 +171,8 @@
         }
       ],
       "expectedOutput": "(Grafik çıktısı) Yolcu sayısı yıllar içinde yükselen bir çizgi olarak görünür; yaz dönemlerinde tepe noktaları dikkat çeker.",
-      "plotImage": "h11-airline-b003.png"
+      "plotImage": "h11-airline-b003.png",
+      "outputInterpretation": "Zaman serisi bileşenlerinin (Trend, Mevsimsellik, Döngüsellik, Gürültü) görsel keşfidir. Çıktıdaki grafik bize iki temel sinyal verir: Yukarı yönlü belirgin bir 'Trend' ve her yıl tekrarlayan bir 'Mevsimsellik'. ARIMA gibi klasik modeller bu seriyi durağanlaştırmamızı isterken, LSTM gibi kapasitesi yüksek derin öğrenme modelleri bu doğrusal olmayan yapıyı kendi iç mimarisiyle öğrenebilir."
     },
     {
       "id": "hafta11_airline_lstm-b004",
@@ -228,7 +231,8 @@
           "codeContext": "Bu satır, 'Ölçekleme ve Train-Test Ayrımı' bloğunun bir parçasıdır."
         }
       ],
-      "expectedOutput": "144 çıktısı görülür; train kısmı ilk 110 gözlemi, test kısmı son 34 gözlemi içerir."
+      "expectedOutput": "144 çıktısı görülür; train kısmı ilk 110 gözlemi, test kısmı son 34 gözlemi içerir.",
+      "outputInterpretation": "Ders notlarında da altı çizildiği gibi en kritik stratejik karar buradadır: 'Train-Test Split'. Geleneksel ML modellerinde (Karar Ağaçları, KNN vb.) veri rastgele (random) ayrılırken, zaman serilerinde veriler RASTGELE SEÇİLEMEZ. Geçmişin geleceği etkileme örüntüsünü bozmamak ve 'Veri Sızıntısını (Leakage)' önlemek için bölme işlemi kronolojik (`0:110` ve `110:`) yapılmıştır. Ayrıca LSTM'in aktivasyon fonksiyonları doyuma ulaşıp bozulmasın diye veriler `MinMaxScaler` ile 0-1 aralığına ölçeklenmiştir."
     },
     {
       "id": "hafta11_airline_lstm-b005",
@@ -320,7 +324,8 @@
           "codeContext": "Bu satır, modelin hiç görmediği dönem üzerinde aynı pencereleme kuralıyla ölçüm yapmasını sağlar."
         }
       ],
-      "expectedOutput": "X_train ve X_test, her örnekte önceki 2 zamanı taşıyan pencere yapısına dönüşür."
+      "expectedOutput": "X_train ve X_test, her örnekte önceki 2 zamanı taşıyan pencere yapısına dönüşür.",
+      "outputInterpretation": "Zaman serilerindeki 'Bağımsız değişken ($X$) olmaması' probleminin 'Pencereleme (Sliding Windows Transformation)' yöntemiyle çözüldüğü yerdir. Geçmiş veriler girdi ($X$), gelecekteki veri ise çıktı ($Y$) f(X)=Y formatına dönüştürülür. `steps=2` (küçük pencere) seçilerek modelin hızlı öğrenmesi ve son 2 aya bakarak tahmin yapması sağlanmıştır. Doğru pencere boyutu deneme-yanılma (trial and error) ile bulunur."
     },
     {
       "id": "hafta11_airline_lstm-b006",
@@ -365,7 +370,8 @@
           "codeContext": "Bu satır, 'LSTM Girdisini Yeniden Şekillendirme' bloğunun bir parçasıdır."
         }
       ],
-      "expectedOutput": "31 çıktısı görülür; test setinde tahmin üretilecek 31 pencere vardır."
+      "expectedOutput": "31 çıktısı görülür; test setinde tahmin üretilecek 31 pencere vardır.",
+      "outputInterpretation": "Veri mimarisinin LSTM ağına uygun hale getirildiği köprü adımıdır. KNN veya Random Forest'tan farklı olarak LSTM katmanları 3 boyutlu tensörler bekler: `[örnek_sayısı, zaman_adımı, özellik_sayısı]`. Numpy `reshape` ile veriyi ağın giriş katmanının (Input Layer) beklediği bu formata zorluyoruz."
     },
     {
       "id": "hafta11_airline_lstm-b007",
@@ -484,7 +490,8 @@
           "codeContext": "Bu satır, 'LSTM Modelinin Kurulması' bloğunda mimariyi kontrol etmeyi sağlar."
         }
       ],
-      "expectedOutput": "Model özeti metin olarak görünür; LSTM(64) ve iki Dense katmanı listelenir."
+      "expectedOutput": "Model özeti metin olarak görünür; LSTM(64) ve iki Dense katmanı listelenir.",
+      "outputInterpretation": "Örüntü tanıma motorumuzun inşasıdır. Geleneksel modellerin hafızası yoktur, ancak buradaki `LSTM(64)` katmanı 'Uzun Kısa Vadeli Hafıza' hücreleriyle geçmiş günlerin hareketini akılda tutar. `Dense(64)` ve tahmin üreten son `Dense(1)` katmanı ile ağ derinleştirilir. Zaman serisi regresyonu yaptığımız için model hata cezalandırması adına `MSE (Karesel Hata)` loss'u ve hızlı optimizasyon için `Adam` optimizer'ı ile derlenmiştir."
     },
     {
       "id": "hafta11_airline_lstm-b008",
@@ -507,7 +514,8 @@
           "codeContext": "Bu satır, 'Modeli Eğitme' bloğunda öğrenme sürecini başlatır."
         }
       ],
-      "expectedOutput": "Epoch ilerleme satırları görünür; loss değeri epoch’lar boyunca kademeli olarak düşer."
+      "expectedOutput": "Epoch ilerleme satırları görünür; loss değeri epoch’lar boyunca kademeli olarak düşer.",
+      "outputInterpretation": "Modelin veriyi eğitme (Fit) aşamasıdır. Parametrik kararlar: `epochs=25`, tüm veri setinin modelden baştan sona tam 25 kez geçirilerek eğitileceğini belirtir. `batch_size=1` ise verilerin 1'er 1'er alınıp ağın ağırlıklarının her örnekte güncelleneceğini ifade eder. Loss değerinin düşüşü, ağın örüntüyü kavramaya başladığını gösterir."
     },
     {
       "id": "hafta11_airline_lstm-b009",
@@ -551,7 +559,8 @@
           "codeContext": "Bu satır, 'Tahmin Üretme ve Orijinal Ölçeğe Dönme' bloğunda model öncesi normalizasyon yapar."
         }
       ],
-      "expectedOutput": "y_pred ve y_test dizileri artık gerçek yolcu sayıları ölçeğinde karşılaştırmaya hazırdır."
+      "expectedOutput": "y_pred ve y_test dizileri artık gerçek yolcu sayıları ölçeğinde karşılaştırmaya hazırdır.",
+      "outputInterpretation": "Modelin test seti üzerinde pratik yaptığı ve iş zekası boyutuna geri döndüğümüz adımdır. Modelin ürettiği tahminler 0-1 aralığındadır. Bu değerlerin iş birimleri (paydaşlar) için anlamlı olabilmesi adına `scaler.inverse_transform` ile gerçek 'Yolcu Sayısı' ölçeğine geri döndürülür. Eğitilen aynı scaler'ın kullanılması, istatistiksel sapmayı (Bias) engeller."
     },
     {
       "id": "hafta11_airline_lstm-b010",
@@ -619,7 +628,8 @@
         }
       ],
       "expectedOutput": "(Grafik çıktısı) Gerçek seri ile tahmin serisi büyük ölçüde aynı yönlü gider; bazı aylarda küçük sapmalar görülür.",
-      "plotImage": "h11-airline-b010.png"
+      "plotImage": "h11-airline-b010.png",
+      "outputInterpretation": "Model değerlendirme (Evaluation) fazının görsel kanıtıdır. Gerçek değerler ile modelin tahminlerinin (Sliding window sonucu) karşılaştırılmasıdır. Çıktı, LSTM ağının sadece bir önceki adımı kopyalamadığını, verideki trendi ve yaz aylarındaki mevsimselliği başarıyla hafızasına aldığını kanıtlar. Sapmalar doğaldır (Outlier/Noise dengesi); ağın veriyi körü körüne ezberlemediğini (Overfitting yapmadığını) gösterir."
     }
   ]
 }

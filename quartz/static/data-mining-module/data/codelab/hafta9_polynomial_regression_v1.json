@@ -126,7 +126,8 @@
           "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar.",
+      "outputInterpretation": "CRISP-DM metodolojisinin veri hazırlama ve modelleme evreleri için temel kütüphaneler kurulmaktadır. Pandas ve Numpy ile veri manipülasyonu ve matris işlemleri optimize edilirken, Scikit-Learn kütüphanesinden seçilen PolynomialFeatures öznitelik mühendisliği (feature engineering) amacıyla, LinearRegression ise parametre tahmini amacıyla yüklenmektedir. Bu aşama, doğrusal olmayan ilişkileri doğrusal regresyon çatısı altında modellemek için gerekli teorik altyapıyı hazırlar."
     },
     {
       "id": "hafta9_polynomial_regression_v1-b002",
@@ -196,7 +197,8 @@
           "codeContext": "Bu satır, 'Salary.csv verisini okuma' bloğunda veri setinin ilk satırlarını gösterir."
         }
       ],
-      "expectedOutput": "   YearsExperience  Salary\n0              1.1   39343\n1              1.3   46205\n2              1.5   37731\n3              2.0   43525\n4              2.2   39891"
+      "expectedOutput": "   YearsExperience  Salary\n0              1.1   39343\n1              1.3   46205\n2              1.5   37731\n3              2.0   43525\n4              2.2   39891",
+      "outputInterpretation": "Veri anlama (Data Understanding) aşamasında, veri setinin ilk 5 gözlemi incelenmektedir. Veri setinin bağımsız değişkeni olan deneyim süresi (YearsExperience) ile bağımlı değişken olan maaş (Salary) arasındaki ilişki sürekli sayısal niteliktedir. İlk gözlemler, tecrübe arttıkça maaşın da arttığını, ancak bu artışın her aralıkta tamamen sabit (doğrusal) kalmayabileceğine dair ön bilgi vermektedir."
     },
     {
       "id": "hafta9_polynomial_regression_v1-b003",
@@ -286,7 +288,8 @@
           "codeContext": "Bu satır, 'Bağımsız ve bağımlı değişkenleri ayırma' bloğunda veri şekli bilgisini yazdırır."
         }
       ],
-      "expectedOutput": "X shape: (35, 1)\n\ny shape: (35,)"
+      "expectedOutput": "X shape: (35, 1)\n\ny shape: (35,)",
+      "outputInterpretation": "Veri hazırlama adımında hedef ve öznitelik matrisleri ayrıştırılmaktadır. `df.iloc[:, 0:1]` kullanımı, X değişkeninin tek boyutlu bir vektör yerine iki boyutlu bir matris (35 satır, 1 sütun) olarak tutulmasını sağlar. Scikit-Learn modelleri matematiksel olarak matris çarpımlarına dayandığından, bağımsız değişkenlerin iki boyutlu yapıda olması yapısal hataları önler ve modelin genelleme yapısını korur."
     },
     {
       "id": "hafta9_polynomial_regression_v1-b004",
@@ -356,7 +359,8 @@
           "codeContext": "Bu satır, 'Polynomial dönüşüm' bloğunda veri şekli bilgisini yazdırır."
         }
       ],
-      "expectedOutput": "Yeni veri boyutu: (35, 10)"
+      "expectedOutput": "Yeni veri boyutu: (35, 10)",
+      "outputInterpretation": "Öznitelik mühendisliği kapsamında veri uzayı genişletilmektedir. `degree=9` seçilerek, tek boyutlu X girdisi $X^0$'dan $X^9$'a kadar olan üstel terimlerle 10 boyutlu yeni bir öznitelik matrisine dönüştürülmüştür. Bu parametrik karar, modelin doğrusal olmayan karmaşık eğrileri yakalama kapasitesini yükseltir. Ancak 9. derece gibi yüksek bir derece seçimi, varyansı ciddi şekilde artırarak aşırı öğrenme (overfitting) riskini beraberinde getirir."
     },
     {
       "id": "hafta9_polynomial_regression_v1-b005",
@@ -406,7 +410,8 @@
           "codeContext": "Bu satır, 'Modeli eğitme' bloğunda modeli veri üzerinde eğitir."
         }
       ],
-      "expectedOutput": "LinearRegression()"
+      "expectedOutput": "LinearRegression()",
+      "outputInterpretation": "Dönüştürülmüş çok boyutlu uzayda model eğitimi gerçekleştirilmektedir. Teorik olarak, yeni $X^2, X^3...$ değişkenleri doğrusal olmayan yapıda olsa da, model katsayılar ($\beta$) açısından hala doğrusal bir yapıya (Linear in Parameters) sahiptir. Bu yüzden standart En Küçük Kareler (OLS) yöntemini kullanan `LinearRegression` ile eğitilir. Model, dönüştürülmüş öznitelikler üzerinde bir hiperdüzlem öğrenmektedir."
     },
     {
       "id": "hafta9_polynomial_regression_v1-b006",
@@ -567,7 +572,8 @@
         }
       ],
       "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
-      "plotImage": "h9-poly-v1-b006.png"
+      "plotImage": "h9-poly-v1-b006.png",
+      "outputInterpretation": "Görselleştirme adımında, elde edilen 9. derece polinomal modelin veriye uyumu analiz edilmektedir. `np.linspace` kullanılarak 100 pürüzsüz nokta üzerinden çizdirilen model eğrisi, veri noktalarını çok yakından takip etmektedir. Ancak grafikte görülen dalgalanmalar (salınımlar), modelin eğitim verisine aşırı uyum sağladığına (overfitting) ve yüksek varyansa sahip olduğuna işaret eder. Model, veri içindeki genel eğilim yerine gürültüyü de ezberlemiştir."
     },
     {
       "id": "hafta9_polynomial_regression_v1-b007",
@@ -651,7 +657,8 @@
           "codeContext": "Bu satır, '4.5 için örnek tahmin' bloğunda ara sonucu kullanıcıya yazılı olarak bildirir."
         }
       ],
-      "expectedOutput": "Örnek Tahmin (4.5 için): 63521.15058294125"
+      "expectedOutput": "Örnek Tahmin (4.5 için): 63521.15058294125",
+      "outputInterpretation": "Modelin çıkarım (inference) yeteneği 4.5 tecrübe yılı için test edilmektedir. Metodik olarak, yeni test verisine tahmin üretilmeden önce eğitim verisiyle aynı polinomal dönüşümün (`transform`) uygulanması zorunludur; aksi halde boyut uyumsuzluğu hatası alınır. Yaklaşık 63,521 birimlik tahmin değeri, oluşturulan polinomal eğrinin bu noktadaki değeriyle örtüşmektedir."
     },
     {
       "id": "hafta9_polynomial_regression_v1-b008",
@@ -749,7 +756,8 @@
           "codeContext": "Bu satır, '6.5 için reel tahmin' bloğunda ara sonucu kullanıcıya yazılı olarak bildirir."
         }
       ],
-      "expectedOutput": "Reel Tahmin (6.5 için): 93169.14868690551"
+      "expectedOutput": "Reel Tahmin (6.5 için): 93169.14868690551",
+      "outputInterpretation": "6.5 değeri için yapılan bu çıkarımda da yine aynı ön işleme adımları takip edilerek yaklaşık 93,169 birimlik bir maaş tahmini elde edilmiştir. Polinomal regresyon doğrusal olmayan trendleri yakalamada başarılı olsa da, 9. dereceden bir modelin tahmin sınırları dışındaki (extrapolation) veya veri bulunmayan bölgelerdeki kararsız yapısı göz önünde bulundurulmalıdır. Daha düşük dereceli (örneğin derecesi 2-4 arası) modeller varyansı düşürerek daha stabil tahminler üretebilir."
     }
   ]
 }

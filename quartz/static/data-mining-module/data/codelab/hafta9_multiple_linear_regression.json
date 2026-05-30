@@ -148,7 +148,8 @@
           "codeContext": "Bu satır, 'Veriyi yükleme ve warning filtresi' bloğunda belirli warning mesajını gizler."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar.",
+      "outputInterpretation": "Bu blok, veri analizi için gerekli kütüphaneleri çağırmak ve veri setini çalışma ortamına yüklemek için çalıştırılmıştır. Çıktıda görünür bir metin olmaması, verinin ve kütüphanelerin hatasız bir şekilde yüklendiğini, gereksiz uyarıların (warnings) başarıyla filtrelendiğini gösterir. Bu aşamadan sonra veri seti üzerinde keşifçi veri analizi ve modelleme adımlarına geçilebilir."
     },
     {
       "id": "hafta9_multiple_linear_regression-b002",
@@ -184,7 +185,8 @@
           "codeContext": "Bu satır, 'Veri setini tablo olarak görme' bloğunda veri setini doğrudan gösterir."
         }
       ],
-      "expectedOutput": "   alan  odasayisi  binayasi   fiyat\n0   180          5        10  510000\n1   225          4        18  508000\n2   260          3         2  548000\n3   320          6        10  650000\n4   335          4         9  628000\n5   345          5        14  632000\n6   355          3         0  680000\n7   400          4        10  725000"
+      "expectedOutput": "   alan  odasayisi  binayasi   fiyat\n0   180          5        10  510000\n1   225          4        18  508000\n2   260          3         2  548000\n3   320          6        10  650000\n4   335          4         9  628000\n5   345          5        14  632000\n6   355          3         0  680000\n7   400          4        10  725000",
+      "outputInterpretation": "Bu kod, yüklenen verinin yapısını ve doğru okunup okunmadığını kontrol etmek amacıyla çalıştırılmıştır. Çıktıda görülen tablo, veri setimizde alan, oda sayısı, bina yaşı ve fiyat olmak üzere 4 sütun ve 8 örneklem olduğunu ifade eder. Veri madenciliği bağlamında bu sonuç, verinin analize uygun formatta olduğunu ve özellikler (features) ile hedefin (target) net bir şekilde ayırt edilebileceğini gösterir."
     },
     {
       "id": "hafta9_multiple_linear_regression-b003",
@@ -206,7 +208,8 @@
           "codeContext": "Bu satır, 'Bağımsız değişkenleri seçme' bloğunda model giriş değişkenlerini birlikte gösterir."
         }
       ],
-      "expectedOutput": "   alan  odasayisi  binayasi\n0   180          5        10\n1   225          4        18\n2   260          3         2\n3   320          6        10\n4   335          4         9\n5   345          5        14\n6   355          3         0\n7   400          4        10"
+      "expectedOutput": "   alan  odasayisi  binayasi\n0   180          5        10\n1   225          4        18\n2   260          3         2\n3   320          6        10\n4   335          4         9\n5   345          5        14\n6   355          3         0\n7   400          4        10",
+      "outputInterpretation": "Bu blok, makine öğrenmesi modelinin eğitileceği bağımsız değişkenleri (girdi özelliklerini) belirlemek için çalıştırılmıştır. Çıktıda yalnızca alan, oda sayısı ve bina yaşı sütunlarının görülmesi, matrisin (X) başarıyla ayrıştırıldığı anlamına gelir. Bu durum, modelin evin fiyatını tahmin ederken hangi faktörleri dikkate alacağını tanımlar."
     },
     {
       "id": "hafta9_multiple_linear_regression-b004",
@@ -228,7 +231,8 @@
           "codeContext": "Bu satır, 'Bağımlı değişkeni seçme' bloğunda bağımlı değişkeni görünür kılar."
         }
       ],
-      "expectedOutput": "0    510000\n1    508000\n2    548000\n3    650000\n4    628000\n5    632000\n6    680000\n7    725000\nName: fiyat, dtype: int64"
+      "expectedOutput": "0    510000\n1    508000\n2    548000\n3    650000\n4    628000\n5    632000\n6    680000\n7    725000\nName: fiyat, dtype: int64",
+      "outputInterpretation": "Bu kod, modelin tahmin etmeye çalışacağı bağımlı değişkeni (hedef/y) izole etmek için çalıştırılmıştır. Çıktıdaki dizi, veri setindeki evlerin gerçek fiyatlarını tek boyutlu bir vektör olarak gösterir. Veri madenciliği sürecinde bu adım, modelin öğrenme aşamasında referans alacağı 'gerçek sonuçları' sisteme tanımlamak için gereklidir."
     },
     {
       "id": "hafta9_multiple_linear_regression-b005",
@@ -284,7 +288,8 @@
           "codeContext": "Bu satır, 'Multiple linear regression modelini eğitme' bloğunda modeli veri üzerinde eğitir."
         }
       ],
-      "expectedOutput": "LinearRegression()"
+      "expectedOutput": "LinearRegression()",
+      "outputInterpretation": "Bu blok, çoklu doğrusal regresyon modelini başlatmak ve ayrıştırılan bağımsız (X) ile bağımlı (y) değişkenler arasındaki matematiksel ilişkiyi öğrenmesini sağlamak için çalıştırılmıştır. 'LinearRegression()' çıktısı, modelin başarıyla eğitildiğini (fit edildiğini) gösterir. Artık model, verilerdeki örüntüyü kavramıştır ve yeni veriler üzerinden tahmin yapmaya hazırdır."
     },
     {
       "id": "hafta9_multiple_linear_regression-b006",
@@ -320,7 +325,8 @@
           "codeContext": "Bu satır, 'İlk tahmini yapma' bloğunda model tahmini üretir."
         }
       ],
-      "expectedOutput": "array([530243.29284619])"
+      "expectedOutput": "array([530243.29284619])",
+      "outputInterpretation": "Bu kod, eğitilen modelin performansını ve tahmin yeteneğini test etmek için çalıştırılmıştır. Çıktıdaki '530243.29' değeri, modelin 230 metrekare, 4 odalı ve 10 yaşındaki bir ev için biçtiği tahmini fiyatı ifade eder. Bu sonuç, modelin çoklu değişkenleri kullanarak sürekli bir sayısal değer üretebildiğini gösterir."
     },
     {
       "id": "hafta9_multiple_linear_regression-b007",
@@ -342,7 +348,8 @@
           "codeContext": "Bu satır, 'İkinci tahmini yapma' bloğunda model tahmini üretir."
         }
       ],
-      "expectedOutput": "array([586097.7833456])"
+      "expectedOutput": "array([586097.7833456])",
+      "outputInterpretation": "Bu blok, modelin farklı bir senaryoya nasıl tepki vereceğini görmek amacıyla çalıştırılmıştır. Çıktıdaki '586097.78' değeri, aynı metrekarede fakat daha çok odalı ve sıfır bir ev için yapılan tahmindir. Tahmin edilen fiyatın önceki örnekten yüksek olması, modelin oda sayısının artmasını ve bina yaşının düşmesini fiyatı artıran faktörler olarak doğru bir şekilde öğrendiğini gösterir."
     },
     {
       "id": "hafta9_multiple_linear_regression-b008",
@@ -364,7 +371,8 @@
           "codeContext": "Bu satır, 'Üçüncü tahmini yapma' bloğunda model tahmini üretir."
         }
       ],
-      "expectedOutput": "array([616657.45791365])"
+      "expectedOutput": "array([616657.45791365])",
+      "outputInterpretation": "Bu kod, modelin uç değerlere (daha büyük metrekare, daha eski bina) sahip bir girdi ile nasıl bir sonuç üreteceğini gözlemlemek için çalıştırılmıştır. Çıktıdaki '616657.45' değeri, 355 metrekare, 3 odalı ve 20 yaşındaki evin fiyat tahmini anlamına gelir. Bu da modelin genelleme yeteneğinin farklı varyasyonlar üzerinde çalıştığını doğrular."
     },
     {
       "id": "hafta9_multiple_linear_regression-b009",
@@ -386,7 +394,8 @@
           "codeContext": "Bu satır, 'Toplu tahmin yapma' bloğunda model tahmini üretir."
         }
       ],
-      "expectedOutput": "array([530243.29284619, 586097.7833456 , 616657.45791365])"
+      "expectedOutput": "array([530243.29284619, 586097.7833456 , 616657.45791365])",
+      "outputInterpretation": "Bu blok, modele aynı anda birden fazla veri seti verilerek toplu (batch) tahmin yapabilme kapasitesini test etmek için çalıştırılmıştır. Çıktıda görülen üç farklı fiyat değeri, sırasıyla girilen üç farklı ev profiline ait tahminlerdir. Veri madenciliği süreçlerinde bu özellik, büyük veri yığınları üzerinde hızlı ve eş zamanlı sonuçlar üretmek (örneğin bir veritabanındaki tüm yeni ilanları aynı anda fiyatlandırmak) için kritik öneme sahiptir."
     },
     {
       "id": "hafta9_multiple_linear_regression-b010",
@@ -408,7 +417,8 @@
           "codeContext": "Bu satır, 'Katsayıları görme' bloğunda model katsayılarını gösterir."
         }
       ],
-      "expectedOutput": "array([ 1018.99865454, 14893.82374984, -2606.68429997])"
+      "expectedOutput": "array([ 1018.99865454, 14893.82374984, -2606.68429997])",
+      "outputInterpretation": "Bu kod, modelin her bir bağımsız değişken için atadığı ağırlıkları (katsayıları) incelemek amacıyla çalıştırılmıştır. Çıktıdaki [1018.99, 14893.82, -2606.68] değerleri sırasıyla alan, oda sayısı ve bina yaşının fiyat üzerindeki etkisini ifade eder; özellikle bina yaşı katsayısının negatif olması, bina eskidikçe fiyatın düştüğü anlamına gelir. Bu sonuç, kurulan kara kutu (black-box) modelin açıklanabilirliğini (interpretability) sağlar ve hangi değişkenin hedefe ne kadar etki ettiğini ortaya koyar."
     },
     {
       "id": "hafta9_multiple_linear_regression-b011",
@@ -430,7 +440,8 @@
           "codeContext": "Bu satır, 'Intercept değerini görme' bloğunda sabit terimi gösterir."
         }
       ],
-      "expectedOutput": "np.float64(262365.1503032055)"
+      "expectedOutput": "np.float64(262365.1503032055)",
+      "outputInterpretation": "Bu blok, doğrusal regresyon denkleminin y-kesişim (intercept / sabit) noktasını bulmak için çalıştırılmıştır. Çıktıdaki '262365.15' değeri, alan, oda sayısı ve bina yaşı özellikleri sıfır kabul edildiğinde modelin denkleme başlayacağı teorik taban fiyatı ifade eder. Bu, modelin çok boyutlu uzayda çizdiği düzlemin konumunu belirleyen matematiksel bir zorunluluktur."
     },
     {
       "id": "hafta9_multiple_linear_regression-b012",
@@ -592,7 +603,8 @@
           "codeContext": "Bu satır, 'Formülü elle doğrulama' bloğunda elle hesaplanan sonucu gösterir."
         }
       ],
-      "expectedOutput": "np.float64(530243.2928461881)"
+      "expectedOutput": "np.float64(530243.2928461881)",
+      "outputInterpretation": "Bu kod, makine öğrenmesi kütüphanesinin arka planda yaptığı işlemi matematiksel formül (Y = a + b1X1 + b2X2 + b3X3) ile manuel olarak sağlamak amacıyla çalıştırılmıştır. Çıktıdaki '530243.29' sonucunun, 6. bloktaki predict fonksiyonu sonucuyla birebir aynı çıkması, modelin deterministik yapısını doğrular. Bu durum, veri madenciliği projelerinde algoritmanın şeffaflığını ve hesaplanabilirliğini ispatlar."
     },
     {
       "id": "hafta9_multiple_linear_regression-b013",
@@ -614,7 +626,8 @@
           "codeContext": "Bu satır, 'Pickle kütüphanesini içe aktarma' bloğunda model serileştirme aracını yükler."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar.",
+      "outputInterpretation": "Bu blok, eğitilmiş modeli bilgisayar diskine kaydetmek için gerekli olan serileştirme kütüphanesini ortama dahil etmek için çalıştırılmıştır. Çıktı olmaması, pickle kütüphanesinin sorunsuz yüklendiğini gösterir. Bu, modelin kalıcı hale getirilmesi (deployment hazırlığı) için atılan ilk adımdır."
     },
     {
       "id": "hafta9_multiple_linear_regression-b014",
@@ -636,7 +649,8 @@
           "codeContext": "Bu satır, 'Model dosyası adını tanımlama' bloğunda model dosyasının adını tanımlar."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; model dosyası adını tanımlama adımının sonucu bellekte tutulur."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; model dosyası adını tanımlama adımının sonucu bellekte tutulur.",
+      "outputInterpretation": "Bu kod, kaydedilecek model dosyasının adını ve uzantısını belirlemek için çalıştırılmıştır. Herhangi bir çıktı üretmemesi, atama işleminin bellekte tutulduğu anlamına gelir. Modeli isimlendirmek, ileride sürüm kontrolü ve dosya yönetimi yapabilmek adına standart bir işlemdir."
     },
     {
       "id": "hafta9_multiple_linear_regression-b015",
@@ -658,7 +672,8 @@
           "codeContext": "Bu satır, 'Örnek dump satırını yorum olarak gösterme' bloğunda model kaydetmenin örnek kullanımını yorum olarak gösterir."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; örnek dump satırını yorum olarak gösterme adımının sonucu bellekte tutulur."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; örnek dump satırını yorum olarak gösterme adımının sonucu bellekte tutulur.",
+      "outputInterpretation": "Bu blok sadece bilgi verme ve örnek sentaksı gösterme amacıyla yazılmış bir yorum satırıdır. Kod olarak algılanmadığı için bir çıktı üretmez. Kullanıcıya model kaydetme fonksiyonunun nasıl kullanılacağını referans olarak gösterir."
     },
     {
       "id": "hafta9_multiple_linear_regression-b016",
@@ -686,7 +701,8 @@
           "codeContext": "Bu satır, 'Eğitilmiş modeli pickle ile kaydetme' bloğunda eğitilmiş modeli pickle dosyasına kaydeder."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; eğitilmiş modeli pickle ile kaydetme adımının sonucu bellekte tutulur."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; eğitilmiş modeli pickle ile kaydetme adımının sonucu bellekte tutulur.",
+      "outputInterpretation": "Bu kod, eğitilmiş olan regresyon modelini tüm öğrendiği katsayılar ve ağırlıklarla birlikte diske kalıcı olarak yazmak (serialization) için çalıştırılmıştır. Çıktı üretmemesi, modelin belirlenen dosya adıyla başarıyla kaydedildiğini ifade eder. Veri madenciliği döngüsünde bu adım, modelin eğitim sürecini sonlandırıp canlı sisteme veya farklı bir ortama aktarılmaya (deployment) hazır hale getirildiğini gösterir."
     },
     {
       "id": "hafta9_multiple_linear_regression-b017",
@@ -708,7 +724,8 @@
           "codeContext": "Bu satır, 'Pickle kütüphanesini tekrar içe aktarma' bloğunda model serileştirme aracını yükler."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar.",
+      "outputInterpretation": "Bu blok, modelin başka bir zaman veya ortamda yeniden kullanılabileceğini simüle etmek için pickle kütüphanesini yeniden import etmek üzere çalıştırılmıştır. Çıktı üretmemesi import işleminin başarısını gösterir. Model yükleme işlemine geçiş hazırlığıdır."
     },
     {
       "id": "hafta9_multiple_linear_regression-b018",
@@ -736,7 +753,8 @@
           "codeContext": "Bu satır, 'Kaydedilen modeli geri yükleme' bloğunda kaydedilmiş modeli geri yükler."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; kaydedilen modeli geri yükleme adımının sonucu bellekte tutulur."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; kaydedilen modeli geri yükleme adımının sonucu bellekte tutulur.",
+      "outputInterpretation": "Bu kod, daha önceden diske kaydedilmiş modeli okuyarak belleğe geri yüklemek (deserialization) için çalıştırılmıştır. Çıktı olmaması, dosyanın başarıyla okunup 'mymodel' değişkenine atandığını gösterir. Bu sonuç, modeli tekrar eğitmek için zaman ve işlemci gücü harcamaya gerek kalmadan, doğrudan eski haline erişilebildiğini kanıtlar."
     },
     {
       "id": "hafta9_multiple_linear_regression-b019",
@@ -758,7 +776,8 @@
           "codeContext": "Bu satır, 'Yüklenen modelle ilk tahmin' bloğunda model tahmini üretir."
         }
       ],
-      "expectedOutput": "array([586097.7833456])"
+      "expectedOutput": "array([586097.7833456])",
+      "outputInterpretation": "Bu blok, diskten geri yüklenen modelin düzgün çalışıp çalışmadığını test etmek için çalıştırılmıştır. Çıktıdaki '586097.78' değerinin daha önce 7. blokta alınan sonuçla tamamen aynı olması, modelin öğrendiği matematiksel ağırlıkları hiçbir kayıp yaşamadan koruduğunu gösterir. Model artık yeni veri girişleri üzerinden canlı tahminler yapmaya hazırdır."
     },
     {
       "id": "hafta9_multiple_linear_regression-b020",
@@ -780,7 +799,8 @@
           "codeContext": "Bu satır, 'Yüklenen modelle ikinci tahmin' bloğunda model tahmini üretir."
         }
       ],
-      "expectedOutput": "array([616657.45791365])"
+      "expectedOutput": "array([616657.45791365])",
+      "outputInterpretation": "Bu kod, geri yüklenen modelin güvenilirliğini ikinci bir test ile doğrulamak için çalıştırılmıştır. Çıktıdaki '616657.45' değerinin 8. bloktaki sonuçla birebir eşleşmesi, serileştirme ve geri çağırma işleminin %100 başarılı olduğunu ifade eder. Veri madenciliği sürecinin sonlanarak, entegrasyon (örneğin bir web veya mobil uygulamaya bağlama) aşamasına güvenle geçilebileceğini gösterir."
     }
   ]
 }
