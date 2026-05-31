@@ -1,4 +1,4 @@
-export type NoeticModuleIcon = "oop" | "language" | "ybs" | "finance" | "web"
+export type NoeticModuleIcon = "oop" | "language" | "ybs" | "finance" | "web" | "ethics"
 
 export interface NoeticModuleDefinition {
   id: string
@@ -75,7 +75,7 @@ export const NOETIC_MODULES: NoeticModuleDefinition[] = [
     periodLabel: "2. Sınıf • Bahar",
     periodOrder: 2,
     moduleUrl: "static/business-ethics-module/index.html",
-    iconType: "oop",
+    iconType: "ethics",
   },
   {
     id: "ybs",
