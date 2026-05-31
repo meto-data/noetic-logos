@@ -253,7 +253,7 @@
           "codeContext": "Bu satır, 'Mall Customers verisini yüklüyoruz' bloğunda tablonun ilk satırlarını önizleme amaçlı ekrana getirir."
         }
       ],
-      "expectedOutput": "   CustomerID   Genre  Age  Annual Income (k$)  Spending Score (1-100)\n0           1    Male   19                  15                      39\n1           2    Male   21                  15                      81\n2           3  Female   20                  16                       6\n3           4  Female   23                  16                      77\n4           5  Female   31                  17                      40",
+      "expectedOutput": "   CustomerID   Genre  Age  Annual Income (kX)  Spending Score (1-100)\n0           1    Male   19                  15                      39\n1           2    Male   21                  15                      81\n2           3  Female   20                  16                       6\n3           4  Female   23                  16                      77\n4           5  Female   31                  17                      40",
       "outputInterpretation": "Bu blok, veri setinin sisteme doğru bir şekilde yüklenip yüklenmediğini kontrol etmek ve verinin yapısına ilk bakışı atmak için çalıştırılmıştır. Çıktı, 5 sütunlu müşteri verisinin ilk 5 satırını göstermektedir; demografik ve finansal bilgilerin yer aldığı görülmektedir. Sütunların veri tiplerinin ve boyutunun incelenmesi aşamasına geçilebilir."
     },
     {
@@ -290,7 +290,7 @@
           "codeContext": "Bu satır, 'Sütun tiplerini inceliyoruz' bloğunda sütunların tip kontrolünü yapar."
         }
       ],
-      "expectedOutput": "CustomerID                 int64\nGenre                     object\nAge                        int64\nAnnual Income (k$)         int64\nSpending Score (1-100)     int64\ndtype: object",
+      "expectedOutput": "CustomerID                 int64\nGenre                     object\nAge                        int64\nAnnual Income (kX)         int64\nSpending Score (1-100)     int64\ndtype: object",
       "outputInterpretation": "Bu blok, veri setindeki değişkenlerin tiplerini kontrol ederek makine öğrenmesi algoritmaları için uygunluklarını belirlemek amacıyla çalıştırılmıştır. Çıktıda 'Genre' (Cinsiyet) sütununun kategorik ('object'), diğer sütunların ise sayısal ('int64') olduğu görülmektedir. Mesafe tabanlı K-Means algoritması kullanılacağı için 'Genre' sütununun sayısallaştırılması gerektiği anlaşılmaktadır."
     },
     {
@@ -364,7 +364,7 @@
           "codeContext": "Bu satır, 'CustomerID sütununu kaldırıyoruz' bloğunda tablonun ilk satırlarını önizleme amaçlı ekrana getirir."
         }
       ],
-      "expectedOutput": "    Genre  Age  Annual Income (k$)  Spending Score (1-100)\n0    Male   19                  15                      39\n1    Male   21                  15                      81\n2  Female   20                  16                       6\n3  Female   23                  16                      77\n4  Female   31                  17                      40",
+      "expectedOutput": "    Genre  Age  Annual Income (kX)  Spending Score (1-100)\n0    Male   19                  15                      39\n1    Male   21                  15                      81\n2  Female   20                  16                       6\n3  Female   23                  16                      77\n4  Female   31                  17                      40",
       "outputInterpretation": "Bu blok, her müşteriye özel benzersiz bir kimlik olan 'CustomerID' sütununun, müşteriler arası mesafe ölçümüne analitik bir katkısı olmayacağı için veriden çıkarılması amacıyla çalıştırılmıştır. Çıktıda bu sütunun silindiği ve geriye analizde kullanılacak 4 anlamlı değişkenin kaldığı görülmektedir. Kalan verilerdeki kategorik değişkenin dönüştürülmesi işlemine geçilebilir."
     },
     {
@@ -413,7 +413,7 @@
           "codeContext": "Bu satır, 'Genre sütununu sayısallaştırıyoruz' bloğunda tablonun ilk satırlarını önizleme amaçlı ekrana getirir."
         }
       ],
-      "expectedOutput": "   Genre  Age  Annual Income (k$)  Spending Score (1-100)\n0      0   19                  15                      39\n1      0   21                  15                      81\n2      1   20                  16                       6\n3      1   23                  16                      77\n4      1   31                  17                      40",
+      "expectedOutput": "   Genre  Age  Annual Income (kX)  Spending Score (1-100)\n0      0   19                  15                      39\n1      0   21                  15                      81\n2      1   20                  16                       6\n3      1   23                  16                      77\n4      1   31                  17                      40",
       "outputInterpretation": "Bu blok, K-Means algoritması yalnızca sayısal verilerle çalıştığı için, metinsel bir değişken olan 'Genre' sütununu modelin anlayabileceği formata dönüştürmek için çalıştırılmıştır. Çıktıda 'Female' değerlerinin 1'e, 'Male' değerlerinin 0'a dönüştürüldüğü görülmektedir. Veri tamamen sayısal hale geldiği için görselleştirme ve modelleme adımlarına geçilebilir."
     },
     {
@@ -465,11 +465,11 @@
         },
         {
           "lineNumber": 4,
-          "code": "    x=\"Annual Income (k$)\",",
-          "lineExplanation": "Grafiğin x ekseninde \"Annual Income (k$)\" değişkenini kullanır.",
+          "code": "    x=\"Annual Income (kX)\",",
+          "lineExplanation": "Grafiğin x ekseninde \"Annual Income (kX)\" değişkenini kullanır.",
           "tokens": [
             {
-              "token": "\"Annual Income (k$)\"",
+              "token": "\"Annual Income (kX)\"",
               "explanation": "Yatay eksene bağlanan alanı belirtir.",
               "turkce": "X Değişkeni",
               "amac": "İlgili özelliği yatay eksende göstermek."
@@ -933,11 +933,11 @@
         },
         {
           "lineNumber": 4,
-          "code": "    x=\"Annual Income (k$)\",",
-          "lineExplanation": "Grafiğin x ekseninde \"Annual Income (k$)\" değişkenini kullanır.",
+          "code": "    x=\"Annual Income (kX)\",",
+          "lineExplanation": "Grafiğin x ekseninde \"Annual Income (kX)\" değişkenini kullanır.",
           "tokens": [
             {
-              "token": "\"Annual Income (k$)\"",
+              "token": "\"Annual Income (kX)\"",
               "explanation": "Yatay eksene bağlanan alanı belirtir.",
               "turkce": "X Değişkeni",
               "amac": "İlgili özelliği yatay eksende göstermek."

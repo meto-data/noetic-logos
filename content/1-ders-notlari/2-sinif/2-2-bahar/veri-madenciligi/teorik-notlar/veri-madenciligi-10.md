@@ -6,7 +6,7 @@ tags: akademi/dersler/veri-madenciligi
 slug: veri-madenciligi-10
 konu: Metin Madenciliği
 ---
-## 1. Yapısal ve Yapısal Olmayan Veri
+# Yapısal ve Yapısal Olmayan Veri
 Veri madenciliğinde veriler yapılarına göre temel kategorilere ayrılır. Metin madenciliğinin neden ayrı bir disiplin olduğunu anlamak için bu ayrımı bilmek şarttır. Geleneksel algoritmalar satır ve sütunlardan oluşan "yapısal" verilerle çalışırken, insanların günlük hayatta ürettiği dokümanlar "yapısal olmayan" formdadır.
 
 
@@ -15,21 +15,21 @@ Veri madenciliğinde veriler yapılarına göre temel kategorilere ayrılır. Me
 | Sayısal (Numeric) | Yapısal (Structured)   | Fiyat = 199₺               | Doğrudan işlenebilir.        |
 | Kategorik         | Yapısal                | Marka = Samsung            | Doğrudan işlenebilir.        |
 | Metin (Text)      | Yapısız (Unstructured) | "Bu telefonu çok beğendim" | **Ön işleme gerektirir.**    |
-## Metin Madenciliği nedir
+# Metin Madenciliği nedir
 Medin Madenciliği (Text Mining); haberler, tweetler, e-postalar, ürün yorumları gibi *yapısal olmayan* ve düzensiz elektronik metin yığınlarından; önceden bilinmeyen, potansiyel olarak faydalı ve **yapısal veriler/desenler elde etme sürecidir**.
 
 >[!example] Madencilik Analojisi
 >Dağdaki ham kayalar (tweetler, blog yazılarıdır, maillerdir) tek başlarına bir anlam ifade etmezler ve çok karmaşıktırlar. Metin madenciliği süreci ise bu kayaları kırıp, yıkayıp, eleyip içlerindeki altın külçelerini (yapısal ve analiz edilebilir veriyi) ortaya çıkarma sürecidir.
 
 
-**Neden Gerekli?**
+### **Metin Madenciliği Neden Gerekli?**
 1. **Veri Patlaması**: Her gün milyonlarca *yapısal olmayan* veri üretiliyor.
 2. **Anlam Çıkarma**: Ham metinden duygu, konu, eğilim (trend) belirleme ihtiyacı.
 3. **Karar Destek**: Şirketlerin müşteri geri bildirimlerini okuyarak değil, analiz ederek strateji geliştirmesi.
 4. **Güvenlik ve Denetim**: Spam e-postaların taranması veya sahte haberlerin tespiti.
 
 
-## Metin Ön İşleme (Preprocessing) Aşamaları
+# Metin Ön İşleme (Preprocessing) Aşamaları
 Bir makine "Merhaba" kelimesi ile "merhaba!" kelimesini aynı şey olarak algılamaz. Metni makine öğrenmesi algoritmalarına sokmadan önce mutlak sûrette temizlememiz ve standartlaştırmamız gerekir. Bu işlem sırasıyla şu 4 adımdan oluşur:
 
 1. **Küçük Harfe Çevirme (Lowercasing)**: Bilgisayar büyük/küçük harfle duyarlıdır. 
@@ -39,7 +39,7 @@ Bir makine "Merhaba" kelimesi ile "merhaba!" kelimesini aynı şey olarak algıl
 	- "yapay zekâ güzeldir" $\to$ \["yapay", "zekâ", "güzeldir"\]
 
 
-## İleri Seviye Metin Madenciliği Çalışma Alanları
+# İleri Seviye Metin Madenciliği Çalışma Alanları
 Ön işlemden geçen metinler üzerinde amaca yönelik çeşitli karmaşık görevler icra edilir:
 
 - **Enformasyon Getirimi (Information Retrieval)**: Derlem (corpus) hakkında ön bilginin toplandığı ilk aşamadır. Web sayfalarının URL'leri gibi, dosya tarihleri gibi, yazar bilgileri gibi.
@@ -51,7 +51,7 @@ Bir makine "Merhaba" kelimesi ile "merhaba!" kelimesini aynı şey olarak algıl
 
 ---
 
-#### Problem:
+### Problem:
 Elimizde 5 farklı yazara ait 20'şer adet (toplam 100) makale var. Kimin yazdığı belli olmayan yeni bir 101. makale geliyor. Bu makaleyi hangi yazarın yazdığını makineye nasıl buldururuz? (Literatürde *Author Recognition* derler).
 
 #### Çözüm Adımları:

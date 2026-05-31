@@ -27,7 +27,7 @@
         },
         {
           "lineNumber": 2,
-          "code": "import pandas as pd              # Veri okuma ve işleme",
+          "code": "import pandas as pd       # Veri okuma ve işleme",
           "lineExplanation": "pandas modülünü pd takma adıyla içe aktarır.",
           "tokens": [
             {
@@ -47,7 +47,7 @@
         },
         {
           "lineNumber": 3,
-          "code": "import numpy as np               # Sayısal işlemler",
+          "code": "import numpy as np        # Sayısal işlemler",
           "lineExplanation": "numpy modülünü np takma adıyla içe aktarır.",
           "tokens": [
             {
@@ -67,7 +67,7 @@
         },
         {
           "lineNumber": 4,
-          "code": "import matplotlib.pyplot as plt  # Grafik çizimi",
+          "code": "import matplotlib.pyplot as plt # Grafik çizimi",
           "lineExplanation": "matplotlib.pyplot modülünü plt takma adıyla içe aktarır.",
           "tokens": [
             {
@@ -87,8 +87,8 @@
         },
         {
           "lineNumber": 5,
-          "code": "from sklearn.preprocessing import PolynomialFeatures  # Polynomial dönüşüm",
-          "lineExplanation": "sklearn.preprocessing modülünden PolynomialFeatures  # Polynomial dönüşüm bileşenlerini doğrudan içe aktarır.",
+          "code": "from sklearn.preprocessing import PolynomialFeatures # Polynomial dönüşüm",
+          "lineExplanation": "sklearn.preprocessing modülünden PolynomialFeatures # Polynomial dönüşüm bileşenlerini doğrudan içe aktarır.",
           "tokens": [
             {
               "token": "sklearn.preprocessing",
@@ -97,7 +97,7 @@
               "amac": "Gereken sınıfları doğru yerden çağırmak."
             },
             {
-              "token": "PolynomialFeatures  # Polynomial dönüşüm",
+              "token": "PolynomialFeatures # Polynomial dönüşüm",
               "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
               "turkce": "Doğrudan İçe Aktarma",
               "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
@@ -107,8 +107,8 @@
         },
         {
           "lineNumber": 6,
-          "code": "from sklearn.linear_model import LinearRegression     # Regresyon modeli",
-          "lineExplanation": "sklearn.linear_model modülünden LinearRegression     # Regresyon modeli bileşenlerini doğrudan içe aktarır.",
+          "code": "from sklearn.linear_model import LinearRegression   # Regresyon modeli",
+          "lineExplanation": "sklearn.linear_model modülünden LinearRegression   # Regresyon modeli bileşenlerini doğrudan içe aktarır.",
           "tokens": [
             {
               "token": "sklearn.linear_model",
@@ -117,7 +117,7 @@
               "amac": "Gereken sınıfları doğru yerden çağırmak."
             },
             {
-              "token": "LinearRegression     # Regresyon modeli",
+              "token": "LinearRegression   # Regresyon modeli",
               "explanation": "Bu satırda doğrudan kullanılacak sınıf veya fonksiyonları tanımlar.",
               "turkce": "Doğrudan İçe Aktarma",
               "amac": "Sınıfı modül öneki yazmadan kullanabilmek."
@@ -150,7 +150,7 @@
         },
         {
           "lineNumber": 2,
-          "code": "df = pd.read_csv(\"Salary.csv\")   # dosya adını değiştir",
+          "code": "df = pd.read_csv(\"Salary.csv\")  # dosya adını değiştir",
           "lineExplanation": "Salary.csv dosyasını okuyup df adlı DataFrame'e yükler.",
           "tokens": [
             {
@@ -197,7 +197,7 @@
           "codeContext": "Bu satır, 'Salary.csv verisini okuma' bloğunda veri setinin ilk satırlarını gösterir."
         }
       ],
-      "expectedOutput": "   YearsExperience  Salary\n0              1.1   39343\n1              1.3   46205\n2              1.5   37731\n3              2.0   43525\n4              2.2   39891",
+      "expectedOutput": "  YearsExperience Salary\n0       1.1  39343\n1       1.3  46205\n2       1.5  37731\n3       2.0  43525\n4       2.2  39891",
       "outputInterpretation": "Veri anlama (Data Understanding) aşamasında, veri setinin ilk 5 gözlemi incelenmektedir. Veri setinin bağımsız değişkeni olan deneyim süresi (YearsExperience) ile bağımlı değişken olan maaş (Salary) arasındaki ilişki sürekli sayısal niteliktedir. İlk gözlemler, tecrübe arttıkça maaşın da arttığını, ancak bu artışın her aralıkta tamamen sabit (doğrusal) kalmayabileceğine dair ön bilgi vermektedir."
     },
     {
@@ -221,8 +221,8 @@
         },
         {
           "lineNumber": 2,
-          "code": "X = df.iloc[:, 0:1].values   # 1. sütun (bağımsız değişken)",
-          "lineExplanation": "X değişkenine df.iloc[:, 0:1].values   # 1. sütun (bağımsız değişken) ifadesinin sonucunu atar.",
+          "code": "X = df.iloc[:, 0:1].values  # 1. sütun (bağımsız değişken)",
+          "lineExplanation": "X değişkenine df.iloc[:, 0:1].values  # 1. sütun (bağımsız değişken) ifadesinin sonucunu atar.",
           "tokens": [
             {
               "token": "X",
@@ -231,7 +231,7 @@
               "amac": "Ara sonucu daha sonra kullanmak."
             },
             {
-              "token": "df.iloc[:, 0:1].values   # 1. sütun (bağımsız değişken)",
+              "token": "df.iloc[:, 0:1].values  # 1. sütun (bağımsız değişken)",
               "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
               "turkce": "Atama İfadesi",
               "amac": "Hesaplanan sonucu üretmek."
@@ -241,8 +241,8 @@
         },
         {
           "lineNumber": 3,
-          "code": "y = df.iloc[:, 1].values     # 2. sütun (bağımlı değişken)",
-          "lineExplanation": "y değişkenine df.iloc[:, 1].values     # 2. sütun (bağımlı değişken) ifadesinin sonucunu atar.",
+          "code": "y = df.iloc[:, 1].values   # 2. sütun (bağımlı değişken)",
+          "lineExplanation": "y değişkenine df.iloc[:, 1].values   # 2. sütun (bağımlı değişken) ifadesinin sonucunu atar.",
           "tokens": [
             {
               "token": "y",
@@ -251,7 +251,7 @@
               "amac": "Ara sonucu daha sonra kullanmak."
             },
             {
-              "token": "df.iloc[:, 1].values     # 2. sütun (bağımlı değişken)",
+              "token": "df.iloc[:, 1].values   # 2. sütun (bağımlı değişken)",
               "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
               "turkce": "Atama İfadesi",
               "amac": "Hesaplanan sonucu üretmek."
@@ -317,7 +317,7 @@
           "tokens": [
             {
               "token": "PolynomialFeatures",
-              "explanation": "X değerinden 1, x, x², x³ ... gibi yeni sütunlar üretir.",
+              "explanation": "X değerinden 1, x, X², X³ ... gibi yeni sütunlar üretir.",
               "turkce": "Polinom Dönüşüm",
               "amac": "Eğrisel ilişkiyi lineer modele anlatmak."
             },
@@ -360,7 +360,7 @@
         }
       ],
       "expectedOutput": "Yeni veri boyutu: (35, 10)",
-      "outputInterpretation": "Öznitelik mühendisliği kapsamında veri uzayı genişletilmektedir. `degree=9` seçilerek, tek boyutlu X girdisi $X^0$'dan $X^9$'a kadar olan üstel terimlerle 10 boyutlu yeni bir öznitelik matrisine dönüştürülmüştür. Bu parametrik karar, modelin doğrusal olmayan karmaşık eğrileri yakalama kapasitesini yükseltir. Ancak 9. derece gibi yüksek bir derece seçimi, varyansı ciddi şekilde artırarak aşırı öğrenme (overfitting) riskini beraberinde getirir."
+      "outputInterpretation": "Öznitelik mühendisliği kapsamında veri uzayı genişletilmektedir. `degree=9` seçilerek, tek boyutlu X girdisi X⁰'dan X⁹'a kadar olan üstel terimlerle 10 boyutlu yeni bir öznitelik matrisine dönüştürülmüştür. Bu parametrik karar, modelin doğrusal olmayan karmaşık eğrileri yakalama kapasitesini yükseltir. Ancak 9. derece gibi yüksek bir derece seçimi, varyansı ciddi şekilde artırarak aşırı öğrenme (overfitting) riskini beraberinde getirir."
     },
     {
       "id": "hafta9_polynomial_regression_v1-b005",
@@ -411,7 +411,7 @@
         }
       ],
       "expectedOutput": "LinearRegression()",
-      "outputInterpretation": "Dönüştürülmüş çok boyutlu uzayda model eğitimi gerçekleştirilmektedir. Teorik olarak, yeni $X^2, X^3...$ değişkenleri doğrusal olmayan yapıda olsa da, model katsayılar ($\beta$) açısından hala doğrusal bir yapıya (Linear in Parameters) sahiptir. Bu yüzden standart En Küçük Kareler (OLS) yöntemini kullanan `LinearRegression` ile eğitilir. Model, dönüştürülmüş öznitelikler üzerinde bir hiperdüzlem öğrenmektedir."
+      "outputInterpretation": "Dönüştürülmüş çok boyutlu uzayda model eğitimi gerçekleştirilmektedir. Teorik olarak, yeni X², X³... değişkenleri doğrusal olmayan yapıda olsa da, model katsayılar (β) açısından hala doğrusal bir yapıya (Linear in Parameters) sahiptir. Bu yüzden standart En Küçük Kareler (OLS) yöntemini kullanan `LinearRegression` ile eğitilir. Model, dönüştürülmüş öznitelikler üzerinde bir hiperdüzlem öğrenmektedir."
     },
     {
       "id": "hafta9_polynomial_regression_v1-b006",
@@ -510,7 +510,7 @@
         },
         {
           "lineNumber": 7,
-          "code": "         color=\"red\", label=\"Model Eğrisi\")",
+          "code": "     color=\"red\", label=\"Model Eğrisi\")",
           "lineExplanation": "color değişkenine \"red\", label=\"Model Eğrisi\") ifadesinin sonucunu atar.",
           "tokens": [
             {

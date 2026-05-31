@@ -325,7 +325,7 @@
         }
       ],
       "expectedOutput": "X_train ve X_test, her örnekte önceki 2 zamanı taşıyan pencere yapısına dönüşür.",
-      "outputInterpretation": "Zaman serilerindeki 'Bağımsız değişken ($X$) olmaması' probleminin 'Pencereleme (Sliding Windows Transformation)' yöntemiyle çözüldüğü yerdir. Geçmiş veriler girdi ($X$), gelecekteki veri ise çıktı ($Y$) f(X)=Y formatına dönüştürülür. `steps=2` (küçük pencere) seçilerek modelin hızlı öğrenmesi ve son 2 aya bakarak tahmin yapması sağlanmıştır. Doğru pencere boyutu deneme-yanılma (trial and error) ile bulunur."
+      "outputInterpretation": "Zaman serilerindeki 'Bağımsız değişken (X) olmaması' probleminin 'Pencereleme (Sliding Windows Transformation)' yöntemiyle çözüldüğü yerdir. Geçmiş veriler girdi (X), gelecekteki veri ise çıktı (Y) f(X)=Y formatına dönüştürülür. `steps=2` (küçük pencere) seçilerek modelin hızlı öğrenmesi ve son 2 aya bakarak tahmin yapması sağlanmıştır. Doğru pencere boyutu deneme-yanılma (trial and error) ile bulunur."
     },
     {
       "id": "hafta11_airline_lstm-b006",
