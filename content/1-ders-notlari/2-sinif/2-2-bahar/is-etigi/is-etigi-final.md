@@ -289,7 +289,6 @@ Para kazanmak için yapılan her bedensel/zihinsel faaliyet iştir. Ama bir işi
 
 1. **Eğitim (Entelektüel Boyut)**: El yordamıyla, usta-çırak ilişkisiyle değil; uzun, teorik ve sistemli bir eğitim süreciyle öğrenilir.
 2. **Fedakârlık (Toplumsal Hizmet)**: Tek amaç para kazanmak olamaz. Topluma hizmet (diğerkâmlık) şarttır.
-	- *Meslek dediğin "yol, rota, patika" sözcüğünden geliyor; bir rotayı izlemekten, bir yol gitmekten yani. Altruizmi başkalarına dayatacağız diye diye mesleği güya fedakârlığa hapsediyorlar.*
 3. **Örgütlülük**: Mesleğin kendi iç denetimini yapacak meslek odaları veya birlikleri olmak zorundadır.
 4. **Otorite ve Ayrıcalık**: Toplumun ve yasaların o mesleği yapanlara tanıdığı saygınlık ve özel yetkiler olmalıdır.
 
