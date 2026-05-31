@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="tr" class="app-booting dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İş Etiği Modülü</title>
+    <link rel="icon" type="image/png" href="./favicon-kant.png" />
+    <script>
+      (() => {
+        const root = document.documentElement;
+        const READY_EVENT = 'etiği:app-ready';
+        let isRevealed = false;
+
+        try {
+          const theme = window.localStorage.getItem('etiği_theme');
+          if (theme === 'light') {
+            root.classList.remove('dark');
+          } else {
+            root.classList.add('dark');
+          }
+        } catch {}
+
+        const revealApp = () => {
+          if (isRevealed) return;
+          isRevealed = true;
+          root.classList.remove('app-booting');
+
+          const splash = document.getElementById('app-boot-splash');
+          if (!splash) return;
+
+          splash.classList.add('app-boot-splash-hide');
+          window.setTimeout(() => splash.remove(), 220);
+        };
+
+        const waitForDom = document.readyState === 'loading'
+          ? new Promise((resolve) => document.addEventListener('DOMContentLoaded', resolve, { once: true }))
+          : Promise.resolve();
+
+        const waitForLoad = document.readyState === 'complete'
+          ? Promise.resolve()
+          : new Promise((resolve) => {
+              const finish = () => {
+                window.removeEventListener('load', finish);
+                resolve();
+              };
+
+              window.addEventListener('load', finish, { once: true });
+              window.setTimeout(finish, 2600);
+            });
+
+        const waitForApp = new Promise((resolve) => {
+          const finish = () => {
+            window.removeEventListener(READY_EVENT, finish);
+            resolve();
+          };
+
+          window.addEventListener(READY_EVENT, finish, { once: true });
+          window.setTimeout(finish, 4200);
+        });
+
+        const minDelay = new Promise((resolve) => window.setTimeout(resolve, 620));
+
+        Promise.all([waitForDom, waitForLoad, waitForApp, minDelay]).then(revealApp).catch(revealApp);
+      })();
+    </script>
+    <script type="module" crossorigin src="/noetic-logos/static/business-ethics-module/assets/index-BL9E9i14.js"></script>
+    <link rel="stylesheet" crossorigin href="/noetic-logos/static/business-ethics-module/assets/index-C_LM6f6S.css">
+  </head>
+  <body class="ambient-layer bg-background-light text-ink antialiased h-screen flex flex-col overflow-hidden">
+    <div id="app-boot-splash" class="app-boot-splash" aria-hidden="true">
+      <div class="app-boot-panel">
+        <div class="mx-auto wolf-loader-mark">
+          <span class="wolf-loader-ear wolf-loader-ear-left"></span>
+          <span class="wolf-loader-ear wolf-loader-ear-right"></span>
+          <span class="wolf-loader-face">
+            <span class="wolf-loader-eye wolf-loader-eye-left"></span>
+            <span class="wolf-loader-eye wolf-loader-eye-right"></span>
+            <span class="wolf-loader-muzzle"></span>
+          </span>
+        </div>
+
+        <div class="mt-5 text-center">
+          <div class="headline-font mt-3 text-2xl md:text-3xl font-extrabold tracking-tight text-[#13333a] dark:text-white sm:text-[2.2rem]">
+            İş Etiği Modülü
+          </div>
+          <div class="label-font mt-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#006876]/58 dark:text-[#88C0D0]/62">
+            Hazırlanıyor
+          </div>
+        </div>
+
+        <div class="app-boot-bar mt-7">
+          <span class="app-boot-bar-fill"></span>
+        </div>
+      </div>
+    </div>
+
+    <div id="root" class="h-full"></div>
+  </body>
+</html>
+
+

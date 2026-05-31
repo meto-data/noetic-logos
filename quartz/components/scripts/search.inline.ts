@@ -182,6 +182,12 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     webtasarim: "static/web-module/index.html",
     "web-tasarim": "static/web-module/index.html",
     "web-tasarım": "static/web-module/index.html",
+    "business-ethics": "static/business-ethics-module/index.html",
+    businessethics: "static/business-ethics-module/index.html",
+    "is-etigi": "static/business-ethics-module/index.html",
+    "is-etiği": "static/business-ethics-module/index.html",
+    isetigi: "static/business-ethics-module/index.html",
+    isetiği: "static/business-ethics-module/index.html",
   }
 
   // Special commands that trigger events instead of redirects

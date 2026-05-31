@@ -166,14 +166,11 @@ Eskiden geniş aileler içinde farklı rol modeller eşliğinde büyüyen çocuk
 * **Kohlberg'in Ahlâkî Gelişim Evreleri (Nisan & Kohlberg araştırması):** Kırsal kesimdeki bireylerin ahlâkî değerlendirmeleri **normlara ve faydacılığa** (teleolojik) dayanırken; şehirde yaşayanlar **mükemmeliyetçi ve deontolojik** (Ödev temelli) gerekçelere dayanmaktadır. 
 
 
-*Not*: Bu Kohlberg olsun, Piager olsun, Özyer ve Azizoğlu'nun araştırması olsun feci bir şekilde zırvalık. Konu hakkında eleştirim [[teoriymis-yersen|şurada mevcut]].
-
-
 ---
 
 # 6. Ders: Etik ve Din
 
-**Dinin Tanımları**: Sosyolojik olarak din; sosyal bir kurum, semboller ve değerler büttünüdür. İslam'a göre ise; yaratılış amacını bildiren, Yaratıcı'nın koyduğu kanunlardır.
+**Dinin Tanımları**: Sosyolojik olarak din; sosyal bir kurum, semboller ve değerler bütünüdür. İslam'a göre ise; yaratılış amacını bildiren, Yaratıcı'nın koyduğu kanunlardır.  <br>
 **Dinin İşlevleri**: Sosyal birliktelik, sosyal kontrol, anlam ve amaç verme...
 
 ## Sekülerizm ve Ahlâk Çatışması
@@ -217,34 +214,34 @@ Etimolojik olarak *hetero* "farklı/dış" ve *nomos* "yasa" sözcüklerinin bir
 
 # 8. Ders: Ahlâkî Gelişim Kuramları (Lawrence Kohlberg)
 
-Kohlberg- Piaget'in modelini genişleterek ahlâkî gelişimi tüm yaşam boyu süren hiyerarşik bir yapı olarak ele almıştır. Kohlberg'in teorisinin merkezinde "**Adalet**" kavramı yatar. Bireylerin ahlâkî yargı düzeylerini ölçmek için onlara içinde ahlâkî ikilemlerin bulunduğu hikâyeler okutur, Heinz İkilemi gibi.
+Kohlberg, Piaget'in modelini genişleterek ahlâkî gelişimi tüm yaşam boyu süren hiyerarşik bir yapı olarak ele almıştır. Kohlberg'in teorisinin merkezinde "**adalet**" kavramı yatar. Bireylerin ahlâkî yargı düzeylerini ölçmek için onlara içinde ahlâkî ikilemlerin bulunduğu hikâyeler okutur, Heinz İkilemi gibi. 
 
 **Sınava Yönelik:** Kohlberg'in hikâyelerinde (kanser hastası eşi için ilaç çalan Heinz) kişinin verdiği "Evet çalmalıdır" veya "Hayır çalmamalıdır" cevabı hiçbir önem taşımaz. Kohlberg, kişinin bu cevabı **hangi gerekçeyle (nasıl bir akıl yürütmeyle)** verdiğine bakar. Ahlâkî düzeyi belirleyen şey sonuç değil, muhakeme sürecidir.
 
-### 1. Düzey: Gelenek Öncesi (Pre-Conventional) - Egosantrik Aşama
+## 1. Düzey: Gelenek Öncesi (Pre-Conventional) - Egosantrik Aşama
 Otorite ve dışsal kurallar hâkimdir. Olaylar fiziksel sonuçlarına (ödül/ceza) göre değerlendirilir.
-#### 1. Basamak: **İtaat ve Ceza Eğilimi** (Heteronomi)
+### 1. Basamak: **İtaat ve Ceza Eğilimi** (Heteronomi)
 Eylem cezalandırılıyorsa **kötü**, cezalandırılmıyorsa **iyi**dir. Temel motivasyon cezadan kaçmak ve otoriteye boyun eğmektir.
 
-#### 2. Basamak: **Saf Çıkarcı Eğilim** (Araçsallaştırma)
+### 2. Basamak: **Saf Çıkarcı Eğilim** (Araçsallaştırma)
 "Sen benim sırtımı kaşı, ben de seninkini" mantığıdır. Doğru davranış, kişinin kendi ihtiyaçlarını ve çıkarlarını tatmin eden davranıştır. Karşılıklı alışveriş esastır.
 
-### 2. Düzey: Geleneksel (Conventional) - Toplummerkezci (Sosyosentrik) Aşama
+## 2. Düzey: Geleneksel (Conventional) - Toplummerkezci (Sosyosentrik) Aşama
 Ailenin, grubun veya toplumun beklentilerini karşılamak, mevcut düzeni korumak esastır.
 
-#### 3. Basamak: **Kişilerarası Uyum** (İyi Çocuk Eğilimi)
+### 3. Basamak: **Kişilerarası Uyum** (İyi Çocuk Eğilimi)
 Çevreden onay almak, "iyi insan" olarak görünmek esastır. Niyetler önem kazanır. Çevrenin beklentilerine uygun davranmak ahlâkîdir.
 
-#### 4. Basamak: **Kanun ve Düzen Eğilimi**
+### 4. Basamak: **Kanun ve Düzen Eğilimi**
 Toplumsal düzenin korunması için yasalara, kurallara ve sosyal kurumlara harfiyen uyulmalıdır. Vicdan, toplumsal görevleri yerine getirmeyi emreder. "*Herkes böyle yaparsa toplum çöker*" olarak karakterize edilebilir bu basamak.
 
-### 3. Düzey: Gelenek Sonrası (Post-Conventional) - İlke Merkezci Aşama
+## 3. Düzey: Gelenek Sonrası (Post-Conventional) - İlke Merkezci Aşama
 Evrensel ilkeler, insan hakları ve rasyonel düşünce devrededir. Yasalar eleştirilebilir.
 
-#### 5. Basamak: **Sosyal Sözleşme Eğilimi**
+### 5. Basamak: **Sosyal Sözleşme Eğilimi**
 Yasalar, toplumun faydası ve temel hakların (yaşam, özgürlük) korunması için yapılmış uzlaşılardır. Ancak yasalar mutlak veya kutsal olmaktan uzaktır; adalet sağlamıyorsa demokratik yollarla değiştirilmelidir.
 
-#### 6. Basamak: **Evrensel Etik İlkeler Eğilimi**
+### 6. Basamak: **Evrensel Etik İlkeler Eğilimi**
 En üst düzeydir. Birey, insan onuruna yaraşır evrensel adalet ilkelerini rasyonel bir biçimde kendi vicdanında yasalaştırır.  Eğer devletin koyduğu kanun ile evrensel adalet ilkesi çatışırsa, birey evrensel ilkeye uyar. kant'ın deontolojisi bu basamağın felsefî zeminini oluşturur.
 
 

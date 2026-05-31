@@ -68,6 +68,16 @@ export const NOETIC_MODULES: NoeticModuleDefinition[] = [
     iconType: "web",
   },
   {
+    id: "business-ethics",
+    slugPattern: "is-etigi|is-etiği|business-ethics",
+    title: "İş Etiği",
+    subtitle: "Konu anlatımlarını pekiştirme ve sınava yönelik ders modülü.",
+    periodLabel: "2. Sınıf • Bahar",
+    periodOrder: 2,
+    moduleUrl: "static/business-ethics-module/index.html",
+    iconType: "oop",
+  },
+  {
     id: "ybs",
     slugPattern:
       "yonetim-bilisim-sistemleri|1-2-bahar/ybs|/ybs/|/ybs$|management-information-systems",

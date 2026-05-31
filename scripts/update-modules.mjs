@@ -52,6 +52,14 @@ const MODULES = {
     targetDir: path.join(__dirname, "../quartz/static/turk-dili-2-module"),
     expectedBase: "/noetic-logos/static/turk-dili-2-module/",
   },
+  "business-ethics": {
+    name: "İş Etiği (business_ethics)",
+    sourceDir: "/home/logos/_moduller/business_ethics",
+    buildCmd: "npm run build",
+    distDir: "/home/logos/_moduller/business_ethics/dist",
+    targetDir: path.join(__dirname, "../quartz/static/business-ethics-module"),
+    expectedBase: "/noetic-logos/static/business-ethics-module/",
+  },
 }
 
 // ============================================================================
