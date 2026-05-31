@@ -17103,41 +17103,6 @@
     ]
   },
   {
-    "id": "w11-v018",
-    "week": 11,
-    "topic": "zaman-serileri-ve-lstm",
-    "type": "verbal",
-    "tags": [
-      "matematiksel-ifade",
-      "kavram",
-      "zaman-serisi"
-    ],
-    "sourceNotebook": null,
-    "question": "Zaman serisi verileri $X_t = f(X_{t-1}, X_{t-2}, \\dots, \\epsilon_t)$ şeklinde matematiksel olarak ifade edilmektedir. Bu formüldeki $\\epsilon_t$ (epsilon) terimi zaman serisinin hangi bileşenini temsil eder?",
-    "code": null,
-    "options": {
-      "A": "Uzun vadeli trendin bitiş zamanını",
-      "B": "Gelecek 10 yıllık tahmin edilen kesin değeri",
-      "C": "Modeldeki öngörülemeyen kalıntıları / hatayı (gürültü)",
-      "D": "Sadece mevsimselliğin tepe noktasını",
-      "E": "Kayan pencere boyutunu"
-    },
-    "correct": "C",
-    "explanations": {
-      "A": "Trendin bitiş zamanını ifade eden bir terim değildir.",
-      "B": "Formül $X_t$'yi bulmaya çalışır, epsilon kesin sonucu değil bilinmeyeni temsil eder.",
-      "C": "Zaman serisi modellerinde $\\epsilon_t$ (epsilon), formülle geçmiş değerlerden açıklanamayan dışsal şokları, hatayı ve öngörülemeyen kalıntıları (gürültü/noise) ifade eder.",
-      "D": "Mevsimsellik geçmiş verilerdeki $X_{t-1}$ gibi düzenli bir kalıpla açıklanır.",
-      "E": "Pencere boyutu $k$ veya farklı harflerle adım sayısı olarak ifade edilir, epsilon hata payıdır."
-    },
-    "relatedTerms": [
-      {
-        "term": "Epsilon (Hata Terimi)",
-        "definition": "Modelin tahmin edemediği, veri içindeki rastgele gürültü ve kalıntılar."
-      }
-    ]
-  },
-  {
     "id": "w11-v019",
     "week": 11,
     "topic": "zaman-serileri-ve-lstm",
@@ -17597,41 +17562,6 @@
     ]
   },
   {
-    "id": "w11-q002",
-    "week": 11,
-    "topic": "veri-boyutlandirma",
-    "type": "code",
-    "tags": [
-      "numpy",
-      "reshape",
-      "array"
-    ],
-    "sourceNotebook": "airline_passenger_prediction_using_lstm.ipynb",
-    "question": "Aşağıdaki kod parçasında kullanılan `reshape(-1, 1)` işleminin temel amacı aşağıdakilerden hangisidir?",
-    "code": "data = np.array(data).reshape(-1, 1)",
-    "options": {
-      "A": "Verideki eksik (NaN) değerleri silerek dizinin boyutunu otomatik olarak küçültmek.",
-      "B": "Diziyi tersine çevirerek (sondan başa doğru) zaman serisi tahminine uygun hale getirmek.",
-      "C": "Tek boyutlu vektörü, satır sayısı veriden otomatik hesaplanan (`-1`) ve tek sütunu (`1`) olan 2 boyutlu bir matrise dönüştürmek.",
-      "D": "Modelin çıktı katmanı için veriyi 1 boyutlu hale getirmek.",
-      "E": "Zaman serisindeki her 1 aylık değişimi bir önceki aydan çıkarmak (-1)."
-    },
-    "correct": "C",
-    "explanations": {
-      "A": "Reshape işlemi eksik veri silmez, sadece matrisin şeklini değiştirir.",
-      "B": "Eksi (-) işareti diziyi tersine çevirmez. NumPy'da reshape içindeki -1, 'bu boyutu diğer boyutlara bakarak otomatik hesapla' anlamına gelir.",
-      "C": "MinMaxScaler ve Keras modelleri 2D matris bekler. `reshape(-1, 1)`, satır sayısını veri uzunluğuna göre ayarlayıp 1 sütunlu bir matris yaratır.",
-      "D": "İşlem veriyi 1 boyutlu yapmaz, aksine 1 boyutlu vektörü 2 boyutlu matrise (n satır, 1 sütun) çevirir.",
-      "E": "Bu işlem bir fark (differencing) işlemi değil, sadece yapısal bir şekillendirme işlemidir."
-    },
-    "relatedTerms": [
-      {
-        "term": "Reshape",
-        "definition": "Bir dizinin boyutlarını, içindeki veriyi değiştirmeden yeniden düzenleme işlemi."
-      }
-    ]
-  },
-  {
     "id": "w11-q003",
     "week": 11,
     "topic": "veri-bolme",
@@ -17672,32 +17602,32 @@
     "topic": "veri-bolme",
     "type": "code",
     "tags": [
-      "pandas",
-      "datetime",
-      "indexing"
+      "zaman-serisi",
+      "veri-madenciligi",
+      "kronoloji"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Borsa fiyatı tahmini uygulamasında veriler aşağıdaki gibi iki ayrı gruba bölünmüştür:\nBu kodun herhangi bir hata üretmeden, verileri yıllara göre başarıyla filtreleyebilmesinin altyapısındaki ana sebep aşağıdakilerden hangisidir?",
+    "question": "Borsa fiyatı tahmini gibi zaman serisi problemlerinde, veri setinin eğitim ve test olarak ayrılmasında aşağıdaki hangi yaklaşım veri madenciliği prensiplerine uygundur?",
     "code": "training_set = dataset[:'2016'].iloc[:,1:2].values\ntest_set = dataset['2017':].iloc[:,1:2].values",
     "options": {
-      "A": "`iloc` fonksiyonunun doğrudan string formatındaki yılları anlayıp ona göre satır atlayabilmesi.",
-      "B": "Borsa verilerinde her zaman ilk 2016 satırın eğitim verisi olarak kabul edilmesi.",
-      "C": "Verinin `read_csv` ile okunurken `index_col='Date'` ve `parse_dates=['Date']` parametreleriyle tarih indeksli bir yapıya dönüştürülmüş olması.",
-      "D": "Sütun adının içinde '2016' ve '2017' kelimelerinin geçmesi ve pandas'ın sütun adı eşleştirmesi yapması.",
-      "E": "Kodun öncesinde `MinMaxScaler` uygulanarak tarih değerlerinin 0 ile 1 arasına çekilmiş olması."
+      "A": "Veriyi rastgele karıştırarak %80 eğitim, %20 test olarak ayırmak.",
+      "B": "Sınıflar arası dengeyi sağlamak için tabakalı (stratified) bölme yapmak.",
+      "C": "Zaman akışını bozmadan, belirli bir tarihten öncesini eğitim, sonrasını test seti olarak kronolojik ayırmak.",
+      "D": "En güncel verilerin tamamını eğitim setine dahil ederek modeli sürekli güncellemek.",
+      "E": "Verideki aykırı değerleri test setine atayarak modelin zor durumlardaki başarımını ölçmek."
     },
     "correct": "C",
     "explanations": {
-      "A": "`iloc` string indeks kabul etmez, tam sayı (integer) pozisyonlarına göre işlem yapar. String bazlı indeksleme `loc` veya doğrudan tarih indeksli DataFrame dilimlemesiyle olur.",
-      "B": "Buradaki '2016' satır sayısını değil, indeks etiketini (yılı) ifade eder.",
-      "C": "DataFrame'in indeksi DateTime nesnelerinden oluştuğunda, Pandas string formatındaki yılları (`[:'2016']`) anlayarak o yıla ait tüm kayıtları kapsayacak şekilde dilimleme (slicing) yapabilir.",
-      "D": "Filtreleme sütun adlarına değil, satır indekslerine (index) yapılmaktadır.",
-      "E": "MinMaxScaler tarihlere değil, fiyat (High) sütununa uygulanmıştır."
+      "A": "Zaman serilerinde rastgele bölme (random split) kesinlikle yapılmaz; geçmişin geleceği etkileme örüntüsü bozulur.",
+      "B": "Tabakalı bölme sınıflandırma problemleri için kullanılır, zaman serilerinin doğasına uygun değildir.",
+      "C": "Zaman serilerinde en temel prensip kronolojik bölmedir. Model geçmiş veriden öğrenip gelecekteki görünmeyen veri üzerinde test edilmelidir. Rastgele bölme yapılırsa zaman bağımlılığı (otokorelasyon) yok edilir ve öğrenme anlamsızlaşır.",
+      "D": "Test seti modelin hiç görmediği verilerden oluşmalıdır; en güncel verilerin tamamını eğitime eklemek test güvenilirliğini yok eder.",
+      "E": "Aykırı değerler özel bir hedef için test setine eklenebilir, ancak bu genel bir veri madenciliği prensibi değildir."
     },
     "relatedTerms": [
       {
-        "term": "Datetime Index",
-        "definition": "Pandas DataFrame'lerinde satırların zaman damgalarıyla etiketlenmesi durumu."
+        "term": "Kronolojik Bölme",
+        "definition": "Zaman serilerinde verinin sırasını koruyarak belirli bir tarihten öncesini eğitim, sonrasını test olarak ayırma prensibi."
       }
     ]
   },
@@ -17742,32 +17672,32 @@
     "topic": "zaman-serisi-pencereleme",
     "type": "code",
     "tags": [
-      "function",
       "sliding-window",
-      "array"
+      "veri-madenciligi",
+      "denetimli-ogrenme"
     ],
     "sourceNotebook": "airline_passenger_prediction_using_lstm.ipynb",
-    "question": "Zaman serisi verisini hazırlamak için aşağıdaki fonksiyon yazılmıştır:\nEğer fonksiyona `data = [[112], [118], [132], [129], [121]]` dizisi ve `steps = 2` değeri verilirse, fonksiyonun döngüsünün ilk iterasyonunda (yani `i=0` iken) listelere hangi değerler `append` edilir?",
-    "code": "def get_data(data, steps):      \n    dataX = []\n    dataY = []\n    for i in range(len(data)-steps-1):\n        a = data[i:(i+steps), 0]\n        dataX.append(a)\n        dataY.append(data[i+steps, 0])\n    return np.array(dataX), np.array(dataY)",
+    "question": "Zaman serisi verilerini klasik makine öğrenmesi algoritmalarına hazırlamak için kullanılan kayan pencere (sliding window) dönüşümü aşağıda görülmektedir. Veri madenciliği bağlamında, tek sütunlu bir zaman serisine bu dönüşümün uygulanmasının temel sebebi nedir?",
+    "code": "def get_data(data, steps):\n    dataX = []\n    dataY = []\n    for i in range(len(data)-steps-1):\n        a = data[i:(i+steps), 0]\n        dataX.append(a)\n        dataY.append(data[i+steps, 0])\n    return np.array(dataX), np.array(dataY)",
     "options": {
-      "A": "dataX'e `[112]`, dataY'ye `[118]` eklenir.",
-      "B": "dataX'e `[112, 118, 132]`, dataY'ye `[129]` eklenir.",
-      "C": "dataX'e `[112, 118]`, dataY'ye `132` eklenir.",
-      "D": "dataX'e `[132, 129]`, dataY'ye `121` eklenir.",
-      "E": "dataX'e `[112]`, dataY'ye `[118, 132]` eklenir."
+      "A": "Verideki gürültüyü (noise) temizleyerek modelin daha doğru tahmin yapmasını sağlamak.",
+      "B": "Zaman serisini denetimli öğrenme (supervised learning) formatına dönüştürerek geçmiş değerleri bağımsız değişken (X), gelecek değeri hedef değişken (Y) haline getirmek.",
+      "C": "Veri boyutunu küçülterek modelin daha hızlı eğitilmesini sağlamak.",
+      "D": "Zaman serisindeki aykırı değerleri (outlier) otomatik olarak tespit edip silmek.",
+      "E": "Eğitim ve test setlerini rastgele bölmek için uygun hale getirmek."
     },
-    "correct": "C",
+    "correct": "B",
     "explanations": {
-      "A": "`steps=2` olduğu için dataX 2 elemanlı olmalıdır.",
-      "B": "`steps=2` olduğu için dataX sadece 2 eleman içermelidir (112, 118).",
-      "C": "Döngü `i=0` için `a = data[0:2, 0]` alır, yani indeks 0 ve 1: `[112, 118]`. `dataY` ise `data[0+2, 0]` yani 2. indeksi alır: `132`. Bu, \"2 bak, 1 tahmin et\" yapısıdır.",
-      "D": "Bu değerler `i=2` olduğu iterasyonda (3. dönüş) elde edilecek değerlerdir.",
-      "E": "Hedef değişken (Y) tek bir değerdir, çoklu tahmin yapılmamaktadır."
+      "A": "Pencereleme gürültü temizlemez, sadece veri yapısını dönüştürür.",
+      "B": "Klasik ML algoritmaları (X → Y) formatında veri bekler. Zaman serilerinde tek sütun olduğu için bağımsız değişken yoktur. Sliding window ile geçmiş n adım X, sonraki adım Y yapılarak denetimli öğrenme formatı oluşturulur.",
+      "C": "Veri boyutu pencereleme sonrası genellikle artar, azalmaz.",
+      "D": "Aykırı değer temizliği ayrı bir ön işleme adımıdır, pencereleme bunu yapmaz.",
+      "E": "Zaman serilerinde rastgele bölme yapılamaz; ayrıca pencereleme veriyi bölmez, dönüştürür."
     },
     "relatedTerms": [
       {
-        "term": "Timestep",
-        "definition": "Modele girdi olarak sağlanan geçmiş zaman aralıklarının sayısı."
+        "term": "Denetimli Öğrenme Dönüşümü",
+        "definition": "Zaman serilerinde geçmiş adımların bağımsız değişken (X), tahmin edilecek adımın hedef (Y) haline getirilmesi işlemi."
       }
     ]
   },
@@ -17777,32 +17707,32 @@
     "topic": "veri-boyutlandirma",
     "type": "code",
     "tags": [
-      "reshape",
-      "lstm",
-      "dimensions"
+      "veri-donusumu",
+      "model-girdisi",
+      "boyutlandirma"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Oluşturulan eğitim dizisi `X_train`, LSTM modeline verilmeden hemen önce aşağıdaki gibi yeniden şekillendirilmektedir:\nBu satırdaki `1` parametresi neyi temsil etmektedir ve neden bu yeniden şekillendirmeye ihtiyaç duyulur?",
+    "question": "Aşağıdaki kod satırı, zaman serisi verisini LSTM modeline hazırlamak için kullanılmaktadır. Bu kodun veri madenciliği sürecindeki temel işlevi aşağıdakilerden hangisidir?",
     "code": "X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1))",
     "options": {
-      "A": "Çıktı katmanındaki nöron sayısını temsil eder; modelin tek bir tahmin (fiyat) yapacağını belirtir.",
-      "B": "Zaman adımı sayısını temsil eder; modelin bir önceki güne bakacağını Keras'a bildirir.",
-      "C": "Kullanılan öznitelik (feature) sayısını temsil eder; RNN/LSTM mimarileri veriyi (örnek_sayısı, zaman_adımı, öznitelik_sayısı) olmak üzere 3 boyutlu bir tensör olarak bekler.",
-      "D": "Batch size (parti boyutu) değerini temsil eder; her iterasyonda modele verilerin tek tek gönderileceğini ifade eder.",
-      "E": "Dizinin boyutunu (dimension) temsil eder; verinin artık tek boyutlu bir vektöre indirgendiğini onaylar."
+      "A": "Verideki eksik değerleri temizlemek.",
+      "B": "Veriyi modelin beklediği boyut yapısına dönüştürmek.",
+      "C": "Eğitim ve test setlerini ayırmak.",
+      "D": "Modelin öğrenme hızını ayarlamak.",
+      "E": "Tahmin sonuçlarını grafiğe dökmek."
     },
-    "correct": "C",
+    "correct": "B",
     "explanations": {
-      "A": "Çıktı sayısı model katmanlarında (`Dense(units=1)`) belirtilir, girdi verisinin şekillendirilmesinde değil.",
-      "B": "Zaman adımı (timestep) `X_train.shape[1]` değeridir (bu problemde 60).",
-      "C": "LSTM modelleri giriş verisini her zaman 3 boyutlu (3D) olarak kabul eder: [samples, time steps, features]. Sadece 'High' fiyatını (tek bir kolon/özellik) kullandığımız için feature sayısı 1'dir.",
-      "D": "Batch size modelin `fit` fonksiyonunda belirlenir.",
-      "E": "Veri tek boyutlu vektöre indirgenmez, aksine eksik olan 3. boyutu kazanarak derinleştirilir."
+      "A": "Eksik değer temizliği farklı bir ön işleme adımıdır, reshape veri boyutlarını değiştirir.",
+      "B": "LSTM modelleri veriyi belirli bir boyut düzeninde (örnek, zaman_adımı, özellik) bekler. reshape işlemi veriyi modelin anlayacağı bu yapıya dönüştürür.",
+      "C": "Eğitim/test ayrımı reshape öncesi yapılmıştır; bu kod sadece boyutları düzenler.",
+      "D": "Öğrenme hızı model derlenirken (compile) optimizer parametresinde belirlenir.",
+      "E": "Grafik çizimi model tahmininden sonra ayrı bir görselleştirme adımıdır."
     },
     "relatedTerms": [
       {
-        "term": "3D Tensor Input",
-        "definition": "LSTM gibi ardışık ağların beklediği standart veri boyutu: Örnekler x Zaman Adımları x Özellikler."
+        "term": "Veri Dönüşümü",
+        "definition": "Modelin beklediği formata uyması için verinin yeniden yapılandırılması işlemi."
       }
     ]
   },
@@ -17956,32 +17886,32 @@
     "topic": "test-verisi-hazirlama",
     "type": "code",
     "tags": [
-      "pandas",
-      "concat",
-      "data-preparation"
+      "sliding-window",
+      "zaman-serisi",
+      "train-test-gecisi"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Borsa fiyat tahmini projesinde, test verisi üzerinde tahmin yapmadan önce veriler üzerinde şöyle bir birleştirme işlemi uygulanmıştır:\nBu aşamada eğitim ve test setleri `pd.concat` ile tekrar birleştirilip, içinden belirli bir aralık (test seti uzunluğu + 60) çekilmiştir. Bu karmaşık işlemin mantıksal sebebi nedir?",
-    "code": "dataset_total = pd.concat((dataset[\"High\"][:'2016'], dataset[\"High\"]['2017':]), axis=0)\ninputs = dataset_total[len(dataset_total)-len(test_set) - 60:].values",
+    "question": "Kayan pencere (sliding window) yöntemiyle eğitilmiş bir LSTM modelinde, test setinin ilk gününe ait tahmin yapılırken neden eğitim setinin son günlerindeki verilere de ihtiyaç duyulur?",
+    "code": null,
     "options": {
-      "A": "Test setindeki NaN değerlerin eğitim setindeki ortalamalarla doldurulmasını sağlamak.",
-      "B": "Test verisinin ilk gününü (Örn: 1 Ocak 2017) tahmin edebilmek için modelin o günden önceki 60 günün fiyatlarını da girdi olarak görme zorunluluğu.",
-      "C": "Eğitim veri setini büyüterek test setinin boyutunu sıfıra indirmek ve modeli deploy (canlı) aşamasına geçirmek.",
-      "D": "Ölçekleyici (MinMaxScaler) sınıfının sadece çok büyük ve birleşik veri setlerinde tersine dönüşüm (inverse) yapabilmesi.",
-      "E": "Pandas kütüphanesinin `predict` fonksiyonunu çalıştırabilmesi için her zaman tek ve birleşik bir DataFrame beklemesi."
+      "A": "Eğitim seti test setinden daha güncel olduğu için referans olarak kullanılır.",
+      "B": "Sliding window gereği test setinin ilk tahmin penceresi eğitim setinin içine taşar; modelin geçmiş 60 gün verisine ihtiyacı vardır ve bu 60 günün bir kısmı eğitim setindedir.",
+      "C": "Eğitim ve test setleri birleştirilmezse MinMaxScaler hata verir.",
+      "D": "LSTM modeli her tahminde eğitim setinin tamamını yeniden tarayarak öğrenmeyi tekrarlar.",
+      "E": "Test seti eğitim setinden bağımsız olduğu için herhangi bir ek veriye ihtiyaç yoktur."
     },
     "correct": "B",
     "explanations": {
-      "A": "Kod eksik veri tamamlama (fillna) yapmamaktadır.",
-      "B": "LSTM modelimiz geçmiş 60 güne bakarak bir sonraki günü tahmin edecek şekilde (sliding window) eğitilmiştir. 2017 yılının ilk gününün tahmini için 2016'nın son 60 gününe ihtiyaç vardır. Sadece test seti kullanılsaydı ilk 60 gün için geçmiş veri bulunamayacaktı. Bu kod, tam olarak o kesişim noktasını bağlamak için yazılmıştır.",
-      "C": "Amaç test setini yok etmek değil, test setinin girdi dizilerini oluşturmaktır.",
-      "D": "Scaler küçük veri üzerinde de `transform` yapabilir.",
-      "E": "`predict` işlemi Pandas DataFrame'ler üzerinde değil, Numpy tensörleri (3D X_test) üzerinde gerçekleşir."
+      "A": "Güncellikle ilgili değil, tamamen pencereleme mantığıyla ilgilidir.",
+      "B": "Model geçmiş 60 güne bakarak bir sonraki günü tahmin eder. Test setinin ilk günü tahmin edilirken, ondan önceki 60 günün bir kısmı eğitim setine aittir. Bu yüzden eğitim setinin son kısmı test girdisi olarak kullanılmak zorundadır — veri kaybını önlemek için.",
+      "C": "Scaler eğitim setine fit edilmiştir, test verisini de aynı skalada transform eder; concat işlemi scaler'la ilgili değildir.",
+      "D": "LSTM eğitimini tamamlamıştır, test anında yeniden öğrenme olmaz.",
+      "E": "Sliding window nedeniyle test setinin ilk pencereleri eğitim verisine bakar, bağımsız değildir."
     },
     "relatedTerms": [
       {
-        "term": "Time Series Continuity",
-        "definition": "Zaman serilerinde tahmin yapılan anın öncesindeki tarihsel verilere kesintisiz erişim gerekliliği."
+        "term": "Train-Test Kesinti Sürekliliği",
+        "definition": "Sliding window'da test setinin başlangıcındaki pencerelerin eğitim setine uzanması ve veri kaybını önlemek için bu geçişin yönetilmesi."
       }
     ]
   },
@@ -17991,32 +17921,32 @@
     "topic": "veri-olcekleme",
     "type": "code",
     "tags": [
-      "transform",
       "scaler",
-      "data-leakage"
+      "data-leakage",
+      "normalizasyon"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Aynı kod bloğunun devamında, test tahminleri için hazırlanan `inputs` dizisi şu işlemden geçirilir:\nBurada `sc` değişkeni eğitim aşamasında oluşturulan `MinMaxScaler` nesnesidir. Bu noktada neden `sc.fit_transform(inputs)` yerine sadece `sc.transform(inputs)` kullanılmıştır?",
+    "question": "LSTM modeli eğitilirken eğitim setine MinMaxScaler uygulanmış ve `sc` nesnesi oluşturulmuştur. Test aşamasında bu `sc` nesnesi ile test verisi dönüştürülürken neden yeniden `fit` (sınırları öğrenme) işlemi yapılmaz?",
     "code": "inputs = inputs.reshape(-1,1)\ninputs = sc.transform(inputs)",
     "options": {
-      "A": "`inputs` matrisinin boyutu `X_train`'den çok daha küçük olduğu için `fit` işlemi başarısız olacağından.",
-      "B": "Test verisinin minimum ve maksimum değerlerinin eğitim verisinden farklı olma ihtimalini sıfırlamak için.",
-      "C": "Test verisi kullanılarak ölçekleyicinin sınırlarının yeniden hesaplanmasını engellemek; aksi halde eğitim seti ile öğrenilmiş min-max sınırları bozulur ve 'veri sızıntısı' (data leakage) yaşanır.",
-      "D": "Zaman serilerinde değerler sürekli artma eğiliminde olduğu için, `fit_transform` kullanılması tüm fiyatları eksi (-) değerlere çekeceği için.",
-      "E": "Python kütüphanelerinde bir nesne üzerinde sadece bir kez `fit` kelimesi geçen bir fonksiyon çağrılabildiği için."
+      "A": "Test setinin boyutu eğitim setinden küçük olduğu için fit işlemi teknik olarak mümkün değildir.",
+      "B": "Test verisinin min-max değerleri eğitim verisine göre yeniden hesaplanırsa modelin referans skalası bozulur ve veri sızıntısı (data leakage) oluşur.",
+      "C": "Test seti eğitim setinden her zaman daha düşük değerlere sahip olduğu için fit gerekmez.",
+      "D": "MinMaxScaler nesneleri sadece bir kez fit edilebilir, ikinci fit işlemi Python hatası verir.",
+      "E": "Test verisi otomatik olarak eğitim setinin scaler parametrelerini devralır, elle fit gerekmez."
     },
-    "correct": "C",
+    "correct": "B",
     "explanations": {
-      "A": "Boyut küçüklüğü transform işlemini bozmaz, Scaler her boyutta çalışabilir.",
-      "B": "Min/Max farklı olabilir, önemli olan test verisinin bu farklılığa rağmen eski referans aralığına oturtulmasıdır.",
-      "C": "Model eğitim setinin (2016 ve öncesi) minimum ve maksimum fiyatlarına göre ağırlıklarını optimize etmiştir. Eğer test setinde yeniden `fit` (yani yeniden sınırları öğren) işlemi yapılırsa, verinin skalası farklı olacağından model yanlış yorumlar yapar. Sadece `transform` kullanarak eski sınırlara göre ölçeklendirme sağlanır.",
-      "D": "Scaler değerleri negatif yapmaz (0-1 arası olduğu için). Sorun matematiksel yanlış hesaplama değil, referans noktasının kaybolmasıdır.",
-      "E": "Aynı nesne üzerinde tekrar `fit` çağrılabilir ancak bu, eski öğrenilen sınırların tamamen silinip yenisinin yazılmasına sebep olur."
+      "A": "Boyut farkı fit işlemini engellemez, Scaler her boyutta çalışabilir.",
+      "B": "Eğitim setinin min-max sınırlarına göre ağırlıklar optimize edilmiştir. Test setinde yeniden fit yapılırsa yeni sınırlar hesaplanır, modelin referans noktası kayar ve eğitimde görülmeyen test bilgisi sızmuş olur (data leakage).",
+      "C": "Değerlerin yüksekliği/düşüklüğüyle ilgili bir durum değildir; hangi aralıkta olursa olsun aynı referans skalası kullanılmalıdır.",
+      "D": "Aynı nesne üzerinde tekrar fit çağrılabilir ancak bu eski sınırları silip yenilerini yazar.",
+      "E": "Scaler parametreleri otomatik devralınmaz; aynı nesne üzerinde transform çağrılmalıdır."
     },
     "relatedTerms": [
       {
         "term": "Data Leakage",
-        "definition": "Test veya doğrulama verisinin, modelin eğitim aşamasına veya ölçekleme parametrelerine yansıması ile sonuçların yanıltıcı çıkması."
+        "definition": "Test verisi bilgisinin eğitim aşamasına sızması sonucu model başarımının yapay olarak yüksek çıkması."
       }
     ]
   },
@@ -18091,72 +18021,37 @@
     ]
   },
   {
-    "id": "w11-q016",
-    "week": 11,
-    "topic": "veri-gorsellestirme",
-    "type": "code",
-    "tags": [
-      "matplotlib",
-      "plot",
-      "visualization"
-    ],
-    "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Aşağıdaki fonksiyon, borsa tahmini sonuçlarını görselleştirmek için kullanılmıştır:\nBu grafiği inceleyen bir araştırmacı, kırmızı çizginin test seti veri boyutu boyunca çizildiğini, ancak mavi çizginin grafiğin sadece ilk çeyreğinde kalıp sonrasında kaybolduğunu gözlemliyor. Bu sorunun koda (veya kod akışına) dayalı en olası nedeni aşağıdakilerden hangisidir?",
-    "code": "def plot_predictions(test, predicted):\n    plt.plot(test, color='red', label='Real IBM Stock Price')\n    plt.plot(predicted, color='blue', label='Predicted IBM Stock Price')\n    plt.title('IBM Stock Price Prediction')\n    plt.xlabel('Time')\n    plt.ylabel('IBM Stock Price')\n    plt.legend()\n    plt.show()",
-    "options": {
-      "A": "`predicted` dizisi üretilirken test setindeki toplam gün sayısına göre değil, yanlışlıkla `batch_size` boyutunda (örneğin 32) üretilmiş veya filtrelenmiş olabilir.",
-      "B": "`plt.legend()` satırı çağrıldığı için grafiğin kalan kısmını bir açıklama kutusu tamamen kapatmıştır.",
-      "C": "Zaman serisi verilerinde matplotlib `blue` rengini 0'ın altındaki değerler için desteklemediğinden çizim yapılamamıştır.",
-      "D": "`predicted` verileri modele ters girmiş ve zaman geriye doğru çizilmiştir.",
-      "E": "`xlabel` ve `ylabel` parametrelerine sayısal değer yerine 'Time' gibi string değerler girilmesi grafiği bozmuştur."
-    },
-    "correct": "A",
-    "explanations": {
-      "A": "Grafikte serilerin farklı uzunluklarda kesilmesi, veri dizilerinin uzunluklarının uyumsuz (shape mismatch) olduğunun açık göstergesidir. `predicted` dizisinin eleman sayısı, `test` dizisinin eleman sayısından kısaysa çizgi erken biter. Bu, girdi hazırlanırken yapılan bir indeksleme veya iterasyon hatasından kaynaklanır.",
-      "B": "Legend kutusu grafiği kapatmaz, sadece köşe bir alanda ufak yer kaplar ve çizgi arkasında devam eder.",
-      "C": "Matplotlib'in renk/kısıtlama ile ilgili böyle bir durumu yoktur, tüm sayı düzleminde her rengi çizer.",
-      "D": "Veri tersine değil, eksen (X) indeksi doğrultusunda çizilir.",
-      "E": "Label (etiket) kısımları grafiğin eksen başlıklarıdır, veri akışını bozmaz."
-    },
-    "relatedTerms": [
-      {
-        "term": "Plot Alignment",
-        "definition": "Farklı veri dizilerinin aynı grafik üzerinde doğru eşleşebilmesi için dizi boyutlarının eşit olma gereksinimi."
-      }
-    ]
-  },
-  {
     "id": "w11-q017",
     "week": 11,
     "topic": "model-mimarisi",
     "type": "code",
     "tags": [
-      "keras",
-      "summary",
-      "dense"
+      "model-yapisi",
+      "mimari",
+      "derleme"
     ],
     "sourceNotebook": "airline_passenger_prediction_using_lstm.ipynb",
-    "question": "Airline passenger tahmin uygulamasında model şu şekilde oluşturulmuştur:\nBu model derlendikten sonra `model.summary()` komutu çalıştırıldığında çıktının yapısında aşağıdaki bileşenlerden hangisi **görünmez**?",
-    "code": "model = Sequential()\nmodel.add(LSTM(64, input_shape = (1, steps)))\nmodel.add(Dense(64))\nmodel.add(Dense(1))",
+    "question": "Bir derin öğrenme modeli oluşturulurken model mimarisi (katman yapısı) ile eğitim stratejisi (derleme ayarları) birbirinden farklı aşamalardır. Aşağıdakilerden hangisi model mimarisine ait bir bilgidir ve model özetinde (summary) görünür?",
+    "code": null,
     "options": {
-      "A": "Sırasıyla `lstm_...`, `dense_...` ve `dense_...` katman isimleri.",
-      "B": "Her bir katmandaki eğitilebilir parametre sayısı (Param #).",
-      "C": "Toplam, eğitilebilir (Trainable) ve eğitilemeyen (Non-trainable) ağırlık sayıları.",
-      "D": "Katmanların çıktı boyutları (Output Shape).",
-      "E": "Öğrenme oranı (learning rate) ve optimizer olarak kullanılan 'Adam' algoritmasının matematiksel arka planı."
+      "A": "Öğrenme oranı (learning rate) ve optimizasyon algoritması.",
+      "B": "Epoch sayısı ve batch size değeri.",
+      "C": "Katman türleri, nöron sayıları ve katmanlar arası veri boyutları.",
+      "D": "Eğitim ve test setlerinin ayrılma oranı.",
+      "E": "MinMaxScaler'ın ölçekleme aralığı."
     },
-    "correct": "E",
+    "correct": "C",
     "explanations": {
-      "A": "Model summary çıktısında katman adları sıralı şekilde listelenir.",
-      "B": "Katmanların sahip olduğu ağırlık sayıları (Param #) summary tablosunun temel sütunudur.",
-      "C": "Özet tablosunun altında toplam ağırlık dağılımları bilgisi yer alır.",
-      "D": "Her katmanın dönüşüm sonrası veri boyutu (Output Shape) sütunu vardır.",
-      "E": "`summary()` metodu sadece ağın fiziksel mimarisini, nöron sayılarını ve boyutlarını gösterir. Optimizasyon algoritması, loss fonksiyonu veya epoch gibi eğitim stratejilerine dair konfigürasyon bilgilerini içermez."
+      "A": "Öğrenme oranı ve optimizer model derlenirken (compile) belirlenir, model mimarisinin parçası değildir.",
+      "B": "Epoch ve batch size model eğitilirken (fit) verilir, model yapısına ait değildir.",
+      "C": "Model mimarisi katmanların sırası, türü (LSTM, Dense), nöron sayısı ve çıktı boyutlarından oluşur. Model özeti bu bilgileri gösterir.",
+      "D": "Veri bölme oranı modelden bağımsız bir ön işleme adımıdır.",
+      "E": "Ölçekleme aralığı veri ön işlemeye aittir, model mimarisiyle ilgisi yoktur."
     },
     "relatedTerms": [
       {
-        "term": "Model Summary",
-        "definition": "Keras modellerinde katman tiplerini, çıktı boyutlarını ve parametre sayılarını gösteren özet tablo fonksiyonu."
+        "term": "Model Mimarisi",
+        "definition": "Sinir ağının katman yapısı, nöron sayıları ve katmanlar arası bağlantı düzeni."
       }
     ]
   },
@@ -18201,32 +18096,32 @@
     "topic": "veri-gorsellestirme",
     "type": "code",
     "tags": [
-      "matplotlib",
-      "data-analysis",
-      "pandas-plot"
+      "eda",
+      "veri-kesfi",
+      "gorsellestirme"
     ],
     "sourceNotebook": "stock_price_predict.ipynb",
-    "question": "Borsa tahmin sürecinin veri keşfi aşamasında veriler sadece yılları belirterek şöyle görselleştirilmiştir:\nBu kodun çalıştırılması sonucunda ekranda nasıl bir grafik şekli veya çıktı oluşması beklenir?",
-    "code": "dataset[\"High\"][:'2016'].plot(figsize=(16,4),legend=True)\ndataset[\"High\"]['2017':].plot(figsize=(16,4),legend=True)\nplt.legend(['Training set (Before 2017)','Test set (2017 and beyond)'])\nplt.show()",
+    "question": "Zaman serisi analizinde veri keşfi (EDA) aşamasında ham verinin görselleştirilmesinin veri madenciliği sürecine kattığı temel fayda aşağıdakilerden hangisidir?",
+    "code": null,
     "options": {
-      "A": "Alt alta 2 ayrı çerçevede (subplot) çizilmiş iki farklı çizgi grafiği oluşur.",
-      "B": "Aynı tek çerçeve ve tek zaman ekseni üzerinde, 2016 sonuna kadar bir renkte, 2017'den sonra ise farklı renkte devam eden kesintisiz bir çizgi grafiği bütünü görülür.",
-      "C": "X ekseninde 'High' fiyatları, Y ekseninde ise 2016 ve 2017 yıllarının dağılımı olan bir Histogram belirir.",
-      "D": "Grafik çizilmez; çünkü farklı zaman aralıklarındaki iki `plot` çağrısı tek `plt.show()` altında birleştirilemez.",
-      "E": "2016 serisi ve 2017 serisi üst üste binerek (X ekseni 1 Ocak'tan başlar) fiyat farklılıklarını yan yana karşılaştıran bir pasta grafiği çıkar."
+      "A": "Modelin eğitim süresini kısaltmak.",
+      "B": "Verideki trend, mevsimsellik ve aykırı değer gibi yapısal özellikleri keşfederek analiz stratejisini belirlemek.",
+      "C": "Kayıp fonksiyonunun (loss) değerini düşürmek.",
+      "D": "Eğitim ve test setlerinin boyutunu otomatik hesaplamak.",
+      "E": "LSTM modelindeki kapı (gate) sayısını optimize etmek."
     },
     "correct": "B",
     "explanations": {
-      "A": "Subplot komutu kullanılmadığı için grafikler ayrı çerçevelere değil, aynı eksene (axis) yazılır.",
-      "B": "Pandas'ın `.plot()` komutu varsayılan olarak o anki aktif matplotlib eksenine çizim yapar. Aynı hücrede peş peşe çağrıldıklarında ve `plt.show()` sonda kullanıldığında, tek bir zaman çizgisi üstünde birbirini tarihsel olarak takip eden iki farklı renkte parça çizilmiş olur. Araştırmacı böylece train/test ayırımını görsel olarak tek resimde görür.",
-      "C": "`.plot()` varsayılan olarak line (çizgi) grafiği çizer. Histogram için `plot(kind='hist')` veya `.hist()` gerekir.",
-      "D": "Tek matplotlib figürü içine birden fazla çizim yapılabilir.",
-      "E": "X eksenleri datetime objesi olduğu için tarihler kendi yerlerine yerleşir, baştan (1 Ocak'tan) itibaren üst üste binmezler, zaman çizgisinde art arda dizilirler."
+      "A": "Görselleştirme eğitim süresini etkilemez, keşif amaçlıdır.",
+      "B": "EDA (Keşifçi Veri Analizi) aşamasında görselleştirme, verinin genel yapısını anlamak, trend yönünü görmek, mevsimsel döngüleri ve aykırı noktaları tespit etmek için kullanılır. Bu bilgiler ışığında hangi modelin seçileceği, normalizasyon gerekip gerekmediği gibi stratejik kararlar alınır.",
+      "C": "Loss değeri model eğitimi sırasında hesaplanır, görselleştirmeyle doğrudan ilgisi yoktur.",
+      "D": "Train-test ayrımı manuel veya kronolojik olarak kodla yapılır, görselden otomatik hesaplanmaz.",
+      "E": "LSTM kapıları model mimarisine aittir, veri keşfi görselleştirmesiyle belirlenmez."
     },
     "relatedTerms": [
       {
-        "term": "Line Plot (Çizgi Grafiği)",
-        "definition": "Zaman içindeki değişimleri veya sürekli verileri, noktaları çizgilerle birleştirerek gösteren grafik türü."
+        "term": "EDA (Keşifçi Veri Analizi)",
+        "definition": "Veri setinin yapısını, örüntülerini ve özelliklerini anlamak için istatistiksel ve görsel yöntemlerin kullanıldığı ön analiz aşaması."
       }
     ]
   },
@@ -18271,32 +18166,32 @@
     "topic": "zaman-serisi-tahmini",
     "type": "code",
     "tags": [
-      "numpy",
-      "predict",
-      "model-evaluation"
+      "normalizasyon",
+      "inverse-transform",
+      "olcekleme"
     ],
     "sourceNotebook": "airline_passenger_prediction_using_lstm.ipynb",
-    "question": "Eğitim ve test işlemleri sonrasında kodun son aşamasında orijinal değerler ile tahmin değerleri matplotlib ile çizdirilmeden hemen önce aşağıdaki tersine çevirme kodları uygulanmıştır:\nNeden ikinci satırda `y_test` üzerinde doğrudan ters işlem yapılmayıp öncelikle `.reshape(-1, 1)` uygulanmıştır?",
-    "code": "y_pred = scaler.inverse_transform(y_pred)\ny_test = y_test.reshape(-1, 1)\ny_test = scaler.inverse_transform(y_test)",
+    "question": "LSTM modeli normalize edilmiş (0-1 arası) veriler üzerinde eğitildiği için ürettiği tahminler de 0-1 aralığındadır. Bu tahminlerin orijinal ölçeğe (gerçek yolcu sayısı/fiyat) dönüştürülmesi için aşağıdaki işlemlerden hangisi uygulanmalıdır?",
+    "code": null,
     "options": {
-      "A": "Test setinin sıralamasını sondan başa almak için.",
-      "B": "y_test verisi eğitim aşamasındaki `get_data` fonksiyonundan 1 boyutlu bir vektör olarak döndüğü için, Scaler'ın zorunlu olarak beklediği 2 boyutlu (2D) matris formatına uygun hale getirmek amacıyla.",
-      "C": "Tahmin edilen veri (y_pred) tek boyutlu olduğu için onu da y_pred formuna benzetip şekilleri eşitlemek amacıyla.",
-      "D": "Reshape işlemi yapılmazsa modelin ürettiği MSE hatası sıfıra eşit çıkacağı için.",
-      "E": "Tüm yolcu sayılarını ondalık sayılardan tam sayılara dönüştürmek için."
+      "A": "Tahmin değerlerini olduğu gibi kullanmak, model zaten gerçek değerleri üretir.",
+      "B": "Eğitimde kullanılan MinMaxScaler nesnesi ile inverse_transform işlemi uygulamak.",
+      "C": "Tahmin değerlerini 100 ile çarpmak.",
+      "D": "Tahminlerin istatistiksel ortalamasını almak.",
+      "E": "Tahminleri eğitim setiyle birleştirip yeniden normalize etmek."
     },
     "correct": "B",
     "explanations": {
-      "A": "Reshape veriyi tersine dizmez, sadece satır ve sütun organizasyonunu ayarlar.",
-      "B": "Scikit-Learn kütüphanesindeki `MinMaxScaler.inverse_transform` fonksiyonu giriş verisini `(samples, features)` şeklinde yani 2 boyutlu bekler. Ancak biz `y_test` değerlerini (`data[i+steps, 0]`) listeye atıp array'e çevirdiğimizde `(samples,)` şeklinde 1 boyutlu bir dizi olmuştur. Hata almamak için bunu sütun verisi gibi `(samples, 1)` konumuna reshape etmemiz gereklidir.",
-      "C": "`y_pred` zaten `model.predict` fonksiyonundan çıktığı için doğası gereği boyutludur, `y_test` ona benzemeye değil formata uymaya çalışır.",
-      "D": "Hata metriği hesaplama değil, boyut uyuşmazlığı hatası alma sorunudur.",
-      "E": "Float-int dönüşümü `.astype(int)` ile yapılır, reshape ile değil."
+      "A": "Model 0-1 arası çıktı üretir, gerçek değerler (örneğin 500 yolcu) bu aralığın çok dışındadır.",
+      "B": "Eğitim öncesi veri MinMaxScaler ile 0-1 aralığına çekilmişti. Model bu skalada tahmin yapar. inverse_transform ile tahminler orijinal birimine geri döndürülür.",
+      "C": "100 ile çarpmak rastgele bir dönüşümdür, doğru ölçeği vermez.",
+      "D": "Ortalama almak tahminleri tek bir sayıya indirger, anlamlı olmaz.",
+      "E": "Yeniden normalize etmek tahminleri yine 0-1 arasında tutar, sorunu çözmez."
     },
     "relatedTerms": [
       {
-        "term": "Vector to Matrix",
-        "definition": "Tek boyutlu `(n,)` bir dizinin, işleme uygun hale getirilmek için `(n, 1)` şekline dönüştürülmesi."
+        "term": "Inverse Transform (Ters Dönüşüm)",
+        "definition": "Normalize edilmiş verinin orijinal ölçeğine geri döndürülmesi işlemi."
       }
     ]
   },

@@ -14,7 +14,7 @@
         {
           "lineNumber": 1,
           "code": "import pandas as pd",
-          "lineExplanation": "Bu satır, analizde veya model kurulumunda ihtiyaç duyulacak kütüphaneyi çalışma ortamına dahil eder.",
+          "lineExplanation": "pandas modülünü pd takma adıyla içe aktarır.",
           "tokens": [
             {
               "token": "pandas",
@@ -29,7 +29,7 @@
         {
           "lineNumber": 2,
           "code": "import numpy as np",
-          "lineExplanation": "Bu satır, analizde veya model kurulumunda ihtiyaç duyulacak kütüphaneyi çalışma ortamına dahil eder.",
+          "lineExplanation": "numpy modülünü np takma adıyla içe aktarır.",
           "tokens": [
             {
               "token": "numpy",
@@ -44,7 +44,7 @@
         {
           "lineNumber": 3,
           "code": "import matplotlib.pyplot as plt",
-          "lineExplanation": "Bu satır, analizde veya model kurulumunda ihtiyaç duyulacak kütüphaneyi çalışma ortamına dahil eder.",
+          "lineExplanation": "matplotlib.pyplot modülünü plt takma adıyla içe aktarır; grafik çizimleri için kullanılır.",
           "tokens": [
             {
               "token": "matplotlib.pyplot",
@@ -59,7 +59,7 @@
         {
           "lineNumber": 4,
           "code": "from sklearn.preprocessing import MinMaxScaler",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "scikit-learn kütüphanesinden MinMaxScaler sınıfını içe aktarır; veriyi 0-1 aralığına ölçeklemek için kullanılır.",
           "tokens": [
             {
               "token": "MinMaxScaler",
@@ -94,8 +94,8 @@
           "codeContext": "Bu satır, 'Kütüphaneler ve Veri Setini Yükleme' bloğunda verinin doğru okunup okunmadığını kontrol eder."
         }
       ],
-      "expectedOutput": "İlk 5 satırda Month ve #Passengers sütunları görünür; veri 1949-1960 arası aylık yolcu sayılarından oluşur.",
-      "outputInterpretation": "CRISP-DM sürecinin 'Veriyi Anlama' adımıdır. Zaman serisi veri setine ilk bakış atılır. Analitik açıdan amacımız, verinin kronolojik yapısını ve hedef değişkenimizi ('#Passengers') teyit etmektir. MinMaxScaler'ın erkenden içeri aktarılması, Derin Öğrenme modellerinde (özellikle LSTM'de) gradyan güncellemelerinin stabil çalışabilmesi için verinin normalize edileceğinin stratejik bir göstergesidir."
+      "expectedOutput": "İlk 5 satırda Month ve #Passengers sütunları görünür;\nveri 1949-1960 arası aylık yolcu sayılarından oluşur.",
+      "outputInterpretation": "CRISP-DM sürecinin 'Veriyi Anlama' adımıdır. Zaman serisi veri setine ilk bakış atılır. Analitik açıdan amacımız, verinin kronolojik yapısını ve hedef değişkenimizi ('#Passengers') teyit etmektir\n\nMinMaxScaler'ın erkenden içeri aktarılması, Derin Öğrenme modellerinde (özellikle LSTM'de) gradyan güncellemelerinin stabil çalışabilmesi için verinin normalize edileceğinin stratejik bir göstergesidir."
     },
     {
       "id": "hafta11_airline_lstm-b002",
@@ -105,34 +105,34 @@
         {
           "lineNumber": 1,
           "code": "data.rename(columns={'#Passengers':'passengers'}, inplace=True)",
-          "lineExplanation": "Veri yapısını sadeleştirir veya yeni değişkene alarak sonraki analiz adımları için daha kullanışlı hale getirir.",
+          "lineExplanation": "#Passengers sütun adını 'passengers' olarak yeniden adlandırır; daha kısa ve kullanışlı bir isim verir.",
           "tokens": [],
           "codeContext": "Bu satır, 'Yolcu Serisini Hazırlama' bloğunda veri yapısını modellemeye uygun hale getirir."
         },
         {
           "lineNumber": 2,
           "code": "data = data['passengers']",
-          "lineExplanation": "Veri yapısını sadeleştirir veya yeni değişkene alarak sonraki analiz adımları için daha kullanışlı hale getirir.",
+          "lineExplanation": "Veri çerçevesini tek sütunlu bir pandas Serisi'ne indirger; model yalnızca yolcu sayısına odaklanır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Yolcu Serisini Hazırlama' bloğunda veri yapısını modellemeye uygun hale getirir."
         },
         {
           "lineNumber": 3,
           "code": "data = np.array(data).reshape(-1, 1)",
-          "lineExplanation": "Veri yapısını sadeleştirir veya yeni değişkene alarak sonraki analiz adımları için daha kullanışlı hale getirir.",
+          "lineExplanation": "Seriyi NumPy dizisine çevirip 2 boyutlu hale getirir; LSTM katmanları ve MinMaxScaler 2 boyutlu giriş bekler.",
           "tokens": [],
           "codeContext": "Bu satır, 'Yolcu Serisini Hazırlama' bloğunda veri yapısını modellemeye uygun hale getirir."
         },
         {
           "lineNumber": 4,
           "code": "type(data)",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Verinin tipini (numpy.ndarray) sorgular; doğru formatta olduğunu doğrulamak için kullanılır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Yolcu Serisini Hazırlama' bloğunun bir parçasıdır."
         }
       ],
       "expectedOutput": "<class 'numpy.ndarray'> çıktısı görülür ve veri 144x1 boyutlu dizi haline gelir.",
-      "outputInterpretation": "'Veri Hazırlama' fazındayız. Zaman serisi analizlerinde, model için önemli olan ardışık değerlerin oluşturduğu örüntüdür, bu yüzden hedef değişken izole edilir. En kritik karar `reshape(-1, 1)` işlemidir. LSTM ve Scikit-learn ölçekleyicileri 2 boyutlu matris bekler; 1 boyutlu Pandas serisini modele vermek boyut uyuşmazlığı hatası yaratır."
+      "outputInterpretation": "'Veri Hazırlama' fazındayız. Zaman serisi analizlerinde, model için önemli olan ardışık değerlerin oluşturduğu örüntüdür, bu yüzden hedef değişken izole edilir\n\nEn kritik karar `reshape(-1, 1)` işlemidir. LSTM ve Scikit-learn ölçekleyicileri 2 boyutlu matris bekler; 1 boyutlu Pandas serisini modele vermek boyut uyuşmazlığı hatası yaratır."
     },
     {
       "id": "hafta11_airline_lstm-b003",
@@ -142,7 +142,7 @@
         {
           "lineNumber": 1,
           "code": "plt.plot(data)",
-          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "lineExplanation": "Ham zaman serisini çizgi grafiği olarak çizer; trend ve mevsimselliği görsel olarak analiz etmeyi sağlar.",
           "tokens": [
             {
               "token": "plt.plot()",
@@ -157,7 +157,7 @@
         {
           "lineNumber": 2,
           "code": "plt.show()",
-          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "lineExplanation": "Hazırlanan grafiği ekranda görüntüler.",
           "tokens": [
             {
               "token": "plt.show()",
@@ -170,9 +170,9 @@
           "codeContext": "Bu satır, 'Ham Zaman Serisini Görselleştirme' bloğunda görsel çıktı üretir."
         }
       ],
-      "expectedOutput": "(Grafik çıktısı) Yolcu sayısı yıllar içinde yükselen bir çizgi olarak görünür; yaz dönemlerinde tepe noktaları dikkat çeker.",
+      "expectedOutput": "(Grafik çıktısı) Yolcu sayısı yıllar içinde yükselen bir çizgi olarak görünür;\nyaz dönemlerinde tepe noktaları dikkat çeker.",
       "plotImage": "h11-airline-b003.png",
-      "outputInterpretation": "Zaman serisi bileşenlerinin (Trend, Mevsimsellik, Döngüsellik, Gürültü) görsel keşfidir. Çıktıdaki grafik bize iki temel sinyal verir: Yukarı yönlü belirgin bir 'Trend' ve her yıl tekrarlayan bir 'Mevsimsellik'. ARIMA gibi klasik modeller bu seriyi durağanlaştırmamızı isterken, LSTM gibi kapasitesi yüksek derin öğrenme modelleri bu doğrusal olmayan yapıyı kendi iç mimarisiyle öğrenebilir."
+      "outputInterpretation": "Zaman serisi bileşenlerinin (Trend, Mevsimsellik, Döngüsellik, Gürültü) görsel keşfidir. Çıktıdaki grafik bize iki temel sinyal verir: Yukarı yönlü belirgin bir 'Trend' ve her yıl tekrarlayan bir 'Mevsimsellik'\n\nARIMA gibi klasik modeller bu seriyi durağanlaştırmamızı isterken, LSTM gibi kapasitesi yüksek derin öğrenme modelleri bu doğrusal olmayan yapıyı kendi iç mimarisiyle öğrenebilir."
     },
     {
       "id": "hafta11_airline_lstm-b004",
@@ -182,7 +182,7 @@
         {
           "lineNumber": 1,
           "code": "scaler = MinMaxScaler()",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "MinMaxScaler nesnesi oluşturur; veriyi 0-1 aralığına ölçeklemek için hazırlık yapar.",
           "tokens": [
             {
               "token": "MinMaxScaler",
@@ -197,7 +197,7 @@
         {
           "lineNumber": 2,
           "code": "data = scaler.fit_transform(data)",
-          "lineExplanation": "Veri yapısını sadeleştirir veya yeni değişkene alarak sonraki analiz adımları için daha kullanışlı hale getirir.",
+          "lineExplanation": "Ölçekleyiciyi veriye uydurup dönüştürür; LSTM'de gradyan güncellemelerinin stabil çalışması için normalizasyon kritiktir.",
           "tokens": [
             {
               "token": "fit_transform()",
@@ -212,27 +212,27 @@
         {
           "lineNumber": 3,
           "code": "train = data[0:110,:]",
-          "lineExplanation": "Zaman serisi verisini kronolojik sırayı bozmadan eğitim kümesine ayırır. Burada rastgele train-test split yapılmaz; çünkü geçmişin geleceği açıklama örüntüsü korunmalıdır.",
+          "lineExplanation": "Zaman serisi verisini kronolojik sırayı bozmadan eğitim kümesine ayırır. Rastgele split yapılmaz çünkü geçmiş-gelecek örüntüsü korunmalıdır.",
           "tokens": [],
           "codeContext": "Bu satır, zaman serilerinde hocanın özellikle vurguladığı 'rastgele bölme yapılamaz' ilkesini uygular."
         },
         {
           "lineNumber": 4,
           "code": "test = data[110:,:]",
-          "lineExplanation": "Serinin son bölümünü test kümesi olarak ayırır. Böylece model geçmiş veriden öğrenip geleceğe dair tahmin üretir.",
+          "lineExplanation": "Serinin son bölümünü test kümesi olarak ayırır. Model geçmiş veriden öğrenip geleceğe dair tahmin üretir.",
           "tokens": [],
           "codeContext": "Bu satır, zaman serisinde geleceği simüle eden test dönemini oluşturur."
         },
         {
           "lineNumber": 5,
           "code": "len(data)",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Verinin toplam uzunluğunu (144) döndürür; train/test oranını kontrol etmek için kullanılır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Ölçekleme ve Train-Test Ayrımı' bloğunun bir parçasıdır."
         }
       ],
-      "expectedOutput": "144 çıktısı görülür; train kısmı ilk 110 gözlemi, test kısmı son 34 gözlemi içerir.",
-      "outputInterpretation": "Ders notlarında da altı çizildiği gibi en kritik stratejik karar buradadır: 'Train-Test Split'. Geleneksel ML modellerinde (Karar Ağaçları, KNN vb.) veri rastgele (random) ayrılırken, zaman serilerinde veriler RASTGELE SEÇİLEMEZ. Geçmişin geleceği etkileme örüntüsünü bozmamak ve 'Veri Sızıntısını (Leakage)' önlemek için bölme işlemi kronolojik (`0:110` ve `110:`) yapılmıştır. Ayrıca LSTM'in aktivasyon fonksiyonları doyuma ulaşıp bozulmasın diye veriler `MinMaxScaler` ile 0-1 aralığına ölçeklenmiştir."
+      "expectedOutput": "144 çıktısı görülür;\ntrain kısmı ilk 110 gözlemi, test kısmı son 34 gözlemi içerir.",
+      "outputInterpretation": "Ders notlarında da altı çizildiği gibi en kritik stratejik karar buradadır: 'Train-Test Split'. Geleneksel ML modellerinde (Karar Ağaçları, KNN vb.) veri rastgele (random) ayrılırken, zaman serilerinde veriler RASTGELE SEÇİLEMEZ\n\nGeçmişin geleceği etkileme örüntüsünü bozmamak ve 'Veri Sızıntısını (Leakage)' önlemek için bölme işlemi kronolojik (`0:110` ve `110:`) yapılmıştır. Ayrıca LSTM'in aktivasyon fonksiyonları doyuma ulaşıp bozulmasın diye veriler `MinMaxScaler` ile 0-1 aralığına ölçeklenmiştir."
     },
     {
       "id": "hafta11_airline_lstm-b005",
@@ -242,56 +242,56 @@
         {
           "lineNumber": 1,
           "code": "def get_data(data, steps):",
-          "lineExplanation": "Yardımcı bir fonksiyon tanımlar; tekrar eden işlem zincirini tek isim altında toplayarak notebook’u sadeleştirir.",
+          "lineExplanation": "Zaman serisini denetimli öğrenme formatına çeviren pencereleme fonksiyonunu tanımlar; girdi olarak veriyi ve pencere boyutunu alır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Pencereleme Fonksiyonu (get_data)' bloğunda tekrar kullanılacak mantığı kapsüller."
         },
         {
           "lineNumber": 2,
           "code": "    dataX = []",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Girdi pencerelerini (geçmiş adımlar) depolamak için boş bir liste başlatır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Pencereleme Fonksiyonu (get_data)' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 3,
           "code": "    dataY = []",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Hedef değerleri (tahmin edilecek adım) depolamak için boş bir liste başlatır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Pencereleme Fonksiyonu (get_data)' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 4,
           "code": "    for i in range(len(data)-steps-1):",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Veri boyunca kayan pencere (sliding window) oluşturacak döngüyü başlatır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Pencereleme Fonksiyonu (get_data)' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 5,
           "code": "        a = data[i:(i+steps), 0]",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Mevcut indeksten itibaren 'steps' kadar geçmiş veriyi dilimleyip bir pencere oluşturur.",
           "tokens": [],
           "codeContext": "Bu satır, 'Pencereleme Fonksiyonu (get_data)' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 6,
           "code": "        dataX.append(a)",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Oluşturulan geçmiş penceresini girdi (X) listesine ekler.",
           "tokens": [],
           "codeContext": "Bu satır, 'Pencereleme Fonksiyonu (get_data)' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 7,
           "code": "        dataY.append(data[i+steps, 0])",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Pencerenin hemen sonrasındaki değeri hedef (Y) listesine ekler.",
           "tokens": [],
           "codeContext": "Bu satır, 'Pencereleme Fonksiyonu (get_data)' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 8,
           "code": "    return np.array(dataX), np.array(dataY)",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Girdi ve hedef listelerini NumPy dizilerine dönüştürüp geri döndürür.",
           "tokens": [],
           "codeContext": "Bu satır, 'Pencereleme Fonksiyonu (get_data)' bloğunun bir parçasıdır."
         },
@@ -305,27 +305,27 @@
         {
           "lineNumber": 10,
           "code": "steps = 2",
-          "lineExplanation": "Sliding window uzunluğunu 2 olarak belirler. Yani model her tahminde önceki iki zamanı görerek bir sonraki adımı tahmin eder.",
+          "lineExplanation": "Sliding window uzunluğunu 2 olarak belirler. Model her tahminde önceki 2 zaman adımını görerek bir sonraki adımı tahmin eder.",
           "tokens": [],
           "codeContext": "Bu satır, teorik notlardaki pencereleme mantığını pratikte kontrol eden hiperparametreyi belirler."
         },
         {
           "lineNumber": 11,
           "code": "X_train, y_train = get_data(train, steps)",
-          "lineExplanation": "Eğitim serisini denetimli öğrenme formatına çevirir; geçmiş adımlar X, sonraki adım ise y olur.",
+          "lineExplanation": "Eğitim serisini denetimli öğrenme formatına çevirir; geçmiş adımlar X, sonraki adım y olur.",
           "tokens": [],
           "codeContext": "Bu satır, tek sütunlu zaman serisini klasik makine öğrenmesi mantığına uygun X→y yapısına dönüştürür."
         },
         {
           "lineNumber": 12,
           "code": "X_test, y_test = get_data(test, steps)",
-          "lineExplanation": "Test serisi için de aynı pencereleme mantığını kurar; böylece eğitim ve test yapısı tutarlı olur.",
+          "lineExplanation": "Test serisi için de aynı pencereleme mantığını kurar; eğitim ve test yapısı tutarlı olur.",
           "tokens": [],
           "codeContext": "Bu satır, modelin hiç görmediği dönem üzerinde aynı pencereleme kuralıyla ölçüm yapmasını sağlar."
         }
       ],
       "expectedOutput": "X_train ve X_test, her örnekte önceki 2 zamanı taşıyan pencere yapısına dönüşür.",
-      "outputInterpretation": "Zaman serilerindeki 'Bağımsız değişken (X) olmaması' probleminin 'Pencereleme (Sliding Windows Transformation)' yöntemiyle çözüldüğü yerdir. Geçmiş veriler girdi (X), gelecekteki veri ise çıktı (Y) f(X)=Y formatına dönüştürülür. `steps=2` (küçük pencere) seçilerek modelin hızlı öğrenmesi ve son 2 aya bakarak tahmin yapması sağlanmıştır. Doğru pencere boyutu deneme-yanılma (trial and error) ile bulunur."
+      "outputInterpretation": "Zaman serilerindeki 'Bağımsız değişken (X) olmaması' probleminin 'Pencereleme (Sliding Windows Transformation)' yöntemiyle çözüldüğü yerdir. Geçmiş veriler girdi (X), gelecekteki veri ise çıktı (Y) f(X)=Y formatına dönüştürülür\n\n`steps=2` (küçük pencere) seçilerek modelin hızlı öğrenmesi ve son 2 aya bakarak tahmin yapması sağlanmıştır. Doğru pencere boyutu deneme-yanılma (trial and error) ile bulunur."
     },
     {
       "id": "hafta11_airline_lstm-b006",
@@ -335,7 +335,7 @@
         {
           "lineNumber": 1,
           "code": "X_train = np.reshape(X_train, (X_train.shape[0], 1, X_train.shape[1]))",
-          "lineExplanation": "Dizinin boyutunu modelin beklediği tensör biçimine dönüştürür; bu adım yapılmazsa LSTM/CNN katmanları girişi kabul etmez.",
+          "lineExplanation": "Eğitim verisini [örnek, zaman_adımı, özellik] şeklinde 3 boyutlu tensöre dönüştürür; LSTM giriş katmanı bu formatı bekler.",
           "tokens": [
             {
               "token": "reshape()",
@@ -350,7 +350,7 @@
         {
           "lineNumber": 2,
           "code": "X_test = np.reshape(X_test, (X_test.shape[0], 1, X_test.shape[1]))",
-          "lineExplanation": "Dizinin boyutunu modelin beklediği tensör biçimine dönüştürür; bu adım yapılmazsa LSTM/CNN katmanları girişi kabul etmez.",
+          "lineExplanation": "Test verisini de aynı şekilde 3 boyutlu tensöre dönüştürür.",
           "tokens": [
             {
               "token": "reshape()",
@@ -365,13 +365,13 @@
         {
           "lineNumber": 3,
           "code": "len(X_test)",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Test setindeki pencere sayısını (31) döndürür; tahmin edilecek örnek adedini gösterir.",
           "tokens": [],
           "codeContext": "Bu satır, 'LSTM Girdisini Yeniden Şekillendirme' bloğunun bir parçasıdır."
         }
       ],
       "expectedOutput": "31 çıktısı görülür; test setinde tahmin üretilecek 31 pencere vardır.",
-      "outputInterpretation": "Veri mimarisinin LSTM ağına uygun hale getirildiği köprü adımıdır. KNN veya Random Forest'tan farklı olarak LSTM katmanları 3 boyutlu tensörler bekler: `[örnek_sayısı, zaman_adımı, özellik_sayısı]`. Numpy `reshape` ile veriyi ağın giriş katmanının (Input Layer) beklediği bu formata zorluyoruz."
+      "outputInterpretation": "Veri mimarisinin LSTM ağına uygun hale getirildiği köprü adımıdır. KNN veya Random Forest'tan farklı olarak LSTM katmanları 3 boyutlu tensörler bekler: `[örnek_sayısı, zaman_adımı, özellik_sayısı]`\n\nNumpy `reshape` ile veriyi ağın giriş katmanının (Input Layer) beklediği bu formata zorluyoruz."
     },
     {
       "id": "hafta11_airline_lstm-b007",
@@ -381,7 +381,7 @@
         {
           "lineNumber": 1,
           "code": "from tensorflow.keras.layers import Dense, LSTM",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "TensorFlow/Keras kütüphanesinden LSTM ve Dense katmanlarını içe aktarır; sinir ağı mimarisinin yapı taşlarıdır.",
           "tokens": [
             {
               "token": "LSTM",
@@ -418,7 +418,7 @@
         {
           "lineNumber": 3,
           "code": "model = Sequential()",
-          "lineExplanation": "Model nesnesini kurar; bundan sonraki katman ekleme ve eğitim adımları bu nesne üzerinde ilerler.",
+          "lineExplanation": "Sıralı (Sequential) model nesnesi oluşturur; katmanlar üst üste doğrusal olarak eklenecek şekilde yapılandırılır.",
           "tokens": [
             {
               "token": "Sequential",
@@ -433,7 +433,7 @@
         {
           "lineNumber": 4,
           "code": "model.add(LSTM(64, input_shape=(1, steps)))",
-          "lineExplanation": "Modele yeni katman ekler; bu katman veri içindeki örüntüleri öğrenen mimarinin bir bileşenidir.",
+          "lineExplanation": "64 nöronlu LSTM katmanı ekler; zaman serisindeki uzun vadeli bağımlılıkları ve örüntüleri öğrenir.",
           "tokens": [
             {
               "token": "LSTM",
@@ -448,7 +448,7 @@
         {
           "lineNumber": 5,
           "code": "model.add(Dense(64))",
-          "lineExplanation": "Modele yeni katman ekler; bu katman veri içindeki örüntüleri öğrenen mimarinin bir bileşenidir.",
+          "lineExplanation": "64 nöronlu tam bağlı (Dense) katman ekler; LSTM katmanının öğrendiği temsilleri işler ve dönüştürür.",
           "tokens": [
             {
               "token": "Dense",
@@ -463,7 +463,7 @@
         {
           "lineNumber": 6,
           "code": "model.add(Dense(1))",
-          "lineExplanation": "Modele yeni katman ekler; bu katman veri içindeki örüntüleri öğrenen mimarinin bir bileşenidir.",
+          "lineExplanation": "Tek nöronlu çıkış katmanı ekler; regresyon problemi için sürekli bir tahmin değeri üretir.",
           "tokens": [
             {
               "token": "Dense",
@@ -491,7 +491,7 @@
         }
       ],
       "expectedOutput": "Model özeti metin olarak görünür; LSTM(64) ve iki Dense katmanı listelenir.",
-      "outputInterpretation": "Örüntü tanıma motorumuzun inşasıdır. Geleneksel modellerin hafızası yoktur, ancak buradaki `LSTM(64)` katmanı 'Uzun Kısa Vadeli Hafıza' hücreleriyle geçmiş günlerin hareketini akılda tutar. `Dense(64)` ve tahmin üreten son `Dense(1)` katmanı ile ağ derinleştirilir. Zaman serisi regresyonu yaptığımız için model hata cezalandırması adına `MSE (Karesel Hata)` loss'u ve hızlı optimizasyon için `Adam` optimizer'ı ile derlenmiştir."
+      "outputInterpretation": "Örüntü tanıma motorumuzun inşasıdır. Geleneksel modellerin hafızası yoktur, ancak buradaki `LSTM(64)` katmanı 'Uzun Kısa Vadeli Hafıza' hücreleriyle geçmiş günlerin hareketini akılda tutar\n\n`Dense(64)` ve tahmin üreten son `Dense(1)` katmanı ile ağ derinleştirilir. Zaman serisi regresyonu yaptığımız için model hata cezalandırması adına `MSE (Karesel Hata)` loss'u ve hızlı optimizasyon için `Adam` optimizer'ı ile derlenmiştir."
     },
     {
       "id": "hafta11_airline_lstm-b008",
@@ -501,7 +501,7 @@
         {
           "lineNumber": 1,
           "code": "model.fit(X_train, y_train, epochs=25, batch_size=1)",
-          "lineExplanation": "Modeli eğitim verisi üzerinde iteratif olarak eğitir; ağırlıklar bu aşamada güncellenir.",
+          "lineExplanation": "Modeli eğitim verisi üzerinde 25 epoch boyunca eğitir; ağırlıklar her örnekte (batch_size=1) güncellenir.",
           "tokens": [
             {
               "token": "fit()",
@@ -514,8 +514,8 @@
           "codeContext": "Bu satır, 'Modeli Eğitme' bloğunda öğrenme sürecini başlatır."
         }
       ],
-      "expectedOutput": "Epoch ilerleme satırları görünür; loss değeri epoch’lar boyunca kademeli olarak düşer.",
-      "outputInterpretation": "Modelin veriyi eğitme (Fit) aşamasıdır. Parametrik kararlar: `epochs=25`, tüm veri setinin modelden baştan sona tam 25 kez geçirilerek eğitileceğini belirtir. `batch_size=1` ise verilerin 1'er 1'er alınıp ağın ağırlıklarının her örnekte güncelleneceğini ifade eder. Loss değerinin düşüşü, ağın örüntüyü kavramaya başladığını gösterir."
+      "expectedOutput": "Epoch ilerleme satırları görünür;\nloss değeri epoch’lar boyunca kademeli olarak düşer.",
+      "outputInterpretation": "Modelin veriyi eğitme (Fit) aşamasıdır. Parametrik kararlar: `epochs=25`, tüm veri setinin modelden baştan sona tam 25 kez geçirilerek eğitileceğini belirtir\n\n`batch_size=1` ise verilerin 1'er 1'er alınıp ağın ağırlıklarının her örnekte güncelleneceğini ifade eder. Loss değerinin düşüşü, ağın örüntüyü kavramaya başladığını gösterir."
     },
     {
       "id": "hafta11_airline_lstm-b009",
@@ -525,7 +525,7 @@
         {
           "lineNumber": 1,
           "code": "y_pred = model.predict(X_test)",
-          "lineExplanation": "Eğitilmiş model ile yeni örnekler için tahmin üretir; modelin öğrendiği örüntü burada uygulamaya geçer.",
+          "lineExplanation": "Eğitilmiş model ile test pencereleri için tahmin üretir; modelin öğrendiği örüntü burada uygulamaya geçer.",
           "tokens": [
             {
               "token": "predict()",
@@ -540,27 +540,27 @@
         {
           "lineNumber": 2,
           "code": "y_pred = scaler.inverse_transform(y_pred)",
-          "lineExplanation": "Veriyi ölçekler veya dönüştürür; özellikle sinir ağlarında değişken aralıklarını dengeler.",
+          "lineExplanation": "Tahminleri orijinal yolcu sayısı ölçeğine geri döndürür; 0-1 aralığından gerçek değerlere çevirir.",
           "tokens": [],
           "codeContext": "Bu satır, 'Tahmin Üretme ve Orijinal Ölçeğe Dönme' bloğunda model öncesi normalizasyon yapar."
         },
         {
           "lineNumber": 3,
           "code": "y_test = y_test.reshape(-1, 1)",
-          "lineExplanation": "Dizinin boyutunu modelin beklediği tensör biçimine dönüştürür; bu adım yapılmazsa LSTM/CNN katmanları girişi kabul etmez.",
+          "lineExplanation": "Test hedef değerlerini 2 boyutlu hale getirir; inverse_transform işlemi için gerekli formattır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Tahmin Üretme ve Orijinal Ölçeğe Dönme' bloğunda tensör boyutunu ayarlar."
         },
         {
           "lineNumber": 4,
           "code": "y_test = scaler.inverse_transform(y_test)",
-          "lineExplanation": "Veriyi ölçekler veya dönüştürür; özellikle sinir ağlarında değişken aralıklarını dengeler.",
+          "lineExplanation": "Gerçek test değerlerini de orijinal ölçeğe döndürür; karşılaştırma için aynı skalada olmaları gerekir.",
           "tokens": [],
           "codeContext": "Bu satır, 'Tahmin Üretme ve Orijinal Ölçeğe Dönme' bloğunda model öncesi normalizasyon yapar."
         }
       ],
       "expectedOutput": "y_pred ve y_test dizileri artık gerçek yolcu sayıları ölçeğinde karşılaştırmaya hazırdır.",
-      "outputInterpretation": "Modelin test seti üzerinde pratik yaptığı ve iş zekası boyutuna geri döndüğümüz adımdır. Modelin ürettiği tahminler 0-1 aralığındadır. Bu değerlerin iş birimleri (paydaşlar) için anlamlı olabilmesi adına `scaler.inverse_transform` ile gerçek 'Yolcu Sayısı' ölçeğine geri döndürülür. Eğitilen aynı scaler'ın kullanılması, istatistiksel sapmayı (Bias) engeller."
+      "outputInterpretation": "Modelin test seti üzerinde pratik yaptığı ve iş zekası boyutuna geri döndüğümüz adımdır. Modelin ürettiği tahminler 0-1 aralığındadır. Bu değerlerin iş birimleri (paydaşlar) için anlamlı olabilmesi adına `scaler.inverse_transform` ile gerçek 'Yolcu Sayısı' ölçeğine geri döndürülür\n\nEğitilen aynı scaler'ın kullanılması, istatistiksel sapmayı (Bias) engeller."
     },
     {
       "id": "hafta11_airline_lstm-b010",
@@ -570,7 +570,7 @@
         {
           "lineNumber": 1,
           "code": "plt.plot(y_test, label='real number of passengers')",
-          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "lineExplanation": "Gerçek yolcu sayılarını çizgi olarak çizer; model başarımının referans noktasıdır.",
           "tokens": [
             {
               "token": "plt.plot()",
@@ -585,7 +585,7 @@
         {
           "lineNumber": 2,
           "code": "plt.plot(y_pred, label='predicted number of passengers')",
-          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "lineExplanation": "Tahmin edilen yolcu sayılarını çizgi olarak çizer; gerçek değerlerle karşılaştırma yapılır.",
           "tokens": [
             {
               "token": "plt.plot()",
@@ -600,21 +600,21 @@
         {
           "lineNumber": 3,
           "code": "plt.ylabel('Number of passengers')",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Y eksenine 'Number of passengers' etiketini ekler.",
           "tokens": [],
           "codeContext": "Bu satır, 'Gerçek ve Tahmin Serisini Karşılaştırma' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 4,
           "code": "plt.legend()",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Grafikteki çizgilerin hangi seriye ait olduğunu gösteren açıklama kutusunu ekler.",
           "tokens": [],
           "codeContext": "Bu satır, 'Gerçek ve Tahmin Serisini Karşılaştırma' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 5,
           "code": "plt.show()",
-          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "lineExplanation": "Hazırlanan grafiği ekranda görüntüler.",
           "tokens": [
             {
               "token": "plt.show()",
@@ -627,9 +627,9 @@
           "codeContext": "Bu satır, 'Gerçek ve Tahmin Serisini Karşılaştırma' bloğunda görsel çıktı üretir."
         }
       ],
-      "expectedOutput": "(Grafik çıktısı) Gerçek seri ile tahmin serisi büyük ölçüde aynı yönlü gider; bazı aylarda küçük sapmalar görülür.",
+      "expectedOutput": "(Grafik çıktısı) Gerçek seri ile tahmin serisi büyük ölçüde aynı yönlü gider;\nbazı aylarda küçük sapmalar görülür.",
       "plotImage": "h11-airline-b010.png",
-      "outputInterpretation": "Model değerlendirme (Evaluation) fazının görsel kanıtıdır. Gerçek değerler ile modelin tahminlerinin (Sliding window sonucu) karşılaştırılmasıdır. Çıktı, LSTM ağının sadece bir önceki adımı kopyalamadığını, verideki trendi ve yaz aylarındaki mevsimselliği başarıyla hafızasına aldığını kanıtlar. Sapmalar doğaldır (Outlier/Noise dengesi); ağın veriyi körü körüne ezberlemediğini (Overfitting yapmadığını) gösterir."
+      "outputInterpretation": "Model değerlendirme (Evaluation) fazının görsel kanıtıdır. Gerçek değerler ile modelin tahminlerinin (Sliding window sonucu) karşılaştırılmasıdır. Çıktı, LSTM ağının sadece bir önceki adımı kopyalamadığını, verideki trendi ve yaz aylarındaki mevsimselliği başarıyla hafızasına aldığını kanıtlar\n\nSapmalar doğaldır (Outlier/Noise dengesi); ağın veriyi körü körüne ezberlemediğini (Overfitting yapmadığını) gösterir."
     }
   ]
 }
