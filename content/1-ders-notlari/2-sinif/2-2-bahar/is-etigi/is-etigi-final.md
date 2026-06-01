@@ -25,7 +25,7 @@ Varlığı bu şekilde ele aldıktan sonra, etiğin ve ahlâkın ne olduğunu ir
 
 İlkin **ahlâk**tan başlayalım. Ahlâk, toplumdan topluma göre değişen, evrensellik iddiası taşımayan, somut ve pratik olan kurallar bütünüdür. *Esas ve içerik* ile ilgilenir ahlâk. Kınama, ödüllendirme, ayıplama, dışlanma gibi toplumsal yaptırımları vardır.
 
-**Etik** ise evrensellik iddiası taşır ancak derste anlatıldığı gibi *evrensel* değildir. Evrensel sıfatı birtakım insanın uydurması ve kabulüdür yalnızca, evrensel bir etik değerin mevzubahis olma ihtimali yoktur. Soyuttur ve kuramsaldır, teoriktir. *Usul ve biçim* ile ilgilenir. Var olan düzene karşı tez/antitez üretebilir.
+**Etik** ise evrensellik iddiası taşır ancak derste anlatıldığı gibi *evrensel* değildir. Soyuttur ve kuramsaldır, teoriktir. *Usul ve biçim* ile ilgilenir. Var olan düzene karşı tez/antitez üretebilir.
 
 > Derste verilen örneği hatırlarsak; futbolcu ahlâkı pratize eden kişi iken, futbol eleştirmeni ise bu pratiği inceleyen, kurallarını tartışan disiplindir (*etik*). 
 
