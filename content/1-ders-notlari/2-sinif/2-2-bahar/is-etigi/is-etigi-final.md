@@ -65,7 +65,6 @@ Varlığı bu şekilde ele aldıktan sonra, etiğin ve ahlâkın ne olduğunu ir
 
 
 ## Filozoflar ve Temel Kavramlar
- Burası gerçekten çok kötü bir ezber kısmı. Neden böyle demişler diye sayfa sayfa açıklama gerekir hepsine ancak bir nebze açıklama ekledim.
 
 **Sokrates:** "Sorgulanmamış hayat yaşanmaya değmez."
 * İnsan ezbere, körü körüne, sadece yiyip içerek yaşamamalıdır. Neyin doğru neyin yanlış olduğunu, kendi inançlarını akılla sorgulamalıdır. Ancak neyin doğru olduğunu bilirsek ahlâklı (erdemli) olabiliriz, çünkü kimse bilerek kötülük yapmaz.

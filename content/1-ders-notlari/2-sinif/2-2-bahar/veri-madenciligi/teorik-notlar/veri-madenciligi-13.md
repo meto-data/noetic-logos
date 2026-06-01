@@ -6,7 +6,7 @@ tags: akademi/dersler/veri-madenciligi
 slug: veri-madenciligi-13
 konu: (CNN) Evrişimli Sinir Ağları ile Görsel Veri Madenciliği
 ---
-## 1. Görüntü Verilerinde Madenciliğe Giriş
+# 1. Görüntü Verilerinde Madenciliğe Giriş
 Bugüne kadar veri madenciliği derslerinde genellikle yapısal verilerle (Excel tabloları, CSV dosyaları) uğraştık. Bir kişinin yaşı, maaşı, eğitim durumu gibi [[veri-madenciligi-2#1.1. Verinin Anatomisi Boyutlar ve Kavramlar|Tek boyutlu diziler (1D)]] üzerinden bağımlı değişkeni ($Y$) tahmin etmeye çalıştık. Ancak yapay zekâ dendiğinde akla gelen otonom araçlar, yüz tanıma sistemleri veya robotların temelinde **görüntü (image)** yatar.
 
 Görüntüler, yapısal olmayan verilerdir. Bir resim, satır ve sütunlardan oluşan tek bir diziden ibaret değildir. Piksellerden ve o piksellerin renk katmanlarından (RGB - Red, Green Blue) oluşan karmaşık matrislerdir (3D Tensörler).
@@ -18,7 +18,7 @@ Görüntüler, yapısal olmayan verilerdir. Bir resim, satır ve sütunlardan ol
 >- Eğer biz 20 milyon resimden oluşan bir veri setini yapay zekâya eğitmeye kalkarsak, bu durum muazzam bir [[veri-madenciligi-12#2. Bilgisayar Bilimlerinin İki Temel Kısıtı Hafıza ve Zaman|Hafıza ve Zaman (Space/Time Complexity)]] problemi yaratır. İşte CNN, bu devasa matrisleri küçülterek eğitilebilir hâle getiren mimarinin adıdır.
 
 
-### Gerçek Hayattaki Uygulamalar
+## Gerçek Hayattaki Uygulamalar
 
 Görsel veri madenciliğinin ticarî ve hayatî karşılıkları şunlardır:
 
@@ -27,20 +27,21 @@ Görsel veri madenciliğinin ticarî ve hayatî karşılıkları şunlardır:
 3. **Sanayi ve Üretim Bandı**: Üretim bandından saniyede onlarca ürün geçer. İnsan gücüyle (6-7 kişi) hatalı ürünleri ayıklamak yerine, bandın başına konan bir kamera ve CNN modeli, ürünün 3D görüntüsünü alır. Çatlak veya defolu olan ürünler, servo motorlar vasıtasıyla banttan dışarı atılır. 10 kişinin yaptığı işi daha az hata payıyla tek bir sistem yapar.
 
 
-## 2.Görüntüden Öznitelik Çıkarma (Feature Extraction)
+# 2.Görüntüden Öznitelik Çıkarma (Feature Extraction)
 Makine, görüntüyü doğrudan anlayamaz. Önce görüntünün ayırt edici özelliklerinin (özniteliklerinin) çıkarılması gerekir. Derin öğrenme öncesi bu işlemler manuel yapılıyordu.
 
-### A. Manuel (Elle) Öznitelik Çıkarma Yöntemleri
+## A. Manuel (Elle) Öznitelik Çıkarma Yöntemleri
 - **Renk Histogramı**: Resimdeki RGB dağılımına bakılır. "Bu görselin %80'i mavi, demek ki deniz veya gökyüzü olabilir."
 - **Kenar Bilgisi (Edge Detection)**: Sobel ve Canny gibi algoritmalarla pikseller arasındaki keskin renk geçişleri bulunarak nesnenin dış hatları (silüeti) çiziliyor.
 - **Yapısal Özellikler**: Gabor filtresi gibi yöntemlerle doku ve yönelim bilgisi çıkarılır.
 
-### B. Otomatik Öznitelik Çıkarma (CNN - Evrişimli Sinir Ağları)
+## B. Otomatik Öznitelik Çıkarma (CNN - Evrişimli Sinir Ağları)
 Günümüzde manuel işlemlere gerek kalmamıştır. **CNN (Convolutional Neural Network)**, görüntü üzerindeki kenar, köşe, doku ve renk gibi özellikleri kendisi otomatik olarak öğrenen ve filtreleyen derin öğrenme mimarisidir.
 
 
 ![[oznitelik.png]]
-### 3. CNN Mimarisi
+
+# 3. CNN Mimarisi
 CNN ağı temelde görüntüden özellikler çıkaran (Feature Extraction) ve bu özelliklere bakarak sınıflandırma yapan (classification) iki büyük bölümden oluşur.
 
 
@@ -51,7 +52,7 @@ CNN ağı temelde görüntüden özellikler çıkaran (Feature Extraction) ve bu
 - Görüntünün üzerinden gezinen **filtreler (kernels)** bulunur. Bu filtreler genellikle $3 \times 3$ veya $5 \times 5$ boyutlarında matrislerdir.
 - Filtre, resmin sol üst köşesinden başlar ve belirlenen adım sayısına (**stride**) göre kayarak tüm resmi tarar.
 - Her taramada, filtrenin matrisi ile resmin o anki pikselleri matematiksel olarak çarpılır ve tek bir piksele dönüştürülür.
-- **Amacı**: Resimden kenar, doku ve renk gibi özellikleri cımbızlamak ve boyutunu bir miktar küçültmektir
+- **Amacı**: Resimden kenar, doku ve renk gibi özellikleri cımbızlamak ve boyutunu bir miktar küçültmek.
 - *Not*: Filtrelerin oluşturduğu sonuçlarda bazen eksi (-) değerler, yani piksellerde siyah karşılığı olan anlamsız veriler çıkabilir. Bunları sıfıra eşitlemek (absorbe etmek) için araya **ReLu (Rectified Linear Unit)** aktivasyon fonksiyonu konur. ReLu, negatif değerleri sıfır yapar.
 
 ### Adım 2: Pooling (Havuzlama) Katmanı
