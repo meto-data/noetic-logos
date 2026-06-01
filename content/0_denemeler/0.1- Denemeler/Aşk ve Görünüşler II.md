@@ -29,7 +29,7 @@ Benim köşkümde olmasıydı işte onu değerli kılan; başkasının köşkün
 *parçaların bütünleşmeyecek bundan böyle zihnimde*
 
 *kalmasın sende zerre-i miktar hatırım*  
-*zaten yoktu ya*  
+*zaten yoktu ya*
 *gösterirdin herkese aynı hatırı*
 *özel olmasını isterken ben*  
 *hayıra çevirirdin sen hatırı*
