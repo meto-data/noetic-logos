@@ -13,23 +13,24 @@ konu: Büyük Veri
 
 ---
 
-## Derse Değgin
 
-### 1. Büyük Veri (Big Data) Nedir? Geleneksel Yöntemlerden Farkı
+
+## 1. Büyük Veri (Big Data) Nedir? Geleneksel Yöntemlerden Farkı
 
 Günümüzde veri, sosyal medya, IoT (Nesnelerin İnterneti) sensörleri, log kayıtları ve akıllı cihazlardan gelen bir akış biçiminde ilerlemektedir. 
+
 Geleneksel veri işleme yöntemleri (örn. Excel veya tek çekirdekli Pandas DataFrame'leri), hacmi çok büyük, akış hızı yüksek ve karmaşık (yapısal olmayan) bu verileri işlemek için yetersiz kalır. Bu noktada devreye **Büyük Veri (Big Data)** teknolojileri girer. (*Kavramın temelleri için bkz.* [[veri-madenciligi-1#3. Büyük Veri (Big Data) ve Depolama Mimarisi|Büyük Veri ve Depolama Mimarisi]])
 
 Geleneksel analiz ile Big Data analizi arasındaki en temel yapısal fark **işlem mimarisidir**:
 
 - **Seri İşleme (Geleneksel - Pandas):** Veri satır satır, tek bir işlemci çekirdeği üzerinden sırayla okunur ve işlenir. Veri RAM'e çekilir. Milyonlarca satırlık veride RAM tıkanır (Memory Error) veya sistem kilitlenir.
-- **Paralel İşleme (Big Data - Spark/Hadoop):** Veri tek bir makinede veya tek bir çekirdekte tutulmaz. **Dağıtık (Distributed)** serverlara yayılır. Çoklu çekirdek mimarisi (Hyper-threading) sayesinde veri eşzamanlı ve parçalar halinde işlenir. 
+- **Paralel İşleme (Big Data - Spark/Hadoop):** Veri tek bir makinede veya tek bir çekirdekte tutulmaz. **Dağıtık (Distributed)** serverlara yayılır. Çoklu çekirdek mimarisi (Hyper-threading) sayesinde veri eşzamanlı ve parçalar hâlinde işlenir. 
 
 > [!example] Klasör ve Zaman Analojisi
-> Bir Windows klasörünün içine 10.000 adet fotoğraf attığınızı düşünün. 10.001'inci fotoğrafı eklemek veya klasörde arama yapmak istediğinizde klasörün yüklenmesi saniyeler, bazen dakikalar sürer ve bilgisayar donar.
+> Bir Windows klasörünün içine 10.000 adet fotoğraf attığınızı düşünün. 10.001'inci fotoğrafı eklemek veya klasörde arama yapmak istediğinizde klasörün yüklenmesi saniyeler, bazen dakikalar sürer ve bilgisayar donar. <br>
 > İşte bilgisayar bilimlerinde verinin devasa boyutlara ulaşması, geleneksel tekil klasör/veri tabanı mantığının çökmesine (zaman problemine) neden olur. Büyük veri teknolojileri, bu klasörü tek bir diske değil, binlerce diske dağıtarak bu donmayı engeller.
 
-### 2. Bilgisayar Bilimlerinin İki Temel Kısıtı: Hafıza ve Zaman
+## 2. Bilgisayar Bilimlerinin İki Temel Kısıtı: Hafıza ve Zaman
 
 Veri madenciliğinin ve donanım teknolojilerinin gelişmesini zorlayan asıl unsur *verinin kendisi*dir. Veri büyüdükçe iki temel kısıtla karşılaşılır:
 
@@ -42,22 +43,22 @@ Veri madenciliğinin ve donanım teknolojilerinin gelişmesini zorlayan asıl un
 > [!example] Zamanı Satın Almak
 > Paramız varsa, İstanbul'a 4 saatte giden bir araba yerine 1 saatte giden bir arabayı alırız. Temelde satın aldığımız şey araba değil, **zamandır**. Big Data sistemlerinde (Spark gibi motorlara veya çok çekirdekli sistemlere) yapılan yatırım da veriyi daha hızlı işleyip "zamanı satın alma" çabasıdır.
 
-### 3. Big Data'nın Karakteristiği: 5V (ve 6V) Kuralı
+## 3. Big Data'nın Karakteristiği: 5V (ve 6V) Kuralı
 
 Büyük veriyi tanımlayan temel nitelikler şunlardır:
 
-| Özellik (V)                                           | Açıklama                                                                                                                                                                                                                          |
-| :---------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Volume (Hacim)**                                    | Verinin devasa fiziksel boyutudur. Terabaytları aşıp Petabayt, Exabayt ve Zettabayt seviyelerine ulaşmasıdır.                                                                                                                     |
-| **Velocity (Hız)**                                    | Verinin üretim ve akış hızıdır. Sosyal medya etkileşimleri, borsa verileri gibi durdurulamaz akışları ifade eder. Anlık (real-time) işlenmesi gerekir.                                                                            |
-| **Variety (Çeşitlilik)**                              | Verinin sadece tablo (yapısal) olmaması; metin, ses, görüntü, log gibi farklı yapılandırılmamış (unstructured) formatlarda akmasıdır.                                                                                             |
-| **Veracity (Doğruluk)**                               | Gelen her verinin güvenilir olmaması, gürültü (noise) barındırmasıdır. (Bkz: [[veri-madenciligi-2#B. Gürültülü Veri (Noisy Data / Outliers)\|Gürültülü Veri]]). Sensör arızaları veya yanlış verilerin hızla ayıklanması gerekir. |
-| **Value (Değer)**                                     | Bu veri yığınından şirket veya kurum için anlamlı, ticari veya stratejik bir *değer (bilgi)* çıkarılabilmesidir.                                                                                                                  |
-| **Visibility / Visualization (Görsellik-Görünürlük)** | *(Microsoft'un 6. V'si olarak eklenmiştir)* Elde edilen devasa ve karmaşık analiz sonuçlarının dashboardlar ve karar destek sistemleri ile insan gözünün anlayabileceği görsellere dönüştürülmesidir.                             |
+| Özellik (V)                                           | Açıklama                                                                                                                                                                                                     |
+| :---------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Volume (Hacim)**                                    | Verinin devasa fiziksel boyutudur. Terabaytları aşıp Petabayt, Exabayt ve Zettabayt seviyelerine ulaşmasıdır.                                                                                                |
+| **Velocity (Hız)**                                    | Verinin üretim ve akış hızıdır. Sosyal medya etkileşimleri, borsa verileri gibi durdurulamaz akışları ifade eder. Anlık (real-time) işlenmesi gerekir.                                                       |
+| **Variety (Çeşitlilik)**                              | Verinin sadece tablo (yapısal) olmaması; metin, ses, görüntü, log gibi farklı yapılandırılmamış (unstructured) formatlarda akmasıdır.                                                                        |
+| **Veracity (Doğruluk)**                               | Veri setlerinin içerdiği [[veri-madenciligi-2#B. Gürültülü Veri (Noisy Data / Outliers)\|gürültüden]] arındırılmış, tutarlı ve kesin sonuçlar sunan bir doğruluk düzeyine sahip olması gerektiğini vurgular. |
+| **Value (Değer)**                                     | Bu veri yığınından şirket veya kurum için anlamlı, ticari veya stratejik bir *değer (bilgi)* çıkarılabilmesidir.                                                                                             |
+| **Visibility / Visualization (Görsellik-Görünürlük)** | *(Microsoft'un 6. V'si olarak eklenmiştir)* Elde edilen devasa ve karmaşık analiz sonuçlarının dashboardlar ve karar destek sistemleri ile insan gözünün anlayabileceği görsellere dönüştürülmesidir.        |
 
-### 4. Verinin Yaşam Döngüsü
+## 4. Verinin Yaşam Döngüsü
 
-Veri de tıpkı bir insan gibi doğar, işlenir, analiz edilir, korunur ve kullanılır. Ancak insandan farklı olarak **veri normal şartlarda ölmez**. Veri ancak fizikî felaketler veya yetersiz güvenlik önlemleri sonucu tahrip olursa yok olur.
+Veri de tıpkı bir insan gibi doğar, işlenir, analiz edilir, korunur ve kullanılır; ancak insandan farklı olarak, **veri normal şartlarda ölmez**. Veri ancak fizikî felaketler veya yetersiz güvenlik önlemleri sonucu tahrip olursa yok olur.
 
 Döngü 6 aşamadan oluşur:
 1. **Üretilmesi (Creating):** Verinin toplanma ihtiyacının belirlenmesi.
@@ -70,16 +71,16 @@ Döngü 6 aşamadan oluşur:
 > [!example] Fiziki Güvenlik Zafiyeti
 > Yıllar önce yayımlanan "Süper Baba" dizisinin bazı bölümlerine bugün internetten ulaşılamamaktadır. Nitekim o dönemin kayıtları yanlış koşullarda (bodrum katlarında vb.) saklanmış ve bir sel felaketinde tahrip olmuştur. Verinin *ölmesi* budur: fizikî veri güvenliği (korunma) sağlanamazsa veri yok olur. Veri ambarları ve dağıtık sistemler bu riski sıfıra indirmek için vardır.
 
-### 5. Geleneksel Sistemler vs. Büyük Veri Sistemleri
+## 5. Geleneksel Sistemler vs. Büyük Veri Sistemleri
 
 Veri saklama ve işleme mimarileri temelde ikiye ayrılır. 
 
-#### A. Data Warehouse (Klasik Sistemler - ERP/CRM)
+### A. Data Warehouse (Klasik Sistemler - ERP/CRM)
 - Tek bir şirket içindeki operasyon verileridir.
 - Yapısal ve düzenlidir. (Bkz: [[veri-madenciligi-1#3.2. Veri Ambarları (Data Warehouses)\|Veri Ambarları]])
 - **SQL (Structured Query Language)** ile sorgulanır.
 
-#### B. Big Data (Dağıtık Sistemler)
+### B. Big Data (Dağıtık Sistemler)
 - Veriler tek bir sunucuda tutulamaz. Sosyal medya, IoT gibi çoklu kaynaklardan beslenir.
 - **NoSQL** (SQL olmayan) mimariler kullanılır. Ortada tek ve düzenli bir tablo yoktur, veri parçalanmış haldedir.
 - *Kullanılan Teknolojiler:* Cassandra (Facebook geliştirdi), HBase.
@@ -100,18 +101,18 @@ graph TD
     C2 --> D
 ```
 *(Not: ETL süreci, KDD sürecinin belkemiğidir. Bkz: [[veri-madenciligi-1#2. KDD Süreci (Knowledge Discovery in Databases)|KDD Süreci]])*
-### 6. Hadoop ve Spark Arasındaki Evrim
+## 6. Hadoop ve Spark Arasındaki Evrim
 
 Büyük verinin analizinde iki büyük teknolojik mihenk taşı vardır:
 
 1. **Apache Hadoop:** Veriyi parçalayarak dağıtık işleyen (Map-Reduce) ilk büyük açık kaynaklı çerçevedir. Ancak veriyi **diske (Hard Disk) kaydederek** çalıştığı için gerçek zamanlı akışkan verilerde yavaş kalmaya başlamıştır.
 2. **Apache Spark:** Hadoop'un yavaşlığına çözüm olarak (zamanı satın almak için) üretilmiştir. Veriyi diskten değil, doğrudan **RAM üzerinden (In-Memory)** okuyup işlediği için Hadoop'tan yaklaşık **100 kat daha hızlıdır**.
 
-> [!important] Spark'ın Çalışma Felsefesi: Lazy Execution (Tembel Çalıştırma)
+> [!important] Spark'ın Çalışma Prensibi: Lazy Execution (Tembel Çalıştırma)
 > - **Pandas** ile bir veriyi okuduğunuzda (Bkz: [[veri-madenciligi-2#1.3. Veri Ön İşleme (Data Preprocessing) Süreci|Pandas Veri Okuma]]), Pandas emri aldığı an veriyi tek tek okur ve RAM'e çeker. Listele dediğinizde listeler. 
 > - **Spark** motoru ise oyuna girerken çalışan bir oyun motoru gibidir. Çalıştırıldığı an, görevinin veri işlemek olduğunu bilir ve veri tabanlarındaki dağıtık veriyi **önceden okuyarak hazırda bekletir.** Sizden sadece son emri (listele, analiz et) bekler. Bu yüzden küçük ya da devasa verilerde her zaman **stabil bir sürede** (örneğin hep 1-3 saniye aralığında) tepki verir.
 
-### 7. Büyük Veri Ekosistemi ve Kullanılan Teknolojiler
+## 7. Büyük Veri Ekosistemi ve Kullanılan Teknolojiler
 Büyük verinin yatayda ölçeklenebilir (sunucu ekledikçe büyüyen) yapıda tutulmasını sağlar.
 
 - **HDFS (Hadoop Distributed File System):** Verileri parçalayıp dağıtarak saklayan, sistemin temel dosya mimarisi.
@@ -121,24 +122,24 @@ Büyük verinin yatayda ölçeklenebilir (sunucu ekledikçe büyüyen) yapıda t
   > Cassandra'da "Master-Slave" (Yönetici-Köle) hiyerarşisi yoktur. **Her node (sunucu/düğüm) eşittir (peer-to-peer).** Bu sayede bir sunucu çökse bile sistem duraksamadan çalışmaya devam eder. Bkz. [[Nedir bu CAP?#2- AP Sistemleri (Availability + Partition Tolerance)|AP Sistemleri]]
 
 
-- **Apache HBase:** HDFS üzerinde çalışan, sütun tabanlı NoSQL veritabanıdır. Gerçek zamanlı işlemler için kullanılır.
+- **Apache HBase:** HDFS üzerinde çalışan, sütun tabanlı NoSQL veri tabanıdır. Gerçek zamanlı işlemler için kullanılır.
 - **Bulut (Cloud) Depoları:** Amazon S3 (AWS) ve Google Cloud Storage (Obje tabanlı yüksek hacimli depolar).
 - **MongoDB:** Popüler belge (document) tabanlı, JSON benzeri yapılar tutan NoSQL veritabanı.
 
-#### B. Veri İşleme ve Analiz (Data Analysis)
+### B. Veri İşleme ve Analiz (Data Analysis)
 - **Apache Hadoop (MapReduce):** Veriyi dağıtarak işleyen temel algoritmadır. Ancak veriyi **diske kaydederek** çalıştığı için (Batch Processing) gerçek zamanlı analizlerde yavaştır.
 - **Apache Spark:** Hadoop'un yavaşlığına çözüm olarak doğmuştur. Veriyi diskten değil, **bellek içinden (in-memory)** okur. Hadoop'tan 100 kata kadar daha hızlıdır. 
 - **Apache Flink & Apache Storm:** Gerçek zamanlı veri akışı (streaming) ve düşük gecikmeli analizlere odaklanan Spark alternatifleridir.
 - **Cloudera Impala & Presto/Trino:** Dağıtık sistemler üzerinde SQL benzeri sorgular çalıştırmaya yarayan analiz motorlarıdır.
 - **Elasticsearch:** Metin tabanlı arama ve log analizi (Örn: Hata kayıtlarını hızlıca bulma) için çok güçlü bir araçtır.
 
-#### C. Veri Taşıma ve Entegrasyon
+### C. Veri Taşıma ve Entegrasyon
 - **Apache Kafka:** Yüksek hızlı, gerçek zamanlı veri iletimi sağlar. (Publish-subscribe / Yayıncı-Abone mantığıyla çalışır).
 - **Apache NiFi:** Veri akışlarını görsel bir arayüzle yöneten modern bir ETL aracıdır.
 - **Apache Sqoop:** Geleneksel ilişkisel veri tabanları (RDBMS) ile Hadoop arasında veri transferi yapar.
 - **Apache Airflow:** Veri işleme akışlarını zamanlamak ve programlamak için kullanılır.
 
-#### D. Veri Formatları
+### D. Veri Formatları
 Büyük veri dünyasında klasik CSV veya JSON dosyaları çok yer kaplar. Bunun yerine:
 - **Parquet / ORC:** Sütun bazlı (columnar) ve sıkıştırılmış veri saklama formatlarıdır. Okuma hızını muazzam derecede artırırlar.
 - **Avro**: Satır bazlı veri serileştirme formatıdır.

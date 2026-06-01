@@ -2,7 +2,7 @@
   {
     "id": "w1-v001",
     "week": 1,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "veri-madenciligi",
@@ -37,7 +37,7 @@
   {
     "id": "w1-v002",
     "week": 1,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "dikw",
@@ -76,7 +76,7 @@
   {
     "id": "w1-v003",
     "week": 1,
-    "topic": "kdd-süreci",
+    "topic": "kdd-sureci",
     "type": "verbal",
     "tags": [
       "kdd",
@@ -111,7 +111,7 @@
   {
     "id": "w1-v004",
     "week": 1,
-    "topic": "kdd-süreci",
+    "topic": "kdd-sureci",
     "type": "verbal",
     "tags": [
       "kdd",
@@ -146,7 +146,7 @@
   {
     "id": "w1-v005",
     "week": 1,
-    "topic": "veri-ambarı",
+    "topic": "veri-ambari",
     "type": "verbal",
     "tags": [
       "veri-ambari",
@@ -215,7 +215,7 @@
   {
     "id": "w1-v007",
     "week": 1,
-    "topic": "veri-madenciliği-algoritmaları",
+    "topic": "veri-madenciligi-algoritmalari",
     "type": "verbal",
     "tags": [
       "algoritmalar",
@@ -250,7 +250,7 @@
   {
     "id": "w1-v008",
     "week": 1,
-    "topic": "veri-madenciliği-algoritmaları",
+    "topic": "veri-madenciligi-algoritmalari",
     "type": "verbal",
     "tags": [
       "algoritmalar",
@@ -285,7 +285,7 @@
   {
     "id": "w1-v009",
     "week": 1,
-    "topic": "veri-madenciliği-tarihçesi",
+    "topic": "veri-madenciligi-tarihcesi",
     "type": "verbal",
     "tags": [
       "tarihce",
@@ -319,7 +319,7 @@
   {
     "id": "w1-v010",
     "week": 1,
-    "topic": "veri-boyutları",
+    "topic": "veri-boyutlari",
     "type": "verbal",
     "tags": [
       "veri-birimleri",
@@ -353,7 +353,7 @@
   {
     "id": "w1-v011",
     "week": 1,
-    "topic": "kdd-süreci",
+    "topic": "kdd-sureci",
     "type": "verbal",
     "tags": [
       "kdd",
@@ -388,7 +388,7 @@
   {
     "id": "w1-v012",
     "week": 1,
-    "topic": "uygulama-alanları",
+    "topic": "uygulama-alanlari",
     "type": "verbal",
     "tags": [
       "senaryo",
@@ -423,7 +423,7 @@
   {
     "id": "w1-v013",
     "week": 1,
-    "topic": "veri-madenciliği-algoritmaları",
+    "topic": "veri-madenciligi-algoritmalari",
     "type": "verbal",
     "tags": [
       "algoritmalar",
@@ -492,7 +492,7 @@
   {
     "id": "w1-v015",
     "week": 1,
-    "topic": "veri-ambarı",
+    "topic": "veri-ambari",
     "type": "verbal",
     "tags": [
       "veri-ambari",
@@ -561,7 +561,7 @@
   {
     "id": "w1-v017",
     "week": 1,
-    "topic": "veri-madenciliği-algoritmaları",
+    "topic": "veri-madenciligi-algoritmalari",
     "type": "verbal",
     "tags": [
       "algoritmalar",
@@ -597,7 +597,7 @@
   {
     "id": "w1-v018",
     "week": 1,
-    "topic": "veri-madenciliği-tarihçesi",
+    "topic": "veri-madenciligi-tarihcesi",
     "type": "verbal",
     "tags": [
       "tarihce",
@@ -666,7 +666,7 @@
   {
     "id": "w1-v020",
     "week": 1,
-    "topic": "kdd-süreci",
+    "topic": "kdd-sureci",
     "type": "verbal",
     "tags": [
       "veri-butunlestirme",
@@ -700,7 +700,7 @@
   {
     "id": "w1-v021",
     "week": 1,
-    "topic": "uygulama-alanları",
+    "topic": "uygulama-alanlari",
     "type": "verbal",
     "tags": [
       "saglik",
@@ -736,7 +736,7 @@
   {
     "id": "w1-v022",
     "week": 1,
-    "topic": "veri-madenciliği-algoritmaları",
+    "topic": "veri-madenciligi-algoritmalari",
     "type": "verbal",
     "tags": [
       "algoritmalar",
@@ -771,7 +771,7 @@
   {
     "id": "w1-v023",
     "week": 1,
-    "topic": "veri-madenciliği-tarihçesi",
+    "topic": "veri-madenciligi-tarihcesi",
     "type": "verbal",
     "tags": [
       "tarihce",
@@ -805,7 +805,7 @@
   {
     "id": "w1-v024",
     "week": 1,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "oruntu",
@@ -839,7 +839,7 @@
   {
     "id": "w1-v025",
     "week": 1,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "basit-sorgu",
@@ -873,7 +873,7 @@
   {
     "id": "w1-v026",
     "week": 1,
-    "topic": "veri-ambarı",
+    "topic": "veri-ambari",
     "type": "verbal",
     "tags": [
       "veri-ambari",
@@ -908,7 +908,7 @@
   {
     "id": "w1-v027",
     "week": 1,
-    "topic": "veri-madenciliği-algoritmaları",
+    "topic": "veri-madenciligi-algoritmalari",
     "type": "verbal",
     "tags": [
       "istisna-analizi",
@@ -942,7 +942,7 @@
   {
     "id": "w1-v028",
     "week": 1,
-    "topic": "kdd-süreci",
+    "topic": "kdd-sureci",
     "type": "verbal",
     "tags": [
       "bilgi-kesfi",
@@ -977,7 +977,7 @@
   {
     "id": "w1-v029",
     "week": 1,
-    "topic": "uygulama-alanları",
+    "topic": "uygulama-alanlari",
     "type": "verbal",
     "tags": [
       "web-madenciligi",
@@ -1011,7 +1011,7 @@
   {
     "id": "w1-v030",
     "week": 1,
-    "topic": "kdd-süreci",
+    "topic": "kdd-sureci",
     "type": "verbal",
     "tags": [
       "kdd",
@@ -1230,7 +1230,7 @@
   {
     "id": "w02-q006",
     "week": 2,
-    "topic": "pandas-veri-manipülasyonu",
+    "topic": "pandas-veri-manipulasyonu",
     "type": "code",
     "tags": [
       "head",
@@ -1265,7 +1265,7 @@
   {
     "id": "w02-q007",
     "week": 2,
-    "topic": "pandas-veri-manipülasyonu",
+    "topic": "pandas-veri-manipulasyonu",
     "type": "code",
     "tags": [
       "loc",
@@ -1304,7 +1304,7 @@
   {
     "id": "w02-q008",
     "week": 2,
-    "topic": "pandas-veri-manipülasyonu",
+    "topic": "pandas-veri-manipulasyonu",
     "type": "code",
     "tags": [
       "value_counts",
@@ -1343,7 +1343,7 @@
   {
     "id": "w02-q009",
     "week": 2,
-    "topic": "pandas-veri-manipülasyonu",
+    "topic": "pandas-veri-manipulasyonu",
     "type": "code",
     "tags": [
       "str",
@@ -1536,7 +1536,7 @@
   {
     "id": "w02-q016",
     "week": 2,
-    "topic": "pandas-veri-manipülasyonu",
+    "topic": "pandas-veri-manipulasyonu",
     "type": "code",
     "tags": [
       "isnull",
@@ -1611,7 +1611,7 @@
   {
     "id": "w02-q019",
     "week": 2,
-    "topic": "matplotlib-görselleştirme",
+    "topic": "matplotlib-gorsellestrirme",
     "type": "code",
     "tags": [
       "savefig",
@@ -1651,7 +1651,7 @@
   {
     "id": "w02-q020",
     "week": 2,
-    "topic": "matplotlib-görselleştirme",
+    "topic": "matplotlib-gorsellestrirme",
     "type": "code",
     "tags": [
       "subplots",
@@ -1691,7 +1691,7 @@
   {
     "id": "w02-q021",
     "week": 2,
-    "topic": "matplotlib-görselleştirme",
+    "topic": "matplotlib-gorsellestrirme",
     "type": "code",
     "tags": [
       "histogram",
@@ -1730,7 +1730,7 @@
   {
     "id": "w02-q023",
     "week": 2,
-    "topic": "matplotlib-görselleştirme",
+    "topic": "matplotlib-gorsellestrirme",
     "type": "code",
     "tags": [
       "pie",
@@ -1769,7 +1769,7 @@
   {
     "id": "w02-q024",
     "week": 2,
-    "topic": "veri-birleştirme",
+    "topic": "veri-birlestirme",
     "type": "code",
     "tags": [
       "concat",
@@ -1809,7 +1809,7 @@
   {
     "id": "w02-q025",
     "week": 2,
-    "topic": "veri-birleştirme",
+    "topic": "veri-birlestirme",
     "type": "code",
     "tags": [
       "merge",
@@ -1848,7 +1848,7 @@
   {
     "id": "w02-q027",
     "week": 2,
-    "topic": "veri-birleştirme",
+    "topic": "veri-birlestirme",
     "type": "code",
     "tags": [
       "concat",
@@ -1887,7 +1887,7 @@
   {
     "id": "w02-q028",
     "week": 2,
-    "topic": "veri-birleştirme",
+    "topic": "veri-birlestirme",
     "type": "code",
     "tags": [
       "concat",
@@ -1927,7 +1927,7 @@
   {
     "id": "w02-q029",
     "week": 2,
-    "topic": "veri-dönüşüm",
+    "topic": "veri-donusum",
     "type": "code",
     "tags": [
       "minmaxscaler",
@@ -1967,7 +1967,7 @@
   {
     "id": "w02-q031",
     "week": 2,
-    "topic": "veri-dönüşüm",
+    "topic": "veri-donusum",
     "type": "code",
     "tags": [
       "get_dummies",
@@ -2006,7 +2006,7 @@
   {
     "id": "w02-q032",
     "week": 2,
-    "topic": "veri-dönüşüm",
+    "topic": "veri-donusum",
     "type": "code",
     "tags": [
       "fit_transform",
@@ -2046,7 +2046,7 @@
   {
     "id": "w02-q034",
     "week": 2,
-    "topic": "gürültü-temizleme",
+    "topic": "gurultu-temizleme",
     "type": "code",
     "tags": [
       "rolling",
@@ -2086,7 +2086,7 @@
   {
     "id": "w02-q036",
     "week": 2,
-    "topic": "gürültü-temizleme",
+    "topic": "gurultu-temizleme",
     "type": "code",
     "tags": [
       "pd-cut",
@@ -2125,7 +2125,7 @@
   {
     "id": "w02-q038",
     "week": 2,
-    "topic": "gürültü-temizleme",
+    "topic": "gurultu-temizleme",
     "type": "code",
     "tags": [
       "linear-regression",
@@ -2169,7 +2169,7 @@
   {
     "id": "w03-q039",
     "week": 3,
-    "topic": "sınıflandırma-eda-bank",
+    "topic": "siniflandirma-eda-bank",
     "type": "code",
     "tags": [
       "describe",
@@ -2208,7 +2208,7 @@
   {
     "id": "w03-q040",
     "week": 3,
-    "topic": "sınıflandırma-eda-bank",
+    "topic": "siniflandirma-eda-bank",
     "type": "code",
     "tags": [
       "value_counts",
@@ -2247,7 +2247,7 @@
   {
     "id": "w03-q041",
     "week": 3,
-    "topic": "sınıflandırma-eda-bank",
+    "topic": "siniflandirma-eda-bank",
     "type": "code",
     "tags": [
       "map",
@@ -2287,7 +2287,7 @@
   {
     "id": "w03-q042",
     "week": 3,
-    "topic": "sınıflandırma-eda-bank",
+    "topic": "siniflandirma-eda-bank",
     "type": "code",
     "tags": [
       "log1p",
@@ -2327,7 +2327,7 @@
   {
     "id": "w03-q044",
     "week": 3,
-    "topic": "sınıflandırma-eda-adult",
+    "topic": "siniflandirma-eda-adult",
     "type": "code",
     "tags": [
       "read_csv",
@@ -2366,7 +2366,7 @@
   {
     "id": "w03-q045",
     "week": 3,
-    "topic": "sınıflandırma-eda-adult",
+    "topic": "siniflandirma-eda-adult",
     "type": "code",
     "tags": [
       "missing-value",
@@ -2406,7 +2406,7 @@
   {
     "id": "w03-q046",
     "week": 3,
-    "topic": "sınıflandırma-eda-adult",
+    "topic": "siniflandirma-eda-adult",
     "type": "code",
     "tags": [
       "crosstab",
@@ -2445,7 +2445,7 @@
   {
     "id": "w03-q048",
     "week": 3,
-    "topic": "sınıflandırma-eda-adult",
+    "topic": "siniflandirma-eda-adult",
     "type": "code",
     "tags": [
       "lambda",
@@ -2489,7 +2489,7 @@
   {
     "id": "w2-v001",
     "week": 2,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "boyut",
@@ -2528,7 +2528,7 @@
   {
     "id": "w2-v002",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "on-isleme",
@@ -2563,7 +2563,7 @@
   {
     "id": "w2-v003",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "nan",
@@ -2602,7 +2602,7 @@
   {
     "id": "w2-v004",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "senaryo",
@@ -2637,7 +2637,7 @@
   {
     "id": "w2-v005",
     "week": 2,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "veri-turleri",
@@ -2672,7 +2672,7 @@
   {
     "id": "w2-v006",
     "week": 2,
-    "topic": "veri-dönüşümü-ve-encoding",
+    "topic": "veri-donusumu-ve-encoding",
     "type": "verbal",
     "tags": [
       "normalizasyon",
@@ -2706,7 +2706,7 @@
   {
     "id": "w2-v007",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "binning",
@@ -2741,7 +2741,7 @@
   {
     "id": "w2-v008",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "hareketli-ortalama",
@@ -2775,7 +2775,7 @@
   {
     "id": "w2-v009",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "veri-birlestirme",
@@ -2810,7 +2810,7 @@
   {
     "id": "w2-v010",
     "week": 2,
-    "topic": "veri-dönüşümü-ve-encoding",
+    "topic": "veri-donusumu-ve-encoding",
     "type": "verbal",
     "tags": [
       "encoding",
@@ -2846,7 +2846,7 @@
   {
     "id": "w2-v011",
     "week": 2,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "ortam",
@@ -2881,7 +2881,7 @@
   {
     "id": "w2-v012",
     "week": 2,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "veri-turleri",
@@ -2920,7 +2920,7 @@
   {
     "id": "w2-v013",
     "week": 2,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "pandas",
@@ -2955,7 +2955,7 @@
   {
     "id": "w2-v014",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "eksik-veri",
@@ -2990,7 +2990,7 @@
   {
     "id": "w2-v015",
     "week": 2,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "nominal-veri",
@@ -3025,7 +3025,7 @@
   {
     "id": "w2-v016",
     "week": 2,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "ordinal-veri",
@@ -3060,7 +3060,7 @@
   {
     "id": "w2-v017",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "veri-birlestirme",
@@ -3099,7 +3099,7 @@
   {
     "id": "w2-v018",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "hareketli-ortalama",
@@ -3134,7 +3134,7 @@
   {
     "id": "w2-v019",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "egri-uydurma",
@@ -3169,7 +3169,7 @@
   {
     "id": "w2-v020",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "veri-birlestirme",
@@ -3204,7 +3204,7 @@
   {
     "id": "w2-v021",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "tutarsiz-veri",
@@ -3238,7 +3238,7 @@
   {
     "id": "w2-v022",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "eksik-veri",
@@ -3273,7 +3273,7 @@
   {
     "id": "w2-v023",
     "week": 2,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "veri-boyutu",
@@ -3307,7 +3307,7 @@
   {
     "id": "w2-v024",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "gigo",
@@ -3341,7 +3341,7 @@
   {
     "id": "w2-v025",
     "week": 2,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "csv",
@@ -3376,7 +3376,7 @@
   {
     "id": "w2-v026",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "regresyon",
@@ -3415,7 +3415,7 @@
   {
     "id": "w2-v027",
     "week": 2,
-    "topic": "veri-dönüşümü-ve-encoding",
+    "topic": "veri-donusumu-ve-encoding",
     "type": "verbal",
     "tags": [
       "normalizasyon",
@@ -3450,7 +3450,7 @@
   {
     "id": "w2-v028",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "eksik-veri",
@@ -3485,7 +3485,7 @@
   {
     "id": "w2-v029",
     "week": 2,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "kutuphaneler",
@@ -3524,7 +3524,7 @@
   {
     "id": "w2-v030",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "tutarsiz-veri",
@@ -3558,7 +3558,7 @@
   {
     "id": "w2-v031",
     "week": 2,
-    "topic": "veri-dönüşümü-ve-encoding",
+    "topic": "veri-donusumu-ve-encoding",
     "type": "verbal",
     "tags": [
       "encoding",
@@ -3593,7 +3593,7 @@
   {
     "id": "w2-v032",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "veri-birlestirme",
@@ -3628,7 +3628,7 @@
   {
     "id": "w2-v033",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "eksik-veri",
@@ -3663,7 +3663,7 @@
   {
     "id": "w2-v034",
     "week": 2,
-    "topic": "eksik-veri-ve-ön-işleme",
+    "topic": "eksik-veri-ve-on-isleme",
     "type": "verbal",
     "tags": [
       "gurultulu-veri",
@@ -3697,7 +3697,7 @@
   {
     "id": "w2-v035",
     "week": 2,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "nitelik",
@@ -3803,7 +3803,7 @@
   {
     "id": "w02-q303",
     "week": 2,
-    "topic": "pandas-veri-manipülasyonu",
+    "topic": "pandas-veri-manipulasyonu",
     "type": "code",
     "tags": [
       "ram",
@@ -3875,7 +3875,7 @@
   {
     "id": "w02-q305",
     "week": 2,
-    "topic": "veri-dönüşüm",
+    "topic": "veri-donusum",
     "type": "code",
     "tags": [
       "minmax",
@@ -3910,7 +3910,7 @@
   {
     "id": "w02-q306",
     "week": 2,
-    "topic": "veri-dönüşüm",
+    "topic": "veri-donusum",
     "type": "code",
     "tags": [
       "encoding",
@@ -3949,7 +3949,7 @@
   {
     "id": "w02-q307",
     "week": 2,
-    "topic": "veri-birleştirme",
+    "topic": "veri-birlestirme",
     "type": "code",
     "tags": [
       "concat",
@@ -3989,7 +3989,7 @@
   {
     "id": "w02-q308",
     "week": 2,
-    "topic": "matplotlib-görselleştirme",
+    "topic": "matplotlib-gorsellestrirme",
     "type": "code",
     "tags": [
       "matplotlib",
@@ -4130,7 +4130,7 @@
   {
     "id": "w3-v004",
     "week": 3,
-    "topic": "veri-ön-işleme",
+    "topic": "veri-on-isleme",
     "type": "verbal",
     "tags": [
       "kategorik-veri",
@@ -4200,7 +4200,7 @@
   {
     "id": "w3-v006",
     "week": 3,
-    "topic": "sınıf-dengesizliği",
+    "topic": "sinif-dengesizligi",
     "type": "verbal",
     "tags": [
       "class-imbalance",
@@ -4235,7 +4235,7 @@
   {
     "id": "w3-v007",
     "week": 3,
-    "topic": "veri-sızıntısı",
+    "topic": "veri-sizintisi",
     "type": "verbal",
     "tags": [
       "data-leakage",
@@ -4270,7 +4270,7 @@
   {
     "id": "w3-v008",
     "week": 3,
-    "topic": "aykırı-değerler",
+    "topic": "aykiri-degerler",
     "type": "verbal",
     "tags": [
       "outlier",
@@ -4340,7 +4340,7 @@
   {
     "id": "w3-v010",
     "week": 3,
-    "topic": "özellik-seçimi",
+    "topic": "ozellik-secimi",
     "type": "verbal",
     "tags": [
       "feature-redundancy",
@@ -4375,7 +4375,7 @@
   {
     "id": "w3-v011",
     "week": 3,
-    "topic": "veri-dönüşümü",
+    "topic": "veri-donusumu",
     "type": "verbal",
     "tags": [
       "saga-carpiklik",
@@ -4410,7 +4410,7 @@
   {
     "id": "w3-v012",
     "week": 3,
-    "topic": "veri-dönüşümü",
+    "topic": "veri-donusumu",
     "type": "verbal",
     "tags": [
       "target-encode",
@@ -4445,7 +4445,7 @@
   {
     "id": "w3-v013",
     "week": 3,
-    "topic": "eda-türleri",
+    "topic": "eda-turleri",
     "type": "verbal",
     "tags": [
       "univariate",
@@ -4480,7 +4480,7 @@
   {
     "id": "w3-v014",
     "week": 3,
-    "topic": "eda-türleri",
+    "topic": "eda-turleri",
     "type": "verbal",
     "tags": [
       "bivariate",
@@ -4515,7 +4515,7 @@
   {
     "id": "w3-v015",
     "week": 3,
-    "topic": "model-seçimi",
+    "topic": "model-secimi",
     "type": "verbal",
     "tags": [
       "algoritma",
@@ -4550,7 +4550,7 @@
   {
     "id": "w3-v016",
     "week": 3,
-    "topic": "karşılaştırma",
+    "topic": "karsilastirma",
     "type": "verbal",
     "tags": [
       "bank-marketing",
@@ -4620,7 +4620,7 @@
   {
     "id": "w3-v018",
     "week": 3,
-    "topic": "eda-türleri",
+    "topic": "eda-turleri",
     "type": "verbal",
     "tags": [
       "multivariate",
@@ -4690,7 +4690,7 @@
   {
     "id": "w3-v020",
     "week": 3,
-    "topic": "sınıf-dengesizliği",
+    "topic": "sinif-dengesizligi",
     "type": "verbal",
     "tags": [
       "normalize",
@@ -4725,7 +4725,7 @@
   {
     "id": "w3-v021",
     "week": 3,
-    "topic": "veri-yükleme",
+    "topic": "veri-yukleme",
     "type": "verbal",
     "tags": [
       "sutun-isimleri",
@@ -4760,7 +4760,7 @@
   {
     "id": "w3-v022",
     "week": 3,
-    "topic": "aykırı-değerler",
+    "topic": "aykiri-degerler",
     "type": "verbal",
     "tags": [
       "outlier",
@@ -4795,7 +4795,7 @@
   {
     "id": "w3-v023",
     "week": 3,
-    "topic": "model-seçimi",
+    "topic": "model-secimi",
     "type": "verbal",
     "tags": [
       "random-forest",
@@ -4865,7 +4865,7 @@
   {
     "id": "w3-v025",
     "week": 3,
-    "topic": "karşılaştırma",
+    "topic": "karsilastirma",
     "type": "verbal",
     "tags": [
       "adult-income",
@@ -4900,7 +4900,7 @@
   {
     "id": "w3-v026",
     "week": 3,
-    "topic": "veri-sızıntısı",
+    "topic": "veri-sizintisi",
     "type": "verbal",
     "tags": [
       "data-leakage",
@@ -4935,7 +4935,7 @@
   {
     "id": "w3-v027",
     "week": 3,
-    "topic": "özellik-seçimi",
+    "topic": "ozellik-secimi",
     "type": "verbal",
     "tags": [
       "feature-redundancy",
@@ -5005,7 +5005,7 @@
   {
     "id": "w3-v029",
     "week": 3,
-    "topic": "model-seçimi",
+    "topic": "model-secimi",
     "type": "verbal",
     "tags": [
       "xgboost",
@@ -5110,7 +5110,7 @@
   {
     "id": "w3-v032",
     "week": 3,
-    "topic": "eda-türleri",
+    "topic": "eda-turleri",
     "type": "verbal",
     "tags": [
       "bivariate",
@@ -5145,7 +5145,7 @@
   {
     "id": "w3-v033",
     "week": 3,
-    "topic": "karşılaştırma",
+    "topic": "karsilastirma",
     "type": "verbal",
     "tags": [
       "adult-income",
@@ -5180,7 +5180,7 @@
   {
     "id": "w3-v034",
     "week": 3,
-    "topic": "sınıf-dengesizliği",
+    "topic": "sinif-dengesizligi",
     "type": "verbal",
     "tags": [
       "class-imbalance",
@@ -5250,7 +5250,7 @@
   {
     "id": "w3-v036",
     "week": 3,
-    "topic": "aykırı-değerler",
+    "topic": "aykiri-degerler",
     "type": "verbal",
     "tags": [
       "outlier",
@@ -5390,7 +5390,7 @@
   {
     "id": "w3-v040",
     "week": 3,
-    "topic": "model-seçimi",
+    "topic": "model-secimi",
     "type": "verbal",
     "tags": [
       "logistic-regression",
@@ -5460,7 +5460,7 @@
   {
     "id": "w3-v042",
     "week": 3,
-    "topic": "eda-türleri",
+    "topic": "eda-turleri",
     "type": "verbal",
     "tags": [
       "univariate",
@@ -5495,7 +5495,7 @@
   {
     "id": "w03-q301",
     "week": 3,
-    "topic": "sınıflandırma-eda-bank",
+    "topic": "siniflandirma-eda-bank",
     "type": "code",
     "tags": [
       "read_csv",
@@ -5531,7 +5531,7 @@
   {
     "id": "w03-q302",
     "week": 3,
-    "topic": "sınıflandırma-eda-adult",
+    "topic": "siniflandirma-eda-adult",
     "type": "code",
     "tags": [
       "header",
@@ -5567,7 +5567,7 @@
   {
     "id": "w03-q303",
     "week": 3,
-    "topic": "sınıflandırma-eda-bank",
+    "topic": "siniflandirma-eda-bank",
     "type": "code",
     "tags": [
       "value_counts",
@@ -5602,7 +5602,7 @@
   {
     "id": "w03-q304",
     "week": 3,
-    "topic": "sınıflandırma-eda-adult",
+    "topic": "siniflandirma-eda-adult",
     "type": "code",
     "tags": [
       "info",
@@ -5638,7 +5638,7 @@
   {
     "id": "w03-q305",
     "week": 3,
-    "topic": "sınıflandırma-eda-bank",
+    "topic": "siniflandirma-eda-bank",
     "type": "code",
     "tags": [
       "describe",
@@ -5673,7 +5673,7 @@
   {
     "id": "w03-q306",
     "week": 3,
-    "topic": "sınıflandırma-eda-bank",
+    "topic": "siniflandirma-eda-bank",
     "type": "code",
     "tags": [
       "log",
@@ -5709,7 +5709,7 @@
   {
     "id": "w03-q307",
     "week": 3,
-    "topic": "sınıflandırma-eda-bank",
+    "topic": "siniflandirma-eda-bank",
     "type": "code",
     "tags": [
       "savefig",
@@ -5744,7 +5744,7 @@
   {
     "id": "w03-q308",
     "week": 3,
-    "topic": "sınıflandırma-eda-bank",
+    "topic": "siniflandirma-eda-bank",
     "type": "code",
     "tags": [
       "ram",
@@ -5780,7 +5780,7 @@
   {
     "id": "w03-q309",
     "week": 3,
-    "topic": "sınıflandırma-eda-adult",
+    "topic": "siniflandirma-eda-adult",
     "type": "code",
     "tags": [
       "keyerror",
@@ -5815,7 +5815,7 @@
   {
     "id": "w03-q310",
     "week": 3,
-    "topic": "sınıflandırma-eda-bank",
+    "topic": "siniflandirma-eda-bank",
     "type": "code",
     "tags": [
       "data-leakage",
@@ -5850,7 +5850,7 @@
   {
     "id": "w04-q001",
     "week": 4,
-    "topic": "karar-ağacı-adult",
+    "topic": "karar-agaci-adult",
     "type": "code",
     "tags": [
       "read_csv",
@@ -5886,7 +5886,7 @@
   {
     "id": "w04-q002",
     "week": 4,
-    "topic": "karar-ağacı-adult",
+    "topic": "karar-agaci-adult",
     "type": "code",
     "tags": [
       "missing",
@@ -5922,7 +5922,7 @@
   {
     "id": "w04-q004",
     "week": 4,
-    "topic": "karar-ağacı-adult",
+    "topic": "karar-agaci-adult",
     "type": "code",
     "tags": [
       "lambda",
@@ -5958,7 +5958,7 @@
   {
     "id": "w04-q005",
     "week": 4,
-    "topic": "karar-ağacı-adult",
+    "topic": "karar-agaci-adult",
     "type": "code",
     "tags": [
       "encoding",
@@ -5993,7 +5993,7 @@
   {
     "id": "w04-q007",
     "week": 4,
-    "topic": "karar-ağacı-adult",
+    "topic": "karar-agaci-adult",
     "type": "code",
     "tags": [
       "train_test_split",
@@ -6028,7 +6028,7 @@
   {
     "id": "w04-q009",
     "week": 4,
-    "topic": "karar-ağacı-adult",
+    "topic": "karar-agaci-adult",
     "type": "code",
     "tags": [
       "fit",
@@ -6063,7 +6063,7 @@
   {
     "id": "w04-q010",
     "week": 4,
-    "topic": "karar-ağacı-adult",
+    "topic": "karar-agaci-adult",
     "type": "code",
     "tags": [
       "plot_tree",
@@ -6098,7 +6098,7 @@
   {
     "id": "w04-q012",
     "week": 4,
-    "topic": "karar-ağacı-adult",
+    "topic": "karar-agaci-adult",
     "type": "code",
     "tags": [
       "confusion-matrix",
@@ -6133,7 +6133,7 @@
   {
     "id": "w04-q013",
     "week": 4,
-    "topic": "karar-ağacı-adult",
+    "topic": "karar-agaci-adult",
     "type": "code",
     "tags": [
       "reindex",
@@ -6203,7 +6203,7 @@
   {
     "id": "w4-v003",
     "week": 4,
-    "topic": "gerçek-hayat-uygulamaları",
+    "topic": "gercek-hayat-uygulamalari",
     "type": "verbal",
     "tags": [
       "sepet-analizi",
@@ -6238,7 +6238,7 @@
   {
     "id": "w4-v004",
     "week": 4,
-    "topic": "makine-öğrenmesi-türleri",
+    "topic": "makine-ogrenmesi-turleri",
     "type": "verbal",
     "tags": [
       "denetimli-ogrenme",
@@ -6273,7 +6273,7 @@
   {
     "id": "w4-v005",
     "week": 4,
-    "topic": "algoritma-sınıflandırması",
+    "topic": "algoritma-siniflandirmasi",
     "type": "verbal",
     "tags": [
       "regresyon",
@@ -6308,7 +6308,7 @@
   {
     "id": "w4-v006",
     "week": 4,
-    "topic": "denetimsiz-öğrenme",
+    "topic": "denetimsiz-ogrenme",
     "type": "verbal",
     "tags": [
       "kumeleme",
@@ -6343,7 +6343,7 @@
   {
     "id": "w4-v007",
     "week": 4,
-    "topic": "karar-ağaçları-yapısı",
+    "topic": "karar-agaclari-yapisi",
     "type": "verbal",
     "tags": [
       "karar-agaci",
@@ -6378,7 +6378,7 @@
   {
     "id": "w4-v008",
     "week": 4,
-    "topic": "karar-ağaçları-avantajları",
+    "topic": "karar-agaclari-avantajlari",
     "type": "verbal",
     "tags": [
       "karar-agaci",
@@ -6413,7 +6413,7 @@
   {
     "id": "w4-v009",
     "week": 4,
-    "topic": "overfitting-kavramı",
+    "topic": "overfitting-kavrami",
     "type": "verbal",
     "tags": [
       "overfitting",
@@ -6448,7 +6448,7 @@
   {
     "id": "w4-v010",
     "week": 4,
-    "topic": "overfitting-çözümü",
+    "topic": "overfitting-cozumu",
     "type": "verbal",
     "tags": [
       "random-forest",
@@ -6518,7 +6518,7 @@
   {
     "id": "w4-v012",
     "week": 4,
-    "topic": "karar-ağacı-ölçütleri",
+    "topic": "karar-agaci-olcutleri",
     "type": "verbal",
     "tags": [
       "entropy",
@@ -6553,7 +6553,7 @@
   {
     "id": "w4-v013",
     "week": 4,
-    "topic": "entropy-kavramı",
+    "topic": "entropy-kavrami",
     "type": "verbal",
     "tags": [
       "entropy",
@@ -6586,7 +6586,7 @@
     ]
   },
   {
-    "topic": "kök-düğüm-seçimi",
+    "topic": "kok-dugum-secimi",
     "type": "verbal",
     "tags": [
       "karar-agaci",
@@ -6658,7 +6658,7 @@
   {
     "id": "w4-v016",
     "week": 4,
-    "topic": "train-test-ayrımı",
+    "topic": "train-test-ayrimi",
     "type": "verbal",
     "tags": [
       "veri-ayrimi",
@@ -6763,7 +6763,7 @@
   {
     "id": "w4-v019",
     "week": 4,
-    "topic": "kod-mantığı-fit",
+    "topic": "kod-mantigi-fit",
     "type": "verbal",
     "tags": [
       "python",
@@ -6798,7 +6798,7 @@
   {
     "id": "w4-v020",
     "week": 4,
-    "topic": "kod-mantığı-predict",
+    "topic": "kod-mantigi-predict",
     "type": "verbal",
     "tags": [
       "python",
@@ -6833,7 +6833,7 @@
   {
     "id": "w4-v022",
     "week": 4,
-    "topic": "karar-ağacı-durma-kriteri",
+    "topic": "karar-agaci-durma-kriteri",
     "type": "verbal",
     "tags": [
       "karar-agaci",
@@ -6868,7 +6868,7 @@
   {
     "id": "w4-v023",
     "week": 4,
-    "topic": "veri-ön-işleme-eda",
+    "topic": "veri-on-isleme-eda",
     "type": "verbal",
     "tags": [
       "eda",
@@ -6973,7 +6973,7 @@
   {
     "id": "w4-v026",
     "week": 4,
-    "topic": "sınıflandırma-algoritmaları-listesi",
+    "topic": "siniflandirma-algoritmalari-listesi",
     "type": "verbal",
     "tags": [
       "siniflandirma",
@@ -7008,7 +7008,7 @@
   {
     "id": "w4-v027",
     "week": 4,
-    "topic": "denetimsiz-öğrenme-amacı",
+    "topic": "denetimsiz-ogrenme-amaci",
     "type": "verbal",
     "tags": [
       "denetimsiz-ogrenme",
@@ -7043,7 +7043,7 @@
   {
     "id": "w4-v028",
     "week": 4,
-    "topic": "x-ve-y-ayrımı",
+    "topic": "x-ve-y-ayrimi",
     "type": "verbal",
     "tags": [
       "girdi",
@@ -7078,7 +7078,7 @@
   {
     "id": "w4-v029",
     "week": 4,
-    "topic": "çocuk-soba-analojisi",
+    "topic": "cocuk-soba-analojisi",
     "type": "verbal",
     "tags": [
       "analoji",
@@ -7113,7 +7113,7 @@
   {
     "id": "w4-v030",
     "week": 4,
-    "topic": "karar-ağacı-yaprak-düğüm",
+    "topic": "karar-agaci-yaprak-dugum",
     "type": "verbal",
     "tags": [
       "yaprak",
@@ -7148,7 +7148,7 @@
   {
     "id": "w4-v031",
     "week": 4,
-    "topic": "regresyon-algoritmaları",
+    "topic": "regresyon-algoritmalari",
     "type": "verbal",
     "tags": [
       "regresyon",
@@ -7183,7 +7183,7 @@
   {
     "id": "w4-v032",
     "week": 4,
-    "topic": "kümeleme-algoritmaları",
+    "topic": "kumeleme-algoritmalari",
     "type": "verbal",
     "tags": [
       "kumeleme",
@@ -7218,7 +7218,7 @@
   {
     "id": "w4-v033",
     "week": 4,
-    "topic": "pipeline-sıralaması",
+    "topic": "pipeline-siralamasi",
     "type": "verbal",
     "tags": [
       "pipeline",
@@ -7253,7 +7253,7 @@
   {
     "id": "w4-v034",
     "week": 4,
-    "topic": "birliktelik-kuralları",
+    "topic": "birliktelik-kurallari",
     "type": "verbal",
     "tags": [
       "apriori",
@@ -7288,7 +7288,7 @@
   {
     "id": "w4-v036",
     "week": 4,
-    "topic": "karar-ağacı-yorumlama",
+    "topic": "karar-agaci-yorumlama",
     "type": "verbal",
     "tags": [
       "gorsellestirme",
@@ -7358,7 +7358,7 @@
   {
     "id": "w4-v039",
     "week": 4,
-    "topic": "değerlendirme-metrikleri",
+    "topic": "degerlendirme-metrikleri",
     "type": "verbal",
     "tags": [
       "metrik",
@@ -7498,7 +7498,7 @@
   {
     "id": "w5-v003",
     "week": 5,
-    "topic": "majority-voting-kavramı",
+    "topic": "majority-voting-kavrami",
     "type": "verbal",
     "tags": [
       "majority-voting",
@@ -7533,7 +7533,7 @@
   {
     "id": "w5-v004",
     "week": 5,
-    "topic": "random-forest-veri-çeşitliliği",
+    "topic": "random-forest-veri-cesitliligi",
     "type": "verbal",
     "tags": [
       "veri-cesitliligi",
@@ -7568,7 +7568,7 @@
   {
     "id": "w5-v005",
     "week": 5,
-    "topic": "model-değerlendirme-accuracy",
+    "topic": "model-degerlendirme-accuracy",
     "type": "verbal",
     "tags": [
       "accuracy",
@@ -7640,7 +7640,7 @@
   {
     "id": "w5-v007",
     "week": 5,
-    "topic": "model-başarısı-yorumlama",
+    "topic": "model-basarisi-yorumlama",
     "type": "verbal",
     "tags": [
       "accuracy",
@@ -7816,7 +7816,7 @@
   {
     "id": "w5-v012",
     "week": 5,
-    "topic": "knn-k-değeri-seçimi",
+    "topic": "knn-k-degeri-secimi",
     "type": "verbal",
     "tags": [
       "knn",
@@ -7851,7 +7851,7 @@
   {
     "id": "w5-v013",
     "week": 5,
-    "topic": "knn-k-değeri-tek-sayı",
+    "topic": "knn-k-degeri-tek-sayi",
     "type": "verbal",
     "tags": [
       "knn",
@@ -7886,7 +7886,7 @@
   {
     "id": "w5-v014",
     "week": 5,
-    "topic": "knn-ölçekleme-zorunluluğu",
+    "topic": "knn-olcekleme-zorunlulugu",
     "type": "verbal",
     "tags": [
       "knn",
@@ -7921,7 +7921,7 @@
   {
     "id": "w5-v015",
     "week": 5,
-    "topic": "algoritma-karşılaştırma-dt-knn",
+    "topic": "algoritma-karsilastirma-dt-knn",
     "type": "verbal",
     "tags": [
       "karsilastirma",
@@ -7957,7 +7957,7 @@
   {
     "id": "w5-v016",
     "week": 5,
-    "topic": "algoritma-seçimi-senaryo",
+    "topic": "algoritma-secimi-senaryo",
     "type": "verbal",
     "tags": [
       "algoritma-secimi",
@@ -7992,7 +7992,7 @@
   {
     "id": "w5-v017",
     "week": 5,
-    "topic": "veri-sızıntısı-ve-ölçekleme",
+    "topic": "veri-sizintisi-ve-olcekleme",
     "type": "verbal",
     "tags": [
       "veri-sizintisi",
@@ -8028,7 +8028,7 @@
   {
     "id": "w5-v018",
     "week": 5,
-    "topic": "confusion-matrix-kavramı",
+    "topic": "confusion-matrix-kavrami",
     "type": "verbal",
     "tags": [
       "confusion-matrix",
@@ -8063,7 +8063,7 @@
   {
     "id": "w5-v019",
     "week": 5,
-    "topic": "knn-ve-karar-ağacı-yorumlama",
+    "topic": "knn-ve-karar-agaci-yorumlama",
     "type": "verbal",
     "tags": [
       "yorumlanabilirlik",
@@ -8098,7 +8098,7 @@
   {
     "id": "w5-v020",
     "week": 5,
-    "topic": "random-forest-adımlar",
+    "topic": "random-forest-adimlar",
     "type": "verbal",
     "tags": [
       "random-forest",
@@ -8132,7 +8132,7 @@
   {
     "id": "w5-v021",
     "week": 5,
-    "topic": "knn-kullanım-senaryoları",
+    "topic": "knn-kullanim-senaryolari",
     "type": "verbal",
     "tags": [
       "knn",
@@ -8167,7 +8167,7 @@
   {
     "id": "w5-v022",
     "week": 5,
-    "topic": "random-forest-ve-paralel-işlem",
+    "topic": "random-forest-ve-paralel-islem",
     "type": "verbal",
     "tags": [
       "n-jobs",
@@ -8202,7 +8202,7 @@
   {
     "id": "w5-v023",
     "week": 5,
-    "topic": "random-forest-ve-dt-farkı",
+    "topic": "random-forest-ve-dt-farki",
     "type": "verbal",
     "tags": [
       "karar-agaci",
@@ -8273,7 +8273,7 @@
   {
     "id": "w5-v025",
     "week": 5,
-    "topic": "knn-minkowski-varsayılan",
+    "topic": "knn-minkowski-varsayilan",
     "type": "verbal",
     "tags": [
       "knn",
@@ -8308,7 +8308,7 @@
   {
     "id": "w5-v026",
     "week": 5,
-    "topic": "knn-temel-mantık",
+    "topic": "knn-temel-mantik",
     "type": "verbal",
     "tags": [
       "knn",
@@ -8343,7 +8343,7 @@
   {
     "id": "w5-v027",
     "week": 5,
-    "topic": "öğrenme-vs-ezberleme",
+    "topic": "ogrenme-vs-ezberleme",
     "type": "verbal",
     "tags": [
       "ogrenme",
@@ -8378,7 +8378,7 @@
   {
     "id": "w5-v028",
     "week": 5,
-    "topic": "algoritma-seçimi-knn-dezavantaj",
+    "topic": "algoritma-secimi-knn-dezavantaj",
     "type": "verbal",
     "tags": [
       "knn",
@@ -8413,7 +8413,7 @@
   {
     "id": "w5-v029",
     "week": 5,
-    "topic": "knn-ve-ölçekleme-farkı",
+    "topic": "knn-ve-ölcekleme-farki",
     "type": "verbal",
     "tags": [
       "decision-tree",
@@ -8448,7 +8448,7 @@
   {
     "id": "w5-v030",
     "week": 5,
-    "topic": "random-forest-avantajları",
+    "topic": "random-forest-avantajlari",
     "type": "verbal",
     "tags": [
       "random-forest",
@@ -8483,7 +8483,7 @@
   {
     "id": "w5-v031",
     "week": 5,
-    "topic": "knn-büyük-k-değeri",
+    "topic": "knn-büyük-k-degeri",
     "type": "verbal",
     "tags": [
       "knn",
@@ -8553,7 +8553,7 @@
   {
     "id": "w5-v033",
     "week": 5,
-    "topic": "dt-vs-rf-yapı",
+    "topic": "dt-vs-rf-yapi",
     "type": "verbal",
     "tags": [
       "karar-agaci",
@@ -8588,7 +8588,7 @@
   {
     "id": "w5-v034",
     "week": 5,
-    "topic": "knn-kullanım-amacı",
+    "topic": "knn-kullanim-amaci",
     "type": "verbal",
     "tags": [
       "knn",
@@ -8623,7 +8623,7 @@
   {
     "id": "w5-v035",
     "week": 5,
-    "topic": "random-forest-ve-bankacılık",
+    "topic": "random-forest-ve-bankacilik",
     "type": "verbal",
     "tags": [
       "random-forest",
@@ -8693,7 +8693,7 @@
   {
     "id": "w5-v037",
     "week": 5,
-    "topic": "overfitting-sınırda",
+    "topic": "overfitting-sinirda",
     "type": "verbal",
     "tags": [
       "overfitting",
@@ -8728,7 +8728,7 @@
   {
     "id": "w5-v038",
     "week": 5,
-    "topic": "random-forest-ağaç-sayısı",
+    "topic": "random-forest-agac-sayisi",
     "type": "verbal",
     "tags": [
       "random-forest",
@@ -8828,7 +8828,7 @@
   {
     "id": "w05-q001",
     "week": 5,
-    "topic": "veri-ön-işleme",
+    "topic": "veri-on-isleme",
     "type": "code",
     "tags": [
       "train_test_split",
@@ -8898,7 +8898,7 @@
   {
     "id": "w05-q003",
     "week": 5,
-    "topic": "veri-dönüşümü",
+    "topic": "veri-donusumu",
     "type": "code",
     "tags": [
       "get_dummies",
@@ -8933,7 +8933,7 @@
   {
     "id": "w05-q004",
     "week": 5,
-    "topic": "veri-dönüşümü",
+    "topic": "veri-donusumu",
     "type": "code",
     "tags": [
       "lambda",
@@ -8968,7 +8968,7 @@
   {
     "id": "w05-q005",
     "week": 5,
-    "topic": "model-değerlendirme",
+    "topic": "model-degerlendirme",
     "type": "code",
     "tags": [
       "confusion_matrix",
@@ -9003,7 +9003,7 @@
   {
     "id": "w05-q006",
     "week": 5,
-    "topic": "model-değerlendirme",
+    "topic": "model-degerlendirme",
     "type": "code",
     "tags": [
       "classification_report",
@@ -9037,7 +9037,7 @@
   {
     "id": "w05-q007",
     "week": 5,
-    "topic": "veri-ölçeklendirme",
+    "topic": "veri-olceklendirme",
     "type": "code",
     "tags": [
       "scaler",
@@ -9073,7 +9073,7 @@
   {
     "id": "w05-q008",
     "week": 5,
-    "topic": "veri-ölçeklendirme",
+    "topic": "veri-olceklendirme",
     "type": "code",
     "tags": [
       "knn",
@@ -9178,7 +9178,7 @@
   {
     "id": "w05-q012",
     "week": 5,
-    "topic": "karar-ağacı",
+    "topic": "karar-agaci",
     "type": "code",
     "tags": [
       "DecisionTreeClassifier",
@@ -9213,7 +9213,7 @@
   {
     "id": "w05-q013",
     "week": 5,
-    "topic": "karar-ağacı",
+    "topic": "karar-agaci",
     "type": "code",
     "tags": [
       "max_depth",
@@ -9248,7 +9248,7 @@
   {
     "id": "w05-q014",
     "week": 5,
-    "topic": "karar-ağacı",
+    "topic": "karar-agaci",
     "type": "code",
     "tags": [
       "max_depth",
@@ -9419,7 +9419,7 @@
   {
     "id": "w05-q020",
     "week": 5,
-    "topic": "veri-hazırlığı",
+    "topic": "veri-hazirligi",
     "type": "code",
     "tags": [
       "drop",
@@ -9454,7 +9454,7 @@
   {
     "id": "w05-q021",
     "week": 5,
-    "topic": "görselleştirme",
+    "topic": "gorsellestirme",
     "type": "code",
     "tags": [
       "plot_tree",
@@ -9558,7 +9558,7 @@
   {
     "id": "w05-q024",
     "week": 5,
-    "topic": "model-değerlendirme",
+    "topic": "model-degerlendirme",
     "type": "code",
     "tags": [
       "accuracy_score",
@@ -9592,7 +9592,7 @@
   {
     "id": "w05-q025",
     "week": 5,
-    "topic": "modelleme-karşılaştırması",
+    "topic": "modelleme-karsilastirmasi",
     "type": "code",
     "tags": [
       "random_forest",
@@ -9661,7 +9661,7 @@
   {
     "id": "w05-q028",
     "week": 5,
-    "topic": "görselleştirme",
+    "topic": "gorsellestirme",
     "type": "code",
     "tags": [
       "heatmap",
@@ -9696,7 +9696,7 @@
   {
     "id": "w05-q029",
     "week": 5,
-    "topic": "veri-ölçeklendirme",
+    "topic": "veri-olceklendirme",
     "type": "code",
     "tags": [
       "StandardScaler",
@@ -9731,7 +9731,7 @@
   {
     "id": "w05-q031",
     "week": 5,
-    "topic": "karar-ağacı",
+    "topic": "karar-agaci",
     "type": "code",
     "tags": [
       "decision_tree",
@@ -9766,7 +9766,7 @@
   {
     "id": "w6-v001",
     "week": 6,
-    "topic": "kümeleme-temel-kavramlar",
+    "topic": "kumeleme-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "kümeleme",
@@ -9801,7 +9801,7 @@
   {
     "id": "w6-v002",
     "week": 6,
-    "topic": "kümeleme-uygulama-alanları",
+    "topic": "kumeleme-uygulama-alanlari",
     "type": "verbal",
     "tags": [
       "senaryo",
@@ -9871,7 +9871,7 @@
   {
     "id": "w6-v004",
     "week": 6,
-    "topic": "görsel-sıkıştırma-k-means",
+    "topic": "gorsel-sikistirma-k-means",
     "type": "verbal",
     "tags": [
       "görüntü-segmentasyonu",
@@ -9906,7 +9906,7 @@
   {
     "id": "w6-v005",
     "week": 6,
-    "topic": "k-means-algoritma-özellikleri",
+    "topic": "k-means-algoritma-ozellikleri",
     "type": "verbal",
     "tags": [
       "dezavantaj",
@@ -10011,7 +10011,7 @@
   {
     "id": "w6-v008",
     "week": 6,
-    "topic": "pca-amacı",
+    "topic": "pca-amaci",
     "type": "verbal",
     "tags": [
       "pca",
@@ -10081,7 +10081,7 @@
   {
     "id": "w6-v010",
     "week": 6,
-    "topic": "k-means-ön-işleme",
+    "topic": "k-means-on-isleme",
     "type": "verbal",
     "tags": [
       "veri-ön-işleme",
@@ -10116,7 +10116,7 @@
   {
     "id": "w6-v011",
     "week": 6,
-    "topic": "k-means-çalışma-mantığı",
+    "topic": "k-means-calisma-mantigi",
     "type": "verbal",
     "tags": [
       "kavram",
@@ -10150,7 +10150,7 @@
   {
     "id": "w6-v012",
     "week": 6,
-    "topic": "etiketleme-mantığı",
+    "topic": "etiketleme-mantigi",
     "type": "verbal",
     "tags": [
       "kavram",
@@ -10185,7 +10185,7 @@
   {
     "id": "w6-v013",
     "week": 6,
-    "topic": "veri-ön-işleme-id-sütunu",
+    "topic": "veri-on-isleme-id-sutunu",
     "type": "verbal",
     "tags": [
       "veri-ön-işleme",
@@ -10220,7 +10220,7 @@
   {
     "id": "w6-v014",
     "week": 6,
-    "topic": "k-means-mesafe-algoritmaları",
+    "topic": "k-means-mesafe-algoritmalari",
     "type": "verbal",
     "tags": [
       "algoritma-seçimi",
@@ -10255,7 +10255,7 @@
   {
     "id": "w6-v015",
     "week": 6,
-    "topic": "pca-k-means-sıralama",
+    "topic": "pca-k-means-siralama",
     "type": "verbal",
     "tags": [
       "pca",
@@ -10290,7 +10290,7 @@
   {
     "id": "w6-v016",
     "week": 6,
-    "topic": "kategorik-veri-dönüşümü",
+    "topic": "kategorik-veri-donusumu",
     "type": "verbal",
     "tags": [
       "veri-ön-işleme",
@@ -10325,7 +10325,7 @@
   {
     "id": "w6-v017",
     "week": 6,
-    "topic": "k-means-dezavantajları",
+    "topic": "k-means-dezavantajlari",
     "type": "verbal",
     "tags": [
       "k-means",
@@ -10360,7 +10360,7 @@
   {
     "id": "w6-v018",
     "week": 6,
-    "topic": "logaritmik-dönüşüm",
+    "topic": "logaritmik-donusum",
     "type": "verbal",
     "tags": [
       "veri-ön-işleme",
@@ -10465,7 +10465,7 @@
   {
     "id": "w6-v021",
     "week": 6,
-    "topic": "k-means-ve-knn-farkı",
+    "topic": "k-means-ve-knn-farki",
     "type": "verbal",
     "tags": [
       "algoritma-farkı",
@@ -10535,7 +10535,7 @@
   {
     "id": "w6-v023",
     "week": 6,
-    "topic": "k-means-görselleştirme-sınırı",
+    "topic": "k-means-gorsellestirme-siniri",
     "type": "verbal",
     "tags": [
       "görselleştirme",
@@ -10570,7 +10570,7 @@
   {
     "id": "w6-v024",
     "week": 6,
-    "topic": "k-means-başlangıç-duyarlılığı",
+    "topic": "k-means-baslangic-duyarliligi",
     "type": "verbal",
     "tags": [
       "dezavantaj",
@@ -10605,7 +10605,7 @@
   {
     "id": "w6-v025",
     "week": 6,
-    "topic": "pca-varyans-kararı",
+    "topic": "pca-varyans-karari",
     "type": "verbal",
     "tags": [
       "pca",
@@ -10640,7 +10640,7 @@
   {
     "id": "w6-v026",
     "week": 6,
-    "topic": "hiyerarşik-kümeleme-örneği",
+    "topic": "hiyerarsik-kumeleme-ornegi",
     "type": "verbal",
     "tags": [
       "kavram",
@@ -10710,7 +10710,7 @@
   {
     "id": "w6-v028",
     "week": 6,
-    "topic": "tahmin-vs-kümeleme",
+    "topic": "tahmin-vs-kumeleme",
     "type": "verbal",
     "tags": [
       "kavram-farkı",
@@ -10745,7 +10745,7 @@
   {
     "id": "w6-v029",
     "week": 6,
-    "topic": "elbow-k-seçimi-pratik",
+    "topic": "elbow-k-secimi-pratik",
     "type": "verbal",
     "tags": [
       "elbow",
@@ -10780,7 +10780,7 @@
   {
     "id": "w6-v030",
     "week": 6,
-    "topic": "veri-sıkıştırma-farkı",
+    "topic": "veri-sikistirma-farki",
     "type": "verbal",
     "tags": [
       "kavram",
@@ -10815,7 +10815,7 @@
   {
     "id": "w06-q001",
     "week": 6,
-    "topic": "veri-ön-işleme",
+    "topic": "veri-on-isleme",
     "type": "code",
     "tags": [
       "preprocessing",
@@ -10885,7 +10885,7 @@
   {
     "id": "w06-q003",
     "week": 6,
-    "topic": "veri-dönüşümü",
+    "topic": "veri-donusumu",
     "type": "code",
     "tags": [
       "encoding",
@@ -10920,7 +10920,7 @@
   {
     "id": "w06-q004",
     "week": 6,
-    "topic": "veri-dönüşümü",
+    "topic": "veri-donusumu",
     "type": "code",
     "tags": [
       "label-encoder",
@@ -10989,7 +10989,7 @@
   {
     "id": "w06-q006",
     "week": 6,
-    "topic": "veri-ölçeklendirme",
+    "topic": "veri-olceklendirme",
     "type": "code",
     "tags": [
       "standard-scaler",
@@ -11023,7 +11023,7 @@
   {
     "id": "w06-q007",
     "week": 6,
-    "topic": "makine-öğrenmesi-ayrımı",
+    "topic": "makine-ogrenmesi-ayrimi",
     "type": "code",
     "tags": [
       "unsupervised",
@@ -11058,7 +11058,7 @@
   {
     "id": "w06-q008",
     "week": 6,
-    "topic": "küme-değerlendirme",
+    "topic": "kume-degerlendirme",
     "type": "code",
     "tags": [
       "elbow-method",
@@ -11093,7 +11093,7 @@
   {
     "id": "w06-q009",
     "week": 6,
-    "topic": "küme-değerlendirme",
+    "topic": "kume-degerlendirme",
     "type": "code",
     "tags": [
       "yellowbrick",
@@ -11127,7 +11127,7 @@
   {
     "id": "w06-q010",
     "week": 6,
-    "topic": "model-öznitelikleri",
+    "topic": "model-oznitelikleri",
     "type": "code",
     "tags": [
       "k-means",
@@ -11196,7 +11196,7 @@
   {
     "id": "w06-q012",
     "week": 6,
-    "topic": "görselleştirme",
+    "topic": "gorsellestirme",
     "type": "code",
     "tags": [
       "scatter",
@@ -11231,7 +11231,7 @@
   {
     "id": "w06-q013",
     "week": 6,
-    "topic": "görselleştirme",
+    "topic": "gorsellestirme",
     "type": "code",
     "tags": [
       "seaborn",
@@ -11266,7 +11266,7 @@
   {
     "id": "w06-q014",
     "week": 6,
-    "topic": "veri-ön-işleme",
+    "topic": "veri-on-isleme",
     "type": "code",
     "tags": [
       "isnull",
@@ -11301,7 +11301,7 @@
   {
     "id": "w06-q015",
     "week": 6,
-    "topic": "küme-değerlendirme",
+    "topic": "kume-degerlendirme",
     "type": "code",
     "tags": [
       "boxenplot",
@@ -11404,7 +11404,7 @@
   {
     "id": "w06-q018",
     "week": 6,
-    "topic": "özellik-mühendisliği",
+    "topic": "ozellik-muhendisligi",
     "type": "code",
     "tags": [
       "feature-engineering",
@@ -11438,7 +11438,7 @@
   {
     "id": "w06-q019",
     "week": 6,
-    "topic": "görselleştirme",
+    "topic": "gorsellestirme",
     "type": "code",
     "tags": [
       "3d-plot",
@@ -11472,7 +11472,7 @@
   {
     "id": "w06-q020",
     "week": 6,
-    "topic": "veri-tipi-dönüşümü",
+    "topic": "veri-tipi-donusumu",
     "type": "code",
     "tags": [
       "astype",
@@ -11507,7 +11507,7 @@
   {
     "id": "w06-q021",
     "week": 6,
-    "topic": "küme-değerlendirme",
+    "topic": "kume-degerlendirme",
     "type": "code",
     "tags": [
       "elbow-method",
@@ -11542,7 +11542,7 @@
   {
     "id": "w06-q022",
     "week": 6,
-    "topic": "veri-ön-işleme",
+    "topic": "veri-on-isleme",
     "type": "code",
     "tags": [
       "ozellik-secimi",
@@ -11577,7 +11577,7 @@
   {
     "id": "w06-q023",
     "week": 6,
-    "topic": "veri-ön-işleme",
+    "topic": "veri-on-isleme",
     "type": "code",
     "tags": [
       "eksik-veri",
@@ -11715,7 +11715,7 @@
   {
     "id": "w06-q027",
     "week": 6,
-    "topic": "veri-ölçeklendirme",
+    "topic": "veri-olceklendirme",
     "type": "code",
     "tags": [
       "standard-scaler",
@@ -11749,7 +11749,7 @@
   {
     "id": "w06-q028",
     "week": 6,
-    "topic": "kümeleme-akış",
+    "topic": "kumeleme-akis",
     "type": "code",
     "tags": [
       "k-means",
@@ -11784,7 +11784,7 @@
   {
     "id": "w06-q029",
     "week": 6,
-    "topic": "görselleştirme",
+    "topic": "gorsellestirme",
     "type": "code",
     "tags": [
       "pca",
@@ -11854,7 +11854,7 @@
   {
     "id": "w06-q031",
     "week": 6,
-    "topic": "küme-değerlendirme",
+    "topic": "kume-degerlendirme",
     "type": "code",
     "tags": [
       "yellowbrick",
@@ -11889,7 +11889,7 @@
   {
     "id": "w06-q032",
     "week": 6,
-    "topic": "makine-öğrenmesi-ayrımı",
+    "topic": "makine-ogrenmesi-ayrimi",
     "type": "code",
     "tags": [
       "classification",
@@ -11923,7 +11923,7 @@
   {
     "id": "w06-q033",
     "week": 6,
-    "topic": "görselleştirme",
+    "topic": "gorsellestirme",
     "type": "code",
     "tags": [
       "3d-plot",
@@ -11992,7 +11992,7 @@
   {
     "id": "w06-q035",
     "week": 6,
-    "topic": "küme-değerlendirme",
+    "topic": "kume-degerlendirme",
     "type": "code",
     "tags": [
       "inertia",
@@ -12060,7 +12060,7 @@
   {
     "id": "w06-q037",
     "week": 6,
-    "topic": "veri-tipi-dönüşümü",
+    "topic": "veri-tipi-donusumu",
     "type": "code",
     "tags": [
       "apply",
@@ -12095,7 +12095,7 @@
   {
     "id": "w06-q038",
     "week": 6,
-    "topic": "görselleştirme",
+    "topic": "gorsellestirme",
     "type": "code",
     "tags": [
       "seaborn",
@@ -12129,7 +12129,7 @@
   {
     "id": "w06-q039",
     "week": 6,
-    "topic": "küme-değerlendirme",
+    "topic": "kume-degerlendirme",
     "type": "code",
     "tags": [
       "boyut-indirgeme",
@@ -12164,7 +12164,7 @@
   {
     "id": "w06-q040",
     "week": 6,
-    "topic": "makine-öğrenmesi-ayrımı",
+    "topic": "makine-ogrenmesi-ayrimi",
     "type": "code",
     "tags": [
       "label-encoder",
@@ -12197,7 +12197,7 @@
   {
     "id": "w7-v001",
     "week": 7,
-    "topic": "birliktelik-kuralları-temelleri",
+    "topic": "birliktelik-kurallari-temelleri",
     "type": "verbal",
     "tags": [
       "apriori",
@@ -12232,7 +12232,7 @@
   {
     "id": "w7-v002",
     "week": 7,
-    "topic": "birliktelik-kuralları-temelleri",
+    "topic": "birliktelik-kurallari-temelleri",
     "type": "verbal",
     "tags": [
       "denetimsiz-ogrenme",
@@ -12267,7 +12267,7 @@
   {
     "id": "w7-v004",
     "week": 7,
-    "topic": "apriori-çalışma-mekanizması",
+    "topic": "apriori-calisma-mekanizmasi",
     "type": "verbal",
     "tags": [
       "apriori-prensibi",
@@ -12302,7 +12302,7 @@
   {
     "id": "w7-v005",
     "week": 7,
-    "topic": "apriori-çalışma-mekanizması",
+    "topic": "apriori-calisma-mekanizmasi",
     "type": "verbal",
     "tags": [
       "senaryo",
@@ -12337,7 +12337,7 @@
   {
     "id": "w7-v006",
     "week": 7,
-    "topic": "gerçek-hayat-uygulamaları",
+    "topic": "gercek-hayat-uygulamalari",
     "type": "verbal",
     "tags": [
       "pazar-sepeti-analizi",
@@ -12372,7 +12372,7 @@
   {
     "id": "w7-v007",
     "week": 7,
-    "topic": "gerçek-hayat-uygulamaları",
+    "topic": "gercek-hayat-uygulamalari",
     "type": "verbal",
     "tags": [
       "e-ticaret",
@@ -12407,7 +12407,7 @@
   {
     "id": "w7-v008",
     "week": 7,
-    "topic": "apriori-çalışma-mekanizması",
+    "topic": "apriori-calisma-mekanizmasi",
     "type": "verbal",
     "tags": [
       "iterasyon",
@@ -12442,7 +12442,7 @@
   {
     "id": "w7-v009",
     "week": 7,
-    "topic": "birliktelik-kuralları-metrikleri",
+    "topic": "birliktelik-kurallari-metrikleri",
     "type": "verbal",
     "tags": [
       "support",
@@ -12477,7 +12477,7 @@
   {
     "id": "w7-v010",
     "week": 7,
-    "topic": "birliktelik-kuralları-metrikleri",
+    "topic": "birliktelik-kurallari-metrikleri",
     "type": "verbal",
     "tags": [
       "confidence",
@@ -12512,7 +12512,7 @@
   {
     "id": "w7-v011",
     "week": 7,
-    "topic": "birliktelik-kuralları-metrikleri",
+    "topic": "birliktelik-kurallari-metrikleri",
     "type": "verbal",
     "tags": [
       "lift",
@@ -12547,7 +12547,7 @@
   {
     "id": "w7-v012",
     "week": 7,
-    "topic": "birliktelik-kuralları-metrikleri",
+    "topic": "birliktelik-kurallari-metrikleri",
     "type": "verbal",
     "tags": [
       "lift",
@@ -12582,7 +12582,7 @@
   {
     "id": "w7-v013",
     "week": 7,
-    "topic": "apriori-çalışma-mekanizması",
+    "topic": "apriori-calisma-mekanizmasi",
     "type": "verbal",
     "tags": [
       "esik-degeri",
@@ -12617,7 +12617,7 @@
   {
     "id": "w7-v014",
     "week": 7,
-    "topic": "algoritma-kod-bağlamı",
+    "topic": "algoritma-kod-baglami",
     "type": "verbal",
     "tags": [
       "python",
@@ -12652,7 +12652,7 @@
   {
     "id": "w7-v015",
     "week": 7,
-    "topic": "algoritma-kod-bağlamı",
+    "topic": "algoritma-kod-baglami",
     "type": "verbal",
     "tags": [
       "python",
@@ -12687,7 +12687,7 @@
   {
     "id": "w7-v016",
     "week": 7,
-    "topic": "kavram-algoritma-eşleştirmesi",
+    "topic": "kavram-algoritma-eslestirmesi",
     "type": "verbal",
     "tags": [
       "metrik",
@@ -12722,7 +12722,7 @@
   {
     "id": "w7-v017",
     "week": 7,
-    "topic": "kavram-algoritma-eşleştirmesi",
+    "topic": "kavram-algoritma-eslestirmesi",
     "type": "verbal",
     "tags": [
       "apriori",
@@ -12757,7 +12757,7 @@
   {
     "id": "w7-v018",
     "week": 7,
-    "topic": "gerçek-hayat-uygulamaları",
+    "topic": "gercek-hayat-uygulamalari",
     "type": "verbal",
     "tags": [
       "senaryo",
@@ -12792,7 +12792,7 @@
   {
     "id": "w7-v019",
     "week": 7,
-    "topic": "apriori-çalışma-mekanizması",
+    "topic": "apriori-calisma-mekanizmasi",
     "type": "verbal",
     "tags": [
       "yorum",
@@ -12827,7 +12827,7 @@
   {
     "id": "w7-v020",
     "week": 7,
-    "topic": "birliktelik-kuralları-temelleri",
+    "topic": "birliktelik-kurallari-temelleri",
     "type": "verbal",
     "tags": [
       "tanim",
@@ -12862,7 +12862,7 @@
   {
     "id": "w7-v021",
     "week": 7,
-    "topic": "apriori-çalışma-mekanizması",
+    "topic": "apriori-calisma-mekanizmasi",
     "type": "verbal",
     "tags": [
       "apriori-prensibi",
@@ -12897,7 +12897,7 @@
   {
     "id": "w7-v022",
     "week": 7,
-    "topic": "birliktelik-kuralları-metrikleri",
+    "topic": "birliktelik-kurallari-metrikleri",
     "type": "verbal",
     "tags": [
       "lift",
@@ -12932,7 +12932,7 @@
   {
     "id": "w7-v024",
     "week": 7,
-    "topic": "gerçek-hayat-uygulamaları",
+    "topic": "gercek-hayat-uygulamalari",
     "type": "verbal",
     "tags": [
       "fiziksel-magazacilik",
@@ -12967,7 +12967,7 @@
   {
     "id": "w7-v025",
     "week": 7,
-    "topic": "apriori-çalışma-mekanizması",
+    "topic": "apriori-calisma-mekanizmasi",
     "type": "verbal",
     "tags": [
       "iterasyon",
@@ -13002,7 +13002,7 @@
   {
     "id": "w7-v026",
     "week": 7,
-    "topic": "algoritma-kod-bağlamı",
+    "topic": "algoritma-kod-baglami",
     "type": "verbal",
     "tags": [
       "python",
@@ -13037,7 +13037,7 @@
   {
     "id": "w7-v027",
     "week": 7,
-    "topic": "apriori-çalışma-mekanizması",
+    "topic": "apriori-calisma-mekanizmasi",
     "type": "verbal",
     "tags": [
       "iterasyon",
@@ -13072,7 +13072,7 @@
   {
     "id": "w7-v028",
     "week": 7,
-    "topic": "birliktelik-kuralları-metrikleri",
+    "topic": "birliktelik-kurallari-metrikleri",
     "type": "verbal",
     "tags": [
       "metrik",
@@ -13107,7 +13107,7 @@
   {
     "id": "w7-v029",
     "week": 7,
-    "topic": "apriori-çalışma-mekanizması",
+    "topic": "apriori-calisma-mekanizmasi",
     "type": "verbal",
     "tags": [
       "esik-degeri",
@@ -13142,7 +13142,7 @@
   {
     "id": "w7-v030",
     "week": 7,
-    "topic": "birliktelik-kuralları-temelleri",
+    "topic": "birliktelik-kurallari-temelleri",
     "type": "verbal",
     "tags": [
       "denetimsiz-ogrenme",
@@ -13177,7 +13177,7 @@
   {
     "id": "w07-q001",
     "week": 7,
-    "topic": "apriori-pipeline-gözetimsiz",
+    "topic": "apriori-pipeline-gozetimsiz",
     "type": "code",
     "tags": [
       "apriori",
@@ -13247,7 +13247,7 @@
   {
     "id": "w07-q003",
     "week": 7,
-    "topic": "sepet-matrisi-dönüşümü",
+    "topic": "sepet-matrisi-donusumu",
     "type": "code",
     "tags": [
       "matrix",
@@ -13282,7 +13282,7 @@
   {
     "id": "w07-q004",
     "week": 7,
-    "topic": "bool-dönüşümü",
+    "topic": "bool-donusumu",
     "type": "code",
     "tags": [
       "boolean",
@@ -13408,7 +13408,7 @@
   {
     "id": "w07-q008",
     "week": 7,
-    "topic": "çıktı-yorumu",
+    "topic": "cikti-yorumu",
     "type": "code",
     "tags": [
       "dataframe",
@@ -13437,7 +13437,7 @@
   {
     "id": "w07-q009",
     "week": 7,
-    "topic": "görselleştirme-network",
+    "topic": "gorsellestirme-network",
     "type": "code",
     "tags": [
       "networkx",
@@ -13466,7 +13466,7 @@
   {
     "id": "w07-q010",
     "week": 7,
-    "topic": "görselleştirme-scatter",
+    "topic": "gorsellestirme-scatter",
     "type": "code",
     "tags": [
       "matplotlib",
@@ -13495,7 +13495,7 @@
   {
     "id": "w07-q011",
     "week": 7,
-    "topic": "iş-mantığı-dönüşümü",
+    "topic": "is-mantigi-donusumu",
     "type": "code",
     "tags": [
       "lambda",
@@ -13552,7 +13552,7 @@
   {
     "id": "w07-q013",
     "week": 7,
-    "topic": "eda-öncesi",
+    "topic": "eda-oncesi",
     "type": "code",
     "tags": [
       "eda",
@@ -13581,7 +13581,7 @@
   {
     "id": "w07-q014",
     "week": 7,
-    "topic": "çıktı-kod-eşleştirme",
+    "topic": "cikti-kod-eslestirme",
     "type": "code",
     "tags": [
       "barh",
@@ -13610,7 +13610,7 @@
   {
     "id": "w07-q015",
     "week": 7,
-    "topic": "hata-ayıklama",
+    "topic": "hata-ayiklama",
     "type": "code",
     "tags": [
       "dataframe-empty",
@@ -13638,7 +13638,7 @@
   {
     "id": "w07-q016",
     "week": 7,
-    "topic": "apriori-pipeline-gözetimsiz",
+    "topic": "apriori-pipeline-gozetimsiz",
     "type": "code",
     "tags": [
       "antecedents",
@@ -13667,7 +13667,7 @@
   {
     "id": "w9-v001",
     "week": 9,
-    "topic": "makine-öğrenmesinde-regresyon",
+    "topic": "makine-ogrenmesinde-regresyon",
     "type": "verbal",
     "tags": [
       "regresyon",
@@ -13702,7 +13702,7 @@
   {
     "id": "w9-v002",
     "week": 9,
-    "topic": "makine-öğrenmesinde-regresyon",
+    "topic": "makine-ogrenmesinde-regresyon",
     "type": "verbal",
     "tags": [
       "bagimli-degisken",
@@ -13737,7 +13737,7 @@
   {
     "id": "w9-v003",
     "week": 9,
-    "topic": "veri-ön-işleme",
+    "topic": "veri-on-isleme",
     "type": "verbal",
     "tags": [
       "veri-hazirligi",
@@ -13772,7 +13772,7 @@
   {
     "id": "w9-v004",
     "week": 9,
-    "topic": "makine-öğrenmesinde-regresyon",
+    "topic": "makine-ogrenmesinde-regresyon",
     "type": "verbal",
     "tags": [
       "matematiksel-model",
@@ -14082,7 +14082,7 @@
   {
     "id": "w9-v016",
     "week": 9,
-    "topic": "model-değerlendirme",
+    "topic": "model-degerlendirme",
     "type": "verbal",
     "tags": [
       "r-kare",
@@ -14117,7 +14117,7 @@
   {
     "id": "w9-v017",
     "week": 9,
-    "topic": "model-değerlendirme",
+    "topic": "model-degerlendirme",
     "type": "verbal",
     "tags": [
       "overfitting",
@@ -14152,7 +14152,7 @@
   {
     "id": "w9-v021",
     "week": 9,
-    "topic": "algoritma-seçimi",
+    "topic": "algoritma-secimi",
     "type": "verbal",
     "tags": [
       "karsilastirma",
@@ -14290,7 +14290,7 @@
   {
     "id": "w9-v026",
     "week": 9,
-    "topic": "makine-öğrenmesinde-regresyon",
+    "topic": "makine-ogrenmesinde-regresyon",
     "type": "verbal",
     "tags": [
       "bagimli-degisken",
@@ -14325,7 +14325,7 @@
   {
     "id": "w9-v028",
     "week": 9,
-    "topic": "model-değerlendirme",
+    "topic": "model-degerlendirme",
     "type": "verbal",
     "tags": [
       "overfitting",
@@ -14464,7 +14464,7 @@
   {
     "id": "w9-v034",
     "week": 9,
-    "topic": "veri-ön-işleme",
+    "topic": "veri-on-isleme",
     "type": "verbal",
     "tags": [
       "veri-yapisi",
@@ -14569,7 +14569,7 @@
   {
     "id": "w9-v039",
     "week": 9,
-    "topic": "scikit-learn-işlemleri",
+    "topic": "scikit-learn-islemleri",
     "type": "verbal",
     "tags": [
       "pickle",
@@ -14604,7 +14604,7 @@
   {
     "id": "w9-v040",
     "week": 9,
-    "topic": "makine-öğrenmesinde-regresyon",
+    "topic": "makine-ogrenmesinde-regresyon",
     "type": "verbal",
     "tags": [
       "temel-kavramlar",
@@ -14639,7 +14639,7 @@
   {
     "id": "w09-q001",
     "week": 9,
-    "topic": "model-eğitimi",
+    "topic": "model-egitimi",
     "type": "code",
     "tags": [
       "modelleme",
@@ -14709,7 +14709,7 @@
   {
     "id": "w09-q003",
     "week": 9,
-    "topic": "model-katsayıları",
+    "topic": "model-katsayilari",
     "type": "code",
     "tags": [
       "coef",
@@ -14779,7 +14779,7 @@
   {
     "id": "w09-q005",
     "week": 9,
-    "topic": "arka-plan-matematiği",
+    "topic": "arka-plan-matematigi",
     "type": "code",
     "tags": [
       "formül",
@@ -14850,7 +14850,7 @@
   {
     "id": "w09-q007",
     "week": 9,
-    "topic": "doğrusal-polinomal-ilişki",
+    "topic": "dogrusal-polinomal-iliski",
     "type": "code",
     "tags": [
       "linearregression",
@@ -15026,7 +15026,7 @@
   {
     "id": "w09-q012",
     "week": 9,
-    "topic": "değişken-anlamı",
+    "topic": "degisken-anlami",
     "type": "code",
     "tags": [
       "katsayi",
@@ -15061,7 +15061,7 @@
   {
     "id": "w09-q013",
     "week": 9,
-    "topic": "model-karşılaştırma",
+    "topic": "model-karsilastirma",
     "type": "code",
     "tags": [
       "plot",
@@ -15096,7 +15096,7 @@
   {
     "id": "w09-q014",
     "week": 9,
-    "topic": "makine-öğrenmesi-kuralı",
+    "topic": "makine-ogrenmesi-kurali",
     "type": "code",
     "tags": [
       "transform",
@@ -15131,7 +15131,7 @@
   {
     "id": "w09-q015",
     "week": 9,
-    "topic": "polinomal-dönüşüm-işlemi",
+    "topic": "polinomal-donusum-islemi",
     "type": "code",
     "tags": [
       "fit_transform",
@@ -15200,7 +15200,7 @@
   {
     "id": "w09-q017",
     "week": 9,
-    "topic": "veri-görselleştirme",
+    "topic": "veri-gorsellestirme",
     "type": "code",
     "tags": [
       "scatter",
@@ -15269,7 +15269,7 @@
   {
     "id": "w09-q019",
     "week": 9,
-    "topic": "hata-ayıklama",
+    "topic": "hata-ayiklama",
     "type": "code",
     "tags": [
       "shape",
@@ -15304,7 +15304,7 @@
   {
     "id": "w09-q020",
     "week": 9,
-    "topic": "değişken-seçimi",
+    "topic": "degisken-secimi",
     "type": "code",
     "tags": [
       "iloc",
@@ -15374,7 +15374,7 @@
   {
     "id": "w09-q022",
     "week": 9,
-    "topic": "veri-görselleştirme",
+    "topic": "veri-gorsellestirme",
     "type": "code",
     "tags": [
       "plot",
@@ -15409,7 +15409,7 @@
   {
     "id": "w10-v001",
     "week": 10,
-    "topic": "veri-tipleri-ve-yapı",
+    "topic": "veri-tipleri-ve-yapi",
     "type": "verbal",
     "tags": [
       "metin-verisi",
@@ -15448,7 +15448,7 @@
   {
     "id": "w10-v002",
     "week": 10,
-    "topic": "metin-ön-işleme",
+    "topic": "metin-on-isleme",
     "type": "verbal",
     "tags": [
       "stopwords",
@@ -15483,7 +15483,7 @@
   {
     "id": "w10-v003",
     "week": 10,
-    "topic": "metin-ön-işleme",
+    "topic": "metin-on-isleme",
     "type": "verbal",
     "tags": [
       "tokenization",
@@ -15518,7 +15518,7 @@
   {
     "id": "w10-v004",
     "week": 10,
-    "topic": "varlık-tanıma-ve-çıkarım",
+    "topic": "varlik-tanima-ve-cikarim",
     "type": "verbal",
     "tags": [
       "named-entity-recognition",
@@ -15553,7 +15553,7 @@
   {
     "id": "w10-v005",
     "week": 10,
-    "topic": "örüntüsü-tanımlı-varlıklar",
+    "topic": "oruntusu-tanimli-varliklar",
     "type": "verbal",
     "tags": [
       "regular-expressions",
@@ -15592,7 +15592,7 @@
   {
     "id": "w10-v006",
     "week": 10,
-    "topic": "uygulama-alanları",
+    "topic": "uygulama-alanlari",
     "type": "verbal",
     "tags": [
       "guvenlik",
@@ -15736,7 +15736,7 @@
   {
     "id": "w10-v010",
     "week": 10,
-    "topic": "örnek-uygulama-yazar-tanıma",
+    "topic": "ornek-uygulama-yazar-tanima",
     "type": "verbal",
     "tags": [
       "algoritma",
@@ -15775,7 +15775,7 @@
   {
     "id": "w10-v011",
     "week": 10,
-    "topic": "metin-madenciliği-temelleri",
+    "topic": "metin-madenciligi-temelleri",
     "type": "verbal",
     "tags": [
       "tanim",
@@ -15810,7 +15810,7 @@
   {
     "id": "w10-v014",
     "week": 10,
-    "topic": "disiplinlerarası-ilişki",
+    "topic": "disiplinlerarasi-iliski",
     "type": "verbal",
     "tags": [
       "disiplinler",
@@ -15845,7 +15845,7 @@
   {
     "id": "w10-v016",
     "week": 10,
-    "topic": "varlık-tanıma-ve-çıkarım",
+    "topic": "varlik-tanima-ve-cikarim",
     "type": "verbal",
     "tags": [
       "temiz-olmayan-veri",
@@ -15880,7 +15880,7 @@
   {
     "id": "w10-v017",
     "week": 10,
-    "topic": "metin-madenciliği-temelleri",
+    "topic": "metin-madenciligi-temelleri",
     "type": "verbal",
     "tags": [
       "veri-madenciligi",
@@ -15915,7 +15915,7 @@
   {
     "id": "w10-v018",
     "week": 10,
-    "topic": "metin-madenciliği-hedefleri",
+    "topic": "metin-madenciligi-hedefleri",
     "type": "verbal",
     "tags": [
       "hedef",
@@ -15985,7 +15985,7 @@
   {
     "id": "w10-q001",
     "week": 10,
-    "topic": "metin-ön-işleme",
+    "topic": "metin-on-isleme",
     "type": "code",
     "tags": [
       "beautifulsoup",
@@ -16019,7 +16019,7 @@
   {
     "id": "w10-q002",
     "week": 10,
-    "topic": "metin-ön-işleme",
+    "topic": "metin-on-isleme",
     "type": "code",
     "tags": [
       "dizi-islemleri",
@@ -16053,7 +16053,7 @@
   {
     "id": "w10-q003",
     "week": 10,
-    "topic": "öznitelik-çıkarımı",
+    "topic": "oznitelik-cikarimi",
     "type": "code",
     "tags": [
       "countvectorizer",
@@ -16092,7 +16092,7 @@
   {
     "id": "w10-q004",
     "week": 10,
-    "topic": "model-eğitimi",
+    "topic": "model-egitimi",
     "type": "code",
     "tags": [
       "random-forest",
@@ -16127,7 +16127,7 @@
   {
     "id": "w10-q005",
     "week": 10,
-    "topic": "veri-sızıntısı",
+    "topic": "veri-sizintisi",
     "type": "code",
     "tags": [
       "transform",
@@ -16161,7 +16161,7 @@
   {
     "id": "w10-q006",
     "week": 10,
-    "topic": "model-değerlendirme",
+    "topic": "model-degerlendirme",
     "type": "code",
     "tags": [
       "predict",
@@ -16195,7 +16195,7 @@
   {
     "id": "w10-q007",
     "week": 10,
-    "topic": "metin-ön-işleme",
+    "topic": "metin-on-isleme",
     "type": "code",
     "tags": [
       "dil-bagimliligi",
@@ -16229,7 +16229,7 @@
   {
     "id": "w10-q008",
     "week": 10,
-    "topic": "metin-ön-işleme",
+    "topic": "metin-on-isleme",
     "type": "code",
     "tags": [
       "lowercase",
@@ -16263,7 +16263,7 @@
   {
     "id": "w10-q009",
     "week": 10,
-    "topic": "metin-ön-işleme",
+    "topic": "metin-on-isleme",
     "type": "code",
     "tags": [
       "stopwords",
@@ -16297,7 +16297,7 @@
   {
     "id": "w10-q010",
     "week": 10,
-    "topic": "metin-ön-işleme",
+    "topic": "metin-on-isleme",
     "type": "code",
     "tags": [
       "process-fonksiyonu",
@@ -16331,7 +16331,7 @@
   {
     "id": "w10-q011",
     "week": 10,
-    "topic": "veri-bölme",
+    "topic": "veri-bolme",
     "type": "code",
     "tags": [
       "train-test",
@@ -16365,7 +16365,7 @@
   {
     "id": "w10-q012",
     "week": 10,
-    "topic": "wordcloud-görselleştirme",
+    "topic": "wordcloud-gorsellestirme",
     "type": "code",
     "tags": [
       "wordcloud",
@@ -16399,7 +16399,7 @@
   {
     "id": "w10-q013",
     "week": 10,
-    "topic": "wordcloud-görselleştirme",
+    "topic": "wordcloud-gorsellestirme",
     "type": "code",
     "tags": [
       "join",
@@ -16433,7 +16433,7 @@
   {
     "id": "w10-q014",
     "week": 10,
-    "topic": "metin-ön-işleme",
+    "topic": "metin-on-isleme",
     "type": "code",
     "tags": [
       "dil-bagimi",
@@ -16467,7 +16467,7 @@
   {
     "id": "w10-q015",
     "week": 10,
-    "topic": "model-değerlendirme",
+    "topic": "model-degerlendirme",
     "type": "code",
     "tags": [
       "predict",
@@ -17529,7 +17529,7 @@
   {
     "id": "w11-q001",
     "week": 11,
-    "topic": "veri-ön-işleme",
+    "topic": "veri-on-isleme",
     "type": "code",
     "tags": [
       "pandas",
@@ -17564,7 +17564,7 @@
   {
     "id": "w11-q003",
     "week": 11,
-    "topic": "veri-bölme",
+    "topic": "veri-bolme",
     "type": "code",
     "tags": [
       "train-test-split",
@@ -17599,7 +17599,7 @@
   {
     "id": "w11-q004",
     "week": 11,
-    "topic": "veri-bölme",
+    "topic": "veri-bolme",
     "type": "code",
     "tags": [
       "zaman-serisi",
@@ -17704,7 +17704,7 @@
   {
     "id": "w11-q007",
     "week": 11,
-    "topic": "veri-boyutlandırma",
+    "topic": "veri-boyutlandirma",
     "type": "code",
     "tags": [
       "veri-donusumu",
@@ -17844,7 +17844,7 @@
   {
     "id": "w11-q011",
     "week": 11,
-    "topic": "model-eğitimi",
+    "topic": "model-egitimi",
     "type": "code",
     "tags": [
       "fit",
@@ -17883,7 +17883,7 @@
   {
     "id": "w11-q012",
     "week": 11,
-    "topic": "test-verisi-hazırlama",
+    "topic": "test-verisi-hazirlama",
     "type": "code",
     "tags": [
       "sliding-window",
@@ -17918,7 +17918,7 @@
   {
     "id": "w11-q013",
     "week": 11,
-    "topic": "veri-ölçekleme",
+    "topic": "veri-olcekleme",
     "type": "code",
     "tags": [
       "scaler",
@@ -17953,7 +17953,7 @@
   {
     "id": "w11-q014",
     "week": 11,
-    "topic": "tahmin-değerlendirme",
+    "topic": "tahmin-degerlendirme",
     "type": "code",
     "tags": [
       "inverse_transform",
@@ -18093,7 +18093,7 @@
   {
     "id": "w11-q019",
     "week": 11,
-    "topic": "veri-görselleştirme",
+    "topic": "veri-gorsellestirme",
     "type": "code",
     "tags": [
       "eda",
@@ -18128,7 +18128,7 @@
   {
     "id": "w11-q020",
     "week": 11,
-    "topic": "veri-ölçekleme",
+    "topic": "veri-olcekleme",
     "type": "code",
     "tags": [
       "scaler",
@@ -18233,7 +18233,7 @@
   {
     "id": "w11-q023",
     "week": 11,
-    "topic": "model-eğitimi",
+    "topic": "model-egitimi",
     "type": "code",
     "tags": [
       "compile",
@@ -18267,7 +18267,7 @@
   {
     "id": "w11-q024",
     "week": 11,
-    "topic": "hata-yönetimi",
+    "topic": "hata-yonetimi",
     "type": "code",
     "tags": [
       "numpy",
@@ -18479,7 +18479,7 @@
   {
     "id": "w12-v006",
     "week": 12,
-    "topic": "verinin-yaşam-döngüsü",
+    "topic": "verinin-yasam-dongusu",
     "type": "verbal",
     "tags": [
       "veri-dongusu",
@@ -18550,7 +18550,7 @@
   {
     "id": "w12-v008",
     "week": 12,
-    "topic": "veri-işleme-teknolojileri",
+    "topic": "veri-isleme-teknolojileri",
     "type": "verbal",
     "tags": [
       "hadoop",
@@ -18620,7 +18620,7 @@
   {
     "id": "w12-v010",
     "week": 12,
-    "topic": "araç-seçimi-senaryosu",
+    "topic": "arac-secimi-senaryosu",
     "type": "verbal",
     "tags": [
       "pandas",
@@ -18655,7 +18655,7 @@
   {
     "id": "w12-v011",
     "week": 12,
-    "topic": "veri-işleme-teknolojileri",
+    "topic": "veri-isleme-teknolojileri",
     "type": "verbal",
     "tags": [
       "spark",
@@ -18689,7 +18689,7 @@
   {
     "id": "w12-v012",
     "week": 12,
-    "topic": "diğer-büyük-veri-teknolojileri",
+    "topic": "diger-büyük-veri-teknolojileri",
     "type": "verbal",
     "tags": [
       "elasticsearch",
@@ -18724,7 +18724,7 @@
   {
     "id": "w12-v013",
     "week": 12,
-    "topic": "veri-taşıma-ve-entegrasyon",
+    "topic": "veri-tasima-ve-entegrasyon",
     "type": "verbal",
     "tags": [
       "kafka",
@@ -18759,7 +18759,7 @@
   {
     "id": "w12-v014",
     "week": 12,
-    "topic": "veri-formatları",
+    "topic": "veri-formatlari",
     "type": "verbal",
     "tags": [
       "parquet",
@@ -18794,7 +18794,7 @@
   {
     "id": "w12-v015",
     "week": 12,
-    "topic": "veri-toplama-ve-işleme",
+    "topic": "veri-toplama-ve-isleme",
     "type": "verbal",
     "tags": [
       "etl",
@@ -18828,7 +18828,7 @@
   {
     "id": "w12-v016",
     "week": 12,
-    "topic": "görselleştirme-araçları",
+    "topic": "gorsellestirme-araclari",
     "type": "verbal",
     "tags": [
       "tableau",
@@ -18863,7 +18863,7 @@
   {
     "id": "w12-v017",
     "week": 12,
-    "topic": "veri-taşıma-ve-entegrasyon",
+    "topic": "veri-tasima-ve-entegrasyon",
     "type": "verbal",
     "tags": [
       "sqoop",
@@ -18968,7 +18968,7 @@
   {
     "id": "w12-v020",
     "week": 12,
-    "topic": "veri-boyutları",
+    "topic": "veri-boyutlari",
     "type": "verbal",
     "tags": [
       "veri-olculeri",
@@ -19073,7 +19073,7 @@
   {
     "id": "w12-v023",
     "week": 12,
-    "topic": "veri-taşıma-ve-entegrasyon",
+    "topic": "veri-tasima-ve-entegrasyon",
     "type": "verbal",
     "tags": [
       "nifi",
@@ -19108,7 +19108,7 @@
   {
     "id": "w12-v024",
     "week": 12,
-    "topic": "diğer-büyük-veri-teknolojileri",
+    "topic": "diger-büyük-veri-teknolojileri",
     "type": "verbal",
     "tags": [
       "mongodb",
@@ -19143,7 +19143,7 @@
   {
     "id": "w12-v025",
     "week": 12,
-    "topic": "veri-işleme-teknolojileri",
+    "topic": "veri-isleme-teknolojileri",
     "type": "verbal",
     "tags": [
       "hive",
@@ -19178,7 +19178,7 @@
   {
     "id": "w12-v026",
     "week": 12,
-    "topic": "veri-taşıma-ve-entegrasyon",
+    "topic": "veri-tasima-ve-entegrasyon",
     "type": "verbal",
     "tags": [
       "airflow",
@@ -19213,7 +19213,7 @@
   {
     "id": "w12-v027",
     "week": 12,
-    "topic": "araç-seçimi-senaryosu",
+    "topic": "arac-secimi-senaryosu",
     "type": "verbal",
     "tags": [
       "pandas",
@@ -19283,7 +19283,7 @@
   {
     "id": "w12-v029",
     "week": 12,
-    "topic": "veri-işleme-teknolojileri",
+    "topic": "veri-isleme-teknolojileri",
     "type": "verbal",
     "tags": [
       "hadoop",
@@ -19423,7 +19423,7 @@
   {
     "id": "w12-q003",
     "week": 12,
-    "topic": "spark-action-komutları",
+    "topic": "spark-action-komutlari",
     "type": "code",
     "tags": [
       "action",
@@ -19459,7 +19459,7 @@
   {
     "id": "w12-q004",
     "week": 12,
-    "topic": "veri-üretme-sintaks",
+    "topic": "veri-uretme-sintaks",
     "type": "code",
     "tags": [
       "when-otherwise",
@@ -19600,7 +19600,7 @@
   {
     "id": "w12-q008",
     "week": 12,
-    "topic": "teknoloji-seçimi",
+    "topic": "teknoloji-secimi",
     "type": "code",
     "tags": [
       "büyük-veri",
@@ -19636,7 +19636,7 @@
   {
     "id": "w12-q009",
     "week": 12,
-    "topic": "spark-veri-oluşturma",
+    "topic": "spark-veri-olusturma",
     "type": "code",
     "tags": [
       "withcolumn",
@@ -19706,7 +19706,7 @@
   {
     "id": "w12-q011",
     "week": 12,
-    "topic": "spark-action-sonuçları",
+    "topic": "spark-action-sonuclari",
     "type": "code",
     "tags": [
       "collect",
@@ -19776,7 +19776,7 @@
   {
     "id": "w12-q013",
     "week": 12,
-    "topic": "kavram-eşleştirmeleri",
+    "topic": "kavram-eslestirmeleri",
     "type": "code",
     "tags": [
       "hadoop",
@@ -19812,7 +19812,7 @@
   {
     "id": "w12-q014",
     "week": 12,
-    "topic": "spark-hata-ayıklama",
+    "topic": "spark-hata-ayiklama",
     "type": "code",
     "tags": [
       "hata-mesaji",
@@ -19847,7 +19847,7 @@
   {
     "id": "w12-q015",
     "week": 12,
-    "topic": "yeni-nesil-veri-araçları",
+    "topic": "yeni-nesil-veri-araclari",
     "type": "code",
     "tags": [
       "nosql",
@@ -19952,7 +19952,7 @@
   {
     "id": "w12-q018",
     "week": 12,
-    "topic": "zaman-ölçümü-yorumu",
+    "topic": "zaman-olcumu-yorumu",
     "type": "code",
     "tags": [
       "time",
@@ -19987,7 +19987,7 @@
   {
     "id": "w12-q019",
     "week": 12,
-    "topic": "kavram-eşleştirmeleri",
+    "topic": "kavram-eslestirmeleri",
     "type": "code",
     "tags": [
       "kafka",
@@ -20022,7 +20022,7 @@
   {
     "id": "w13-v001",
     "week": 13,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "goruntu-verisi",
@@ -20057,7 +20057,7 @@
   {
     "id": "w13-v002",
     "week": 13,
-    "topic": "öznitelik-çıkarımı",
+    "topic": "oznitelik-cikarimi",
     "type": "verbal",
     "tags": [
       "manuel-oznitelik",
@@ -20092,7 +20092,7 @@
   {
     "id": "w13-v003",
     "week": 13,
-    "topic": "sinir-ağları-katmanları",
+    "topic": "sinir-aglari-katmanlari",
     "type": "verbal",
     "tags": [
       "cnn",
@@ -20127,7 +20127,7 @@
   {
     "id": "w13-v004",
     "week": 13,
-    "topic": "sinir-ağları-katmanları",
+    "topic": "sinir-aglari-katmanlari",
     "type": "verbal",
     "tags": [
       "aktivasyon",
@@ -20162,7 +20162,7 @@
   {
     "id": "w13-v005",
     "week": 13,
-    "topic": "sinir-ağları-katmanları",
+    "topic": "sinir-aglari-katmanlari",
     "type": "verbal",
     "tags": [
       "pooling",
@@ -20197,7 +20197,7 @@
   {
     "id": "w13-v006",
     "week": 13,
-    "topic": "sinir-ağları-katmanları",
+    "topic": "sinir-aglari-katmanlari",
     "type": "verbal",
     "tags": [
       "flatten",
@@ -20232,7 +20232,7 @@
   {
     "id": "w13-v007",
     "week": 13,
-    "topic": "sınıflandırma-algoritmaları",
+    "topic": "siniflandirma-algoritmalari",
     "type": "verbal",
     "tags": [
       "softmax",
@@ -20267,7 +20267,7 @@
   {
     "id": "w13-v008",
     "week": 13,
-    "topic": "model-değerlendirme",
+    "topic": "model-degerlendirme",
     "type": "verbal",
     "tags": [
       "genelleme",
@@ -20302,7 +20302,7 @@
   {
     "id": "w13-v009",
     "week": 13,
-    "topic": "algoritma-seçimi",
+    "topic": "algoritma-secimi",
     "type": "verbal",
     "tags": [
       "transfer-learning",
@@ -20373,7 +20373,7 @@
   {
     "id": "w13-v011",
     "week": 13,
-    "topic": "algoritma-seçimi",
+    "topic": "algoritma-secimi",
     "type": "verbal",
     "tags": [
       "hibrit-model",
@@ -20408,7 +20408,7 @@
   {
     "id": "w13-v012",
     "week": 13,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "yari-gozetimli",
@@ -20443,7 +20443,7 @@
   {
     "id": "w13-v013",
     "week": 13,
-    "topic": "algoritma-seçimi",
+    "topic": "algoritma-secimi",
     "type": "verbal",
     "tags": [
       "anomali-tespiti",
@@ -20478,7 +20478,7 @@
   {
     "id": "w13-v014",
     "week": 13,
-    "topic": "veri-dönüşümü-ve-encoding",
+    "topic": "veri-donusumu-ve-encoding",
     "type": "verbal",
     "tags": [
       "normalizasyon",
@@ -20513,7 +20513,7 @@
   {
     "id": "w13-v015",
     "week": 13,
-    "topic": "veri-dönüşümü-ve-encoding",
+    "topic": "veri-donusumu-ve-encoding",
     "type": "verbal",
     "tags": [
       "one-hot-encoding",
@@ -20583,7 +20583,7 @@
   {
     "id": "w13-v017",
     "week": 13,
-    "topic": "görselleştirme-ve-yorumlama",
+    "topic": "gorsellestirme-ve-yorumlama",
     "type": "verbal",
     "tags": [
       "oznitelik",
@@ -20618,7 +20618,7 @@
   {
     "id": "w13-v018",
     "week": 13,
-    "topic": "algoritma-seçimi",
+    "topic": "algoritma-secimi",
     "type": "verbal",
     "tags": [
       "transfer-learning",
@@ -20653,7 +20653,7 @@
   {
     "id": "w13-v019",
     "week": 13,
-    "topic": "veri-dönüşümü-ve-encoding",
+    "topic": "veri-donusumu-ve-encoding",
     "type": "verbal",
     "tags": [
       "boyut-indirgeme",
@@ -20723,7 +20723,7 @@
   {
     "id": "w13-v021",
     "week": 13,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "agirlik",
@@ -20793,7 +20793,7 @@
   {
     "id": "w13-v023",
     "week": 13,
-    "topic": "öznitelik-çıkarımı",
+    "topic": "oznitelik-cikarimi",
     "type": "verbal",
     "tags": [
       "renk-histogrami",
@@ -20828,7 +20828,7 @@
   {
     "id": "w13-v024",
     "week": 13,
-    "topic": "görselleştirme-ve-yorumlama",
+    "topic": "gorsellestirme-ve-yorumlama",
     "type": "verbal",
     "tags": [
       "matris",
@@ -20863,7 +20863,7 @@
   {
     "id": "w13-v025",
     "week": 13,
-    "topic": "veri-madenciliği-temel-kavramlar",
+    "topic": "veri-madenciligi-temel-kavramlar",
     "type": "verbal",
     "tags": [
       "ann",
@@ -20898,7 +20898,7 @@
   {
     "id": "w13-q001",
     "week": 13,
-    "topic": "veri-ön-işleme",
+    "topic": "veri-on-isleme",
     "type": "code",
     "tags": [
       "normalization",
@@ -20933,7 +20933,7 @@
   {
     "id": "w13-q002",
     "week": 13,
-    "topic": "veri-boyutlandırma",
+    "topic": "veri-boyutlandirma",
     "type": "code",
     "tags": [
       "reshape",
@@ -20968,7 +20968,7 @@
   {
     "id": "w13-q003",
     "week": 13,
-    "topic": "veri-dönüşümü",
+    "topic": "veri-donusumu",
     "type": "code",
     "tags": [
       "one-hot-encoding",
@@ -21143,7 +21143,7 @@
   {
     "id": "w13-q008",
     "week": 13,
-    "topic": "model-eğitimi",
+    "topic": "model-egitimi",
     "type": "code",
     "tags": [
       "compile",
@@ -21178,7 +21178,7 @@
   {
     "id": "w13-q009",
     "week": 13,
-    "topic": "model-eğitimi",
+    "topic": "model-egitimi",
     "type": "code",
     "tags": [
       "fit",
@@ -21213,7 +21213,7 @@
   {
     "id": "w13-q010",
     "week": 13,
-    "topic": "model-değerlendirme",
+    "topic": "model-degerlendirme",
     "type": "code",
     "tags": [
       "validation_split",
@@ -21248,7 +21248,7 @@
   {
     "id": "w13-q011",
     "week": 13,
-    "topic": "model-değerlendirme",
+    "topic": "model-degerlendirme",
     "type": "code",
     "tags": [
       "evaluate",
@@ -21353,7 +21353,7 @@
   {
     "id": "w13-q014",
     "week": 13,
-    "topic": "öznitelik-çıkarımı",
+    "topic": "oznitelik-cikarimi",
     "type": "code",
     "tags": [
       "feature-map",
@@ -21388,7 +21388,7 @@
   {
     "id": "w13-q015",
     "week": 13,
-    "topic": "veri-ön-işleme",
+    "topic": "veri-on-isleme",
     "type": "code",
     "tags": [
       "external-image",
@@ -21423,7 +21423,7 @@
   {
     "id": "w13-q016",
     "week": 13,
-    "topic": "veri-dönüşümü",
+    "topic": "veri-donusumu",
     "type": "code",
     "tags": [
       "opencv",
@@ -21528,7 +21528,7 @@
   {
     "id": "w13-q019",
     "week": 13,
-    "topic": "veri-görselleştirme",
+    "topic": "veri-gorsellestirme",
     "type": "code",
     "tags": [
       "matplotlib",
@@ -21633,7 +21633,7 @@
   {
     "id": "w13-q022",
     "week": 13,
-    "topic": "veri-görselleştirme",
+    "topic": "veri-gorsellestirme",
     "type": "code",
     "tags": [
       "cmap",

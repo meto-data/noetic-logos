@@ -29,7 +29,7 @@ Bkz. [[2- Zekâ, DIKW#DIKW Piramidi (Data-Information-Knowledge-Wisdom)|DIKW Pir
    >Büyük ölçekli veri setleri (big data) içerisinden; gizli, daha önce bilinmeyen (novel), potansiyel olarak yararlı ve anlaşılabilir örüntülerin algoritmik yöntemlerle çıkarılması sürecidir. Teorik olarak KDD (Knowledge Discovery in Databases) sürecinin bir adımıdır, ancak pratikte tüm süreci kapsar.
 
 ### 2. KDD Süreci (Knowledge Discovery in Databases) 
-Veri madenciliği tek atımlık bir işlem değildir. **Veri Tabanlarında Bilgi Keşfi** (KDD) sürecinin sadece bir adımıdır. Bu süreç lineer görünse de aslında **[[iterasyon|iteratiftir]]**; bir aşamadaki hata önceki aşamaya dönmeyi gerektirir, **tekrarlıdır**.
+Veri madenciliği, **Veri Tabanlarında Bilgi Keşfi** (KDD) sürecinin bir adımıdır. Bu süreç lineer görünse de aslında **[[iterasyon|iteratiftir]]**; bir aşamadaki hata önceki aşamaya dönmeyi gerektirir, **tekrarlıdır**.
 
 
 ```mermaid
