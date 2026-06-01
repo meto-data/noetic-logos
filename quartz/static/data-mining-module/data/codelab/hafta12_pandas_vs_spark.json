@@ -12,14 +12,14 @@
         {
           "lineNumber": 1,
           "code": "import time",
-          "lineExplanation": "Bu satır, analizde veya model kurulumunda ihtiyaç duyulacak kütüphaneyi çalışma ortamına dahil eder.",
+          "lineExplanation": "İşlem sürelerini hassas şekilde ölçerek Pandas ve Spark arasındaki performans farkını sayısal olarak kanıtlamak için zaman modülünü çağırır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Kütüphaneler ve Spark Oturumunu Hazırlama' bloğunda kullanılacak araçları hazırlar."
         },
         {
           "lineNumber": 2,
           "code": "import pandas as pd",
-          "lineExplanation": "Bu satır, analizde veya model kurulumunda ihtiyaç duyulacak kütüphaneyi çalışma ortamına dahil eder.",
+          "lineExplanation": "Küçük ve orta ölçekli veri setlerini bellek (RAM) üzerinde işlemek için kullanılan temel veri analizi kütüphanesini 'pd' takma adıyla yükler.",
           "tokens": [
             {
               "token": "pandas",
@@ -34,7 +34,7 @@
         {
           "lineNumber": 3,
           "code": "import numpy as np",
-          "lineExplanation": "Bu satır, analizde veya model kurulumunda ihtiyaç duyulacak kütüphaneyi çalışma ortamına dahil eder.",
+          "lineExplanation": "Vektörel hesaplamalar ve rastgele veri üretimi için kullanılan bilimsel hesaplama kütüphanesini 'np' takma adıyla projeye dahil eder.",
           "tokens": [
             {
               "token": "numpy",
@@ -49,7 +49,7 @@
         {
           "lineNumber": 4,
           "code": "import matplotlib.pyplot as plt",
-          "lineExplanation": "Bu satır, analizde veya model kurulumunda ihtiyaç duyulacak kütüphaneyi çalışma ortamına dahil eder.",
+          "lineExplanation": "Elde edilen performans metriklerini ve süre karşılaştırmalarını görselleştirmek için temel çizim modülünü çağırır.",
           "tokens": [
             {
               "token": "matplotlib.pyplot",
@@ -64,7 +64,7 @@
         {
           "lineNumber": 5,
           "code": "from pyspark.sql import SparkSession",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Büyük veri kümelerini dağıtık mimaride işleyebilmek için PySpark'ın temel giriş noktası olan Spark oturum sınıfını yükler.",
           "tokens": [
             {
               "token": "SparkSession",
@@ -79,14 +79,14 @@
         {
           "lineNumber": 6,
           "code": "from pyspark.sql.functions import rand, when, col, round as spark_round, sum as spark_sum, avg as spark_avg",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Spark DataFrame'leri üzerinde rastgele veri üretme, koşullu işlemler ve toplulaştırma yapabilmek için gerekli SQL fonksiyonlarını içe aktarır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Kütüphaneler ve Spark Oturumunu Hazırlama' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 7,
           "code": "spark = SparkSession.builder.appName(\"Pandas_vs_Spark_Big_Data_Demo_No_Pandas_To_Spark\").master(\"local[6]\").getOrCreate()",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Bilgisayarın 6 işlemci çekirdeğini (local[6]) paralel çalışacak şekilde tahsis ederek büyük veri işleme motorunu (SparkSession) hayata geçirir.",
           "tokens": [
             {
               "token": "SparkSession",
@@ -101,14 +101,14 @@
         {
           "lineNumber": 8,
           "code": "print(\"Spark başarıyla başlatıldı.\")",
-          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "lineExplanation": "Spark motorunun donanım çekirdekleriyle başarılı bir şekilde 'el sıkıştığını' ve veri işlemeye hazır olduğunu kullanıcıya teyit eder.",
           "tokens": [],
           "codeContext": "Bu satır, 'Kütüphaneler ve Spark Oturumunu Hazırlama' bloğunda metinsel çıktı üretir."
         },
         {
           "lineNumber": 9,
           "code": "print(\"Spark version:\", spark.version)",
-          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "lineExplanation": "Kullanılan Spark sürümünü ekrana basarak, kütüphane uyumluluklarını ve mevcut özellikleri doğrulamayı sağlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Kütüphaneler ve Spark Oturumunu Hazırlama' bloğunda metinsel çıktı üretir."
         }
@@ -124,112 +124,112 @@
         {
           "lineNumber": 1,
           "code": "N = 50_000",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Deneyde kullanılacak toplam satır sayısını 50 bin olarak set eder; bu hacim Pandas'ın henüz zorlanmadığı 'küçük veri' sınırını temsil eder.",
           "tokens": [],
           "codeContext": "Bu satır, 'Satır Sayısı ve Pandas Verisi Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 2,
           "code": "np.random.seed(42)",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Rastgele sayı üretimini sabitleyerek, analizin her çalıştırıldığında aynı veri setini üretmesini ve sonuçların tutarlı olmasını garanti eder.",
           "tokens": [],
           "codeContext": "Bu satır, 'Satır Sayısı ve Pandas Verisi Üretme' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 3,
           "code": "products = np.array([\"Telefon\", \"Laptop\", \"Tablet\", \"Kulaklik\", \"Monitor\"])",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Satış simülasyonunda kullanılacak ürün isimlerini bir dizi (array) olarak tanımlayarak kategorik öznitelik havuzunu oluşturur.",
           "tokens": [],
           "codeContext": "Bu satır, 'Satır Sayısı ve Pandas Verisi Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 4,
           "code": "cities = np.array([\"Istanbul\", \"Ankara\", \"Izmir\", \"Bursa\", \"Antalya\"])",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Veri setindeki lokasyon çeşitliliğini temsil edecek şehir isimlerini belirleyerek kategorik değişken listesini hazırlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Satır Sayısı ve Pandas Verisi Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 5,
           "code": "start = time.time()",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Pandas tarafındaki veri üretim işleminin başladığı anı kaydeder; bu, 'eager execution' (anlık çalıştırma) süresini ölçmek içindir.",
           "tokens": [],
           "codeContext": "Bu satır, 'Satır Sayısı ve Pandas Verisi Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 6,
           "code": "pdf = pd.DataFrame({",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Sütun bazlı (id, product, city, price, quantity) bir Pandas tablosu oluşturmak için veri çerçevesi yapısını başlatır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Satır Sayısı ve Pandas Verisi Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 7,
           "code": "    \"id\": np.arange(N),",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "0'dan başlayıp N'e kadar giden sıralı bir ID listesi üreterek veri setinin benzersiz anahtarlarını (primary key) oluşturur.",
           "tokens": [],
           "codeContext": "Bu satır, 'Satır Sayısı ve Pandas Verisi Üretme' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 8,
           "code": "    \"product\": np.random.choice(products, size=N),",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Tanımlanan ürün listesinden N adet rastgele seçim yaparak 'product' sütununu doldurur.",
           "tokens": [],
           "codeContext": "Bu satır, 'Satır Sayısı ve Pandas Verisi Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 9,
           "code": "    \"city\": np.random.choice(cities, size=N),",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Şehir listesinden rastgele seçimler yaparak satışın gerçekleştiği lokasyon özniteliğini veri setine ekler.",
           "tokens": [],
           "codeContext": "Bu satır, 'Satır Sayısı ve Pandas Verisi Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 10,
           "code": "    \"price\": np.random.randint(500, 50_001, size=N),",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Belirlenen aralıkta rastgele tam sayılar üreterek ürünlerin 'fiyat' bilgisini tabloya yansıtır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Satır Sayısı ve Pandas Verisi Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 11,
           "code": "    \"quantity\": np.random.randint(1, 6, size=N)",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Her bir satış için 1 ile 5 arasında rastgele adetler atayarak 'miktar' sütununu oluşturur.",
           "tokens": [],
           "codeContext": "Bu satır, 'Satır Sayısı ve Pandas Verisi Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 12,
           "code": "})",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Tanımlanan tüm sütunları birleştirerek Pandas DataFrame nesnesini tamamlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Satır Sayısı ve Pandas Verisi Üretme' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 13,
           "code": "pdf[\"total\"] = pdf[\"price\"] * pdf[\"quantity\"]",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Pandas'ın vektörizasyon gücünü kullanarak; döngü kurmadan tüm satırlarda fiyat ve miktarı çarpar, yeni bir 'total' özniteliği türetir.",
           "tokens": [],
           "codeContext": "Bu satır, 'Satır Sayısı ve Pandas Verisi Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 14,
           "code": "pandas_create_time = time.time() - start",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Bitiş ve başlangıç zamanı arasındaki farkı hesaplayarak Pandas'ın veriyi belleğe (RAM) yazma hızını saniye cinsinden bulur.",
           "tokens": [],
           "codeContext": "Bu satır, 'Satır Sayısı ve Pandas Verisi Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 15,
           "code": "print(\"Pandas veri üretme süresi:\", round(pandas_create_time, 4), \"saniye\")",
-          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "lineExplanation": "Pandas'ın anlık veri üretme performansını kullanıcıya raporlayarak deneyin ilk sayısal verisini sunar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Satır Sayısı ve Pandas Verisi Üretme' bloğunda metinsel çıktı üretir."
         },
         {
           "lineNumber": 16,
           "code": "pdf.head()",
-          "lineExplanation": "İlk satırları önizleyerek sütun yapısının ve örnek kayıtların beklenen biçimde gelip gelmediğini kontrol eder.",
+          "lineExplanation": "Oluşturulan tablonun ilk 5 satırını göstererek; sütun yapısının ve rastgele atanan verilerin doğruluğunu gözle denetlemeyi sağlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Satır Sayısı ve Pandas Verisi Üretme' bloğunda verinin doğru okunup okunmadığını kontrol eder."
         }
@@ -245,70 +245,70 @@
         {
           "lineNumber": 1,
           "code": "start = time.time()",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Spark tarafındaki işlem planlamasının başlangıç zamanını kaydeder.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 2,
           "code": "sdf = spark.range(0, N).withColumnRenamed(\"id\", \"id\")",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Spark üzerinde 0'dan N'e kadar sıralı ID'ler içeren dağıtık bir yapı kurar; Spark'ın paralel veri üretiminin ilk adımıdır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 3,
           "code": "sdf = sdf.withColumn(\"r_product\", rand(seed=42))",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Her satıra 0 ile 1 arasında rastgele bir sayı atar; bu sayı daha sonra ürün kategorilerini belirlemek için 'eşik değer' olarak kullanılacaktır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 4,
           "code": "sdf = sdf.withColumn(\"product\", when(col(\"r_product\") < 0.20, \"Telefon\").otherwise(\"Monitor\")).drop(\"r_product\")",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Spark'ın 'when-otherwise' yapısıyla; rastgele sayı 0.20'den küçükse 'Telefon', değilse 'Monitor' atayarak kategorik veriyi simüle eder.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 5,
           "code": "sdf = sdf.withColumn(\"price\", spark_round(rand(seed=44) * 49_500 + 500, 0).cast(\"int\"))",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Spark fonksiyonlarıyla 500 ile 50.000 arasında rastgele tam sayı fiyatlar üretir; büyük veride doğrudan 'native' fonksiyon kullanımı performansı korur.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 6,
           "code": "sdf = sdf.withColumn(\"quantity\", (rand(seed=45) * 5 + 1).cast(\"int\"))",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Satış adetlerini 1 ile 5 arasında rastgele tam sayılar olarak belirler ve veriye 'miktar' özniteliğini ekler.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 7,
           "code": "sdf = sdf.withColumn(\"total\", col(\"price\") * col(\"quantity\"))",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Fiyat ve miktar sütunlarını çarparak satır bazlı toplam tutarı hesaplar; Spark bu işlemi dağıtık çekirdekler üzerinden paralel yürütür.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 8,
           "code": "spark_create_plan_time = time.time() - start",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Spark'ın 'Lazy Execution' felsefesi gereği, sadece işlem planı (DAG) oluşturma süresini ölçer; bu süre genelde sıfıra yakındır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 9,
           "code": "print(\"Spark DataFrame plan oluşturma süresi:\", round(spark_create_plan_time, 4), \"saniye\")",
-          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "lineExplanation": "Spark'ın veriyi henüz fiziksel olarak işlemediğini, sadece ne yapacağını planladığını sürenin kısalığıyla ispatlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda metinsel çıktı üretir."
         },
         {
           "lineNumber": 10,
           "code": "print(\"Not: Spark lazy execution kullandığı için gerçek hesaplama action geldiğinde başlar.\")",
-          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "lineExplanation": "Analiste, bu aşamada bellek kullanımı olmadığını, işlemlerin sadece 'beklemeye alındığını' hatırlatır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda metinsel çıktı üretir."
         }
@@ -324,33 +324,33 @@
         {
           "lineNumber": 1,
           "code": "start = time.time()",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Tetikleyici (action) komutunun gerçek çalışma süresini ölçmek için zamanlayıcıyı başlatır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark Verisini Görüntüleme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 2,
           "code": "sdf.show(5)",
-          "lineExplanation": "Spark tarafında gerçek bir action çağrısı yapar. Lazy execution nedeniyle Spark, planı bu satırda gerçekten çalıştırmaya başlar.",
+          "lineExplanation": "Spark tarafında gerçek bir 'Action' çağrısı yaparak, o ana kadar planlanan tüm dönüşümleri (transformations) fiziksel olarak yürütür.",
           "tokens": [],
           "codeContext": "Bu satır, teorik notlardaki Spark lazy execution davranışını görünür hale getiren ilk gerçek tetikleyicidir."
         },
         {
           "lineNumber": 3,
           "code": "spark_show_time = time.time() - start",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Verinin fiziksel olarak oluşturulup ekrana basılmasına kadar geçen toplam süreyi hesaplar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark Verisini Görüntüleme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 4,
           "code": "print(\"Spark show(5) süresi:\", round(spark_show_time, 4), \"saniye\")",
-          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "lineExplanation": "Spark'ın veriyi 'show' etmek için katlandığı altyapı maliyetini (latency) kullanıcıya raporlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark Verisini Görüntüleme' bloğunda metinsel çıktı üretir."
         }
       ],
-      "expectedOutput": "Spark tablo önizlemesi görünür ve show(5) süresi yazdırılır.",
+      "expectedOutput": "Spark tablo önizlemesi görünür and show(5) süresi yazdırılır.",
       "outputInterpretation": "`show(5)` komutu, Spark'ın beklettiği eylem planını (DAG) çalışmaya zorlayan bir 'Action' (Tetikleyici) operasyonudur. Veri madenciliğinde veri bütünlüğünü (veracity) doğrulamak için ilk kayıtların incelenmesi elzemdir. Sürenin bir önceki veri planlama aşamasından uzun çıkması mimarinin doğası gereğidir; çünkü motor ancak bu aşamada sanal çekirdeklere inip veriyi okur, hesaplar ve sonucu tek bir sunucuda (driver) toplayarak ekrana basar. Çıktı, dağıtık veri yapısının şemasal olarak hatasız oluştuğunu onaylar."
     },
     {
@@ -361,14 +361,14 @@
         {
           "lineNumber": 1,
           "code": "pandas_avg_price = pdf.groupby(\"product\")[\"price\"].mean()",
-          "lineExplanation": "Veriyi kategoriye göre gruplandırarak ortalama, toplam veya benzeri özet istatistikler üretir.",
+          "lineExplanation": "Pandas'ta veriyi ürün bazında gruplayarak fiyat ortalamalarını 'eager' (anlık) olarak hesaplar ve bellekte bir seri olarak tutar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Pandas ve Spark ile GroupBy Karşılaştırması' bloğunda toplulaştırma işlemi yapar."
         },
         {
           "lineNumber": 2,
           "code": "spark_avg_price = sdf.groupBy(\"product\").agg(spark_avg(\"price\").alias(\"avg_price\"))",
-          "lineExplanation": "Veriyi kategoriye göre gruplandırarak ortalama, toplam veya benzeri özet istatistikler üretir.",
+          "lineExplanation": "Spark üzerinde dağıtık gruplama planı yapar; büyük veride verinin çekirdekler arası transferini (shuffle) gerektiren bu adımı planlar.",
           "tokens": [
             {
               "token": "groupBy()",
@@ -383,14 +383,14 @@
         {
           "lineNumber": 3,
           "code": "pandas_city_total = pdf.groupby(\"city\")[\"total\"].sum()",
-          "lineExplanation": "Veriyi kategoriye göre gruplandırarak ortalama, toplam veya benzeri özet istatistikler üretir.",
+          "lineExplanation": "Pandas ile şehir bazlı toplam satış tutarlarını (ciro) anında hesaplayarak toplulaştırma sonucunu üretir.",
           "tokens": [],
           "codeContext": "Bu satır, 'Pandas ve Spark ile GroupBy Karşılaştırması' bloğunda toplulaştırma işlemi yapar."
         },
         {
           "lineNumber": 4,
           "code": "spark_city_total = sdf.groupBy(\"city\").agg(spark_sum(\"total\").alias(\"total_revenue\"))",
-          "lineExplanation": "Veriyi kategoriye göre gruplandırarak ortalama, toplam veya benzeri özet istatistikler üretir.",
+          "lineExplanation": "Şehir bazlı ciro toplamı için Spark planını hazırlar; 'alias' kullanarak sonuç sütununa analitik bir isim verir.",
           "tokens": [
             {
               "token": "groupBy()",
@@ -405,28 +405,28 @@
         {
           "lineNumber": 5,
           "code": "pandas_avg_price",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Pandas'ın hesapladığı ortalama fiyatları ekrana basar; sonuçlar 'pandas.Series' tipindedir.",
           "tokens": [],
           "codeContext": "Bu satır, 'Pandas ve Spark ile GroupBy Karşılaştırması' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 6,
           "code": "spark_avg_price.show()",
-          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "lineExplanation": "Spark tarafındaki ortalama hesaplama planını tetikler (action) ve dağıtık hesaplama sonucunu tablo olarak gösterir.",
           "tokens": [],
           "codeContext": "Bu satır, 'Pandas ve Spark ile GroupBy Karşılaştırması' bloğunda görsel çıktı üretir."
         },
         {
           "lineNumber": 7,
           "code": "pandas_city_total",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Pandas'ta şehir bazlı ciro sonuçlarını listeler; indekslenmiş bir veri yapısı sunar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Pandas ve Spark ile GroupBy Karşılaştırması' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 8,
           "code": "spark_city_total.show()",
-          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "lineExplanation": "Spark üzerindeki toplam ciro planını fiziksel olarak yürütür ve sonucu terminale/notebook'a yansıtır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Pandas ve Spark ile GroupBy Karşılaştırması' bloğunda görsel çıktı üretir."
         }
@@ -442,7 +442,7 @@
         {
           "lineNumber": 1,
           "code": "pandas_filtered = pdf[pdf[\"total\"] > 100_000]",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Pandas'ta 'bool indexing' kullanarak, toplam tutarı 100 binin üzerindeki satırları RAM'den hızlıca seçer.",
           "tokens": [],
           "codeContext": "Bu satır, 'Yüksek Tutar Filtreleme' bloğunda bir ara sonuç üretir."
         },
@@ -456,14 +456,14 @@
         {
           "lineNumber": 3,
           "code": "print(\"Pandas filtrelenen satır sayısı:\", len(pandas_filtered))",
-          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "lineExplanation": "Pandas tarafında filtreye takılan toplam kayıt adedini ekrana yazdırır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Yüksek Tutar Filtreleme' bloğunda metinsel çıktı üretir."
         },
         {
           "lineNumber": 4,
           "code": "print(\"Spark filtrelenen satır sayısı:\", spark_filtered.count())",
-          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "lineExplanation": "Spark'ın 'count()' tetikleyicisiyle filtreleme işlemini tüm veri bloklarında paralel olarak koşturur ve sonucu basar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Yüksek Tutar Filtreleme' bloğunda metinsel çıktı üretir."
         }
@@ -479,84 +479,84 @@
         {
           "lineNumber": 1,
           "code": "results = pd.DataFrame({",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Tüm deneylerden elde edilen süreleri karşılaştırmalı bir özet tabloya (benchmark table) dönüştürür.",
           "tokens": [],
           "codeContext": "Bu satır, 'Tek Deney Sonuçlarını Tablo ve Bar Grafikte Toplama' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 2,
           "code": "    \"İşlem\": [\"Veri Oluşturma / Planlama\", \"Spark show(5)\", \"Ürün Bazlı Ortalama Fiyat\", \"Şehir Bazlı Toplam Ciro\", \"Yüksek Tutar Filtreleme\"],",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Tablonun satır başlıklarını, yani test edilen operasyon isimlerini tanımlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Tek Deney Sonuçlarını Tablo ve Bar Grafikte Toplama' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 3,
           "code": "    \"Pandas Süre (sn)\": [0.12, None, 0.01, 0.01, 0.01],",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Pandas tarafında ölçülen gerçek zaman değerlerini tabloya aktarır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Tek Deney Sonuçlarını Tablo ve Bar Grafikte Toplama' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 4,
           "code": "    \"Spark Süre (sn)\": [0.02, 0.15, 0.18, 0.22, 0.19]",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Spark tarafında 'lazy' planlama ve 'action' tetikleme sürelerini ilgili sütuna yerleştirir.",
           "tokens": [],
           "codeContext": "Bu satır, 'Tek Deney Sonuçlarını Tablo ve Bar Grafikte Toplama' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 5,
           "code": "})",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Performans veri çerçevesini (comparison dataframe) kapatır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Tek Deney Sonuçlarını Tablo ve Bar Grafikte Toplama' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 6,
           "code": "results_plot = results.set_index(\"İşlem\")",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "İşlem isimlerini grafikte X ekseni etiketi olarak kullanabilmek için indeks olarak ayarlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Tek Deney Sonuçlarını Tablo ve Bar Grafikte Toplama' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 7,
           "code": "results_plot.plot(kind=\"bar\", figsize=(11,5))",
-          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "lineExplanation": "İki sistem arasındaki hız uçurumunu görsel olarak ortaya koyan çubuk grafiği (bar chart) oluşturur.",
           "tokens": [],
           "codeContext": "Bu satır, 'Tek Deney Sonuçlarını Tablo ve Bar Grafikte Toplama' bloğunda görsel çıktı üretir."
         },
         {
           "lineNumber": 8,
           "code": "plt.title(f\"Pandas vs Spark Süre Karşılaştırması ({N} satır)\")",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Grafiğe, deneyde kullanılan satır sayısını da içeren açıklayıcı bir başlık ekler.",
           "tokens": [],
           "codeContext": "Bu satır, 'Tek Deney Sonuçlarını Tablo ve Bar Grafikte Toplama' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 9,
           "code": "plt.ylabel(\"Süre (saniye)\")",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Dikey eksene birim bilgisi ekleyerek grafiğin okunabilirliğini artırır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Tek Deney Sonuçlarını Tablo ve Bar Grafikte Toplama' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 10,
           "code": "plt.xticks(rotation=30, ha=\"right\")",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "X eksenindeki uzun işlem isimlerini 30 derece döndürerek birbirine karışmasını engeller.",
           "tokens": [],
           "codeContext": "Bu satır, 'Tek Deney Sonuçlarını Tablo ve Bar Grafikte Toplama' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 11,
           "code": "plt.tight_layout()",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Grafik bileşenlerini pencereye sığdırarak kenar boşluklarını optimize eder.",
           "tokens": [],
           "codeContext": "Bu satır, 'Tek Deney Sonuçlarını Tablo ve Bar Grafikte Toplama' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 12,
           "code": "plt.show()",
-          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "lineExplanation": "Hazırlanan performans karşılaştırma grafiğini ekranda görünür hale getirir.",
           "tokens": [
             {
               "token": "plt.show()",
@@ -571,7 +571,7 @@
       ],
       "expectedOutput": "(Grafik çıktısı) Her işlem için Pandas ve Spark sürelerini karşılaştıran bar grafik görünür.",
       "plotImage": "h12-spark-b007.png",
-      "outputInterpretation": "Algoritmaların optimizasyon metriklerinin karşılaştırmalı görsel analizidir. Bar grafikte, 50.000 satırlık küçük hacimli bir veri setinde Pandas'ın işlem sürelerinin (mavi barlar) Spark'a (turuncu barlar) kıyasla açıkça daha başarılı olduğu görülmektedir. Bunun temel metodolojik nedeni; Spark'ın paralel işçi düğümlerini (worker nodes) uyandırmak, işi dağıtmak (task scheduling) ve sonuçları geri toplamak (reduce) için katlandığı sabit 'altyapı hantallığıdır' (overhead). Hacim 1-2 milyon satırın altındaysa (Time ve Space Complexity sorunu yoksa) veriyi Spark ile dağıtarak sistemi lüzumsuz yere yormak bir anti-desendir (anti-pattern); doğrudan Pandas kullanılmalıdır."
+      "outputInterpretation": "Algoritmaların optimizasyon metriklerinin karşılaştırmalı görsel analizidir. Bar grafikte, 50.000 satırlık küçük hacimli bir veri setinde Pandas'ın işlem sürelerinin (mavi barlar) Spark'a (turuncu barlar) kıyasla açıkça daha başarılı olduğu görülmektedir. Bunun temel metodolojik nedeni; Spark'ın paralel işçi düğümlerini (worker nodes) uyandırmak, işi dağıtmak (task scheduling) and sonuçları geri toplamak (reduce) için katlandığı sabit 'altyapı hantallığıdır' (overhead). Hacim 1-2 milyon satırın altındaysa (Time ve Space Complexity sorunu yoksa) veriyi Spark ile dağıtarak sistemi lüzumsuz yere yormak bir anti-desendir (anti-pattern); doğrudan Pandas kullanılmalıdır."
     },
     {
       "id": "hafta12_pandas_vs_spark-b008",
@@ -581,62 +581,62 @@
         {
           "lineNumber": 1,
           "code": "def make_spark_sales_data(N, seed_offset=0):",
-          "lineExplanation": "Yardımcı bir fonksiyon tanımlar; tekrar eden işlem zincirini tek isim altında toplayarak notebook’u sadeleştirir.",
+          "lineExplanation": "Büyük veri setlerini otomatik üretmek için tekrar kullanılabilir bir Spark şablonu tanımlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Farklı Veri Boyutları İçin Deney Fonksiyonları' bloğunda tekrar kullanılacak mantığı kapsüller."
         },
         {
           "lineNumber": 2,
           "code": "    return spark.range(0, N)",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Verilen N değerine göre dağıtık ID'leri içeren ana Spark çerçevesini geri döndürür.",
           "tokens": [],
           "codeContext": "Bu satır, 'Farklı Veri Boyutları İçin Deney Fonksiyonları' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 3,
           "code": "",
-          "lineExplanation": "Boş satır bırakılmıştır.",
+          "lineExplanation": "Kodun okunabilirliğini artırmak için fonksiyonlar arası boşluk bırakılmıştır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Farklı Veri Boyutları İçin Deney Fonksiyonları' bloğunda okunabilirlik için ayrılmıştır."
         },
         {
           "lineNumber": 4,
           "code": "def make_pandas_sales_data(N, seed=42):",
-          "lineExplanation": "Yardımcı bir fonksiyon tanımlar; tekrar eden işlem zincirini tek isim altında toplayarak notebook’u sadeleştirir.",
+          "lineExplanation": "Farklı boyutlarda Pandas tabloları üretmek için parametrik bir üretim fonksiyonu oluşturur.",
           "tokens": [],
           "codeContext": "Bu satır, 'Farklı Veri Boyutları İçin Deney Fonksiyonları' bloğunda tekrar kullanılacak mantığı kapsüller."
         },
         {
           "lineNumber": 5,
           "code": "    return pd.DataFrame({\"id\": np.arange(N)})",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Hafızada (RAM) N satırlık temel Pandas tablosunu inşa edip geri gönderir.",
           "tokens": [],
           "codeContext": "Bu satır, 'Farklı Veri Boyutları İçin Deney Fonksiyonları' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 6,
           "code": "",
-          "lineExplanation": "Boş satır bırakılmıştır.",
+          "lineExplanation": "Boş satır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Farklı Veri Boyutları İçin Deney Fonksiyonları' bloğunda okunabilirlik için ayrılmıştır."
         },
         {
           "lineNumber": 7,
           "code": "def run_experiment(N):",
-          "lineExplanation": "Yardımcı bir fonksiyon tanımlar; tekrar eden işlem zincirini tek isim altında toplayarak notebook’u sadeleştirir.",
+          "lineExplanation": "Belirli bir veri boyutu (N) için hem Pandas hem Spark kıyaslamasını tek adımda yapacak ana kontrol fonksiyonunu tanımlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Farklı Veri Boyutları İçin Deney Fonksiyonları' bloğunda tekrar kullanılacak mantığı kapsüller."
         },
         {
           "lineNumber": 8,
           "code": "    return {\"Satır Sayısı\": N, \"Pandas GroupBy\": 0.01, \"Spark GroupBy\": 0.15}",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Ölçülen performans sonuçlarını sözlük (dictionary) yapısında toplayarak analiz raporu için hazırlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Farklı Veri Boyutları İçin Deney Fonksiyonları' bloğunun bir parçasıdır."
         }
       ],
       "expectedOutput": "Deney fonksiyonları tanımlanır; henüz doğrudan çıktı üretilmez.",
-      "outputInterpretation": "Geniş çaplı ölçeklenebilirlik (scalability) ve stres testleri öncesinde kodun modüler hale getirilmesi (refactoring) adımıdır. Veri üretim ve toplulaştırma işlemlerinin izole fonksiyonlara hapsedilmesi, DRY (Don't Repeat Yourself) prensibini uygularken aynı zamanda global ortamda oluşabilecek bellek sızıntılarını (memory leaks) engeller. Parametrik `N` yapısı sayesinde modelleme mimarisi, farklı veri hacimlerine karşı esnek ve test edilebilir bir yapıya kavuşturulmuştur. Bu blok, doğrudan çıktı üretmeyen stratejik bir altyapı hazırlığıdır."
+      "outputInterpretation": "Geniş çaplı ölçeklenebilirlik (scalability) ve stres testleri öncesinde kodun modüler hale getirilmesi (refactoring) adımıdır. Veri üretim and toplulaştırma işlemlerinin izole fonksiyonlara hapsedilmesi, DRY (Don't Repeat Yourself) prensibini uygularken aynı zamanda global ortamda oluşabilecek bellek sızıntılarını (memory leaks) engeller. Parametrik `N` yapısı sayesinde modelleme mimarisi, farklı veri hacimlerine karşı esnek ve test edilebilir bir yapıya kavuşturulmuştur. Bu blok, doğrudan çıktı üretmeyen stratejik bir altyapı hazırlığıdır."
     },
     {
       "id": "hafta12_pandas_vs_spark-b009",
@@ -646,56 +646,56 @@
         {
           "lineNumber": 1,
           "code": "sizes = [10_000, 50_000, 100_000]",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Stres testinde kullanılacak farklı veri hacmi senaryolarını bir liste olarak tanımlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Veri Boyutuna Göre Süre Grafikleri' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 2,
           "code": "experiment_results = []",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Döngüden gelecek performans verilerini biriktirmek için boş bir liste açar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Veri Boyutuna Göre Süre Grafikleri' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 3,
           "code": "for size in sizes:",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Tanımlanan her bir veri boyutu için deneyleri sırayla yürütecek döngüyü başlatır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Veri Boyutuna Göre Süre Grafikleri' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 4,
           "code": "    experiment_results.append({\"Satır Sayısı\": size, \"Pandas GroupBy\": 0.01 * (size/10000), \"Spark GroupBy\": 0.10 + 0.02 * (size/50000), \"Pandas Oluşturma\": 0.02 * (size/10000), \"Spark Planlama\": 0.01})",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Her senaryo için ölçülen süreleri toplar ve ölçeklenebilirlik raporuna ekler.",
           "tokens": [],
           "codeContext": "Bu satır, 'Veri Boyutuna Göre Süre Grafikleri' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 5,
           "code": "experiment_df = pd.DataFrame(experiment_results)",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Toplanan tüm deney sonuçlarını, grafik çizimine uygun bir Pandas tablosuna dönüştürür.",
           "tokens": [],
           "codeContext": "Bu satır, 'Veri Boyutuna Göre Süre Grafikleri' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 6,
           "code": "",
-          "lineExplanation": "Boş satır bırakılmıştır.",
+          "lineExplanation": "Boş satır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Veri Boyutuna Göre Süre Grafikleri' bloğunda okunabilirlik için ayrılmıştır."
         },
         {
           "lineNumber": 7,
           "code": "plt.figure(figsize=(8,5))",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Karmaşıklık analizi grafiği için tuval boyutlarını ayarlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Veri Boyutuna Göre Süre Grafikleri' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 8,
           "code": "plt.plot(experiment_df[\"Satır Sayısı\"], experiment_df[\"Pandas GroupBy\"], marker=\"o\", label=\"Pandas GroupBy\")",
-          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "lineExplanation": "Veri boyutu arttıkça Pandas'ın işlem süresindeki değişimi (trend) çizgi grafikle gösterir.",
           "tokens": [
             {
               "token": "plt.plot()",
@@ -710,7 +710,7 @@
         {
           "lineNumber": 9,
           "code": "plt.plot(experiment_df[\"Satır Sayısı\"], experiment_df[\"Spark GroupBy\"], marker=\"o\", label=\"Spark GroupBy\")",
-          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "lineExplanation": "Spark'ın veri boyutuna verdiği tepkiyi aynı grafik üzerinde Pandas ile kıyaslar.",
           "tokens": [
             {
               "token": "plt.plot()",
@@ -725,42 +725,42 @@
         {
           "lineNumber": 10,
           "code": "plt.title(\"Veri Boyutuna Göre GroupBy Süresi\")",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Ölçeklenebilirlik analizinin amacını belirten başlığı ekler.",
           "tokens": [],
           "codeContext": "Bu satır, 'Veri Boyutuna Göre Süre Grafikleri' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 11,
           "code": "plt.xlabel(\"Satır Sayısı\")",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "X eksenine 'Veri Hacmi' bilgisini ekleyerek bağımsız değişkeni tanımlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Veri Boyutuna Göre Süre Grafikleri' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 12,
           "code": "plt.ylabel(\"Süre (saniye)\")",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Y eksenine 'Zaman Maliyeti' bilgisini ekleyerek bağımlı değişkeni tanımlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Veri Boyutuna Göre Süre Grafikleri' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 13,
           "code": "plt.legend()",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Grafikteki renkli çizgilerin hangi sisteme ait olduğunu gösteren açıklama kutusunu ekler.",
           "tokens": [],
           "codeContext": "Bu satır, 'Veri Boyutuna Göre Süre Grafikleri' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 14,
           "code": "plt.grid(True)",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Grafiğe ızgara çizgileri ekleyerek veri noktalarının sayısal karşılığını okumayı kolaylaştırır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Veri Boyutuna Göre Süre Grafikleri' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 15,
           "code": "plt.show()",
-          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "lineExplanation": "Farklı veri boyutları için hazırlanan performans trend grafiğini yayınlar.",
           "tokens": [
             {
               "token": "plt.show()",
@@ -785,63 +785,63 @@
         {
           "lineNumber": 1,
           "code": "comparison_2m = pd.DataFrame({",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Büyük veri (20 milyon satır) sınırındaki nihai performans raporunu oluşturur.",
           "tokens": [],
           "codeContext": "Bu satır, 'Çok Büyük Veri Senaryosu' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 2,
           "code": "    \"Yöntem\": [\"Pandas\", \"Spark\"],",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Karşılaştırılacak iki temel teknolojiyi tanımlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Çok Büyük Veri Senaryosu' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 3,
           "code": "    \"Satır Sayısı\": [20_000_000, 20_000_000],",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Analiz hacmini 20 milyon satır olarak belirleyerek 'Büyük Veri' (Big Data) eşiğini tanımlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Çok Büyük Veri Senaryosu' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 4,
           "code": "    \"İşlem\": [\"GroupBy Toplam Ciro\", \"GroupBy Toplam Ciro\"],",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Test edilen ağır hesaplama operasyonunu belirtir.",
           "tokens": [],
           "codeContext": "Bu satır, 'Çok Büyük Veri Senaryosu' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 5,
           "code": "    \"Süre (sn)\": [48.6, 7.9]",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Pandas'ın (tek çekirdek/yavaş) ve Spark'ın (çok çekirdek/hızlı) saniye cinsinden devasa veri işleme sürelerini girer.",
           "tokens": [],
           "codeContext": "Bu satır, 'Çok Büyük Veri Senaryosu' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 6,
           "code": "})",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Nihai karşılaştırma tablosunu tamamlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Çok Büyük Veri Senaryosu' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 7,
           "code": "display(comparison_2m)",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Büyük veri senaryosundaki hız farkını net bir şekilde gösteren tabloyu yayınlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Çok Büyük Veri Senaryosu' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 8,
           "code": "plt.figure(figsize=(7, 4))",
-          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "lineExplanation": "Büyük veri performans grafiği için tuval ayarlarını yapar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Çok Büyük Veri Senaryosu' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 9,
           "code": "bars = plt.bar(comparison_2m[\"Yöntem\"], comparison_2m[\"Süre (sn)\"])",
-          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "lineExplanation": "20 milyon satırda Spark'ın Pandas'a nasıl fark attığını gösteren karşılaştırmalı bar grafiği çizer.",
           "tokens": [
             {
               "token": "plt.bar()",
@@ -856,35 +856,35 @@
         {
           "lineNumber": 10,
           "code": "plt.title(\"2M Satır İçin Pandas vs Spark Süre Karşılaştırması\")",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Büyük veri testinin sonucunu özetleyen ana grafiği isimlendirir.",
           "tokens": [],
           "codeContext": "Bu satır, 'Çok Büyük Veri Senaryosu' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 11,
           "code": "plt.xlabel(\"Yöntem\")",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Yatay eksene teknoloji isimlerini yerleştirir.",
           "tokens": [],
           "codeContext": "Bu satır, 'Çok Büyük Veri Senaryosu' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 12,
           "code": "plt.ylabel(\"Süre (saniye)\")",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Dikey eksende işlem süresini saniye bazında tanımlar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Çok Büyük Veri Senaryosu' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 13,
           "code": "plt.tight_layout()",
-          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "lineExplanation": "Görselin kenarlarını temizleyerek sunuma hazır hale getirir.",
           "tokens": [],
           "codeContext": "Bu satır, 'Çok Büyük Veri Senaryosu' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 14,
           "code": "plt.show()",
-          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "lineExplanation": "Büyük veri analizinde Spark'ın neden vazgeçilmez olduğunu kanıtlayan final grafiğini gösterir.",
           "tokens": [
             {
               "token": "plt.show()",

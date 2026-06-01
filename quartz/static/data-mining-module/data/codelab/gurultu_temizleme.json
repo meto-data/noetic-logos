@@ -179,7 +179,7 @@
           "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
-      "expectedOutput": "ID      Ölçüm_1     Ölçüm_2\n0   1  1048.377157  883.141050\n1   2   708.084966  592.525777\n2   3   391.291670  857.446645\n3   4   649.955524  250.315916\n4   5   325.855745  683.356378"
+      "expectedOutput": "   ID      Ölçüm_1     Ölçüm_2\n0   1  1048.377157  883.141050\n1   2   708.084966  592.525777\n2   3   391.291670  857.446645\n3   4   649.955524  250.315916\n4   5   325.855745  683.356378"
     },
     {
       "id": "gurultu-b002",
@@ -269,7 +269,7 @@
           "codeContext": "Bu satır, 'Hareketli Ortalama (Moving Average)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
-      "expectedOutput": "ID      Ölçüm_1     Ölçüm_2  Ölçüm_1_MA  Ölçüm_2_MA\n0   1  1048.377157  883.141050         NaN         NaN\n1   2   708.084966  592.525777         NaN         NaN\n2   3   391.291670  857.446645         NaN         NaN\n3   4   649.955524  250.315916  699.427329  645.857347\n4   5   325.855745  683.356378  518.796976  595.911179\n5   6   793.276398  283.718518  540.094834  518.709364\n6   7   811.407376   90.483866  645.123760  326.968670\n7   8   880.686891  792.096088  702.806602  462.413712\n8   9   965.129266  740.108312  862.624983  476.601696\n9  10   869.732252  211.251646  881.738946  458.484978",
+      "expectedOutput": "   ID      Ölçüm_1     Ölçüm_2  Ölçüm_1_MA  Ölçüm_2_MA\n0   1  1048.377157  883.141050         NaN         NaN\n1   2   708.084966  592.525777         NaN         NaN\n2   3   391.291670  857.446645         NaN         NaN\n3   4   649.955524  250.315916  699.427329  645.857347\n4   5   325.855745  683.356378  518.796976  595.911179\n5   6   793.276398  283.718518  540.094834  518.709364\n6   7   811.407376   90.483866  645.123760  326.968670\n7   8   880.686891  792.096088  702.806602  462.413712\n8   9   965.129266  740.108312  862.624983  476.601696\n9  10   869.732252  211.251646  881.738946  458.484978",
       "plotImage": "gurultu-b002.png"
     },
     {
@@ -362,7 +362,7 @@
           "codeContext": "Bu satır, 'Eşit Genişlikli Bölmeleme (Equal-Width Binning)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
-      "expectedOutput": "ID  Ölçüm_1  Ölçüm_2\n0   1        3        3\n1   2        2        2\n2   3        1        3\n3   4        2        1\n4   5        1        2\n5   6        2        1\n6   7        2        0",
+      "expectedOutput": "   ID  Ölçüm_1  Ölçüm_2\n0   1        3        3\n1   2        2        2\n2   3        1        3\n3   4        2        1\n4   5        1        2\n5   6        2        1\n6   7        2        0",
       "plotImage": "gurultu-b003.png"
     },
     {
@@ -455,7 +455,7 @@
           "codeContext": "Bu satır, 'Eşit Frekanslı Bölmeleme (Equal-Frequency Binning)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
-      "expectedOutput": "ID  Ölçüm_1  Ölçüm_2\n0   1        3        3\n1   2        2        2\n2   3        1        3\n3   4        2        0\n4   5        0        2\n5   6        2        0\n6   7        2        0"
+      "expectedOutput": "   ID  Ölçüm_1  Ölçüm_2\n0   1        3        3\n1   2        2        2\n2   3        1        3\n3   4        2        0\n4   5        0        2\n5   6        2        0\n6   7        2        0"
     },
     {
       "id": "gurultu-b005",
@@ -710,7 +710,7 @@
           "codeContext": "Bu satır, 'Eğri Uydurma (Curve Fitting)' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
         }
       ],
-      "expectedOutput": "ID      Ölçüm_1     Ölçüm_2  Ölçüm_1_Fitted  Ölçüm_2_Fitted\n0   1  1048.377157  883.141050      670.902112      883.001545\n1   2   708.084966  592.525777      669.664954      593.271680\n2   3   391.291670  857.446645      668.427796      855.713634\n3   4   649.955524  250.315916      667.190637      252.616039\n4   5   325.855745  683.356378      665.953479      681.508462\n\nLinearRegression()",
+      "expectedOutput": "LinearRegression()\n\n   ID      Ölçüm_1     Ölçüm_2  Ölçüm_1_Fitted  Ölçüm_2_Fitted\n0   1  1048.377157  883.141050      670.902112      883.001545\n1   2   708.084966  592.525777      669.664954      593.271680\n2   3   391.291670  857.446645      668.427796      855.713634\n3   4   649.955524  250.315916      667.190637      252.616039\n4   5   325.855745  683.356378      665.953479      681.508462",
       "plotImage": "gurultu-b006.png"
     }
   ]

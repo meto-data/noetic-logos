@@ -189,11 +189,27 @@ Eskiden geniş aileler içinde farklı rol modeller eşliğinde büyüyen çocuk
 
 # 7. Ders: Ahlâkî Gelişim Kuramları (Jean Piaget)
 
-Ahlâk felsefesinin en büyük destekçilerinden biri ahlâk psikolojisidir. Nitekim "insan nasıl ahlâklı olur?" sorusuna cevap verebilmek için, insanın **bilişsel (kognitif)** olarak ahlâkı nasıl algıladığını da bilmek gerekir. İsviçreli psikolog **Jean Piager**, ahlâkî gelişimim tıpkı kognitif gelişim gibi belirli evrelerden geçtiğini savunur. *Çocuğun Ahlâkî Yargısı* (1932) adlı eserinde çocukların oyun kurallarına yaklaşımlarını inceleyerek ahlâk teorisini inşa etmiştir. 
+Ahlâk felsefesinin en büyük destekçilerinden biri ahlâk psikolojisidir. Nitekim "insan nasıl ahlâklı olur?" sorusuna cevap verebilmek için, insanın **bilişsel (kognitif)** olarak ahlâkı nasıl algıladığını da bilmek gerekir. İsviçreli psikolog **Jean Piaget**, ahlâkî gelişimim tıpkı kognitif gelişim gibi belirli evrelerden geçtiğini savunur. *Çocuğun Ahlâkî Yargısı* (1932) adlı eserinde çocukların oyun kurallarına yaklaşımlarını inceleyerek ahlâk teorisini inşa etmiştir. 
 
 Piaget'e göre ahlâk bir **kurallar sistemidir** ve ahlâkîliğin temeli kurallara duyulan saygıdır. Piaget, çocukların kurallara yaklaşımını **kuralların pratize edilmesi (uygulanması)** ve **kuralların bilinci (anlayışı)** olmak üzere iki boyutta inceler.
 
-## 1. **Heteronom Ahlâk** (5-9 Yaş)
+## Kuralların Pratiği
+### 1. Saf Motor ve Bireysel Basamak (0-3)
+Çocuklar kendi arzu ve alışkanlıklarına göre oynarlar, yalnız oynarlar, bedensel kurallar geçerlidir ve ortak bir oyunun kuralları gözlenmez.
+
+### 2. Egosantrik Basamak (3-6)
+Büyüklerin oyunlarında gözlemlenen kurallara göre oynamaya çalışır, tek başına oynar, kazanan ya da kaybeden olamaz. Her çocuk kendi yorumuna göre kazanan yada kaybeden olabilir.
+
+### 3. Ortak Çalışmanın Başlangıcı (7-10)
+Her oyuncu diğerini yenmeye çalışır. Bu nedenle oyunun kurallarına uyulup uyulmadığını kontrol etmek önemlidir. Kurallar üzerinde anlaşılır ancak kendilerine sorulduğunda çelişkili görüşler olduğu ortaya çıkar.
+
+### 4.  Kuralların Kodlanması (11+)
+Kuralların detaylarına ilişkin farklı görüşler mevcut değildir. Kurallar üzerinde uzlaşma vardır
+
+## Kuralların Bilinci
+### 1. Bireysel Ritüeller ve Motor Şemalar (0-4)
+Çocuk başkalarının oyununu görmediği oranda kendi ritüellerini geliştirir. Belki de bir oyuncağı eline ilk aldığında bir kuralın izlenmesi gereğini düşünebilir ama bunu tam olarak anlamak mümkün değildir. Genelde motor şemalara göre kendince oynadığı düşünülebilir.
+### 2. **Heteronom Ahlâk** (5-9 Yaş)
 Etimolojik olarak *hetero* "farklı/dış" ve *nomos* "yasa" sözcüklerinin birleşiminden gelir. Dışa bağımlı ahlâktır heteronom ahlâk. Kuralı başkası koyar.
 
 - **Otoriteye Mutlak İtaat**: Kurallar anne, baba, Tanrı veya devlet gibi dışsal (**heteronom**) otoriteler tarafından konmuştur ve bize de dikte edilir. Kutsaldır ve değişmezdir.
@@ -201,11 +217,11 @@ Etimolojik olarak *hetero* "farklı/dış" ve *nomos* "yasa" sözcüklerinin bir
 - **Cezalandırma**: Suç kesinlikle cezalandırılmalıdır. Ceza ile suç arasında mantıksal bir bağ aranmaz; otoritenin verdiği keyfî ceza kabul görür.
 - **Heterominin Nedenleri**: Bilişsel yetersizlik (*egosantrizm (benmerkezcilik), olayları tek boyutuyla değerlendirme)* ve yetişkinlere duyulan tek taraflı, korku veya hayranlık temelli saygı.
 
-## 2. **Otonom Ahlâk** (Özerk Ahlâk, 10+)
+### 2. **Otonom Ahlâk** (Özerk Ahlâk, 10+)
 *Oto* "kendi" ve *nomos* "yasa" sözcüklerinin birleşimi. Bireyin yasayı kendisine koymasıdır. Kendi ahlâk yasasını kendisi içselleştirir, heteronomi olmaksızın.
 
 - **Esneklik ve Uzlaşı**: Kurallar gökten inme, dikte edici ve değişmez yasalar olmaktan çıkar. İnsanların kendi aralarındaki sözleşmeler ve uzlaşılar bütünü olarak görülür. İhtiyaç hâlinde kurallar değiştirilebilir.
-- **Sübjektif Sorumluluk**: Eylemin fiziksel sonucundan ziyade, eylemi yapanın *niyetine* bakılır. Netice, niyetten önemli değildir.
+- **Subjektif Sorumluluk**: Eylemin fiziksel sonucundan ziyade, eylemi yapanın *niyetine* bakılır. Netice, niyetten önemli değildir.
 - **Onarıcı Adalet**: Ceza, suçun doğasına ilişkin olmalı ve zararı onarmaya (*telafi etmeye*) yönelik olmalıdır.
 - **Otonomiye Geçişin Şartı**: Bilişsel gelişimin ilerlemesi ve akran grupları içindeki "eşitlik" deneyimidir. Otorite figüründen kurtulup eşitler arası ilişki kurmak otonomiyi doğurur.
 
