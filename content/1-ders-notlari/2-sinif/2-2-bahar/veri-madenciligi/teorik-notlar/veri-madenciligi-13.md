@@ -25,6 +25,7 @@ Görsel veri madenciliğinin ticarî ve hayatî karşılıkları şunlardır:
 1. **Tıp (Onkoloji)**: 60 yaşına gelmiş tecrübeli bir doktor, hayatı boyunca belki 50.000 MR görüntüsü görmüştür. Ancak bir yapay zekâ modeli 1 milyon MR görüntüsü ile eğitilebilir. Yapay zekâ, insan gözünün kaçırabileceği tümörlü pikselleri işaretleyerek doktora karar destek sistemi sunar.
 2. **Akıllı Tarım**: Ziraat mühendislerinin dönümlerce tarlayı gezmesi yerine, bir drone arazinin 3 boyutlu haritasını çıkarır. YZ, solmuş veya hastalıklı yaprakları tespit eder. Traktör tüm tarlayı ilaçlamak yerine sadece o bölgeye ilaç sıkarak hem zaman hem de gübre/ilaç maliyetinden tasarruf sağlar.
 3. **Sanayi ve Üretim Bandı**: Üretim bandından saniyede onlarca ürün geçer. İnsan gücüyle (6-7 kişi) hatalı ürünleri ayıklamak yerine, bandın başına konan bir kamera ve CNN modeli, ürünün 3D görüntüsünü alır. Çatlak veya defolu olan ürünler, servo motorlar vasıtasıyla banttan dışarı atılır. 10 kişinin yaptığı işi daha az hata payıyla tek bir sistem yapar.
+4. **Otonom Araçlar ve Güvenlik**: Bilgisayarlı görü (Computer Vision) sayesinde nesne tanıma (YOLO), güvenlik kameralarında yüz tanıma ve olağandışı hareket tespiti yapılır.
 
 
 # 2.Görüntüden Öznitelik Çıkarma (Feature Extraction)
@@ -32,17 +33,24 @@ Makine, görüntüyü doğrudan anlayamaz. Önce görüntünün ayırt edici öz
 
 ## A. Manuel (Elle) Öznitelik Çıkarma Yöntemleri
 - **Renk Histogramı**: Resimdeki RGB dağılımına bakılır. "Bu görselin %80'i mavi, demek ki deniz veya gökyüzü olabilir."
-- **Kenar Bilgisi (Edge Detection)**: Sobel ve Canny gibi algoritmalarla pikseller arasındaki keskin renk geçişleri bulunarak nesnenin dış hatları (silüeti) çiziliyor.
+- **Kenar Bilgisi (Edge Detection)**: Sobel ve Canny gibi algoritmalarla pikseller arasındaki keskin renk geçişleri bulunarak nesnenin dış hatları (silüeti) çiziliyor. 
 - **Yapısal Özellikler**: Gabor filtresi gibi yöntemlerle doku ve yönelim bilgisi çıkarılır.
 
 ## B. Otomatik Öznitelik Çıkarma (CNN - Evrişimli Sinir Ağları)
-Günümüzde manuel işlemlere gerek kalmamıştır. **CNN (Convolutional Neural Network)**, görüntü üzerindeki kenar, köşe, doku ve renk gibi özellikleri kendisi otomatik olarak öğrenen ve filtreleyen derin öğrenme mimarisidir.
+Günümüzde manuel işlemlere gerek kalmamıştır. **CNN (Convolutional Neural Network)**, görüntü üzerindeki kenar, köşe, doku ve renk gibi özellikleri kendisi otomatik olarak öğrenen ve filtreleyen derin öğrenme mimarisidir. Elle özellik çıkarmaya gerek kalmaz; ağ derinleştikçe özellikleri kendi kendine hiyerarşik olarak öğrenir (kenar $\to$ şekil $\to$ nesne $\to$ anlam).
 
 
 ![[oznitelik.png]]
 
+## C. Çıkarılan Bu Özniteliklerle Neler Yapabiliriz? (Veri Madenciliği Entegrasyonu)
+CNN ağının resimlerden otomatik çıkardığı bu matematiksel öznitelikler, klasik veri madenciliği algoritmalarına beslenerek devasa analizler yapılabilir:
+- **K-Means:** Elde edilen özelliklerle benzer görselleri birbirine kümeleme.
+- **Random Forest / XGBoost:** Görsel özelliklere bakarak sınıflandırma yapma.
+- **t-SNE:** Yüksek boyutlu bu görsel özellikleri 2D/3D uzayda görselleştirme.
+- **Apriori:** Görseller veya nesneler arası birliktelik kuralları çıkarma.
+- **LOF (Local Outlier Factor):** Görseller içindeki anomalilerin belirlenmesi.
 # 3. CNN Mimarisi
-CNN ağı temelde görüntüden özellikler çıkaran (Feature Extraction) ve bu özelliklere bakarak sınıflandırma yapan (classification) iki büyük bölümden oluşur.
+CNN ağı temelde görüntüden özellikler çıkaran (Feature Extraction) ve bu özelliklere bakarak sınıflandırma yapan (classification) iki büyük bölümden oluşur. Geleneksel yapay sinir ağları (ANN) pikselleri doğrudan ve düz bir şekilde işlerken, CNN görsel verilerdeki mekânsal (spatial) ilişkileri koruyarak öğrenir.
 
 
 ![[ozellik-cikar.png]] <br>
@@ -50,14 +58,15 @@ CNN ağı temelde görüntüden özellikler çıkaran (Feature Extraction) ve bu
 ![[cnn-islem-sonucu.png]]
 ### Adım  1: Convolution (Evrişim) Katmanı
 - Görüntünün üzerinden gezinen **filtreler (kernels)** bulunur. Bu filtreler genellikle $3 \times 3$ veya $5 \times 5$ boyutlarında matrislerdir.
-- Filtre, resmin sol üst köşesinden başlar ve belirlenen adım sayısına (**stride**) göre kayarak tüm resmi tarar.
-- Her taramada, filtrenin matrisi ile resmin o anki pikselleri matematiksel olarak çarpılır ve tek bir piksele dönüştürülür.
+- Filtre, resmin sol üst köşesinden başlar ve belirlenen adım sayısına (**stride**) göre kayarak tüm resmi tarar. Her filtre, görüntü üzerinde kayan bir pencere gibi hareket eder.
+- Her taramada, filtrenin matrisi ile resmin o anki pikselleri matematiksel olarak çarpılır ve tek bir piksele dönüştürülür, **Feature Map (Özellik Haritası)** ÜRETİLİR.
 - **Amacı**: Resimden kenar, doku ve renk gibi özellikleri cımbızlamak ve boyutunu bir miktar küçültmek.
 - *Not*: Filtrelerin oluşturduğu sonuçlarda bazen eksi (-) değerler, yani piksellerde siyah karşılığı olan anlamsız veriler çıkabilir. Bunları sıfıra eşitlemek (absorbe etmek) için araya **ReLu (Rectified Linear Unit)** aktivasyon fonksiyonu konur. ReLu, negatif değerleri sıfır yapar.
 
 ### Adım 2: Pooling (Havuzlama) Katmanı
-- Filtrelenmiş özellik haritalarının boyutunu ve makinenin işlem yükünü drastik bir şekilde azaltmak için kullanılır.
+- Filtrelenmiş özellik haritalarının boyutunu ve makinenin işlem yükünü drastik bir şekilde azaltmak için kullanılır. Böylece ağın çalışma hızı artar
 - En yaygın kullanılanı **Max Pooling**'dir. Resmin üzerinde $2 \times 2$'lik kareler açılır ve o 4 piksel içindeki en yüksek değere sahip olan piksel (en yoğun özellik) alınır, diğer 3'ü çöpe atılır.
+ - **Ne işe yarar?**: Konumsal değişikliklere karşı dayanıklılık (Spatial Invariance) kazandırır. Örneğin, aradığımız nesne resimde biraz sağa veya sola kaymış olsa bile, havuzlama sayesinde model o nesneyi yine tanır.
 
 >[!example] Kayıplı Sıkıştırma (Lossy Compression)
 >Bir ağaç resmini (TIFF  formatında 50MB) Paint'e açıp JPEG olarak (5 MB) kaydettiğimizi düşünelim. Pikseller kaybolmuştur, kalite düşmüştür, ama o resme baktığımızda onun bir ağaç olduğun hâlâ anlarız. İşte, **Max Pooling** işlemi de budur. Önemsiz detayları atarak veriyi sıkıştırır ama nesnenin ayırt edici *özünü* korur.  Böylece işlemci (CPU/GPU) yorulmaz.
@@ -67,7 +76,7 @@ CNN ağı temelde görüntüden özellikler çıkaran (Feature Extraction) ve bu
 - Ancak YSA'lar matris kabul etmez, **tek boyutlu dizi (1D array)** kabul eder.
 - Flatten, bu kare matrisi alır ve düz bir ipe dizer gibi tek bir satır/sütun hâline getirir ($1 \times 1600$ gibi). Artık bunlar bizim eğitimde kullanacağımız $X$ (bağımsız değişken) sütunlarımızdır.
 ### Adım 4: Dense (Fully Connected) ve Softmax Çıktısı
-- Düzleştirien veriler, bizim klasik [[veri-madenciligi-4#A. Denetimli Öğrenme (Supervised Learning)|Denetimli Öğrenme]] modellerimizden (Random Forest, SVM veya Klasik Sinir Ağları) girer.
+- Düzleştirien veriler, bizim klasik [[veri-madenciligi-4#A. Denetimli Öğrenme (Supervised Learning)|Denetimli Öğrenme]] modellerimizden (Random Forest, SVM veya Klasik Sinir Ağları) girer. Klasik bir yapay sinir ağı (ANN) gibi çalışır ve tüm çıkarılmış özellikleri birleştirir.
 - Son katmanda kaç sınıfımız varsa (Örn: 0'dan 9'a rakamları tanıyorsak 10 sınıf) o kadar çıktı hücresi (nöron) olur.
 - **Softmax** fonksiyonu, resmin hangi sınıfa ait olduğuna dair bir olasılık dağılımı üretir (Örn: %89 ihtimalle 3 rakamı, %5 ihtimalle 8 rakamı). En yüksek olasılık, modelin nihai tatmini olur. 
 
@@ -83,7 +92,7 @@ Peki, biz kameradan bir mouse veya bardak tanımak istediğimizde CNN ağını s
 Yapay zekânın formülü: $f(x) = X_1W_1 + X_2W_2 = Y$ <br>
 Makinenin bütün eğitim süreci, o denklemdeki en iyi $W$ (**Ağırlık/Weight**) değerlerini bulmak üzerine kuruludur. Eğer bir CNN ağını sıfırdan eğitmeye kalkarsak haftalar, aylar sürer ve devasa ekran kartlarına ihtiyaç duyarız.
 
-Bunun yerine Google, Facebook, gibi devlerin devasa veri setleriyle (20-30milyon resim) önceden eğittiği hazır modellerin $W$ (**Ağırlık**) **matrislerini** alıp kendi projemize katarız. Bu modellere; **YOLO, ResNet, VGG EfficientNet** adı verilir. Bunlar dünyadaki neredeyse tüm temel nesnelerin (kedi, köpek, masa vb.) kenar ve doku özelliklerini çoktan öğrenmiştir. Biz sadece son katmanı değiştirip kendi 500 resmimizi ekleyerek (fine-tuning) modeli özelleştiriyoruz. Buna **Transfer Learning** denir.
+Bunun yerine Google, Facebook, gibi devlerin devasa veri setleriyle (20-30milyon resim) önceden eğittiği hazır modellerin $W$ (**Ağırlık**) **matrislerini** alıp kendi projemize katarız. Bu modellere; **YOLO, ResNet, VGG, EfficientNet** adı verilir. Bunlar dünyadaki neredeyse tüm temel nesnelerin (kedi, köpek, masa vb.) kenar ve doku özelliklerini çoktan öğrenmiştir. Biz sadece son katmanı değiştirip kendi 500 resmimizi ekleyerek (fine-tuning) modeli özelleştiriyoruz. Buna **Transfer Learning** denir.
 
 ## 6. Çoklu Modlu Yaklaşım (Multimodal/Hibrit Modeller)
 
@@ -95,7 +104,34 @@ Bu noktada iki farklı veri madenciliği disiplini birleşir:
 2. Metinden (bağlamdan) öznitelik çıkarmak için [[veri-madenciligi-11#LSTM (Long Short-Term Memory - Uzun Kısa Vadeli Hafıza)|LSTM]] veya **BERT** kullanılır.
 3. Bu iki ağın çıktısı birleştirilir (concatenate) ve karar/sınıflandırma katmanına öyle sokulur. Böylece sahte ürün tespiti veya sosyal medya anomali tespiti gibi çok boyutlu analizler çok güçlü şekilde yapılabilir.
 
+| Bileşen                | Görev                                                             | Örnek Araç        |
+| :--------------------- | :---------------------------------------------------------------- | :---------------- |
+| **CNN (Image)**        | Görselden özellik (kenar/doku) çıkarır.                           | ResNet, VGG       |
+| **LSTM / BERT (Text)** | Metinden anlam ve bağlam çıkarır.                                 | BERT, LSTM        |
+| **Fusion Katmanı**     | Metin ve görselden gelen öznitelikleri birleştirir (Concatenate). | Concat, Attention |
+| **Karar Katmanı**      | Birleşen veriye göre nihai tahmini (sınıflandırmayı) yapar.       | Dense Layer       |
 
+**Uygulama Alanı:** E-ticaret sitelerinde (ürün resmi + müşteri yorumu) analiz edilerek sahte ürün tespiti veya sosyal medyada duygu/anomali analizi yapılması.
+
+## 7. Veri Madenciliği ve CNN Entegrasyonu (Gelişmiş Yaklaşımlar)
+Sadece görüntü işleme değil, CNN ile elde edilen verilerin veri madenciliğiyle harmanlandığı ileri seviye kullanım alanları şunlardır:
+
+### 7.1. Veri Madenciliği Destekli CNN Eğitimi (Yarı Danışmanlı Öğrenme)
+- Etiketlenmesi çok pahalı olan (Örn: Tıbbî MR görüntüleri, uydu görüntüleri) veri setlerinde, veri madenciliği ile etiketlenmemiş veriler üzerinde **kümeleme (Clustering)** yapılır.
+- Bu kümeleme sonucunda sahte etiketler (**Pseudo-label**) üretilir.
+- Üretilen bu sahte etiketler kullanılarak CNN modeline gözetimli (supervised) eğitim yaptırılır (Semi-supervised learning).
+
+### 7.2. Anomali Tespiti
+- CNN, güvenlik kamerasındaki bir videodan veya üretim bandındaki görselden şekil/hareket özelliklerini çıkarır.
+- Çıkarılan bu özellikler **Isolation Forest** veya **LOF (Local Outlier Factor)** gibi veri madenciliği algoritmalarına sokularak olağandışı durumlar (bozuk ürün, hırsızlık hareketi vb.) tespit edilir.
+
+### 7.3. Öznitelik Seçimi ve Boyut Azaltımı
+- CNN'in ara katmanlarından çıkan özellik haritaları çok yüksek boyutludur.
+- Veri madenciliğindeki **PCA (Temel Bileşenler Analizi)** gibi yöntemler kullanılarak bu boyutlar indirgenir (gereksiz veriler atılır). Kalan saf vektörler SVM veya Karar Ağaçları ile sınıflandırılır.
+
+### 7.4. CNN + Karar Ağaçları (Hybrid Model ve Açıklanabilirlik)
+- CNN görüntüden özellikleri çıkarır, ancak son kararı **Random Forest** veya **XGBoost** gibi algoritmalar verir.
+- **Avantajı:** Derin öğrenme modelleri genellikle "Kapalı Kutu (Black Box)" olarak çalışır, neden o kararı verdiğini bilemeyiz. Ancak Karar Ağaçları kullanıldığında **Açıklanabilirlik (Explainability)** artar; modelin kararı hangi kurallara göre verdiği yorumlanabilir hâle gelir.»
 ---
 
 ## Notebook
@@ -103,7 +139,7 @@ Bu noktada iki farklı veri madenciliği disiplini birleşir:
 `CNN_FashionMNIST_Notebook.ipynb` dosyasının arka planında dönen mantık şöyledir:
 
 - **Veri Seti (Fashion-MNIST)**: $28\times28$ piksel boyutunda, gri tonlamalı (tek kanallı) 70.000 adet kıyafet, ayakkabı, çanta resmi.
-- **Veri Ön İşleme (Normalizasyon)**: Piksellerin RGB değerleri 0 ile 255 arasındadır. Görüntüyü modele vermeden önce tüm pikseller `255.0`'a bölünür. Tıpkı KNN'de yap`StandardScaler` gibi, bu işlem verileri **0 ile 1 aralığına** sıkıştırır (normalize eder). Makine küçük sayılarla daha hızlı ve kararlı öğreniyor.
+- **Veri Ön İşleme (Normalizasyon)**: Piksellerin RGB değerleri 0 ile 255 arasındadır. Görüntüyü modele vermeden önce tüm pikseller `255.0`'a bölünür. Tıpkı KNN'de yaptığımız`StandardScaler` gibi, bu işlem verileri **0 ile 1 aralığına** sıkıştırır (normalize eder). Makine küçük sayılarla daha hızlı ve kararlı öğreniyor.
 - **One-Hot Encoding (`to_categorical`)**: Makine "Çanta" veya "Ayakkabı" gibi kelimeleri veya doğrudan sınıfları temsil eden rakamları (Örn: 3. Sınıf) anlamaz. Bu yüzden 3 rakamı `[0,0,0,1,0,0,0,0,0,0]` şeklinde (3. indeksin 1, diğerlerinin 0 olduğu) matris dizisine çevrilir.
 - **`batch_size=64`**: 60.000 resmi modele tek seferde vermek RAM'i patlatır. Resimlerin 64'er gruplar hâlinde alınarak eğitilmesini sağlar.
 - **Harici Görsel (Real Test)**: İnternetten indirdiğimiz renkli ve karmaşık arka planlı bir çanta resmini modele verdiğimizde kafası karışabilir. Çünkü model $28\times28$ siyah-beyaz ve temiz arka planlı verilerle eğitilmiştir. Harici resmi test edebilmek için önce OpenCV/PIL ile siyah-beyaza çevirmeli, $28\times28$'e küçültmeli ve boyutunu modele uygun (`1, 28, 28, 1`) şekline getirmeliyiz (Reshape işlemi).
