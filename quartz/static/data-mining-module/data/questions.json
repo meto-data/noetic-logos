@@ -21152,5 +21152,1615 @@
         "definition": "Yapay sinir ağlarında her nöronun bir önceki katmandaki tüm nöronlara bağlı olduğu klasik sınıflandırma katmanı."
       }
     ]
+  },
+  {
+    "id": "w14-q001",
+    "week": 14,
+    "topic": "veri-on-isleme",
+    "type": "code",
+    "tags": [
+      "scaling",
+      "data-leakage",
+      "transform"
+    ],
+    "sourceNotebook": "knn.ipynb",
+    "question": "Makine öğrenmesi modellerinde veri ölçeklendirme işlemi yapılırken eğitim verisine `fit_transform` uygulanırken, test verisine sadece `transform` uygulanır. Test verisine de `fit_transform` uygulanmamasının temel veri madenciliği gerekçesi aşağıdakilerden hangisidir?",
+    "code": "X_train_scaled = scaler.fit_transform(X_train)\nX_test_scaled = scaler.transform(X_test)",
+    "options": {
+      "A": "Test verisinin daha hızlı işlenmesini sağlayarak modelin canlı ortamlardaki tepki süresini kısaltmak.",
+      "B": "Test veri setindeki aykırı değerleri otomatik olarak silerek tahmin hatalarını en aza indirmek.",
+      "C": "Bilgisayarın işlemci ve bellek yükünü azaltarak büyük veri setlerinde donma sorunlarını engellemek.",
+      "D": "Test verisindeki satır sayısını eğitim verisiyle matematiksel olarak aynı orana getirmeye çalışmak.",
+      "E": "Test verisindeki istatistiksel bilgilerin eğitim sürecine sızmasını engelleyerek modelin kopyadan kaçınmasını sağlamak."
+    },
+    "correct": "E",
+    "explanations": {
+      "A": "İşlem hızı ile doğrudan bir bağlantısı yoktur, amaç veri güvenliğidir.",
+      "B": "Transform işlemi aykırı değerleri silmez, sadece belirli bir aralığa çeker.",
+      "C": "Bellek yükü ile alakası yoktur, tamamen mantıksal bir veri ayrımı kuralıdır.",
+      "D": "Satır sayılarını eşitlemek gibi bir amacı yoktur.",
+      "E": "Doğru. Test verisine `fit` işlemi yapılırsa, test verisinin ortalama ve varyans gibi bilgileri modele sızar. Buna veri sızıntısı denir ve modelin sahte bir başarı göstermesine yol açar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Data Leakage",
+        "definition": "Modelin eğitim aşamasında normalde sahip olmaması gereken, gelecekten veya test setinden gelen bilgilere erişmesi durumu."
+      }
+    ]
+  },
+  {
+    "id": "w14-q002",
+    "week": 14,
+    "topic": "kesifsel-veri-analizi",
+    "type": "verbal",
+    "tags": [
+      "data-leakage",
+      "eda",
+      "feature-selection"
+    ],
+    "sourceNotebook": "hafta_3_cls1.ipynb",
+    "question": "Bank Marketing veri setinde müşterinin vadeli mevduata abone olup olmayacağı tahmin edilmektedir. Yapılan analizde görüşme süresini tutan `duration` sütununun tahmin başarısını yapay şekilde yüzde yüze yaklaştırdığı fark edilmiştir. Bu sütunun modelden kesinlikle çıkarılması gerekmesinin sebebi aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Görüşme sürelerinin hepsi saniye cinsinden tutulduğu için diğer sütunlarla arasında devasa ölçek farkı yaratması.",
+      "B": "Sütun içerisindeki eksik veri sayısının çok fazla olması nedeniyle modelin ortalama hesabı yapmasını bozması.",
+      "C": "Sınıf dengesizliği yaratarak modelin sürekli olarak olumsuz tahminler üretmesine zemin hazırlaması.",
+      "D": "Tahmin anında henüz gerçekleşmemiş ve ancak görüşme bittikten sonra elde edilebilecek bir gelecek bilgisi olması.",
+      "E": "Görüşme süresinin müşteri yaşı veya eğitim durumu ile doğrusal bir bağlantı kurulamayacak kadar rastgele olması."
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Ölçek farkı bir problemdir ancak çözümü sütunu silmek değil, standartlaştırma yapmaktır.",
+      "B": "Bu veri setinde eksik veri problemi için farklı yöntemler kullanılır, sebep bu değildir.",
+      "C": "Sınıf dengesizliği hedef değişkendeki yes ve no dağılımıyla ilgilidir, görüşme süresiyle değil.",
+      "D": "Doğru. Modeli çalıştırdığımızda müşteri henüz aranmamıştır. Aramadan önce görüşmenin kaç dakika süreceğini bilemeyeceğimiz için bu sütun veri sızıntısı yaratır.",
+      "E": "Rastgelelik bir silme sebebi değildir, asıl sorun mantıksal zaman uyumsuzluğudur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Veri Sızıntısı",
+        "definition": "Hedef değişkeni tahmin ederken gerçek senaryoda elimizde olmaması gereken bir bilginin kullanılması."
+      }
+    ]
+  },
+  {
+    "id": "w14-q003",
+    "week": 14,
+    "topic": "kumeleme-k-means",
+    "type": "code",
+    "tags": [
+      "k-means",
+      "elbow",
+      "inertia"
+    ],
+    "sourceNotebook": "cluster_0.ipynb",
+    "question": "Aşağıdaki kod bloğunda bir for döngüsü aracılığıyla birden on beşe kadar farklı K değerleri denenmekte ve her adımda `inertia` değeri bir listeye eklenmektedir. Veri madenciliği bağlamında bu işlemin nihai amacı aşağıdakilerden hangisidir?",
+    "code": "for k in range(2, 15):\n    kmeans = KMeans(n_clusters=k)\n    kmeans.fit(df)\n    sse[k] = kmeans.inertia_",
+    "options": {
+      "A": "Farklı küme sayılarındaki hata değişimini grafiğe dökerek veri seti için en optimum küme miktarını belirlemek.",
+      "B": "Veri seti içerisindeki aykırı değerleri on beş farklı gruba ayırarak temizleme işlemini otomatikleştirmek.",
+      "C": "Algoritmanın eğitim süresini ölçerek en hızlı çalışan merkez atama stratejisini tespit etmek.",
+      "D": "Hedef değişkendeki dengesizliği gidermek için verileri on beş farklı alt örneğe parçalamak.",
+      "E": "Veri setindeki sütun sayısını azaltarak yüksek boyutluluk laneti adı verilen problemi ortadan kaldırmak."
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Doğru. Bu kod `Dirsek Metodu` uygulamasının temelidir. Hata oranının düşüş hızının yavaşladığı nokta en ideal küme sayısını verir.",
+      "B": "K-Means aykırı değer temizlemek için değil, benzerleri gruplamak için kullanılır.",
+      "C": "Bu kod süre veya hız ölçümü yapmaz, matematiksel uzaklık hatalarını biriktirir.",
+      "D": "K-Means algoritmasında zaten bir hedef değişken etiket bulunmaz.",
+      "E": "Boyut azaltma işlemi `PCA` gibi algoritmalarla yapılır, K-Means ile değil."
+    },
+    "relatedTerms": [
+      {
+        "term": "Elbow Metodu",
+        "definition": "Kümeleme algoritmalarında optimum küme sayısını bulmak için hata oranının kırılma noktasını gösteren grafiksel yaklaşım."
+      }
+    ]
+  },
+  {
+    "id": "w14-q004",
+    "week": 14,
+    "topic": "kumeleme-k-means",
+    "type": "verbal",
+    "tags": [
+      "dezavantaj",
+      "k-means",
+      "sekil"
+    ],
+    "sourceNotebook": null,
+    "question": "K-Means algoritması büyük veri setlerinde çok hızlı çalışmasıyla bilinir ancak bazı yapısal dezavantajlara sahiptir. Özellikle veri dağılımının şekli bağlamında değerlendirildiğinde, K-Means'in en belirgin zayıflığı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Sadece metinsel verilerle çalışabildiği için sayısal verilerde sıklıkla çökme eğilimi göstermesi.",
+      "B": "Tüm kümelerin kusursuz birer küre veya daire şeklinde olduğunu varsayarak karmaşık ve iç içe geçmiş şekilleri ayıramaması.",
+      "C": "Kümeler arasındaki mesafeyi hesaplarken sadece Manhattan ölçümünü kullanmaya zorunlu bırakması.",
+      "D": "Etiketli verilerle eğitilirken yanlış etiketlenmiş satırları düzeltmek yerine doğrudan gürültü olarak işaretlemesi.",
+      "E": "Merkez noktalarını her zaman veri setinin en uç noktalarından başlattığı için süreci gereksiz uzatması."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Tam tersine, K-Means sadece sayısal mesafelerle çalışır.",
+      "B": "Doğru. K-Means küresel dağılım varsayar. U veya hilal şeklinde iç içe geçmiş veri setlerinde kümeleri doğru ayıramaz ve doğrusal kesikler atar.",
+      "C": "Varsayılan ölçüm Öklid mesafesidir, Manhattan zorunlu değildir.",
+      "D": "K-Means gözetimsiz bir öğrenme türüdür, verilerde etiket bulunmaz.",
+      "E": "Merkezler rastgele atanır, her zaman uç noktalardan başlamaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "Spherical Cluster",
+        "definition": "K-Means'in veri noktalarının merkez etrafında dairesel olarak dağıldığını varsayma durumu."
+      }
+    ]
+  },
+  {
+    "id": "w14-q005",
+    "week": 14,
+    "topic": "apriori-birliktelik",
+    "type": "code",
+    "tags": [
+      "apriori",
+      "temizlik",
+      "on-isleme"
+    ],
+    "sourceNotebook": "Apriori1.ipynb",
+    "question": "E-ticaret verileriyle yapılan pazar sepeti analizinde, kod bloğunda yer alan fatura numaralarının filtreleme işlemi görülmektedir. Kodda C harfi ile başlayan faturaların veri setinden atılmasının mantıksal veri madenciliği sebebi aşağıdakilerden hangisidir?",
+    "code": "df = df[~df['InvoiceNo'].astype(str).str.startswith('C')]",
+    "options": {
+      "A": "Sistemdeki kargo firmalarına ait kodların karışmasını engelleyerek sadece müşteri alışverişlerini ayıklamak.",
+      "B": "Sadece kredi kartı ile yapılan ödemeleri analiz etmek için nakit işlemlerin tamamını tablodan silmek.",
+      "C": "İptal ve iade edilmiş siparişleri veri setinden çıkararak algoritmanın gerçek dışı ve anlamsız satın alma kuralları üretmesini engellemek.",
+      "D": "Çok yüksek tutarlı lüks ürünleri analiz dışı bırakarak sadece günlük sıradan ürünlerin birlikteliğine odaklanmak.",
+      "E": "Fatura numarası belli olmayan veya hatalı basılmış fişleri temizleyerek algoritmanın çalışma hızını artırmak."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "C harfi kargo firmasını değil, `Canceled` kelimesini temsil etmektedir.",
+      "B": "Ödeme yöntemi ayrımı ile ilgili bir filtreleme değildir.",
+      "C": "Doğru. C harfi iptal edilen faturaları belirtir. Bunlar atılmazsa model müşteriler bu ürünü alıp iptal etmeyi seviyor gibi saçma bir birliktelik kuralı bulabilir.",
+      "D": "Tutar ile ilgili bir filtreleme yoktur.",
+      "E": "Boş fatura numarası değil, iptal durumunu belirten özel bir koddur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Data Cleaning",
+        "definition": "Analiz kalitesini düşürecek gürültülü veya iptal edilmiş tutarsız verilerin ayıklanması işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w14-q006",
+    "week": 14,
+    "topic": "apriori-birliktelik",
+    "type": "verbal",
+    "tags": [
+      "lift",
+      "confidence",
+      "support"
+    ],
+    "sourceNotebook": null,
+    "question": "Birliktelik kuralları analizinde bir e ticaret yöneticisine rapor sunarken `Lift` değerinin odak noktası yapılması önerilir. Bir kuralın `Lift` değerinin birden büyük çıkması durumunda yöneticiye söylenecek en doğru veri madenciliği çıkarımı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Bu iki ürün mağazadaki toplam satışların yüzde birinden daha fazlasını oluşturarak en kârlı ürünler haline gelmiştir.",
+      "B": "Müşterilerin birinci ürünü aldıktan sonra sepeti onaylama hızı sistemin ortalama hızından bir kat daha fazladır.",
+      "C": "Birinci ürünü alan müşterilerin diğer ürüne puan verme veya yorum yapma ihtimali oldukça yüksektir.",
+      "D": "Bu ürün çiftinin çok satılması sebebiyle mağazanın stok planlamasında bu ürünleri tamamen birbirinden ayırmamız gerekir.",
+      "E": "Birinci ürünün sepete atılması diğer ürünün tesadüfen alınma ihtimalini ortadan kaldırarak mantıksal bir tetikleme yaratmaktadır."
+    },
+    "correct": "E",
+    "explanations": {
+      "A": "Satışların toplamı içindeki yüzdeyi gösteren değer `Lift` değil `Support` değeridir.",
+      "B": "Sepet onaylama hızı veya zamanla ilgili bir ölçüm metriği değildir.",
+      "C": "Puan verme veya yorum yapma ile ilgili değil doğrudan satın alma davranışı ile ilgilidir.",
+      "D": "Aksine, birlikte satıldıkları için yan yana veya kombo menü olarak sunulmaları tavsiye edilir.",
+      "E": "Doğru. `Lift` değerinin birden büyük olması, ürünlerin satışının popülerlikten kaynaklanan bir tesadüf olmadığını, ilk ürünün ikincisini doğrudan tetiklediğini kanıtlar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Lift (Kaldıraç)",
+        "definition": "İki ürün arasındaki ilişkinin tesadüf olup olmadığını ve satış ihtimalini kaç kat artırdığını gösteren oran."
+      }
+    ]
+  },
+  {
+    "id": "w14-q007",
+    "week": 14,
+    "topic": "karar-agaclari",
+    "type": "code",
+    "tags": [
+      "train_test_split",
+      "stratify",
+      "dengesiz-veri"
+    ],
+    "sourceNotebook": "decision_tree.ipynb",
+    "question": "Makine öğrenmesi boru hattında veriyi eğitim ve test olarak bölerken `stratify` parametresine hedef değişkenin atanması kritik bir uygulamadır. Bu parametrenin kullanılmasının modele sağladığı ana fayda aşağıdakilerden hangisidir?",
+    "code": "X_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=0.2, random_state=42, stratify=y\n)",
+    "options": {
+      "A": "Hedef değişkenin sınıflarındaki yüzdelik dağılımın hem eğitim hem de test setinde orijinal veriyle birebir aynı kalmasını garantilemek.",
+      "B": "Test verisi içerisindeki gürültülü veya tutarsız satırları eğitim aşamasına geçmeden önce otomatik olarak temizlemek.",
+      "C": "Eğitim sürecinde rastgele atanan ağırlıkları sabitleyerek modelin her çalıştığında aynı doğruluk oranını vermesini sağlamak.",
+      "D": "Hedef değişken sayısal bir değerse onu sıfır ve bir olmak üzere iki kategoriye indirgeyerek sınıflandırmaya uygun hale getirmek.",
+      "E": "Veri setindeki özellik sayısını azaltıp sadece en güçlü korelasyona sahip sütunların test aşamasına aktarılmasını sağlamak."
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Doğru. Stratify parametresi katmanlı bölme yapar. Yüzde on kanserli veri varsa, eğitimde de testte de bu oranın tam olarak yüzde on kalmasını sağlayarak modelin çökmesini önler.",
+      "B": "Veri temizleme işlevi yoktur, sadece veri bölme işlevi vardır.",
+      "C": "Her çalıştığında aynı sonucu almayı sağlayan parametre random state parametresidir.",
+      "D": "Dönüştürme işlemi yapmaz, bölme stratejisi belirler.",
+      "E": "Özellik eleme veya sütun silme gibi bir yeteneği yoktur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Stratify",
+        "definition": "Veri bölünürken hedef değişken sınıflarının oranlarının tüm alt kümelerde korunmasını sağlayan yöntem."
+      }
+    ]
+  },
+  {
+    "id": "w14-q008",
+    "week": 14,
+    "topic": "random-forest",
+    "type": "code",
+    "tags": [
+      "random-forest",
+      "paralel-islem",
+      "n_jobs"
+    ],
+    "sourceNotebook": "random_forest.ipynb",
+    "question": "Devasa boyutlara sahip veri setlerinde Random Forest algoritması kurulurken `n_jobs` parametresinin eksi bir olarak ayarlanması sıklıkla görülür. Bu parametrenin model eğitimi sırasındaki teknik işlevi aşağıdakilerden hangisidir?",
+    "code": "rf_model = RandomForestClassifier(\n    n_estimators=100,\n    max_depth=10,\n    random_state=42,\n    n_jobs=-1\n)",
+    "options": {
+      "A": "Ormandaki karar ağaçlarının birbirinin kararını görmesini engelleyerek tamamen bağımsız çalışmalarını güvence altına almak.",
+      "B": "Bilgisayarda bulunan mantıksal işlemci çekirdeklerinin tamamını paralel olarak devreye sokup eğitim süresini ciddi ölçüde kısaltmak.",
+      "C": "Ağaçların derinliğini veri setindeki sütun sayısına göre dinamik olarak hesaplayıp ezberleme ihtimalini ortadan kaldırmak.",
+      "D": "Bellek yetersiz kaldığında verinin bir kısmını sabit diske yazarak programın aniden çökmesini önleyici bir tampon oluşturmak.",
+      "E": "Öğrenme oranı parametresini eksi değerlerden başlatarak algoritmaya çok daha hassas bir gradyan inişi yaptırmak."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Ağaçlar zaten yapıları gereği rastgele ve bağımsız oluşturulur, bu parametrenin işi değildir.",
+      "B": "Doğru. `n_jobs` parametresi kullanılacak çekirdek sayısını belirtir. Eksi bir atanması, sistemdeki tüm uygun çekirdeklerin paralel işlem için kullanılması emrini verir.",
+      "C": "Ağaç derinliği max depth parametresi ile kısıtlanır.",
+      "D": "Disk tamponlama veya bellek yönetimi yapmaz.",
+      "E": "Random forest gradyan inişi kullanmaz, öğrenme oranı parametresi XGBoost gibi modellerde bulunur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Parallel Processing",
+        "definition": "Hesaplama işlemlerinin birden fazla işlemci çekirdeğine dağıtılarak eş zamanlı ve daha hızlı gerçekleştirilmesi."
+      }
+    ]
+  },
+  {
+    "id": "w14-q009",
+    "week": 14,
+    "topic": "random-forest",
+    "type": "verbal",
+    "tags": [
+      "ensemble",
+      "majority-voting",
+      "overfitting"
+    ],
+    "sourceNotebook": null,
+    "question": "Random Forest algoritması Ensemble Learning yani topluluk öğrenmesi mantığına dayanır. Yüzlerce ağacın kendi başına ürettiği farklı sonuçların nihai tek bir karara bağlanmasında algoritmanın kullandığı temel prensip aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "En karmaşık yapıya sahip olan ağacın sonucunu ana karar olarak kabul edip diğer basit ağaçların kararlarını göz ardı etmesi.",
+      "B": "Ağaçların başarı oranlarını tek tek test edip sadece yüzde doksanın üzerinde başarı gösterenlerin sonuçlarının ortalamasını alması.",
+      "C": "Sınıflandırma problemlerinde her bir ağacın tahminini bir oy sayarak çoğunluk oylaması yöntemiyle nihai sonucu belirlemesi.",
+      "D": "İlk üretilen elli ağacın kararlarını eğitim seti için ayırıp geri kalan ağaçların kararlarını direkt test setine uygulaması.",
+      "E": "Her ağacın ürettiği sonuçları bir yapay sinir ağının başlangıç katmanına gönderip karar verme işini derin öğrenmeye bırakması."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Hiçbir ağaca yapısı nedeniyle üstünlük tanınmaz, hepsi demokratik bir oylamanın parçasıdır.",
+      "B": "Ağaçların tekil başarıları üzerinden bir filtreleme yapılmaz, hepsi karara katılır.",
+      "C": "Doğru. Algoritmanın kalbinde `Majority Voting` yani çoğunluk oylaması yatar. En çok oyu alan sınıf yeni verinin etiketi olur.",
+      "D": "Ağaçların bir kısmı eğitim bir kısmı test için ayrılmaz, tüm orman yeni veriyi topluca tahmin eder.",
+      "E": "Random forest içinde yapay sinir ağı bulunmaz, tamamen karar ağaçlarından oluşur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Majority Voting",
+        "definition": "Sınıflandırma algoritmalarında birden fazla modelin tahminlerinin toplanıp en sık tekrar edenin seçilmesi yöntemi."
+      }
+    ]
+  },
+  {
+    "id": "w14-q010",
+    "week": 14,
+    "topic": "knn",
+    "type": "code",
+    "tags": [
+      "minkowski",
+      "manhattan",
+      "mesafe"
+    ],
+    "sourceNotebook": "knn.ipynb",
+    "question": "Bir KNN algoritması kurulurken matematiksel mesafe ölçüm yöntemi olarak Manhattan parametresi girilmiştir. Bu parametrenin Öklid ölçümüne kıyasla hesaplama mantığı aşağıdakilerden hangisidir?",
+    "code": "knn_model = KNeighborsClassifier(metric=\"manhattan\", n_neighbors=5)",
+    "options": {
+      "A": "Noktalar arasındaki mesafeyi logaritmik olarak küçülterek birbirine aşırı uzak verilerin etkisini tamamen sıfırlaması.",
+      "B": "Noktalar arası doğrudan kuş uçuşu bir düz çizgi çekmek yerine ızgara planlı bir şehirde binaların çevresinden dik açılarla dolaşarak ölçüm yapması.",
+      "C": "Kelimeler arasındaki harf farklılıklarını sıfır ve bir üzerinden sayarak yazım hatalarına karşı duyarlı bir metin uzaklığı hesaplaması.",
+      "D": "İki veri noktası arasındaki açının kosinüsünü bularak yönelimsel benzerliği büyüklükten bağımsız şekilde değerlendirmesi.",
+      "E": "Korelasyonlu verilerdeki dağılım farklılıklarını hesaba katarak finansal anomalilerde daha stabil sonuçlar üretmesi."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Logaritmik küçültme yapmaz, doğrudan eksen farklarının mutlak değerini toplar.",
+      "B": "Doğru. Manhattan mesafesi geometride x ve y eksenlerindeki farkların mutlak değerlerinin toplamıdır. Bir satranç tahtasında veya ızgara planlı şehirde hareket etmeye benzer.",
+      "C": "Harf farklılığı sayan yöntem Hamming veya Edit Distance olarak bilinir.",
+      "D": "Açı ve yönelim hesabı yapan yöntem Cosine Similarity yöntemidir.",
+      "E": "Korelasyonlu dağılımları hesaba katan yöntem Mahalanobis mesafesidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Manhattan Distance",
+        "definition": "İki nokta arasındaki mesafeyi dikey ve yatay eksenlerdeki mutlak farkların toplamı olarak hesaplayan ölçüt."
+      }
+    ]
+  },
+  {
+    "id": "w14-q011",
+    "week": 14,
+    "topic": "knn",
+    "type": "verbal",
+    "tags": [
+      "lazy-learner",
+      "knn",
+      "egitim"
+    ],
+    "sourceNotebook": null,
+    "question": "Makine öğrenmesi literatüründe KNN algoritmasına sıklıkla Lazy Learner yani tembel öğrenici adı verilmektedir. Bu isimlendirmenin arkasında yatan temel çalışma prensibi aşağıdakilerden hangisinde doğru açıklanmıştır?",
+    "code": null,
+    "options": {
+      "A": "Eğitim verisindeki tüm sütunları incelemek yerine sadece en baştaki üç özelliği dikkate alarak eksik bir öğrenme yapması.",
+      "B": "Sadece sayısal verilerle çalışabildiği için metinsel ifadeleri gördüğü anda hata verip işlemi sonlandırması.",
+      "C": "Aykırı değerlerle uğraşmak istemediği için sınırların dışında kalan tüm noktaları analizden otomatik olarak dışlaması.",
+      "D": "Matematiksel fonksiyonları basitleştirmek adına küme merkezlerini sadece çift sayıların olduğu lokasyonlara ataması.",
+      "E": "Eğitim aşamasında bir denklem kurmayıp veriyi hafızasında tutması ve asıl ağır hesaplamayı tahmin anında yeni veri gelince yapması."
+    },
+    "correct": "E",
+    "explanations": {
+      "A": "Tüm sütunları mesafeye dahil eder, özellik atlama yapmaz.",
+      "B": "Metinsel verilerle çalışamaması bir tembellik değil, algoritmanın matematiksel doğasıdır.",
+      "C": "Aykırı değerleri silmez, hatta aykırı değerlerden ciddi şekilde olumsuz etkilenir.",
+      "D": "Küme merkezi atama işlemi KNN değil K-Means algoritmasına aittir.",
+      "E": "Doğru. KNN eğitim sürecinde bir ağırlık bulmaz veya formül çıkarmaz. Tüm işlemi yeni veri geldiğinde herkese olan mesafeyi tek tek hesaplayarak yapar, bu yüzden tembeldir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Lazy Learner",
+        "definition": "Eğitim aşamasında bir genelleme modeli inşa etmeyip asıl işlem yükünü test aşamasına bırakan algoritmalar."
+      }
+    ]
+  },
+  {
+    "id": "w14-q012",
+    "week": 14,
+    "topic": "lojistik-regresyon",
+    "type": "verbal",
+    "tags": [
+      "siniflandirma",
+      "sigmoid",
+      "regresyon"
+    ],
+    "sourceNotebook": null,
+    "question": "İsminde regresyon kelimesi geçmesine rağmen çalışma mantığı bakımından tamamen farklı bir amaca hizmet eden Lojistik Regresyon algoritması için aşağıdaki veri madenciliği durumlarından hangisi en uygun kullanım senaryosudur?",
+    "code": null,
+    "options": {
+      "A": "Bir müşterinin web sitesindeki davranışlarına bakarak sepeti onaylayıp onaylamayacağı yönünde kesin bir kategori ataması yapmak.",
+      "B": "Bir arabanın üretim yılına ve motor hacmine bakarak ikinci el piyasasında satılabileceği sayısal fiyatı nokta atışı tahmin etmek.",
+      "C": "Zaman serisi grafiğindeki eğilime dayanarak önümüzdeki on yıl boyunca şirketin kâr oranının nasıl bir kavis çizeceğini formülize etmek.",
+      "D": "Gözetimsiz bir ortamda birbiriyle benzer alışveriş alışkanlığı olan müşterileri bilinmeyen üç farklı gizli gruba bölmek.",
+      "E": "Metin içerisindeki kelimelerin geçiş sıklığını sayarak bir belgenin tamamen hangi yazara ait olduğunu hiyerarşik olarak belirlemek."
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Doğru. Lojistik regresyon bir sınıflandırma algoritmasıdır. Çıktıyı S eğrisi ile sıfır ve bir arasına sıkıştırarak Evet/Hayır gibi kategorik kararlar üretir.",
+      "B": "Sayısal fiyat tahmini yapmak Çoklu Doğrusal Regresyonun işidir.",
+      "C": "Kavisli kâr tahmini yapmak Polinomal Regresyon veya Zaman Serisi modellerinin işidir.",
+      "D": "Bilinmeyen gruplara bölmek K-Means gibi kümeleme algoritmalarının işidir.",
+      "E": "Kelime sıklığına göre yazar ataması KNN veya Naive Bayes ile yapılabilecek bir sınıflandırmadır, lojistik regresyonun temel amacı değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Sigmoid Fonksiyonu",
+        "definition": "Girdi değerlerini 0 ile 1 aralığına sıkıştırarak olasılık tabanlı sınıflandırma yapılmasını sağlayan S şekilli eğri."
+      }
+    ]
+  },
+  {
+    "id": "w14-q013",
+    "week": 14,
+    "topic": "polinomal-regresyon",
+    "type": "code",
+    "tags": [
+      "polynomialfeatures",
+      "donusum",
+      "egrisel"
+    ],
+    "sourceNotebook": "PolynomialLinearRegression.ipynb",
+    "question": "Deneyim yılı ile maaş arasında üstel bir artış olan veri setinde, doğrusal bir çizginin eksik öğrenmeye yol açması nedeniyle polinomal bir dönüşüm yapılmıştır. Bu dönüşümü gerçekleştiren kod bloğunda yer alan `degree` parametresinin matematiksel işlevi aşağıdakilerden hangisidir?",
+    "code": "poly_reg = PolynomialFeatures(degree = 5)\nX_poly = poly_reg.fit_transform(X)",
+    "options": {
+      "A": "Modelin eğitim aşamasında yapacağı maksimum tekrar sayısını beşe sabitleyerek sonsuz döngüye girmesini önlemek.",
+      "B": "Tek sütunluk bağımsız değişkeni üssü alınmış şekilde çoğaltarak modele beşinci dereceden kavisli bir denklem kurma esnekliği tanımak.",
+      "C": "Dağılım grafiğindeki noktalar arasındaki en kısa beş mesafeyi ölçüp aykırı değer olarak kabul edilenleri ortalamaya çekmek.",
+      "D": "Doğrusal çizginin eksenle yaptığı açıyı beş derece kaydırarak verilerin ağırlık merkezine tam olarak oturmasını sağlamak.",
+      "E": "Maaş verilerindeki virgülden sonraki küsuratları beş basamağa kadar yuvarlayıp bellek optimizasyonu gerçekleştirmek."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Tekrar sayısını belirleyen parametre `epoch` veya `max_iter` gibi argümanlardır.",
+      "B": "Doğru. Degree parametresi, x değişkeninin kuvvetlerini (x, x kare, x küp... x üssü 5) alarak yeni sütunlar oluşturur. Bu sayede model eğrisel dalgalanmaları öğrenebilir.",
+      "C": "Mesafe ölçümü ve aykırı değerlerle bir ilgisi yoktur.",
+      "D": "Açı kaydırma gibi geometrik bir manuel müdahale yapılmaz, katsayılar kendi hesaplanır.",
+      "E": "Veri yuvarlama işlemi round fonksiyonu ile yapılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Degree",
+        "definition": "Polinomun en yüksek kuvvet derecesi olup modelin bükülme yeteneğini belirleyen katsayı."
+      }
+    ]
+  },
+  {
+    "id": "w14-q014",
+    "week": 14,
+    "topic": "coklu-dogrusal-regresyon",
+    "type": "verbal",
+    "tags": [
+      "intercept",
+      "bias",
+      "sabit-deger"
+    ],
+    "sourceNotebook": null,
+    "question": "Çoklu Doğrusal Regresyon algoritması ile bir evin metrekare, oda sayısı ve yaş bilgilerine bakılarak fiyatı tahmin edilmektedir. Model eğitildikten sonra elde edilen denklemdeki kesişim noktası (`Intercept` / `Bias`) değerinin veri madenciliği bağlamındaki kavramsal karşılığı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Evin yaşı her bir yıl arttığında fiyatında yaşanacak olan standart ve değişmez düşüş miktarını belirten orandır.",
+      "B": "Modelin verileri incelerken karşılaştığı en yüksek fiyatlı ev ile en düşük fiyatlı ev arasındaki uçurumu gösteren marjdır.",
+      "C": "Modele girilen tüm bağımsız özelliklerin tam olarak sıfır olması durumunda hedef değişkenin alacağı teorik başlangıç değeridir.",
+      "D": "Test verisi ile eğitim verisi arasındaki başarı farkını kapatmak için formüle dışarıdan eklenen yapay bir hata payıdır.",
+      "E": "Bir evin satılabilmesi için emlak piyasasında sahip olması gereken minimum oda sayısını ve metrekareyi belirleyen eşiktir."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Bir yıl artıştaki düşüş oranı ilgili özelliğin kendi ağırlık katsayısıdır (`coefficient`).",
+      "B": "En yüksek ve en düşük arasındaki fark veri aralığıdır, bias değildir.",
+      "C": "Doğru. İntercept (sabit değer) y eksenini kestiği noktadır. Tüm x girdileri sıfır olsa bile sonucun sıfıra düşmesini engelleyen, örneğin arsa payı gibi bir taban değerdir.",
+      "D": "Hata payı değildir, doğrudan matematiksel denklemin değişmez bir parçasıdır.",
+      "E": "Emlak piyasası standartlarıyla alakalı değil tamamen matematiksel bir dengeleyicidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Intercept",
+        "definition": "Bağımsız değişkenlerin değerleri sıfır olduğunda bağımlı değişkenin alması beklenen sabit değer."
+      }
+    ]
+  },
+  {
+    "id": "w14-q015",
+    "week": 14,
+    "topic": "regresyon-metrikleri",
+    "type": "verbal",
+    "tags": [
+      "r2-score",
+      "varyans",
+      "basari"
+    ],
+    "sourceNotebook": null,
+    "question": "Eğitilmiş bir regresyon modelinin performansını ölçmek için ekrana yazdırılan R-Squared (Açıklanan Varyans Oranı) metriği, modelin kalitesi hakkında çok net bir bilgi sunar. Bu metriğin bir değerine (1.0) çok yakın çıkması durumunda yapılabilecek en doğru akademik yorum aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Algoritmanın veri setindeki tüm satırları tamamen ezberlediği ve yeni gelecek verilerde kesinlikle başarısız olacağı sonucuna varılır.",
+      "B": "Modelin içerisindeki hata karelerinin toplamının maksimum seviyeye ulaştığı ve algoritmanın baştan kurgulanması gerektiği anlaşılır.",
+      "C": "Eğitim verisi ile test verisi arasındaki bağımsız özelliklerin tamamen farklı yönlere saptığı ve birbiriyle çeliştiği tespit edilir.",
+      "D": "Bağımsız değişkenlerin hedef değişkendeki değişimi ve dalgalanmayı neredeyse mükemmel bir oranda açıklayabildiği onaylanır.",
+      "E": "Tahmin edilen değerler ile gerçek değerler arasındaki mesafenin logaritmik olarak bire sabitlendiği ve doğrusallığın bozulduğu görülür."
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Bire çok yakın olması overfitting şüphesi doğurabilir ama kesinlikle başarısız olacak demek değildir, mükemmel bir öğrenme de olabilir.",
+      "B": "Hata kareleri artarsa `R2` skoru düşer, bire yaklaşması hataların çok azaldığını gösterir.",
+      "C": "Verilerin çeliştiğini değil tam tersine çok iyi uyum sağladığını gösterir.",
+      "D": "Doğru. `R2` skoru, x değişkenlerinin y'deki değişimi yüzde kaç oranında açıklayabildiğini gösterir. 1'e yakın olması modelin örüntüyü çok iyi yakaladığı anlamına gelir.",
+      "E": "Mesafenin sabitlenmesi gibi bir durum söz konusu değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "R-Squared",
+        "definition": "Bir regresyon modelinin bağımlı değişkendeki varyansın ne kadarını bağımsız değişkenlerle açıklayabildiğini gösteren istatistiksel ölçüt."
+      }
+    ]
+  },
+  {
+    "id": "w14-q016",
+    "week": 14,
+    "topic": "model-kaydetme",
+    "type": "code",
+    "tags": [
+      "pickle",
+      "deployment",
+      "kayit"
+    ],
+    "sourceNotebook": "multiple_linear_regression.ipynb",
+    "question": "Veri madenciliği projelerinde milyonlarca satırlık veri saatlerce süren bir işlemle eğitildikten sonra, elde edilen yapının canlı bir web sitesine entegre edilmesi gerekir. Bu entegrasyonu sağlamak amacıyla yazılan kod bloğunun ana işlevi aşağıdakilerden hangisidir?",
+    "code": "import pickle\npickle.dump(reg, open(\"konutfiyat_tahmini.pickle\", 'wb'))",
+    "options": {
+      "A": "Veri seti içerisindeki özelliklerin birbirleriyle olan matematiksel korelasyon haritasını bağımsız bir metin dosyası olarak masaüstüne çıkarmak.",
+      "B": "Algoritmanın eğitim aşamasında oluşturduğu hatalı tahminlerin log kayıtlarını tutarak geriye dönük bir analiz raporu hazırlamak.",
+      "C": "Gelecekten gelen bir verinin sızmasını engellemek için eğitim ve test veri setlerini sıkıştırılmış zip klasörlerine dönüştürerek gizlemek.",
+      "D": "Modelin bulduğu yeni ağırlıkların rastgele değişmesini önlemek için veri setini baştan aşağı yeniden indeksleyip dondurmak.",
+      "E": "Öğrenme sürecini tamamlamış modelin bulduğu tüm ağırlık ve katsayıları ikili formatta diske kaydederek her defasında yeniden eğitilme zorunluluğunu ortadan kaldırmak."
+    },
+    "correct": "E",
+    "explanations": {
+      "A": "Korelasyon haritası kaydetmez, doğrudan çalışan yapay zeka modelini kaydeder.",
+      "B": "Hata logları tutmak için değil, modelin beyin yapısını kopyalamak için kullanılır.",
+      "C": "Veri setini değil, algoritmanın kendisini (modeli) saklar.",
+      "D": "Veri seti indeksleme veya dondurma işlemi yapmaz.",
+      "E": "Doğru. Pickle kütüphanesi serialization (serileştirme) yapar. Eğitilmiş modelin tüm kurallarını bir dosyaya basarak canlı sistemlerde anında kullanılmasını sağlar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Serialization",
+        "definition": "Bir yazılım nesnesinin veya eğitilmiş modelin yapısını diske kaydedip daha sonra tekrar belleğe yüklenebilir hale getirme süreci."
+      }
+    ]
+  },
+  {
+    "id": "w14-q017",
+    "week": 14,
+    "topic": "metin-madenciligi",
+    "type": "verbal",
+    "tags": [
+      "tokenization",
+      "nlp",
+      "on-isleme"
+    ],
+    "sourceNotebook": null,
+    "question": "Doğal Dil İşleme (NLP) projelerinde ham bir metin makine öğrenmesine sokulmadan önce çeşitli temizlik aşamalarından geçer. Bu aşamalardan biri olan Tokenization işleminin metin üzerindeki temel etkisi aşağıdakilerden hangisinde doğru ifade edilmiştir?",
+    "code": null,
+    "options": {
+      "A": "Temizlenmiş bir cümlenin bütünlüğünü bozarak içindeki her bir kelimeyi makinenin sayabileceği ve indeksleyebileceği bağımsız dizi elemanlarına parçalaması.",
+      "B": "Metin içerisindeki yazım hatalarını internet sözlüklerine bağlanarak otomatik olarak düzeltip kelimelerin standart köklerine inmesi.",
+      "C": "Büyük ve küçük harf duyarlılığını ortadan kaldırarak cümlenin başındaki harflerle sonundaki harflerin bilgisayar için aynı anlama gelmesini sağlaması.",
+      "D": "Sadece İngilizce alfabesinde bulunmayan noktalama işaretlerini ve emojileri tespit edip bunları özel karakter kodlarına dönüştürmesi.",
+      "E": "Cümle içindeki fiilleri ve sıfatları ayıklayarak metni sadece isim köylü nesnelerden oluşan kısa bir özet haline getirmesi."
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Doğru. Tokenization metni yapı taşlarına ayırır. 'Yapay zeka güzeldir' cümlesi [`yapay`, `zeka`, 'güzeldir'] şeklinde bir listeye dönüşerek algoritmaya girmeye hazır hale gelir.",
+      "B": "Yazım hatası düzeltme ve köke inme (Stemming/Lemmatization) farklı işlemlerdir.",
+      "C": "Harf standardizasyonu Lowercasing işlemi ile yapılır.",
+      "D": "Noktalama işareti temizliği Regex ile yapılır, kodlama işlemi değildir.",
+      "E": "Dilbilgisel ayıklama (Part of Speech Tagging) sürecidir, tokenization sadece keser."
+    },
+    "relatedTerms": [
+      {
+        "term": "Tokenization",
+        "definition": "Bir metin dizgesini kelimelere, hecelere veya anlamlı alt parçalara (token) ayırma işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w14-q018",
+    "week": 14,
+    "topic": "metin-madenciligi",
+    "type": "code",
+    "tags": [
+      "countvectorizer",
+      "bag-of-words",
+      "sparse-matrix"
+    ],
+    "sourceNotebook": "NLP_Proje.ipynb",
+    "question": "On binlerce IMDB film yorumunun bulunduğu bir veri setinde NLP analizi yapabilmek için metinlerin matematiksel dizilere çevrilmesi gerekmektedir. Yazılan CountVectorizer kodunun veri setinde oluşturduğu yapısal değişiklik aşağıdakilerden hangisidir?",
+    "code": "vectorizer = CountVectorizer(max_features = 5000)\ntrain_x = vectorizer.fit_transform(train_x)",
+    "options": {
+      "A": "Her bir yorum metnini baştan sona okuyarak olumlu yorumlara bir, olumsuz yorumlara sıfır değerini atayıp doğrudan hedef değişkeni üretmek.",
+      "B": "Eğitim verisindeki en sık geçen beş bin kelimelik bir sözlük çıkarıp, her yorum için bu kelimelerin kaçar defa geçtiğini gösteren devasa ve seyrek bir sayı matrisi inşa etmek.",
+      "C": "Yorumların uzunluklarını hesaplayıp karakter sayısı beş bini aşan uzun ve gereksiz paragrafları kırparak sistemin donmasını engellemek.",
+      "D": "İnternetten çekilen ham verilerdeki HTML kalıntılarını ve web linklerini tespit edip bunları beş bin farklı temizleme kuralından geçirerek silmek.",
+      "E": "Kelimeler arasındaki anlamsal bağları birbirine bağlayıp beş bin katmanlı derin bir yapay sinir ağının ilk giriş tabakasını rastgele ağırlıklarla doldurmak."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Hedef değişkeni atama veya duygu ölçme işini makine öğrenmesi modeli yapar, CountVectorizer sadece metni sayıya çevirir.",
+      "B": "Doğru. Bu işlem Bag of Words (Kelime Çantası) yöntemidir. Kelimeler sözlükte aranır ve her bir kelimenin metinde bulunma frekansıyla devasa bir matris oluşturulur.",
+      "C": "Uzunluk kırpma değil, frekans tabanlı bir boyut sınırlamasıdır.",
+      "D": "HTML temizliği BeautifulSoup gibi kütüphanelerle ön işleme aşamasında yapılır.",
+      "E": "Anlamsal bağları (Word2Vec vb.) kurmaz, kelimelerin yerini önemsemeden sadece sayım yapar."
+    },
+    "relatedTerms": [
+      {
+        "term": "Bag of Words",
+        "definition": "Metin verilerini kelimelerin gramerine veya sırasına bakmaksızın, sadece bulunma frekanslarına göre vektörlere dönüştüren NLP tekniği."
+      }
+    ]
+  },
+  {
+    "id": "w14-q019",
+    "week": 14,
+    "topic": "metin-madenciligi",
+    "type": "verbal",
+    "tags": [
+      "ner",
+      "baglam",
+      "varlik-tanima"
+    ],
+    "sourceNotebook": null,
+    "question": "Metin madenciliğinde Adlandırılmış Varlık Tanıma (NER) sistemleri geliştirilirken karşılaşılan en büyük zorluk bağlam problemidir. Bu duruma örnek olarak verilen Osman Bey ifadesinin makine tarafından değerlendirilmesindeki asıl analitik sorun aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Osmanlı dönemine ait tarihi bir metinde geçmesi halinde yazarın taraflı bir tutum sergileyip sergilemediğini ölçmenin imkansız olması.",
+      "B": "Sadece baş harfleri büyük yazıldığı için kelimenin cümlenin neresinde bulunduğunu anlamlandıran algoritmanın sürekli çökmesi.",
+      "C": "İfadenin bir insanın ismini mi yoksa İstanbul'daki bir semtin adını mı temsil ettiğinin yalnızca cümlenin genel gidişatından istatistiksel olarak çözülebilmesi.",
+      "D": "Kısaltmaların ve sosyal medyadaki bozuk yazımların orijinal isim köklerine dönüştürülürken anlam kaymasına uğraması.",
+      "E": "Bu ifadenin yabancı dil veri setlerinde doğrudan bir çevirisi olmadığı için küresel duygu analizi modellerinde sınıf dışı bırakılması."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Taraflılık ölçümü duygu veya niyet analizinin işidir, NER'in değil.",
+      "B": "Büyük harf kuralları tokenization aşamasında standartlaştırılır, çökme yaratmaz.",
+      "C": "Doğru. Varlık tanımada aynı isim hem lokasyon hem kişi olabilir. Model bunu ezberden değil, çevresindeki kelimelerin (bağlamın) istatistiksel ilişkisinden anlamak zorundadır.",
+      "D": "Bozuk yazımlar genel bir ön işleme sorunudur, Osman Bey örneğinin temelindeki felsefi bağlam problemi değildir.",
+      "E": "Çeviri ile ilgili bir durum değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Named Entity Recognition",
+        "definition": "Metin içerisindeki kişi, kurum, lokasyon, zaman veya miktar bildiren özel ifadelerin otomatik olarak tespit edilip etiketlenmesi."
+      }
+    ]
+  },
+  {
+    "id": "w14-q020",
+    "week": 14,
+    "topic": "metin-madenciligi",
+    "type": "verbal",
+    "tags": [
+      "stopwords",
+      "on-isleme",
+      "temizlik"
+    ],
+    "sourceNotebook": "NLP_Proje.ipynb",
+    "question": "Metin verileriyle çalışırken ön işleme aşamasında Stopwords temizliği yapılmasının makine öğrenmesi modelleri üzerindeki en büyük faydası aşağıdakilerden hangisinde ifade edilmiştir?",
+    "code": null,
+    "options": {
+      "A": "Metnin tamamen noktalama işaretlerinden ve sayılardan arındırılarak sadece saf harflerin bulunduğu bir blok haline getirilmesini garantiler.",
+      "B": "Kelime dağarcığındaki yabancı kökenli kelimeleri yerel dillere anında çevirerek modelin kavram karmaşası yaşamasını önler.",
+      "C": "Duygu barındıran sıfatların ve zarfların altını çizerek sınıflandırma algoritmasının bu kelimelere daha yüksek katsayı vermesine yardımcı olur.",
+      "D": "Cümleye gramer yapısı katan ancak konu veya duygu hakkında hiçbir bilgi vermeyen bağlaç ve edatları silerek algoritmanın asıl anlamlı kelimelere odaklanmasını sağlar.",
+      "E": "Çok uzun paragrafları otomatik olarak kırparak sistemin donanım tarafında bellek sınırlarına takılmadan çalışabilmesine imkan tanır."
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Noktalama işaretlerinin temizliği düzenli ifadeler (Regex) ile yapılır, Stopwords ile değil.",
+      "B": "Çeviri yapma gibi bir işlevi yoktur.",
+      "C": "Stopwords sıfatların altını çizmez, tam tersine gereksiz kelimeleri siler.",
+      "D": "Doğru. `Ve`, `ama`, `ile` gibi kelimeler çok sık geçer ama metnin konusu hakkında bilgi vermezler. Bunların atılması modelin yükünü hafifletir ve doğruluk oranını artırır.",
+      "E": "Uzunluk kırpma veya özetleme işlemi yapmaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "Stopwords",
+        "definition": "Doğal dil işleme analizlerinde cümlenin yapısını kuran ancak içeriksel anlam taşımayan etkisiz kelimeler kümesi."
+      }
+    ]
+  },
+  {
+    "id": "w14-q021",
+    "week": 14,
+    "topic": "zaman-serileri",
+    "type": "code",
+    "tags": [
+      "train-test-split",
+      "kronoloji",
+      "zaman-bagimliligi"
+    ],
+    "sourceNotebook": "airline_passenger_prediction_using_lstm.ipynb",
+    "question": "Zaman serisi projelerinde verinin eğitim ve test olarak ikiye ayrılması için klasikleşmiş train test split fonksiyonu kullanılmamış, bunun yerine veriler indeks numaralarına göre bıçakla kesilir gibi doğrudan bölünmüştür. Bu yaklaşımın zorunlu olmasının ardındaki veri madenciliği kuralı aşağıdakilerden hangisidir?",
+    "code": "train = data[0:110, :]\ntest = data[110:, :]",
+    "options": {
+      "A": "Sayısal değerlerin rastgele karıştırılması durumunda verideki ölçeklendirme fonksiyonlarının tamamen çökerek geçersiz kalması.",
+      "B": "`LSTM` derin öğrenme ağlarının veri kümelerini sadece liste parçaları üzerinden okuyabilen tek boyutlu bir mimariye sahip olması.",
+      "C": "Hedef değişkendeki sınıf dengesizliğinin kırılabilmesi için verilerin mutlaka bir düzen ve matematiksel silsile içinde işlenmesinin gerekmesi.",
+      "D": "Geçmişin geleceği etkilemesi felsefesi üzerine kurulu bu modellerde kronolojik sıranın rastgele dağıtılmasının veri içerisindeki tüm zaman örüntüsünü yok etmesi.",
+      "E": "Sadece on yıllık kısa vadeli verilerle çalışıldığı için standart bölme fonksiyonlarının bu kadar az satırı işlemeyi reddetmesi."
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Ölçeklendirme fonksiyonları verinin karıştırılmasından bağımsız olarak çalışabilir.",
+      "B": "`LSTM` mimarisiyle ilgili değil, zaman serisinin kendi doğasıyla ilgilidir.",
+      "C": "Zaman serilerinde genellikle sınıf dengesizliğinden ziyade sürekli tahmin (regression) problemi vardır.",
+      "D": "Doğru. Zaman serilerinde rastgele seçim yapılamaz. Eğer tarih sırası bozulursa, 'bugün dünden etkilenir' kuralı çiğnenmiş olur ve model hiçbir anlam çıkaramaz.",
+      "E": "Standart fonksiyonlar birkaç satırlık veriyi bile bölebilir, satır azlığı bir gerekçe değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Time Dependency",
+        "definition": "Bir veri noktasının değerinin, kendisinden önce gelen veri noktalarının değerleri ile ilişkili olması durumu."
+      }
+    ]
+  },
+  {
+    "id": "w14-q022",
+    "week": 14,
+    "topic": "zaman-serileri",
+    "type": "verbal",
+    "tags": [
+      "sliding-windows",
+      "pencereleme",
+      "bagimsiz-degisken"
+    ],
+    "sourceNotebook": null,
+    "question": "Zaman serilerinde geleneksel makine öğrenmesindeki gibi hastanın yaşı veya kilosu tarzında önceden bilinen bağımsız sütunlar bulunmaz. Elimizde sadece yolcu sayısı gibi tek bir sütun varken, makineye eğitim verebilmek için gerekli Soru (X) ve Cevap (Y) eşleşmesini sağlayan teknik aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Tekil veri sütununun üzerinde belirli bir boyutta blok kaydırarak geçmiş günleri girdiye, gelecekteki tek günü ise hedefe dönüştüren Pencereleme yöntemi.",
+      "B": "Mevsimsellik etkisini ortadan kaldırmak için tüm sütunun standart sapmasını alıp sadece ortalamadan sapan günleri hedefe dönüştüren Gürültü Filtreleme yöntemi.",
+      "C": "Eksik verilerin yerine geçmiş on yılın ortalamasını basarak veri setine sahte sütunlar eklenmesini sağlayan İstatistiksel Doldurma yöntemi.",
+      "D": "Verilerin trend yönüne göre yukarı veya aşağı doğru olduğunu gösteren yeni bir etiket sütunu üreterek sorunu sınıflandırmaya çeviren Kategorizasyon yöntemi.",
+      "E": "Derin öğrenme ağına rastgele değerler girip modelin kendi hatalarından yola çıkarak sahte girdiler üretmesine izin veren Generative Adversarial yöntemi."
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Doğru. Sliding Windows (Pencereleme) yönteminde, örneğin 3 günlük pencere boyutu seçilirse, ilk 3 gün (X) kullanılarak 4. gün (Y) tahmin edilir ve bu blok tüm veri boyunca kaydırılır.",
+      "B": "Gürültü filtreleme bağımsız değişken yaratmaz.",
+      "C": "Veri doldurma işlemi eğitim seti hazırlamak değil eksik veri temizliğidir.",
+      "D": "Zaman serilerinde amaç çoğunlukla kesin sayıyı (regresyon) tahmin etmektir, sadece yön tahmini yapılmaz.",
+      "E": "Generative ağlar (GANs) zaman serisi girdisi oluşturmak için temel bir gereksinim değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Sliding Windows",
+        "definition": "Zaman serisi verilerinden geçmiş değerleri girdi (X), gelecek değeri hedef (Y) olarak ayırmak için kullanılan iteratif kaydırma tekniği."
+      }
+    ]
+  },
+  {
+    "id": "w14-q023",
+    "week": 14,
+    "topic": "zaman-serileri-bilesenleri",
+    "type": "verbal",
+    "tags": [
+      "mevsimsellik",
+      "dongusellik",
+      "bilesen"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir zaman serisi grafiği incelenirken verinin periyodik olarak iniş çıkışlar sergilediği görülmektedir. Bu dalgalanmanın Mevsimsellik yerine Döngüsellik (Cyclicality) olarak adlandırılabilmesi için grafikte bulunması gereken ayırt edici özellik aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Dalgalanmanın her yılın tam olarak yaz aylarında başlayıp kış aylarında düzenli bir şekilde düşüşe geçerek sabit bir takvime oturması.",
+      "B": "İniş ve çıkışların ne zaman gerçekleşeceğinin önceden kesin olarak bilinememesi ve uzun vadeli belirsiz ekonomik dalgalara dayanması.",
+      "C": "Verilerin uzun yıllar boyunca sürekli olarak sadece yukarı doğru istikrarlı bir ivme göstererek kriz anlarında bile düşmemesi.",
+      "D": "Zaman serisindeki hareketin tamamen günlük ufak istatistiksel sapmalardan ve hiçbir anlam ifade etmeyen sistemsel hatalardan oluşması.",
+      "E": "Ortalama ve varyans değerlerinin zaman içerisinde hiçbir değişime uğramadan tam olarak sabit kalarak düz bir çizgi oluşturması."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Sabit ve kesin bir takvime oturan iniş çıkışlara Mevsimsellik (Seasonality) denir.",
+      "B": "Doğru. Döngüsellik (Cyclicality) belirsizdir, ekonomik konjonktür gibi 3 yılda bir de olabilir 10 yılda bir de. Saati saatine belli değildir.",
+      "C": "Sürekli yukarı ivme göstermesi Trend bileşenidir.",
+      "D": "Anlamsız ve rastgele sapmalara Gürültü (Noise) denir.",
+      "E": "Özelliklerin zamanla değişmemesine Durağanlık (Stationarity) denir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Cyclicality",
+        "definition": "Zaman serilerinde periyodik olmayan, makroekonomik veya uzun vadeli olayların tetiklediği belirsiz dalgalanmalar."
+      }
+    ]
+  },
+  {
+    "id": "w14-q024",
+    "week": 14,
+    "topic": "zaman-serileri-lstm",
+    "type": "verbal",
+    "tags": [
+      "lstm",
+      "unutma-kapisi",
+      "hafiza"
+    ],
+    "sourceNotebook": null,
+    "question": "Zaman serisi tahminlerinde klasik sinir ağları yerine `LSTM` modelinin kullanılmasının temel sebebi geçmiş verileri hatırlama kapasitesidir. `LSTM` hücrelerinde bu hafıza yönetimini sağlayıp geçmişteki gereksiz bilgilerin silinmesine karar veren yapı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Tam Bağlantılı Katman",
+      "B": "Giriş Kapısı",
+      "C": "Unutma Kapısı",
+      "D": "Çıkış Kapısı",
+      "E": "Softmax Katmanı"
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Tam bağlantılı katman tahmin sonuçlarını üretmek için ağı birleştiren genel katmandır.",
+      "B": "Giriş kapısı (Input Gate) yeni bilginin hücreye ne kadar ekleneceğini belirler.",
+      "C": "Doğru. Unutma Kapısı (Forget Gate), eski bilginin ne kadarının çöpe atılıp silineceğini kontrol eden filtredir.",
+      "D": "Çıkış kapısı (Output Gate) hücrenin dışarıya hangi sonucu ileteceğini kontrol eder.",
+      "E": "Softmax sınıflandırma problemlerinde olasılık üretir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Forget Gate",
+        "definition": "LSTM hücrelerinde geçmiş durum matrisindeki bilgilerin ne kadarının saklanacağına karar veren yapı."
+      }
+    ]
+  },
+  {
+    "id": "w14-q025",
+    "week": 14,
+    "topic": "zaman-serileri-lstm",
+    "type": "code",
+    "tags": [
+      "reshape",
+      "boyut",
+      "tensor"
+    ],
+    "sourceNotebook": "airline_passenger_prediction_using_lstm.ipynb",
+    "question": "Bir `LSTM` modeli kurulmadan önce, pencereleme işleminden geçen X veri seti üzerinde `numpy` reshape komutu uygulanarak veriye fazladan bir boyut eklenmektedir. Bu müdahalenin yapılmasının Keras/Tensorflow mimarisindeki zorunlu sebebi aşağıdakilerden hangisidir?",
+    "code": "X_train = np.reshape(X_train, (X_train.shape[0], 1, X_train.shape[1]))",
+    "options": {
+      "A": "Veri setindeki kayıp veya eksik günlerin yerini sıfırlarla doldurarak zaman serisindeki kronolojik akışı tamir etmek.",
+      "B": "Ağaç tabanlı algoritmaların aksine, modelin hesaplama sırasında aşırı ezberlemesini engelleyecek bir ceza katsayısı tanımlamak.",
+      "C": "Derin öğrenme modellerinde genellikle karşılaşılan öğrenme oranının sıfıra düşmesi problemini çözmek.",
+      "D": "`LSTM` katmanlarının giriş verisini işleyebilmek için iki boyutlu tablo yerine üç boyutlu bir tensör yapısına ihtiyaç duyması.",
+      "E": "Çok yüksek ölçekli yolcu sayılarının yaratacağı bellek taşmasını önlemek için veriyi ondalıklı matrislere indirgemek."
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Reshape işlemi eksik verileri doldurmaz, sadece matrisin şeklini değiştirir.",
+      "B": "Ezberlemeyi engellemek için ceza katsayısı değil, Dropout gibi katmanlar kullanılır.",
+      "C": "Öğrenme oranı optimizasyon (Adam vb.) aşamasında ayarlanır.",
+      "D": "Doğru. Klasik algoritmalar 2D (Satır, Sütun) beklerken, `LSTM` katmanı [Örnek Sayısı, Zaman Adımı, Özellik Sayısı] formatında 3D giriş ister.",
+      "E": "Veri ölçeğini küçültme işlemi `MinMaxScaler` ile yapılır, reshape ile değil."
+    },
+    "relatedTerms": [
+      {
+        "term": "Tensor",
+        "definition": "Verilerin birden çok eksende temsil edildiği, özellikle derin öğrenmede kullanılan çok boyutlu matris yapısı."
+      }
+    ]
+  },
+  {
+    "id": "w14-q026",
+    "week": 14,
+    "topic": "zaman-serileri",
+    "type": "code",
+    "tags": [
+      "inverse_transform",
+      "olcekleme",
+      "tahmin"
+    ],
+    "sourceNotebook": "airline_passenger_prediction_using_lstm.ipynb",
+    "question": "Sinir ağlarıyla eğitilen bir modelin test seti üzerinde yaptığı tahminler alındıktan sonra, sonuçların anlaşılır hale gelmesi için aşağıdaki kod bloğu çalıştırılmaktadır. Sadece `predict` fonksiyonu ile yetinilmeyip arkasından inverse_transform fonksiyonunun kullanılmasının veri madenciliği bağlamındaki nedeni nedir?",
+    "code": "y_pred = model.predict(X_test)\ny_pred = scaler.inverse_transform(y_pred)",
+    "options": {
+      "A": "Çizilecek olan başarı grafiğinin x ve y eksenlerinin yerini değiştirerek görseli dikey değil yatay bir perspektife oturtmak.",
+      "B": "Test verisi sırasında oluşan uç noktaları ve gürültüleri modelin kendi ağırlıklarına göre otomatik olarak tıraşlamak.",
+      "C": "Modelin çıktı olarak sunduğu olasılık yüzdelerini yuvarlayarak en yakın olduğu kesin sınıf değerine sabitlemek.",
+      "D": "Karar ağaçlarının yapraklarındaki nihai kararları tersine okuyarak hangi kuralın en çok hata verdiğini tespit etmek.",
+      "E": "Eğitim öncesinde hesaplamayı kolaylaştırmak için sıfır ile bir arasına sıkıştırılmış olan tahmin sonuçlarını, yeniden gerçek yolcu sayısı formatına şişirmek."
+    },
+    "correct": "E",
+    "explanations": {
+      "A": "Grafiksel eksen değiştirmek için pyplot komutları kullanılır.",
+      "B": "Gürültü tıraşlama işlemi değil, doğrudan matematiksel bir geri döndürme işlemidir.",
+      "C": "Olasılık yuvarlama sınıflandırmada yapılır, burada regresyon sayısal tahmini söz konusudur.",
+      "D": "Karar ağacı kural tespiti ile ilgisi yoktur.",
+      "E": "Doğru. Veriler eğitime girmeden önce `MinMaxScaler` ile 0-1 arasına çekilmişti. Modelin verdiği 0.85 gibi bir tahminin gerçekte kaç yolcuya denk geldiğini bulmak için işlemin tersine çevrilmesi zorunludur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Inverse Transform",
+        "definition": "Normalize edilmiş veya ölçeklendirilmiş verilerin tekrar eski orijinal ölçü birimlerine dönüştürülmesi işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w14-q027",
+    "week": 14,
+    "topic": "buyuk-veri",
+    "type": "verbal",
+    "tags": [
+      "spark",
+      "hadoop",
+      "in-memory"
+    ],
+    "sourceNotebook": null,
+    "question": "Büyük veri analizi dünyasında tarihsel bir kırılma yaşanmış ve ilk büyük teknoloji olan Apache Hadoop'un yerini büyük ölçüde Apache `Spark` almıştır. `Spark`'ın Hadoop'a kıyasla bazı senaryolarda yüz kata kadar daha hızlı sonuç vermesini sağlayan temel mimari fark aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "`Spark`'ın devasa boyutlardaki veriyi sabit diskler yerine doğrudan sistemin ana belleği (RAM) üzerinden okuyup işleyebilmesi.",
+      "B": "Hadoop'un aksine `Spark`'ın hiçbir matematiksel modele ihtiyaç duymadan veriyi sadece görselleştirme amaçlı kullanması.",
+      "C": "`Spark`'ın veriyi dağıtık parçalara bölmeden, tamamını tek bir devasa sunucu üzerinde sırayla ve güvenle yürütebilmesi.",
+      "D": "Hadoop'un SQL sorgularını desteklememesi nedeniyle şirketlerin daha basit olan `Spark` arayüzüne mecburi geçiş yapması.",
+      "E": "`Spark`'ın sadece sosyal medya metinlerini işlemek için özel olarak geliştirilmiş yapay zeka odaklı bir dil olması."
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Doğru. Hadoop veriyi parçalayıp işlerken disk okuma/yazma yapar. `Spark` ise In-Memory (Bellek içi) çalışarak diske inmeden doğrudan RAM üzerinden işler ve muazzam bir hız kazanır.",
+      "B": "`Spark` sadece görselleştirme yapmaz, devasa bir veri işleme motorudur.",
+      "C": "`Spark` tek sunucuda değil, Hadoop gibi dağıtık sunucularda paralel işlem yapar.",
+      "D": "Hadoop üzerinde de Hive gibi araçlarla SQL sorgusu yapılabilir, asıl sebep mimari hızdır.",
+      "E": "`Spark` sadece metin için değil, her türlü veri için kullanılan genel bir motordur."
+    },
+    "relatedTerms": [
+      {
+        "term": "In-Memory Processing",
+        "definition": "Verilerin mekanik diskler yerine sistemin çok daha hızlı olan ana belleğinde (RAM) tutularak analiz edilmesi."
+      }
+    ]
+  },
+  {
+    "id": "w14-q028",
+    "week": 14,
+    "topic": "buyuk-veri",
+    "type": "code",
+    "tags": [
+      "lazy-evaluation",
+      "transformation",
+      "action"
+    ],
+    "sourceNotebook": "pandas_vs_spark_no_pandas_to_spark_ders_demo.ipynb",
+    "question": "`Spark` veri çerçeveleri üzerinde yazılan aşağıdaki filtreleme ve sayma işlemi göz önüne alındığında, kodun çalıştırılması sırasında makinenin gerçek işlem gücünü harcadığı an ile ilgili en doğru teknik açıklama aşağıdakilerden hangisidir?",
+    "code": "spark_filtered = sdf.filter(col(\"total\") > 100_000)\nspark_filtered_count = spark_filtered.count()",
+    "options": {
+      "A": "Filter komutu yazıldığı anda tüm veri seti taranır ve bellek hemen dolar, sonrasında gelen komutlar sadece önbellekten veri çeker.",
+      "B": "Filter komutu sadece bir plan oluşturur (tembeldir), gerçek verinin taranması ve hesaplanması ancak count gibi bir tetikleyici komut geldiğinde başlar.",
+      "C": "Her iki komut da birbirine bağlı olduğu için, `Spark` veriyi önce sabit diske kaydeder ve sonra sırasıyla okumaya başlar.",
+      "D": "Count komutu sadece satır sayısını öğrenmek içindir, asıl veri madenciliği işlemi filter bloğunda arka planda tamamlanmıştır.",
+      "E": "`Spark` mimarisinde kodun hangi sırayla yazıldığının bir önemi yoktur, sistem rastgele bir şekilde komutları eşzamanlı olarak çalıştırır."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "`Spark` veriyi anında taramaz, bekler.",
+      "B": "Doğru. `Spark` 'Lazy Evaluation' (Tembel Çalıştırma) kullanır. Filter, groupBy gibi işlemler Transformation'dır ve sadece plan yapar. Count, show, collect gibi işlemler Action'dır ve emrin çalıştırılmasını tetikler.",
+      "C": "Diske kaydetmek Hadoop'un tarzıdır, `Spark` In-Memory çalışır.",
+      "D": "Filter komutunda işlem yapılmaz, Count gelmeden motor hareket etmez.",
+      "E": "Kodun sırası ve Action durumu kesinlikle önemlidir, rastgele işlem yapılmaz."
+    },
+    "relatedTerms": [
+      {
+        "term": "Lazy Evaluation",
+        "definition": "Büyük veri platformlarında bir işlemin sonucuna gerçekten ihtiyaç duyulana kadar komutların sadece bir plan olarak bekletilmesi."
+      }
+    ]
+  },
+  {
+    "id": "w14-q029",
+    "week": 14,
+    "topic": "buyuk-veri",
+    "type": "verbal",
+    "tags": [
+      "cassandra",
+      "nosql",
+      "peer-to-peer"
+    ],
+    "sourceNotebook": null,
+    "question": "Büyük veri ekosisteminde veri depolama için kullanılan Apache Cassandra teknolojisi, geleneksel veritabanı sistemlerine kıyasla farklı bir sunucu hiyerarşisine sahiptir. Bir sunucunun çökmesi durumunda sistemin duraksamadan çalışmasını sağlayan bu yapının temel özelliği aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Sistemin merkezinde tek bir ana sunucu bulundurması ve tüm yedekleri sadece bu merkezden dağıtarak karmaşayı önlemesi.",
+      "B": "Sadece metinsel verileri saklayabildiği için sunucular arasındaki bağlantı hızının olağanüstü yüksek seviyelere çıkması.",
+      "C": "Yönetici ve köle (Master-Slave) ayrımı olmaksızın tüm sunucuların tamamen eşit yetkilerle eşler arası bir ağ (Peer-to-Peer) kurması.",
+      "D": "Verileri SQL sorgularına kapalı bir kara kutuda tutarak dışarıdan gelebilecek siber saldırılara karşı maksimum direnç sağlaması.",
+      "E": "Disk arızalarına karşı veriyi doğrudan bulut üzerine yönlendirip yerel sunucuları tamamen pasif bırakması."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Merkezde tek sunucu olması Master-Slave mantığıdır ve bu durum tek nokta hatasına (Single Point of Failure) sebep olur.",
+      "B": "Metinle sınırlı değildir, her türlü büyük veriyi depolayabilir.",
+      "C": "Doğru. Cassandra Peer-to-Peer (Eşler Arası) çalışır. Hiyerarşi yoktur, tüm düğümler (node) eşittir. Biri çökse bile sistem veriye diğerlerinden ulaşmaya devam eder.",
+      "D": "Dışarıya kapalı olması mimarinin özelliği değildir, sorgulanabilir bir NoSQL veritabanıdır.",
+      "E": "Yerel sunucularda da gayet aktif şekilde çalışır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Peer-to-Peer (P2P)",
+        "definition": "Ağdaki tüm bilgisayarların veya sunucuların aynı yetkiye ve sorumluluğa sahip olduğu merkeziyetsiz mimari."
+      }
+    ]
+  },
+  {
+    "id": "w14-q030",
+    "week": 14,
+    "topic": "buyuk-veri-karakteristigi",
+    "type": "verbal",
+    "tags": [
+      "5v",
+      "velocity",
+      "hiz"
+    ],
+    "sourceNotebook": null,
+    "question": "Büyük verinin karakteristiğini tanımlayan 5V kuralından biri de Velocity bileşenidir. Sosyal medya etkileşimleri veya anlık borsa hareketleri göz önüne alındığında, bu bileşenin sistemlere dayattığı en büyük teknolojik zorluk aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Veri kaynaklarının aşırı çeşitli olması sebebiyle metin ve görsellerin aynı klasörde birbirine karışması.",
+      "B": "Devasa boyutlara ulaşan verilerin klasik sabit disklere sığmayarak şirketin donanım maliyetlerini artırması.",
+      "C": "Verilerin içerisindeki eksik veya hatalı girişlerin tespit edilip temizlenmesi için uzun zaman gerekmesi.",
+      "D": "Verilerin çok yüksek bir hızla akması sebebiyle geleneksel motorların durdurulamaz akışı anlık (real-time) olarak işleyememesi.",
+      "E": "Karmaşık veri yığınlarından ticari bir anlam veya öngörü çıkarmanın şirket yöneticileri için çok zor olması."
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Çeşitlilik sorunu Variety bileşenidir.",
+      "B": "Boyut ve depolama sorunu Volume bileşenidir.",
+      "C": "Doğruluk ve temizlik sorunu Veracity bileşenidir.",
+      "D": "Doğru. Velocity hız demektir. Verinin üretim hızının çok yüksek olması, sistemleri batch (toplu) işlemden çıkarıp stream (akışkan/anlık) işlemeye zorlar.",
+      "E": "Ticari anlam çıkarma zorluğu Value bileşenidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Velocity",
+        "definition": "Büyük veri konseptinde verinin üretilme, ağ üzerinde akma ve işlenme hızı."
+      }
+    ]
+  },
+  {
+    "id": "w14-q031",
+    "week": 14,
+    "topic": "buyuk-veri",
+    "type": "verbal",
+    "tags": [
+      "etl",
+      "veri-toplama"
+    ],
+    "sourceNotebook": null,
+    "question": "Data Warehouse ve Big Data sistemlerinin temelini oluşturan, verinin kaynaklardan toplanıp işlendikten sonra depoya aktarılması sürecine ETL adı verilir. ETL kelimesinin açılımındaki aşamaların mantıksal sıralaması ve işlevi aşağıdakilerden hangisinde doğru verilmiştir?",
+    "code": null,
+    "options": {
+      "A": "Evaluate, Train, Learn: Veriyi değerlendir, modeli eğit, sonuçlardan öğren.",
+      "B": "Execute, Test, Launch: Komutu çalıştır, test ortamında dene, sistemi canlıya al.",
+      "C": "Export, Translate, Link: Veriyi dışa aktar, farklı bir dile çevir, bağlantı oluştur.",
+      "D": "Encode, Transfer, Lock: Veriyi şifrele, ağ üzerinden taşı, güvenli şekilde kilitle.",
+      "E": "Extract, Transform, Load: Ham veriyi al, temizleyip düzenle, hedef sisteme yükle."
+    },
+    "correct": "E",
+    "explanations": {
+      "A": "Makine öğrenmesi adımlarıdır, ETL süreci değildir.",
+      "B": "Yazılım geliştirme aşamalarıdır.",
+      "C": "Yanlış bir uydurmadır.",
+      "D": "Ağ güvenliği terimleridir.",
+      "E": "Doğru. ETL; Extract (Kaynaktan veriyi çek), Transform (Temizle, formatla), Load (Veri ambarına veya `Spark` sistemine yükle) adımlarının kısaltmasıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "ETL",
+        "definition": "Farklı kaynaklardaki verilerin merkezi bir depolama alanına entegre edilmesi süreci."
+      }
+    ]
+  },
+  {
+    "id": "w14-q032",
+    "week": 14,
+    "topic": "cnn-veri-hazirligi",
+    "type": "code",
+    "tags": [
+      "one-hot-encoding",
+      "kategorik-veri",
+      "sınıflandırma"
+    ],
+    "sourceNotebook": "CNN_FashionMNIST_Notebook.ipynb",
+    "question": "Evrişimli Sinir Ağları (`CNN`) eğitiminde, veri setindeki etiketler (örneğin 0'dan 9'a kadar olan rakamlar) doğrudan sayılar halinde verilmek yerine to_categorical fonksiyonu kullanılarak boyutlandırılır. Bu işlemin modelin çıkış katmanındaki gereksinimi aşağıdakilerden hangisidir?",
+    "code": "y_train_cat = to_categorical(y_train, 10)",
+    "options": {
+      "A": "`CNN`'in son katmanında 10 farklı olasılık değeri üretilmesi beklendiği için, etiketleri tek bir rakamdan 10 elemanlı bir var/yok matrisine dönüştürmek.",
+      "B": "Görüntülerin piksel değerlerini 0 ile 255 arasından 0 ile 1 arasına çekerek matematiksel işlemleri hızlandırmak.",
+      "C": "Kategori isimlerini (T-shirt, Ayakkabı vb.) direkt olarak makinenin içine gömerek kod yazımını basitleştirmek.",
+      "D": "Eğitim setindeki 60 bin fotoğrafın bilgisayarın RAM'ini dondurmaması için onarlı gruplar halinde parçalara ayırmak.",
+      "E": "Rakamlar arasındaki hiyerarşik düzeni koruyarak 9 numaralı sınıfın 0 numaralı sınıftan matematikte daha değerli olduğunu modele anlatmak."
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Doğru. Softmax katmanı 10 ayrı ihtimal üretir. Etiketin 3 olması, modelin gözünde anlamsızdır. Onun yerine 3. indeksin 1, diğerlerinin 0 olduğu [0,0,0,1,0,0,0,0,0,0] şeklindeki One-Hot kodlama formatına geçilmesi zorunludur.",
+      "B": "Piksellerin normalize edilmesi işlemidir, to_categorical etikete yapılır.",
+      "C": "Kategori isimleri makineye verilmez, sadece sayılar verilir.",
+      "D": "Gruplara ayırma işlemi Batch Size ile ilgilidir.",
+      "E": "Aksine, One-Hot encoding rakamlar arasındaki büyüklük/küçüklük ilişkisini yok ederek hepsine eşit mesafe kazandırır."
+    },
+    "relatedTerms": [
+      {
+        "term": "One-Hot Encoding",
+        "definition": "Kategorik verilerin, sadece ait olduğu sınıfın 1, diğerlerinin 0 olduğu çok boyutlu vektörlere dönüştürülmesi."
+      }
+    ]
+  },
+  {
+    "id": "w14-q033",
+    "week": 14,
+    "topic": "cnn-mimarisi",
+    "type": "verbal",
+    "tags": [
+      "pooling",
+      "havuzlama",
+      "boyut-dusurme"
+    ],
+    "sourceNotebook": null,
+    "question": "`CNN` mimarisinde Evrişim (Convolution) işleminden sonra genellikle Havuzlama (Pooling) katmanı eklenir. Özellikle Max Pooling yönteminin ağa sağladığı en önemli yapısal katkı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Görüntünün sahip olduğu tüm renk bilgisini siyah beyaz koda çevirerek kontrastı artırması.",
+      "B": "Görüntüdeki en belirgin özellikleri koruyarak boyutu drastik şekilde küçültmesi ve nesnenin sağa sola kaymasına karşı modele dayanıklılık kazandırması.",
+      "C": "Evrişim sırasında oluşan eksili değerlerin tamamını sıfıra eşitleyerek anlamsız siyah pikselleri absorbe etmesi.",
+      "D": "Ağın derinleşmesi sırasında kaybedilen ince detayları orijinal fotoğrafa bakarak yeniden haritaya eklemesi.",
+      "E": "Ağdan çıkan tüm özellikleri tek bir ipe dizerek veriyi düzleştirmesi ve klasik sinir ağına girmeye hazır hale getirmesi."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Siyah-beyaz çevirimi modelden önce manuel yapılan bir işlemdir.",
+      "B": "Doğru. Max pooling kayıplı bir sıkıştırmadır. Kare içindeki en yüksek değeri alır, kalanı atar. İşlem yükünü azaltır ve nesnenin tam ortada olmasa da tanınmasını (Spatial Invariance) sağlar.",
+      "C": "Negatifleri sıfırlayan katman ReLU aktivasyon fonksiyonudur.",
+      "D": "Pooling detay eklemez, tam tersine detay atar.",
+      "E": "Düzleştirme işlemi Flatten katmanının görevidir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Max Pooling",
+        "definition": "Bir özellik haritasındaki ufak pencerelerden sadece en yüksek değeri alarak boyut küçültme işlemi."
+      }
+    ]
+  },
+  {
+    "id": "w14-q034",
+    "week": 14,
+    "topic": "cnn-mimarisi",
+    "type": "code",
+    "tags": [
+      "softmax",
+      "olasilik",
+      "cikis-katmani"
+    ],
+    "sourceNotebook": "CNN_FashionMNIST_Notebook.ipynb",
+    "question": "Aşağıdaki kod bloğunda, bir `CNN` modelinin en sonuna eklenen katman görülmektedir. Sınıflandırma problemlerinde en son katmanda mutlaka Softmax aktivasyon fonksiyonunun kullanılmasının ardındaki matematiksel neden nedir?",
+    "code": "Dense(10, activation=\"softmax\")",
+    "options": {
+      "A": "Katmana giren negatif ağırlıkların tamamını kesin olarak sıfırlayıp ağın geriye doğru öğrenmesini durdurmak.",
+      "B": "Bütün girdileri tek bir sayısal sonuca indirgeyip ev fiyatı gibi lineer ve sürekli bir çıktı oluşturmak.",
+      "C": "Çıkan tüm skorları 0 ile 1 arasına sıkıştırıp hepsinin toplamının yüzde yüz yapmasını sağlayarak bir olasılık dağılımı üretmek.",
+      "D": "Eğitim verisindeki sınıflar arası dengesizliği fark edip azınlıkta olan resimleri otomatik olarak çoğaltmak.",
+      "E": "Matrislerin içindeki filtre değerlerini tersine çevirerek kenar çizgilerini daha keskin ve pürüzsüz hale getirmek."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Negatifleri sıfırlayan aktivasyon fonksiyonu ReLU'dur.",
+      "B": "Lineer veya sürekli çıktı regresyon problemlerine aittir, `CNN` sınıflandırma yapar.",
+      "C": "Doğru. Softmax, ağın ürettiği ham skorları alır ve toplamları 1.0 (yani %100) olan bir olasılık grafiğine çevirir. Örneğin: '%89 kedi, %11 köpek'.",
+      "D": "Veri çoğaltma işlemi (Augmentation) model dışı bir işlemdir.",
+      "E": "Filtre ve kenar işlemleri convolution katmanında yapılır, sonda değil."
+    },
+    "relatedTerms": [
+      {
+        "term": "Softmax",
+        "definition": "Çok sınıflı sınıflandırma ağlarında nihai skorları bir olasılık dağılımına dönüştüren aktivasyon fonksiyonu."
+      }
+    ]
+  },
+  {
+    "id": "w14-q035",
+    "week": 14,
+    "topic": "cnn-mimarisi",
+    "type": "verbal",
+    "tags": [
+      "convolution",
+      "evrisim",
+      "kernel"
+    ],
+    "sourceNotebook": null,
+    "question": "Klasik yapay sinir ağları pikselleri düz ve sıradan bir liste olarak işlerken, Evrişimli Sinir Ağları (`CNN`) görüntü üzerindeki mekansal ilişkileri korur. `CNN`'de bunu sağlayan ve resmin üzerinde bir pencere gibi kayarak çalışan matris çarpım aracına ne ad verilir?",
+    "code": null,
+    "options": {
+      "A": "Gradient Descent (Gradyan İnişi)",
+      "B": "Decision Tree (Karar Ağacı)",
+      "C": "Euclidean Distance (Öklid Mesafesi)",
+      "D": "Kernel / Filter (Filtre)",
+      "E": "Isolation Forest (İzolasyon Ormanı)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Gradyan inişi ağırlıkları güncelleyen optimizasyon yöntemidir, kayan pencere değildir.",
+      "B": "Karar ağacı farklı bir klasik algoritmadır.",
+      "C": "Öklid mesafesi uzaklık ölçer, görüntü taramaz.",
+      "D": "Doğru. Kernel veya filtre (Örn: 3x3 matris), görüntünün pikselleri üzerinde sırayla gezinerek matris çarpımı yapar ve kenar, doku gibi özellikleri cımbızlayarak yeni bir harita üretir.",
+      "E": "İzolasyon ormanı anomali tespiti için kullanılır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Kernel (Filtre)",
+        "definition": "CNN'de görüntü üzerinde kaydırılarak özellik haritası çıkarılmasını sağlayan küçük boyutlu ağırlık matrisi."
+      }
+    ]
+  },
+  {
+    "id": "w14-q036",
+    "week": 14,
+    "topic": "yapay-zeka-felsefesi",
+    "type": "verbal",
+    "tags": [
+      "genelleme",
+      "overfitting",
+      "guvenlik"
+    ],
+    "sourceNotebook": null,
+    "question": "Derste işlenen konulara göre, FaceID gibi güvenlik sistemleri kullanıcının yüzüyle yüzde yüz eşleşme ararken, bir `CNN` yapay zeka modelinin tahminlerinde yüzde yüze ulaşması tehlikeli ve istenmeyen bir durum olarak kabul edilir. `CNN` modelinin yüzde yüz başarı sağlamasının veri biliminde ifade ettiği problem aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Veri setinin bilgisayarın belleğine tamamen kopyalanması sebebiyle sistemin diğer işlemleri yapmasını dondurması.",
+      "B": "Uzaklık algoritmalarının sıfır noktasında çakışarak paydanın tanımsız olmasına neden olması.",
+      "C": "Modelin verilerdeki gürültüleri tamamen temizleyerek analiz için mükemmel derecede saf bir temel oluşturması.",
+      "D": "Tahmin hızının ışık hızına yaklaşarak grafik işlemcilerin (GPU) aşırı ısınmasına yol açması.",
+      "E": "Modelin tüm eğitim fotoğraflarını birebir ezberleyip (overfitting) tümevarım ve genelleme yeteneğini tamamen kaybetmiş olması."
+    },
+    "correct": "E",
+    "explanations": {
+      "A": "Bellek sorunları başarı yüzdesiyle değil verinin hacmiyle ilgilidir.",
+      "B": "`CNN` uzaklık formülleriyle değil matris çarpımlarıyla çalışır.",
+      "C": "Mükemmel saf temel bir problem değil bir rüyadır, gerçek dünyada bu imkansızdır.",
+      "D": "Başarı oranının yüksekliği donanım ısınmasına yol açmaz.",
+      "E": "Doğru. Yapay zekanın amacı ezberlemek değil tümevarım yapmaktır (Genelleme). Yüzde yüz başarı, modelin eğitim setindeki gereksiz detayları bile ezberlediğinin (Overfitting) en büyük kanıtıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Overfitting",
+        "definition": "Modelin eğitim verisini çok iyi öğrenip, yeni ve görülmemiş verilere karşı genelleme yapamaması sorunu."
+      }
+    ]
+  },
+  {
+    "id": "w14-q037",
+    "week": 14,
+    "topic": "multimodal-analiz",
+    "type": "verbal",
+    "tags": [
+      "fusion",
+      "birlestirme",
+      "cnn-lstm"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir e ticaret sitesinde sadece ürün resmini analiz eden `CNN` modeli ile sadece müşteri yorumunu okuyan `LSTM` modeli sahte yorumları tespit etmekte yetersiz kalmaktadır. Çok modlu (Multimodal) yaklaşımda bu iki modelin elde ettiği özelliklerin bir araya getirilip nihai kararın verilmesini sağlayan işlem katmanı aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Görselden ve metinden elde edilen özellik vektörlerini yan yana ekleyen Fusion (Concatenate) Katmanı.",
+      "B": "Gereksiz kelimeleri ve bulanık pikselleri aynı anda silerek veriyi yarıya düşüren Temizlik Katmanı.",
+      "C": "Sadece ürün puanının matematiksel karşılığını bularak resim ve yazıyı yok sayan Regresyon Katmanı.",
+      "D": "Satıcının IP adresini takip edip bot hesapları anında engelleyen Güvenlik Katmanı.",
+      "E": "Metni tekrar görsele, görseli de tekrar metne çeviren Çapraz Dönüştürücü Katmanı."
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Doğru. Çoklu modlu (Multimodal) analizde, örneğin `CNN`'den 512 boyutlu, `LSTM`'den 768 boyutlu bir vektör çıkar. Fusion (Concatenate) katmanı bu ikisini birleştirerek 1280 boyutlu dev bir özellik vektörü yaratır ve kararı buna göre verir.",
+      "B": "Temizlik, modelden önce yapılır, birleştirici bir katman değildir.",
+      "C": "Çoklu modlu sistemin amacı tüm verileri kullanmaktır, yok saymak değil.",
+      "D": "IP takibi ağ güvenliği konusudur, yapay zeka içerik analizi değildir.",
+      "E": "Çapraz dönüştürme (GANs vb.) ayrı bir alandır, tespit işleminde özellik birleştirme esastır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Concatenation",
+        "definition": "Farklı kaynaklardan veya sinir ağı kollarından gelen özellik dizilerinin tek bir vektörde uç uca eklenmesi."
+      }
+    ]
+  },
+  {
+    "id": "w14-q038",
+    "week": 14,
+    "topic": "boyut-azaltma",
+    "type": "verbal",
+    "tags": [
+      "pca",
+      "boyut",
+      "varyans"
+    ],
+    "sourceNotebook": "cluster_3.ipynb",
+    "question": "Büyük boyutlu ve çok sütunlu veri setlerinde işlemlerin inanılmaz yavaşlaması sorununu (Boyut Laneti) çözmek için `PCA` (Temel Bileşen Analizi) uygulanır. Ancak bu boyut azaltma işleminin kabul edilebilir olması için mutlaka korunması gereken istatistiksel kırmızı çizgi nedir?",
+    "code": null,
+    "options": {
+      "A": "Aykırı değerlerin (outliers) hiçbir şekilde silinmeyip en az iki ayrı kolonda tutulmaya devam edilmesi.",
+      "B": "Başlangıçta yüzde yüz kabul edilen veri bilgisinin (Varyans) boyut düşürüldükten sonra belli bir eşiğin (örneğin %90) altına inmemesi.",
+      "C": "Orijinal veri setindeki satır sayısının, yeni sütun sayısının tam olarak karesine eşit olması.",
+      "D": "Silinen sütunların metinsel verilerden oluştuğu durumlarda One Hot Encoding işleminin tekrar edilmesi.",
+      "E": "Elde edilen yeni bileşenlerin en az birinde negatif sayıların bulunmaması ve logaritmik formata uygun olması."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Aykırı değerlerin tutulması `PCA`'in amacı veya kırmızı çizgisi değildir.",
+      "B": "Doğru. `PCA` işlemi gereksiz verileri atıp sütunları birleştirirken, verinin içerdiği 'Bilgi miktarını' yani İstatistiksel Varyansı korumak zorundadır. Eğer çok fazla sütun silinirse varyans örneğin %80'in altına düşer, bu da bilgi kaybı yaşandığı ve modelin bozulduğu anlamına gelir.",
+      "C": "Satır ve sütun sayıları arasında kare eşitsizliği kuralı yoktur.",
+      "D": "`PCA` öncesinde kategorik veriler zaten sayısala çevrilmiş olmalıdır.",
+      "E": "`PCA` sonucunda çıkan bileşenler negatif değerler alabilir, bu bir kural ihlali değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Varyans (PCA bağlamında)",
+        "definition": "Veri seti içerisindeki değişkenliğin ve içerdiği bilginin istatistiksel olarak korunma oranı."
+      }
+    ]
+  },
+  {
+    "id": "w14-q039",
+    "week": 14,
+    "topic": "buyuk-veri",
+    "type": "verbal",
+    "tags": [
+      "pandas",
+      "spark",
+      "karsilastirma"
+    ],
+    "sourceNotebook": "pandas_vs_spark_no_pandas_to_spark_ders_demo.ipynb",
+    "question": "Yapılan bir laboratuvar deneyinde aynı işlemler elli bin satırlık küçük bir veri seti ile önce Pandas sonra `Spark` üzerinde çalıştırılmıştır. Bu deneyin sonucunda Pandas'ın `Spark`'tan daha hızlı olduğu gözlemlenmiştir. Veri madenciliği mimarileri açısından bu durumun en mantıklı açıklaması aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "`Spark` motorunun sadece Python diliyle değil C++ ile yazılmış olması sebebiyle çeviri süresinde zaman kaybetmesi.",
+      "B": "Pandas'ın içindeki şifreleme algoritmalarının sayısal verilerde devre dışı kalarak güvenlik duvarlarını aşabilmesi.",
+      "C": "Küçük boyutlu verilerde Pandas tek çekirdekle işi hemen bitirirken, `Spark`'ın devasa paralel ağ yapısını ayağa kaldırmak için fazladan zaman harcaması (overhead).",
+      "D": "`Spark`'ın veriyi işlemek yerine sadece diske yazma komutu vererek beklemeye geçmesi ve okuma yapmayı reddetmesi.",
+      "E": "Pandas'ın makine öğrenmesi yeteneği olmadığı için arkaplandaki derin öğrenme hesaplamalarını es geçmesi."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "Dil çeviri süresi asıl problem değildir, asıl problem paralel mimarinin ağırlığıdır.",
+      "B": "Pandas şifreleme veya güvenlik duvarı aşma işlemi yapmaz.",
+      "C": "Doğru. `Spark` milyonluk veriler için tasarlanmış paralel çalışan bir kamyon gibidir. Küçük bir veride (50 bin satır) bu kamyonun motorunu çalıştırmak bile veriyi işlemekten uzun sürer. Pandas ise bir bisiklet gibi tek çekirdekle işi saniyede bitirir.",
+      "D": "`Spark` diske yazmaz, in memory (RAM'de) çalışır.",
+      "E": "Deneyde derin öğrenme veya makine öğrenmesi değil sadece gruplama (groupby) işlemi yapılmaktadır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Overhead (İşlem Yükü)",
+        "definition": "Bir yazılım sisteminin kendi iç yapısını hazırlamak ve yönetmek için asıl işlemi yapmadan önce harcadığı fazladan zaman."
+      }
+    ]
+  },
+  {
+    "id": "w14-q040",
+    "week": 14,
+    "topic": "transfer-learning",
+    "type": "verbal",
+    "tags": [
+      "transfer-learning",
+      "resnet",
+      "cnn"
+    ],
+    "sourceNotebook": null,
+    "question": "Milyonlarca resimle aylarca süren işlemler sonucu daha önceden Google veya Facebook gibi dev şirketler tarafından eğitilmiş ResNet veya VGG gibi modellerin ağırlıklarının alınarak, sadece son katmanı değiştirilip ufak bir veri setine uygulanması yöntemine ne ad verilir?",
+    "code": null,
+    "options": {
+      "A": "Supervised Learning (Denetimli Öğrenme)",
+      "B": "Association Rule Mining (Birliktelik Kuralları)",
+      "C": "Principal Component Analysis (Temel Bileşen Analizi)",
+      "D": "Transfer Learning (Öğrenme Transferi)",
+      "E": "Natural Language Processing (Doğal Dil İşleme)"
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Denetimli öğrenme geniş bir kategoridir, bu spesifik yöntemin adı değildir.",
+      "B": "Birliktelik kuralları sepet analizidir, görüntü işlemeyle ilgisi yoktur.",
+      "C": "`PCA` boyut küçültme algoritmasıdır.",
+      "D": "Doğru. Transfer Learning, daha önceden dünya çapında objeleri (kedi, köpek, masa) öğrenmiş devasa modellerin katsayılarını (W ağırlıklarını) alıp, kendi küçük veri setimize uygulayarak tekerleği yeniden icat etmeyi önleyen yapay zeka tekniğidir.",
+      "E": "NLP metin madenciliğinin alanıdır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Transfer Learning",
+        "definition": "Önceden büyük veri setleri ile eğitilmiş modellerin bilgi ve ağırlıklarının, farklı ama benzer bir probleme uygulanması."
+      }
+    ]
+  },
+  {
+    "id": "w14-q041",
+    "week": 14,
+    "topic": "knn-vs-kmeans",
+    "type": "verbal",
+    "tags": [
+      "knn",
+      "k-means",
+      "fark"
+    ],
+    "sourceNotebook": null,
+    "question": "Sınavlara hazırlanan bir öğrenci KNN ile K-Means algoritmalarını birbirine karıştırmaktadır. İsimleri benzemesine rağmen veri madenciliğinde bu iki algoritmayı birbirinden kesin bir bıçak gibi ayıran en temel fark aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "KNN sadece metin madenciliği alanında kullanılabilirken, K-Means algoritması yalnızca görselleri analiz edebilir.",
+      "B": "KNN verilerdeki eksik satırları ortalama ile doldururken, K-Means bu satırları direkt olarak sistemden siler.",
+      "C": "KNN uzaklık ölçümü için Euclidean (Öklid) mesafesini reddederken, K-Means sadece Manhattan mesafesini kullanır.",
+      "D": "KNN algoritmasının hızı veri büyüdükçe artarken, K-Means algoritması büyük verilerde daima sistem çökmesine yol açar.",
+      "E": "KNN algoritması sonuçları bilinen etiketli verilerle tahminde bulunurken, K-Means sonuçları bilinmeyen verilerde kendi kendine gruplama yapar."
+    },
+    "correct": "E",
+    "explanations": {
+      "A": "Her ikisi de ağırlıklı olarak sayısal mesafe tabanlı verilerle çalışır.",
+      "B": "Her iki algoritma da eksik veri ile çalışamaz, önceden temizlenmesi gerekir.",
+      "C": "Her ikisi de Öklid, Manhattan gibi mesafeleri kullanabilir.",
+      "D": "Tam tersi, KNN veri büyüdükçe her noktayı tek tek ölçeceği için inanılmaz yavaşlar.",
+      "E": "Doğru. KNN denetimli (Supervised) bir sınıflandırmadır, 'sen şusun' diye etiketli tahmin yapar. K-Means ise denetimsizdir (Unsupervised), sadece benzeyenleri bir kümeye atar, kümenin ne olduğunu insan etiketler."
+    },
+    "relatedTerms": [
+      {
+        "term": "Supervised vs Unsupervised",
+        "definition": "Etiketli hedef değişken üzerinden tahmin yapma (KNN) ile etiketsiz veri içerisinde örüntü veya küme bulma (K-Means) farkı."
+      }
+    ]
+  },
+  {
+    "id": "w14-q042",
+    "week": 14,
+    "topic": "knn-vs-kmeans",
+    "type": "verbal",
+    "tags": [
+      "senaryo",
+      "knn",
+      "k-means"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir banka, müşterilerini kredi kartı harcama alışkanlıklarına göre incelemek istemektedir. Bankanın elindeki senaryolar değerlendirildiğinde, Hangi senaryoda KNN, hangi senaryoda K-Means kullanılması daha bilimsel olur?",
+    "code": null,
+    "options": {
+      "A": "Banka, kimin batık kimin sağlam olduğunu biliyorsa ve yeni müşteriyi buna göre atayacaksa KNN; banka sadece müşterileri benzer davranışlarına göre gizli gruplara ayıracaksa K-Means.",
+      "B": "Banka, müşterilerin yaş ve gelir gibi sayısal verilerine bakacaksa KNN; müşterilerin sadece cinsiyet ve şehir gibi metinsel verilerine bakacaksa K-Means.",
+      "C": "Banka verileri milisaniyeler içinde çok hızlı analiz edecekse KNN; verilerin analizi günler sürecekse ve yüksek donanım gerekiyorsa K-Means.",
+      "D": "Banka sadece tek bir şubedeki küçük müşteri grubunu inceleyecekse KNN; dünyadaki tüm şubelerindeki milyonlarca müşteriyi inceleyecekse K-Means.",
+      "E": "Banka harcama alışkanlıklarındaki aykırı ve dolandırıcı işlemleri tespit edecekse KNN; dürüst müşterilerin sepet analizini yapacaksa K-Means."
+    },
+    "correct": "A",
+    "explanations": {
+      "A": "Doğru. Batık/Sağlam etiketi varsa bu sınıflandırmadır (KNN). Eğer etiket yok, sadece benzerleri grupla diyorsa bu kümelemedir (K-Means).",
+      "B": "Her iki algoritma da metinsel verilerle (one hot encoding yapılmadan) çalışamaz.",
+      "C": "Hız ayrımı bu şekilde yapılamaz, KNN de büyük veride çok yavaştır.",
+      "D": "Boyut ayrımı algoritmaların seçilmesindeki ana sebep değil, sonuçlarıdır. Asıl sebep etiket varlığıdır.",
+      "E": "Anomali tespiti veya sepet analizi (`Apriori`) ikisinin de ana görevi değildir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Gözetimli Öğrenme Senaryosu",
+        "definition": "Sonucu bilinen geçmiş örnekler üzerinden yeni gelen verinin durumunun tahmin edilmesi."
+      }
+    ]
+  },
+  {
+    "id": "w14-q043",
+    "week": 14,
+    "topic": "karar-agaclari",
+    "type": "verbal",
+    "tags": [
+      "entropy",
+      "saflik",
+      "deger"
+    ],
+    "sourceNotebook": null,
+    "question": "Karar Ağaçları (Decision Tree) algoritmasında, verinin belirli bir sütuna göre bölünmesinin ne kadar iyi bir fikir olduğunu ölçmek için Entropy (Entropi) formülü kullanılır. Bir veri madenciliği uzmanı, bölünme sonrasında ulaşılan yapraktaki Entropi değerini incelerken hangi duruma ulaşmayı hedefler?",
+    "code": null,
+    "options": {
+      "A": "Değerin bire eşitlenerek verideki tüm rastgeleliğin ve karmaşanın matematiksel olarak zirveye ulaştığını ispatlamaya.",
+      "B": "Değerin sıfıra inerek o yaprağa düşen tüm verilerin tamamen aynı gruptan olduğunu ve yüzde yüz saf hale geldiğini görmeye.",
+      "C": "Değerin eksi bir seviyesine inerek algoritmanın beklenmeyen aykırı değerleri otomatik olarak sildiğinden emin olmaya.",
+      "D": "Değerin veri setindeki satır sayısıyla aynı oranda artarak düğümlerin sonsuz büyümesini ve dallanmasını garanti etmeye.",
+      "E": "Değerin her bölünmede yüzde elli oranında sabit kalarak sağ ve sol dallar arasında mükemmel bir eşitlik sağladığına."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Entropinin bir olması maksimum karmaşa demektir. Karar ağacı karmaşayı sevmeyen, sınıflandırmak isteyen bir yapıdır.",
+      "B": "Doğru. Entropi belirsizliği ölçer. Sıfır olması, o kutudaki herkesin tamamen aynı karara (Örn: Hepsi Evet) sahip olduğunu, yani verinin tamamen saf hale geldiğini gösterir. Amacımız entropiyi sıfırlamaktır.",
+      "C": "Entropi logaritmik olasılık hesaplandığı için eksi değerler almaz, sıfır ile bir arasındadır.",
+      "D": "Entropi satır sayısına göre değil olasılık dağılımına göre ölçülür.",
+      "E": "Entropinin sabit kalması, bilgi kazancının sıfır olması demektir, yani modelin hiçbir şey öğrenemediğini gösterir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Entropy",
+        "definition": "Veri setindeki düzensizliğin ve belirsizliğin ölçüsü. 0 tamamen saf, 1 tamamen karışık anlamına gelir."
+      }
+    ]
+  },
+  {
+    "id": "w14-q044",
+    "week": 14,
+    "topic": "karar-agaclari",
+    "type": "verbal",
+    "tags": [
+      "information-gain",
+      "entropy",
+      "kok-dugum"
+    ],
+    "sourceNotebook": null,
+    "question": "Karar ağacı modeli inşa edilirken en tepeye (Kök düğüm) hangi sorunun yazılacağına rastgele karar verilmez. Algoritma bu seçimi yaparken Entropi formülünü nasıl kullanarak en doğru sütunu seçer?",
+    "code": null,
+    "options": {
+      "A": "Entropi değerini en düşükten en yükseğe doğru sıralar ve her zaman en karmaşık olan soruyu ilk olarak sorar.",
+      "B": "Eğitim verisindeki tüm hücrelerin entropi ortalamasını alır ve sonucu medyan değere en yakın olanı kök düğüm yapar.",
+      "C": "Bölünmeden önceki entropi ile bölündükten sonraki entropi arasındaki farkı hesaplar ve Bilgi Kazancı (Information Gain) en yüksek olan özelliği seçer.",
+      "D": "Entropi değerlerini Gini İndeksi değerleriyle çarparak sıfıra en yakın olan sonucu veren metinsel sütunları ağacın tepesine taşır.",
+      "E": "Ağacın dışından gelen sentetik verilerin entropisini ölçer ve bu değerin orijinal veriden sapmadığı durumlarda kök atamasını yapar."
+    },
+    "correct": "C",
+    "explanations": {
+      "A": "En karmaşık soruyu değil, karmaşayı en çok çözen soruyu sormak ister.",
+      "B": "Ortalama veya medyan almak ağaç mantığına uygun bir yaklaşım değildir.",
+      "C": "Doğru. Algoritma, 'Ben bu soruyu sorarsam önceki belirsizlik durumu ile sonraki belirsizlik durumu arasında ne kadar kâr ederim?' diye bakar. Entropiyi en çok düşüren, yani Information Gain (Bilgi Kazancı) en yüksek olan özellik Kök (Root) olarak seçilir.",
+      "D": "Entropi ve Gini aynı anda çarpılıp kullanılmaz, ikisi farklı ölçüm yöntemleridir (biri logaritmik, biri karesel).",
+      "E": "Karar ağacı dışarıdan sentetik veri alarak entropi ölçmez, eldeki veriyi kullanır."
+    },
+    "relatedTerms": [
+      {
+        "term": "Information Gain",
+        "definition": "Bir özellik kullanılarak veri seti bölündüğünde, önceki ve sonraki entropi değerleri arasındaki farktan doğan belirsizlik azalması."
+      }
+    ]
+  },
+  {
+    "id": "w14-q045",
+    "week": 14,
+    "topic": "karar-agaclari",
+    "type": "verbal",
+    "tags": [
+      "knn",
+      "k-degeri",
+      "overfitting",
+      "underfitting"
+    ],
+    "sourceNotebook": null,
+    "question": "K-En Yakın Komşu (KNN) algoritmasında hiperparametre olan K değerinin seçimi, modelin ezberleme veya eksik öğrenme durumunu doğrudan etkiler. Bu bağlamda, K değerinin uç noktalarda seçilmesiyle ilgili aşağıdaki ifadelerden hangisi bilimsel olarak doğrudur?",
+    "code": null,
+    "options": {
+      "A": "K değerinin çift sayı seçilmesi modelin her zaman yüzde yüz oranında kesin ve net karar alarak overfitting yapmasını sağlar.",
+      "B": "K değerinin eksi değerler alması durumunda model uzaklığı değil yakınlığı ölçmeye başlayarak underfitting problemine girer.",
+      "C": "K değerinin on ve üzerinde seçilmesi durumunda model tamamen çökerek hiçbir şekilde hesaplama yapamaz ve hata fırlatır.",
+      "D": "K değeri bir (1) olarak seçilirse model her yeni veriyi yanındaki tek noktaya göre yargılayıp aşırı ezber (overfitting) yapar, çok büyük seçilirse ise aşırı genelleme (underfitting) yapar.",
+      "E": "K değerinin sıfır olarak seçilmesi algoritmayı tembel (lazy) formatından çıkararak veri setinin bir denklemini kurmaya yöneltir."
+    },
+    "correct": "D",
+    "explanations": {
+      "A": "Çift sayı seçmek overfitting yapmaz, oylamada berabere kalınmasına (eşitlik çıkmazına) sebep olur.",
+      "B": "K değeri komşu sayısıdır, eksi bir komşu sayısı mantıken olamaz.",
+      "C": "K değeri veri sayısına kadar büyütülebilir, hata vermez sadece süreci uzatır ve aşırı geneller.",
+      "D": "Doğru. K=1 demek sadece en yakın 1 kişiye bakıp karar vermek demektir, bu da gürültüye duyarlılık yaratıp veriyi ezberletir (Overfitting). K çok büyük olursa da (örn: K=1000) detayları göz ardı edip çoğunluğa uyar (Underfitting).",
+      "E": "K=0 mantıken imkansızdır, kimseye bakmadan karar verilemez."
+    },
+    "relatedTerms": [
+      {
+        "term": "Underfitting",
+        "definition": "Modelin yeterince karmaşık olmaması veya parametrelerin yanlış seçilmesi nedeniyle eğitim verisindeki temel örüntüleri bile öğrenememesi."
+      }
+    ]
+  },
+  {
+    "id": "w14-q046",
+    "week": 14,
+    "topic": "karar-agaclari",
+    "type": "verbal",
+    "tags": [
+      "karar-agaci",
+      "max-depth",
+      "overfitting"
+    ],
+    "sourceNotebook": "r_forest.ipynb",
+    "question": "Karar Ağaçları modelleri doğası gereği eğitim setine aşırı bağlanma eğilimindedir. Model inşa edilirken ağaç parametresi olarak '`max_depth`=None' verilirse, modelin vereceği tepki ve karşılaşacağı problem aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Ağaç hiçbir şekilde dallanma yapmayarak kök düğümde kalır ve eksik öğrenme (underfitting) gerçekleşir.",
+      "B": "Ağaç sadece sayısal özelliklere odaklanıp kategorik verileri tamamen dışlayarak doğrusal bir boyut lanetine uğrar.",
+      "C": "Model eğitim verisini tahmin etmeyi bırakıp doğrudan test verisinden kopya çekerek yüzde yüz sahte bir başarı elde eder.",
+      "D": "Ağaç sadece Information Gain değeri sıfır olan dalları keserek kendi kendini optimize eder ve hiperparametre budaması yapar.",
+      "E": "Ağaç her bir yaprakta tamamen saf ve tek bir kişi kalana kadar sınırsızca sorular sorup dallanır ve eğitim verisini ezberleyerek aşırı öğrenme (overfitting) yapar."
+    },
+    "correct": "E",
+    "explanations": {
+      "A": "Hiç dallanma yapmaması derinliğin sıfır veya bir olmasına bağlıdır, None serbest bırakmak demektir.",
+      "B": "Sayısal veya kategorik ayrımı yapmaz, her ikisini de kurallara dönüştürebilir.",
+      "C": "Test verisinden kopya çekme olayı Data Leakage ile olur, derinlik kısıtlamasının kaldırılmasıyla değil.",
+      "D": "Dalları kesme veya budama işlemi `max_depth` kısıtlamasıyla yapılır, None verilirse budama yapılmaz.",
+      "E": "Doğru. `max_depth`=None ağacın derinliğini sınırlandırmaz. Ağaç o kadar çok if-else yazar ki her bir müşteri için özel kural üretir. Eğitimi %100 bilir ama yeni veride (Test) batar. Bu tam bir Overfitting durumudur."
+    },
+    "relatedTerms": [
+      {
+        "term": "Max Depth",
+        "definition": "Karar ağacının kökten yaprağa kadar inebileceği maksimum soru sorma ve dallanma limiti."
+      }
+    ]
   }
 ]
