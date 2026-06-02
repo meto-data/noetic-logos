@@ -1,2 +1,2 @@
-:HL["/noetic-logos/static/turk-dili-2-module/_next/static/chunks/606888d617ab02ea.css","style"]
-0:{"buildId":"yixRt7cmD8eBBs4RjyJcP","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["/noetic-logos/static/turk-dili-2-module/_next/static/chunks/ebc9acc04ffb3a48.css","style"]
+0:{"buildId":"gqtfsOQxudXbFs5pgfAvR","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
