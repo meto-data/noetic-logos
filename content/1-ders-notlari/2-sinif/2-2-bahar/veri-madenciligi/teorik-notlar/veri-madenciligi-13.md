@@ -34,7 +34,8 @@ Makine, görüntüyü doğrudan anlayamaz. Önce görüntünün ayırt edici öz
 ## A. Manuel (Elle) Öznitelik Çıkarma Yöntemleri
 - **Renk Histogramı**: Resimdeki RGB dağılımına bakılır. "Bu görselin %80'i mavi, demek ki deniz veya gökyüzü olabilir."
 - **Kenar Bilgisi (Edge Detection)**: Sobel ve Canny gibi algoritmalarla pikseller arasındaki keskin renk geçişleri bulunarak nesnenin dış hatları (silüeti) çiziliyor. 
-- **Yapısal Özellikler**: Gabor filtresi gibi yöntemlerle doku ve yönelim bilgisi çıkarılır.
+- **Yapısal Özellikler**: Gabor filtresi gibi yöntemlerle doku ve yönelim bilgisi çıkarılır. <br>
+
 ![[oznitelik.png]]
 
 
