@@ -35,12 +35,12 @@ Makine, görüntüyü doğrudan anlayamaz. Önce görüntünün ayırt edici öz
 - **Renk Histogramı**: Resimdeki RGB dağılımına bakılır. "Bu görselin %80'i mavi, demek ki deniz veya gökyüzü olabilir."
 - **Kenar Bilgisi (Edge Detection)**: Sobel ve Canny gibi algoritmalarla pikseller arasındaki keskin renk geçişleri bulunarak nesnenin dış hatları (silüeti) çiziliyor. 
 - **Yapısal Özellikler**: Gabor filtresi gibi yöntemlerle doku ve yönelim bilgisi çıkarılır.
+![[oznitelik.png]]
+
 
 ## B. Otomatik Öznitelik Çıkarma (CNN - Evrişimli Sinir Ağları)
 Günümüzde manuel işlemlere gerek kalmamıştır. **CNN (Convolutional Neural Network)**, görüntü üzerindeki kenar, köşe, doku ve renk gibi özellikleri kendisi otomatik olarak öğrenen ve filtreleyen derin öğrenme mimarisidir. Elle özellik çıkarmaya gerek kalmaz; ağ derinleştikçe özellikleri kendi kendine hiyerarşik olarak öğrenir (kenar $\to$ şekil $\to$ nesne $\to$ anlam).
 
-
-![[oznitelik.png]]
 
 ## C. Çıkarılan Bu Özniteliklerle Neler Yapabiliriz? (Veri Madenciliği Entegrasyonu)
 CNN ağının resimlerden otomatik çıkardığı bu matematiksel öznitelikler, klasik veri madenciliği algoritmalarına beslenerek devasa analizler yapılabilir:

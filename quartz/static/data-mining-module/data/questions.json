@@ -19012,76 +19012,6 @@
     ]
   },
   {
-    "id": "w12-q005",
-    "week": 12,
-    "topic": "spark-groupby-sintaks",
-    "type": "code",
-    "tags": [
-      "groupby",
-      "aggregation",
-      "alias"
-    ],
-    "sourceNotebook": "pandas_vs_spark_no_pandas_to_spark_ders_demo.ipynb",
-    "question": "Aşağıdaki kod parçalarından hangisi, Pandas'ta yazılmış olan `pdf.groupby(\"city\")[\"total\"].sum()` işleminin PySpark DataFrame (`sdf`) üzerindeki tam karşılığıdır?",
-    "code": null,
-    "options": {
-      "A": "sdf.groupby(\"city\")[\"total\"].sum()",
-      "B": "sdf.groupBy(\"city\").agg(spark_sum(\"total\").alias(\"total_revenue\"))",
-      "C": "sdf.group_by(\"city\").sum(\"total\")",
-      "D": "sdf.select(\"city\", \"total\").sum()",
-      "E": "sdf.groupBy(\"city\").withColumn(\"total_revenue\", sum(\"total\"))"
-    },
-    "correct": "B",
-    "explanations": {
-      "A": "Bu Pandas sözdizimidir, Spark'ta indeksleme tarzı `[\"total\"]` ile aggregation yapılmaz.",
-      "B": "Doğru. Spark'ta gruplama `groupBy()` ile yapılır ve toplama gibi işlemler `agg()` içinde ilgili Spark fonksiyonu (`spark_sum`) çağrılarak uygulanır.",
-      "C": "`group_by` geçerli bir Spark DataFrame metodu değildir (doğrusu groupBy camelCase'dir) ve zincirleme syntax hatalıdır.",
-      "D": "`select` bir sütun seçimidir, gruplama işlemi yapmaz.",
-      "E": "`withColumn` DataFrame'e yeni sütun ekler, grup bazlı bir aggregate (küçültme) işlemi değildir."
-    },
-    "relatedTerms": [
-      {
-        "term": "agg()",
-        "definition": "Spark'ta groupBy işleminden sonra toplama, ortalama gibi istatistiksel fonksiyonları uygulamak için kullanılan metot."
-      }
-    ]
-  },
-  {
-    "id": "w12-q006",
-    "week": 12,
-    "topic": "veri-filtreleme-sintaks",
-    "type": "code",
-    "tags": [
-      "filtreleme",
-      "kosul",
-      "pyspark-sql"
-    ],
-    "sourceNotebook": "pandas_vs_spark_no_pandas_to_spark_ders_demo.ipynb",
-    "question": "Pandas ortamında yüksek satış tutarlarını filtrelemek için aşağıdaki kod kullanılmaktadır:\nAynı işlemi Spark DataFrame'i (`sdf`) üzerinde yapmak için kullanılması gereken doğru kod satırı aşağıdakilerden hangisidir?",
-    "code": "pandas_filtered = pdf[pdf[\"total\"] > 100_000]",
-    "options": {
-      "A": "spark_filtered = sdf.filter(col(\"total\") > 100_000)",
-      "B": "spark_filtered = sdf[sdf.total > 100_000]",
-      "C": "spark_filtered = sdf.where(\"total\" > 100_000)",
-      "D": "spark_filtered = sdf.select(\"total\").filter(> 100_000)",
-      "E": "spark_filtered = filter(sdf[\"total\"] > 100_000)"
-    },
-    "correct": "A",
-    "explanations": {
-      "A": "Doğru. Spark'ta filtreleme işlemi genellikle `filter` (veya `where`) metoduyla ve `col()` fonksiyonu yardımıyla belirtilen koşula göre yapılır.",
-      "B": "Bu Pandas'a çok benzeyen bir sözdizimidir, Spark'ta bu şekilde bir kullanım yaygın ve önerilen bir yöntem değildir.",
-      "C": "`where` metodu içine doğrudan string ile koşul yazılacaksa `sdf.where(\"total > 100000\")` şeklinde olmalıdır, dışarıdan büyüktür işareti konmaz.",
-      "D": "Sözdizimi hatalıdır.",
-      "E": "Python'ın gömülü `filter` fonksiyonu DataFrame nesneleri için bu şekilde kullanılamaz."
-    },
-    "relatedTerms": [
-      {
-        "term": "filter()",
-        "definition": "DataFrame içindeki satırları belirli bir koşula göre seçmek için kullanılan Spark transformasyon metodu."
-      }
-    ]
-  },
-  {
     "id": "w12-q007",
     "week": 12,
     "topic": "teknoloji-secimi",
@@ -19360,41 +19290,6 @@
       {
         "term": "Cassandra",
         "definition": "Dağıtık, peer-to-peer mimariye sahip, yüksek ölçeklenebilir NoSQL veritabanı."
-      }
-    ]
-  },
-  {
-    "id": "w12-q015",
-    "week": 12,
-    "topic": "pandas-sintaks-okuma",
-    "type": "code",
-    "tags": [
-      "pandas",
-      "sutun-islemleri",
-      "vektorizasyon"
-    ],
-    "sourceNotebook": "pandas_vs_spark_no_pandas_to_spark_ders_demo.ipynb",
-    "question": "Aşağıdaki Pandas kod satırı veri ön işleme aşamasında ne iş yapmaktadır?",
-    "code": "pdf[\"total\"] = pdf[\"price\"] * pdf[\"quantity\"]",
-    "options": {
-      "A": "Fiyat (price) ve Miktar (quantity) sütunlarını toplayıp 'total' adında yeni bir satır ekler.",
-      "B": "Mevcut veri setindeki tüm fiyatların ortalamasını alarak miktarla çarpar.",
-      "C": "Veri setindeki her bir satır için 'price' ve 'quantity' değerlerini çarparak 'total' adında yeni bir sütun oluşturur.",
-      "D": "Fiyatı miktardan büyük olan satırları filtreler ve 'total' değişkenine kaydeder.",
-      "E": "Sadece Pandas DataFrame'inin indeks (id) numaralarını çarpar."
-    },
-    "correct": "C",
-    "explanations": {
-      "A": "Toplama (`+`) değil, çarpma (`*`) işlemi yapılıyor ve satır değil sütun ekleniyor.",
-      "B": "Ortalama (`mean()`) alınmıyor, doğrudan satır bazlı işlem yapılıyor.",
-      "C": "Doğru. Bu vektörel bir işlemdir. Her satır için fiyat ve adet çarpılır ve sonuç veri setine yeni bir 'total' sütunu olarak yazılır.",
-      "D": "Bir filtreleme (büyüktür/küçüktür) koşulu yoktur.",
-      "E": "İndeksler değil, belirtilen sütun adlarındaki veriler işleme girer."
-    },
-    "relatedTerms": [
-      {
-        "term": "Vektörizasyon",
-        "definition": "Pandas'ta döngü kullanmadan tüm sütun (vektör) üzerinde aynı anda işlem yapabilme yeteneği."
       }
     ]
   },
