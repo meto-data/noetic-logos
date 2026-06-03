@@ -20870,41 +20870,6 @@
     ]
   },
   {
-    "id": "w13-q018",
-    "week": 13,
-    "topic": "veri-görselleştirme",
-    "type": "code",
-    "tags": [
-      "cmap",
-      "grayscale",
-      "matplotlib"
-    ],
-    "sourceNotebook": "CNN_FashionMNIST_Notebook.ipynb",
-    "question": "Veri setindeki örnekleri ekrana çizdirirken aşağıdaki kod kullanılmıştır. Matplotlib içindeki `cmap=\"gray\"` parametresi silinirse çıktı üzerinde nasıl bir görsel farklılık oluşur?",
-    "code": "plt.imshow(X_train[i], cmap=\"gray\")",
-    "options": {
-      "A": "Resim çizdirilemez ve kod hata verir.",
-      "B": "Resim gri tonlamalı yerine siyah-beyaz (sadece 0 ve 1 değerleri) olarak görünür.",
-      "C": "Matplotlib tek kanallı matrisleri varsayılan olarak renklendirdiği için (örn: viridis), resim sarı/yeşil/mor gibi sahte renklerle (pseudocolor) çizilir.",
-      "D": "Resmin boyutu otomatik olarak 28x28'den orijinal boyutuna büyür.",
-      "E": "Görüntüdeki piksellerin sayısal değerleri resim yerine metin olarak ekrana basılır."
-    },
-    "correct": "C",
-    "explanations": {
-      "A": "Matplotlib tek kanallı verileri çizebilir, hata vermez.",
-      "B": "Siyah-beyaz eşikleme (thresholding) işlemi için verinin manipüle edilmesi gerekir, cmap bunu yapmaz.",
-      "C": "Doğru. Matplotlib, 2D matrisleri çizerken varsayılan renk haritası (colormap) olarak 'viridis' kullanır. Bu da gri pikselleri mor, mavi, yeşil ve sarı renklerle gösterir. Resmin gerçekte olduğu gibi gri tonlarda görünmesi için `cmap=\"gray\"` belirtilmelidir.",
-      "D": "Boyut (resize) işlemiyle renk haritasının ilgisi yoktur.",
-      "E": "Matrisi metin olarak basmak için plt.imshow değil, doğrudan print(X_train[i]) kullanılır."
-    },
-    "relatedTerms": [
-      {
-        "term": "Colormap (Renk Haritası)",
-        "definition": "Sayısal matris verilerinin görselleştirilirken piksellerin hangi renklere karşılık geleceğini belirleyen skala."
-      }
-    ]
-  },
-  {
     "id": "w13-q019",
     "week": 13,
     "topic": "cnn-mimarisi",
