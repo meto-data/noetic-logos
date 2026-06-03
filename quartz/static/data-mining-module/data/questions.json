@@ -8691,6 +8691,41 @@
     ]
   },
   {
+    "id": "w5-v037",
+    "week": 5,
+    "topic": "overfitting-sinirda",
+    "type": "verbal",
+    "tags": [
+      "overfitting",
+      "train-test",
+      "karar-verme"
+    ],
+    "sourceNotebook": null,
+    "question": "Bir makine öğrenmesi modelinin sonuçları incelendiğinde Train Accuracy 1.00, Test Accuracy ise 0.80 olarak bulunmuştur.\nBu duruma ilişkin yapılacak en makul analiz aşağıdakilerden hangisidir?",
+    "code": null,
+    "options": {
+      "A": "Model veriyi tamamen ezberlemiştir, test sonucu da %50'nin altında kaldığı için direkt çöpe atılmalıdır.",
+      "B": "Eğitimde ezberleme vardır (Train 1.00) ancak Test başarısı 0.80 ile sınırda ve fena olmadığı için proje bağlamına göre kabul edilebilir.",
+      "C": "Model mükemmel öğrenmiş ve hiçbir şekilde overfitting yapmamıştır.",
+      "D": "Test başarısının 0.80 olması modelin underfitting (eksik öğrenme) yaşadığını kanıtlar.",
+      "E": "Bu sonuçlar sadece K-Nearest Neighbors algoritmasında görülebilir."
+    },
+    "correct": "B",
+    "explanations": {
+      "A": "Test sonucu %50'nin altında değildir, %80 fena bir oran değildir.",
+      "B": "Doğru. Train 1.00 olduğu için bir ezberleme (overfitting) emaresi vardır, ancak testte 0.70'in altına düşmeyip 0.80'de tutunduğu için model tamamen çuvallamamıştır ve sınırda kabul edilebilir.",
+      "C": "Train 1.00 olduğu için 'hiçbir şekilde overfitting yapmamıştır' denemez, ezberleme vardır.",
+      "D": "Underfitting olması için eğitim başarısının da düşük olması gerekirdi.",
+      "E": "Bu sonuçlar Decision Tree veya Random Forest dahil birçok algoritmada görülebilir."
+    },
+    "relatedTerms": [
+      {
+        "term": "Kabul Edilebilir Sınır",
+        "definition": "Test başarısının genellikle %75-80 üzerinde olması durumunda modelin iş görebilir kabul edilmesi."
+      }
+    ]
+  },
+  {
     "id": "w5-v038",
     "week": 5,
     "topic": "random-forest-agac-sayisi",
@@ -15323,45 +15358,6 @@
       {
         "term": "Ön İşleme",
         "definition": "Ham metni analiz edilebilir ve temiz bir formata dönüştürme adımlarının bütünüdür."
-      }
-    ]
-  },
-  {
-    "id": "w10-v010",
-    "week": 10,
-    "topic": "ornek-uygulama-yazar-tanima",
-    "type": "verbal",
-    "tags": [
-      "algoritma",
-      "senaryo",
-      "ozellik-cikarimi"
-    ],
-    "sourceNotebook": null,
-    "question": "Bir 'Yazar Tanıma' uygulamasında elimizde 5 farklı yazara ait bilinen metinler bulunmaktadır. Yeni gelen anonim bir metnin kime ait olduğunu bulmak için yazarların metinlerindeki 'kelime kullanma sıklıkları' özellik olarak çıkarılmıştır. Bu senaryoda kelime sıklıkları elde edildikten sonra yazarı tahmin etmek için hangi makine öğrenme algoritmasına veri verilmesi örneklenmiştir?",
-    "code": null,
-    "options": {
-      "A": "K-Means Kümeleme",
-      "B": "Destek Vektör Makineleri (SVM)",
-      "C": "KNN (K-Nearest Neighbors) Algoritması",
-      "D": "Karar Ağaçları (Decision Trees)",
-      "E": "Derin Öğrenme (Deep Learning)"
-    },
-    "correct": "C",
-    "explanations": {
-      "A": "K-Means bir kümeleme algoritmasıdır, örnek uygulamada yazarı bilinen verilerle sınıflandırma yapılmıştır.",
-      "B": "SVM, metin sınıflandırmada kullanılabilse de örnek senaryoda bahsedilen algoritma bu değildir.",
-      "C": "Yazar tanıma örnek uygulamasında çıkarılan kelime sıklıklarının makine öğrenmesi algoritması olan KNN algoritmasına verildiği belirtilmiştir.",
-      "D": "Karar ağaçları senaryoda geçmemiştir.",
-      "E": "Derin öğrenme, yazar tanıma örnek uygulamasında kullanılan yöntem olarak anlatılmamıştır."
-    },
-    "relatedTerms": [
-      {
-        "term": "Yazar Tanıma (Author Recognition)",
-        "definition": "Anonim bir metnin, metindeki özellikler çıkarılarak mevcut yazarlardan hangisine ait olduğunu bulma işlemidir."
-      },
-      {
-        "term": "KNN",
-        "definition": "Özellikleri birbirine en yakın olan verileri sınıflandırmak için kullanılan makine öğrenmesi algoritmasıdır."
       }
     ]
   },

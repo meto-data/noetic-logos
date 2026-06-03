@@ -47,6 +47,9 @@ Bir makine "Merhaba" kelimesi ile "merhaba!" kelimesini aynı şey olarak algıl
 - **Adlandırılmış Varlık Tanıma (Named Entity Recognition - NER)**: Metindeki özel isimlerin (Kişi, Şehir, Kurum, Sembol) tespit edilmesidir. 
 	- *Zorluk (Bağlam Problemi)*: "Osman Bey" ifadesi, bir insanı imleyebileceği gibi, İstanbul'daki bir semti de imliyor olabilir. NER, bu ayrımı istatistiksel bağlamdan çözer.
 - **Örüntüsü Tanımlı Varlıkların Bulunması (Pattern Matching)**: Düzenli ifadeler (regex) kullanılarak metin içindeki e-posta adresleri, telefon numaraları veya tarih formatlarının cımbızlanmasıdır.
+- **Eş Atıf (Coreference)**: Bir varlığa işaret eden (atıf eden) isim kelime gruplarını ve diğer terimlerin bulunması/ayrılması. Bir diğer deyişle, bir metindeki zamirler (o, onlar) veya sıfatlar ile bu kelimelerin işaret ettiği gerçek isimlerin (varlıkların) eşleştirilmesidir.
+- **İlişki, Kural, Olay Çıkarımları**: Bilgisayarların düz bir metindeki ham verileri anlamlandırarak otomatik olarak mantıksal yapılara dönüştürme işlemidir. Bilgisayar bu yöntemle metindeki özneleri, eylemleri, zamanı ve neden-sonuç bağlarını tespit eder.
+	* Örneğin bir doktora çalışmasında, verilen bir metnin içerisindeki olayları çıkararak sıralamak (event ordering) üzerine çalışmış, Türkçedeki fiil yapılarını, olay belirten kelime gruplarını, zaman kalıplarını ve bütün bu kelime grupları arasındaki olası ilişkileri gösteren özel bir matematiksel formül tasarlanmıştır.
 - **Duygu Analizi (Sentimental Analysis)**: Metnin kutupsallığını (polarity) ölçer. Yorum veya tweet'in **olumlu** mu yoksa **olumsuz** mu olduğunu belirler. Daha gelişmiş versiyonları doğrudan ruh hâli ve kanaat tespiti yaparlar.
 
 ---

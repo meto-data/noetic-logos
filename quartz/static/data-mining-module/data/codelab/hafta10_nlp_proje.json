@@ -220,8 +220,7 @@
           "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar.",
-      "outputInterpretation": "Bu hücre, yapısal olmayan düzensiz metin yığınları üzerinde enformasyon getirimi, doğal dil işleme (NLP) ve makine öğrenmesi süreçlerini gerçekleştirmek için gerekli teknik altyapıyı kurar. Projede kullanılacak metin ön işleme, özellik çıkarımı ve sınıflandırma kütüphaneleri yüklenerek çalışma ortamı hazır hale getirilir."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
     },
     {
       "id": "hafta10_nlp_proje-b002",
@@ -269,8 +268,7 @@
           "codeContext": "Bu satır, 'NLP etiketli veri setini yükleme' bloğunda NLP veri setini doğru okuma ayarlarıyla yükler."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; nLP etiketli veri setini yükleme adımının sonucu bellekte tutulur.",
-      "outputInterpretation": "Veri madenciliği sürecinin veri anlama aşamasıdır. Ham ve yapısal olmayan (yapısız) metin verisini içeren TSV dosyası Pandas kütüphanesi ile belleğe yüklenir. `quoting=3` parametresi kullanılarak metin içindeki çift tırnak işaretlerinin veri yapısını bozması ve okuma hatalarına yol açması engellenir."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; nLP etiketli veri setini yükleme adımının sonucu bellekte tutulur."
     },
     {
       "id": "hafta10_nlp_proje-b003",
@@ -306,8 +304,7 @@
           "codeContext": "Bu satır, 'İlk satırları önizleme' bloğunda tablonun ilk satırlarını önizleme amaçlı ekrana getirir."
         }
       ],
-      "expectedOutput": "         id  sentiment                                             review\n0  \"5814_8\"          1  \"With all this stuff going down at the moment ...\n1  \"2381_9\"          1  \"\\\"The Classic War of the Worlds\\\" by Timothy ...\n2  \"7759_3\"          0  \"The film starts with a manager (Nicholas Bell...\n3  \"3630_4\"          0  \"It must be assumed that those who praised thi...\n4  \"9495_8\"          1  \"Superbly trashy and wondrously unpretentious ...",
-      "outputInterpretation": "Veri setinin ilk satırları incelenerek yapısal durum analizi yapılır. Yapılan kontrolde, tahmin edilmek istenen 'sentiment' niteliğinin yapısal (sınıflandırılmış/ikili) yapıda, 'review' niteliğinin ise üzerinde ön işleme yapılması gereken ham ve yapısız metin formunda olduğu doğrulanır."
+      "expectedOutput": "         id  sentiment                                             review\n0  \"5814_8\"          1  \"With all this stuff going down at the moment ...\n1  \"2381_9\"          1  \"\\\"The Classic War of the Worlds\\\" by Timothy ...\n2  \"7759_3\"          0  \"The film starts with a manager (Nicholas Bell...\n3  \"3630_4\"          0  \"It must be assumed that those who praised thi...\n4  \"9495_8\"          1  \"Superbly trashy and wondrously unpretentious ..."
     },
     {
       "id": "hafta10_nlp_proje-b004",
@@ -329,8 +326,7 @@
           "codeContext": "Bu satır, 'Toplam kayıt sayısını görme' bloğunda ilgili yapının uzunluğunu ölçer."
         }
       ],
-      "expectedOutput": "25000",
-      "outputInterpretation": "Veri setindeki toplam makale/yorum sayısının belirlenmesi işlemidir. 25.000 adet kaydın bulunması, istatistiksel genelleme yapabilmek ve karar ağacı tabanlı modellerin aşırı öğrenmeye (overfitting) düşmeden eğitilebilmesi adına yeterli bir veri hacmine sahip olduğumuzu gösterir."
+      "expectedOutput": "25000"
     },
     {
       "id": "hafta10_nlp_proje-b005",
@@ -352,8 +348,7 @@
           "codeContext": "Bu satır, 'Review sütununun uzunluğunu görme' bloğunda ilgili yapının uzunluğunu ölçer."
         }
       ],
-      "expectedOutput": "25000",
-      "outputInterpretation": "Hedef öznitelik olan 'review' sütunundaki gözlem sayısının doğrulanmasıdır. Değerin 25.000 çıkması, veri setinde tamamen boş veya kayıp (missing) olan metin satırlarının bulunmadığını gösterir ve öznitelik düzeyinde veri bütünlüğünü teyit eder."
+      "expectedOutput": "25000"
     },
     {
       "id": "hafta10_nlp_proje-b006",
@@ -403,8 +398,7 @@
           "codeContext": "Bu satır, 'Stopwords kaynağını hazırlama' bloğunda stopwords kaynağını hazırlar."
         }
       ],
-      "expectedOutput": "True",
-      "outputInterpretation": "Metin ön işleme adımlarında kullanılacak olan Stopwords (Gereksiz Kelimeler) temizliği için NLTK kütüphanesinin İngilizce durak kelimeleri veri seti indirilmiştir. Bu kaynak, metindeki bilgi içeriği düşük dil bilgisi öğelerinin ayıklanmasında referans olarak kullanılacaktır."
+      "expectedOutput": "True"
     },
     {
       "id": "hafta10_nlp_proje-b007",
@@ -446,8 +440,7 @@
           "codeContext": "Bu satır, 'Örnek review seçme' bloğunda ara veri yapısını gösterir."
         }
       ],
-      "expectedOutput": "'\"With all this stuff going down at the moment with MJ i\\'ve started listening to his music, watching the odd documentary here and there, watched The Wiz and watched Moonwalker again. Maybe i just want to get a certain insight into this guy who i thought was really cool in the eighties just to maybe make up my mind whether he is guilty or innocent. Moonwalker is part biography, part feature film which i remember going to see at the cinema when it was originally released. Some of it has subtle messages about MJ\\'s feeling towards the press and also the obvious message of drugs are bad m\\'kay.<br /><br />Visually impressive but of course this is all about Michael Jackson so unless you remotely like MJ in anyway then you are going to hate this and find it boring. Some may call MJ an egotist for consenting to the making of this movie BUT MJ and most of his fans would say that he made it for the fans which if true is really nice of him.<br /><br />The actual feature film bit when it finally starts is only on for 20 minutes or so excluding the Smooth Criminal sequence and Joe Pesci is convincing as a psychopathic all powerful drug lord. Why he wants MJ dead so bad is beyond me. Because MJ overheard his plans? Nah, Joe Pesci\\'s character ranted that he wanted people to know it is he who is supplying drugs etc so i dunno, maybe he just hates MJ\\'s music.<br /><br />Lots of cool things in this like MJ turning into a car and a robot and the whole Speed Demon sequence. Also, the director must have had the patience of a saint when it came to filming the kiddy Bad sequence as usually directors hate working with one kid let alone a whole bunch of them performing a complex dance scene.<br /><br />Bottom line, this movie is for people who like MJ on one level or another (which i think is most people). If not, then stay away. It does try and give off a wholesome message and ironically MJ\\'s bestest buddy in this movie is a girl! Michael Jackson is truly one of the most talented people ever to grace this planet but is he guilty? Well, with all the attention i\\'ve gave this subject....hmmm well i don\\'t know because people can be different behind closed doors, i know this for a fact. He is either an extremely nice but stupid guy or one of the most sickest liars. I hope he is not the latter.\"'",
-      "outputInterpretation": "Metin ön işleme boru hattını (preprocessing pipeline) tasarlamak üzere veri setinden ilk yorum prototip (laboratuvar örneği) olarak seçilmiştir. Örnek üzerindeki HTML etiketleri, noktalama işaretleri ve büyük-küçük harf karmaşası, temizleme adımlarının gerekliliğini doğrular."
+      "expectedOutput": "'\"With all this stuff going down at the moment with MJ i\\'ve started listening to his music, watching the odd documentary here and there, watched The Wiz and watched Moonwalker again. Maybe i just want to get a certain insight into this guy who i thought was really cool in the eighties just to maybe make up my mind whether he is guilty or innocent. Moonwalker is part biography, part feature film which i remember going to see at the cinema when it was originally released. Some of it has subtle messages about MJ\\'s feeling towards the press and also the obvious message of drugs are bad m\\'kay.<br /><br />Visually impressive but of course this is all about Michael Jackson so unless you remotely like MJ in anyway then you are going to hate this and find it boring. Some may call MJ an egotist for consenting to the making of this movie BUT MJ and most of his fans would say that he made it for the fans which if true is really nice of him.<br /><br />The actual feature film bit when it finally starts is only on for 20 minutes or so excluding the Smooth Criminal sequence and Joe Pesci is convincing as a psychopathic all powerful drug lord. Why he wants MJ dead so bad is beyond me. Because MJ overheard his plans? Nah, Joe Pesci\\'s character ranted that he wanted people to know it is he who is supplying drugs etc so i dunno, maybe he just hates MJ\\'s music.<br /><br />Lots of cool things in this like MJ turning into a car and a robot and the whole Speed Demon sequence. Also, the director must have had the patience of a saint when it came to filming the kiddy Bad sequence as usually directors hate working with one kid let alone a whole bunch of them performing a complex dance scene.<br /><br />Bottom line, this movie is for people who like MJ on one level or another (which i think is most people). If not, then stay away. It does try and give off a wholesome message and ironically MJ\\'s bestest buddy in this movie is a girl! Michael Jackson is truly one of the most talented people ever to grace this planet but is he guilty? Well, with all the attention i\\'ve gave this subject....hmmm well i don\\'t know because people can be different behind closed doors, i know this for a fact. He is either an extremely nice but stupid guy or one of the most sickest liars. I hope he is not the latter.\"'"
     },
     {
       "id": "hafta10_nlp_proje-b008",
@@ -497,8 +490,7 @@
           "codeContext": "Bu satır, 'HTML etiketlerini temizleme' bloğunda ara veri yapısını gösterir."
         }
       ],
-      "expectedOutput": "'\"With all this stuff going down at the moment with MJ i\\'ve started listening to his music, watching the odd documentary here and there, watched The Wiz and watched Moonwalker again. Maybe i just want to get a certain insight into this guy who i thought was really cool in the eighties just to maybe make up my mind whether he is guilty or innocent. Moonwalker is part biography, part feature film which i remember going to see at the cinema when it was originally released. Some of it has subtle messages about MJ\\'s feeling towards the press and also the obvious message of drugs are bad m\\'kay.Visually impressive but of course this is all about Michael Jackson so unless you remotely like MJ in anyway then you are going to hate this and find it boring. Some may call MJ an egotist for consenting to the making of this movie BUT MJ and most of his fans would say that he made it for the fans which if true is really nice of him.The actual feature film bit when it finally starts is only on for 20 minutes or so excluding the Smooth Criminal sequence and Joe Pesci is convincing as a psychopathic all powerful drug lord. Why he wants MJ dead so bad is beyond me. Because MJ overheard his plans? Nah, Joe Pesci\\'s character ranted that he wanted people to know it is he who is supplying drugs etc so i dunno, maybe he just hates MJ\\'s music.Lots of cool things in this like MJ turning into a car and a robot and the whole Speed Demon sequence. Also, the director must have had the patience of a saint when it came to filming the kiddy Bad sequence as usually directors hate working with one kid let alone a whole bunch of them performing a complex dance scene.Bottom line, this movie is for people who like MJ on one level or another (which i think is most people). If not, then stay away. It does try and give off a wholesome message and ironically MJ\\'s bestest buddy in this movie is a girl! Michael Jackson is truly one of the most talented people ever to grace this planet but is he guilty? Well, with all the attention i\\'ve gave this subject....hmmm well i don\\'t know because people can be different behind closed doors, i know this for a fact. He is either an extremely nice but stupid guy or one of the most sickest liars. I hope he is not the latter.\"'",
-      "outputInterpretation": "Metin ön işleme adımlarının ilk halkasıdır. Web sayfalarından veya kullanıcı girdilerinden kalan ve metnin anlamsal çözümlemesine katkı sunmayan HTML etiketleri (örneğin `<br />`) BeautifulSoup kütüphanesi kullanılarak temizlenmiş ve saf metin elde edilmiştir."
+      "expectedOutput": "'\"With all this stuff going down at the moment with MJ i\\'ve started listening to his music, watching the odd documentary here and there, watched The Wiz and watched Moonwalker again. Maybe i just want to get a certain insight into this guy who i thought was really cool in the eighties just to maybe make up my mind whether he is guilty or innocent. Moonwalker is part biography, part feature film which i remember going to see at the cinema when it was originally released. Some of it has subtle messages about MJ\\'s feeling towards the press and also the obvious message of drugs are bad m\\'kay.Visually impressive but of course this is all about Michael Jackson so unless you remotely like MJ in anyway then you are going to hate this and find it boring. Some may call MJ an egotist for consenting to the making of this movie BUT MJ and most of his fans would say that he made it for the fans which if true is really nice of him.The actual feature film bit when it finally starts is only on for 20 minutes or so excluding the Smooth Criminal sequence and Joe Pesci is convincing as a psychopathic all powerful drug lord. Why he wants MJ dead so bad is beyond me. Because MJ overheard his plans? Nah, Joe Pesci\\'s character ranted that he wanted people to know it is he who is supplying drugs etc so i dunno, maybe he just hates MJ\\'s music.Lots of cool things in this like MJ turning into a car and a robot and the whole Speed Demon sequence. Also, the director must have had the patience of a saint when it came to filming the kiddy Bad sequence as usually directors hate working with one kid let alone a whole bunch of them performing a complex dance scene.Bottom line, this movie is for people who like MJ on one level or another (which i think is most people). If not, then stay away. It does try and give off a wholesome message and ironically MJ\\'s bestest buddy in this movie is a girl! Michael Jackson is truly one of the most talented people ever to grace this planet but is he guilty? Well, with all the attention i\\'ve gave this subject....hmmm well i don\\'t know because people can be different behind closed doors, i know this for a fact. He is either an extremely nice but stupid guy or one of the most sickest liars. I hope he is not the latter.\"'"
     },
     {
       "id": "hafta10_nlp_proje-b009",
@@ -554,8 +546,7 @@
           "codeContext": "Bu satır, 'Regex ile harf dışı karakter temizliği' bloğunda ara veri yapısını gösterir."
         }
       ],
-      "expectedOutput": "' With all this stuff going down at the moment with MJ i ve started listening to his music  watching the odd documentary here and there  watched The Wiz and watched Moonwalker again  Maybe i just want to get a certain insight into this guy who i thought was really cool in the eighties just to maybe make up my mind whether he is guilty or innocent  Moonwalker is part biography  part feature film which i remember going to see at the cinema when it was originally released  Some of it has subtle messages about MJ s feeling towards the press and also the obvious message of drugs are bad m kay Visually impressive but of course this is all about Michael Jackson so unless you remotely like MJ in anyway then you are going to hate this and find it boring  Some may call MJ an egotist for consenting to the making of this movie BUT MJ and most of his fans would say that he made it for the fans which if true is really nice of him The actual feature film bit when it finally starts is only on for    minutes or so excluding the Smooth Criminal sequence and Joe Pesci is convincing as a psychopathic all powerful drug lord  Why he wants MJ dead so bad is beyond me  Because MJ overheard his plans  Nah  Joe Pesci s character ranted that he wanted people to know it is he who is supplying drugs etc so i dunno  maybe he just hates MJ s music Lots of cool things in this like MJ turning into a car and a robot and the whole Speed Demon sequence  Also  the director must have had the patience of a saint when it came to filming the kiddy Bad sequence as usually directors hate working with one kid let alone a whole bunch of them performing a complex dance scene Bottom line  this movie is for people who like MJ on one level or another  which i think is most people   If not  then stay away  It does try and give off a wholesome message and ironically MJ s bestest buddy in this movie is a girl  Michael Jackson is truly one of the most talented people ever to grace this planet but is he guilty  Well  with all the attention i ve gave this subject    hmmm well i don t know because people can be different behind closed doors  i know this for a fact  He is either an extremely nice but stupid guy or one of the most sickest liars  I hope he is not the latter  '",
-      "outputInterpretation": "Metin ön işlemenin 'Noktalama İşaretlerini Kaldırma' adımıdır. Düzenli ifadeler (regex) yardımıyla metindeki tüm sayılar, noktalama işaretleri ve özel karakterler temizlenerek yerlerine boşluk karakteri yerleştirilmiştir. Böylece noktalama işaretlerinin kelime yapısına yapışarak kelime çeşitliliğini (sparsity) yapay şekilde artırması önlenir."
+      "expectedOutput": "' With all this stuff going down at the moment with MJ i ve started listening to his music  watching the odd documentary here and there  watched The Wiz and watched Moonwalker again  Maybe i just want to get a certain insight into this guy who i thought was really cool in the eighties just to maybe make up my mind whether he is guilty or innocent  Moonwalker is part biography  part feature film which i remember going to see at the cinema when it was originally released  Some of it has subtle messages about MJ s feeling towards the press and also the obvious message of drugs are bad m kay Visually impressive but of course this is all about Michael Jackson so unless you remotely like MJ in anyway then you are going to hate this and find it boring  Some may call MJ an egotist for consenting to the making of this movie BUT MJ and most of his fans would say that he made it for the fans which if true is really nice of him The actual feature film bit when it finally starts is only on for    minutes or so excluding the Smooth Criminal sequence and Joe Pesci is convincing as a psychopathic all powerful drug lord  Why he wants MJ dead so bad is beyond me  Because MJ overheard his plans  Nah  Joe Pesci s character ranted that he wanted people to know it is he who is supplying drugs etc so i dunno  maybe he just hates MJ s music Lots of cool things in this like MJ turning into a car and a robot and the whole Speed Demon sequence  Also  the director must have had the patience of a saint when it came to filming the kiddy Bad sequence as usually directors hate working with one kid let alone a whole bunch of them performing a complex dance scene Bottom line  this movie is for people who like MJ on one level or another  which i think is most people   If not  then stay away  It does try and give off a wholesome message and ironically MJ s bestest buddy in this movie is a girl  Michael Jackson is truly one of the most talented people ever to grace this planet but is he guilty  Well  with all the attention i ve gave this subject    hmmm well i don t know because people can be different behind closed doors  i know this for a fact  He is either an extremely nice but stupid guy or one of the most sickest liars  I hope he is not the latter  '"
     },
     {
       "id": "hafta10_nlp_proje-b010",
@@ -619,8 +610,7 @@
           "codeContext": "Bu satır, 'Küçük harfe dönüştürme' bloğunda ara veri yapısını gösterir."
         }
       ],
-      "expectedOutput": "' with all this stuff going down at the moment with mj i ve started listening to his music  watching the odd documentary here and there  watched the wiz and watched moonwalker again  maybe i just want to get a certain insight into this guy who i thought was really cool in the eighties just to maybe make up my mind whether he is guilty or innocent  moonwalker is part biography  part feature film which i remember going to see at the cinema when it was originally released  some of it has subtle messages about mj s feeling towards the press and also the obvious message of drugs are bad m kay visually impressive but of course this is all about michael jackson so unless you remotely like mj in anyway then you are going to hate this and find it boring  some may call mj an egotist for consenting to the making of this movie but mj and most of his fans would say that he made it for the fans which if true is really nice of him the actual feature film bit when it finally starts is only on for    minutes or so excluding the smooth criminal sequence and joe pesci is convincing as a psychopathic all powerful drug lord  why he wants mj dead so bad is beyond me  because mj overheard his plans  nah  joe pesci s character ranted that he wanted people to know it is he who is supplying drugs etc so i dunno  maybe he just hates mj s music lots of cool things in this like mj turning into a car and a robot and the whole speed demon sequence  also  the director must have had the patience of a saint when it came to filming the kiddy bad sequence as usually directors hate working with one kid let alone a whole bunch of them performing a complex dance scene bottom line  this movie is for people who like mj on one level or another  which i think is most people   if not  then stay away  it does try and give off a wholesome message and ironically mj s bestest buddy in this movie is a girl  michael jackson is truly one of the most talented people ever to grace this planet but is he guilty  well  with all the attention i ve gave this subject    hmmm well i don t know because people can be different behind closed doors  i know this for a fact  he is either an extremely nice but stupid guy or one of the most sickest liars  i hope he is not the latter  '",
-      "outputInterpretation": "Metin ön işlemenin 'Küçük Harfe Çevirme (Lowercasing)' adımıdır. Makinenin harf duyarlılığından ötürü aynı kelimenin farklı yazımlarını (örneğin 'The', 'the') farklı kelimeler olarak algılamasını ve öznitelik uzayının gereksiz yere genişlemesini engellemek amacıyla tüm karakterler küçük harfe dönüştürülmüştür."
+      "expectedOutput": "' with all this stuff going down at the moment with mj i ve started listening to his music  watching the odd documentary here and there  watched the wiz and watched moonwalker again  maybe i just want to get a certain insight into this guy who i thought was really cool in the eighties just to maybe make up my mind whether he is guilty or innocent  moonwalker is part biography  part feature film which i remember going to see at the cinema when it was originally released  some of it has subtle messages about mj s feeling towards the press and also the obvious message of drugs are bad m kay visually impressive but of course this is all about michael jackson so unless you remotely like mj in anyway then you are going to hate this and find it boring  some may call mj an egotist for consenting to the making of this movie but mj and most of his fans would say that he made it for the fans which if true is really nice of him the actual feature film bit when it finally starts is only on for    minutes or so excluding the smooth criminal sequence and joe pesci is convincing as a psychopathic all powerful drug lord  why he wants mj dead so bad is beyond me  because mj overheard his plans  nah  joe pesci s character ranted that he wanted people to know it is he who is supplying drugs etc so i dunno  maybe he just hates mj s music lots of cool things in this like mj turning into a car and a robot and the whole speed demon sequence  also  the director must have had the patience of a saint when it came to filming the kiddy bad sequence as usually directors hate working with one kid let alone a whole bunch of them performing a complex dance scene bottom line  this movie is for people who like mj on one level or another  which i think is most people   if not  then stay away  it does try and give off a wholesome message and ironically mj s bestest buddy in this movie is a girl  michael jackson is truly one of the most talented people ever to grace this planet but is he guilty  well  with all the attention i ve gave this subject    hmmm well i don t know because people can be different behind closed doors  i know this for a fact  he is either an extremely nice but stupid guy or one of the most sickest liars  i hope he is not the latter  '"
     },
     {
       "id": "hafta10_nlp_proje-b011",
@@ -670,8 +660,7 @@
           "codeContext": "Bu satır, 'Tokenlere ayırma' bloğunda metni kelime listesine böler."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; tokenlere ayırma adımının sonucu bellekte tutulur.",
-      "outputInterpretation": "Metin ön işlemenin 'Tokenization (Parçalama)' adımıdır. Temizlenmiş ve normalize edilmiş düz metin cümlesi, makinenin sayabileceği ve üzerinde mantıksal işlemler gerçekleştirebileceği liste elemanlarına (kelime birimlerine) bölünmüştür."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; tokenlere ayırma adımının sonucu bellekte tutulur."
     },
     {
       "id": "hafta10_nlp_proje-b012",
@@ -693,8 +682,7 @@
           "codeContext": "Bu satır, 'Token listesini görme' bloğunda ara veri yapısını gösterir."
         }
       ],
-      "expectedOutput": "['with',\n 'all',\n 'this',\n 'stuff',\n 'going',\n 'down',\n 'at',\n 'the',\n 'moment',\n 'with',\n 'mj',\n 'i',\n 've',\n 'started',\n 'listening',\n 'to',\n 'his',\n 'music',\n 'watching',\n 'the',\n 'odd',\n 'documentary',\n 'here',\n 'and',\n 'there',\n 'watched',\n 'the',\n 'wiz',\n 'and',\n 'watched',\n 'moonwalker',\n 'again',\n 'maybe',\n 'i',\n 'just',\n 'want',\n 'to',\n 'get',\n 'a',\n 'certain',\n 'insight',\n 'into',\n 'this',\n 'guy',\n 'who',\n 'i',\n 'thought',\n 'was',\n 'really',\n 'cool',\n 'in',\n 'the',\n 'eighties',\n 'just',\n 'to',\n 'maybe',\n 'make',\n 'up',\n 'my',\n 'mind',\n 'whether',\n 'he',\n 'is',\n 'guilty',\n 'or',\n 'innocent',\n 'moonwalker',\n 'is',\n 'part',\n 'biography',\n 'part',\n 'feature',\n 'film',\n 'which',\n 'i',\n 'remember',\n 'going',\n 'to',\n 'see',\n 'at',\n 'the',\n 'cinema',\n 'when',\n 'it',\n 'was',\n 'originally',\n 'released',\n 'some',\n 'of',\n 'it',\n 'has',\n 'subtle',\n 'messages',\n 'about',\n 'mj',\n 's',\n 'feeling',\n 'towards',\n 'the',\n 'press',\n 'and',\n 'also',\n 'the',\n 'obvious',\n 'message',\n 'of',\n 'drugs',\n 'are',\n 'bad',\n 'm',\n 'kay',\n 'visually',\n 'impressive',\n 'but',\n 'of',\n 'course',\n 'this',\n 'is',\n 'all',\n 'about',\n 'michael',\n 'jackson',\n 'so',\n 'unless',\n 'you',\n 'remotely',\n 'like',\n 'mj',\n 'in',\n 'anyway',\n 'then',\n 'you',\n 'are',\n 'going',\n 'to',\n 'hate',\n 'this',\n 'and',\n 'find',\n 'it',\n 'boring',\n 'some',\n 'may',\n 'call',\n 'mj',\n 'an',\n 'egotist',\n 'for',\n 'consenting',\n 'to',\n 'the',\n 'making',\n 'of',\n 'this',\n 'movie',\n 'but',\n 'mj',\n 'and',\n 'most',\n 'of',\n 'his',\n 'fans',\n 'would',\n 'say',\n 'that',\n 'he',\n 'made',\n 'it',\n 'for',\n 'the',\n 'fans',\n 'which',\n 'if',\n 'true',\n 'is',\n 'really',\n 'nice',\n 'of',\n 'him',\n 'the',\n 'actual',\n 'feature',\n 'film',\n 'bit',\n 'when',\n 'it',\n 'finally',\n 'starts',\n 'is',\n 'only',\n 'on',\n 'for',\n 'minutes',\n 'or',\n 'so',\n 'excluding',\n 'the',\n 'smooth',\n 'criminal',\n 'sequence',\n 'and',\n 'joe',\n 'pesci',\n 'is',\n 'convincing',\n 'as',\n 'a',\n 'psychopathic',\n 'all',\n 'powerful',\n 'drug',\n 'lord',\n 'why',\n 'he',\n 'wants',\n 'mj',\n 'dead',\n 'so',\n 'bad',\n 'is',\n 'beyond',\n 'me',\n 'because',\n 'mj',\n 'overheard',\n 'his',\n 'plans',\n 'nah',\n 'joe',\n 'pesci',\n 's',\n 'character',\n 'ranted',\n 'that',\n 'he',\n 'wanted',\n 'people',\n 'to',\n 'know',\n 'it',\n 'is',\n 'he',\n 'who',\n 'is',\n 'supplying',\n 'drugs',\n 'etc',\n 'so',\n 'i',\n 'dunno',\n 'maybe',\n 'he',\n 'just',\n 'hates',\n 'mj',\n 's',\n 'music',\n 'lots',\n 'of',\n 'cool',\n 'things',\n 'in',\n 'this',\n 'like',\n 'mj',\n 'turning',\n 'into',\n 'a',\n 'car',\n 'and',\n 'a',\n 'robot',\n 'and',\n 'the',\n 'whole',\n 'speed',\n 'demon',\n 'sequence',\n 'also',\n 'the',\n 'director',\n 'must',\n 'have',\n 'had',\n 'the',\n 'patience',\n 'of',\n 'a',\n 'saint',\n 'when',\n 'it',\n 'came',\n 'to',\n 'filming',\n 'the',\n 'kiddy',\n 'bad',\n 'sequence',\n 'as',\n 'usually',\n 'directors',\n 'hate',\n 'working',\n 'with',\n 'one',\n 'kid',\n 'let',\n 'alone',\n 'a',\n 'whole',\n 'bunch',\n 'of',\n 'them',\n 'performing',\n 'a',\n 'complex',\n 'dance',\n 'scene',\n 'bottom',\n 'line',\n 'this',\n 'movie',\n 'is',\n 'for',\n 'people',\n 'who',\n 'like',\n 'mj',\n 'on',\n 'one',\n 'level',\n 'or',\n 'another',\n 'which',\n 'i',\n 'think',\n 'is',\n 'most',\n 'people',\n 'if',\n 'not',\n 'then',\n 'stay',\n 'away',\n 'it',\n 'does',\n 'try',\n 'and',\n 'give',\n 'off',\n 'a',\n 'wholesome',\n 'message',\n 'and',\n 'ironically',\n 'mj',\n 's',\n 'bestest',\n 'buddy',\n 'in',\n 'this',\n 'movie',\n 'is',\n 'a',\n 'girl',\n 'michael',\n 'jackson',\n 'is',\n 'truly',\n 'one',\n 'of',\n 'the',\n 'most',\n 'talented',\n 'people',\n 'ever',\n 'to',\n 'grace',\n 'this',\n 'planet',\n 'but',\n 'is',\n 'he',\n 'guilty',\n 'well',\n 'with',\n 'all',\n 'the',\n 'attention',\n 'i',\n 've',\n 'gave',\n 'this',\n 'subject',\n 'hmmm',\n 'well',\n 'i',\n 'don',\n 't',\n 'know',\n 'because',\n 'people',\n 'can',\n 'be',\n 'different',\n 'behind',\n 'closed',\n 'doors',\n 'i',\n 'know',\n 'this',\n 'for',\n 'a',\n 'fact',\n 'he',\n 'is',\n 'either',\n 'an',\n 'extremely',\n 'nice',\n 'but',\n 'stupid',\n 'guy',\n 'or',\n 'one',\n 'of',\n 'the',\n 'most',\n 'sickest',\n 'liars',\n 'i',\n 'hope',\n 'he',\n 'is',\n 'not',\n 'the',\n 'latter']",
-      "outputInterpretation": "Tokenization (Parçalama) işleminin ardından oluşan token listesinin yapısal kontrolüdür. Çıktıda görünen 'with', 'all', 'this' gibi kelimeler, metnin kutupsallığına (duygu yönüne) katkı sunmayan stopwords niteliğindeki kelimelerin hâlâ listede bulunduğunu ve temizlenmesi gerektiğini gösterir."
+      "expectedOutput": "['with',\n 'all',\n 'this',\n 'stuff',\n 'going',\n 'down',\n 'at',\n 'the',\n 'moment',\n 'with',\n 'mj',\n 'i',\n 've',\n 'started',\n 'listening',\n 'to',\n 'his',\n 'music',\n 'watching',\n 'the',\n 'odd',\n 'documentary',\n 'here',\n 'and',\n 'there',\n 'watched',\n 'the',\n 'wiz',\n 'and',\n 'watched',\n 'moonwalker',\n 'again',\n 'maybe',\n 'i',\n 'just',\n 'want',\n 'to',\n 'get',\n 'a',\n 'certain',\n 'insight',\n 'into',\n 'this',\n 'guy',\n 'who',\n 'i',\n 'thought',\n 'was',\n 'really',\n 'cool',\n 'in',\n 'the',\n 'eighties',\n 'just',\n 'to',\n 'maybe',\n 'make',\n 'up',\n 'my',\n 'mind',\n 'whether',\n 'he',\n 'is',\n 'guilty',\n 'or',\n 'innocent',\n 'moonwalker',\n 'is',\n 'part',\n 'biography',\n 'part',\n 'feature',\n 'film',\n 'which',\n 'i',\n 'remember',\n 'going',\n 'to',\n 'see',\n 'at',\n 'the',\n 'cinema',\n 'when',\n 'it',\n 'was',\n 'originally',\n 'released',\n 'some',\n 'of',\n 'it',\n 'has',\n 'subtle',\n 'messages',\n 'about',\n 'mj',\n 's',\n 'feeling',\n 'towards',\n 'the',\n 'press',\n 'and',\n 'also',\n 'the',\n 'obvious',\n 'message',\n 'of',\n 'drugs',\n 'are',\n 'bad',\n 'm',\n 'kay',\n 'visually',\n 'impressive',\n 'but',\n 'of',\n 'course',\n 'this',\n 'is',\n 'all',\n 'about',\n 'michael',\n 'jackson',\n 'so',\n 'unless',\n 'you',\n 'remotely',\n 'like',\n 'mj',\n 'in',\n 'anyway',\n 'then',\n 'you',\n 'are',\n 'going',\n 'to',\n 'hate',\n 'this',\n 'and',\n 'find',\n 'it',\n 'boring',\n 'some',\n 'may',\n 'call',\n 'mj',\n 'an',\n 'egotist',\n 'for',\n 'consenting',\n 'to',\n 'the',\n 'making',\n 'of',\n 'this',\n 'movie',\n 'but',\n 'mj',\n 'and',\n 'most',\n 'of',\n 'his',\n 'fans',\n 'would',\n 'say',\n 'that',\n 'he',\n 'made',\n 'it',\n 'for',\n 'the',\n 'fans',\n 'which',\n 'if',\n 'true',\n 'is',\n 'really',\n 'nice',\n 'of',\n 'him',\n 'the',\n 'actual',\n 'feature',\n 'film',\n 'bit',\n 'when',\n 'it',\n 'finally',\n 'starts',\n 'is',\n 'only',\n 'on',\n 'for',\n 'minutes',\n 'or',\n 'so',\n 'excluding',\n 'the',\n 'smooth',\n 'criminal',\n 'sequence',\n 'and',\n 'joe',\n 'pesci',\n 'is',\n 'convincing',\n 'as',\n 'a',\n 'psychopathic',\n 'all',\n 'powerful',\n 'drug',\n 'lord',\n 'why',\n 'he',\n 'wants',\n 'mj',\n 'dead',\n 'so',\n 'bad',\n 'is',\n 'beyond',\n 'me',\n 'because',\n 'mj',\n 'overheard',\n 'his',\n 'plans',\n 'nah',\n 'joe',\n 'pesci',\n 's',\n 'character',\n 'ranted',\n 'that',\n 'he',\n 'wanted',\n 'people',\n 'to',\n 'know',\n 'it',\n 'is',\n 'he',\n 'who',\n 'is',\n 'supplying',\n 'drugs',\n 'etc',\n 'so',\n 'i',\n 'dunno',\n 'maybe',\n 'he',\n 'just',\n 'hates',\n 'mj',\n 's',\n 'music',\n 'lots',\n 'of',\n 'cool',\n 'things',\n 'in',\n 'this',\n 'like',\n 'mj',\n 'turning',\n 'into',\n 'a',\n 'car',\n 'and',\n 'a',\n 'robot',\n 'and',\n 'the',\n 'whole',\n 'speed',\n 'demon',\n 'sequence',\n 'also',\n 'the',\n 'director',\n 'must',\n 'have',\n 'had',\n 'the',\n 'patience',\n 'of',\n 'a',\n 'saint',\n 'when',\n 'it',\n 'came',\n 'to',\n 'filming',\n 'the',\n 'kiddy',\n 'bad',\n 'sequence',\n 'as',\n 'usually',\n 'directors',\n 'hate',\n 'working',\n 'with',\n 'one',\n 'kid',\n 'let',\n 'alone',\n 'a',\n 'whole',\n 'bunch',\n 'of',\n 'them',\n 'performing',\n 'a',\n 'complex',\n 'dance',\n 'scene',\n 'bottom',\n 'line',\n 'this',\n 'movie',\n 'is',\n 'for',\n 'people',\n 'who',\n 'like',\n 'mj',\n 'on',\n 'one',\n 'level',\n 'or',\n 'another',\n 'which',\n 'i',\n 'think',\n 'is',\n 'most',\n 'people',\n 'if',\n 'not',\n 'then',\n 'stay',\n 'away',\n 'it',\n 'does',\n 'try',\n 'and',\n 'give',\n 'off',\n 'a',\n 'wholesome',\n 'message',\n 'and',\n 'ironically',\n 'mj',\n 's',\n 'bestest',\n 'buddy',\n 'in',\n 'this',\n 'movie',\n 'is',\n 'a',\n 'girl',\n 'michael',\n 'jackson',\n 'is',\n 'truly',\n 'one',\n 'of',\n 'the',\n 'most',\n 'talented',\n 'people',\n 'ever',\n 'to',\n 'grace',\n 'this',\n 'planet',\n 'but',\n 'is',\n 'he',\n 'guilty',\n 'well',\n 'with',\n 'all',\n 'the',\n 'attention',\n 'i',\n 've',\n 'gave',\n 'this',\n 'subject',\n 'hmmm',\n 'well',\n 'i',\n 'don',\n 't',\n 'know',\n 'because',\n 'people',\n 'can',\n 'be',\n 'different',\n 'behind',\n 'closed',\n 'doors',\n 'i',\n 'know',\n 'this',\n 'for',\n 'a',\n 'fact',\n 'he',\n 'is',\n 'either',\n 'an',\n 'extremely',\n 'nice',\n 'but',\n 'stupid',\n 'guy',\n 'or',\n 'one',\n 'of',\n 'the',\n 'most',\n 'sickest',\n 'liars',\n 'i',\n 'hope',\n 'he',\n 'is',\n 'not',\n 'the',\n 'latter']"
     },
     {
       "id": "hafta10_nlp_proje-b013",
@@ -716,8 +704,7 @@
           "codeContext": "Bu satır, 'Token uzunluğunu ölçme' bloğunda ilgili yapının uzunluğunu ölçer."
         }
       ],
-      "expectedOutput": "437",
-      "outputInterpretation": "Stopwords (Gereksiz Kelimeler) temizliği öncesindeki başlangıç token sayısının ölçümüdür. İlk örnek yorumun 437 kelime biriminden oluştuğu tespit edilmiştir. Bu değer, gürültü azaltma işleminin performansını ölçmek için referans noktasıdır."
+      "expectedOutput": "437"
     },
     {
       "id": "hafta10_nlp_proje-b014",
@@ -793,8 +780,7 @@
           "codeContext": "Bu satır, 'Stopwords temizliği yapma' bloğunda ara veri yapısını gösterir."
         }
       ],
-      "expectedOutput": "['stuff',\n 'going',\n 'moment',\n 'mj',\n 'started',\n 'listening',\n 'music',\n 'watching',\n 'odd',\n 'documentary',\n 'watched',\n 'wiz',\n 'watched',\n 'moonwalker',\n 'maybe',\n 'want',\n 'get',\n 'certain',\n 'insight',\n 'guy',\n 'thought',\n 'really',\n 'cool',\n 'eighties',\n 'maybe',\n 'make',\n 'mind',\n 'whether',\n 'guilty',\n 'innocent',\n 'moonwalker',\n 'part',\n 'biography',\n 'part',\n 'feature',\n 'film',\n 'remember',\n 'going',\n 'see',\n 'cinema',\n 'originally',\n 'released',\n 'subtle',\n 'messages',\n 'mj',\n 'feeling',\n 'towards',\n 'press',\n 'also',\n 'obvious',\n 'message',\n 'drugs',\n 'bad',\n 'kay',\n 'visually',\n 'impressive',\n 'course',\n 'michael',\n 'jackson',\n 'unless',\n 'remotely',\n 'like',\n 'mj',\n 'anyway',\n 'going',\n 'hate',\n 'find',\n 'boring',\n 'may',\n 'call',\n 'mj',\n 'egotist',\n 'consenting',\n 'making',\n 'movie',\n 'mj',\n 'fans',\n 'would',\n 'say',\n 'made',\n 'fans',\n 'true',\n 'really',\n 'nice',\n 'actual',\n 'feature',\n 'film',\n 'bit',\n 'finally',\n 'starts',\n 'minutes',\n 'excluding',\n 'smooth',\n 'criminal',\n 'sequence',\n 'joe',\n 'pesci',\n 'convincing',\n 'psychopathic',\n 'powerful',\n 'drug',\n 'lord',\n 'wants',\n 'mj',\n 'dead',\n 'bad',\n 'beyond',\n 'mj',\n 'overheard',\n 'plans',\n 'nah',\n 'joe',\n 'pesci',\n 'character',\n 'ranted',\n 'wanted',\n 'people',\n 'know',\n 'supplying',\n 'drugs',\n 'etc',\n 'dunno',\n 'maybe',\n 'hates',\n 'mj',\n 'music',\n 'lots',\n 'cool',\n 'things',\n 'like',\n 'mj',\n 'turning',\n 'car',\n 'robot',\n 'whole',\n 'speed',\n 'demon',\n 'sequence',\n 'also',\n 'director',\n 'must',\n 'patience',\n 'saint',\n 'came',\n 'filming',\n 'kiddy',\n 'bad',\n 'sequence',\n 'usually',\n 'directors',\n 'hate',\n 'working',\n 'one',\n 'kid',\n 'let',\n 'alone',\n 'whole',\n 'bunch',\n 'performing',\n 'complex',\n 'dance',\n 'scene',\n 'bottom',\n 'line',\n 'movie',\n 'people',\n 'like',\n 'mj',\n 'one',\n 'level',\n 'another',\n 'think',\n 'people',\n 'stay',\n 'away',\n 'try',\n 'give',\n 'wholesome',\n 'message',\n 'ironically',\n 'mj',\n 'bestest',\n 'buddy',\n 'movie',\n 'girl',\n 'michael',\n 'jackson',\n 'truly',\n 'one',\n 'talented',\n 'people',\n 'ever',\n 'grace',\n 'planet',\n 'guilty',\n 'well',\n 'attention',\n 'gave',\n 'subject',\n 'hmmm',\n 'well',\n 'know',\n 'people',\n 'different',\n 'behind',\n 'closed',\n 'doors',\n 'know',\n 'fact',\n 'either',\n 'extremely',\n 'nice',\n 'stupid',\n 'guy',\n 'one',\n 'sickest',\n 'liars',\n 'hope',\n 'latter']",
-      "outputInterpretation": "Metin ön işlemenin 'Stopwords (Gereksiz Kelimeler) Temizleme' adımıdır. 'the', 'is', 'are' gibi cümleye yapısal anlam katan ancak metnin konusu veya duygu yönü hakkında ayırt edici bilgi içermeyen bağlaç ve edatlar veri kümesinden süzülmüştür."
+      "expectedOutput": "['stuff',\n 'going',\n 'moment',\n 'mj',\n 'started',\n 'listening',\n 'music',\n 'watching',\n 'odd',\n 'documentary',\n 'watched',\n 'wiz',\n 'watched',\n 'moonwalker',\n 'maybe',\n 'want',\n 'get',\n 'certain',\n 'insight',\n 'guy',\n 'thought',\n 'really',\n 'cool',\n 'eighties',\n 'maybe',\n 'make',\n 'mind',\n 'whether',\n 'guilty',\n 'innocent',\n 'moonwalker',\n 'part',\n 'biography',\n 'part',\n 'feature',\n 'film',\n 'remember',\n 'going',\n 'see',\n 'cinema',\n 'originally',\n 'released',\n 'subtle',\n 'messages',\n 'mj',\n 'feeling',\n 'towards',\n 'press',\n 'also',\n 'obvious',\n 'message',\n 'drugs',\n 'bad',\n 'kay',\n 'visually',\n 'impressive',\n 'course',\n 'michael',\n 'jackson',\n 'unless',\n 'remotely',\n 'like',\n 'mj',\n 'anyway',\n 'going',\n 'hate',\n 'find',\n 'boring',\n 'may',\n 'call',\n 'mj',\n 'egotist',\n 'consenting',\n 'making',\n 'movie',\n 'mj',\n 'fans',\n 'would',\n 'say',\n 'made',\n 'fans',\n 'true',\n 'really',\n 'nice',\n 'actual',\n 'feature',\n 'film',\n 'bit',\n 'finally',\n 'starts',\n 'minutes',\n 'excluding',\n 'smooth',\n 'criminal',\n 'sequence',\n 'joe',\n 'pesci',\n 'convincing',\n 'psychopathic',\n 'powerful',\n 'drug',\n 'lord',\n 'wants',\n 'mj',\n 'dead',\n 'bad',\n 'beyond',\n 'mj',\n 'overheard',\n 'plans',\n 'nah',\n 'joe',\n 'pesci',\n 'character',\n 'ranted',\n 'wanted',\n 'people',\n 'know',\n 'supplying',\n 'drugs',\n 'etc',\n 'dunno',\n 'maybe',\n 'hates',\n 'mj',\n 'music',\n 'lots',\n 'cool',\n 'things',\n 'like',\n 'mj',\n 'turning',\n 'car',\n 'robot',\n 'whole',\n 'speed',\n 'demon',\n 'sequence',\n 'also',\n 'director',\n 'must',\n 'patience',\n 'saint',\n 'came',\n 'filming',\n 'kiddy',\n 'bad',\n 'sequence',\n 'usually',\n 'directors',\n 'hate',\n 'working',\n 'one',\n 'kid',\n 'let',\n 'alone',\n 'whole',\n 'bunch',\n 'performing',\n 'complex',\n 'dance',\n 'scene',\n 'bottom',\n 'line',\n 'movie',\n 'people',\n 'like',\n 'mj',\n 'one',\n 'level',\n 'another',\n 'think',\n 'people',\n 'stay',\n 'away',\n 'try',\n 'give',\n 'wholesome',\n 'message',\n 'ironically',\n 'mj',\n 'bestest',\n 'buddy',\n 'movie',\n 'girl',\n 'michael',\n 'jackson',\n 'truly',\n 'one',\n 'talented',\n 'people',\n 'ever',\n 'grace',\n 'planet',\n 'guilty',\n 'well',\n 'attention',\n 'gave',\n 'subject',\n 'hmmm',\n 'well',\n 'know',\n 'people',\n 'different',\n 'behind',\n 'closed',\n 'doors',\n 'know',\n 'fact',\n 'either',\n 'extremely',\n 'nice',\n 'stupid',\n 'guy',\n 'one',\n 'sickest',\n 'liars',\n 'hope',\n 'latter']"
     },
     {
       "id": "hafta10_nlp_proje-b015",
@@ -816,8 +802,7 @@
           "codeContext": "Bu satır, 'Temizlik sonrası token sayısını ölçme' bloğunda ilgili yapının uzunluğunu ölçer."
         }
       ],
-      "expectedOutput": "219",
-      "outputInterpretation": "Stopwords temizleme işlemi sonrasında kalan token sayısının ölçümüdür. Kelime sayısının 437'den 219'a düşmesi (yaklaşık %50 oranında bir azalma), metindeki bilgi yoğunluğunun artırıldığını ve gürültünün başarıyla filtrelendiğini teyit eder."
+      "expectedOutput": "219"
     },
     {
       "id": "hafta10_nlp_proje-b016",
@@ -1025,8 +1010,7 @@
           "codeContext": "Bu satır, 'Genel temizleme fonksiyonunu tanımlama' bloğunda temizlenmiş kelimeleri tekrar metin biçimine toplar."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; genel temizleme fonksiyonunu tanımlama adımının sonucu bellekte tutulur.",
-      "outputInterpretation": "Test edilen tüm metin ön işleme adımlarının (HTML temizliği, noktalama işaretlerinin kaldırılması, küçük harfe çevirme, tokenization ve stopwords süzme) `process(review)` fonksiyonu altında birleştirilmesidir. Bu sayede tüm veriler üzerinde standart ve tutarlı bir ön işleme akışı garanti altına alınır."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; genel temizleme fonksiyonunu tanımlama adımının sonucu bellekte tutulur."
     },
     {
       "id": "hafta10_nlp_proje-b017",
@@ -1138,8 +1122,7 @@
           "codeContext": "Bu satır, 'Tüm review'leri döngüyle temizleme' bloğunda temizlenen review'yi eğitim listesine ekler."
         }
       ],
-      "expectedOutput": "No of reviews processed = 1000\nNo of reviews processed = 2000\nNo of reviews processed = 3000\nNo of reviews processed = 4000\nNo of reviews processed = 5000\nNo of reviews processed = 6000\nNo of reviews processed = 7000\nNo of reviews processed = 8000\nNo of reviews processed = 9000\nNo of reviews processed = 10000\nNo of reviews processed = 11000\nNo of reviews processed = 12000\nNo of reviews processed = 13000\nNo of reviews processed = 14000\nNo of reviews processed = 15000\nNo of reviews processed = 16000\nNo of reviews processed = 17000\nNo of reviews processed = 18000\nNo of reviews processed = 19000\nNo of reviews processed = 20000\nNo of reviews processed = 21000\nNo of reviews processed = 22000\nNo of reviews processed = 23000\nNo of reviews processed = 24000\nNo of reviews processed = 25000",
-      "outputInterpretation": "Oluşturulan ön işleme fonksiyonunun döngü yardımıyla veri setindeki tüm metinlere (25.000 yorum) uygulanmasıdır. Her 1000 adımda bir durum raporlaması yapılarak işlemin takibi sağlanmıştır. İşlem sonunda yapısal olmayan tüm metinler temizlenmiş olarak `train_x_tum` listesinde toplanmıştır."
+      "expectedOutput": "No of reviews processed = 1000\nNo of reviews processed = 2000\nNo of reviews processed = 3000\nNo of reviews processed = 4000\nNo of reviews processed = 5000\nNo of reviews processed = 6000\nNo of reviews processed = 7000\nNo of reviews processed = 8000\nNo of reviews processed = 9000\nNo of reviews processed = 10000\nNo of reviews processed = 11000\nNo of reviews processed = 12000\nNo of reviews processed = 13000\nNo of reviews processed = 14000\nNo of reviews processed = 15000\nNo of reviews processed = 16000\nNo of reviews processed = 17000\nNo of reviews processed = 18000\nNo of reviews processed = 19000\nNo of reviews processed = 20000\nNo of reviews processed = 21000\nNo of reviews processed = 22000\nNo of reviews processed = 23000\nNo of reviews processed = 24000\nNo of reviews processed = 25000"
     },
     {
       "id": "hafta10_nlp_proje-b018",
@@ -1221,8 +1204,7 @@
           "codeContext": "Bu satır, 'Train-test split hazırlama' bloğunda veriyi eğitim ve test olarak böler."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; train-test split hazırlama adımının sonucu bellekte tutulur.",
-      "outputInterpretation": "Veri madenciliğinde modelin ezberlemesini önlemek amacıyla verinin %90 eğitim (train) ve %10 test alt kümesine bölünmesidir. Bu işlemin özellik çıkarımından (vektörleştirme) önce yapılması, test kümesindeki kelime dağılımlarının eğitim kümesine sızmasını (data leakage) engeller."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; train-test split hazırlama adımının sonucu bellekte tutulur."
     },
     {
       "id": "hafta10_nlp_proje-b019",
@@ -1295,8 +1277,7 @@
       "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; bag of Words matrisini oluşturma adımının sonucu bellekte tutulur.",
       "plotImages": [
         "h10-bag.jpg"
-      ],
-      "outputInterpretation": "Metin madenciliğinin en kritik aşaması olan 'Özellik Çıkarımı (Feature Extraction)' adımıdır. Yapısal olmayan metin verisi, CountVectorizer yöntemiyle en sık geçen 5000 kelimelik bir frekans tablosuna dönüştürülmüştür. Böylece metinler, makinenin işleyebileceği yapısal sayısal veriye çevrilmiştir."
+      ]
     },
     {
       "id": "hafta10_nlp_proje-b020",
@@ -1318,8 +1299,7 @@
           "codeContext": "Bu satır, 'Sparse BoW çıktısını görme' bloğunda ara veri yapısını gösterir."
         }
       ],
-      "expectedOutput": "<Compressed Sparse Row sparse matrix of dtype 'int64'\n\twith 1775588 stored elements and shape (22500, 5000)>",
-      "outputInterpretation": "Eğitim verileri için oluşturulan seyrek matrisin (Sparse Matrix) kontrolüdür. 22.500 satır ve 5.000 sütundan oluşan bu matris, bellekte sadece sıfır olmayan değerlerin koordinatlarını tutarak bilgisayar donanım kaynaklarının gereksiz yere tüketilmesini engeller."
+      "expectedOutput": "<Compressed Sparse Row sparse matrix of dtype 'int64'\n\twith 1779421 stored elements and shape (22500, 5000)>"
     },
     {
       "id": "hafta10_nlp_proje-b021",
@@ -1375,8 +1355,7 @@
           "codeContext": "Bu satır, 'Eğitim matrisini dense array'e çevirme' bloğunda ara sonucu bir değişkende saklar."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; eğitim matrisini dense array'e çevirme adımının sonucu bellekte tutulur.",
-      "outputInterpretation": "Sınıflandırma algoritmasının (Random Forest) fit fonksiyonu ile çalışabilmesi için seyrek matris formatındaki veriler yoğun dizi (dense array) yapısına dönüştürülmüştür. Hedef etiket değişkeni de eğitim için hazır hale getirilmiştir."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; eğitim matrisini dense array'e çevirme adımının sonucu bellekte tutulur."
     },
     {
       "id": "hafta10_nlp_proje-b022",
@@ -1398,8 +1377,7 @@
           "codeContext": "Bu satır, 'Eğitim matrisinin boyutlarını görme' bloğunda veri şekli bilgisini verir."
         }
       ],
-      "expectedOutput": "((22500, 5000), (22500,))",
-      "outputInterpretation": "Eğitim matrisi ve hedef etiket değişkeninin boyutlarının kontrolüdür. Boyutların sırasıyla (22500, 5000) ve (22500,) olması, örneklem sayılarının birebir eşleştiğini gösterir ve model eğitiminin güvenle başlatılabileceğini doğrular."
+      "expectedOutput": "((22500, 5000), (22500,))"
     },
     {
       "id": "hafta10_nlp_proje-b023",
@@ -1421,8 +1399,7 @@
           "codeContext": "Bu satır, 'Train etiketlerini önizleme' bloğunda ara veri yapısını gösterir."
         }
       ],
-      "expectedOutput": "array([1, 1, 0, ..., 0, 1, 0], shape=(22500,))",
-      "outputInterpretation": "Sınıflandırıcıya girdi olarak verilecek hedef değişkenlerin (etiketlerin) kontrolüdür. Değerlerin ikili (binary: 0 ve 1) sayısal yapıda olduğu görülmektedir. Bu yapı, duygu analizindeki kutupsallık (olumlu/olumsuz) sınıflarının makine dilindeki karşılığıdır."
+      "expectedOutput": "array([0, 1, 1, ..., 1, 1, 0], shape=(22500,))"
     },
     {
       "id": "hafta10_nlp_proje-b024",
@@ -1464,8 +1441,7 @@
           "codeContext": "Bu satır, 'Random Forest modelini eğitme' bloğunda modeli eğitim verisi üzerinde fit eder."
         }
       ],
-      "expectedOutput": "RandomForestClassifier(random_state=42)",
-      "outputInterpretation": "Model eğitimi (Modelleme) aşamasıdır. Karar ağacı tabanlı topluluk öğrenmesi yöntemi olan Random Forest algoritması seçilmiştir. `n_estimators = 100` parametresiyle 100 adet karar ağacı eğitilerek modelin varyansı düşürülmüş, `random_state = 42` ile sonuçların tekrarlanabilirliği sağlanmıştır."
+      "expectedOutput": "RandomForestClassifier(random_state=42)"
     },
     {
       "id": "hafta10_nlp_proje-b025",
@@ -1515,8 +1491,7 @@
           "codeContext": "Bu satır, 'Test verisini vectorizer ile dönüştürme' bloğunda metni özellik matrisine dönüştürür."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; test verisini vectorizer ile dönüştürme adımının sonucu bellekte tutulur.",
-      "outputInterpretation": "Test özniteliklerinin sayısal matrise dönüştürülmesi adımıdır. Metodolojik olarak en kritik detay, burada `fit_transform` yerine sadece `transform` kullanılmasıdır. Test verisi, eğitimde öğrenilen 5.000 kelimelik sözlük taban alınarak sayısal veriye dönüştürülmüş ve böylece veri sızıntısı (leakage) önlenmiştir."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; test verisini vectorizer ile dönüştürme adımının sonucu bellekte tutulur."
     },
     {
       "id": "hafta10_nlp_proje-b026",
@@ -1538,8 +1513,7 @@
           "codeContext": "Bu satır, 'Test sparse matrisini görme' bloğunda ara veri yapısını gösterir."
         }
       ],
-      "expectedOutput": "<Compressed Sparse Row sparse matrix of dtype 'int64'\n\twith 199348 stored elements and shape (2500, 5000)>",
-      "outputInterpretation": "Test seti için oluşturulan seyrek matrisin kontrolüdür. 2.500 test satırı için eğitim aşamasında belirlenen 5.000 sütunluk öznitelik boyutunun korunduğu doğrulanmıştır. Öznitelik uzaylarının uyumluluğu model tahmini için şarttır."
+      "expectedOutput": "<Compressed Sparse Row sparse matrix of dtype 'int64'\n\twith 195724 stored elements and shape (2500, 5000)>"
     },
     {
       "id": "hafta10_nlp_proje-b027",
@@ -1561,8 +1535,7 @@
           "codeContext": "Bu satır, 'Test matrisini dense array'e çevirme' bloğunda sparse matrisi dense diziye çevirir."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; test matrisini dense array'e çevirme adımının sonucu bellekte tutulur.",
-      "outputInterpretation": "Öznitelik uyumluluğunun ardından, test aşaması için oluşturulan seyrek matris, sınıflandırıcının prediction (tahminleme) fonksiyonunun kabul ettiği yoğun dizi (dense array) formatına dönüştürülmüştür."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; test matrisini dense array'e çevirme adımının sonucu bellekte tutulur."
     },
     {
       "id": "hafta10_nlp_proje-b028",
@@ -1584,8 +1557,7 @@
           "codeContext": "Bu satır, 'Test matrisinin boyutunu görme' bloğunda veri şekli bilgisini verir."
         }
       ],
-      "expectedOutput": "(2500, 5000)",
-      "outputInterpretation": "Test dizisinin boyut kontrolüdür. (2500, 5000) boyutu, test setinin 2500 makale içerdiğini ve eğitim setiyle aynı 5000 özellik boyutuna sahip olduğunu doğrulayarak uyumsuzluk hatalarını önler."
+      "expectedOutput": "(2500, 5000)"
     },
     {
       "id": "hafta10_nlp_proje-b029",
@@ -1621,8 +1593,7 @@
           "codeContext": "Bu satır, 'Tahmin ve ROC-AUC hesaplama' bloğunda model başarısını ölçer."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; tahmin ve ROC-AUC hesaplama adımının sonucu bellekte tutulur.",
-      "outputInterpretation": "Eğitilen model kullanılarak test seti üzerinde tahminler yapılmış ve başarımı değerlendirmek amacıyla ROC-AUC skoru hesaplanmıştır. ROC-AUC metriği, ikili sınıflandırmalarda modelin kutupsallığı (olumlu ve olumsuz sınıfları) ayırt etme yeteneğini eşik değerlerinden bağımsız olarak ölçer."
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; tahmin ve ROC-AUC hesaplama adımının sonucu bellekte tutulur."
     },
     {
       "id": "hafta10_nlp_proje-b030",
@@ -1644,8 +1615,7 @@
           "codeContext": "Bu satır, 'Doğruluk oranını yazdırma' bloğunda model başarısını terminale yazar."
         }
       ],
-      "expectedOutput": "Doğruluk oranı : %  84.39913417086488",
-      "outputInterpretation": "Modelin test seti üzerindeki genel performansı yaklaşık %84.40 ROC-AUC skoru olarak elde edilmiştir. Bu değer, yapısal olmayan ham metinlerden özellik çıkarımı yapılıp makine öğrenmesi modeliyle analiz edilmesinin başarılı sonuç verdiğini göstermektedir. Başarımı daha da artırmak için TF-IDF ağırlıklandırma veya hiperparametre optimizasyonu adımlarına geçilebilir."
+      "expectedOutput": "Doğruluk oranı : %  85.37539944282845"
     }
   ],
   "csvOptions": {
