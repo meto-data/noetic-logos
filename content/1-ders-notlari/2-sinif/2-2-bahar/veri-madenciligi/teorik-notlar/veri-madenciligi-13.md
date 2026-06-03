@@ -73,11 +73,11 @@ CNN ağı temelde görüntüden özellikler çıkaran (Feature Extraction) ve bu
 >Bir ağaç resmini (TIFF  formatında 50MB) Paint'e açıp JPEG olarak (5 MB) kaydettiğimizi düşünelim. Pikseller kaybolmuştur, kalite düşmüştür, ama o resme baktığımızda onun bir ağaç olduğun hâlâ anlarız. İşte, **Max Pooling** işlemi de budur. Önemsiz detayları atarak veriyi sıkıştırır ama nesnenin ayırt edici *özünü* korur.  Böylece işlemci (CPU/GPU) yorulmaz.
 
 ### Adım 3: Flatten (Düzleştirme) Katmanı
-- Evrişim ve havuzlama katmanlarından defalarca geçip iyice küçülen ama özellikleri belirginleşen matris, artık yapay sinir ağına (YSA) girmeye hazırdır.
-- Ancak YSA'lar matris kabul etmez, **tek boyutlu dizi (1D array)** kabul eder.
+- Evrişim ve havuzlama katmanlarından defalarca geçip iyice küçülen ama özellikleri belirginleşen matris, artık yapay sinir ağına girmeye hazırdır.
+- Ancak yapay sinir ağları matris kabul etmez, **tek boyutlu dizi (1D array)** kabul eder.
 - Flatten, bu kare matrisi alır ve düz bir ipe dizer gibi tek bir satır/sütun hâline getirir ($1 \times 1600$ gibi). Artık bunlar bizim eğitimde kullanacağımız $X$ (bağımsız değişken) sütunlarımızdır.
 ### Adım 4: Dense (Fully Connected) ve Softmax Çıktısı
-- Düzleştirien veriler, bizim klasik [[veri-madenciligi-4#A. Denetimli Öğrenme (Supervised Learning)|Denetimli Öğrenme]] modellerimizden (Random Forest, SVM veya Klasik Sinir Ağları) girer. Klasik bir yapay sinir ağı (ANN) gibi çalışır ve tüm çıkarılmış özellikleri birleştirir.
+- Düzleştirien veriler, bizim klasik [[veri-madenciligi-4#A. Denetimli Öğrenme (Supervised Learning)|Denetimli Öğrenme]] modellerimizden (Random Forest, SVM veya Klasik Sinir Ağları) girer. Klasik bir yapay sinir ağı gibi çalışır ve tüm çıkarılmış özellikleri birleştirir.
 - Son katmanda kaç sınıfımız varsa (Örn: 0'dan 9'a rakamları tanıyorsak 10 sınıf) o kadar çıktı hücresi (nöron) olur.
 - **Softmax** fonksiyonu, resmin hangi sınıfa ait olduğuna dair bir olasılık dağılımı üretir (Örn: %89 ihtimalle 3 rakamı, %5 ihtimalle 8 rakamı). En yüksek olasılık, modelin nihai tatmini olur. 
 
@@ -93,7 +93,7 @@ Peki, biz kameradan bir mouse veya bardak tanımak istediğimizde CNN ağını s
 Yapay zekânın formülü: $f(x) = X_1W_1 + X_2W_2 = Y$ <br>
 Makinenin bütün eğitim süreci, o denklemdeki en iyi $W$ (**Ağırlık/Weight**) değerlerini bulmak üzerine kuruludur. Eğer bir CNN ağını sıfırdan eğitmeye kalkarsak haftalar, aylar sürer ve devasa ekran kartlarına ihtiyaç duyarız.
 
-Bunun yerine Google, Facebook, gibi devlerin devasa veri setleriyle (20-30milyon resim) önceden eğittiği hazır modellerin $W$ (**Ağırlık**) **matrislerini** alıp kendi projemize katarız. Bu modellere; **YOLO, ResNet, VGG, EfficientNet** adı verilir. Bunlar dünyadaki neredeyse tüm temel nesnelerin (kedi, köpek, masa vb.) kenar ve doku özelliklerini çoktan öğrenmiştir. Biz sadece son katmanı değiştirip kendi 500 resmimizi ekleyerek (fine-tuning) modeli özelleştiriyoruz. Buna **Transfer Learning** denir.
+Bunun yerine Google, Facebook, gibi devlerin devasa veri setleriyle (20-30 milyon resim) önceden eğittiği hazır modellerin $W$ (**Ağırlık**) **matrislerini** alıp kendi projemize katarız. Bu modellere **YOLO, ResNet, VGG, EfficientNet** adı verilir. Bunlar dünyadaki neredeyse tüm temel nesnelerin (kedi, köpek, masa vb.) kenar ve doku özelliklerini çoktan öğrenmiştir. Biz sadece son katmanı değiştirip kendi 500 resmimizi ekleyerek (fine-tuning) modeli özelleştiriyoruz. Buna **Transfer Learning** denir.
 
 ## 6. Çoklu Modlu Yaklaşım (Multimodal/Hibrit Modeller)
 
@@ -115,7 +115,7 @@ Bu noktada iki farklı veri madenciliği disiplini birleşir:
 **Uygulama Alanı:** E-ticaret sitelerinde (ürün resmi + müşteri yorumu) analiz edilerek sahte ürün tespiti veya sosyal medyada duygu/anomali analizi yapılması.
 
 ## 7. Veri Madenciliği ve CNN Entegrasyonu (Gelişmiş Yaklaşımlar)
-Sadece görüntü işleme değil, CNN ile elde edilen verilerin veri madenciliğiyle harmanlandığı ileri seviye kullanım alanları şunlardır:
+CNN ile elde edilen verilerin veri madenciliğiyle harmanlandığı ileri seviye kullanım alanları şunlardır:
 
 ### 7.1. Veri Madenciliği Destekli CNN Eğitimi (Yarı Danışmanlı Öğrenme)
 - Etiketlenmesi çok pahalı olan (Örn: Tıbbî MR görüntüleri, uydu görüntüleri) veri setlerinde, veri madenciliği ile etiketlenmemiş veriler üzerinde **kümeleme (Clustering)** yapılır.
@@ -132,7 +132,7 @@ Sadece görüntü işleme değil, CNN ile elde edilen verilerin veri madenciliğ
 
 ### 7.4. CNN + Karar Ağaçları (Hybrid Model ve Açıklanabilirlik)
 - CNN görüntüden özellikleri çıkarır, ancak son kararı **Random Forest** veya **XGBoost** gibi algoritmalar verir.
-- **Avantajı:** Derin öğrenme modelleri genellikle "Kapalı Kutu (Black Box)" olarak çalışır, neden o kararı verdiğini bilemeyiz. Ancak Karar Ağaçları kullanıldığında **Açıklanabilirlik (Explainability)** artar; modelin kararı hangi kurallara göre verdiği yorumlanabilir hâle gelir.»
+- **Avantajı:** Derin öğrenme modelleri genellikle "Kapalı Kutu (Black Box)" olarak çalışır, neden o kararı verdiğini bilemeyiz. Ancak Karar Ağaçları kullanıldığında **Açıklanabilirlik (Explainability)** artar; modelin kararı hangi kurallara göre verdiği yorumlanabilir hâle gelir.
 ---
 
 ## Notebook

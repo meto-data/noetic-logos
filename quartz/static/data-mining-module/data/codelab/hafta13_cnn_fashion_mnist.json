@@ -134,7 +134,8 @@
           "codeContext": "Bu satır, 'Kütüphaneler ve GPU Kontrolü' bloğunda metinsel çıktı üretir."
         }
       ],
-      "expectedOutput": "TensorFlow version: 2.x ve GPU listesi yazdırılır; çoğu yerel ortamda GPU listesi boş olabilir."
+      "expectedOutput": "TensorFlow version: 2.x ve GPU listesi yazdırılır; çoğu yerel ortamda GPU listesi boş olabilir.",
+      "outputInterpretation": "Görsel veri madenciliği süreçlerinde, özellikle derin öğrenme modelleri eğitilirken karşılaşılan en büyük darboğaz zaman ve hafıza karmaşıklığıdır. Bu hücrede `tensorflow` ve `keras` modüllerinin yüklenmesinin ardından `tf.config.list_physical_devices('GPU')` kullanılarak sistemdeki GPU varlığının kontrol edilmesinin temel amacı budur.\n\nGörüntüler gibi çok boyutlu tensörler üzerinde gezinen evrişim filtrelerinin matematiksel matris çarpımları, CPU'nun ardışık işlem yeteneği yerine GPU'nun paralel hesaplama kapasitesiyle optimize edilir. Bu satır, projenin donanımsal validasyonunu gerçekleştirerek derin öğrenme eğitiminin işlemci darboğazına takılıp takılmayacağını doğrular."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b002",
@@ -177,7 +178,8 @@
           "codeContext": "Bu satır, 'Fashion-MNIST Veri Setini Yükleme' bloğunda metinsel çıktı üretir."
         }
       ],
-      "expectedOutput": "Eğitim veri boyutu: (60000, 28, 28)\nTest veri boyutu: (10000, 28, 28)\nEğitim etiket boyutu: (60000,)\nTest etiket boyutu: (10000,)"
+      "expectedOutput": "Eğitim veri boyutu: (60000, 28, 28)\nTest veri boyutu: (10000, 28, 28)\nEğitim etiket boyutu: (60000,)\nTest etiket boyutu: (10000,)",
+      "outputInterpretation": "Modelin ezberleme oranını kontrol altında tutmak ve gerçek genelleme performansını ölçebilmek amacıyla veri seti en baştan eğitim ve test kümelerine bölünmüştür. Bu yapısal ayrım, veri madenciliğinde sıkça karşılaşılan veri sızıntısı (`data leakage`) riskini ortadan kaldırır.\n\nYazdırılan eğitim matrisinin boyutu `(60000, 28, 28)` olarak görülmektedir. Bu çıktı bize her biri 28x28 piksel boyutunda 60 bin adet eğitim görüntüsüne sahip olduğumuzu bildirir. Ancak, evrişimsel sinir ağlarının (CNN) beklediği tensör biçimine geçebilmek için görüntülere kanal boyutunun eklenmesi gerektiği mesajını verir."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b003",
@@ -300,7 +302,8 @@
         }
       ],
       "expectedOutput": "(Grafik çıktısı) İlk 10 Fashion-MNIST örneği 2x5 düzeninde gri tonlu olarak görünür.",
-      "plotImage": "h13-fashion-b003.png"
+      "plotImage": "h13-fashion-b003.png",
+      "outputInterpretation": "Veri analitiğinde veriyi anlama evresi kapsamında ham piksel matrislerinin insan gözüyle doğrulanması ve etiketlerin haritalandırılması gerçekleştirilmiştir. Oluşturulan çubuk panel, veri setinin standartlaştırılmış yapısı hakkında kritik ipuçları barındırır.\n\nGörsel çıktıda (`h13-fashion-b003.png`) yer alan kıyafet görüntülerinin düşük çözünürlüklü, gri tonlamalı, merkeze hizalanmış ve arka plan gürültüsünden arındırılmış olduğu gözlemlenir. Bu homojen yapı modelin işini kolaylaştırsa da, gerçek dünya senaryolarındaki gürültülü ve karmaşık arka planlarda modelin hata yapma olasılığını baştan fısıldar."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b004",
@@ -394,7 +397,8 @@
           "codeContext": "Bu satır, 'CNN İçin Veri Hazırlama' bloğunda metinsel çıktı üretir."
         }
       ],
-      "expectedOutput": "Yeni X_train boyutu: (60000, 28, 28, 1)\nYeni X_test boyutu: (10000, 28, 28, 1)\nÖrnek ham etiket ve 10 boyutlu one-hot vektör birlikte görünür."
+      "expectedOutput": "Yeni X_train boyutu: (60000, 28, 28, 1)\nYeni X_test boyutu: (10000, 28, 28, 1)\nÖrnek ham etiket ve 10 boyutlu one-hot vektör birlikte görünür.",
+      "outputInterpretation": "Evrişimsel sinir ağının matematiksel çalışma prensibine uygun olarak veriler üzerinde üç önemli ön işleme adımı uygulanmıştır. İlk olarak `reshape` metoduyla görüntülere tekil kanal boyutu eklenerek veri `(60000, 28, 28, 1)` şeklinde 3 boyutlu tensör formatına getirilmiştir.\n\nİkinci adımda pikseller `/ 255.0` ile ölçeklenerek `[0, 1]` aralığına normalize edilmiştir. Bu sayede optimizasyon algoritmasının gradyanları daha kararlı güncellenir ve patlayan gradyanlar (`exploding gradients`) önlenir. Son olarak sınıf etiketleri `to_categorical` fonksiyonu ile 10 boyutlu ikili matrislere (One-Hot Encoding) dönüştürülerek sınıflar arasındaki sahte matematiksel hiyerarşi engellenmiştir."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b005",
@@ -550,7 +554,8 @@
           "codeContext": "Bu satır, 'CNN Modelini Kurma ve Özeti' bloğunda mimariyi kontrol etmeyi sağlar."
         }
       ],
-      "expectedOutput": "Model özeti metin olarak görünür; conv1, conv2, flatten, dense ve dropout katmanları listelenir."
+      "expectedOutput": "Model özeti metin olarak görünür; conv1, conv2, flatten, dense ve dropout katmanları listelenir.",
+      "outputInterpretation": "Fashion-MNIST veri setindeki kıyafet detaylarını hiyerarşik olarak öğrenebilecek derin bir evrişimli mimari kurgulanmıştır. Ağ yapısı sırasıyla özellikleri cımbızlayan `Conv2D` katmanlarını ve boyutu sıkıştırarak donanım yükünü azaltan `MaxPooling2D` katmanlarını barındırır.\n\nÖzellik haritaları `Flatten` katmanıyla tek boyutlu bir vektöre indirgenip sınıflandırma yapacak olan `Dense` katmanına aktarılır. Ariya eklenen `Dropout` katmanı nöronların bir kısmını rastgele kapatarak modelin tek bir piksel alanına aşırı uyum sağlamasını (`overfitting`) engeller ve son katmandaki `softmax` aktivasyonu ile sınıfların olasılık dağılımı hesaplanır."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b006",
@@ -650,7 +655,8 @@
           "codeContext": "Bu satır, 'Modeli Derleme ve Eğitme' bloğunun bir parçasıdır."
         }
       ],
-      "expectedOutput": "Epoch ilerleme satırları görünür; accuracy yükselirken loss düşer."
+      "expectedOutput": "Epoch ilerleme satırları görünür; accuracy yükselirken loss düşer.",
+      "outputInterpretation": "Sinir ağının ağırlık parametrelerini veri kümesindeki örüntülere göre güncellediği eğitim fazıdır. Optimizasyon algoritması olarak öğrenme oranını dinamik ayarlayan `adam` seçilmiş ve çok sınıflı sınıflandırma kaybını ölçmek üzere `categorical_crossentropy` kullanılmıştır.\n\nEğitim esnasında `batch_size=64` seçilerek hem bellek taşması önlenmiş hem de mini-yığın güncellemeleri sayesinde yerel minimumlara takılma riski azaltılmıştır. Ayrıca `validation_split=0.1` parametresiyle verinin %10'u eğitim sürecinden saklanarak modelin anlık genelleme yeteneği takip edilmiştir."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b007",
@@ -826,7 +832,8 @@
         }
       ],
       "expectedOutput": "(Grafik çıktısı) Accuracy eğrisi yükselir, loss eğrisi düşer; eğitim ve doğrulama çizgileri birlikte görünür.",
-      "plotImage": "h13-fashion-b007.png"
+      "plotImage": "h13-fashion-b007.png",
+      "outputInterpretation": "Modelin öğrenme performansını teşhis etmek amacıyla eğitim doğruluğu ve kayıp eğrileri grafikleştirilmiştir. Eğitim doğruluğu yükselirken doğrulama doğruluğunun da benzer paralellikte seyretmesi kararlı bir öğrenme sürecini yansıtır.\n\nGrafiklerde eğitim ve doğrulama çizgileri arasındaki makasın dar kalması, modelin aşırı öğrenme (`overfitting`) tuzağına düşmediğini doğrular. Bu dengeli seyir, ağ tasarımında kullanılan `Dropout` ve `MaxPooling2D` gibi koruyucu katmanların işlevini başarıyla yerine getirdiğinin göstergesidir."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b008",
@@ -965,7 +972,8 @@
         }
       ],
       "expectedOutput": "Test Loss ve Test Accuracy yazdırılır; seçilen örnek görseli ve model tahmini birlikte görülür.",
-      "plotImage": "h13-fashion-b008.png"
+      "plotImage": "h13-fashion-b008.png",
+      "outputInterpretation": "Modelin daha önce eğitim ve doğrulama aşamalarında hiç görmediği test verileri üzerindeki nihai başarısı ölçülmüştür. Seçilen tek bir görsel üzerinde yapılan deneme testinde, model düşük çözünürlüklü piksel örüntüsünü başarıyla analiz etmiştir.\n\nElde edilen test doğruluğu (`accuracy`) değeri ağın genel performans düzeyini özetler. Tahmin çıktısı, evrişim katmanlarının çıkardığı yerel özniteliklerin (kenar ve dikiş izleri gibi) kıyafet sınıflarını ayırt etmede ne kadar güçlü çalıştığını kanıtlar."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b009",
@@ -1154,7 +1162,8 @@
         }
       ],
       "expectedOutput": "(Grafik çıktısı) Önce sınıf olasılıkları çubuk grafiği, ardından 16 feature map’ten oluşan panel görünür.",
-      "plotImage": "h13-fashion-b009.png"
+      "plotImage": "h13-fashion-b009.png",
+      "outputInterpretation": "Yapay zekanın karar mekanizmasını açıklanabilir kılmak amacıyla sınıf olasılıkları görselleştirilmiş ve ilk evrişim katmanının filtre çıktıları çıkarılmıştır. Sınıf olasılıkları grafiği, modelin karar verirken mutlak bir eşleşme değil olasılık dağılımı ürettiğini gösterir.\n\nOluşturulan 16'lık filtre paneli (`h13-fashion-b009.png`) ise CNN modelinin ham pikselleri nasıl soyut özellik haritalarına (`Feature Maps`) dönüştürdüğünü kanıtlar. Bu özellik haritaları, modelin kıyafetlerin yaka çizgisi, taban silüeti veya bağcık dokusu gibi ayırt edici geometrik formları öğrendiğini doğrular."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b010",
@@ -1304,7 +1313,8 @@
           "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda metinsel çıktı üretir."
         }
       ],
-      "expectedOutput": "Harici görsel için bir tahmin etiketi, ardından kamera görüntüsü için ikinci bir tahmin etiketi yazdırılır."
+      "expectedOutput": "Harici görsel için bir tahmin etiketi, ardından kamera görüntüsü için ikinci bir tahmin etiketi yazdırılır.",
+      "outputInterpretation": "Modelin gerçek dünya koşullarındaki (production/deployment) başarısını ölçmek amacıyla dışarıdan yüklenen bağımsız bir görsel ve anlık kamera karesi test edilmiştir. Bu aşamada dışarıdan alınan görüntünün modelin girdi boyutu olan 28x28 piksel ve tek kanallı gri tonlama standartlarına dönüştürülmesi zorunludur.\n\nReel testler çoğu zaman stüdyo ortamı verilerinden gerçek hayata geçişteki veri kayması (`data drift`) problemini açığa çıkarır. Modelin temiz arka planlı eğitim verileri nedeniyle gürültülü gerçek hayat görüntülerinde hatalı tahminler yapabilmesi, transfer öğrenmesi (`Transfer Learning`) gibi daha gelişmiş yaklaşımlara geçiş kararını tetikler."
     }
   ]
 }

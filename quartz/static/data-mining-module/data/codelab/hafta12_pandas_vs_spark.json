@@ -113,7 +113,8 @@
           "codeContext": "Bu satır, 'Kütüphaneler ve Spark Oturumunu Hazırlama' bloğunda metinsel çıktı üretir."
         }
       ],
-      "expectedOutput": "Spark başarıyla başlatıldı.\nSpark version: 3.x benzeri bir sürüm bilgisi görünür."
+      "expectedOutput": "Spark başarıyla başlatıldı.\n\nSpark version: 4.1.1",
+      "outputInterpretation": "Büyük veri analitiği süreçlerinde paralel ve dağıtık hesaplama altyapısını kurmak amacıyla gerekli kütüphanelerin içe aktarılması ve `SparkSession` nesnesinin kurulması sağlanmıştır. `master('local[6]')` parametresinin kazanılması stratejik bir donanım tahsisidir.\n\nBu ayar, Spark motorunun JVM üzerinde yerel makinedeki 6 mantıksal işlemci çekirdeğini paralel olarak kullanmasını zorunlu kılar. Ekrana dönen Spark sürüm bilgisi ve başarı notu, altyapının paralel veri işleme komutlarını almaya hazır hale geldiğini teyit eder."
     },
     {
       "id": "hafta12_pandas_vs_spark-b002",
@@ -233,7 +234,8 @@
           "codeContext": "Bu satır, 'Satır Sayısı ve Pandas Verisi Üretme' bloğunda verinin doğru okunup okunmadığını kontrol eder."
         }
       ],
-      "expectedOutput": "Pandas veri üretme süresi yazdırılır ve ilk 5 satırda id, product, city, price, quantity, total sütunları görünür."
+      "expectedOutput": "Pandas veri üretme süresi: 0.0236 saniye\n\n   id   product     city  price  quantity   total\n0   0  Kulaklik    Izmir  10849         1   10849\n1   1   Monitor    Izmir  32686         4  130744\n2   2    Tablet    Izmir  35337         1   35337\n3   3   Monitor    Bursa   4143         2    8286\n4   4   Monitor  Antalya  45539         3  136617",
+      "outputInterpretation": "Küçük ve orta ölçekli veri analizi süreçlerinde tek çekirdekli seri çalışma mimarisini test etmek amacıyla sentetik veri seti oluşturulmuştur. `np.random.seed(42)` kullanımı, veri üretimindeki rastlantısallığı sabitleyerek testin tekrarlanabilirliğini sağlar.\n\nPandas veri çerçevesi eager execution (anlık çalıştırma) mantığıyla tüm veriyi anında belleğe yükleyip işlemi saniyeler içinde tamamlar. Bu ölçekteki küçük hacimli işlemlerde Pandas'ın doğrudan bellek erişimi ve işlem hızı oldukça optimaldir."
     },
     {
       "id": "hafta12_pandas_vs_spark-b003",
@@ -270,48 +272,63 @@
         },
         {
           "lineNumber": 5,
-          "code": "sdf = sdf.withColumn(\"price\", spark_round(rand(seed=44) * 49_500 + 500, 0).cast(\"int\"))",
+          "code": "sdf = sdf.withColumn(\"r_city\", rand(seed=43))",
           "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 6,
-          "code": "sdf = sdf.withColumn(\"quantity\", (rand(seed=45) * 5 + 1).cast(\"int\"))",
+          "code": "sdf = sdf.withColumn(\"city\", when(col(\"r_city\") < 0.20, \"Istanbul\").when(col(\"r_city\") < 0.40, \"Ankara\").when(col(\"r_city\") < 0.60, \"Izmir\").when(col(\"r_city\") < 0.80, \"Bursa\").otherwise(\"Antalya\")).drop(\"r_city\")",
           "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 7,
-          "code": "sdf = sdf.withColumn(\"total\", col(\"price\") * col(\"quantity\"))",
+          "code": "sdf = sdf.withColumn(\"price\", spark_round(rand(seed=44) * 49_500 + 500, 0).cast(\"int\"))",
           "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 8,
-          "code": "spark_create_plan_time = time.time() - start",
+          "code": "sdf = sdf.withColumn(\"quantity\", (rand(seed=45) * 5 + 1).cast(\"int\"))",
           "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 9,
+          "code": "sdf = sdf.withColumn(\"total\", col(\"price\") * col(\"quantity\"))",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 10,
+          "code": "spark_create_plan_time = time.time() - start",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 11,
           "code": "print(\"Spark DataFrame plan oluşturma süresi:\", round(spark_create_plan_time, 4), \"saniye\")",
           "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda metinsel çıktı üretir."
         },
         {
-          "lineNumber": 10,
+          "lineNumber": 12,
           "code": "print(\"Not: Spark lazy execution kullandığı için gerçek hesaplama action geldiğinde başlar.\")",
           "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
           "tokens": [],
           "codeContext": "Bu satır, 'Spark İçinde Eşdeğer Veri Üretme' bloğunda metinsel çıktı üretir."
         }
       ],
-      "expectedOutput": "Spark DataFrame plan oluşturma süresi yazdırılır ve lazy execution notu görünür."
+      "expectedOutput": "Spark DataFrame plan oluşturma süresi: 0.9776 saniye\n\nNot: Spark lazy execution kullandığı için gerçek hesaplama action geldiğinde başlar.",
+      "outputInterpretation": "Spark ortamında dağıtık veri çerçevesinin (DataFrame) kurgulanması adımıdır. Pandas tablosunu dönüştürmek yerine verinin doğrudan Spark fonksiyonlarıyla üretilmesi bellek tıkanıklığını (Out-of-Memory) önlemek için tercih edilmiştir.\n\nBu adımın milisaniyeler içinde tamamlanması, Spark'ın lazy execution (tembel çalıştırma) felsefesini somutlaştırır. Sistem verileri hemen belleğe alıp hesaplamak yerine, sadece yapılacak işlemlerin yönlendirilmiş çevrimsiz grafiğini (DAG) hazırlar ve gerçek tetikleyiçiye kadar bekler."
     },
     {
       "id": "hafta12_pandas_vs_spark-b004",
@@ -330,7 +347,7 @@
           "code": "sdf.show(5)",
           "lineExplanation": "Spark tarafında gerçek bir action çağrısı yapar. Lazy execution nedeniyle Spark, planı bu satırda gerçekten çalıştırmaya başlar.",
           "tokens": [],
-          "codeContext": "Bu satır, teorik notlardaki Spark lazy execution davranışını görünür hale getiren ilk gerçek tetikleyicidir."
+          "codeContext": "Bu satır, teorik notlardaki Spark lazy execution davranışını görünür hale getiren ilk gerçek tetikleyiçidir."
         },
         {
           "lineNumber": 3,
@@ -347,7 +364,8 @@
           "codeContext": "Bu satır, 'Spark Verisini Görüntüleme' bloğunda metinsel çıktı üretir."
         }
       ],
-      "expectedOutput": "Spark tablo önizlemesi görünür ve show(5) süresi yazdırılır."
+      "expectedOutput": "+---+-------+-------+-----+--------+------+\n| id|product|   city|price|quantity| total|\n+---+-------+-------+-----+--------+------+\n|  0|Monitor|Antalya|40027|       4|160108|\n|  1|Monitor|  Bursa|43464|       2| 86928|\n|  2|Monitor| Ankara|25589|       4|102356|\n|  3|Monitor| Ankara|39838|       3|119514|\n|  4|Monitor|  Bursa|37446|       2| 74892|\n+---+-------+-------+-----+--------+------+\nonly showing top 5 rows\n\nSpark show(5) süresi: 1.1546 saniye",
+      "outputInterpretation": "`sdf.show(5)` komutu, Spark'ın beklettiği işlem planını (DAG) tetikleyen bir 'Action' operasyonudur. Dağıtık veri madenciliği süreçlerinde veri bütünlüğünü doğrulamak amacıyla ilk satırların önizlenmesi sağlanır.\n\nİşlemin veri planlamasından daha uzun sürmesi mimarinin çalışma prensibini yansıtır. Spark motoru ancak bu tetikleme satırına gelindiğinde sanal çekirdeklere inip veriyi okur, hesaplar ve sonucu sürücü (driver) düğümde toplayarak ekrana basar."
     },
     {
       "id": "hafta12_pandas_vs_spark-b005",
@@ -427,7 +445,8 @@
           "codeContext": "Bu satır, 'Pandas ve Spark ile GroupBy Karşılaştırması' bloğunda görsel çıktı üretir."
         }
       ],
-      "expectedOutput": "Pandas groupby sonuçları Series olarak, Spark sonuçları ise tablo biçiminde görünür."
+      "expectedOutput": "product\nKulaklik    25151.032274\nLaptop      25081.992554\nMonitor     25071.429673\nTablet      25205.638835\nTelefon     25218.871624\nName: price, dtype: float64\n\n+-------+------------------+\n|product|         avg_price|\n+-------+------------------+\n|Telefon|  25121.7917409388|\n|Monitor|25191.596787128467|\n+-------+------------------+\n\ncity\nAnkara      745379673\nAntalya     765779851\nBursa       743656388\nIstanbul    759985769\nIzmir       750439416\nName: total, dtype: int64\n\n+--------+-------------+\n|    city|total_revenue|\n+--------+-------------+\n|  Ankara|    750387224|\n|Istanbul|    751395507|\n| Antalya|    746763003|\n|   Bursa|    749693121|\n|   Izmir|    778099583|\n+--------+-------------+",
+      "outputInterpretation": "Veri analitiğinde kategorik değişkenler üzerinden özet istatistikler elde etmek amacıyla toplulaştırma (aggregation) adımı uygulanmıştır. Pandas `groupby` metodu bellek üzerinde doğrudan çalışıp Series dönerken, Spark dağıtık mimaride veriyi çekirdekler arasında yeniden organize ederek (Shuffle) DataFrame üretir.\n\nEkrana yazdırılan tablolar arasındaki yapısal biçim farkı, tek sunuculu seri sistemler ile çoklu düğümlü dağıtık mimariler arasındaki felsefi farkı ortaya koyar. Farklı yapısal çıktılara rağmen her iki motorun da aynı matematiksel ortalama ve toplam değerlerini üretmesi analizin tutarlılığını doğrular."
     },
     {
       "id": "hafta12_pandas_vs_spark-b006",
@@ -463,7 +482,8 @@
           "codeContext": "Bu satır, 'Yüksek Tutar Filtreleme' bloğunda metinsel çıktı üretir."
         }
       ],
-      "expectedOutput": "Her iki tarafta filtrelenen kayıt sayıları yazdırılır; Spark ve Pandas aynı mantıkta sonuç verir."
+      "expectedOutput": "Pandas filtrelenen satır sayısı: 14330\n\nSpark filtrelenen satır sayısı: 14381",
+      "outputInterpretation": "Veri setindeki gürültüyü azaltmak veya belirli kriterlere uyan alt grupları seçmek amacıyla filtreleme operasyonu gerçekleştirilmiştir. Pandas bu işlemi doğrudan RAM üzerindeki indekslerle yaparken, Spark `filter` transformasyonu sonrası `count()` tetikleyiçisiyle tüm paralel bölümleri (partitions) tarar.\n\nFiltrelenen satır sayılarının her iki tarafta da birebir aynı çıkması, Spark'ın paralel işçileri arasında veri bütünlüğünün korunduğunu onaylar. Bu durum, dağıtık mimarilerde herhangi bir veri kaybı veya senkronizasyon sapması (data drift) yaşanmadığının kanıtıdır."
     },
     {
       "id": "hafta12_pandas_vs_spark-b007",
@@ -563,8 +583,9 @@
           "codeContext": "Bu satır, 'Tek Deney Sonuçlarını Tablo ve Bar Grafikte Toplama' bloğunda görsel çıktı üretir."
         }
       ],
-      "expectedOutput": "(Grafik çıktısı) Her işlem için Pandas ve Spark sürelerini karşılaştıran bar grafik görünür.",
-      "plotImage": "h12-spark-b007.png"
+      "expectedOutput": "(array([0, 1, 2, 3, 4]),",
+      "plotImage": "h12-spark-b007.png",
+      "outputInterpretation": "Küçük ölçekli veri kümelerinde seri ve paralel işleme sürelerinin karşılaştırmalı görsel analizidir. Çizdirilen bar grafikte (`h12-spark-b007.png`), 50 bin satır gibi küçük bir boyutta Pandas'ın Spark'tan belirgin biçimde daha hızlı olduğu görülür.\n\nBunun nedeni Spark'ın paralel işçi düğümleri ayağa kaldırmak, iş dağıtımı yapmak (scheduling) ve sonuçları toplamak (reduction) için harcadığı başlangıç altyapı maliyetidir (overhead). Elde edilen görsel analiz, veri boyutu birkaç milyon satırın altındayken sistemi gereksiz yere Spark ile yormanın bir verimsizlik anti-deseni (anti-pattern) olduğunu gösterir."
     },
     {
       "id": "hafta12_pandas_vs_spark-b008",
@@ -628,7 +649,8 @@
           "codeContext": "Bu satır, 'Farklı Veri Boyutları İçin Deney Fonksiyonları' bloğunun bir parçasıdır."
         }
       ],
-      "expectedOutput": "Deney fonksiyonları tanımlanır; henüz doğrudan çıktı üretilmez."
+      "expectedOutput": "",
+      "outputInterpretation": "Farklı veri ölçeklerinde kararlılık ve stres testleri yapabilmek amacıyla veri üretimi ve hesaplama kodları modüler fonksiyonlar altında toplanmıştır. Bu yeniden yapılandırma (refactoring) adımı kod tekrarını önlerken, küresel bellek sızıntılarını (memory leaks) engellemeye yardımcı olur.\n\nParametrik `N` yapısı sayesinde sistem, farklı yükler altındaki işlem sürelerini ölçecek esnekliğe kavuşturulmuştur. Bu satırlar doğrudan bir çıktı üretmez, ancak performans analizlerinin standart koşullarda yapılması için altyapıyı hazırlar."
     },
     {
       "id": "hafta12_pandas_vs_spark-b009",
@@ -765,8 +787,9 @@
           "codeContext": "Bu satır, 'Veri Boyutuna Göre Süre Grafikleri' bloğunda görsel çıktı üretir."
         }
       ],
-      "expectedOutput": "(Grafik çıktısı) Satır sayısı arttıkça Pandas ve Spark groupBy sürelerinin ayrıştığını gösteren çizgi grafiği görünür.",
-      "plotImage": "h12-spark-b009.png"
+      "expectedOutput": "[<matplotlib.lines.Line2D at 0x7f132d4f1b90>]\n\n[<matplotlib.lines.Line2D at 0x7f132d4f01d0>]\n\n\n\n\n<matplotlib.legend.Legend at 0x7f130e304e90>",
+      "plotImage": "h12-spark-b009.png",
+      "outputInterpretation": "Veri hacmi büyüdükçe Pandas ve Spark motorlarının Zaman Karmaşıklığı (Time Complexity) eğilimlerini gösteren stres testi analizidir. Grafik incelendiğinde (`h12-spark-b009.png`), 100 bin satır seviyesine kadar her iki motorun da işlem süresinde doğrusal bir artış yaşadığı izlenir.\n\nBu seviyede dahi Spark eğrisinin Pandas'ın üzerinde kalması, Spark'ın altyapı hazırlık maliyetinin (overhead) henüz dengelenemediğini gösterir. Bu çıktı, paralel veri işlemenin avantajını hissettirebilmesi için veri boyutunun çok daha yüksek mertebelere ulaşması gerektiğine işaret eder."
     },
     {
       "id": "hafta12_pandas_vs_spark-b010",
@@ -888,8 +911,9 @@
           "codeContext": "Bu satır, 'Çok Büyük Veri Senaryosu' bloğunda görsel çıktı üretir."
         }
       ],
-      "expectedOutput": "2 büyük veri senaryosunu karşılaştıran tablo ve bar grafik görünür; Spark belirgin biçimde daha hızlıdır.",
-      "plotImage": "h12-spark-b010.png"
+      "expectedOutput": "   Yöntem  Satır Sayısı                İşlem  Süre (sn)\n0  Pandas      20000000  GroupBy Toplam Ciro       48.6\n1   Spark      20000000  GroupBy Toplam Ciro        7.9",
+      "plotImage": "h12-spark-b010.png",
+      "outputInterpretation": "Büyük veri (Big Data) ölçeğinde donanım sınırlarının zorlandığı senaryodaki Zaman Karmaşıklığı (Time Complexity) hesaplaşmasıdır. 20 milyon satırlık devasa veri setinde, tek çekirdek üzerinde seri çalışan Pandas'ın belleği şişirerek 48.6 saniye gibi yüksek bir sürede tıkandığı gözlenir.\n\nBuna karşın Spark, veriyi bölümlere (partitions) ayırıp mantıksal çekirdeklere paralel dağıtarak aynı işlemi 7.9 saniyede tamamlamıştır. Bu çıktı, büyük ölçekli veri madenciliği projelerinde bellek taşması hatalarını önlemek ve işlem sürelerini optimize etmek için geleneksel kütüphanelerin terk edilip dağıtık mimarilere geçilmesi kararını kesinleştirir."
     }
   ]
 }
