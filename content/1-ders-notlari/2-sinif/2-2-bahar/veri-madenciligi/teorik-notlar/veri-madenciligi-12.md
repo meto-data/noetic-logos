@@ -82,7 +82,7 @@ Veri saklama ve işleme mimarileri temelde ikiye ayrılır.
 
 ### B. Big Data (Dağıtık Sistemler)
 - Veriler tek bir sunucuda tutulamaz. Sosyal medya, IoT gibi çoklu kaynaklardan beslenir.
-- **NoSQL** (SQL olmayan) mimariler kullanılır. Ortada tek ve düzenli bir tablo yoktur, veri parçalanmış haldedir.
+- **NoSQL** (SQL olmayan) mimariler kullanılır. Ortada tek ve düzenli bir tablo yoktur, veri parçalanmış hâldedir.
 - *Kullanılan Teknolojiler:* Cassandra (Facebook geliştirdi), HBase.
 
 ```mermaid
@@ -109,7 +109,7 @@ Büyük verinin analizinde iki büyük teknolojik mihenk taşı vardır:
 2. **Apache Spark:** Hadoop'un yavaşlığına çözüm olarak (zamanı satın almak için) üretilmiştir. Veriyi diskten değil, doğrudan **RAM üzerinden (In-Memory)** okuyup işlediği için Hadoop'tan yaklaşık **100 kat daha hızlıdır**.
 
 > [!important] Spark'ın Çalışma Prensibi: Lazy Execution (Tembel Çalıştırma)
-> - **Pandas** ile bir veriyi okuduğunuzda (Bkz: [[veri-madenciligi-2#1.3. Veri Ön İşleme (Data Preprocessing) Süreci|Pandas Veri Okuma]]), Pandas emri aldığı an veriyi tek tek okur ve RAM'e çeker. Listele dediğinizde listeler. 
+> - **Pandas** ile bir veriyi okuduğunuzda, Pandas emri aldığı an veriyi tek tek okur ve RAM'e çeker. Listele dediğinizde listeler. 
 > - **Spark** motoru ise oyuna girerken çalışan bir oyun motoru gibidir. Çalıştırıldığı an, görevinin veri işlemek olduğunu bilir ve veri tabanlarındaki dağıtık veriyi **önceden okuyarak hazırda bekletir.** Sizden sadece son emri (listele, analiz et) bekler. Bu yüzden küçük ya da devasa verilerde her zaman **stabil bir sürede** (örneğin hep 1-3 saniye aralığında) tepki verir.
 
 ## 7. Büyük Veri Ekosistemi ve Kullanılan Teknolojiler
@@ -117,9 +117,10 @@ Büyük verinin yatayda ölçeklenebilir (sunucu ekledikçe büyüyen) yapıda t
 
 - **HDFS (Hadoop Distributed File System):** Verileri parçalayıp dağıtarak saklayan, sistemin temel dosya mimarisi.
 - **Apache Cassandra:** Facebook tarafından geliştirilen, yüksek hızda veri yazma/okuma yapan dağıtık **NoSQL** veri tabanı.
- 
-  > [!info] Peer-to-Peer Mimarisi
-  > Cassandra'da "Master-Slave" (Yönetici-Köle) hiyerarşisi yoktur. **Her node (sunucu/düğüm) eşittir (peer-to-peer).** Bu sayede bir sunucu çökse bile sistem duraksamadan çalışmaya devam eder. Bkz. [[Nedir bu CAP?#2- AP Sistemleri (Availability + Partition Tolerance)|AP Sistemleri]]
+
+
+ >[!info] Peer-to-Peer Mimarisi
+> Cassandra'da "Master-Slave" (Yönetici-Köle) hiyerarşisi yoktur. **Her node (sunucu/düğüm) eşittir (peer-to-peer).** Bu sayede bir sunucu çökse bile sistem duraksamadan çalışmaya devam eder. Bkz. [[Nedir bu CAP?#2- AP Sistemleri (Availability + Partition Tolerance)|AP Sistemleri]]
 
 
 - **Apache HBase:** HDFS üzerinde çalışan, sütun tabanlı NoSQL veri tabanıdır. Gerçek zamanlı işlemler için kullanılır.

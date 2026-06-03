@@ -114,7 +114,7 @@
         {
           "lineNumber": 6,
           "code": "from sklearn.metrics import roc_auc_score",
-          "lineExplanation": "sklearn.metrics modülünden roc_auc_score bileşenlerini doğrudan içe aktarır.",
+          "lineExplanation": "sklearn.metriçs modülünden roc_auc_score bileşenlerini doğrudan içe aktarır.",
           "tokens": [
             {
               "token": "sklearn.metrics",
@@ -220,7 +220,7 @@
           "codeContext": "Bu satır, 'Kütüphaneleri hazırlama' bloğunda modelleme adımında kullanılacak sınıfı doğrudan erişilebilir yapar."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin üretmez; yalnızca çalışma ortamını ve kütüphaneleri hazırlar."
+      "expectedOutput": ""
     },
     {
       "id": "hafta10_nlp_proje-b002",
@@ -268,7 +268,7 @@
           "codeContext": "Bu satır, 'NLP etiketli veri setini yükleme' bloğunda NLP veri setini doğru okuma ayarlarıyla yükler."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; nLP etiketli veri setini yükleme adımının sonucu bellekte tutulur."
+      "expectedOutput": ""
     },
     {
       "id": "hafta10_nlp_proje-b003",
@@ -660,7 +660,7 @@
           "codeContext": "Bu satır, 'Tokenlere ayırma' bloğunda metni kelime listesine böler."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; tokenlere ayırma adımının sonucu bellekte tutulur."
+      "expectedOutput": ""
     },
     {
       "id": "hafta10_nlp_proje-b012",
@@ -1010,7 +1010,7 @@
           "codeContext": "Bu satır, 'Genel temizleme fonksiyonunu tanımlama' bloğunda temizlenmiş kelimeleri tekrar metin biçimine toplar."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; genel temizleme fonksiyonunu tanımlama adımının sonucu bellekte tutulur."
+      "expectedOutput": ""
     },
     {
       "id": "hafta10_nlp_proje-b017",
@@ -1204,7 +1204,7 @@
           "codeContext": "Bu satır, 'Train-test split hazırlama' bloğunda veriyi eğitim ve test olarak böler."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; train-test split hazırlama adımının sonucu bellekte tutulur."
+      "expectedOutput": ""
     },
     {
       "id": "hafta10_nlp_proje-b019",
@@ -1243,7 +1243,7 @@
               "amac": "Boyutu kontrol altında tutmak."
             }
           ],
-          "codeContext": "Bu satır, 'Bag of Words matrisini oluşturma' bloğunda kelime vektörleştiriciyi kurar."
+          "codeContext": "Bu satır, 'Bag of Words matrisini oluşturma' bloğunda kelime vektörleştiriçiyi kurar."
         },
         {
           "lineNumber": 3,
@@ -1274,7 +1274,7 @@
           "codeContext": "Bu satır, 'Bag of Words matrisini oluşturma' bloğunda metni özellik matrisine dönüştürür."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; bag of Words matrisini oluşturma adımının sonucu bellekte tutulur.",
+      "expectedOutput": "",
       "plotImages": [
         "h10-bag.jpg"
       ]
@@ -1299,7 +1299,7 @@
           "codeContext": "Bu satır, 'Sparse BoW çıktısını görme' bloğunda ara veri yapısını gösterir."
         }
       ],
-      "expectedOutput": "<Compressed Sparse Row sparse matrix of dtype 'int64'\n\twith 1779421 stored elements and shape (22500, 5000)>"
+      "expectedOutput": "<Compressed Sparse Row sparse matrix of dtype 'int64'\n\twith 1779096 stored elements and shape (22500, 5000)>"
     },
     {
       "id": "hafta10_nlp_proje-b021",
@@ -1355,7 +1355,7 @@
           "codeContext": "Bu satır, 'Eğitim matrisini dense array'e çevirme' bloğunda ara sonucu bir değişkende saklar."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; eğitim matrisini dense array'e çevirme adımının sonucu bellekte tutulur."
+      "expectedOutput": ""
     },
     {
       "id": "hafta10_nlp_proje-b022",
@@ -1399,7 +1399,7 @@
           "codeContext": "Bu satır, 'Train etiketlerini önizleme' bloğunda ara veri yapısını gösterir."
         }
       ],
-      "expectedOutput": "array([0, 1, 1, ..., 1, 1, 0], shape=(22500,))"
+      "expectedOutput": "array([0, 0, 1, ..., 1, 0, 0], shape=(22500,))"
     },
     {
       "id": "hafta10_nlp_proje-b024",
@@ -1491,7 +1491,7 @@
           "codeContext": "Bu satır, 'Test verisini vectorizer ile dönüştürme' bloğunda metni özellik matrisine dönüştürür."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; test verisini vectorizer ile dönüştürme adımının sonucu bellekte tutulur."
+      "expectedOutput": ""
     },
     {
       "id": "hafta10_nlp_proje-b026",
@@ -1513,7 +1513,7 @@
           "codeContext": "Bu satır, 'Test sparse matrisini görme' bloğunda ara veri yapısını gösterir."
         }
       ],
-      "expectedOutput": "<Compressed Sparse Row sparse matrix of dtype 'int64'\n\twith 195724 stored elements and shape (2500, 5000)>"
+      "expectedOutput": "<Compressed Sparse Row sparse matrix of dtype 'int64'\n\twith 196012 stored elements and shape (2500, 5000)>"
     },
     {
       "id": "hafta10_nlp_proje-b027",
@@ -1535,7 +1535,7 @@
           "codeContext": "Bu satır, 'Test matrisini dense array'e çevirme' bloğunda sparse matrisi dense diziye çevirir."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; test matrisini dense array'e çevirme adımının sonucu bellekte tutulur."
+      "expectedOutput": ""
     },
     {
       "id": "hafta10_nlp_proje-b028",
@@ -1593,7 +1593,7 @@
           "codeContext": "Bu satır, 'Tahmin ve ROC-AUC hesaplama' bloğunda model başarısını ölçer."
         }
       ],
-      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; tahmin ve ROC-AUC hesaplama adımının sonucu bellekte tutulur."
+      "expectedOutput": ""
     },
     {
       "id": "hafta10_nlp_proje-b030",
@@ -1615,7 +1615,7 @@
           "codeContext": "Bu satır, 'Doğruluk oranını yazdırma' bloğunda model başarısını terminale yazar."
         }
       ],
-      "expectedOutput": "Doğruluk oranı : %  85.37539944282845"
+      "expectedOutput": "Doğruluk oranı : %  83.82807124225889"
     }
   ],
   "csvOptions": {

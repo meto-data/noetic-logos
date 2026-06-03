@@ -11,183 +11,1300 @@
       "lines": [
         {
           "lineNumber": 1,
-          "code": "import numpy as np\nimport matplotlib.pyplot as plt\nimport tensorflow as tf",
-          "lineExplanation": "Piksel matrisleri, grafik çizimi ve derin öğrenme modelleri için temel kütüphaneleri yükler."
+          "code": "import numpy as np",
+          "lineExplanation": "Bu satır, analizde veya model kurulumunda ihtiyaç duyulacak kütüphaneyi çalışma ortamına dahil eder.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "Sayısal hesaplama kütüphanesi",
+              "turkce": "numpy",
+              "amac": "Diziler ve matrisler üzerinde hızlı işlem yapmak için kullanılır.",
+              "detay": "NumPy özellikle dizi tabanlı hesaplamalarda standarttır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve GPU Kontrolü' bloğunda kullanılacak araçları hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "Bu satır, analizde veya model kurulumunda ihtiyaç duyulacak kütüphaneyi çalışma ortamına dahil eder.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "Görselleştirme modülü",
+              "turkce": "matplotlib.pyplot",
+              "amac": "Grafik üretmek için kullanılır.",
+              "detay": "Çizgi, çubuk, histogram gibi görsellerin temel aracıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve GPU Kontrolü' bloğunda kullanılacak araçları hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "import tensorflow as tf",
+          "lineExplanation": "Bu satır, analizde veya model kurulumunda ihtiyaç duyulacak kütüphaneyi çalışma ortamına dahil eder.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Kütüphaneler ve GPU Kontrolü' bloğunda kullanılacak araçları hazırlar."
         },
         {
           "lineNumber": 4,
-          "code": "from tensorflow.keras.models import Sequential\nfrom tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense, Dropout\nfrom tensorflow.keras.datasets import fashion_mnist\nfrom tensorflow.keras.utils import to_categorical",
-          "lineExplanation": "CNN mimarisini oluşturan katmanları ve Fashion-MNIST veri setini içe aktarır."
+          "code": "from tensorflow.keras.models import Sequential",
+          "lineExplanation": "Model nesnesini kurar; bundan sonraki katman ekleme ve eğitim adımları bu nesne üzerinde ilerler.",
+          "tokens": [
+            {
+              "token": "Sequential",
+              "explanation": "Sıralı sinir ağı modeli",
+              "turkce": "Sequential",
+              "amac": "Katmanları sırayla eklenen modelleri kurar.",
+              "detay": "Keras içinde en temel model kurma yapısıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve GPU Kontrolü' bloğunda makine öğrenmesi modelini oluşturur."
+        },
+        {
+          "lineNumber": 5,
+          "code": "from tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense, Dropout",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [
+            {
+              "token": "Dense",
+              "explanation": "Tam bağlı katman",
+              "turkce": "Dense",
+              "amac": "Sinir ağında öğrenilen temsilleri yeni uzaya dönüştürür.",
+              "detay": "Çıkış veya ara karar katmanı olarak sık kullanılır."
+            },
+            {
+              "token": "Conv2D",
+              "explanation": "Evrişim katmanı",
+              "turkce": "Conv2D",
+              "amac": "Görüntüden yerel desenleri öğrenir.",
+              "detay": "Kenar, doku ve şekil gibi görsel özellikleri çıkarır."
+            },
+            {
+              "token": "MaxPooling2D",
+              "explanation": "Havuzlama katmanı",
+              "turkce": "MaxPooling2D",
+              "amac": "Özellik haritalarını küçültür.",
+              "detay": "Boyutu azaltıp önemli sinyalleri korur."
+            },
+            {
+              "token": "Dropout",
+              "explanation": "Aşırı öğrenmeyi azaltma katmanı",
+              "turkce": "Dropout",
+              "amac": "Eğitim sırasında bazı nöronları geçici olarak kapatır.",
+              "detay": "Modelin ezber yapmasını zorlaştırır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve GPU Kontrolü' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "from tensorflow.keras.datasets import fashion_mnist",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Kütüphaneler ve GPU Kontrolü' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "from tensorflow.keras.utils import to_categorical",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [
+            {
+              "token": "to_categorical()",
+              "explanation": "One-hot encoding",
+              "turkce": "to_categorical()",
+              "amac": "Etiketleri çok sınıflı sinir ağına uygun vektöre dönüştürür.",
+              "detay": "Softmax çıkışı için etiketlerin 10 boyutlu gösterimi gerekir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve GPU Kontrolü' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 8,
-          "code": "print(\"TensorFlow version:\", tf.__version__)\nprint(\"GPU var mı?:\", tf.config.list_physical_devices(\"GPU\"))",
-          "lineExplanation": "Yüklü TensorFlow sürümünü ve donanımsal GPU desteğini kontrol eder."
+          "code": "print(\"TensorFlow version:\", tf.__version__)",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Kütüphaneler ve GPU Kontrolü' bloğunda metinsel çıktı üretir."
+        },
+        {
+          "lineNumber": 9,
+          "code": "print(\"GPU var mı?:\", tf.config.list_physical_devices(\"GPU\"))",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Kütüphaneler ve GPU Kontrolü' bloğunda metinsel çıktı üretir."
         }
       ],
-      "expectedOutput": "TensorFlow version: 2.21.0\nGPU var mı?: []",
-      "outputInterpretation": "Görsel veri madenciliği süreçlerinde en büyük darboğaz Hafıza ve Zaman Karmaşıklığı problemidir. Bu blokta TensorFlow ortamının ve özellikle GPU donanımının kontrol edilmesinin stratejik amacı budur. Görüntüler (3D tensörler) üzerinde gezinen filtrelerin matris çarpımları, CPU'nun ardışık işlem yeteneğiyle değil, GPU'nun paralel işlem mimarisiyle çözülebilir. Ortamın donanımsal olarak bu devasa matris işlemlerine hazır olup olmadığının validasyonu yapılır."
+      "expectedOutput": "TensorFlow version: 2.x ve GPU listesi yazdırılır; çoğu yerel ortamda GPU listesi boş olabilir."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b002",
       "title": "Fashion-MNIST Veri Setini Yükleme",
-      "blockExplanation": "Eğitim ve test kümeleri belleğe alınır; boyutlar kontrol edilir.",
+      "blockExplanation": "Eğitim ve test kümeleri belleğe alınır; boyutlar hemen kontrol edilir.",
       "lines": [
         {
           "lineNumber": 1,
           "code": "(X_train, y_train), (X_test, y_test) = fashion_mnist.load_data()",
-          "lineExplanation": "Veri setini indirir ve eğitim/test kümelerine ayırır."
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Fashion-MNIST Veri Setini Yükleme' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 2,
-          "code": "print(\"Eğitim veri boyutu:\", X_train.shape)\nprint(\"Test veri boyutu:\", X_test.shape)\nprint(\"Eğitim etiket boyutu:\", y_train.shape)\nprint(\"Test etiket boyutu:\", y_test.shape)",
-          "lineExplanation": "Veri ve etiket boyutlarını yazdırarak kontrol sağlar."
+          "code": "print(\"Eğitim veri boyutu:\", X_train.shape)",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Fashion-MNIST Veri Setini Yükleme' bloğunda metinsel çıktı üretir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "print(\"Test veri boyutu:\", X_test.shape)",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Fashion-MNIST Veri Setini Yükleme' bloğunda metinsel çıktı üretir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "print(\"Eğitim etiket boyutu:\", y_train.shape)",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Fashion-MNIST Veri Setini Yükleme' bloğunda metinsel çıktı üretir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "print(\"Test etiket boyutu:\", y_test.shape)",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Fashion-MNIST Veri Setini Yükleme' bloğunda metinsel çıktı üretir."
         }
       ],
-      "expectedOutput": "Eğitim veri boyutu: (60000, 28, 28)\nTest veri boyutu: (10000, 28, 28)\nEğitim etiket boyutu: (60000,)\nTest etiket boyutu: (10000,)",
-      "outputInterpretation": "Veri setinin belleğe alınması ve boyutlarının kontrol edilmesi adımıdır. Makine öğrenmesinde modelin ezberlemesini (memorization) önlemek ve gerçek genelleme yeteneğini ölçmek için veri seti baştan eğitim (60.000) ve test (10.000) olarak ikiye ayrılmıştır. Bu hamle, 'Data Leakage' riskini ortadan kaldırır. Çıktıdaki (60000, 28, 28) boyutu, elimizde 60 bin adet satır/sütun matrisi olduğunu gösterir ancak CNN mimarisi için zorunlu olan 'kanal' boyutunun henüz eklenmediğini işaret eder."
+      "expectedOutput": "Eğitim veri boyutu: (60000, 28, 28)\nTest veri boyutu: (10000, 28, 28)\nEğitim etiket boyutu: (60000,)\nTest etiket boyutu: (10000,)"
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b003",
       "title": "Sınıf İsimleri ve İlk Görseller",
-      "blockExplanation": "Sınıf etiketleri tanımlanır ve ilk 10 görüntü görselleştirilir. Bu blok, modelin neyi sınıflandıracağını insan gözüyle görme aşamasıdır.",
+      "blockExplanation": "Sınıf etiketleri okunur ve eğitim kümesinden ilk 10 görüntü etiketleriyle birlikte gösterilir. Bu blok, modelin neyi sınıflandıracağını insan gözüyle görme aşamasıdır.",
       "lines": [
         {
           "lineNumber": 1,
-          "code": "class_names = [\n    \"T-shirt/top\", \"Trouser\", \"Pullover\", \"Dress\", \"Coat\",\n    \"Sandal\", \"Shirt\", \"Sneaker\", \"Bag\", \"Ankle boot\"\n]",
-          "lineExplanation": "Sayısal etiketlerin karşılık geldiği giysi isimlerini listeler."
+          "code": "class_names = [",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf İsimleri ve İlk Görseller' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    \"T-shirt/top\", \"Trouser\", \"Pullover\", \"Dress\", \"Coat\",",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf İsimleri ve İlk Görseller' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    \"Sandal\", \"Shirt\", \"Sneaker\", \"Bag\", \"Ankle boot\"",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf İsimleri ve İlk Görseller' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "]",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf İsimleri ve İlk Görseller' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 5,
-          "code": "plt.figure(figsize=(10, 5))\nfor i in range(10):\n    plt.subplot(2, 5, i + 1)\n    plt.imshow(X_train[i], cmap=\"gray\")\n    plt.title(class_names[y_train[i]])\n    plt.axis(\"off\")\nplt.tight_layout()\nplt.show()",
-          "lineExplanation": "Veri setindeki ilk 10 örneği başlıklarıyla birlikte çizdirir."
+          "code": "for i, name in enumerate(class_names):",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf İsimleri ve İlk Görseller' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    print(i, \"→\", name)",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf İsimleri ve İlk Görseller' bloğunda metinsel çıktı üretir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.figure(figsize=(10, 5))",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf İsimleri ve İlk Görseller' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 8,
+          "code": "for i in range(10):",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf İsimleri ve İlk Görseller' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 9,
+          "code": "    plt.subplot(2, 5, i + 1)",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf İsimleri ve İlk Görseller' bloğunda görsel çıktı üretir."
+        },
+        {
+          "lineNumber": 10,
+          "code": "    plt.imshow(X_train[i], cmap=\"gray\")",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [
+            {
+              "token": "plt.imshow()",
+              "explanation": "Görüntü gösterme",
+              "turkce": "plt.imshow()",
+              "amac": "Matris veya piksel verisini görsel olarak ekrana basar.",
+              "detay": "CNN çalışmalarında giriş görüntüsünü ve feature map’leri incelemek için kullanılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sınıf İsimleri ve İlk Görseller' bloğunda görsel çıktı üretir."
+        },
+        {
+          "lineNumber": 11,
+          "code": "    plt.title(class_names[y_train[i]])",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf İsimleri ve İlk Görseller' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 12,
+          "code": "    plt.axis(\"off\")",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf İsimleri ve İlk Görseller' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 13,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf İsimleri ve İlk Görseller' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 14,
+          "code": "plt.show()",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafiği gösterme",
+              "turkce": "plt.show()",
+              "amac": "Hazırlanan grafiği ekranda görünür hale getirir.",
+              "detay": "Notebook akışında görselleştirmenin son adımıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sınıf İsimleri ve İlk Görseller' bloğunda görsel çıktı üretir."
         }
       ],
-      "expectedOutput": "(Grafik) Fashion-MNIST veri setinden örnek görüntüler.",
-      "plotImage": "h13-fashion-b003.png",
-      "outputInterpretation": "Veriyi anlama evresidir. Sayısal etiketlerin kategorik isimlere haritalanması işlemi yapılmıştır. Görsel çıktı, veri setinin yapısı hakkında kritik bilgi verir: Görüntüler düşük çözünürlüklü (28x28), gri tonlamalı, merkeze hizalanmış ve arka plan gürültüsünden arındırılmıştır. Bu durum, modelin bu veride yüksek başarı elde etmesini kolaylaştırırken, gerçek dünya verilerindeki karmaşık sahnelerde modelin bocalama ihtimalini fısıldar."
+      "expectedOutput": "(Grafik çıktısı) İlk 10 Fashion-MNIST örneği 2x5 düzeninde gri tonlu olarak görünür.",
+      "plotImage": "h13-fashion-b003.png"
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b004",
       "title": "CNN İçin Veri Hazırlama",
-      "blockExplanation": "Veri normalize edilir ve tensör formatına getirilir. Bu, görüntüyü ham piksel matrisi olmaktan çıkarıp CNN’in beklediği tensör formatına dönüştürür.",
+      "blockExplanation": "Görüntülere kanal boyutu eklenir, piksel değerleri normalize edilir ve etiketler one-hot encoding’e çevrilir. Bu, görüntüyü ham piksel matrisi olmaktan çıkarıp CNN’in beklediği tensör formatına dönüştürür.",
       "lines": [
         {
           "lineNumber": 1,
-          "code": "X_train = X_train.reshape(-1, 28, 28, 1)\nX_test = X_test.reshape(-1, 28, 28, 1)",
-          "lineExplanation": "Görüntülere kanal boyutu ekleyerek (28, 28, 1) formatına sokar."
+          "code": "X_train = X_train.reshape(-1, 28, 28, 1)",
+          "lineExplanation": "Eğitim görüntülerine kanal boyutu ekler. CNN için giriş yalnızca 2D matris değil, 3D tensör olmalıdır.",
+          "tokens": [],
+          "codeContext": "Bu satır, teorik notlarda anlatılan görüntünün piksel matrisi + kanal yapısına uygun tensör temsiline geçiştir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "X_test = X_test.reshape(-1, 28, 28, 1)",
+          "lineExplanation": "Test görüntülerine de aynı kanal boyutunu ekler; modelin eğitim ve testte aynı biçimi görmesi sağlanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, CNN mimarisinin zorunlu giriş formatını test verisine de uygular."
         },
         {
           "lineNumber": 3,
-          "code": "X_train = X_train.astype(\"float32\") / 255.0\nX_test = X_test.astype(\"float32\") / 255.0",
-          "lineExplanation": "Piksel değerlerini [0, 1] aralığına normalize eder."
+          "code": "X_train = X_train.astype(\"float32\") / 255.0",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'CNN İçin Veri Hazırlama' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "X_test = X_test.astype(\"float32\") / 255.0",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'CNN İçin Veri Hazırlama' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 5,
-          "code": "y_train_cat = to_categorical(y_train, 10)\ny_test_cat = to_categorical(y_test, 10)",
-          "lineExplanation": "Etiketleri one-hot encoding formatına dönüştürür."
+          "code": "print(\"Yeni X_train boyutu:\", X_train.shape)",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'CNN İçin Veri Hazırlama' bloğunda metinsel çıktı üretir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "print(\"Yeni X_test boyutu:\", X_test.shape)",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'CNN İçin Veri Hazırlama' bloğunda metinsel çıktı üretir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "y_train_cat = to_categorical(y_train, 10)",
+          "lineExplanation": "Etiketleri one-hot encoding biçimine dönüştürür. Softmax çıkışıyla çalışan çok sınıflı ağlar için bu temsil gereklidir.",
+          "tokens": [
+            {
+              "token": "to_categorical()",
+              "explanation": "One-hot encoding",
+              "turkce": "to_categorical()",
+              "amac": "Etiketleri çok sınıflı sinir ağına uygun vektöre dönüştürür.",
+              "detay": "Softmax çıkışı için etiketlerin 10 boyutlu gösterimi gerekir."
+            }
+          ],
+          "codeContext": "Bu satır, son katmandaki sınıf olasılıkları ile gerçek etiketleri aynı uzaya taşır."
+        },
+        {
+          "lineNumber": 8,
+          "code": "y_test_cat = to_categorical(y_test, 10)",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [
+            {
+              "token": "to_categorical()",
+              "explanation": "One-hot encoding",
+              "turkce": "to_categorical()",
+              "amac": "Etiketleri çok sınıflı sinir ağına uygun vektöre dönüştürür.",
+              "detay": "Softmax çıkışı için etiketlerin 10 boyutlu gösterimi gerekir."
+            }
+          ],
+          "codeContext": "Bu satır, 'CNN İçin Veri Hazırlama' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 9,
+          "code": "print(\"Örnek ham etiket:\", y_train[0])",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'CNN İçin Veri Hazırlama' bloğunda metinsel çıktı üretir."
+        },
+        {
+          "lineNumber": 10,
+          "code": "print(\"Örnek one-hot etiket:\", y_train_cat[0])",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'CNN İçin Veri Hazırlama' bloğunda metinsel çıktı üretir."
         }
       ],
-      "expectedOutput": "Veriler başarıyla hazırlandı.",
-      "outputInterpretation": "Sinir ağlarının matematiksel doğası gereği yapılan ön işleme adımıdır. `reshape` ile '1' kanal boyutu eklenerek veri 3D tensör formatına getirilir. Pikseller `/ 255.0` ile [0, 1] aralığına normalize edilir; bu, optimizasyon algoritmasının daha hızlı ve stabil inmesini sağlar. Hedef değişken `to_categorical` ile One-Hot Encoding yapılarak, sınıflar arası hiyerarşik bir ilişki olmadığı makineye ifade edilmiş olur."
+      "expectedOutput": "Yeni X_train boyutu: (60000, 28, 28, 1)\nYeni X_test boyutu: (10000, 28, 28, 1)\nÖrnek ham etiket ve 10 boyutlu one-hot vektör birlikte görünür."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b005",
       "title": "CNN Modelini Kurma ve Özeti",
-      "blockExplanation": "CNN mimarisi tanımlanır ve özetlenir. Teorik notlardaki convolution → pooling → flatten → dense zinciri burada doğrudan kod karşılığıyla görülür.",
+      "blockExplanation": "İki convolution katmanı, max pooling, dense ve dropout içeren CNN mimarisi oluşturulur ve özetlenir. Teorik notlardaki convolution → pooling → flatten → dense zinciri burada doğrudan kod karşılığıyla görülür.",
       "lines": [
         {
           "lineNumber": 1,
-          "code": "model = Sequential([\n    Input(shape=(28, 28, 1)),\n    Conv2D(32, (3, 3), activation=\"relu\", name=\"conv1\"),\n    MaxPooling2D((2, 2)),\n    Conv2D(64, (3, 3), activation=\"relu\", name=\"conv2\"),\n    MaxPooling2D((2, 2)),\n    Flatten(),\n    Dense(128, activation=\"relu\"),\n    Dropout(0.3),\n    Dense(10, activation=\"softmax\")\n])",
-          "lineExplanation": "CNN mimarisini oluşturan katman zincirini tanımlar."
+          "code": "model = Sequential([",
+          "lineExplanation": "CNN mimarisini katman katman tanımlamaya başlar. Bu yapı özellik çıkarma ve sınıflandırma bölümlerini tek bir ağda toplar.",
+          "tokens": [
+            {
+              "token": "Sequential",
+              "explanation": "Sıralı sinir ağı modeli",
+              "turkce": "Sequential",
+              "amac": "Katmanları sırayla eklenen modelleri kurar.",
+              "detay": "Keras içinde en temel model kurma yapısıdır."
+            }
+          ],
+          "codeContext": "Bu satır, teorik notlardaki convolution → pooling → flatten → dense zincirinin kod karşılığını başlatır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    Input(shape=(28, 28, 1)),",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'CNN Modelini Kurma ve Özeti' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    Conv2D(32, (3, 3), activation=\"relu\", name=\"conv1\"),",
+          "lineExplanation": "İlk evrişim katmanını kurar. 3x3 filtreler görüntü üzerinde gezerek kenar, doku ve küçük yerel örüntüleri öğrenir.",
+          "tokens": [
+            {
+              "token": "Conv2D",
+              "explanation": "Evrişim katmanı",
+              "turkce": "Conv2D",
+              "amac": "Görüntüden yerel desenleri öğrenir.",
+              "detay": "Kenar, doku ve şekil gibi görsel özellikleri çıkarır."
+            }
+          ],
+          "codeContext": "Bu satır, teorik notlardaki feature extraction aşamasının ilk adımıdır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    MaxPooling2D((2, 2)),",
+          "lineExplanation": "Özellik haritasını küçültür ve en baskın aktivasyonları korur. Bu adım işlem yükünü azaltırken ayırt edici bilgiyi tutar.",
+          "tokens": [
+            {
+              "token": "MaxPooling2D",
+              "explanation": "Havuzlama katmanı",
+              "turkce": "MaxPooling2D",
+              "amac": "Özellik haritalarını küçültür.",
+              "detay": "Boyutu azaltıp önemli sinyalleri korur."
+            }
+          ],
+          "codeContext": "Bu satır, teorik notlardaki kayıplı sıkıştırma benzeri pooling mantığını uygular."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    Conv2D(64, (3, 3), activation=\"relu\", name=\"conv2\"),",
+          "lineExplanation": "Modele yeni katman ekler; bu katman veri içindeki örüntüleri öğrenen mimarinin bir bileşenidir.",
+          "tokens": [
+            {
+              "token": "Conv2D",
+              "explanation": "Evrişim katmanı",
+              "turkce": "Conv2D",
+              "amac": "Görüntüden yerel desenleri öğrenir.",
+              "detay": "Kenar, doku ve şekil gibi görsel özellikleri çıkarır."
+            }
+          ],
+          "codeContext": "Bu satır, 'CNN Modelini Kurma ve Özeti' bloğunda ağ mimarisini inşa eder."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    MaxPooling2D((2, 2)),",
+          "lineExplanation": "Özellik haritasını küçültür ve en baskın aktivasyonları korur. Bu adım işlem yükünü azaltırken ayırt edici bilgiyi tutar.",
+          "tokens": [
+            {
+              "token": "MaxPooling2D",
+              "explanation": "Havuzlama katmanı",
+              "turkce": "MaxPooling2D",
+              "amac": "Özellik haritalarını küçültür.",
+              "detay": "Boyutu azaltıp önemli sinyalleri korur."
+            }
+          ],
+          "codeContext": "Bu satır, teorik notlardaki kayıplı sıkıştırma benzeri pooling mantığını uygular."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    Flatten(),",
+          "lineExplanation": "Çok boyutlu özellik haritalarını tek boyutlu vektöre çevirir. Dense katmanlar ancak bu düzleştirilmiş temsili alabilir.",
+          "tokens": [],
+          "codeContext": "Bu satır, görüntüden çıkarılan mekânsal özellikleri klasik yapay sinir ağı girişine dönüştürür."
+        },
+        {
+          "lineNumber": 8,
+          "code": "    Dense(128, activation=\"relu\"),",
+          "lineExplanation": "Modele yeni katman ekler; bu katman veri içindeki örüntüleri öğrenen mimarinin bir bileşenidir.",
+          "tokens": [
+            {
+              "token": "Dense",
+              "explanation": "Tam bağlı katman",
+              "turkce": "Dense",
+              "amac": "Sinir ağında öğrenilen temsilleri yeni uzaya dönüştürür.",
+              "detay": "Çıkış veya ara karar katmanı olarak sık kullanılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'CNN Modelini Kurma ve Özeti' bloğunda ağ mimarisini inşa eder."
+        },
+        {
+          "lineNumber": 9,
+          "code": "    Dropout(0.3),",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [
+            {
+              "token": "Dropout",
+              "explanation": "Aşırı öğrenmeyi azaltma katmanı",
+              "turkce": "Dropout",
+              "amac": "Eğitim sırasında bazı nöronları geçici olarak kapatır.",
+              "detay": "Modelin ezber yapmasını zorlaştırır."
+            }
+          ],
+          "codeContext": "Bu satır, 'CNN Modelini Kurma ve Özeti' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 10,
+          "code": "    Dense(10, activation=\"softmax\")",
+          "lineExplanation": "10 sınıf için olasılık dağılımı üretir. En yüksek olasılığa sahip sınıf modelin tahmini olur.",
+          "tokens": [
+            {
+              "token": "Dense",
+              "explanation": "Tam bağlı katman",
+              "turkce": "Dense",
+              "amac": "Sinir ağında öğrenilen temsilleri yeni uzaya dönüştürür.",
+              "detay": "Çıkış veya ara karar katmanı olarak sık kullanılır."
+            }
+          ],
+          "codeContext": "Bu satır, teorik notlardaki softmax karar mekanizmasının doğrudan uygulamasıdır."
+        },
+        {
+          "lineNumber": 11,
+          "code": "])",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'CNN Modelini Kurma ve Özeti' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 12,
           "code": "model.summary()",
-          "lineExplanation": "Model katmanlarını ve parametrelerini gösterir."
+          "lineExplanation": "Model özetini yazdırır; katmanlar, parametre sayıları ve çıkış boyutları bu ekranda kontrol edilir.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'CNN Modelini Kurma ve Özeti' bloğunda mimariyi kontrol etmeyi sağlar."
         }
       ],
-      "expectedOutput": "Model katmanları ve toplam parametre sayısı (225,034) gösterilir.",
-      "outputInterpretation": "CNN mimarisinin kalbidir. `Conv2D` katmanları görüntü üzerinde filtreler gezdirerek özellikleri otomatik cımbızlar. `MaxPooling2D` katmanları ise en baskın özellikleri korurken boyutları ve işlemci yükünü drastik şekilde düşürür. Araya eklenen `Dropout(0.3)`, nöronların %30'unu rastgele kapatarak modelin ezber yapmasını (Overfitting) engeller. `Softmax` ise ağın son kararını bir olasılık dağılımı olarak sunar."
+      "expectedOutput": "Model özeti metin olarak görünür; conv1, conv2, flatten, dense ve dropout katmanları listelenir."
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b006",
       "title": "Modeli Derleme ve Eğitme",
-      "blockExplanation": "Adam optimize edici ve kategori kaybı fonksiyonu ile eğitim başlatılır. Ağırlıklar bu aşamada güncellenir.",
+      "blockExplanation": "Adam optimizasyonu ile model derlenir ve eğitim süreci history nesnesi içinde tutulur.",
       "lines": [
         {
           "lineNumber": 1,
-          "code": "model.compile(optimizer=\"adam\", loss=\"categorical_crossentropy\", metrics=[\"accuracy\"])",
-          "lineExplanation": "Eğitim stratejisini ve başarı metriklerini belirler."
+          "code": "model.compile(",
+          "lineExplanation": "Modelin optimizasyon, kayıp ve başarı ölçütlerini tanımlar; eğitim stratejisi bu satırda kesinleşir.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Modeli Derleme ve Eğitme' bloğunda eğitim ayarlarını belirler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    optimizer=\"adam\",",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Modeli Derleme ve Eğitme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    loss=\"categorical_crossentropy\",",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Modeli Derleme ve Eğitme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    metrics=[\"accuracy\"]",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Modeli Derleme ve Eğitme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 5,
+          "code": ")",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Modeli Derleme ve Eğitme' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 6,
-          "code": "history = model.fit(X_train, y_train_cat, epochs=10, batch_size=64, validation_split=0.1)",
-          "lineExplanation": "Modeli eğitim verisi üzerinde eğitir ve süreci kaydeder."
-        }
-      ],
-      "expectedOutput": "Eğitim ilerlemesi gösterilir, accuracy yükselirken loss düşer.",
-      "outputInterpretation": "Modelin ağırlıklarını (W) güncelleyerek örüntüleri öğrendiği aşamadır. `adam` optimizasyonu hızlı yakınsama sağlar. `batch_size=64` stratejisi, RAM'in şişmesini engellerken ağırlık güncellemelerine stokastik bir yapı katarak yerel minimumlara takılmayı önler. `validation_split=0.1` ise, modelin eğitim esnasında hiç görmediği bir kesim üzerinde anlık genelleme testine tabi tutulmasını sağlar."
-    },
-    {
-      "id": "hafta13_cnn_fashion_mnist-b007",
-      "title": "Eğitim Eğrileri (Accuracy & Loss)",
-      "blockExplanation": "Eğitim sürecindeki doğruluk ve hata değerleri grafiklerle takip edilir. Overfitting analizi burada yapılır.",
-      "lines": [
-        {
-          "lineNumber": 1,
-          "code": "plt.figure(figsize=(8, 5))\nplt.plot(history.history[\"accuracy\"], label=\"Train Accuracy\")\nplt.plot(history.history[\"val_accuracy\"], label=\"Validation Accuracy\")\nplt.title(\"CNN Eğitim Süreci - Accuracy\")\nplt.legend()\nplt.show()",
-          "lineExplanation": "Eğitim ve doğrulama doğruluğunu gösteren grafiği çizer."
+          "code": "history = model.fit(",
+          "lineExplanation": "Modeli eğitim verisi üzerinde iteratif olarak eğitir; ağırlıklar bu aşamada güncellenir.",
+          "tokens": [
+            {
+              "token": "fit()",
+              "explanation": "Model eğitimi",
+              "turkce": "fit()",
+              "amac": "Modeli eğitim verisi üzerinde iteratif olarak öğrenmeye zorlar.",
+              "detay": "Epoch sayısı arttıkça ağın ağırlıkları güncellenir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Modeli Derleme ve Eğitme' bloğunda öğrenme sürecini başlatır."
         },
         {
           "lineNumber": 7,
-          "code": "plt.figure(figsize=(8, 5))\nplt.plot(history.history[\"loss\"], label=\"Train Loss\")\nplt.plot(history.history[\"val_loss\"], label=\"Validation Loss\")\nplt.title(\"CNN Eğitim Süreci - Loss\")\nplt.legend()\nplt.show()",
-          "lineExplanation": "Eğitim ve doğrulama kaybını (hatayı) gösteren grafiği çizer."
+          "code": "    X_train,",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Modeli Derleme ve Eğitme' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 8,
+          "code": "    y_train_cat,",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Modeli Derleme ve Eğitme' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 9,
+          "code": "    epochs=10,",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Modeli Derleme ve Eğitme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 10,
+          "code": "    batch_size=64,",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Modeli Derleme ve Eğitme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 11,
+          "code": "    validation_split=0.1",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Modeli Derleme ve Eğitme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 12,
+          "code": ")",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Modeli Derleme ve Eğitme' bloğunun bir parçasıdır."
         }
       ],
-      "expectedOutput": "(İki Grafik) Accuracy ve Loss gelişimleri.",
-      "plotImages": ["h13-fashion-b007.png", "h13-fashion-b007-loss.png"],
-      "outputInterpretation": "Eğitim sürecinin teşhis grafiğidir. Eğitim doğruluğunun yükselmesi ve doğrulama doğruluğunun onu takip etmesi sağlıklı bir öğrenmeyi gösterir. İki eğri arasındaki makasın dar olması, modelin 'ezberleme' (Overfitting) tuzağına düşmediğini, aksine verinin varyansını doğru yakaladığını kanıtlar. Loss grafiğinde val_loss çizgisinin yukarı doğru kırılmaması, genelleme yeteneğinin korunduğunun işaretidir."
+      "expectedOutput": "Epoch ilerleme satırları görünür; accuracy yükselirken loss düşer."
+    },
+    {
+      "id": "hafta13_cnn_fashion_mnist-b007",
+      "title": "Accuracy ve Loss Eğrileri",
+      "blockExplanation": "History nesnesindeki eğitim doğruluğu ve kayıp değerleri iki ayrı grafikte gösterilir. Hoca bu tür grafiklerde sağlıklı öğrenme ile overfitting ayrımını yorumlamayı önemser.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.figure(figsize=(8, 5))",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Accuracy ve Loss Eğrileri' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.plot(history.history[\"accuracy\"], label=\"Train Accuracy\")",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [
+            {
+              "token": "plt.plot()",
+              "explanation": "Çizgi grafiği",
+              "turkce": "plt.plot()",
+              "amac": "Zaman içindeki değişimi veya iki seri arasındaki ilişkiyi çizgi ile gösterir.",
+              "detay": "Zaman serilerinde trend, mevsimsellik ve sapma okumak için temel araçtır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Accuracy ve Loss Eğrileri' bloğunda görsel çıktı üretir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.plot(history.history[\"val_accuracy\"], label=\"Validation Accuracy\")",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [
+            {
+              "token": "plt.plot()",
+              "explanation": "Çizgi grafiği",
+              "turkce": "plt.plot()",
+              "amac": "Zaman içindeki değişimi veya iki seri arasındaki ilişkiyi çizgi ile gösterir.",
+              "detay": "Zaman serilerinde trend, mevsimsellik ve sapma okumak için temel araçtır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Accuracy ve Loss Eğrileri' bloğunda görsel çıktı üretir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.title(\"CNN Eğitim Süreci - Accuracy\")",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Accuracy ve Loss Eğrileri' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.xlabel(\"Epoch\")",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Accuracy ve Loss Eğrileri' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.ylabel(\"Accuracy\")",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Accuracy ve Loss Eğrileri' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.legend()",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Accuracy ve Loss Eğrileri' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.show()",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafiği gösterme",
+              "turkce": "plt.show()",
+              "amac": "Hazırlanan grafiği ekranda görünür hale getirir.",
+              "detay": "Notebook akışında görselleştirmenin son adımıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Accuracy ve Loss Eğrileri' bloğunda görsel çıktı üretir."
+        },
+        {
+          "lineNumber": 9,
+          "code": "",
+          "lineExplanation": "Boş satır bırakılmıştır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Accuracy ve Loss Eğrileri' bloğunda okunabilirlik için ayrılmıştır."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.figure(figsize=(8, 5))",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Accuracy ve Loss Eğrileri' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 11,
+          "code": "plt.plot(history.history[\"loss\"], label=\"Train Loss\")",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [
+            {
+              "token": "plt.plot()",
+              "explanation": "Çizgi grafiği",
+              "turkce": "plt.plot()",
+              "amac": "Zaman içindeki değişimi veya iki seri arasındaki ilişkiyi çizgi ile gösterir.",
+              "detay": "Zaman serilerinde trend, mevsimsellik ve sapma okumak için temel araçtır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Accuracy ve Loss Eğrileri' bloğunda görsel çıktı üretir."
+        },
+        {
+          "lineNumber": 12,
+          "code": "plt.plot(history.history[\"val_loss\"], label=\"Validation Loss\")",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [
+            {
+              "token": "plt.plot()",
+              "explanation": "Çizgi grafiği",
+              "turkce": "plt.plot()",
+              "amac": "Zaman içindeki değişimi veya iki seri arasındaki ilişkiyi çizgi ile gösterir.",
+              "detay": "Zaman serilerinde trend, mevsimsellik ve sapma okumak için temel araçtır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Accuracy ve Loss Eğrileri' bloğunda görsel çıktı üretir."
+        },
+        {
+          "lineNumber": 13,
+          "code": "plt.title(\"CNN Eğitim Süreci - Loss\")",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Accuracy ve Loss Eğrileri' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 14,
+          "code": "plt.xlabel(\"Epoch\")",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Accuracy ve Loss Eğrileri' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 15,
+          "code": "plt.ylabel(\"Loss\")",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Accuracy ve Loss Eğrileri' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 16,
+          "code": "plt.legend()",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Accuracy ve Loss Eğrileri' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 17,
+          "code": "plt.show()",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafiği gösterme",
+              "turkce": "plt.show()",
+              "amac": "Hazırlanan grafiği ekranda görünür hale getirir.",
+              "detay": "Notebook akışında görselleştirmenin son adımıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Accuracy ve Loss Eğrileri' bloğunda görsel çıktı üretir."
+        }
+      ],
+      "expectedOutput": "(Grafik çıktısı) Accuracy eğrisi yükselir, loss eğrisi düşer; eğitim ve doğrulama çizgileri birlikte görünür.",
+      "plotImage": "h13-fashion-b007.png"
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b008",
-      "title": "Örnek Tahmin ve Görselleştirme",
-      "blockExplanation": "Test setinden bir örnek seçilir ve modelin tahmini görselle birlikte sunulur. Bu, modelin genelleme başarısını tekil örnekte görmeyi sağlar.",
+      "title": "Test Başarımı ve Tek Görüntü Tahmini",
+      "blockExplanation": "Model test kümesinde değerlendirilir, ardından seçilen tek bir örnek için gerçek sınıf ve tahmin karşılaştırılır.",
       "lines": [
         {
           "lineNumber": 1,
-          "code": "sample_image = X_test[387]\nplt.imshow(sample_image.reshape(28, 28), cmap=\"gray\")\nplt.title(\"Gerçek Sınıf: \" + class_names[y_test[387]])\nplt.axis(\"off\")\nplt.show()",
-          "lineExplanation": "Test örneğini ve asıl sınıf ismini görüntüler."
+          "code": "test_loss, test_acc = model.evaluate(X_test, y_test_cat)",
+          "lineExplanation": "Test performansını ölçer; kayıp ve başarı değerleri modelin genelleme gücünü özetler.",
+          "tokens": [
+            {
+              "token": "evaluate()",
+              "explanation": "Model değerlendirme",
+              "turkce": "evaluate()",
+              "amac": "Test verisi üzerinde kayıp ve başarıyı hesaplar.",
+              "detay": "Genelleme performansını görmek için kullanılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test Başarımı ve Tek Görüntü Tahmini' bloğunda model başarısını test eder."
+        },
+        {
+          "lineNumber": 2,
+          "code": "print(\"Test Loss:\", test_loss)",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Başarımı ve Tek Görüntü Tahmini' bloğunda metinsel çıktı üretir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "print(\"Test Accuracy:\", test_acc)",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Başarımı ve Tek Görüntü Tahmini' bloğunda metinsel çıktı üretir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "index = 387",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Başarımı ve Tek Görüntü Tahmini' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "sample_image = X_test[index]",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Başarımı ve Tek Görüntü Tahmini' bloğunda bir ara sonuç üretir."
         },
         {
           "lineNumber": 6,
-          "code": "prediction = model.predict(sample_image.reshape(1, 28, 28, 1))\npredicted_class = np.argmax(prediction)\nprint(\"Model tahmini:\", class_names[predicted_class])",
-          "lineExplanation": "Modelden tahmin alır ve en yüksek olasılıklı sınıfın adını yazdırır."
+          "code": "true_label = y_test[index]",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Başarımı ve Tek Görüntü Tahmini' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.imshow(sample_image.reshape(28, 28), cmap=\"gray\")",
+          "lineExplanation": "Dizinin boyutunu modelin beklediği tensör biçimine dönüştürür; bu adım yapılmazsa LSTM/CNN katmanları girişi kabul etmez.",
+          "tokens": [
+            {
+              "token": "plt.imshow()",
+              "explanation": "Görüntü gösterme",
+              "turkce": "plt.imshow()",
+              "amac": "Matris veya piksel verisini görsel olarak ekrana basar.",
+              "detay": "CNN çalışmalarında giriş görüntüsünü ve feature map’leri incelemek için kullanılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test Başarımı ve Tek Görüntü Tahmini' bloğunda tensör boyutunu ayarlar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.title(\"Gerçek Sınıf: \" + class_names[true_label])",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Başarımı ve Tek Görüntü Tahmini' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.axis(\"off\")",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Başarımı ve Tek Görüntü Tahmini' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.show()",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafiği gösterme",
+              "turkce": "plt.show()",
+              "amac": "Hazırlanan grafiği ekranda görünür hale getirir.",
+              "detay": "Notebook akışında görselleştirmenin son adımıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test Başarımı ve Tek Görüntü Tahmini' bloğunda görsel çıktı üretir."
+        },
+        {
+          "lineNumber": 11,
+          "code": "prediction = model.predict(sample_image.reshape(1, 28, 28, 1))",
+          "lineExplanation": "Dizinin boyutunu modelin beklediği tensör biçimine dönüştürür; bu adım yapılmazsa LSTM/CNN katmanları girişi kabul etmez.",
+          "tokens": [
+            {
+              "token": "predict()",
+              "explanation": "Tahmin üretme",
+              "turkce": "predict()",
+              "amac": "Eğitilmiş model ile yeni örnekler için çıktı üretir.",
+              "detay": "Zaman serisi veya sınıflandırma tahmini burada alınır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test Başarımı ve Tek Görüntü Tahmini' bloğunda tensör boyutunu ayarlar."
+        },
+        {
+          "lineNumber": 12,
+          "code": "predicted_class = np.argmax(prediction)",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Başarımı ve Tek Görüntü Tahmini' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 13,
+          "code": "print(\"Gerçek sınıf:\", class_names[true_label])",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Başarımı ve Tek Görüntü Tahmini' bloğunda metinsel çıktı üretir."
+        },
+        {
+          "lineNumber": 14,
+          "code": "print(\"Model tahmini:\", class_names[predicted_class])",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Başarımı ve Tek Görüntü Tahmini' bloğunda metinsel çıktı üretir."
         }
       ],
-      "expectedOutput": "Model tahmini: Shirt",
-      "plotImage": "h13-fashion-b008.png",
-      "outputInterpretation": "Modelin nihai sınav aşamasıdır. Eğitimde hiç kullanılmamış test seti üzerinden başarı ölçülür. Görsel analiz, modelin pikselleri kaybolmuş düşük çözünürlüklü bir matrise bakmasına rağmen, özellik çıkarımı sayesinde bunun bir 'Shirt' (Gömlek/Tişört) olduğunu doğru bir şekilde eşleştirebildiğini gösterir. Bu, CNN'in hiyerarşik yapısal özellik çıkarma gücünü kanıtlar."
+      "expectedOutput": "Test Loss ve Test Accuracy yazdırılır; seçilen örnek görseli ve model tahmini birlikte görülür.",
+      "plotImage": "h13-fashion-b008.png"
     },
     {
       "id": "hafta13_cnn_fashion_mnist-b009",
-      "title": "Sınıf Olasılıkları ve Özellik Haritaları",
-      "blockExplanation": "Modelin sınıflara duyduğu güven puanları ve ilk katmanda öğrendiği özellikler incelenir. Bu, modelin 'kara kutusunu' anlamaya yarar.",
+      "title": "Sınıf Olasılıkları ve Feature Map Görselleştirme",
+      "blockExplanation": "Tahmin vektörü çubuk grafikle gösterilir; ardından ilk convolution katmanının feature map’leri çıkarılıp 4x4 panelde görselleştirilir. Bu blok, görüntüden özellik çıkarma fikrini soyut olmaktan çıkarıp görünür hale getirir.",
       "lines": [
         {
           "lineNumber": 1,
-          "code": "plt.figure(figsize=(10, 4))\nplt.bar(class_names, prediction[0])\nplt.xticks(rotation=45)\nplt.title(\"Sınıf Olasılıkları\")\nplt.show()",
-          "lineExplanation": "Modelin her sınıf için ürettiği olasılık dağılımını gösterir."
+          "code": "plt.figure(figsize=(10, 4))",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.bar(class_names, prediction[0])",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [
+            {
+              "token": "plt.bar()",
+              "explanation": "Çubuk grafik",
+              "turkce": "plt.bar()",
+              "amac": "Kategorik eksende değer büyüklüklerini karşılaştırır.",
+              "detay": "Model olasılıkları ve süre karşılaştırmaları için okunaklı bir görsel sunar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunda görsel çıktı üretir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.xticks(rotation=45)",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.title(\"CNN Sınıf Olasılıkları\")",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.ylabel(\"Olasılık\")",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunun bir parçasıdır."
         },
         {
           "lineNumber": 6,
-          "code": "feature_model = tf.keras.Model(inputs=model.inputs, outputs=model.get_layer(\"conv1\").output)\nf_maps = feature_model.predict(sample_image.reshape(1, 28, 28, 1))\n\nplt.figure(figsize=(12, 8))\nfor i in range(16):\n    plt.subplot(4, 4, i + 1)\n    plt.imshow(f_maps[0, :, :, i], cmap=\"gray\")\n    plt.axis(\"off\")\nplt.show()",
-          "lineExplanation": "İlk evrişim katmanının ürettiği 16 özellik haritasını panel olarak çizer."
+          "code": "plt.show()",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafiği gösterme",
+              "turkce": "plt.show()",
+              "amac": "Hazırlanan grafiği ekranda görünür hale getirir.",
+              "detay": "Notebook akışında görselleştirmenin son adımıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunda görsel çıktı üretir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "",
+          "lineExplanation": "Boş satır bırakılmıştır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunda okunabilirlik için ayrılmıştır."
+        },
+        {
+          "lineNumber": 8,
+          "code": "feature_model = tf.keras.Model(",
+          "lineExplanation": "Model nesnesini kurar; bundan sonraki katman ekleme ve eğitim adımları bu nesne üzerinde ilerler.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunda makine öğrenmesi modelini oluşturur."
+        },
+        {
+          "lineNumber": 9,
+          "code": "    inputs=model.inputs,",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 10,
+          "code": "    outputs=model.get_layer(\"conv1\").output",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 11,
+          "code": ")",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 12,
+          "code": "feature_maps = feature_model.predict(sample_image.reshape(1, 28, 28, 1))",
+          "lineExplanation": "Dizinin boyutunu modelin beklediği tensör biçimine dönüştürür; bu adım yapılmazsa LSTM/CNN katmanları girişi kabul etmez.",
+          "tokens": [
+            {
+              "token": "predict()",
+              "explanation": "Tahmin üretme",
+              "turkce": "predict()",
+              "amac": "Eğitilmiş model ile yeni örnekler için çıktı üretir.",
+              "detay": "Zaman serisi veya sınıflandırma tahmini burada alınır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunda tensör boyutunu ayarlar."
+        },
+        {
+          "lineNumber": 13,
+          "code": "print(\"Feature map boyutu:\", feature_maps.shape)",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunda metinsel çıktı üretir."
+        },
+        {
+          "lineNumber": 14,
+          "code": "plt.figure(figsize=(12, 8))",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 15,
+          "code": "for i in range(16):",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 16,
+          "code": "    plt.subplot(4, 4, i + 1)",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunda görsel çıktı üretir."
+        },
+        {
+          "lineNumber": 17,
+          "code": "    plt.imshow(feature_maps[0, :, :, i], cmap=\"gray\")",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [
+            {
+              "token": "plt.imshow()",
+              "explanation": "Görüntü gösterme",
+              "turkce": "plt.imshow()",
+              "amac": "Matris veya piksel verisini görsel olarak ekrana basar.",
+              "detay": "CNN çalışmalarında giriş görüntüsünü ve feature map’leri incelemek için kullanılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunda görsel çıktı üretir."
+        },
+        {
+          "lineNumber": 18,
+          "code": "    plt.axis(\"off\")",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 19,
+          "code": "plt.suptitle(\"İlk Convolution Katmanının Öğrendiği Özellik Haritaları\")",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 20,
+          "code": "plt.show()",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafiği gösterme",
+              "turkce": "plt.show()",
+              "amac": "Hazırlanan grafiği ekranda görünür hale getirir.",
+              "detay": "Notebook akışında görselleştirmenin son adımıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sınıf Olasılıkları ve Feature Map Görselleştirme' bloğunda görsel çıktı üretir."
         }
       ],
-      "expectedOutput": "(İki Grafik) Olasılık dağılımı ve özellik haritaları.",
-      "plotImages": ["h13-fashion-b009.png", "h13-fashion-b009-extra.png"],
-      "outputInterpretation": "Açıklanabilir YZ (Explainable AI) aşamasıdır. Olasılık grafiği, modelin neden-sonuç ilişkisini değil, istatistiksel bir güven puanı ürettiğini gösterir. Özellik haritaları paneli ise CNN'in tam olarak ne öğrendiğinin röntgenidir. Filtreler nesneyi bütün olarak değil; kenar çizgileri, doku desenleri ve silüet gibi soyut parçalar halinde görmüştür. Ağın alt seviye özellikleri nasıl otomatik cımbızladığı görsel olarak ispatlanmıştır."
+      "expectedOutput": "(Grafik çıktısı) Önce sınıf olasılıkları çubuk grafiği, ardından 16 feature map’ten oluşan panel görünür.",
+      "plotImage": "h13-fashion-b009.png"
+    },
+    {
+      "id": "hafta13_cnn_fashion_mnist-b010",
+      "title": "Harici Görsel ve Kamera ile Reel Test",
+      "blockExplanation": "Notebook’un son bölümünde dışarıdan yüklenen bir görüntü ve kameradan alınan kare model formatına çevrilip tahmin yapılır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "from tensorflow.keras.preprocessing import image",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "img_path = \"ayakkabi.jpg\"",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "img = image.load_img(img_path, target_size=(28, 28), color_mode=\"grayscale\")",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "img_array = image.img_to_array(img)",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "img_array = img_array.astype(\"float32\") / 255.0",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "img_array = img_array.reshape(1, 28, 28, 1)",
+          "lineExplanation": "Dizinin boyutunu modelin beklediği tensör biçimine dönüştürür; bu adım yapılmazsa LSTM/CNN katmanları girişi kabul etmez.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda tensör boyutunu ayarlar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "prediction = model.predict(img_array)",
+          "lineExplanation": "Eğitilmiş model ile yeni örnekler için tahmin üretir; modelin öğrendiği örüntü burada uygulamaya geçer.",
+          "tokens": [
+            {
+              "token": "predict()",
+              "explanation": "Tahmin üretme",
+              "turkce": "predict()",
+              "amac": "Eğitilmiş model ile yeni örnekler için çıktı üretir.",
+              "detay": "Zaman serisi veya sınıflandırma tahmini burada alınır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda yeni örnekler için çıktı hesaplar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "print(\"Tahmin:\", class_names[np.argmax(prediction)])",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda metinsel çıktı üretir."
+        },
+        {
+          "lineNumber": 9,
+          "code": "",
+          "lineExplanation": "Boş satır bırakılmıştır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda okunabilirlik için ayrılmıştır."
+        },
+        {
+          "lineNumber": 10,
+          "code": "import cv2",
+          "lineExplanation": "Bu satır, analizde veya model kurulumunda ihtiyaç duyulacak kütüphaneyi çalışma ortamına dahil eder.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda kullanılacak araçları hazırlar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "cap = cv2.VideoCapture(0)",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 12,
+          "code": "ret, frame = cap.read()",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 13,
+          "code": "cap.release()",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 14,
+          "code": "gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 15,
+          "code": "gray = cv2.resize(gray, (28, 28))",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 16,
+          "code": "gray_input = gray.reshape(1, 28, 28, 1)",
+          "lineExplanation": "Dizinin boyutunu modelin beklediği tensör biçimine dönüştürür; bu adım yapılmazsa LSTM/CNN katmanları girişi kabul etmez.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda tensör boyutunu ayarlar."
+        },
+        {
+          "lineNumber": 17,
+          "code": "prediction = model.predict(gray_input)",
+          "lineExplanation": "Eğitilmiş model ile yeni örnekler için tahmin üretir; modelin öğrendiği örüntü burada uygulamaya geçer.",
+          "tokens": [
+            {
+              "token": "predict()",
+              "explanation": "Tahmin üretme",
+              "turkce": "predict()",
+              "amac": "Eğitilmiş model ile yeni örnekler için çıktı üretir.",
+              "detay": "Zaman serisi veya sınıflandırma tahmini burada alınır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda yeni örnekler için çıktı hesaplar."
+        },
+        {
+          "lineNumber": 18,
+          "code": "print(\"Kamera tahmini:\", class_names[np.argmax(prediction)])",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Harici Görsel ve Kamera ile Reel Test' bloğunda metinsel çıktı üretir."
+        }
+      ],
+      "expectedOutput": "Harici görsel için bir tahmin etiketi, ardından kamera görüntüsü için ikinci bir tahmin etiketi yazdırılır."
     }
   ]
 }
