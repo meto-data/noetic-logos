@@ -54,8 +54,8 @@ ekonomik koşulların etkisinden dolayı birçok değişkende görülen dalgalan
 **Konjonktürel Dalgalanmalar (Business Cycles)** genellikle 4 aşamadan oluşur:	
 - **Genişleme (Expansion)**: Her şeyin güllük gülistanlık olduğu dönemdir. Bankalar bol bol ucuz kredi dağıtır.
 	- İnsanlar kolayca ev, araba alır. Şirketler deli gibi mal satar, yeni işçiler işe alınır. İşsizlik düşer
-- **Zirve (Peak)**: Genişleme sonsuza kadar sürmez. Piyasada çok para olduğu için her şeyin fiyatı saçma sapan artmaya başlar. 
-			- Enflasyon patlar. 1 liralık mal 10 lira olmuştur. Herkes "Bugün aldım aldım, yarın daha da pahalanacak" diye panikle borca girer. Ekonomi aşırı ısınmıştır, kapasitesinin sınırına dayanmıştır.
+- **Zirve (Peak)**: Genişleme sonsuza kadar sürmez. Piyasada çok para olduğu için her şeyin fiyatı saçma sapan artmaya başlar.
+	- Enflasyon patlar. 1 liralık mal 10 lira olmuştur. Herkes "Bugün aldım aldım, yarın daha da pahalanacak" diye panikle borca girer. Ekonomi aşırı ısınmıştır, kapasitesinin sınırına dayanmıştır.
 - **Daralma (Contraction / Recession)**: Devlet veya Merkez Bankası bakar ki fiyatlar uçuyor, "Hooop, yeter!" der ve frene basar (mesela faizleri artırır).
 	- Krediler kesilir, faizler uçar. İnsanlar alışverişi kestiği için şirketler mal satamaz. Mal satamayan şirket küçülmeye gider ve işçi çıkarmalar başlar. İflaslar peş peşe gelir. Kriz patlamıştır.
 - **Dip (Trough)**: Krizin her şeyi vurmuştur. Ama aslında en güzel fırsatların doğduğu yerdir.
