@@ -41,14 +41,13 @@ graph TD
     E -->| Değerlendirme | F((BİLGİ))
 
     subgraph Kritik Faz 
-      
-    
     C
     D
     end
 ```
 
 
+<br>
 
 
 1. **Veri Temizleme (Cleaning)**: [[LLM'lerde Halüsinasyonların Anatomisi#GIGO (Garbage In, Garbage Out)|GIGO]] (Garbage-In, Garbage-Out) prensibinin yönetildiği yerdir. Gürültülü (noisy) veriler, eksik değerler (missing values) ve aykırı değerler (outliers) bu aşamada temizlenir.

@@ -14,11 +14,11 @@ Regresyon analizi, iki ya da daha çok değişken arasındaki ilişkinin varlı�
 2. **Bağımlı Değişken ($Y$)**: Bağımsız değişkenlerin durumuna göre şekillenen, sonucunu merak ettiğimiz ve **tahmin etmek istediğimiz** hedef değişkenidir.
 
 
+
 >[!info] Yapay Zekânın Temel Formülü
 >Makine öğrenmesi ve yapay zekâ temelde bir matematiksel modelleme, bir fonksiyon ($\mathbf{f(x)}$) oluşturma işidir. En kaba tabirle formül şudur: <br>
 >$Y = (X \cdot w) + b$ <br>
 >Burada amaç; elimizdeki binlerce $X$ ve $Y$ verisini makineye verip, aradaki ilişkiyi en iyi açıklayan $w$ (**ağırlık/weight**) ve $b$ (**başlangıç değeri/bias**) parametrelerinin **optimum** değerlerini öğrenmektir.
-
 
 Makine bu ağırlıkları öğrendikten sonra artık elimizde $Y$'si (sonucu) olmayan yeni bir $X$ verisi geldiğinde, öğrenilen $w$ ve $b$ kullanılarak gelecekteki $Y$ tahmin edilir.
 
