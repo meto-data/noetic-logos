@@ -148,7 +148,7 @@ Gürültülü veriyi onarmak/minimize etmek için üç ana matematiksel yöntem 
 
 
 #### 3. Eğri Uydurma (Curve Fitting)
-- Veriye uygun bir matematiksel fonksiyon (**[[Lineer Regresyon]]**) veya **[[Polinomal Regresyon]]** çizilir. Bu çizginin (beklenen trendin) çok dışında kalan noktalar aykırı (gürültülü) kabul edilerek analizden çıkartılır.
+- Veriye uygun bir matematiksel fonksiyon (**[[veri-madenciligi-9#A. Basit Doğrusal (Linear) Regresyon|Lineer Regresyon]]**) veya **[[veri-madenciligi-9#C. Polinomal Regresyon|Polinomal Regresyon]]** çizilir. Bu çizginin (beklenen trendin) çok dışında kalan noktalar aykırı (gürültülü) kabul edilerek analizden çıkartılır.
 
 ###### Eğri Uydurma Temsili
 
@@ -177,7 +177,7 @@ Verilerin kendi içinde mantıksal olarak çelişmesidir. Veri giriş formların
 ---
 
 # 4. Veri Birleştirme (Integration)
-Farklı kaynaklardan gelen `.csv` verilerini tek potada eritmektir. Excel değil de CSV kullanmamızın sebebi, CSV'nin virgülle ayrılmış değerlerden oluşmuş olmasıdır ki, bu da dosya boyutu olarak çok daha az yer kaplar (*CSV = Comma Seperated Values - Virgülle Ayrılmış Değerle*r).
+Farklı kaynaklardan gelen `.csv` verilerini tek potada eritmektir. Excel değil de CSV kullanmamızın sebebi, CSV'nin virgülle ayrılmış değerlerden oluşmuş olmasıdır ki, bu da dosya boyutu olarak çok daha az yer kaplar (***CSV** = **C**omma **S**eperated **V**alues - Virgülle Ayrılmış Değerle*r).
 
 - `concat()`: Verileri körü körüne alt alta veya yan yana ekler.
 - `merge()`: SQL'deki **Join** mantığıdır. Ortak bir sütuna (*ID*) göre akıllıca birleştirir.
@@ -192,11 +192,11 @@ Farklı kaynaklardan gelen `.csv` verilerini tek potada eritmektir. Excel değil
 Makinenin matematiği doğru yapabilmesi için elzemdir.
 
 ## 5.1. Normalizasyon
-- İncelenecek veriyileri normalden sapmayan bir ölçüye göre inceleme, **aynı seviyeye getirme** işlemidir. Aynı kulvarda değilsek yarışamayız.
+- İncelenecek verileri normalden sapmayan bir ölçüye göre inceleme, **aynı seviyeye getirme** işlemidir. Aynı kulvarda değilsek yarışamayız.
 
 >	*"Senin dedenden sana ev, araba miras kalır; benim dedemden bana aksi ve takıntılı ruh hâli. Nasıl yarışacaksın ki? Denk değiliz."*
 
-- Oyunlardaki eşleştirme/matchmaking algoritmaları buna benzer mesela. 
+- Oyunlardaki eşleştirme/matchmaking algoritmaları buna benzerdir.
 - Min-Max Scaling ile tüm veriler 0 ile 1 arasında sıkıştırılır.
 
 ### 5.2. Encoding (Kodlama)

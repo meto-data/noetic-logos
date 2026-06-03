@@ -149,7 +149,7 @@ Veriyi **ardışık kararlar vererek** bölme mantığıyla (if-else tarzı) ça
 
 >[!danger] Karar Ağaçlarının En büyük Problemi: OVERFITTING (Aşırı Öğrenme)
 >Makinenin veriyi öğrenmesi değil, **ezberlemesidir**. Ezberleyen makine, tıpkı ezberci bir öğrenci gibi, yeni bir durumla karşılaştığında yorum (tahmin) yapamaz ve çuvallar. **Ezberlersek, farklı alanda yorum yapamayız**. <br>
->**Çözüm**: Karar ağaçlarının bu sorunu çözmek için birden fazla karar ağacının birleşiminden oluşan [[veri-madenciligi-5#A. Random Forests|Random Forest]] (Rassal Orman) algoritması geliştirilmiştir.
+>**Çözüm**: Karar ağaçlarının bu sorununu çözmek için birden fazla karar ağacının birleşiminden oluşan [[veri-madenciligi-5#A. Random Forests|Random Forest]] (Rassal Orman) algoritması geliştirilmiştir.
 
 >[!info] 📉 Eğitim Grafiği (Time vs. Loss) ve Overfitting'in Tespiti
 >Makine öğrenirken arka planda bir **Zaman (Time)** ve **Hata/Kayıp (Loss)** grafiği oluşur. Eğitim ilerledikçe hata oranı sıfıra doğru yaklaşır. 

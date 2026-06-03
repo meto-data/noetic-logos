@@ -69,7 +69,7 @@ Makine öğrenmesinde modelin amacı **ezberlemek değil, tümevarım (genelleme
 Modelin **eğitim verisi üzerindeki başarısı**.
 - Model bu veriyi eğitim sırasında gördüğü için **genelde daha yüksektir**.
 - **Çok yüksek çıkması** tek başına **iyi haber değildir**.
-- Bazen **1.00** veya **0.99** gibi değerler, modelin verihi **ezberlediğini** gösterebilir.
+- Bazen **1.00** veya **0.99** gibi değerler, modelin veriyi **ezberlediğini** gösterebilir.
 
 ##### Test Accuracy
 Modelin **daha önce görmediği veri üzerindeki başarısıdır**.
@@ -126,7 +126,7 @@ Modelin **daha önce görmediği veri üzerindeki başarısıdır**.
 ---
 
 ## B. K-Nearest Neighbors (KNN - K-En Yakın Komşu)
-KNN, **etiketli verilerle çalışan bir sınıflandırma algoritmasıdır**. Ancak diğer algoritmaların aksine arka planda karmaşık bir "öğrenme denklemi" kurmaz. Bunun yerine **matematiksel mesafe** ölçümüne dayanır. Gözlemlerin birbirine olan benzerliklerine göre tahmin yapan **denetimli öğrenmede** sınıflandırma ve regresyon için kullanılan en temel algoritmalardan biridir.
+KNN, **etiketli verilerle çalışan bir sınıflandırma algoritmasıdır**. Ancak diğer algoritmaların aksine arka planda karmaşık bir öğrenme denklemi kurmaz. Bunun yerine **matematiksel mesafe** ölçümüne dayanır. Gözlemlerin birbirine olan benzerliklerine göre tahmin yapan **denetimli öğrenmede** sınıflandırma ve regresyon için kullanılan en temel algoritmalardan biridir.
 
 
 >[!example] Örnek
@@ -176,8 +176,8 @@ KNN'nin öğrenmesini sağlayan şey veriler arasındaki uzaklığı hesaplayan 
 2. **Manhattan Distance**: Noktalar arasındaki mesafeyi ızgara (grid) planlı bir şehirde (Manhattan gibi) binaların etrafından dolaşarak ölçer gibi dik açılarla hesaplar.z
 3. **Minkowski Distance**: Euclidean ve Manhattan mesafesinin genelleştirilmiş hâlidir. **Scikit-learn kütüphanesinde KNN varsayılan olarak Minkowski kullanır**.
 
->[!example] Edit Distance: "Bunu mu demek istediniz?"
->Sadece sayılar değil, kelimeler arasında da mesafe vardır. Buna yazılımda **Edit Distance** veya **Hamming Distance** denir. Söz gelimi, "Merhaba" yerine "Merhebe" yazdığınızda, Google aradaki harf farklılıklarını sıfırlar ve birler üzerinden hesaplayarak mesafeyi ölçer. "Bu kelimenin 'Merhaba'ya olan mesafesi çok yakın, bunu mu demek istediniz?" diye sorar. İşte **KNN'nin mesafe mantığı tam olarak bu temel üzerine kuruludur.**
+>[!example] Edit Distance/Hamming Distance: "Bunu mu demek istediniz?"
+>Sadece sayılar değil, kelimeler arasında da mesafe vardır. Buna yazılımda **Edit Distance** veya **Hamming Distance** denir. Söz gelimi, "Merhaba" yerine "Merhebe" yazdığınızda, Google aradaki harf farklılıklarını sıfırlar ve birler üzerinden hesaplayarak mesafeyi ölçer. "Bu kelimenin 'Merhaba'ya olan mesafesi çok yakın, bunu mu demek istediniz?" diye sorar. İşte **KNN'nin mesafe mantığı tam olarak bunun gibidir.**
 
 
 KNN algoritmasındaki en büyük problem $K$ değerinin (kaç komşuya bakılacağının) ne olması gerektiğidir. <br>

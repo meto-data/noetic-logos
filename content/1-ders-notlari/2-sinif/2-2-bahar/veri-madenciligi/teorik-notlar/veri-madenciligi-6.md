@@ -7,8 +7,8 @@ slug: veri-madenciligi-6
 konu: Kümeleme (Clustering)
 ---
 ## Sınav ve Ödev Bilgilendirmeleri
-- **Sınav Soru Tipi**: Sınavda kod sorulacak. Sıfırdan bir Python kodu yazılması beklenmiyor. «Bu kod hangi işlevi gerçekleştirir?», «Eksik veriyi doldurma kodu hangisidir?», «Hangi kod temizleme yapar?» gibi, yazılmış kodun **veri madenciliği bağlamındaki mantığı** sorulacak.
-- **Uygulama Dosyaları**: Hocanın gönderdiği Jupyter Notebook (`.ipynb`) dosyaları **kesinlikle çalıştırılmalı**. O kodların yanına Türkiye'de kolay kolay bulunamayacak detaylı Türkçe açıklamalar da eklendi. Sınavdaki sorular doğrudan bu dosyaların mantığından gelecek.
+- **Sınav Soru Tipi**: Sınavda kod sorulacak. Sıfırdan bir Python kodu yazılması beklenmiyor. "Bu kod hangi işlevi gerçekleştirir?", "Eksik veriyi doldurma kodu hangisidir?", "Hangi kod temizleme yapar?" gibi, yazılmış kodun **veri madenciliği bağlamındaki mantığı** sorulacak.
+- **Uygulama Dosyaları**: Hocanın gönderdiği Jupyter Notebook (`.ipynb`) dosyaları **kesinlikle çalıştırılmalı**. O kodların yanına detaylı Türkçe açıklamalar da eklendi. Sınavdaki sorular doğrudan bu dosyaların mantığından gelecek.
 - **Dönem Sonu Projeci Tüyosu** Hoca algoritma dağıtımını rastgele yapacak, zaten bunu söylemiştim daha önceki notlarda. Eğer size K-Means veya benzeri bir algoritma düşerse standart (öklid) kullanıp geçmeyin. Manhattan kullanın, Hamming deneyin, farklı parametreleri karşılaştırmamızı bekliyor hoca, aradaki farkları görmemizi de istiyor.
 
 ---
