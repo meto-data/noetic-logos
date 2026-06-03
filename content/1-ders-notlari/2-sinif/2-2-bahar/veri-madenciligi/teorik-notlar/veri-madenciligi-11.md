@@ -33,7 +33,21 @@ Verilerin uzun vadede yukarı ya da aşağı yönlü olarak sergiledikleri harek
 Bir dönem boyunca periyodik olarak tekrar eden belirli bir örüntüyü tanımlar. **Ne zaman olacağı kesindir, saati saatine bellidir.** 
 	- *Örnek*: Elektrik faturasının kış aylarında veya yazın klima kullanımından dolayı daha yüksek gelmesi. Otellerdeki müşteri sayısının yazın pik yapıp kışın düşmesi. 
 ### 3.**Döngüsellik (Cyclicality)**
-Mevsimselliğe benzer ancak daha uzun vadeli, belirsiz yapılarda ve konjonktürel değişimlerle şekillenen dalgalanmalardır ve **ne zaman olacağı belli değildir** 3 yılda bir de olabilir 10 yılda bir de. 
+Mevsimselliğe benzer ancak daha uzun vadeli, belirsiz yapılarda ve konjonktürel değişimlerle şekillenen dalgalanmalardır ve **ne zaman olacağı belli değildir** 3 yılda bir de olabilir 10 yılda bir de.
+
+#### Konjonktürel Dalgalanmalar
+
+Bir yıldan fazla süren, uzunluğu sabit kalmayan ve genellikle
+ekonomik koşulların etkisinden dolayı birçok değişkende görülen dalgalanmalardır. <br>
+**Konjonktürel Dalgalanmalar (Business Cycles)** genellikle 4 aşamadan oluşur:	
+- **Genişleme (Expansion)**: Her şeyin güllük gülistanlık olduğu dönemdir. Bankalar bol bol ucuz kredi dağıtır.
+	- İnsanlar kolayca ev, araba alır. Şirketler deli gibi mal satar, yeni işçiler işe alınır. İşsizlik düşer
+- **Zirve (Peak)**: Genişleme sonsuza kadar sürmez. Piyasada çok para olduğu için her şeyin fiyatı saçma sapan artmaya başlar.
+	- Enflasyon patlar. 1 liralık mal 10 lira olmuştur. Herkes "Bugün aldım aldım, yarın daha da pahalanacak" diye panikle borca girer. Ekonomi aşırı ısınmıştır, kapasitesinin sınırına dayanmıştır.
+- **Daralma (Contraction / Recession)**: Devlet veya Merkez Bankası bakar ki fiyatlar uçuyor, "Hooop, yeter!" der ve frene basar (mesela faizleri artırır).
+	- Krediler kesilir, faizler uçar. İnsanlar alışverişi kestiği için şirketler mal satamaz. Mal satamayan şirket küçülmeye gider ve işçi çıkarmalar başlar. İflaslar peş peşe gelir. Kriz patlamıştır.
+- **Dip (Trough)**: Krizin her şeyi vurmuştur. Ama aslında en güzel fırsatların doğduğu yerdir.
+	- Zayıf şirketler batmış, piyasa temizlenmiştir. Fiyatlar artık dibi görmüştür, her şey ucuzlamıştır (ev, araba, şirket hisseleri). Ama kimsede alacak para kalmamıştır. Nakiti olan için ise dev fırsat doğar.
 
 ### 4. **Gürültü (Noise)**
 Trend ve mevsimsellik etkisi ortadan kaldırıldıktan sonra geriye kalan, öngörülemeyen kısa vadeli kalıntılar ve düzensizliklerdir.
@@ -47,19 +61,6 @@ Trend ve mevsimsellik etkisi ortadan kaldırıldıktan sonra geriye kalan, öng�
 ### 5. Durağanlık (Stationarity)
 Bir serinin istatistiksel özelliklerinin (ortalaması, varyansı ve kovaryansı) zaman içerisinde sabit kalması, değişime uğramaması durumudur.
 
-### Konjonktürel Dalgalanmalar
-
-Bir yıldan fazla süren, uzunluğu sabit kalmayan ve genellikle
-ekonomik koşulların etkisinden dolayı birçok değişkende görülen dalgalanmalardır. <br>
-**Konjonktürel Dalgalanmalar (Business Cycles)** genellikle 4 aşamadan oluşur:	
-- **Genişleme (Expansion)**: Her şeyin güllük gülistanlık olduğu dönemdir. Bankalar bol bol ucuz kredi dağıtır.
-	- İnsanlar kolayca ev, araba alır. Şirketler deli gibi mal satar, yeni işçiler işe alınır. İşsizlik düşer
-- **Zirve (Peak)**: Genişleme sonsuza kadar sürmez. Piyasada çok para olduğu için her şeyin fiyatı saçma sapan artmaya başlar.
-	- Enflasyon patlar. 1 liralık mal 10 lira olmuştur. Herkes "Bugün aldım aldım, yarın daha da pahalanacak" diye panikle borca girer. Ekonomi aşırı ısınmıştır, kapasitesinin sınırına dayanmıştır.
-- **Daralma (Contraction / Recession)**: Devlet veya Merkez Bankası bakar ki fiyatlar uçuyor, "Hooop, yeter!" der ve frene basar (mesela faizleri artırır).
-	- Krediler kesilir, faizler uçar. İnsanlar alışverişi kestiği için şirketler mal satamaz. Mal satamayan şirket küçülmeye gider ve işçi çıkarmalar başlar. İflaslar peş peşe gelir. Kriz patlamıştır.
-- **Dip (Trough)**: Krizin her şeyi vurmuştur. Ama aslında en güzel fırsatların doğduğu yerdir.
-	- Zayıf şirketler batmış, piyasa temizlenmiştir. Fiyatlar artık dibi görmüştür, her şey ucuzlamıştır (ev, araba, şirket hisseleri). Ama kimsede alacak para kalmamıştır. Nakiti olan için ise dev fırsat doğar.
 
 
 ---
