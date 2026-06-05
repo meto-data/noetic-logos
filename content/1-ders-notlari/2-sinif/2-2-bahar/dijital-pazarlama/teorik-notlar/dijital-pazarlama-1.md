@@ -17,7 +17,7 @@ created: 2026-02-19
 
 ## Pazarlamanın Doğası ve Kapsamı
 
-Genel algının aksine **pazarlama**, **yalnızca bir ürünü satmak veya müşteriyi ikna etmek <u><b>değildir</u></b>** Temel odak noktası müşteri ihtiyaçlarını anlamak ve onlara bir [[Müşteri Değeri|Müşteri Değeri (Customer Value)]] sunmaktır. Bu süreçte hem somut ürünler hem de soyut hizmetler ([[Hizmet Pazarlaması]]) pazarlamaya konu olur.
+Genel algının aksine **pazarlama**, **yalnızca bir ürünü satmak veya müşteriyi ikna etmek <u><b>değildir</u></b>**. Temel odak noktası müşteri ihtiyaçlarını anlamak ve onlara bir [[Müşteri Değeri|Müşteri Değeri (Customer Value)]] sunmaktır. Bu süreçte hem somut ürünler hem de soyut hizmetler ([[Hizmet Pazarlaması]]) pazarlamaya konu olur.
 
 Modern pazarlama anlayışında satış sonrası destek, iade süreçleri ve marka ile kurulan bağ da ürünün ayrılmaz bir parçasıdır.
 
@@ -83,7 +83,7 @@ Pazara sunulan, bir ihtiyacı veya isteği karşılayan her türlü somut nesne 
 ### 3. Dağıtım (Place)
 Ürünün doğru zamanda ve doğru yerde müşteriye ulaştırılmasıdır. Sadece lojistik değil, aynı zamanda fiziksel mağazaların veya dijital platformların erişilebilirliğidir.
 
-- Derste örnek verilmişti, bizim üniversiteden bir kişinin, üniversite kampüsüne Gratis açılması fikri varmış. Bunun arka planında hedef kitleye ([[Hedef Pazar]]) doğrudan temas etme stratejisi yatmaktadır tabii; nihayetinde öğrencilerin yoğun olduğu bir alandan söz ediyoruz. Doğru yerde müşteriye ulaşma örneğidir bu bakımdan.
+- Derste örnek verilmişti, bizim üniversiteden bir kişinin, üniversite kampüsüne Gratis açılması fikri varmış. Bunun arka planında hedef kitleye ([[Hedef Pazar]]) doğrudan temas etme stratejisi yatmaktadır; nihayetinde öğrencilerin yoğun olduğu bir alandan söz ediyoruz. Doğru yerde müşteriye ulaşma örneğidir bu bakımdan.
 - Amazon gibi firmaların drone ile teslimat yapması da geleneksel kargo maliyetlerini düşürürken müşteri memnuniyetini de maksimize eder ve bu **lojistik süreçleri** müşteri açısından zaman tasarrufu da sağlar. Elbet bu ivmelidir, ancak insanî ilişkileri sekteye uğratacak bir yapıdadır aynı zamanda. Karşı tarafta bir öteki değil de mekanik bir alet söz konusudur nitekim. Gitgide ivme ve konfor uğruna insanî ilişkiler de sekteye uğruyor, ivme uğruna bütün anlatı günbegün bertaraf ediliyor. Bu bakımdan riskleri de vardır hâliyle.
 
 ### 4. Tutundurma (Promotion)

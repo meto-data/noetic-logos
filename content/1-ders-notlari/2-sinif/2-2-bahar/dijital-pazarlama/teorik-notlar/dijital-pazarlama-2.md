@@ -91,7 +91,7 @@ Tüplü, hantal monitörlerden dinamik, mobil cihazlara geçiş.
 - **Discussion**: Tartışma / Fikir Alışverişi
 - **Internet of Things (IoT)**: Nesnelerin İnterneti
 - **Artificial Intelligence (AI)**: Yapay Zekâ
-- **Uyum**: Hoca her nedense *Harmony* olarak ele aldı uyumu ilk başta ama, harmony daha ziyade müzikal ve felsefî bir kelime, betimleyici bir dilde kullanılır genellikle. Oysa bir şirketin pazara "uyum" sağlamasının harmony değil, **adaptation** olması gerekir. Bir ürünün müşteriye uymasına ise product-market **fit** denilebilir. Yok, eğer mevzubahis teknolojik bir ürünün uyumluluğu ise, compatibility denmesi lazım. GitHub'da compatible with older versions diye görülür mesela sürekli, eski sürümlerle uyumlu anlamında. 
+- **Uyum**: Hoca her nedense *Harmony* olarak ele aldı uyumu ilk başta ama, harmony daha ziyade müzikal ve felsefî, insanlar-arası uyumu imleyen bir kelime; betimleyici bir dilde kullanılır genellikle. Bir şirketin pazara "uyum" sağlamasının harmony değil, **adaptation** olması gerekir. Bir ürünün müşteriye uymasına ise product-market **fit** denilebilir. Yok, eğer mevzubahis teknolojik bir ürünün uyumluluğu ise, compatibility denmesi lazım. GitHub'da compatible with older versions diye görülür mesela sürekli, eski sürümlerle uyumlu anlamında. 
 - **Machine Learning**: Makine Öğrenmesi
 - **Decentralized**: Merkeziyetsiz
 - **Smart Contracts**: Akıllı Sözleşmeler
