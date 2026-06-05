@@ -4,12 +4,6 @@ tags:
   - akademi/dersler/dijital-pazarlama
 created: 2026-03-27
 ---
-## Bilgilendirme
-- **Sınav Formatı**: Soru Havuzu mantığı benimsenecek. Sınav kâğıdında 5, 10, 20, 50 ve 100 puanlık çeşitli klasik/açık uçlu sorular yer alacak. Toplamda 100 puanı aşmayacak şekilde istenilen sorular seçilerek cevaplanabilecektir. Misal, sadece 100 puanlık tek bir soruyu çözüp çıkmak veya küçük puanlı soruları toplayarak 100'e ulaşmak mümkün. 
-- **Sınav İçeriği ve Beklenti**: [[dijital-pazarlama-3|Dijital Pazarlama]]'nın 3. Dersinde belirttiğim gibi, ödevleri keyfinden vermiyor hoca. Sınavda bu ödevlerden ve bu ödevlerle ders ile bağlantı kurulmasını konu alan sorular gelecek. Salt slaytlara çalışmak yetersiz kalır. Hoca **%100 soru gelecek** diye belirtti ödevlerden. Kavramların ezberlenmesi değil; pazarlama ile ilişki ağı kurulması ve bu bağların yorumlanması beklenmektedir. Kategorik ayrımlar değil, ilgili teknolojinin pazarlamadaki yeri nedir minvalinde yorum odaklı ve bağlantı kurma odaklı sorular gelecek.
-
----
-
 # Ders Notları
 
 ## 1. Sosyal Medya ve Çift Yönlü İletişim (Two-Way Communication)
@@ -31,7 +25,7 @@ Günümüzde geleneksel web bloglarının yerini Instagram Reels, gezi/yemek vid
 Hızlı, kısa ve anlık içeriklerin paylaşıldığı platformlardır. En bariz örneği X'dir herhalde. Özellikle markaların kısa süreli indirim kampanyalarını, promosyonlarını duyurmasında veya acil durumlarda kriz yönetimini sağlamasında önemli bir rol üstlenir.
 
 #### Medya Paylaşım Siteleri ve Vikiler
-YouTube ve TikTok gibi video odaklı platformlar medya paylaşımına girerken, Wikipedia gibi vikiler (genişletilmiş bilgi blogları) sınıfındadır. Gelgelelim derste anlatılan bir tehlike var, biz buna **post-truth** deriz aslında; gerçeklik yanılgısı yahut hakîkat yanılgısı olarak çevirmek mümkündür. Vikilerde içeriğin kullanıcılar tarafından üretilmesi ciddi bir bilgi kirliliğine ve dezenformasyona yol açma riski taşır. Sosyal bulaşma ile beraber post-truth çok çabuk yayılır nitekim. 
+YouTube ve TikTok gibi video odaklı platformlar medya paylaşımına girerken, Wikipedia gibi vikiler (genişletilmiş bilgi blogları) sınıfındadır. Gelgelelim derste anlatılan bir tehlike var, biz buna **post-truth** deriz aslında; gerçeklik yanılgısı, gerçeklik sonrası olarak çevirmek mümkündür. Vikilerde içeriğin kullanıcılar tarafından üretilmesi ciddi bir bilgi kirliliğine ve dezenformasyona yol açma riski taşır. Sosyal bulaşma ile beraber post-truth çok çabuk yayılır nitekim. 
 
 ---
 
@@ -42,9 +36,8 @@ Endüstriyel evrim sürecinde Endüstri 4.0 (Büyük Veri, ML, IoT) yerini yava�
 
 Her ne kadar zamandan tasarruv, ivme, kalite, ciddi maliyet düşüşü gibi avantajlar sunsa bile insanî etkileşimi ve öteki ile karşılaşmayı engelleyen, günbegün duygusal bağın yok olmasına ve tükdüzeliğe sebebiyet vermesi gibi olumsuz yanları da vardır. İstihdam/işsizlik sorunları da cabası.
 
-1. **Endüstriyel Robotlar**: Endüstri işte. Üretim hattında, montajta, lojistikte, otomotiv sektöründe vs.
+1. **Endüstriyel Robotlar**: Endüstri işte. Üretim hattında, montajda, lojistikte, otomotiv sektöründe vs.
 2. **Hizmet Robotları**: Hizmet işte bu da. Teslimat droneları, sağlık/ameliyat robotları, yaşlı bakım robotları gibi gibi, hizmet sektörüne değgin robot.
-
 
 ### Pazarlama Karması (4P) ve Robotlar
 Robotik teknolojiler geleneksel 4P bileşenlerini şu şekilde dönüştürmektedir:
@@ -65,7 +58,7 @@ Robotik teknolojiler geleneksel 4P bileşenlerini şu şekilde dönüştürmekte
 ```mermaid
 mindmap
   root((Hizmet Pazarlaması<br/>7P))
-    Geleneksel_4P
+    Geleneksel 4P
       Ürün (Product)
       Fiyat (Price)
       Dağıtım (Place)
@@ -98,6 +91,45 @@ Tüketicilerin arama geçmişleri, GPS hareketleri ve konum verileri büyük bir
 
 
 ---
+
+## 5. Akıllı Sistemler (Smart Systems) ve Pazarlama Entegrasyonu
+Teknolojinin dönüşümüyle beraber salt veri toplayan cihazlardan ziyade; veriyi **analiz eden, yorumlayan ve buna göre kendi kendine eylem üretebilen** yapılara geçiş yaptık. Bir önceki başlıkta robotlar için bahsettiğimiz "**Algıla, Düşün, Eyle**" mantığının tüm bir sisteme, ağa veya fiziksel altyapıya entegre edilmiş hâlidir bu.
+### Akıllılık nedir?
+Bir sistemin akıllı sayılabilmesi için bilgiyi toplaması yetmez; bilgiyi işlemeli, öğrenmeli ve en önemlisi **insan müdahalesi olmadan** eyleme dökebilmelidir.
+
+
+## 6. Pazarlamadaki Akıllılık Paradigması ve Dönüşüm
+Pazarlamada akıllılık; müşteri verisinin sürekli toplanması, anlamlandırılması, davranış örüntülerinin keşfedilmesi ve **geleceğe yönelik tahmin üretilerek otomatik aksiyon alınması** sürecidir.
+
+### Geleneksel Pazarlama vs. Akıllı Pazarlama
+
+- Toplu iletişimden $\to$ **Kişiselleştirilmiş** iletişime.
+- Geçmiş veri (ex-post) analizinden $\to$ **Gerçek zamanlı (real-time) veri analizine**.
+- Kampanya sonu ölçümünden $\to$ **Anlık performans optimizasyonuna**.
+- Statik (sabit) segmentasyondan $\to$ **Dinamik mikro-segmentasyona**. 
+- İnsan ağırlıklı karar mekanizmasından $\to$ **Yapay Zekâ destekli kararlara**.
+
+```mermaid
+mindmap
+  root((Pazarlamada<br/>Akıllılık))
+    Veri_Yönetimi
+      Sürekli Veri Toplama
+      Örüntü Tespiti
+      Büyük Veri Analizi
+    Stratejik_Dönüşüm
+      Reaktiften Proaktife
+      Gelecek Tahmini
+      Otonom Aksiyon
+    Müşteri_Deneyimi
+      Dinamik Mikro-Segmentasyon
+      Kişiselleştirilmiş Ürün
+      Gerçek Zamanlı İletişim
+    Kullanılan_Araçlar
+      Beacon / Mikrolokasyon
+      Sohbet Robotları (Chatbots)
+      Yüz Tanıma Sistemleri
+```
+
 
 ## İngilizce Terimler
 - **Augmented Reality**: Artırılmış Gerçeklik. Pokemon Go gibi *fiziksel dünya ile dijital nesnelerin* kamera aracılığıyla eşzamanlı birleşimine AR (Augmented Reality) diyoruz.

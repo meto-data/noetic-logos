@@ -1,3 +1,7 @@
+---
+created: 2026-03-15
+---
+
 Fordizm temelde **kitle üretimi (mass production)** ile **kitle tüketiminin (mass consumption)** birleştirildiği ekonomik ve endüstriyel bir sistemdir. Sembolik olarak 1913-1914 yıllarında doğduğu kabul edilen Fordizm, Henry Ford'un 1908'de **Model T** aracını piyasayı sürmesinin ardından 1913'te fabrikasında **yürüyen montaj hattını** kurmuş, 1914'de ise işçilerine günlük 5 dolar ücret verme politikasını başlatarak bu sistemi tamamlamıştır.
 
 İşçilerin parçaların yanına gitmesi yerine, parçaların işçilerin önüne mekanik bir sistemle gelmesini sağlayan yürüyen montaj hattı Fordizmin üretimdeki en devrimsel icadı olsa gerek. Nitekim bu bantlar sayesinde üretim kesintisiz bir akış hâline getirilmiştir. Bu yenilik inanılmaz bir ivme yaratmış; örneğin bir otomobil şasisinin montaj süresi 12.5 saatten 2 saatin altına inmiş ve üretim hızı her 29 saniyede bir araç üretme gibi o dönem için hayal dahi edilemeyen bir kapasiteye ulaşmıştır.
@@ -23,9 +27,9 @@ Agresif ve pahalı reklam kampanyalarına milyonlar dökmek yerine icraatlarıyl
 ## Fordizm ve [[dijital-pazarlama-1#Pazarlama Karması (Marketing Mix - 4P)|Pazarlama Karması]]
 
 ### Ürün (Product)
-- Fordizmde kişiselleştirme karmaşasından uzak, tamamen standart ve evrensel bir çözüm olarak gösterir kendini ürün. **Model T**, bozuk yollara dayanıklı, hafif, arızalandığında kolayca tamir edilebilecek basit ve işlevsel olarak tasarlanmıştır. Ürünü bir statü sembolü olmaktan çıkarıp herkesin hayatını kolaylaştıran temel bir ihtiyaca dönüştürmüştür bu da.
+Fordizmde kişiselleştirme karmaşasından uzak, tamamen standart ve evrensel bir çözüm olarak gösterir kendini ürün. **Model T**, bozuk yollara dayanıklı, hafif, arızalandığında kolayca tamir edilebilecek basit ve işlevsel olarak tasarlanmıştır. Ürünü bir statü sembolü olmaktan çıkarıp herkesin hayatını kolaylaştıran temel bir ihtiyaca dönüştürmüştür bu da.
 ### Fiyat (Price)
-- Sistemin en yenilmez silahıdır herhalde. Yürüyen montaj hattının yarattığı üretim hızı ve [[Ölçek Ekonomisi|ölçek ekonomileri]], birim maliyetleri tarihte görülmemiş seviyelere çekmiştir. Ford, kâr marjını yüksek tutmak yerine fiyatları sürekli aşağı çekerek sürümden kazanma yoluna gitmiş ve bu sayede otomobili ortalama bir işçinin rahatlıkla alabileceği bir fiyat noktasına konumlandırmıştır.
+Sistemin en yenilmez silahıdır herhalde. Yürüyen montaj hattının yarattığı üretim hızı ve [[Ölçek Ekonomisi|ölçek ekonomileri]], birim maliyetleri tarihte görülmemiş seviyelere çekmiştir. Ford, kâr marjını yüksek tutmak yerine fiyatları sürekli aşağı çekerek sürümden kazanma yoluna gitmiş ve bu sayede otomobili ortalama bir işçinin rahatlıkla alabileceği bir fiyat noktasına konumlandırmıştır.
 
 ### Dağıtım (Place)
 Üretilen milyonlarca aracın aynı hızla tüketiciye ulaşması gerekiyordu. Yerel ve küçük çaplı satıcılık yerine Amerika'nın dört bir yanına yayılan güçlü, merkezî ve standartlaştırılmış bir ulusal dağıtım ağı kurulmuş; ürün, tüketicinin ayağına götürülmüştür.
@@ -41,4 +45,4 @@ Teknoloji Kabul Modeli, yeni bir teknolojinin toplum tarafından benimsenmesinin
 O dönemin ilk otomobilleri sürekli bozulan ve sadece özel şoförlerin yahut mekanik ustaların kullanabildiği ziyadesiyle karmaşık makinelerken Model T'nin ortaya çıkışı ile sade ve anlaşılır bir mühendislikle at arabasından başka bir şey kullanmamış sıradan bir çiftçi bile bu aracı kolayca kullanabilecek ve temel bakımını kendi başına yapabilecek hale gelmiştir. İşte bu "basitlik", teknolojinin önündeki psikolojik bariyerleri yıkmış ve kullanımın kolay olduğu algısını oluşturmuştur.
 
 ### Algılanan Fayda
-Zenginler için bir hafta sonu eğlencesi değil, kırsalda yaşayan bir çiftçinin kasabaya ürünlerini götürmesini de hızlandıran, bir doktorun hastalarına zamanında yetişmesini de sağlayan ya da bir işçinin fabrikaya ulaşımını kolaylaştıran muazzam bir ivme ve verimlilik aracıydı Model T. İnsanların günlük hayatlarına doğrudan ve çok güçlü bir pratik fayda sağladığı için, teknoloji toplum tarafından bir lüks olarak değil bir ihtiyaç olarak anında kabul görmüştür.
+Sadece zenginlerle kalmamış, kırsalda yaşayan bir çiftçinin kasabaya ürünlerini götürmesini de hızlandıran, bir doktorun hastalarına zamanında yetişmesini de sağlayan ya da bir işçinin fabrikaya ulaşımını kolaylaştıran muazzam bir ivme ve verimlilik aracı olmuştur Model T. İnsanların günlük hayatlarına doğrudan ve çok güçlü bir pratik fayda sağladığı için, teknoloji toplum tarafından bir ihtiyaç olarak anında kabul görmüştür.

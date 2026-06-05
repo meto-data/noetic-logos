@@ -9,12 +9,12 @@ created: 2026-03-12
 **Ödev**: Henry Ford ve Fordizm akımının pazarlama ile ilişkisi bayram sonrasına ödev olarak verildi.
 
 ---
-Başlamadan önce, [[ATLAS/1-ders-notlari/2-sinif/2-2-bahar/dijital-pazarlama/teorik-notlar/odevler/fordizm|Fordizm]] araştırmasına bakmanızı öneririm ödev için. Ancak bundan da öte, [[fordizm-kritik|Fordizme yönelik yaptığım şu kritiğe]] de bakmanızı öneririm. Nitekim Fordizm verimlilik, ivme gibi hikâyeler adı altında pazarlansa bile art alanında olan birçok gayri-insanî faktör var. 
+Başlamadan önce, [[fordizm|Fordizm]] araştırmasına bakmanızı öneririm ödev için. Ancak bundan da öte, [[fordizm-kritik|Fordizme yönelik yaptığım şu kritiğe]] de bakmanızı öneririm. Nitekim Fordizm verimlilik, ivme gibi hikâyeler adı altında pazarlansa bile art alanında olan birçok gayri-insanî faktör var. 
 ## Veri, Enformasyon ve Makine Öğrenmesi
 
 Yirminci yüzyılın ortalarından itibaren tahmine dayalı geleneksel yöntemlerin yerini veriye dayalı analitik sistemlerin almasıyla dijital dönüşüm mefhumu geri dönülemez bir patikaya saptı. Haddizatında veri (*data*) dediğimiz kavram kendi başına yalıtık ve anlamsız bir yığın olmaktan öteye gidemezken, belirli bir algoritmik tezgâhta işlenip enformasyona (information) tahvil edilmesiyle ancak bir değer yaratımından ve bir anlamdan söz edebiliriz.
 
-Bu veri, yani ham gerçekler; sayılar, metinler yahut görseller formunda karşımıza çıkabilir ve toplanış biçimine göre **yapılandırılmış**, **yapılandırılmamış** yahut **yarı yapılandırılmış** olarak tasnif edilir. Söz gelişi, elimizde belirli mülakat sorularıyla sahaya inmemiz **yapılandırılmış** bir veri seti sunarken anlık reaksiyonlarla şekillenen bir diyalog **yarı yapılandırılmış** formata bürünüri.
+Bu veri, yani ham gerçekler; sayılar, metinler yahut görseller formunda karşımıza çıkabilir ve toplanış biçimine göre **yapılandırılmış**, **yapılandırılmamış** yahut **yarı yapılandırılmış** olarak tasnif edilir. Söz gelişi, elimizde belirli mülakat sorularıyla sahaya inmemiz **yapılandırılmış** bir veri seti sunarken anlık reaksiyonlarla şekillenen bir diyalog **yarı yapılandırılmış** formata bürünür.
 
 - **Yapılandırılmış (Structured) Veri**: Önceden belirlenmiş mülakat sorularıyla alınan net yanıtlar buna örnektir.
 - **Yarı Yapılandırılmış (Semi-structured) Veri**: Hem hazırlıklı soruların hem de spontane gelişen diyalogların harmanı.

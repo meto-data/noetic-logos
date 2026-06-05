@@ -61,7 +61,7 @@ flowchart LR
 
 
 > [!TIP] AIDA Modeli
-> Tüketicinin bir reklama/içeriğe maruz kaldığında geçirdiği psikolojik evreler, reklamcılığın temel modeli olan **AIDA** ile açıklanıyor . *(Sınavda sorulma ihtimali yüksek).* <br>
+> Tüketicinin bir reklama/içeriğe maruz kaldığında geçirdiği psikolojik evreler, reklamcılığın temel modeli olan **AIDA** ile açıklanıyor. *(Sınavda sorulma ihtimali yüksek).* <br>
 > **A**ttention (Dikkat): Tüketicinin dikkatini çekmek. <br>
 > **I**nterest (İlgi): Ürüne yönelik ilgi uyandırmak. <br>
 > **D**esire (Arzu): Tüketicide ürüne sahip olma arzusu uyandırmak. <br>
@@ -82,7 +82,7 @@ Geleneksel pazarlamadan daha etkilidir çünkü kaynağı markanın kendisi değ
 
 - **E-WOMM (Electronic Word of Mouth):** İnternet ortamındaki elektronik ağızdan ağza pazarlamadır.
 - **Özellikleri:** Eşzamanlıdır, asenkrondur, coğrafi sınırları yoktur. Satın alma niyetini doğrudan etkiler. Özellikle yüksek riskli ve pahalı ürünlerde (örn: Cartier saat veya araba alırken) tüketiciler e-WOMM'a (yorum okumaya) yoğun ihtiyaç duyar. 
-	- Fiziksel sosyal ağlar ortalama 150 kişiyle sınırlıyken e-WOMM'un erişimi küreseldir
+	- Fiziksel sosyal ağlar ortalama 150 kişiyle sınırlıyken e-WOMM'un erişimi küreseldir.
 
 ### 4. Dijital Psikoloji: Normatif Baskı ve Ördek Sendromu
 İnsanlar sosyal ağlarda birer düğüm noktasıdır ve diğer düğümlerden etkilenirler.
@@ -98,9 +98,7 @@ Tüketicilerin sadece bir ürünü satın almakla kalmayıp, o marka etrafında 
 > Hoca sınavda bunu sorabileceğini belirtti. Bu modele göre bir marka topluluğunun 3 şartı vardır:
 > 1. **Biz Bilinci (Consciousness of Kind):** "Biz Apple kullanıcılarıyız", "Biz Harley Davidson'cıyız" hissiyatı. Üye olmayanlardan ayrışma.
 > 2. **Ritüeller ve Gelenekler:** Ortak semboller, markaya özgü kutlamalar veya jargonu paylaşma.
-> 3. **Ahlaki Sorumluluk:** Topluluk üyelerinin birbirine yardım etme güdüsü (Örn: Yolda kalan bir Harley sürücüsüne diğerinin yardım etmesi veya Apple forumlarında insanların birbirinin teknik sorununu çözmesi).
-> 
-> <br>
+> 3. **Ahlaki Sorumluluk:** Topluluk üyelerinin birbirine yardım etme güdüsü (Örn: Yolda kalan bir Harley sürücüsüne diğerinin yardım etmesi veya Apple forumlarında insanların birbirinin teknik sorununu çözmesi).<br>
 >Bu modelde odak noktası sadece marka değil, aynı zamanda müşteri-müşteri arasındaki karmaşık ağ yapısıdır.
 
 ### 6. Etkileyiciler (Influencers) ve Nesnelerin İnterneti (IoT)
@@ -111,7 +109,7 @@ Tüketicilerin sadece bir ürünü satın almakla kalmayıp, o marka etrafında 
 	- Ağ stratejilerinin üç temel varsayımından biri şudur: **Kanaat önderleri hedeflenmelidir. Başarılı bir sosyal bulaşma yaratmak istiyorsak bu kişileri bulmak şart**.
 - **Pazarlama Kurtları (Marketing Mavens):** Belirli bir pazar veya ürün hakkında derinlemesine bilgi sahibi olan, piyasa dedikodularını, indirimleri, kampanyaları bilen ve bunu çevresiyle paylaşan uzman tüketicilerdir. **Fikir liderlerinden farkı; uzmanlıklarının tek bir ürün kategorisine özgü olmaması, genel pazar bilgisine sahip olmalarıdır.**
 - **[[Nesnelerin İnterneti (IoT)]]:** Cihazların (buzdolabı, saat, araba) sensörler aracılığıyla internete bağlanıp birbirleriyle veri alışverişi yapmasıdır. Pazarlamacılar için devasa bir **Büyük Veri (Big Data)** kaynağıdır. 
-	- IoT sistemi üç temel bileşenden oluşur: Fiziksel nesneler, bağlantı altyapısı ve veri işleme sistemleri. Pazarlama karması (4P) üzerinde Dinamik Fiyatlandırma ve Kişiye Özel Kampanyalar gibi devasa yenilikler sunar.»
+	- IoT sistemi üç temel bileşenden oluşur: Fiziksel nesneler, bağlantı altyapısı ve veri işleme sistemleri. Pazarlama karması (4P) üzerinde Dinamik Fiyatlandırma ve Kişiye Özel Kampanyalar gibi devasa yenilikler sunar.
 
 ### 7. Tüketimde Fayda (Utility) Türleri
 - **Fonksiyonel Fayda:** Ürünün temel işlevini yerine getirmesidir. (Örn: Saatin zamanı göstermesi, arabanın A noktasından B noktasına götürmesi).

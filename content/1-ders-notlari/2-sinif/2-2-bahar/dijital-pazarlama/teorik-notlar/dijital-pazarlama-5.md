@@ -41,7 +41,7 @@ mindmap
 
 ---
 ## 2. Endüstri 4.0, Fordizm ve Yapay Zekâ
-Endüstriyel devrimlerin (1.0 buhar, 2.0 elektrik/seri üretim) ardından 2011 yılında Almanya'da ortaya çıkan Endüstri 4.0; nesnelerin internetini, bulut bilişimi ve otonom robotları hayatımıza sokmuştur.
+Endüstriyel devrimlerin ardından 2011 yılında Almanya'da ortaya çıkan Endüstri 4.0; nesnelerin internetini, bulut bilişimi ve otonom robotları hayatımıza sokmuştur.
 
 - **Fordizm (Geçen Haftanın Ödevi)**: Henry Ford'un pazarlama anlayışı tüketicinin taleplerinin göz ardı edildiği tek tip (standart) üretime dayanır. Düşük fiyat stratejisiyle ölçek ekonomisi (sürümden kazanma) yaratılmıştır. "Ne üretirsem onu satarım" mantığı egemendir (Bkz. [[ATLAS/1-ders-notlari/2-sinif/2-2-bahar/dijital-pazarlama/teorik-notlar/odevler/fordizm]]).
 - **Yapay Zekâ (AI)**: 1956'da John McCarthy tarafından literatüre kazandırılmıştır. Türkiye'de Cahit Arf'ın "Makineler nasıl öğrenir?" semineri vardır...
@@ -113,13 +113,3 @@ graph LR
 - **Advertisement Bombarding**: Reklam Bombardımanı. Literatürde ve sektörde **Ad Bombardment** olarak kullanılır daha ziyade, tüketicide yarattığı etki bakımından "**Ad Fatigue" (Reklam Yorgunluğu)** olarak ifade edilir. **Bombarding** fiilimsisi pek kullanılmaz.
 - **Word-of-Mouth Marketing** veya **Mouth-to-Mouth Marketing**: Ağızdan ağza pazarlama.
 - **Two-Way Communication**: Çift yönlü iletişim. Hoca *two-faced communication* demişti galiba, eğer öyleyse yanlış söyledi. Nitekim **two-faced** "ikiyüzlü, riyakâr" anlamlarına gelir. Markaların tüketiciye karşı tutumunu düşünürsek doğru denilebilir :D Pazarlama terminolojisinde <b><u>two-way communication</u></b> denilir, doğrusu budur.
-
----
-
-# Derse Aşkın: Örüntüler ve Bağlantılar
-### Artırılmış Gerçeklik (AR) ve Teknoloji Kabul Modeli
-- Derste zikredilen "Akıllı Aynalar" yahut IKEA Place gibi Artırılmış Gerçeklik (AR) teknolojilerinin tüketici tarafından böylesine ivmeli bir şekilde benimsenmesinin art alanında yatan mefhum doğrudan [[teknoloji-kabul-modeli|Teknoloji Kabul Modeli (TAM)]] ile açıklanabilir. **Tüketicinin fiziksel bir mağazaya gidip kabin sırası bekleme ve kıyafet deneme zahmeti ortadan kalkar; bu da modeldeki Algılanan Kullanım Kolaylığını arşa çıkarır.** Model T'nin at arabasından kurtulmak isteyen birine sağladığı **Algılanan Fayda** neyse, **bugün AR teknolojisinin evinden çıkmadan ürün denemek isteyen tüketiciye sunduğu fayda da odur**. Birey, zaman kazandığına dair rasyonel bir karar aldığını zannederken, haddizatında efor sarf etmeksizin [[Hedonik Tüketim]]in o konforlu sularına çekilmektedir. İhtiyaçtan ziyade "deneyimleme" hazzı maksimize edilir.
-
-### Çift Yönlü İletişim ve Ağ Toplumunun Hegemonyası
-
-- Geleneksel medyanın o tek yönlü pasif alıcısı artık yok olmuştur; onun yerine Manuel Castells'in [[Ağ Toplumu (Network Society]] kavramında vücut bulan, ağın tam ortasında duran ve sürekli reaksiyon vermek zorunda olan aktif bir özne gelmiştir. Markalar, bizleri sürekli kapsama alanında tutarak [[Sosyal Bulaşma]]nın hızını artırır. O anlık bildirimler, aslında sosyal medyadaki kusursuz vitrinimizi, yani [[Ördek Sendromu - Bağlantı|Ördek Sendromu]]muzu besleyecek olan tüketim nesnelerini bize sürekli hatırlatan dijital dürtmelerdir. Neticesinde markalarla kurduğumuz bu iletişim bir sohbetten ziyade ağın içinde sürekli veri üreten birer düğüm noktası olmamızın tescilidir.
