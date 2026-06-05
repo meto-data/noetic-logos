@@ -1,5 +1,5 @@
 ---
-title: Dijital Pazarlama - 12
+title: Dijital Pazarlama - 13
 tags:
   - akademi/dersler/dijital-pazarlama
 created: 2026-05-28
@@ -29,3 +29,5 @@ Geleneksel seri üretimin hız ve maliyet avantajını, bireysel taleplerle birl
 
 ### Geleceğin DIY'i: Dijital Evren
 Metaverse ve Sanal Gerçeklik simülasyonunda avatar giydirmek, Nikeland (Roblox) veya Minecraft'ta kendi dünyanı inşa etmek de dijital bir DIY sürecidir.
+
+
