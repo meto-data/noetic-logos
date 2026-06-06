@@ -18,13 +18,13 @@ created: 2026-02-26
 
 1. **Dışsal Değişkenler (External Variables)**: Sürecin sıfır noktasıdır. Bireyin dışındaki her şeyi; sistemin tasarım özelliklerini, teknik altyapıyı, kullanıcıya verilen eğitimi, kurumsal dayatmaları, bireyin cinsiyet ve yaş gibi farklılıklarını kapsar.
 
-2. **Algılanan Fayda (Perceived Usefulness - PU)**: Bireyin söz konusu sistemi kullanmasının kendi iş performansını yahut mesleki verimliliğini artıracağına dair taşıdığı subjektif inanç. **Kuramın mutlak merkezidir** desek yeridir. Nitekim araştırmalar da bir sistem zor ve karmaık olsa bile eğer kullanıcıya yüksek bir fayda sağlıyorsa kullanıcının o zorluğa katlanacağını ve buna mukabil kullanımı dünyanın en kolay sistemi bile olsa işe yaramıyorsa (faydasızsa) kabul görmeyeceğini göstermektedir.
+2. **Algılanan Fayda (Perceived Usefulness - PU)**: Bireyin söz konusu sistemi kullanmasının kendi iş performansını yahut mesleki verimliliğini artıracağına dair taşıdığı subjektif inanç. **Kuramın mutlak merkezidir** desek yeridir. Nitekim araştırmalar da bir sistem zor ve karmaşık olsa bile eğer kullanıcıya yüksek bir fayda sağlıyorsa kullanıcının o zorluğa katlanacağını ve buna mukabil kullanımı dünyanın en kolay sistemi bile olsa işe yaramıyorsa (faydasızsa) kabul görmeyeceğini göstermektedir.
 
 3. **Algılanan Kullanım Kolaylığı (Perceived Ease of Use - PEOU)**: Bireyin söz konusu sistemi kullanmanın zihinsel veya fiziksel hiçbir zahmet gerektirmeyeceğine, yani sistemin kolay olacağına dair inancının derecesi.
 
 4. **Kullanıma Yönelik Tutum (Attitude Toward Using - A)**: Duygusal reaksiyon da denilebilir. Kullanıcının o teknolojiyi kullanmaya yönelik geliştirdiği genel olumlu veya olumsuz hissiyattır. Zihinde beliren fayda ve kolaylık inançları birleşerek bu tutumu doğurur.
 
-5. **Davranışsal Niyet (Behavioral Intention - BI)**: Eylemem karar vermek de denilebilir. Kullanıcının söz konusu teknolojiyi gelecekte kullanmaya yönelik aldığı bilinçli plandır. Orijinal modele göre hem kişinin *kullanıma yönelik tutumu* hem de doğrudan *algıladığı fayda* (PU) bu niyeti tetikler. Yani birey «Bu işime yarar, hislerim de olumlu, o hâlde bunu kullanacağım» şeklinde kesin bir rasyonel karar alır. Gerekçeli Eylem Teorisi'nden miras alınan varsayıma göre insanın eylemini tahmin etmenin en iyi yolu bu niyeti ölçmektir.
+5. **Davranışsal Niyet (Behavioral Intention - BI)**: Eyleme karar vermek de denilebilir. Kullanıcının söz konusu teknolojiyi gelecekte kullanmaya yönelik aldığı bilinçli plandır. Orijinal modele göre hem kişinin *kullanıma yönelik tutumu* hem de doğrudan *algıladığı fayda* (PU) bu niyeti tetikler. Yani birey «Bu işime yarar, hislerim de olumlu, o hâlde bunu kullanacağım» şeklinde kesin bir rasyonel karar alır. Gerekçeli Eylem Teorisi'nden miras alınan varsayıma göre insanın eylemini tahmin etmenin en iyi yolu bu niyeti ölçmektir.
 
 6. **Gerçekleşen Kullanım (Actual System Use - AU)**: Niyetin fiiliyata döküldüğü, zincirin son halkası. Zihinde kurgulanan niyet doğrultusunda sistem gerçek hayatta, günlük rutinin bir parçası olarak kullanılmaya başlar. Instagram kullanımımız buna örnek gibidir.
 

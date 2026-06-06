@@ -43,7 +43,7 @@ mindmap
 ## 2. Endüstri 4.0, Fordizm ve Yapay Zekâ
 Endüstriyel devrimlerin ardından 2011 yılında Almanya'da ortaya çıkan Endüstri 4.0; nesnelerin internetini, bulut bilişimi ve otonom robotları hayatımıza sokmuştur.
 
-- **Fordizm (Geçen Haftanın Ödevi)**: Henry Ford'un pazarlama anlayışı tüketicinin taleplerinin göz ardı edildiği tek tip (standart) üretime dayanır. Düşük fiyat stratejisiyle ölçek ekonomisi (sürümden kazanma) yaratılmıştır. "Ne üretirsem onu satarım" mantığı egemendir (Bkz. [[ATLAS/1-ders-notlari/2-sinif/2-2-bahar/dijital-pazarlama/teorik-notlar/odevler/fordizm]]).
+- **Fordizm (Geçen Haftanın Ödevi)**: Henry Ford'un pazarlama anlayışı tüketicinin taleplerinin göz ardı edildiği tek tip (standart) üretime dayanır. Düşük fiyat stratejisiyle ölçek ekonomisi (sürümden kazanma) yaratılmıştır. "Ne üretirsem onu satarım" mantığı egemendir (Bkz. [[fordizm]]).
 - **Yapay Zekâ (AI)**: 1956'da John McCarthy tarafından literatüre kazandırılmıştır. Türkiye'de Cahit Arf'ın "Makineler nasıl öğrenir?" semineri vardır...
 	- [[dijital-pazarlama-4#Yapay Zekâ|Yapay Zekâ - Dijital Pazarlama 4. Ders]]
 
