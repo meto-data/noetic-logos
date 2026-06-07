@@ -8,7 +8,7 @@ created: 2026-02-26
 
 - **Ödev**: Porter'ın 5 Güç Modeli (Porter's Five Forces) araştırılacak (bkz. [[4- Bilgi Sistemleri, Organizasyon ve Strateji II#Porter'in Rekabetçi Güçler Modeli (5 Güç Modeli)|5 Güç Modeli]])
 - **Pazarlamanın 4P'si Dijital Uygulama**: Geçen hafta işlenen [[dijital-pazarlama-1#Pazarlama Karması (Marketing Mix - 4P)|Pazarlama Karması]] konusu bu hafta dijitale bağlandı. Sınavda bir internet sitesi veya uygulama fikri verip/isteyip, bunun 4P'sini açıklamamız istenebilirmiş. PDF'te bu konu IoT (Nesnelerin İnterneti) bağlamında da detaylandırılmış; "Nesnelerin interneti pazarlama karmasını nasıl değiştirir?" gibi bir soru gelebilir, bilemiyom.
-- **İngilizce-Türkçe Kelime Eşleştirmesi**: Sınavın en az 50 puanlık kısmının burası olabileceğini dile getirdi. Kesin değil, ancak daha önceleri yaptığı bir şeymiş. Derste karşılaştığımız İngilizce kelimelerden 10-20 tanesini verip Türkçe karşılıklarını yazmamızı isteyebilirmiş. Eh, bunları not almak gereksizdi bana göre aslında ama, düzgün bir dökümantasyon için almak lazımdı mecbur.
+- **İngilizce-Türkçe Kelime Eşleştirmesi**: Sınavın en az 50 puanlık kısmının burası olabileceğini dile getirdi. Kesin değil, ancak daha önceleri yaptığı bir şeymiş. Derste karşılaştığımız İngilizce kelimelerden 10-20 tanesini verip Türkçe karşılıklarını yazmamızı isteyebilirmiş.
 - **Not**: Teknoloji Kabul Modeli, geçmiş haftanın ödevi idi, haftaya olan ders için de ödev olarak verildi nitekim. Teknoloji Kabul Modeli'ni anlattığım yazı şurada mevcut: [[teknoloji-kabul-modeli|Teknoloji Kabul Modeli]]
 
 
