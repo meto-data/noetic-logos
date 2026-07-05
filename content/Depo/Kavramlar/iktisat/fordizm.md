@@ -1,12 +1,16 @@
+---
+created: 2026-03-15
+---
+
 Fordizm temelde **kitle üretimi (mass production)** ile **kitle tüketiminin (mass consumption)** birleştirildiği ekonomik ve endüstriyel bir sistemdir. Sembolik olarak 1913-1914 yıllarında doğduğu kabul edilen Fordizm, Henry Ford'un 1908'de **Model T** aracını piyasayı sürmesinin ardından 1913'te fabrikasında **yürüyen montaj hattını** kurmuş, 1914'de ise işçilerine günlük 5 dolar ücret verme politikasını başlatarak bu sistemi tamamlamıştır.
 
 İşçilerin parçaların yanına gitmesi yerine, parçaların işçilerin önüne mekanik bir sistemle gelmesini sağlayan yürüyen montaj hattı Fordizmin üretimdeki en devrimsel icadı olsa gerek. Nitekim bu bantlar sayesinde üretim kesintisiz bir akış hâline getirilmiştir. Bu yenilik inanılmaz bir ivme yaratmış; örneğin bir otomobil şasisinin montaj süresi 12.5 saatten 2 saatin altına inmiş ve üretim hızı her 29 saniyede bir araç üretme gibi o dönem için hayal dahi edilemeyen bir kapasiteye ulaşmıştır.
 
 Sistem, ürünlerin ve kullanılan parçaların yüzde yüz standartlaştırılmasına dayanır. "Her şeyin aynı olduğu" bu düzende tek tip bir ürün (**Model T**) kitleler için devasa hacimlerde üretilmiştir. **[[1- Klasik Yönetim#Bilimsel Yönetim Yaklaşımı|Frederick W. Taylor'ın "Bilimsel Yönetim"]]** ilkeleri de üretim sürecine entegre edilerek karmaşık ve ustalık gerektiren işler en küçük, en basit ve şimşek hızında tekrarlanabilir görevlere bölünmüştür. Zihinsel planlama işi mühendislere devredilmiş, işçilerin özel amaçlı makineler kullanarak önlerine gelen işlemi en hızlı ve verimli şekilde yapmaları sağlanmış, böylece hata payı en aza indirilmiştir.
 
-Ford'un bir başka adımlarından birisi de 1914 yılında işçilerin çalışma saatlerini 9 saatten 8 saate düşürürken, günlük ücretlerini 2 küsur dolardan tam 5 dolara çıkarmasıdır. Bu rekor ücret politikası, kitle üretimi ile kütle tüketimi arasında 'kusursuz' bir döngü kurmuştur. İşçilere yüksek maaş vererek onların ürettikleri otomobilleri satın alabilmelerini sağlamış, böylece **kendi tüketici sınıfını da bizzat fabrikasında inşa etmiştir.** Bu devasa ücret artışı sayesinde işçi devir oranları ve devamsızlıklar bıçak gibi kesilmiş, işgücü son derce istikrarlı, şirkete ölümüne bağlı ve yüksek verimli bir hâle gelmiştir. 
+Ford'un bir başka adımlarından birisi de 1914 yılında işçilerin çalışma saatlerini 9 saatten 8 saate düşürürken, günlük ücretlerini 2 küsur dolardan tam 5 dolara çıkarmasıdır. Bu rekor ücret politikası, kitle üretimi ile kütle tüketimi arasında "kusursuz" bir döngü kurmuştur. İşçilere yüksek maaş vererek onların ürettikleri otomobilleri satın alabilmelerini sağlamış, böylece **kendi tüketici sınıfını da bizzat fabrikasında inşa etmiştir.** Bu devasa ücret artışı sayesinde işçi devir oranları ve devamsızlıklar bıçak gibi kesilmiş, işgücü son derce istikrarlı, şirkete ölümüne bağlı ve yüksek verimli bir hâle gelmiştir. 
 
-Gelgelelim işin en can alıcı noktasına. Fordizm sadece bir üretim efsanesi değil, modern pazarlama tarihinin "Üretim Yönlü Pazarlama (Production Orientation)" döneminin altın çağıdır. Kitle üretimi ile kitle tüketimi arasındaki bağı dünyada ilk kez bu kadar kusursuz kuran yapıdır.
+Gelgelelim işin en can alıcı noktasına. Fordizm bir "üretim efsanesi" olmasının yanı sıra, modern pazarlama tarihinin "Üretim Yönlü Pazarlama (Production Orientation)" döneminin de altın çağıdır. Kitle üretimi ile kitle tüketimi arasındaki bağı dünyada ilk kez bu kadar kusursuz kuran yapıdır.
 
 # Fordizm ve Pazarlama
 
