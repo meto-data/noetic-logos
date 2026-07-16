@@ -37,13 +37,13 @@ Biz denetçiler standartları sıfırdan icat etmeyiz. Bir kurumun yönetişimin
 Bilgi güvenliği de yönetişimin ayrılmaz bir parçasıdır. **İş hedeflerine ulaşmak için gereken minimum ve optimal güvenlik seviyesinin tasarlanmasıdır.** Güvenlik, gerektiği kadar olmalıdır; gereğinden fazla güvenlik sadece fazla maliyettir.
 
 >[!example] **Senaryo: KOBİ ve Gereksiz Güvenlik Yatırımı**
->Bir KOBİ düşünelim; fabrikasında harika üretim yapıyoruz ama BT ortamı fabrikanın dışındaki 5 laptoptan ibaret. Dışarıdan bir satıcı geliğ "*Bunu almazsanız batarsınız*" diyerek 300 bin liralık bir güvenlik cihazı satıyor. Oysa evimizdeki modeme de 5 cihaz bağlı ve eve böyle bir cühaz kurmuyoruz. **Doğru bir Bilgi Güvenliği Yönetişimi, riski analiz edip yatırımın gerçekten işe yarayıp yaramadığını (ROI - Return on Investment) hesaplar ve kurumu bu tarz gereksiz maliyetlerden korur.**
+>Bir KOBİ düşünelim; fabrikasında harika üretim yapıyoruz ama BT ortamı fabrikanın dışındaki 5 laptoptan ibaret. Dışarıdan bir satıcı gelip "*Bunu almazsanız batarsınız*" diyerek 300 bin liralık bir güvenlik cihazı satıyor. Oysa evimizdeki modeme de 5 cihaz bağlı ve eve böyle bir cihaz kurmuyoruz. **Doğru bir Bilgi Güvenliği Yönetişimi, riski analiz edip yatırımın gerçekten işe yarayıp yaramadığını (ROI - Return on Investment) hesaplar ve kurumu bu tarz gereksiz maliyetlerden korur.**
 
 ### Olgunluk Modelleri (Maturity Models)
 
 **Kâğıt üzerinde harika süreçler tasarlanmış olabilir ama şirket bunları ne kadar uyguluyor**? Bunu **ölçmek için** **CMMI (Capability Maturity Model Integration)** **gibi olgunluk modelleri kullanırız.**
 
-CMMI, bir kurumun süreçlerinin "kaostan" "mükemmelliğe" giden yolculuğunu 0'dan 5'e kadar seviyelendirir.
+CMMI, bir kurumun süreçlerinin kaostan mükemmelliğe giden yolculuğunu 0'dan 5'e kadar seviyelendirir.
 
 - **Seviye 0 - Incomplete (Eksik/Yok):** Süreç hiç yoktur veya süreç o kadar kötüdür ki amacına ulaşmıyordur. Tam bir kaos hâlidir.
 - **Seviye 1 - Initial / Ad Hoc (Başlangıç):** Süreçler vardır ama standart değildir; duruma göre anlık çözülür ("Kervan yolda dizilir" mantığı). Başarı, kurumun sistemine değil, **kahraman çalışanlara** (örneğin BT'deki Ahmet Bey'in üstün çabalarına) bağlıdır. Ahmet Bey işten ayrılırsa o süreç çöker.
@@ -88,7 +88,7 @@ CISA, BT içerisindeki aktörlerin kim olduğunu net olarak bilmemizi ister:
 - **CISO (Chief Information Security Officer)**: Bilgi güvenliğinden bağımsız sorumlu fonksiyondur. Kesinlikle CIO'ya değil, doğrudan CEO'ya (veya Yönetim Kurulu'na) raporlamalıdır. IT operasyona odaklanırken, güvenlik onu yavaşlatabilir; çıkar çatışması olmamalıdır.
 - **Son Kullanıcı (End User)**: Uygulamayı kullanan kişidir (işin sahibidir). Ayar değiştiremez, yetki veremez. Admin hesabından tamamen farklıdır.
 - **Son Kullanıcı Destek Yöneticisi (End-User Support)**: IT ile kullanıcılar arasında köprüdür. Sorunu doğrudan çözmekten ziyade koordinasyonu sağlar.
-- **Sistem Yöneticisi (Systems Administrator):** Sunucu ve ağların teknik yöneticisidir. Çok geniş yetkisi olduğu için aktivitelerinin sıkı bir şekilde loglanması (monitoring) şarttır.
+- **Sistem Yöneticisi (System Administrator):** Sunucu ve ağların teknik yöneticisidir. Çok geniş yetkisi olduğu için aktivitelerinin sıkı bir şekilde loglanması (monitoring) şarttır.
 - **Veri Tabanı Yöneticisi (DBA - Database Administrator):** Veri tabanının mutlak hakimidir. Üretim (prod) ortamına erişimini tamamen engellemek teknik olarak imkânsızdır. Bu yüzden kesinlikle izleyici kontrollere (detective controls - günlük/log incelemeleri) tâbi tutulmalıdır.
 - **Uygulama Geliştirme (App Dev):** Uygulama kodlayan ekiptir. Canlı (prod) ortama doğrudan erişimleri **asla** olmamalıdır.
 - **Ağ Yönetimi (Network Management):** Router, switch, firewall'ları yönetir. Ağ yöneticisi aynı zamanda uygulama geliştirici olmamalıdır.
@@ -96,7 +96,7 @@ CISA, BT içerisindeki aktörlerin kim olduğunu net olarak bilmemizi ister:
 - **Kalite Güvence (QA Manager):** Yapılan işlerin kalite standartlarına uygunluğunu (test süreçlerini) sağlar. Güvenlikten (Security) farklı bir kavramdır.
 - **Medya Yönetimi (Media Management):** Yedek kasetleri (backup tapes) ve taşınabilir medyaları yönetir. Bir kasetin kaybolması doğrudan bir veri sızıntısı (audit alarmı) kabul edilir.
 - **SCADA / Veri Edinimi:** Elektrik santrali gibi endüstriyel sistemlerden otomatik veri toplar. Bu sistemler internete açılırsa çok yüksek siber risk taşır.
-- **Sistem Analisti (Systems Analyst):** İş ihtiyacını teknik dile (sistem gereksinimlerine) çevirir. SDLC (Yazılım Geliştirme Yaşam Döngüsü) içindeki tasarım fazında kritik rol oynar.
+- **Sistem Analisti (Systems Analyst):** İş ihtiyacını teknik dile (sistem gereksinimlerine) çevirir. **[[cisa-sdlc|SDLC]]** (Yazılım Geliştirme Yaşam Döngüsü) içindeki tasarım fazında kritik rol oynar.
 - **Güvenlik Mimarı (Security Architect) ve Güvenlik Mühendisi (Security Engineer):** Mimar ağ segmentasyonu veya kimlik yönetimi (IAM) tasarımlarını yaparken, mühendis bunu hayata geçirir.
 
 ---
@@ -125,7 +125,7 @@ BT Yönetişimi, politikalar ve roller bir araya geldiğinde kurumun **Kurumsal 
 ### Risk Yönetimi
 Risk yönetimi de bir programdır. Riski hesaplarken iki yöntem kullanılır:
 
-- **Kalitatif (Qualitative)**: İtibat kaybı gibi sayısal olarak tam hesaplanamayan değerler (Düşük, Orta, Yüksek).
+- **Kalitatif (Qualitative)**: İtibar kaybı gibi sayısal olarak tam hesaplanamayan değerler (Düşük, Orta, Yüksek).
 - **Kantitatif (Quantitative)**: Sayısal veriler. (Örn: Çalınan 100.000 kimlik bilgisinin Dark Web'deki piyasa değerinin dolar cinsinden hesaplanması).
 
 Bir risk bulunduğunda 4 olası cevap vardır:
@@ -133,7 +133,7 @@ Bir risk bulunduğunda 4 olası cevap vardır:
 1. **Azaltmak (Mitigate)**: Kontrol kurmak (örn. şifreleme).
 2. **Kabul Etmek (Accept)**: Zarar, önlem maliyetinden düşükse riski bilerek kabullenmek.
 3. **Kaçınmak (Avoid)**: Riski doğuran projeden tamamen vazgeçmek.
-4. **Transfer Etmek (Transfer/Share)**: Siber sigorta taptırmak.
+4. **Transfer Etmek (Transfer/Share)**: Siber sigorta yaptırmak.
 
 
 ### Kanunlar, Regülasyonlar (Compliance)
@@ -148,13 +148,13 @@ CISA düşünce yapısında bir numaralı kural şudur: **KANUN HER ŞEYİN ÜST
 
 ## İş Zekâsı (Business Intelligence) ve Veri Mimarisi
 
-Büyüyen ve karmaşıklaşan şirketler, karar süreçlerini otomatize etmek ve rekabet avantajını (competitive advantage) kazanmak için Excel yerine İş Zekâsı (BI) kullanılır. BI süreçleri belirli katmanlardan (layet) oluşur. Aşağıdan (ham veriden) yukarıya (yönetici ekranına) doğru veri mimarisi şöyledir:
+Büyüyen ve karmaşıklaşan şirketler, karar süreçlerini otomatize etmek ve rekabet avantajını (competitive advantage) kazanmak için Excel yerine İş Zekâsı (BI) kullanılır. BI süreçleri belirli katmanlardan (layer) oluşur. Aşağıdan (ham veriden) yukarıya (yönetici ekranına) doğru veri mimarisi şöyledir:
 
 
 1. **Data Source Layer (Veri Kaynakları):** Ham verinin geldiği yerdir (Core Banking, CRM, Dış kaynaklar). Veriler dağınık, kirli ve farklı formatlardadır.
 2. **Data Access Layer:** Kaynak sistemlere nasıl bağlanıldığını soyutlar (Uygulamanın verinin SAP'den mi Oracle'dan mı geldiğini bilmesine gerek kalmaz).
 3. **Data Staging & Quality Layer:** BI'ın **EN KRİTİK** katmanıdır. Veriyi alır, temizler ve dönüştürür. Hatalı veri ayıklanır. Unutulmamalıdır ki: *Çöp girerse, çöp çıkar (Garbage in – Garbage out).*
-4. **Core Data Warehouse - DW (Veri Ambarı):** Şirketin **tek doğru veri kaynağıdır (single source of truth)**. Normalize edilmiş, büyük ilişkisel bir veritabanıdır (Tüm müşteriler, tüm işlemler burada tutulur).
+4. **Core Data Warehouse - DW (Veri Ambarı):** Şirketin **tek doğru veri kaynağıdır (single source of truth)**. Normalize edilmiş, büyük ilişkisel bir veri tabanıdır (Tüm müşteriler, tüm işlemler burada tutulur).
 5. **Data Mart Layer:** DW'den alınan verilerin, *belirli bir iş birimi için* (Finans, Risk, Pazarlama vb.) sadeleştirilmiş halidir. Raporlamayı hızlandırır (OLAP küpleri).
 6. **Data Preparation Layer:** Veriyi analiz (fraud skorlama, veri madenciliği vb.) için hazırlar.
 7. **Metadata Repository (Meta Veri Deposu):** Verinin kimliğidir. "Bu alan neyi temsil ediyor?", "Hangi kural ile hesaplandı?" bilgisini tutar. Bir denetçi için **altın değerindedir**.
