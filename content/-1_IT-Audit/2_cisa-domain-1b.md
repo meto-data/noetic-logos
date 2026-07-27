@@ -1,5 +1,6 @@
 ---
 title: "Domain 1B: Bilgi Sistemleri Denetim Süreci ve Organizasyonel Yapı"
+created: 2026-07-05
 ---
 # CISA Domain 1: Bilgi Sistemleri Denetim Süreci (Part B - Execution & Reporting)
 
@@ -143,3 +144,7 @@ Denetim departmanları da kendi süreçlerini sürekli geliştirmelidir.
 - **Kontrol Öz Değerlendirmesi (CSA - Control Self Assessment)**: İşin sahiplerinin (birinci hat çalışanlarının) kendi süreçlerindeki kontrolleri ve riskleri bir anket yahut form aracılığıyla bizzat değerlendirmesidir.
 	- *Faydaları:* Riski erken fark ettirir, çalışan motivasyonunu artırır, denetim maliyetlerini düşürür, kurum içi uyumu sağlar. Ancak tamamen beyana dayalı olduğu için, denetçinin gözü her zaman açık olmalıdır.
 - **Entegre Denetim (Integrated Auditing)**: IT denetimi ile operasyonel/finansal denetimin birleştirilmesidir. Örneğin, havalimanı körüklerinin hem ağ güvenliğinin hem de fiziksel operasyonel işleyişinin aynı anda denetlenmesi.
+
+---
+
+Kapsamlı Yaklaşım (Comprehensive Approach) = BT ve İş Birimlerinin (Hukuk, Finans vb.) tek bir ortak akılda birleşmesi. Sınavda bunu sağlayan en üst düzey yönetsel mekanizma Yönlendirme Komitesidir (Steering Committee)."
