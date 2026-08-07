@@ -8,7 +8,7 @@ created: 2026-07-06
 Yönetişim (governance) ile yönetim (management) aynı şey değildir.
 
 - **BT Yönetişimi (IT Governance)**: Şirketin organizasyon yapısını, stratejisini ve hedeflerini belirleme disiplinidir. Hangi fonksiyonların nerede duracağını, kimin kime raporlayacağını ve kuralları koyar. Yönetişimden, şirketin paydaşlarını temsil eden **Yönetim Kurulu (Board of Directors)** sorumludur.
-- **BT Yönetimi (IT Management)**: Yönetişimin belirlediği stratejiyi alıp icra etme, legoları birleştirip sistemi günlük olarak çalıştırma işidir. Yönetimden, maaşlı ve primli çalışan icrai bir fonksiyon olan **Genel Müdür (CEO)** ve üst yönetim (Senior Management) sorumludur.
+- **BT Yönetimi (IT Management)**: Yönetişimin belirlediği stratejiyi alıp icra etme, legoları birleştirip sistemi günlük olarak çalıştırma işidir. Yönetimden, maaşlı ve primli çalışan icrai bir fonksiyon olan **Genel Müdür (CEO)** ve **Üst Yönetim** (Senior Management) sorumludur.
 
 
 >[!tip] Denetçi Bakış Açısı
