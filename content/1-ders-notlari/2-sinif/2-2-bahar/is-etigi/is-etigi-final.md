@@ -61,7 +61,7 @@ Varlığı bu şekilde ele aldıktan sonra, etiğin ve ahlâkın ne olduğunu ir
 
 ## Yeni Çağ
 - Merkezde **epistemoloji** vardır. Ölçü akıl ve bilgidir. Ampirizm (deneycilik) ve rasyonalizm (akılcılık) öne çıkar. Antropolojik (insan merkezli) temellendirme yapılır.
-	- Bu kısım özellikle derste hocanın anlattığıyla epey çelişiyor. Nitekim hocanın övdüğü Descartes'in sözü, hani şu "Düşünüyorum, öyleyse varım". Orijinal hâliyle "cogito, ergo sum." Zaten her ders yerilen bireyciliğin temelini atan söz bu. Sanayi Devrimi'ne ön ayak olan Descartes'in bu sözü. Modernizme ön ayak olan Descartes'in bu sözü. Kapitalizme de ön ayak olan Descartes'in bu sözü. Nitekim Descartes zaten bu şekilde **özne**yi keşfediyor ve merkeze insanı yerleştiriyor. Yunan'ın doğa ölçütü bu şekilde bir kenara atılıyor. Neyse, bu konu hakkında zaten [[ders-1|İş Etiği 1. Ders'in Kritiği]]'nde konuştum. 
+	- Bu kısım özellikle derste hocanın anlattığıyla epey çelişiyor. Nitekim hocanın övdüğü Descartes'in sözü, hani şu "Düşünüyorum, öyleyse varım". Orijinal hâliyle "cogito, ergo sum." Zaten her ders yerilen bireyciliğin temelini atan söz bu. Sanayi Devrimi'ne ön ayak olan Descartes'in bu sözü. Modernizme ön ayak olan Descartes'in bu sözü. Kapitalizme de ön ayak olan Descartes'in bu sözü. Nitekim Descartes zaten bu şekilde **özne**yi keşfediyor ve merkeze insanı yerleştiriyor. Yunan'ın doğa ölçütü bu şekilde bir kenara atılıyor. Neyse, bu konu hakkında zaten [[ATLAS/1-ders-notlari/2-sinif/2-2-bahar/is-etigi/ders-1|İş Etiği 1. Ders'in Kritiği]]'nde konuştum. 
 
 
 ## Filozoflar ve Temel Kavramlar
