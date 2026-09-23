@@ -179,52 +179,201 @@ graph TD
 
 ## 📝 5. Sınav Simülatörü (Hocanın Soru Formatında Test)
 
-**1.** An **"external computer add-on, such as a printer or a scanner; also known as an accessory"** is formally defined as a:  
-A) component  
-B) peripheral  
-C) software  
-D) database  
-E) network  
-
-**2.** The term that literally means **"that which is given"**, referring to **"raw information of any kind"**, is:  
-A) data  
-B) application  
-C) hardware  
-D) Internet  
-E) peripheral  
-
-**3.** An **"organized, electronic collection of information optimized for fast access and typically consisting of rows, columns, indexes, and keys"** is called a:  
-A) network  
-B) software  
-C) database  
-D) computer  
-E) component  
-
-**4.** Which term describes **"any device internal to the computer, such as a primary hard disk drive or motherboard"**?  
-A) peripheral  
-B) application  
-C) component  
-D) network  
-E) software  
-
-**5.** **"The largest known public network in the world, connecting millions of computers around the world"** is the definition of:  
-A) Internet  
-B) database  
-C) peripheral  
-D) computer  
-E) software  
+```quiz
+{
+  "title": "Hafta 1 - Information Technology 101 Test Simülatörü",
+  "description": "Vize ve final soru formatında çoktan seçmeli test. Tetikleyici kelimeleri yakalayın!",
+  "questions": [
+    {
+      "id": 1,
+      "question": "An \"external computer add-on, such as a printer or a scanner; also known as an accessory\" is formally defined as a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "component",
+          "isCorrect": false,
+          "explanation": "Yanlış. Component (bileşen), anakart veya dahili sabit sürücü gibi bilgisayar kasasının İÇİNDE (internal) yer alan donanımlardır; harici eklentiler değildir."
+        },
+        {
+          "key": "B",
+          "text": "peripheral",
+          "isCorrect": true,
+          "explanation": "Doğru! Tetikleyici: \"external computer add-on\" (harici bilgisayar eklentisi) ve \"accessory\" (aksesuar) doğrudan çevre birimlerini (peripheral) işaret eder."
+        },
+        {
+          "key": "C",
+          "text": "software",
+          "isCorrect": false,
+          "explanation": "Yanlış. Software fiziksel bir donanım/aksesuar değil, program kodları ve yönergelerdir."
+        },
+        {
+          "key": "D",
+          "text": "database",
+          "isCorrect": false,
+          "explanation": "Yanlış. Database organize edilmiş elektronik bilgi koleksiyonudur."
+        },
+        {
+          "key": "E",
+          "text": "network",
+          "isCorrect": false,
+          "explanation": "Yanlış. Network, kaynak paylaşımı için birbirine bağlanmış bilgisayarlar grubudur."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "The term that literally means \"that which is given\", referring to \"raw information of any kind\", is:",
+      "options": [
+        {
+          "key": "A",
+          "text": "data",
+          "isCorrect": true,
+          "explanation": "Doğru! Tetikleyici: Köken anlamı \"that which is given\" (verilen şey) olan ve ham bilgiyi (\"raw information of any kind\") ifade eden terim data'dır."
+        },
+        {
+          "key": "B",
+          "text": "application",
+          "isCorrect": false,
+          "explanation": "Yanlış. Application, kullanıcının belirli görevleri (kelime işlemci, e-posta vb.) yapmasını sağlayan yazılım programıdır."
+        },
+        {
+          "key": "C",
+          "text": "hardware",
+          "isCorrect": false,
+          "explanation": "Yanlış. Hardware, bilgisayarı oluşturan tüm fiziksel parçaların genel adıdır; ham bilgi anlamına gelmez."
+        },
+        {
+          "key": "D",
+          "text": "Internet",
+          "isCorrect": false,
+          "explanation": "Yanlış. Internet, milyonlarca bilgisayarı bağlayan dünyanın en büyük genel ağıdır."
+        },
+        {
+          "key": "E",
+          "text": "peripheral",
+          "isCorrect": false,
+          "explanation": "Yanlış. Peripheral, harici eklenti veya aksesuar anlamına gelir."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "An \"organized, electronic collection of information optimized for fast access and typically consisting of rows, columns, indexes, and keys\" is called a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "network",
+          "isCorrect": false,
+          "explanation": "Yanlış. Network (ağ), kaynak paylaşımı için birbirine bağlanmış bilgisayarlar bütünüdür."
+        },
+        {
+          "key": "B",
+          "text": "software",
+          "isCorrect": false,
+          "explanation": "Yanlış. Software, bilgisayarda çalışmak üzere tasarlanmış herhangi bir programdır."
+        },
+        {
+          "key": "C",
+          "text": "database",
+          "isCorrect": true,
+          "explanation": "Doğru! Tetikleyici: \"organized, electronic collection\", \"optimized for fast access\" ve \"rows, columns, indexes, and keys\" doğrudan database (veritabanı) tanımıdır."
+        },
+        {
+          "key": "D",
+          "text": "computer",
+          "isCorrect": false,
+          "explanation": "Yanlış. Computer, bilgiyi saklayan ve işleyen elektronik cihazdır."
+        },
+        {
+          "key": "E",
+          "text": "component",
+          "isCorrect": false,
+          "explanation": "Yanlış. Component, bilgisayarın dahili donanım bileşenidir."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Which term describes \"any device internal to the computer, such as a primary hard disk drive or motherboard\"?",
+      "options": [
+        {
+          "key": "A",
+          "text": "peripheral",
+          "isCorrect": false,
+          "explanation": "Yanlış. Peripheral, kasa dışındaki harici çevre birimlerini ifade eder (yazıcı, fare vb.)."
+        },
+        {
+          "key": "B",
+          "text": "application",
+          "isCorrect": false,
+          "explanation": "Yanlış. Application kullanıcıya yönelik yazılımlardır."
+        },
+        {
+          "key": "C",
+          "text": "component",
+          "isCorrect": true,
+          "explanation": "Doğru! Tetikleyici: Soru kökündeki \"internal to the computer\" (bilgisayar kasasının içi) ifadesi ve \"motherboard or hard disk drive\" örnekleri doğrudan component terimini verir."
+        },
+        {
+          "key": "D",
+          "text": "network",
+          "isCorrect": false,
+          "explanation": "Yanlış. Network, bilgisayar ağı anlamına gelir."
+        },
+        {
+          "key": "E",
+          "text": "software",
+          "isCorrect": false,
+          "explanation": "Yanlış. Software fiziksel aygıt değil programdır."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "\"The largest known public network in the world, connecting millions of computers around the world\" is the definition of:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Internet",
+          "isCorrect": true,
+          "explanation": "Doğru! Tetikleyici: \"largest known public network in the world\" veya \"information superhighway\" doğrudan Internet'tir."
+        },
+        {
+          "key": "B",
+          "text": "database",
+          "isCorrect": false,
+          "explanation": "Yanlış. Database veri depolama yapısıdır."
+        },
+        {
+          "key": "C",
+          "text": "peripheral",
+          "isCorrect": false,
+          "explanation": "Yanlış. Peripheral harici çevre birimidir."
+        },
+        {
+          "key": "D",
+          "text": "computer",
+          "isCorrect": false,
+          "explanation": "Yanlış. Computer tekil bilişim cihazıdır."
+        },
+        {
+          "key": "E",
+          "text": "software",
+          "isCorrect": false,
+          "explanation": "Yanlış. Software yazılım programıdır."
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
-### 🗝️ Cevap Anahtarı ve Tetikleyici Analizi
+## 🧩 6. Kelime Avı Bulmacası (Vocabulary Puzzle)
 
-1. **B (`peripheral`)** — *Tetikleyici:* `"external computer add-on"` ve `"accessory"` vurguları doğrudan harici çevre birimlerini işaret eder.
-2. **A (`data`)** — *Tetikleyici:* `"that which is given"` köken anlamı ve `"raw information"` (işlenmemiş ham bilgi) doğrudan `data`dır.
-3. **C (`database`)** — *Tetikleyici:* `"rows, columns, indexes, and keys"` ile hızlı erişim optimizasyonu veritabanını tanımlar.
-4. **C (`component`)** — *Tetikleyici:* `"internal to the computer"` (kasa içi donanım) ve `"motherboard"` örneği doğrudan `component`tır.
-5. **A (`Internet`)** — *Tetikleyici:* `"largest known public network in the world"` tanımı münhasıran İnternet'e aittir.
+```puzzle
 
-```json
 {
   "title": "Computer Words - Week 1 Puzzle",
   "dimensions": {

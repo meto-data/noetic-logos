@@ -1,0 +1,561 @@
+// ----------------------------------------------------
+// Interactive Widgets Styling (Quiz & Puzzle)
+// ----------------------------------------------------
+
+.interactive-error-box {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  background-color: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: var(--darkgray);
+
+  .interactive-error-title {
+    font-weight: 700;
+    color: #ef4444;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .interactive-error-desc {
+    margin: 0.25rem 0 0.75rem 0;
+    font-size: 0.95rem;
+  }
+
+  .interactive-error-code {
+    background: var(--lightgray);
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    overflow-x: auto;
+  }
+}
+
+// ----------------------------------------------------
+// 1. QUIZ COMPONENT
+// ----------------------------------------------------
+
+.interactive-quiz-container {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+
+  .quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--lightgray);
+
+    .quiz-title-area {
+      flex: 1 1 250px;
+
+      .quiz-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0 0 0.35rem 0;
+        color: var(--dark);
+      }
+
+      .quiz-desc {
+        font-size: 0.9rem;
+        color: var(--gray);
+        margin: 0;
+      }
+    }
+
+    .quiz-stats-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: var(--lightgray);
+      color: var(--darkgray);
+      white-space: nowrap;
+
+      .score-number {
+        color: var(--secondary);
+        font-weight: 700;
+      }
+    }
+  }
+
+  .quiz-question-card {
+    margin-bottom: 1.75rem;
+    padding: 1.25rem;
+    background: rgba(0, 0, 0, 0.015);
+    border: 1px solid var(--lightgray);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+
+    &:last-child {
+      margin-bottom: 1rem;
+    }
+
+    .question-prompt {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin: 0 0 1rem 0;
+      line-height: 1.5;
+
+      .question-num {
+        display: inline-block;
+        color: var(--secondary);
+        margin-right: 0.4rem;
+      }
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: 8px;
+      border: 1px solid var(--lightgray);
+      background: var(--light);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s ease-in-out;
+      font-size: 0.95rem;
+      color: var(--darkgray);
+
+      &:hover:not(.locked) {
+        border-color: var(--secondary);
+        background: var(--highlight);
+        transform: translateX(3px);
+      }
+
+      .option-key-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--lightgray);
+        color: var(--darkgray);
+        font-weight: 700;
+        font-size: 0.8rem;
+        flex-shrink: 0;
+        transition: all 0.15s ease;
+      }
+
+      .option-text {
+        flex: 1;
+      }
+
+      .option-icon {
+        font-size: 1.1rem;
+        display: none;
+      }
+
+      // Selected Correct State
+      &.state-correct {
+        border-color: #10b981 !important;
+        background-color: rgba(16, 185, 129, 0.12) !important;
+        color: #065f46 !important;
+        font-weight: 600;
+
+        .option-key-badge {
+          background-color: #10b981;
+          color: #ffffff;
+        }
+
+        .option-icon {
+          display: inline-block;
+          color: #10b981;
+        }
+      }
+
+      // Selected Wrong State
+      &.state-wrong {
+        border-color: #ef4444 !important;
+        background-color: rgba(239, 68, 68, 0.12) !important;
+        color: #991b1b !important;
+
+        .option-key-badge {
+          background-color: #ef4444;
+          color: #ffffff;
+        }
+
+        .option-icon {
+          display: inline-block;
+          color: #ef4444;
+        }
+      }
+
+      // Revealed Correct State (when user chose wrong)
+      &.state-revealed {
+        border-color: #10b981;
+        background-color: rgba(16, 185, 129, 0.06);
+
+        .option-key-badge {
+          background-color: #10b981;
+          color: #ffffff;
+        }
+
+        .option-icon {
+          display: inline-block;
+          color: #10b981;
+        }
+      }
+
+      &.locked {
+        cursor: default;
+      }
+    }
+
+    // Explanation Box
+    .explanation-box {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      display: none;
+      animation: fadeIn 0.25s ease-in-out;
+
+      &.visible {
+        display: block;
+      }
+
+      &.correct-explanation {
+        background-color: rgba(16, 185, 129, 0.08);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        color: var(--darkgray);
+
+        .exp-label {
+          font-weight: 700;
+          color: #059669;
+          margin-bottom: 0.3rem;
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+        }
+      }
+
+      &.wrong-explanation {
+        background-color: rgba(239, 68, 68, 0.07);
+        border: 1px solid rgba(239, 68, 68, 0.25);
+        color: var(--darkgray);
+
+        .exp-label {
+          font-weight: 700;
+          color: #dc2626;
+          margin-bottom: 0.3rem;
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+        }
+
+        .exp-correct-ref {
+          margin-top: 0.5rem;
+          padding-top: 0.5rem;
+          border-top: 1px dashed rgba(239, 68, 68, 0.2);
+          font-size: 0.85rem;
+          color: var(--gray);
+
+          strong {
+            color: #059669;
+          }
+        }
+      }
+    }
+  }
+
+  .quiz-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--lightgray);
+
+    .quiz-result-msg {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--dark);
+    }
+
+    .quiz-reset-btn {
+      padding: 0.5rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      background: var(--secondary);
+      color: #ffffff;
+      border: none;
+      transition: all 0.2s ease;
+
+      &:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------
+// 2. PUZZLE / WORD SEARCH COMPONENT
+// ----------------------------------------------------
+
+.interactive-puzzle-container {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+
+  .puzzle-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--lightgray);
+
+    .puzzle-title-area {
+      .puzzle-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0 0 0.25rem 0;
+        color: var(--dark);
+      }
+
+      .puzzle-hint {
+        font-size: 0.85rem;
+        color: var(--gray);
+        margin: 0;
+      }
+    }
+
+    .puzzle-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 20px;
+      background: var(--lightgray);
+      color: var(--darkgray);
+      font-size: 0.85rem;
+      font-weight: 600;
+
+      .found-counter {
+        color: var(--secondary);
+        font-weight: 700;
+      }
+    }
+  }
+
+  .puzzle-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @media (min-width: 900px) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+
+  .puzzle-grid-wrapper {
+    flex: 1 1 auto;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    justify-content: center;
+  }
+
+  .puzzle-grid {
+    display: inline-grid;
+    gap: 2px;
+    padding: 6px;
+    background: var(--lightgray);
+    border-radius: 8px;
+    user-select: none;
+    touch-action: none; // Crucial for responsive touch drag without scrolling
+    position: relative;
+  }
+
+  .puzzle-cell {
+    width: 32px;
+    height: 32px;
+    background-color: var(--light);
+    color: var(--dark);
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+
+    @media (min-width: 480px) {
+      width: 36px;
+      height: 36px;
+      font-size: 1.05rem;
+    }
+
+    // When cell is empty (in crossword grids)
+    &.cell-empty {
+      background-color: transparent;
+      cursor: default;
+      visibility: hidden;
+    }
+
+    // Active dragging selection state
+    &.selecting {
+      background-color: var(--secondary) !important;
+      color: #ffffff !important;
+      transform: scale(0.95);
+      border-radius: 6px;
+    }
+
+    // Matched/Found state (permanent)
+    &.found {
+      background-color: rgba(16, 185, 129, 0.25) !important;
+      color: #065f46 !important;
+      border: 1px solid #10b981;
+    }
+
+    // Mismatched state (temporary red flash)
+    &.mismatch {
+      background-color: rgba(239, 68, 68, 0.3) !important;
+      color: #b91c1c !important;
+      border: 1px solid #ef4444;
+      animation: shake 0.35s ease-in-out;
+    }
+  }
+
+  .puzzle-sidebar {
+    flex: 0 0 280px;
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid var(--lightgray);
+    border-radius: 8px;
+    padding: 1rem;
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 0 0 0.75rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .words-badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .word-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      background: var(--light);
+      border: 1px solid var(--lightgray);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--darkgray);
+      transition: all 0.2s ease;
+
+      .word-status-icon {
+        font-size: 0.8rem;
+        opacity: 0.5;
+      }
+
+      &.is-found {
+        background-color: rgba(16, 185, 129, 0.15);
+        border-color: #10b981;
+        color: #065f46;
+        text-decoration: line-through;
+
+        .word-status-icon {
+          opacity: 1;
+          color: #10b981;
+        }
+      }
+    }
+
+    .puzzle-toast {
+      margin-top: 1rem;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: center;
+      display: none;
+      animation: fadeIn 0.2s ease;
+
+      &.toast-success {
+        display: block;
+        background-color: rgba(16, 185, 129, 0.15);
+        color: #065f46;
+        border: 1px solid #10b981;
+      }
+
+      &.toast-error {
+        display: block;
+        background-color: rgba(239, 68, 68, 0.15);
+        color: #b91c1c;
+        border: 1px solid #ef4444;
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------
+// Animations
+// ----------------------------------------------------
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}

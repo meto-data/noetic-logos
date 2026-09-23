@@ -294,76 +294,308 @@ graph TD
 
 ## 📝 5. Sınav Simülatörü (Hocanın Soru Formatında Test)
 
-**1.** Which of the following is defined as **"an error in a computer program"**?  
-A) crash  
-B) abort  
-C) bug  
-D) feature  
-E) component  
-
-**2.** The formal technical definition **"to end a program or a process before its completion"** refers to which term?  
-A) boot  
-B) execute  
-C) compile  
-D) abort  
-E) debug  
-
-**3.** A computer software license stipulates that the user cannot see, edit, or manipulate the source code. This type of software is best described as:  
-A) Open source software  
-B) Closed source software  
-C) Peripheral software  
-D) Compatible software  
-E) System emulation  
-
-**4.** Which term describes **"a computer failure due to faulty hardware or a serious software bug"**?  
-A) crash  
-B) error  
-C) execute  
-D) feature  
-E) network  
-
-**5.** In technical terminology, something that a computer program is **"supposed" to do**, which often serves as a reason to upgrade to a more recent version, is called a:  
-A) bug  
-B) platform  
-C) feature  
-D) compiler  
-E) driver  
-
-**6.** What is the most correct technical verb used **"to start a program on a computer"**?  
-A) abort  
-B) execute  
-C) debug  
-D) uncompress  
-E) stipulate  
-
-**7.** Technology that is **"privately developed and owned"**, preventing unauthorized alteration or redistribution of its underlying code, is referred to as:  
-A) open source  
-B) compatible  
-C) proprietary  
-D) virtual  
-E) peripheral  
-
-**8.** An **"incorrect action attributable to poor judgment, ignorance, or inattention"** is technically defined as an:  
-A) error  
-B) execute  
-C) application  
-D) end user  
-E) IDE  
+```quiz
+{
+  "title": "Hafta 2 - Introduction to Software Test Simülatörü",
+  "description": "Vize ve final sınavı formatında çoktan seçmeli test. Tetikleyici kelimeleri yakalayın!",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of the following is defined as \"an error in a computer program\"?",
+      "options": [
+        {
+          "key": "A",
+          "text": "crash",
+          "isCorrect": false,
+          "explanation": "Yanlış. Crash, donanım arızası veya ciddi bir bug yüzünden bilgisayarın tamamen durması ve kilitlenmesidir (\"a computer failure\")."
+        },
+        {
+          "key": "B",
+          "text": "abort",
+          "isCorrect": false,
+          "explanation": "Yanlış. Abort, bir süreci veya programı tamamlanmadan önce zorla sonlandırmaktır (\"to end before completion\")."
+        },
+        {
+          "key": "C",
+          "text": "bug",
+          "isCorrect": true,
+          "explanation": "Doğru! Tetikleyici: Soru kökündeki \"an error in a computer program\" doğrudan program içi kod hatası olan bug teriminin resmi tanımıdır."
+        },
+        {
+          "key": "D",
+          "text": "feature",
+          "isCorrect": false,
+          "explanation": "Yanlış. Feature, bir programın yapması beklenen işlevdir (\"supposed to do\")."
+        },
+        {
+          "key": "E",
+          "text": "component",
+          "isCorrect": false,
+          "explanation": "Yanlış. Component, bilgisayarın dahili donanım parçasıdır."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "The formal technical definition \"to end a program or a process before its completion\" refers to which term?",
+      "options": [
+        {
+          "key": "A",
+          "text": "boot",
+          "isCorrect": false,
+          "explanation": "Yanlış. Boot, bir işletim sistemini önyüklemek ve başlatmak fiilidir."
+        },
+        {
+          "key": "B",
+          "text": "execute",
+          "isCorrect": false,
+          "explanation": "Yanlış. Execute, bir programı belleğe yükleyip çalıştırmaktır (\"to start a program\")."
+        },
+        {
+          "key": "C",
+          "text": "compile",
+          "isCorrect": false,
+          "explanation": "Yanlış. Compile, kaynak kodun ikili makine koduna (binary) dönüştürülmesidir."
+        },
+        {
+          "key": "D",
+          "text": "abort",
+          "isCorrect": true,
+          "explanation": "Doğru! Tetikleyici: \"to end a program or a process before its completion\" kalıbı sürecin tamamlanmadan sonlandırılmasını (abort) ifade eder."
+        },
+        {
+          "key": "E",
+          "text": "debug",
+          "isCorrect": false,
+          "explanation": "Yanlış. Debug, kod hatalarını bulup giderme sürecidir."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "A computer software license stipulates that the user cannot see, edit, or manipulate the source code. This type of software is best described as:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Open source software",
+          "isCorrect": false,
+          "explanation": "Yanlış. Açık kaynak kodlu (open source) yazılımlarda kaynak kodu inceleme ve değiştirme özgürlüğü vardır."
+        },
+        {
+          "key": "B",
+          "text": "Closed source software",
+          "isCorrect": true,
+          "explanation": "Doğru! Tetikleyici: \"license stipulates\", \"cannot see, edit, or manipulate the source code\" ifadeleri doğrudan kapalı kaynak kod (closed source) modelini tanımlar."
+        },
+        {
+          "key": "C",
+          "text": "Peripheral software",
+          "isCorrect": false,
+          "explanation": "Yanlış. Peripheral çevre birimidir, yazılım lisans modeli değildir."
+        },
+        {
+          "key": "D",
+          "text": "Compatible software",
+          "isCorrect": false,
+          "explanation": "Yanlış. Compatible, modifikasyona ihtiyaç duymadan uyumlu çalışan donanım/yazılımdır."
+        },
+        {
+          "key": "E",
+          "text": "System emulation",
+          "isCorrect": false,
+          "explanation": "Yanlış. Emulation, farklı donanım ortamını sanal olarak taklit etmektir."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Which term describes \"a computer failure due to faulty hardware or a serious software bug\"?",
+      "options": [
+        {
+          "key": "A",
+          "text": "crash",
+          "isCorrect": true,
+          "explanation": "Doğru! Tetikleyici: \"a computer failure due to faulty hardware or serious bug\" ifadesi sistemin çökmesini yani crash durumunu belirtir."
+        },
+        {
+          "key": "B",
+          "text": "error",
+          "isCorrect": false,
+          "explanation": "Yanlış. Error, insanların dikkatsizliği veya yanlış muhakemesi sonucu oluşan hatalı eylemdir (\"incorrect action\")."
+        },
+        {
+          "key": "C",
+          "text": "execute",
+          "isCorrect": false,
+          "explanation": "Yanlış. Execute program başlatma eylemidir."
+        },
+        {
+          "key": "D",
+          "text": "feature",
+          "isCorrect": false,
+          "explanation": "Yanlış. Feature programın beklenen özelliğidir."
+        },
+        {
+          "key": "E",
+          "text": "network",
+          "isCorrect": false,
+          "explanation": "Yanlış. Network bilgisayar ağıdır."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "In technical terminology, something that a computer program is \"supposed\" to do, which often serves as a reason to upgrade to a more recent version, is called a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "bug",
+          "isCorrect": false,
+          "explanation": "Yanlış. Bug programdaki hata veya kusurdur."
+        },
+        {
+          "key": "B",
+          "text": "platform",
+          "isCorrect": false,
+          "explanation": "Yanlış. Platform yazılımın çalıştığı sistem mimarisidir."
+        },
+        {
+          "key": "C",
+          "text": "feature",
+          "isCorrect": true,
+          "explanation": "Doğru! Tetikleyici: Hocanın özellikle vurguladığı \"supposed to do\" ve \"upgrade to a recent version\" kalıpları feature terimine aittir."
+        },
+        {
+          "key": "D",
+          "text": "compiler",
+          "isCorrect": false,
+          "explanation": "Yanlış. Compiler programlama derleyicisidir."
+        },
+        {
+          "key": "E",
+          "text": "driver",
+          "isCorrect": false,
+          "explanation": "Yanlış. Driver donanım sürücüsüdür."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "question": "What is the most correct technical verb used \"to start a program on a computer\"?",
+      "options": [
+        {
+          "key": "A",
+          "text": "abort",
+          "isCorrect": false,
+          "explanation": "Yanlış. Abort işlemi sonlandırmaktır."
+        },
+        {
+          "key": "B",
+          "text": "execute",
+          "isCorrect": true,
+          "explanation": "Doğru! Tetikleyici: \"to start a program on a computer\" tanımı ve dersteki \"most correct technical term\" tüyosu execute fiilini gerektirir."
+        },
+        {
+          "key": "C",
+          "text": "debug",
+          "isCorrect": false,
+          "explanation": "Yanlış. Debug hata ayıklamaktır."
+        },
+        {
+          "key": "D",
+          "text": "uncompress",
+          "isCorrect": false,
+          "explanation": "Yanlış. Uncompress arşivden çıkarmaktır."
+        },
+        {
+          "key": "E",
+          "text": "stipulate",
+          "isCorrect": false,
+          "explanation": "Yanlış. Stipulate antlaşma şartı koşmaktır."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "question": "Technology that is \"privately developed and owned\", preventing unauthorized alteration or redistribution of its underlying code, is referred to as:",
+      "options": [
+        {
+          "key": "A",
+          "text": "open source",
+          "isCorrect": false,
+          "explanation": "Yanlış. Open source kamuya açık ve özgürce paylaşılan yazılımdır."
+        },
+        {
+          "key": "B",
+          "text": "compatible",
+          "isCorrect": false,
+          "explanation": "Yanlış. Compatible donanım/yazılım uyumluluğudur."
+        },
+        {
+          "key": "C",
+          "text": "proprietary",
+          "isCorrect": true,
+          "explanation": "Doğru! Tetikleyici: \"privately developed and owned technology\" ifadesi tescilli/mülk teknoloji (proprietary) tanımıdır."
+        },
+        {
+          "key": "D",
+          "text": "virtual",
+          "isCorrect": false,
+          "explanation": "Yanlış. Virtual sanal ortamları ifade eder."
+        },
+        {
+          "key": "E",
+          "text": "peripheral",
+          "isCorrect": false,
+          "explanation": "Yanlış. Peripheral harici çevre birimidir."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "question": "An \"incorrect action attributable to poor judgment, ignorance, or inattention\" is technically defined as an:",
+      "options": [
+        {
+          "key": "A",
+          "text": "error",
+          "isCorrect": true,
+          "explanation": "Doğru! Tetikleyici: İnsan kaynaklı dikkatsizlik ve muhakeme eksikliğini belirten \"incorrect action attributable to poor judgment, ignorance, or inattention\" doğrudan error terimidir."
+        },
+        {
+          "key": "B",
+          "text": "execute",
+          "isCorrect": false,
+          "explanation": "Yanlış. Execute çalıştırma fiilidir."
+        },
+        {
+          "key": "C",
+          "text": "application",
+          "isCorrect": false,
+          "explanation": "Yanlış. Application kullanıcı yazılımıdır."
+        },
+        {
+          "key": "D",
+          "text": "end user",
+          "isCorrect": false,
+          "explanation": "Yanlış. End user son kullanıcıdır."
+        },
+        {
+          "key": "E",
+          "text": "IDE",
+          "isCorrect": false,
+          "explanation": "Yanlış. IDE tümleşik geliştirme ortamıdır."
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
-### 🗝️ Cevap Anahtarı ve Tetikleyici Analizi
+## 🧩 6. Kelime Avı Bulmacası (Vocabulary Puzzle)
 
-1. **C (`bug`)** — *Tetikleyici:* Soru kökündeki `"an error in a computer program"` doğrudan `bug` teriminin resmi tanımıdır.
-2. **D (`abort`)** — *Tetikleyici:* `"to end a program... before its completion"` kalıbı sürecin tamamlanmadan sonlandırılmasını ifade eder.
-3. **B (`closed source`)** — *Tetikleyici:* `"cannot see, edit, or manipulate the source code"` ifadesi kapalı kaynak kod modelini tanımlar.
-4. **A (`crash`)** — *Tetikleyici:* `"a computer failure due to faulty hardware or serious bug"` sistemin çökmesini yani `crash` durumunu belirtir.
-5. **C (`feature`)** — *Tetikleyici:* Hocanın özellikle vurguladığı `"supposed to do"` ve `"upgrade to a recent version"` kalıpları `feature` terimine aittir.
-6. **B (`execute`)** — *Tetikleyici:* `"to start a program on a computer"` tanımı ve metindeki "most correct technical term" tüyosu `execute` fiilini gerektirir.
-7. **C (`proprietary`)** — *Tetikleyici:* `"privately developed and owned technology"` ifadesi tescilli/mülk teknoloji (`proprietary`) tanımıdır.
-8. **A (`error`)** — *Tetikleyici:* İnsan kaynaklı dikkatsizlik ve muhakeme eksikliğini belirten `"incorrect action attributable to poor judgment, ignorance, or inattention"` doğrudan `error` terimidir.
-
-
+```puzzle
 {
   "title": "Unit 1 English for Information Technology Crossword Puzzle",
   "dimensions": {
@@ -458,3 +690,4 @@ E) IDE
     }
   ]
 }
+```
