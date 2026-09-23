@@ -248,7 +248,7 @@ function initPuzzle(container: HTMLElement) {
     <div class="puzzle-header">
       <div class="puzzle-title-area">
         ${titleHtml}
-        <p class="puzzle-hint">🖱️ Fare veya 📱 parmağınızla harflerin üzerinden sürükleyerek kelimeleri bulun.</p>
+        <p class="puzzle-hint">🖱️ Fareyle veya 📱 parmağınızla harflerin üzerinden sürükleyerek kelimeleri bulun.</p>
       </div>
       <div class="puzzle-status-badge">
         <span>Bulunan:</span>
@@ -258,15 +258,16 @@ function initPuzzle(container: HTMLElement) {
     </div>
     <div class="puzzle-body">
       <div class="puzzle-grid-wrapper">
-        <div class="puzzle-grid" style="grid-template-columns: repeat(${cols}, 1fr);"></div>
+        <div class="puzzle-grid" style="--grid-cols: ${cols}; grid-template-columns: repeat(${cols}, 1fr);"></div>
       </div>
-      <div class="puzzle-sidebar">
-        <div class="sidebar-title">
-          <span>Kelime Listesi</span>
-          <button type="button" class="puzzle-restart-btn" style="background:none;border:none;color:var(--secondary);font-size:0.8rem;cursor:pointer;">🔄 Sıfırla</button>
-        </div>
+      <div class="puzzle-toast"></div>
+      <div class="puzzle-bottom-controls">
+        <button type="button" class="puzzle-toggle-words-btn">👁️ Kelime Listesini Göster (İpucu)</button>
+        <button type="button" class="puzzle-restart-btn">🔄 Sıfırla</button>
+      </div>
+      <div class="puzzle-words-drawer" style="display: none;">
+        <div class="words-drawer-title">Aranacak Kelimeler (${totalWords})</div>
         <ul class="words-badge-list"></ul>
-        <div class="puzzle-toast"></div>
       </div>
     </div>
   `
@@ -276,6 +277,16 @@ function initPuzzle(container: HTMLElement) {
   const foundValEl = container.querySelector(".found-val") as HTMLElement
   const toastEl = container.querySelector(".puzzle-toast") as HTMLElement
   const restartBtn = container.querySelector(".puzzle-restart-btn") as HTMLButtonElement
+  const toggleWordsBtn = container.querySelector(".puzzle-toggle-words-btn") as HTMLButtonElement
+  const wordsDrawer = container.querySelector(".puzzle-words-drawer") as HTMLElement
+
+  toggleWordsBtn.addEventListener("click", () => {
+    const isHidden = wordsDrawer.style.display === "none"
+    wordsDrawer.style.display = isHidden ? "block" : "none"
+    toggleWordsBtn.textContent = isHidden
+      ? "🙈 Kelime Listesini Gizle"
+      : "👁️ Kelime Listesini Göster (İpucu)"
+  })
 
   // Render Words in Sidebar
   data.words.forEach((w) => {

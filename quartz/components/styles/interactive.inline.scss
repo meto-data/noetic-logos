@@ -1,18 +1,225 @@
 // ----------------------------------------------------
-// Interactive Widgets Styling (Quiz & Puzzle)
+// Interactive Widgets Styling (Theme-Adaptive & Responsive)
 // ----------------------------------------------------
+
+// 1. Default (Light Mode)
+:root {
+  --quiz-correct-fg: #059669;
+  --quiz-correct-bg: rgba(16, 185, 129, 0.12);
+  --quiz-correct-border: #10b981;
+  --quiz-correct-pill-bg: #10b981;
+  --quiz-correct-pill-fg: #ffffff;
+
+  --quiz-wrong-fg: #dc2626;
+  --quiz-wrong-bg: rgba(239, 68, 68, 0.12);
+  --quiz-wrong-border: #ef4444;
+  --quiz-wrong-pill-bg: #ef4444;
+  --quiz-wrong-pill-fg: #ffffff;
+
+  --puzzle-found-fg: var(--secondary);
+  --puzzle-found-bg: color-mix(in srgb, var(--secondary) 22%, var(--light));
+  --puzzle-found-border: var(--secondary);
+
+  --puzzle-selecting-bg: var(--secondary);
+  --puzzle-selecting-fg: var(--light);
+
+  --puzzle-mismatch-fg: var(--quiz-wrong-fg);
+  --puzzle-mismatch-bg: var(--quiz-wrong-bg);
+  --puzzle-mismatch-border: var(--quiz-wrong-border);
+}
+
+// 2. Dark Mode
+:root[saved-theme="dark"],
+:root[saved-theme="dark"][data-palette-dark] {
+  --quiz-correct-fg: #34d399;
+  --quiz-correct-bg: rgba(52, 211, 153, 0.16);
+  --quiz-correct-border: #059669;
+  --quiz-correct-pill-bg: #059669;
+  --quiz-correct-pill-fg: #ffffff;
+
+  --quiz-wrong-fg: #f87171;
+  --quiz-wrong-bg: rgba(248, 113, 113, 0.16);
+  --quiz-wrong-border: #dc2626;
+  --quiz-wrong-pill-bg: #dc2626;
+  --quiz-wrong-pill-fg: #ffffff;
+
+  --puzzle-found-fg: var(--secondary);
+  --puzzle-found-bg: color-mix(in srgb, var(--secondary) 28%, transparent);
+  --puzzle-found-border: var(--secondary);
+}
+
+// 3. STONE DARK (Taş Teması - Volkanik Bazalt & Gümüş / Asla Yeşil Yok!)
+:root[saved-theme="stone-dark"] {
+  --quiz-correct-fg: #f3f4f6;
+  --quiz-correct-bg: rgba(243, 244, 246, 0.14);
+  --quiz-correct-border: #9ca3af;
+  --quiz-correct-pill-bg: #4b5563;
+  --quiz-correct-pill-fg: #ffffff;
+
+  --quiz-wrong-fg: #fca5a5;
+  --quiz-wrong-bg: rgba(239, 68, 68, 0.18);
+  --quiz-wrong-border: #ef4444;
+  --quiz-wrong-pill-bg: #991b1b;
+  --quiz-wrong-pill-fg: #ffffff;
+
+  // Bulmaca taş ve gümüş tonları
+  --puzzle-found-fg: #ffffff;
+  --puzzle-found-bg: rgba(192, 192, 197, 0.28);
+  --puzzle-found-border: #d1d5db;
+  --puzzle-selecting-bg: #4b5563;
+  --puzzle-selecting-fg: #ffffff;
+  --puzzle-mismatch-bg: rgba(239, 68, 68, 0.25);
+  --puzzle-mismatch-fg: #fca5a5;
+  --puzzle-mismatch-border: #ef4444;
+}
+
+// 4. Olive Light (Zeytin Yeşili - Doğal Toprak & Zeytin)
+:root[saved-theme="olive-light"] {
+  --quiz-correct-fg: #3f6212;
+  --quiz-correct-bg: rgba(101, 163, 13, 0.15);
+  --quiz-correct-border: #65a30d;
+  --quiz-correct-pill-bg: #4d7c0f;
+  --quiz-correct-pill-fg: #ffffff;
+
+  --quiz-wrong-fg: #991b1b;
+  --quiz-wrong-bg: rgba(220, 38, 38, 0.12);
+  --quiz-wrong-border: #b91c1c;
+  --quiz-wrong-pill-bg: #b91c1c;
+  --quiz-wrong-pill-fg: #ffffff;
+
+  --puzzle-found-fg: #365314;
+  --puzzle-found-bg: color-mix(in srgb, var(--secondary) 25%, var(--light));
+  --puzzle-found-border: var(--secondary);
+}
+
+// 5. Olive Dark
+:root[saved-theme="olive-dark"] {
+  --quiz-correct-fg: #bef264;
+  --quiz-correct-bg: rgba(163, 230, 53, 0.18);
+  --quiz-correct-border: #84cc16;
+  --quiz-correct-pill-bg: #65a30d;
+  --quiz-correct-pill-fg: #000000;
+
+  --quiz-wrong-fg: #fca5a5;
+  --quiz-wrong-bg: rgba(239, 68, 68, 0.2);
+  --quiz-wrong-border: #ef4444;
+  --quiz-wrong-pill-bg: #b91c1c;
+  --quiz-wrong-pill-fg: #ffffff;
+
+  --puzzle-found-fg: #ecfccb;
+  --puzzle-found-bg: color-mix(in srgb, var(--secondary) 30%, transparent);
+  --puzzle-found-border: var(--secondary);
+}
+
+// 6. Library Light (Krem / Kitaplık / Sepya)
+:root[saved-theme="library-light"] {
+  --quiz-correct-fg: #2e5a27;
+  --quiz-correct-bg: rgba(67, 126, 71, 0.14);
+  --quiz-correct-border: #528a49;
+  --quiz-correct-pill-bg: #3d6e35;
+  --quiz-correct-pill-fg: #fff9f0;
+
+  --quiz-wrong-fg: #8b2626;
+  --quiz-wrong-bg: rgba(168, 50, 50, 0.12);
+  --quiz-wrong-border: #a83232;
+  --quiz-wrong-pill-bg: #8b2626;
+  --quiz-wrong-pill-fg: #fff9f0;
+
+  --puzzle-found-fg: #4a3828;
+  --puzzle-found-bg: color-mix(in srgb, var(--secondary) 25%, var(--light));
+  --puzzle-found-border: var(--secondary);
+}
+
+// 7. Nord Light (Nord Paleti)
+:root[saved-theme="nord-light"] {
+  --quiz-correct-fg: #2e6930;
+  --quiz-correct-bg: rgba(163, 190, 140, 0.25);
+  --quiz-correct-border: #a3be8c;
+  --quiz-correct-pill-bg: #5b8e55;
+  --quiz-correct-pill-fg: #ffffff;
+
+  --quiz-wrong-fg: #992b35;
+  --quiz-wrong-bg: rgba(191, 97, 106, 0.2);
+  --quiz-wrong-border: #bf616a;
+  --quiz-wrong-pill-bg: #bf616a;
+  --quiz-wrong-pill-fg: #ffffff;
+
+  --puzzle-found-fg: #2e3440;
+  --puzzle-found-bg: color-mix(in srgb, var(--secondary) 30%, var(--light));
+  --puzzle-found-border: var(--secondary);
+}
+
+// 8. Deep Sea (Okyanus)
+:root[saved-theme="deep-sea"] {
+  --quiz-correct-fg: #2dd4bf;
+  --quiz-correct-bg: rgba(45, 212, 191, 0.18);
+  --quiz-correct-border: #0d9488;
+  --quiz-correct-pill-bg: #0d9488;
+  --quiz-correct-pill-fg: #ffffff;
+
+  --quiz-wrong-fg: #fb7185;
+  --quiz-wrong-bg: rgba(251, 113, 133, 0.18);
+  --quiz-wrong-border: #e11d48;
+  --quiz-wrong-pill-bg: #e11d48;
+  --quiz-wrong-pill-fg: #ffffff;
+
+  --puzzle-found-fg: #a5f3fc;
+  --puzzle-found-bg: color-mix(in srgb, var(--secondary) 30%, transparent);
+  --puzzle-found-border: var(--secondary);
+}
+
+// 9. Void & Deep Void (Boşluk / Uzay)
+:root[saved-theme="void"],
+:root[saved-theme="deep-void"] {
+  --quiz-correct-fg: #4ade80;
+  --quiz-correct-bg: rgba(74, 222, 128, 0.2);
+  --quiz-correct-border: #22c55e;
+  --quiz-correct-pill-bg: #16a34a;
+  --quiz-correct-pill-fg: #ffffff;
+
+  --quiz-wrong-fg: #fb7185;
+  --quiz-wrong-bg: rgba(251, 113, 133, 0.2);
+  --quiz-wrong-border: #f43f5e;
+  --quiz-wrong-pill-bg: #e11d48;
+  --quiz-wrong-pill-fg: #ffffff;
+
+  --puzzle-found-fg: #ffffff;
+  --puzzle-found-bg: color-mix(in srgb, var(--secondary) 35%, transparent);
+  --puzzle-found-border: var(--secondary);
+}
+
+// ----------------------------------------------------
+// Base Styling (Dynamic Font & Typo Inheritance)
+// ----------------------------------------------------
+
+.interactive-quiz-container,
+.interactive-puzzle-container,
+.interactive-error-box {
+  font-family: var(--bodyFont, inherit) !important;
+  color: var(--darkgray);
+  line-height: var(--noetic-line-height, 1.6);
+}
+
+.interactive-quiz-container h3,
+.interactive-puzzle-container h3,
+.quiz-title,
+.puzzle-title {
+  font-family: var(--headerFont, var(--bodyFont, inherit)) !important;
+  font-weight: 700;
+  color: var(--dark);
+}
 
 .interactive-error-box {
   margin: 1.5rem 0;
   padding: 1rem 1.25rem;
   border-radius: 8px;
-  background-color: rgba(239, 68, 68, 0.08);
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background-color: var(--quiz-wrong-bg);
+  border: 1px solid var(--quiz-wrong-border);
   color: var(--darkgray);
 
   .interactive-error-title {
     font-weight: 700;
-    color: #ef4444;
+    color: var(--quiz-wrong-fg);
     margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
@@ -21,14 +228,15 @@
 
   .interactive-error-desc {
     margin: 0.25rem 0 0.75rem 0;
-    font-size: 0.95rem;
+    font-size: calc(var(--baseFontSize, 1rem) * 0.95);
   }
 
   .interactive-error-code {
     background: var(--lightgray);
     padding: 0.75rem;
     border-radius: 6px;
-    font-size: 0.85rem;
+    font-size: calc(var(--baseFontSize, 1rem) * 0.85);
+    font-family: var(--codeFont, monospace);
     overflow-x: auto;
   }
 }
@@ -59,14 +267,12 @@
       flex: 1 1 250px;
 
       .quiz-title {
-        font-size: 1.25rem;
-        font-weight: 700;
+        font-size: calc(var(--baseFontSize, 1rem) * 1.25);
         margin: 0 0 0.35rem 0;
-        color: var(--dark);
       }
 
       .quiz-desc {
-        font-size: 0.9rem;
+        font-size: calc(var(--baseFontSize, 1rem) * 0.9);
         color: var(--gray);
         margin: 0;
       }
@@ -78,7 +284,7 @@
       gap: 0.5rem;
       padding: 0.4rem 0.85rem;
       border-radius: 20px;
-      font-size: 0.85rem;
+      font-size: calc(var(--baseFontSize, 1rem) * 0.85);
       font-weight: 600;
       background: var(--lightgray);
       color: var(--darkgray);
@@ -94,26 +300,26 @@
   .quiz-question-card {
     margin-bottom: 1.75rem;
     padding: 1.25rem;
-    background: rgba(0, 0, 0, 0.015);
+    background: color-mix(in srgb, var(--lightgray) 15%, var(--light));
     border: 1px solid var(--lightgray);
     border-radius: 10px;
-    transition: all 0.2s ease;
+    transition: border-color 0.2s ease, background 0.2s ease;
 
     &:last-child {
       margin-bottom: 1rem;
     }
 
     .question-prompt {
-      font-size: 1.05rem;
+      font-size: calc(var(--baseFontSize, 1rem) * 1.05);
       font-weight: 600;
       color: var(--dark);
       margin: 0 0 1rem 0;
-      line-height: 1.5;
 
       .question-num {
         display: inline-block;
         color: var(--secondary);
         margin-right: 0.4rem;
+        font-weight: 700;
       }
     }
 
@@ -137,7 +343,7 @@
       cursor: pointer;
       user-select: none;
       transition: all 0.15s ease-in-out;
-      font-size: 0.95rem;
+      font-size: calc(var(--baseFontSize, 1rem) * 0.95);
       color: var(--darkgray);
 
       &:hover:not(.locked) {
@@ -170,54 +376,55 @@
         display: none;
       }
 
-      // Selected Correct State
+      // Selected Correct State (Theme Adaptive)
       &.state-correct {
-        border-color: #10b981 !important;
-        background-color: rgba(16, 185, 129, 0.12) !important;
-        color: #065f46 !important;
+        border-color: var(--quiz-correct-border) !important;
+        background-color: var(--quiz-correct-bg) !important;
+        color: var(--quiz-correct-fg) !important;
         font-weight: 600;
 
         .option-key-badge {
-          background-color: #10b981;
-          color: #ffffff;
+          background-color: var(--quiz-correct-pill-bg);
+          color: var(--quiz-correct-pill-fg);
         }
 
         .option-icon {
           display: inline-block;
-          color: #10b981;
+          color: var(--quiz-correct-fg);
         }
       }
 
-      // Selected Wrong State
+      // Selected Wrong State (Theme Adaptive)
       &.state-wrong {
-        border-color: #ef4444 !important;
-        background-color: rgba(239, 68, 68, 0.12) !important;
-        color: #991b1b !important;
+        border-color: var(--quiz-wrong-border) !important;
+        background-color: var(--quiz-wrong-bg) !important;
+        color: var(--quiz-wrong-fg) !important;
 
         .option-key-badge {
-          background-color: #ef4444;
-          color: #ffffff;
+          background-color: var(--quiz-wrong-pill-bg);
+          color: var(--quiz-wrong-pill-fg);
         }
 
         .option-icon {
           display: inline-block;
-          color: #ef4444;
+          color: var(--quiz-wrong-fg);
         }
       }
 
       // Revealed Correct State (when user chose wrong)
       &.state-revealed {
-        border-color: #10b981;
-        background-color: rgba(16, 185, 129, 0.06);
+        border-color: var(--quiz-correct-border);
+        background-color: var(--quiz-correct-bg);
+        color: var(--quiz-correct-fg);
 
         .option-key-badge {
-          background-color: #10b981;
-          color: #ffffff;
+          background-color: var(--quiz-correct-pill-bg);
+          color: var(--quiz-correct-pill-fg);
         }
 
         .option-icon {
           display: inline-block;
-          color: #10b981;
+          color: var(--quiz-correct-fg);
         }
       }
 
@@ -231,8 +438,7 @@
       margin-top: 1rem;
       padding: 0.85rem 1rem;
       border-radius: 8px;
-      font-size: 0.9rem;
-      line-height: 1.5;
+      font-size: calc(var(--baseFontSize, 1rem) * 0.9);
       display: none;
       animation: fadeIn 0.25s ease-in-out;
 
@@ -241,13 +447,13 @@
       }
 
       &.correct-explanation {
-        background-color: rgba(16, 185, 129, 0.08);
-        border: 1px solid rgba(16, 185, 129, 0.3);
+        background-color: var(--quiz-correct-bg);
+        border: 1px solid var(--quiz-correct-border);
         color: var(--darkgray);
 
         .exp-label {
           font-weight: 700;
-          color: #059669;
+          color: var(--quiz-correct-fg);
           margin-bottom: 0.3rem;
           display: flex;
           align-items: center;
@@ -256,13 +462,13 @@
       }
 
       &.wrong-explanation {
-        background-color: rgba(239, 68, 68, 0.07);
-        border: 1px solid rgba(239, 68, 68, 0.25);
+        background-color: var(--quiz-wrong-bg);
+        border: 1px solid var(--quiz-wrong-border);
         color: var(--darkgray);
 
         .exp-label {
           font-weight: 700;
-          color: #dc2626;
+          color: var(--quiz-wrong-fg);
           margin-bottom: 0.3rem;
           display: flex;
           align-items: center;
@@ -272,12 +478,12 @@
         .exp-correct-ref {
           margin-top: 0.5rem;
           padding-top: 0.5rem;
-          border-top: 1px dashed rgba(239, 68, 68, 0.2);
-          font-size: 0.85rem;
-          color: var(--gray);
+          border-top: 1px dashed var(--quiz-wrong-border);
+          font-size: calc(var(--baseFontSize, 1rem) * 0.85);
+          color: var(--darkgray);
 
           strong {
-            color: #059669;
+            color: var(--quiz-correct-fg);
           }
         }
       }
@@ -295,7 +501,7 @@
 
     .quiz-result-msg {
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: calc(var(--baseFontSize, 1rem) * 0.95);
       color: var(--dark);
     }
 
@@ -303,12 +509,13 @@
       padding: 0.5rem 1.1rem;
       border-radius: 6px;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: calc(var(--baseFontSize, 1rem) * 0.9);
       cursor: pointer;
       background: var(--secondary);
-      color: #ffffff;
+      color: var(--light);
       border: none;
       transition: all 0.2s ease;
+      font-family: var(--bodyFont, inherit);
 
       &:hover {
         opacity: 0.9;
@@ -319,16 +526,16 @@
 }
 
 // ----------------------------------------------------
-// 2. PUZZLE / WORD SEARCH COMPONENT
+// 2. PUZZLE / WORD SEARCH COMPONENT (ENLARGED & ADAPTIVE)
 // ----------------------------------------------------
 
 .interactive-puzzle-container {
-  margin: 2rem 0;
+  margin: 2.5rem 0;
   padding: 1.5rem;
   background-color: var(--light);
   border: 1px solid var(--lightgray);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 
   .puzzle-header {
     display: flex;
@@ -336,20 +543,18 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
     padding-bottom: 0.75rem;
     border-bottom: 1px solid var(--lightgray);
 
     .puzzle-title-area {
       .puzzle-title {
-        font-size: 1.25rem;
-        font-weight: 700;
+        font-size: calc(var(--baseFontSize, 1rem) * 1.35);
         margin: 0 0 0.25rem 0;
-        color: var(--dark);
       }
 
       .puzzle-hint {
-        font-size: 0.85rem;
+        font-size: calc(var(--baseFontSize, 1rem) * 0.88);
         color: var(--gray);
         margin: 0;
       }
@@ -359,11 +564,11 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      padding: 0.35rem 0.8rem;
+      padding: 0.4rem 0.9rem;
       border-radius: 20px;
       background: var(--lightgray);
       color: var(--darkgray);
-      font-size: 0.85rem;
+      font-size: calc(var(--baseFontSize, 1rem) * 0.88);
       font-weight: 600;
 
       .found-counter {
@@ -376,55 +581,60 @@
   .puzzle-body {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-
-    @media (min-width: 900px) {
-      flex-direction: row;
-      align-items: flex-start;
-    }
+    align-items: center;
+    width: 100%;
+    gap: 1.25rem;
   }
 
   .puzzle-grid-wrapper {
-    flex: 1 1 auto;
+    width: 100%;
     overflow-x: auto;
-    padding-bottom: 0.5rem;
     -webkit-overflow-scrolling: touch;
     display: flex;
     justify-content: center;
+    padding: 0.5rem 0 1rem 0;
   }
 
   .puzzle-grid {
     display: inline-grid;
-    gap: 2px;
-    padding: 6px;
-    background: var(--lightgray);
-    border-radius: 8px;
+    gap: 3px;
+    padding: 8px;
+    background: color-mix(in srgb, var(--lightgray) 40%, var(--light));
+    border: 1px solid var(--lightgray);
+    border-radius: 10px;
     user-select: none;
-    touch-action: none; // Crucial for responsive touch drag without scrolling
+    touch-action: none;
     position: relative;
+    max-width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   }
 
+  // CELL SIZING & TYPOGRAPHY
   .puzzle-cell {
-    width: 32px;
-    height: 32px;
+    // Desktop / PC (Large, prominent and easily clickable!)
+    width: clamp(34px, 4.4vw, 48px);
+    height: clamp(34px, 4.4vw, 48px);
+    font-size: clamp(1rem, 1.8vw, 1.35rem);
+    font-weight: 800;
+    font-family: var(--headerFont, var(--bodyFont, inherit));
     background-color: var(--light);
     color: var(--dark);
-    font-size: 0.95rem;
-    font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.15s ease, transform 0.1s ease;
+    transition: background-color 0.15s ease, transform 0.1s ease, color 0.15s ease;
 
-    @media (min-width: 480px) {
-      width: 36px;
-      height: 36px;
-      font-size: 1.05rem;
+    // Mobile / Narrow screen adaptation:
+    @media (max-width: 768px) {
+      width: clamp(23px, calc((100vw - 48px) / var(--grid-cols, 14)), 36px);
+      height: clamp(23px, calc((100vw - 48px) / var(--grid-cols, 14)), 36px);
+      font-size: clamp(0.75rem, calc((100vw - 48px) / var(--grid-cols, 14) * 0.58), 1.05rem);
+      border-radius: 4px;
     }
 
-    // When cell is empty (in crossword grids)
+    // Empty cell in crosswords
     &.cell-empty {
       background-color: transparent;
       cursor: default;
@@ -433,43 +643,112 @@
 
     // Active dragging selection state
     &.selecting {
-      background-color: var(--secondary) !important;
-      color: #ffffff !important;
+      background-color: var(--puzzle-selecting-bg) !important;
+      color: var(--puzzle-selecting-fg) !important;
       transform: scale(0.95);
       border-radius: 6px;
     }
 
-    // Matched/Found state (permanent)
+    // Matched/Found state (Theme Adaptive)
     &.found {
-      background-color: rgba(16, 185, 129, 0.25) !important;
-      color: #065f46 !important;
-      border: 1px solid #10b981;
+      background-color: var(--puzzle-found-bg) !important;
+      color: var(--puzzle-found-fg) !important;
+      border: 1px solid var(--puzzle-found-border) !important;
+      font-weight: 800;
     }
 
-    // Mismatched state (temporary red flash)
+    // Mismatched state (Theme Adaptive temporary flash)
     &.mismatch {
-      background-color: rgba(239, 68, 68, 0.3) !important;
-      color: #b91c1c !important;
-      border: 1px solid #ef4444;
+      background-color: var(--puzzle-mismatch-bg) !important;
+      color: var(--puzzle-mismatch-fg) !important;
+      border: 1px solid var(--puzzle-mismatch-border) !important;
       animation: shake 0.35s ease-in-out;
     }
   }
 
-  .puzzle-sidebar {
-    flex: 0 0 280px;
-    background: rgba(0, 0, 0, 0.02);
+  .puzzle-toast {
+    width: 100%;
+    max-width: 480px;
+    padding: 0.65rem 1rem;
+    border-radius: 8px;
+    font-size: calc(var(--baseFontSize, 1rem) * 0.9);
+    font-weight: 600;
+    text-align: center;
+    display: none;
+    animation: fadeIn 0.2s ease;
+
+    &.toast-success {
+      display: block;
+      background-color: var(--puzzle-found-bg);
+      color: var(--puzzle-found-fg);
+      border: 1px solid var(--puzzle-found-border);
+    }
+
+    &.toast-error {
+      display: block;
+      background-color: var(--puzzle-mismatch-bg);
+      color: var(--puzzle-mismatch-fg);
+      border: 1px solid var(--puzzle-mismatch-border);
+    }
+  }
+
+  // BOTTOM CONTROLS & COLLAPSIBLE DRAWER
+  .puzzle-bottom-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    width: 100%;
+
+    button {
+      padding: 0.45rem 1rem;
+      border-radius: 6px;
+      font-size: calc(var(--baseFontSize, 1rem) * 0.85);
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--bodyFont, inherit);
+      transition: all 0.2s ease;
+    }
+
+    .puzzle-toggle-words-btn {
+      background: var(--lightgray);
+      color: var(--dark);
+      border: 1px solid var(--lightgray);
+
+      &:hover {
+        border-color: var(--secondary);
+        color: var(--secondary);
+      }
+    }
+
+    .puzzle-restart-btn {
+      background: none;
+      color: var(--gray);
+      border: 1px solid var(--lightgray);
+
+      &:hover {
+        border-color: var(--secondary);
+        color: var(--secondary);
+      }
+    }
+  }
+
+  .puzzle-words-drawer {
+    width: 100%;
+    max-width: 650px;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    background: color-mix(in srgb, var(--lightgray) 15%, var(--light));
     border: 1px solid var(--lightgray);
     border-radius: 8px;
-    padding: 1rem;
+    animation: fadeIn 0.25s ease-in-out;
 
-    .sidebar-title {
-      font-size: 0.95rem;
+    .words-drawer-title {
+      font-size: calc(var(--baseFontSize, 1rem) * 0.9);
       font-weight: 700;
       color: var(--dark);
-      margin: 0 0 0.75rem 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      margin-bottom: 0.75rem;
     }
 
     .words-badge-list {
@@ -489,7 +768,7 @@
       border-radius: 6px;
       background: var(--light);
       border: 1px solid var(--lightgray);
-      font-size: 0.85rem;
+      font-size: calc(var(--baseFontSize, 1rem) * 0.85);
       font-weight: 600;
       color: var(--darkgray);
       transition: all 0.2s ease;
@@ -500,40 +779,15 @@
       }
 
       &.is-found {
-        background-color: rgba(16, 185, 129, 0.15);
-        border-color: #10b981;
-        color: #065f46;
+        background-color: var(--puzzle-found-bg);
+        border-color: var(--puzzle-found-border);
+        color: var(--puzzle-found-fg);
         text-decoration: line-through;
 
         .word-status-icon {
           opacity: 1;
-          color: #10b981;
+          color: var(--puzzle-found-fg);
         }
-      }
-    }
-
-    .puzzle-toast {
-      margin-top: 1rem;
-      padding: 0.6rem 0.8rem;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-align: center;
-      display: none;
-      animation: fadeIn 0.2s ease;
-
-      &.toast-success {
-        display: block;
-        background-color: rgba(16, 185, 129, 0.15);
-        color: #065f46;
-        border: 1px solid #10b981;
-      }
-
-      &.toast-error {
-        display: block;
-        background-color: rgba(239, 68, 68, 0.15);
-        color: #b91c1c;
-        border: 1px solid #ef4444;
       }
     }
   }
