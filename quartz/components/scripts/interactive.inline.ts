@@ -288,31 +288,29 @@ function initPuzzle(container: HTMLElement) {
       : "👁️ Kelime Listesini Göster (İpucu)"
   })
 
-  // Render Words in Sidebar
-  data.words.forEach((w) => {
-    const badge = document.createElement("li")
-    badge.className = "word-badge"
-    badge.setAttribute("data-word", w.word.toUpperCase())
-    const clueText = w.clue ? ` (${escapeHtml(w.clue)})` : ""
-    badge.innerHTML = `
-      <span class="word-status-icon">○</span>
-      <span class="word-name">${escapeHtml(w.word.toUpperCase())}${clueText}</span>
-    `
-    wordsListEl.appendChild(badge)
-  })
-
   // Render Grid Cells
   const cellMap = new Map<string, HTMLElement>()
+  const DISTRACTOR_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < cols; c++) {
-      const char = (data.grid[r] && data.grid[r][c]) ? data.grid[r][c] : " "
+      let char = (data.grid[r] && data.grid[r][c]) ? String(data.grid[r][c]).trim() : ""
       const cell = document.createElement("div")
       cell.className = "puzzle-cell"
       cell.setAttribute("data-row", String(r))
       cell.setAttribute("data-col", String(c))
 
-      if (char === " " || char === "") {
-        cell.classList.add("cell-empty")
+      if (char === "") {
+        if (data.type === "crossword") {
+          cell.classList.add("cell-empty")
+        } else {
+          // Word search: fill empty cells with deterministic random distractor letters
+          const hash = Math.abs(Math.sin((r + 1) * 997 + (c + 1) * 313 + totalWords * 17) * 10000)
+          char = DISTRACTOR_LETTERS[Math.floor(hash) % DISTRACTOR_LETTERS.length]
+          if (!data.grid[r]) data.grid[r] = []
+          data.grid[r][c] = char
+          cell.textContent = char.toUpperCase()
+        }
       } else {
         cell.textContent = char.toUpperCase()
       }
@@ -390,6 +388,136 @@ function initPuzzle(container: HTMLElement) {
     }
     return path
   }
+
+  // Find coordinates of a word in grid (via explicit path, start/end ray, or grid search)
+  function findWordPath(w: PuzzleWord): Array<{ r: number; c: number }> {
+    if (w.path && w.path.length > 0) {
+      return w.path.map((pt) => ({ r: pt[0], c: pt[1] }))
+    }
+    if (w.start && w.end) {
+      return calculateRay(w.start[0], w.start[1], w.end[0], w.end[1])
+    }
+    // Search grid for the word in 8 directions
+    const target = w.word.toUpperCase().replace(/\s+/g, "")
+    const dirs = [
+      [0, 1], [0, -1], [1, 0], [-1, 0],
+      [1, 1], [-1, -1], [1, -1], [-1, 1],
+    ]
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const char = data.grid[r]?.[c]?.toUpperCase() || ""
+        if (char !== target[0]) continue
+
+        for (const [dr, dc] of dirs) {
+          const path: Array<{ r: number; c: number }> = []
+          let match = true
+          for (let i = 0; i < target.length; i++) {
+            const nr = r + i * dr
+            const nc = c + i * dc
+            if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) {
+              match = false
+              break
+            }
+            if ((data.grid[nr]?.[nc]?.toUpperCase() || "") !== target[i]) {
+              match = false
+              break
+            }
+            path.push({ r: nr, c: nc })
+          }
+          if (match) return path
+        }
+      }
+    }
+    return []
+  }
+
+  function markWordAsFound(wordObj: PuzzleWord, isReveal = false) {
+    const wordKey = wordObj.word.toUpperCase().replace(/\s+/g, "")
+    const isNew = !foundWords.has(wordKey)
+
+    if (isNew) {
+      foundWords.add(wordKey)
+      foundValEl.textContent = String(foundWords.size)
+    }
+
+    const wordPath = (!isReveal && currentPath.length > 0) ? currentPath : findWordPath(wordObj)
+    wordPath.forEach((p) => {
+      foundCells.add(`${p.r},${p.c}`)
+      const cell = cellMap.get(`${p.r},${p.c}`)
+      if (cell) {
+        cell.classList.remove("selecting", "mismatch")
+        cell.classList.add("found")
+        // Animate pulse highlight
+        cell.classList.remove("revealed-pulse")
+        void cell.offsetWidth // trigger reflow
+        cell.classList.add("revealed-pulse")
+        setTimeout(() => {
+          cell.classList.remove("revealed-pulse")
+        }, 1600)
+      }
+    })
+
+    // Update Word Badge
+    const badge = wordsListEl.querySelector(`.word-badge[data-word="${wordKey}"]`)
+    if (badge) {
+      badge.classList.add("is-found")
+      const icon = badge.querySelector(".word-status-icon")
+      if (icon) icon.textContent = "✓"
+      const revealBtn = badge.querySelector(".word-reveal-btn") as HTMLButtonElement
+      if (revealBtn) {
+        revealBtn.innerHTML = "✓ Bulundu"
+        revealBtn.title = "Konumu tekrar vurgulamak için tıklayın"
+      }
+    }
+
+    if (isNew) {
+      if (isReveal) {
+        showToast(`💡 "${wordObj.word}" bulmacada gösterildi!`, "success", 2500)
+      } else {
+        showToast(`🎉 "${wordObj.word}" kelimesi bulundu!`, "success", 2000)
+      }
+
+      if (foundWords.size === totalWords) {
+        setTimeout(() => {
+          showToast(`🏆 Tebrikler! Tüm kelimeleri tamamladınız!`, "success", 4000)
+        }, 500)
+      }
+    } else if (isReveal) {
+      showToast(`✨ "${wordObj.word}" konumu vurgulandı!`, "success", 1500)
+    }
+
+    if (isReveal) {
+      gridEl.scrollIntoView({ behavior: "smooth", block: "nearest" })
+    }
+  }
+
+  // Render Words in Drawer with "Bulmacada Göster" button
+  data.words.forEach((w) => {
+    const wordKey = w.word.toUpperCase().replace(/\s+/g, "")
+    const badge = document.createElement("li")
+    badge.className = "word-badge"
+    badge.setAttribute("data-word", wordKey)
+    const clueText = w.clue ? ` <span class="word-clue">(${escapeHtml(w.clue)})</span>` : ""
+    badge.innerHTML = `
+      <div class="word-badge-info">
+        <span class="word-status-icon">○</span>
+        <span class="word-name"><strong>${escapeHtml(w.word.toUpperCase())}</strong>${clueText}</span>
+      </div>
+      <button type="button" class="word-reveal-btn" title="Bulmacada Göster">
+        👁️ Bulmacada Göster
+      </button>
+    `
+
+    const revealBtn = badge.querySelector(".word-reveal-btn") as HTMLButtonElement
+    if (revealBtn) {
+      revealBtn.addEventListener("click", (e) => {
+        e.stopPropagation()
+        markWordAsFound(w, true)
+      })
+    }
+
+    wordsListEl.appendChild(badge)
+  })
 
   function updateSelectingVisuals(path: Array<{ r: number; c: number }>) {
     // Clear old non-found selecting
@@ -470,34 +598,7 @@ function initPuzzle(container: HTMLElement) {
 
     if (matchedWordObj) {
       // MATCH SUCCESS
-      const wordKey = matchedWordObj.word.toUpperCase().replace(/\s+/g, "")
-      foundWords.add(wordKey)
-
-      currentPath.forEach((p) => {
-        foundCells.add(`${p.r},${p.c}`)
-        const cell = cellMap.get(`${p.r},${p.c}`)
-        if (cell) {
-          cell.classList.remove("selecting")
-          cell.classList.add("found")
-        }
-      })
-
-      // Update Word Badge
-      const badge = wordsListEl.querySelector(`.word-badge[data-word="${wordKey}"]`)
-      if (badge) {
-        badge.classList.add("is-found")
-        const icon = badge.querySelector(".word-status-icon")
-        if (icon) icon.textContent = "✓"
-      }
-
-      foundValEl.textContent = String(foundWords.size)
-      showToast(`🎉 "${matchedWordObj.word}" kelimesi bulundu!`, "success", 2000)
-
-      if (foundWords.size === totalWords) {
-        setTimeout(() => {
-          showToast(`🏆 Tebrikler! Tüm kelimeleri tamamladınız!`, "success", 4000)
-        }, 500)
-      }
+      markWordAsFound(matchedWordObj, false)
     } else {
       // MISMATCH - TEMPORARY RED FLASH (1-2 seconds)
       const invalidPath = [...currentPath]
@@ -595,13 +696,18 @@ function initPuzzle(container: HTMLElement) {
     toastEl.textContent = ""
 
     gridEl.querySelectorAll(".puzzle-cell").forEach((cell) => {
-      cell.classList.remove("selecting", "found", "mismatch")
+      cell.classList.remove("selecting", "found", "mismatch", "revealed-pulse")
     })
 
     wordsListEl.querySelectorAll(".word-badge").forEach((badge) => {
       badge.classList.remove("is-found")
       const icon = badge.querySelector(".word-status-icon")
       if (icon) icon.textContent = "○"
+      const revealBtn = badge.querySelector(".word-reveal-btn") as HTMLButtonElement
+      if (revealBtn) {
+        revealBtn.innerHTML = "👁️ Bulmacada Göster"
+        revealBtn.title = "Bulmacada Göster"
+      }
     })
   })
 }

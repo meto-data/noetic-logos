@@ -28,6 +28,24 @@ export const Interactive: QuartzTransformerPlugin = () => {
               if (lang === "quiz" || lang === "puzzle") {
                 try {
                   const data = safeJsonParse(node.value)
+
+                  // Automatically populate any empty/blank cells with random distractor letters for word searches
+                  if (lang === "puzzle" && data && data.type !== "crossword" && Array.isArray(data.grid)) {
+                    const DISTRACTOR_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    const totalWords = Array.isArray(data.words) ? data.words.length : 1
+                    for (let r = 0; r < data.grid.length; r++) {
+                      if (Array.isArray(data.grid[r])) {
+                        for (let c = 0; c < data.grid[r].length; c++) {
+                          const val = data.grid[r][c]
+                          if (!val || typeof val !== "string" || val.trim() === "") {
+                            const hash = Math.abs(Math.sin((r + 1) * 997 + (c + 1) * 313 + totalWords * 17) * 10000)
+                            data.grid[r][c] = DISTRACTOR_LETTERS[Math.floor(hash) % DISTRACTOR_LETTERS.length]
+                          }
+                        }
+                      }
+                    }
+                  }
+
                   const jsonStr = JSON.stringify(data)
                   const base64 = Buffer.from(jsonStr, "utf-8").toString("base64")
 

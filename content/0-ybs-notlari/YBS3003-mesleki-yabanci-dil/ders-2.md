@@ -597,96 +597,106 @@ graph TD
 
 ```puzzle
 {
-  "title": "Unit 1 English for Information Technology Crossword Puzzle",
+  "title": "Introduction to Software - Hafta 2 Bulmacası",
   "dimensions": {
     "rows": 13,
     "cols": 14
   },
   "grid": [
-    [" ", " ", "C", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-    [" ", " ", "O", " ", " ", " ", " ", "I", " ", " ", " ", " ", " ", " "],
-    ["H", " ", "M", " ", " ", " ", " ", "N", " ", " ", " ", " ", " ", " "],
-    ["A", "P", "P", "L", "I", "C", "A", "T", "I", "O", "N", " ", " ", " "],
-    ["R", " ", "U", " ", " ", " ", " ", "E", " ", " ", " ", " ", " ", " "],
-    ["D", "A", "T", "A", " ", " ", " ", "R", " ", " ", " ", " ", " ", " "],
-    ["W", " ", "E", " ", " ", " ", " ", "N", "E", "T", "W", "O", "R", "K"],
-    ["A", " ", "R", " ", " ", " ", " ", "E", " ", " ", " ", " ", " ", " "],
-    ["R", " ", " ", " ", "S", "O", "F", "T", "W", "A", "R", "E", " ", " "],
-    ["E", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-    ["D", "A", "T", "A", "B", "A", "S", "E", " ", " ", " ", " ", " ", " "],
-    ["P", "E", "R", "I", "P", "H", "E", "R", "A", "L", " ", " ", " ", " "],
-    ["C", "O", "M", "P", "O", "N", "E", "N", "T", " ", " ", " ", " ", " "]
+    ["P", "R", "O", "P", "R", "I", "E", "T", "A", "R", "Y", "N", "U", "V"],
+    ["C", "O", "M", "P", "I", "L", "E", "R", "U", "O", "S", "P", "A", "B"],
+    ["E", "X", "E", "C", "U", "T", "E", "S", "U", "S", "I", "T", "B", "Y"],
+    ["D", "E", "B", "U", "G", "G", "E", "R", "Z", "X", "E", "D", "O", "R"],
+    ["C", "O", "M", "P", "A", "T", "I", "B", "L", "E", "V", "E", "R", "L"],
+    ["F", "E", "A", "T", "U", "R", "E", "I", "M", "R", "B", "O", "T", "T"],
+    ["C", "R", "A", "S", "H", "L", "T", "D", "X", "M", "B", "E", "W", "E"],
+    ["E", "R", "R", "O", "R", "I", "T", "H", "A", "Z", "U", "E", "R", "Y"],
+    ["H", "Q", "B", "B", "K", "U", "W", "J", "M", "E", "G", "Y", "P", "I"],
+    ["N", "O", "U", "O", "T", "Z", "M", "Q", "I", "Q", "O", "E", "M", "A"],
+    ["B", "M", "J", "H", "Y", "B", "I", "K", "N", "O", "E", "C", "M", "T"],
+    ["H", "K", "N", "M", "V", "X", "B", "D", "H", "M", "T", "D", "D", "C"],
+    ["V", "M", "O", "V", "X", "O", "M", "V", "O", "G", "R", "Y", "O", "V"]
   ],
   "words": [
     {
-      "word": "COMPUTER",
-      "direction": "VERTICAL_TTB",
-      "start": [0, 2],
-      "end": [7, 2],
-      "path": [[0, 2], [1, 2], [2, 2], [3, 2], [4, 2], [5, 2], [6, 2], [7, 2]]
+      "word": "PROPRIETARY",
+      "direction": "HORIZONTAL_LTR",
+      "start": [0, 0],
+      "end": [0, 10],
+      "path": [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], [0, 7], [0, 8], [0, 9], [0, 10]],
+      "clue": "Tescilli / özel mülkiyete ait teknoloji"
     },
     {
-      "word": "INTERNET",
-      "direction": "VERTICAL_TTB",
-      "start": [1, 7],
-      "end": [8, 7],
-      "path": [[1, 7], [2, 7], [3, 7], [4, 7], [5, 7], [6, 7], [7, 7], [8, 7]]
+      "word": "COMPILER",
+      "direction": "HORIZONTAL_LTR",
+      "start": [1, 0],
+      "end": [1, 7],
+      "path": [[1, 0], [1, 1], [1, 2], [1, 3], [1, 4], [1, 5], [1, 6], [1, 7]],
+      "clue": "Kaynak kodu ikili koda dönüştüren derleyici"
     },
     {
-      "word": "HARDWARE",
-      "direction": "VERTICAL_TTB",
+      "word": "EXECUTE",
+      "direction": "HORIZONTAL_LTR",
       "start": [2, 0],
-      "end": [9, 0],
-      "path": [[2, 0], [3, 0], [4, 0], [5, 0], [6, 0], [7, 0], [8, 0], [9, 0]]
+      "end": [2, 6],
+      "path": [[2, 0], [2, 1], [2, 2], [2, 3], [2, 4], [2, 5], [2, 6]],
+      "clue": "Programı çalıştırmak / icra etmek"
     },
     {
-      "word": "APPLICATION",
+      "word": "DEBUGGER",
       "direction": "HORIZONTAL_LTR",
       "start": [3, 0],
-      "end": [3, 10],
-      "path": [[3, 0], [3, 1], [3, 2], [3, 3], [3, 4], [3, 5], [3, 6], [3, 7], [3, 8], [3, 9], [3, 10]]
+      "end": [3, 7],
+      "path": [[3, 0], [3, 1], [3, 2], [3, 3], [3, 4], [3, 5], [3, 6], [3, 7]],
+      "clue": "Hata ayıklayıcı"
     },
     {
-      "word": "DATA",
+      "word": "COMPATIBLE",
+      "direction": "HORIZONTAL_LTR",
+      "start": [4, 0],
+      "end": [4, 9],
+      "path": [[4, 0], [4, 1], [4, 2], [4, 3], [4, 4], [4, 5], [4, 6], [4, 7], [4, 8], [4, 9]],
+      "clue": "Modifikasyonsuz doğrudan uyumlu"
+    },
+    {
+      "word": "FEATURE",
       "direction": "HORIZONTAL_LTR",
       "start": [5, 0],
-      "end": [5, 3],
-      "path": [[5, 0], [5, 1], [5, 2], [5, 3]]
+      "end": [5, 6],
+      "path": [[5, 0], [5, 1], [5, 2], [5, 3], [5, 4], [5, 5], [5, 6]],
+      "clue": "Yazılımın yapması beklenen özellik"
     },
     {
-      "word": "NETWORK",
+      "word": "CRASH",
       "direction": "HORIZONTAL_LTR",
-      "start": [6, 7],
-      "end": [6, 13],
-      "path": [[6, 7], [6, 8], [6, 9], [6, 10], [6, 11], [6, 12], [6, 13]]
+      "start": [6, 0],
+      "end": [6, 4],
+      "path": [[6, 0], [6, 1], [6, 2], [6, 3], [6, 4]],
+      "clue": "Sistemik çökme / donma"
     },
     {
-      "word": "SOFTWARE",
+      "word": "ERROR",
       "direction": "HORIZONTAL_LTR",
-      "start": [8, 4],
-      "end": [8, 11],
-      "path": [[8, 4], [8, 5], [8, 6], [8, 7], [8, 8], [8, 9], [8, 10], [8, 11]]
+      "start": [7, 0],
+      "end": [7, 4],
+      "path": [[7, 0], [7, 1], [7, 2], [7, 3], [7, 4]],
+      "clue": "İnsan kaynaklı hatalı eylem"
     },
     {
-      "word": "DATABASE",
-      "direction": "HORIZONTAL_LTR",
-      "start": [10, 0],
-      "end": [10, 7],
-      "path": [[10, 0], [10, 1], [10, 2], [10, 3], [10, 4], [10, 5], [10, 6], [10, 7]]
+      "word": "ABORT",
+      "direction": "VERTICAL_TTB",
+      "start": [1, 12],
+      "end": [5, 12],
+      "path": [[1, 12], [2, 12], [3, 12], [4, 12], [5, 12]],
+      "clue": "İşlemi yarıda kesip sonlandırmak"
     },
     {
-      "word": "PERIPHERAL",
-      "direction": "HORIZONTAL_LTR",
-      "start": [11, 0],
-      "end": [11, 9],
-      "path": [[11, 0], [11, 1], [11, 2], [11, 3], [11, 4], [11, 5], [11, 6], [11, 7], [11, 8], [11, 9]]
-    },
-    {
-      "word": "COMPONENT",
-      "direction": "HORIZONTAL_LTR",
-      "start": [12, 0],
-      "end": [12, 8],
-      "path": [[12, 0], [12, 1], [12, 2], [12, 3], [12, 4], [12, 5], [12, 6], [12, 7], [12, 8]]
+      "word": "BUG",
+      "direction": "VERTICAL_TTB",
+      "start": [6, 10],
+      "end": [8, 10],
+      "path": [[6, 10], [7, 10], [8, 10]],
+      "clue": "Yazılım hatası / kod kusuru"
     }
   ]
 }
