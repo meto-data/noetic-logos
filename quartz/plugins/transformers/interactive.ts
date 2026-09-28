@@ -20,7 +20,19 @@ export const Interactive: QuartzTransformerPlugin = () => {
     markdownPlugins() {
       return [
         () => {
-          return (tree: Root, _file) => {
+          return (tree: Root, file) => {
+            const frontmatter = (file.data as any)?.frontmatter
+            const etkilesimRaw = frontmatter?.etkilesim ?? frontmatter?.interactive
+            const isInteractive = etkilesimRaw === true || etkilesimRaw === "true" || etkilesimRaw === "evet" || etkilesimRaw === 1
+
+            if (isInteractive) {
+              const markerNode: Html = {
+                type: "html",
+                value: `<div class="interactive-lexicon-page-marker" data-active="true"></div>`,
+              }
+              tree.children.unshift(markerNode)
+            }
+
             visit(tree, "code", (node: Code, index, parent) => {
               if (!parent || index === undefined) return
               const lang = (node.lang || "").toLowerCase().trim()

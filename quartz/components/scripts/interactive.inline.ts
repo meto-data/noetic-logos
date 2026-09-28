@@ -713,6 +713,440 @@ function initPuzzle(container: HTMLElement) {
 }
 
 // ----------------------------------------------------
+// 3. LEXICON & ETYMOLOGY INSPECTOR (Kelime ve Köken Atlası)
+// ----------------------------------------------------
+
+interface LexiconData {
+  word: string
+  mainTranslation: string
+  posList: Array<{
+    pos: string
+    posTr: string
+    meanings: string[]
+  }>
+  etymology: string
+  cognates: string[]
+}
+
+const lexiconCache = new Map<string, LexiconData>()
+let activeLexiconCard: HTMLElement | null = null
+
+function speakWord(word: string) {
+  if (!("speechSynthesis" in window)) return
+  try {
+    window.speechSynthesis.cancel()
+    const utter = new SpeechSynthesisUtterance(word)
+    utter.lang = "en-US"
+    utter.rate = 0.88
+    window.speechSynthesis.speak(utter)
+  } catch (err) {
+    console.error("[Lexicon] Speech synthesis error:", err)
+  }
+}
+
+async function fetchLexiconData(rawWord: string): Promise<LexiconData> {
+  const word = rawWord.toLowerCase().replace(/[^a-zA-Z]/g, "")
+  if (lexiconCache.has(word)) {
+    return lexiconCache.get(word)!
+  }
+
+  // 1. Google Translate Dictionary endpoint (CORS supported, fast)
+  const gPromise = fetch(
+    `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=tr&dt=t&dt=bd&q=${encodeURIComponent(word)}`
+  )
+    .then((r) => (r.ok ? r.json() : null))
+    .catch(() => null)
+
+  // 2. Wiktionary REST HTML (Official Wikimedia API, has full etymology)
+  const wPromise = fetch(`https://en.wiktionary.org/api/rest_v1/page/html/${encodeURIComponent(word)}`)
+    .then((r) => (r.ok ? r.text() : ""))
+    .catch(() => "")
+
+  // 3. Datamuse related words / derivations
+  const dPromise = fetch(`https://api.datamuse.com/words?sp=${encodeURIComponent(word)}*&max=10`)
+    .then((r) => (r.ok ? r.json() : []))
+    .catch(() => [])
+
+  const [gData, wHtml, dWords] = await Promise.all([gPromise, wPromise, dPromise])
+
+  const posTrMap: Record<string, string> = {
+    noun: "İsim (Noun)",
+    verb: "Fiil (Verb)",
+    adjective: "Sıfat (Adjective)",
+    adverb: "Zarf (Adverb)",
+    pronoun: "Zamir (Pronoun)",
+    preposition: "Edat (Preposition)",
+    conjunction: "Bağlaç (Conjunction)",
+    interjection: "Ünlem (Interjection)",
+  }
+
+  const posList: Array<{ pos: string; posTr: string; meanings: string[] }> = []
+  let mainTranslation = ""
+
+  if (gData) {
+    mainTranslation = gData[0]?.[0]?.[0] || ""
+    if (Array.isArray(gData[1])) {
+      gData[1].forEach((item: any) => {
+        const posName = String(item[0] || "").toLowerCase()
+        const posTr = posTrMap[posName] || `${posName.charAt(0).toUpperCase() + posName.slice(1)}`
+        const meanings = Array.isArray(item[1]) ? item[1].slice(0, 5) : []
+        if (meanings.length > 0) {
+          posList.push({ pos: posName, posTr, meanings })
+        }
+      })
+    }
+  }
+
+  let etymology = ""
+  if (wHtml) {
+    const m =
+      wHtml.match(/<section[^>]*id="Etymology[^>]*>([\s\S]*?)<\/section>/i) ||
+      wHtml.match(/<h[234][^>]*id="Etymology[^>]*>[\s\S]*?<\/h[234]>([\s\S]*?)(?=<h[234]|$)/i) ||
+      wHtml.match(/<h[234][^>]*>(?:<span[^>]*>)?Etymology[\s\S]*?<\/h[234]>([\s\S]*?)(?=<h[234]|$)/i)
+    if (m) {
+      etymology = m[1]
+        .replace(/<style[\s\S]*?<\/style>/gi, "")
+        .replace(/<sup[\s\S]*?<\/sup>/gi, "")
+        .replace(/<[^>]+>/g, " ")
+        .replace(/\s+/g, " ")
+        .trim()
+    }
+  }
+
+  const cognates: string[] = []
+  if (Array.isArray(dWords)) {
+    dWords.forEach((item: any) => {
+      const w = String(item.word || "").toLowerCase()
+      if (w !== word && !w.includes(" ") && w.length >= 3 && !cognates.includes(w)) {
+        cognates.push(w)
+      }
+    })
+  }
+
+  const result: LexiconData = {
+    word,
+    mainTranslation,
+    posList,
+    etymology: etymology.slice(0, 600),
+    cognates: cognates.slice(0, 8),
+  }
+
+  lexiconCache.set(word, result)
+  return result
+}
+
+function ensureLexiconCard(): HTMLElement {
+  let card = document.getElementById("lexicon-inspector-card")
+  if (!card) {
+    card = document.createElement("div")
+    card.id = "lexicon-inspector-card"
+    card.className = "lexicon-card"
+    card.style.display = "none"
+    document.body.appendChild(card)
+
+    // Global click listener to close when clicking outside
+    document.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement
+      if (
+        activeLexiconCard &&
+        activeLexiconCard.style.display !== "none" &&
+        !activeLexiconCard.contains(target) &&
+        !target.closest(".lex-word") &&
+        !target.closest(".lex-cognate-pill") &&
+        !target.closest(".lex-selection-bubble")
+      ) {
+        closeLexiconInspector()
+      }
+    })
+
+    // Escape key listener
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && activeLexiconCard && activeLexiconCard.style.display !== "none") {
+        closeLexiconInspector()
+      }
+    })
+  }
+  return card
+}
+
+function closeLexiconInspector() {
+  if (activeLexiconCard) {
+    activeLexiconCard.style.display = "none"
+  }
+}
+
+async function showLexiconInspector(rawWord: string) {
+  const word = rawWord.trim().replace(/^[^a-zA-Z]+|[^a-zA-Z]+$/g, "")
+  if (word.length < 2) return
+
+  const card = ensureLexiconCard()
+  activeLexiconCard = card
+  card.style.display = "flex"
+
+  // Render Loading Skeleton
+  card.innerHTML = `
+    <div class="lex-card-header">
+      <div class="lex-header-left">
+        <span class="lex-icon">📖</span>
+        <span class="lex-title-word">${escapeHtml(word)}</span>
+        <button type="button" class="lex-audio-btn" title="Telaffuzu Dinle">🔊</button>
+      </div>
+      <div class="lex-header-right">
+        <button type="button" class="lex-close-btn" title="Kapat">✕</button>
+      </div>
+    </div>
+    <div class="lex-card-body">
+      <div class="lex-loading">
+        <div class="lex-spinner"></div>
+        <span>"${escapeHtml(word)}" araştırılıyor...</span>
+      </div>
+    </div>
+  `
+
+  const audioBtn = card.querySelector(".lex-audio-btn") as HTMLButtonElement
+  if (audioBtn) {
+    audioBtn.addEventListener("click", () => speakWord(word))
+  }
+  const closeBtn = card.querySelector(".lex-close-btn") as HTMLButtonElement
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeLexiconInspector)
+  }
+
+  try {
+    const data = await fetchLexiconData(word)
+
+    // Render POS items HTML
+    let posHtml = ""
+    if (data.posList.length > 0) {
+      posHtml = `
+        <div class="lex-section">
+          <div class="lex-section-title">🏷️ Sözcük Türleri & Türkçe Karşılıkları</div>
+          <div class="lex-pos-list">
+            ${data.posList
+              .map(
+                (p) => `
+              <div class="lex-pos-item">
+                <span class="lex-pos-tag lex-pos-${p.pos}">${escapeHtml(p.posTr)}</span>
+                <span class="lex-pos-meanings">${escapeHtml(p.meanings.join(", "))}</span>
+              </div>
+            `
+              )
+              .join("")}
+          </div>
+        </div>
+      `
+    } else if (data.mainTranslation) {
+      posHtml = `
+        <div class="lex-section">
+          <div class="lex-section-title">🏷️ Türkçe Karşılığı</div>
+          <div class="lex-main-badge">${escapeHtml(data.mainTranslation)}</div>
+        </div>
+      `
+    }
+
+    // Render Etymology HTML
+    let etymologyHtml = ""
+    if (data.etymology) {
+      etymologyHtml = `
+        <div class="lex-section">
+          <div class="lex-section-title">🏛️ Köken & Etimoloji (Wiktionary)</div>
+          <p class="lex-etymology-text">${escapeHtml(data.etymology)}</p>
+        </div>
+      `
+    } else {
+      etymologyHtml = `
+        <div class="lex-section">
+          <div class="lex-section-title">🏛️ Köken & Etimoloji</div>
+          <p class="lex-etymology-text lex-text-muted">Bu sözcük için doğrudan etimoloji kaydı bulunamadı. Aşağıdaki Etymonline bağlantısından detaylı inceleyebilirsiniz.</p>
+        </div>
+      `
+    }
+
+    // Render Cognates HTML
+    let cognatesHtml = ""
+    if (data.cognates.length > 0) {
+      cognatesHtml = `
+        <div class="lex-section">
+          <div class="lex-section-title">🌿 Aynı Kökten Kelimeler (Word Family)</div>
+          <div class="lex-cognates-list">
+            ${data.cognates
+              .map(
+                (c) => `
+              <button type="button" class="lex-cognate-pill" data-cognate="${escapeHtml(c)}">${escapeHtml(c)}</button>
+            `
+              )
+              .join("")}
+          </div>
+        </div>
+      `
+    }
+
+    // Render External Quick Links
+    const linksHtml = `
+      <div class="lex-section lex-links-section">
+        <a href="https://www.etymonline.com/word/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">Etymonline ↗</a>
+        <a href="https://en.wiktionary.org/wiki/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">Wiktionary ↗</a>
+        <a href="https://dictionary.cambridge.org/dictionary/english/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">Cambridge ↗</a>
+        <a href="https://tureng.com/tr/turkce-ingilizce/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">Tureng ↗</a>
+      </div>
+    `
+
+    const mainBadgeHtml = data.mainTranslation
+      ? `<div class="lex-top-translation">Anlamı: <strong>${escapeHtml(data.mainTranslation)}</strong></div>`
+      : ""
+
+    const bodyEl = card.querySelector(".lex-card-body") as HTMLElement
+    if (bodyEl) {
+      bodyEl.innerHTML = `
+        ${mainBadgeHtml}
+        ${posHtml}
+        ${etymologyHtml}
+        ${cognatesHtml}
+        ${linksHtml}
+      `
+
+      // Add click listeners to cognate pills
+      bodyEl.querySelectorAll(".lex-cognate-pill").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation()
+          const cognateWord = (btn as HTMLElement).getAttribute("data-cognate")
+          if (cognateWord) {
+            showLexiconInspector(cognateWord)
+          }
+        })
+      })
+    }
+  } catch (err) {
+    const bodyEl = card.querySelector(".lex-card-body") as HTMLElement
+    if (bodyEl) {
+      bodyEl.innerHTML = `
+        <div class="lex-error">
+          <p>⚠️ Bilgiler alınırken bir sorun oluştu.</p>
+          <div class="lex-links-section">
+            <a href="https://www.etymonline.com/word/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">Etymonline'da Ara ↗</a>
+            <a href="https://tureng.com/tr/turkce-ingilizce/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">Tureng'de Ara ↗</a>
+          </div>
+        </div>
+      `
+    }
+  }
+}
+
+function getWordAtClick(e: MouseEvent): string | null {
+  let range: Range | null = null
+  if (document.caretRangeFromPoint) {
+    range = document.caretRangeFromPoint(e.clientX, e.clientY)
+  } else if ((document as any).caretPositionFromPoint) {
+    const pos = (document as any).caretPositionFromPoint(e.clientX, e.clientY)
+    if (pos && pos.offsetNode) {
+      range = document.createRange()
+      range.setStart(pos.offsetNode, pos.offset)
+      range.collapse(true)
+    }
+  }
+  if (!range || range.startContainer.nodeType !== Node.TEXT_NODE) return null
+  const text = range.startContainer.textContent || ""
+  const offset = range.startOffset
+
+  let start = offset
+  while (start > 0 && /[a-zA-Z]/.test(text[start - 1])) {
+    start--
+  }
+  let end = offset
+  while (end < text.length && /[a-zA-Z]/.test(text[end])) {
+    end++
+  }
+  const raw = text.slice(start, end).trim()
+  return raw.length >= 2 ? raw : null
+}
+
+function tokenizeElementWords(el: HTMLElement) {
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null)
+  const textNodes: Text[] = []
+  let node: Node | null
+  while ((node = walker.nextNode())) {
+    if (node.parentElement?.closest("a, code, pre, script, style, .lex-word, button, .puzzle-grid, .quiz-option")) {
+      continue
+    }
+    if (node.textContent && /[a-zA-Z]{2,}/.test(node.textContent)) {
+      textNodes.push(node as Text)
+    }
+  }
+  textNodes.forEach((tn) => {
+    const text = tn.textContent || ""
+    const frag = document.createDocumentFragment()
+    // Split into word tokens and non-word tokens
+    const tokens = text.split(/([a-zA-Z][a-zA-Z'-]*[a-zA-Z]|[a-zA-Z]{2,})/)
+    tokens.forEach((t) => {
+      if (/^[a-zA-Z]/.test(t) && t.length >= 2) {
+        const span = document.createElement("span")
+        span.className = "lex-word"
+        span.setAttribute("data-lex-word", t)
+        span.textContent = t
+        frag.appendChild(span)
+      } else {
+        frag.appendChild(document.createTextNode(t))
+      }
+    })
+    tn.parentNode?.replaceChild(frag, tn)
+  })
+}
+
+function initLexiconInspector() {
+  const marker = document.querySelector(".interactive-lexicon-page-marker[data-active='true']")
+  if (!marker) {
+    closeLexiconInspector()
+    document.querySelectorAll(".lexicon-status-badge").forEach((el) => el.remove())
+    return
+  }
+
+  const article = document.querySelector("article")
+  if (!article || article.hasAttribute("data-lexicon-initialized")) return
+  article.setAttribute("data-lexicon-initialized", "true")
+
+  // 1. In tables, wrap English words into .lex-word for visual feedback & hover
+  article.querySelectorAll("table td, table th").forEach((cell) => {
+    tokenizeElementWords(cell as HTMLElement)
+  })
+
+  // 2. Delegate click on article
+  article.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement
+    // Ignore interactive widgets, quizzes, puzzles, external links
+    if (target.closest(".interactive-quiz-widget, .interactive-puzzle-widget, a, button")) {
+      return
+    }
+
+    const lexSpan = target.closest(".lex-word") as HTMLElement
+    if (lexSpan) {
+      const word = lexSpan.getAttribute("data-lex-word") || lexSpan.textContent || ""
+      if (word.length >= 2) {
+        showLexiconInspector(word)
+        return
+      }
+    }
+
+    // Fallback: Click on any word in article
+    const wordAtClick = getWordAtClick(e)
+    if (wordAtClick && /^[a-zA-Z]{2,}$/.test(wordAtClick)) {
+      showLexiconInspector(wordAtClick)
+    }
+  })
+
+  // 3. Add floating status badge on bottom-right
+  if (!document.querySelector(".lexicon-status-badge")) {
+    const badge = document.createElement("div")
+    badge.className = "lexicon-status-badge"
+    badge.title = "Kelime & Köken Atlası bu sayfada aktif. İncelemek istediğiniz herhangi bir kelimeye tıklayabilirsiniz."
+    badge.innerHTML = `<span class="lex-pulse-dot"></span><span>📚 Kelime Atlası</span>`
+    badge.addEventListener("click", () => {
+      showLexiconInspector("language")
+    })
+    document.body.appendChild(badge)
+  }
+}
+
+// ----------------------------------------------------
 // Core Initialization & Lifecycle
 // ----------------------------------------------------
 
@@ -735,6 +1169,8 @@ function initInteractiveWidgets() {
   document.querySelectorAll(".interactive-puzzle-widget:not([data-initialized])").forEach((el) => {
     initPuzzle(el as HTMLElement)
   })
+
+  initLexiconInspector()
 }
 
 document.addEventListener("nav", initInteractiveWidgets)

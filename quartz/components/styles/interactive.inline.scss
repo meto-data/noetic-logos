@@ -878,6 +878,309 @@
 }
 
 // ----------------------------------------------------
+// 3. LEXICON & ETYMOLOGY INSPECTOR (Kelime ve Köken Atlası)
+// ----------------------------------------------------
+
+.lex-word {
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 0 1px;
+  display: inline;
+  text-decoration: underline dotted color-mix(in srgb, var(--secondary) 45%, transparent);
+  text-underline-offset: 3px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--secondary) 18%, transparent);
+    color: var(--secondary);
+    text-decoration: underline solid var(--secondary);
+  }
+}
+
+.lexicon-status-badge {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--light) 92%, var(--dark));
+  border: 1px solid var(--lightgray);
+  color: var(--secondary);
+  font-family: var(--bodyFont, inherit);
+  font-size: calc(var(--baseFontSize, 1rem) * 0.8);
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  user-select: none;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: var(--secondary);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  }
+
+  .lex-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--secondary);
+    animation: lexPulse 2s infinite ease-in-out;
+  }
+}
+
+.lexicon-card {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: min(440px, calc(100vw - 2.5rem));
+  max-height: 560px;
+  background: color-mix(in srgb, var(--light) 95%, var(--lightgray));
+  border: 1px solid color-mix(in srgb, var(--secondary) 30%, var(--lightgray));
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--bodyFont, inherit);
+  color: var(--darkgray);
+  overflow: hidden;
+  animation: slideUpFade 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(14px);
+
+  @media (max-width: 640px) {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-height: 78vh;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.28);
+  }
+
+  .lex-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 1.1rem;
+    background: color-mix(in srgb, var(--lightgray) 30%, var(--light));
+    border-bottom: 1px solid var(--lightgray);
+
+    .lex-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-width: 0;
+
+      .lex-icon {
+        font-size: 1.15rem;
+      }
+
+      .lex-title-word {
+        font-size: calc(var(--baseFontSize, 1rem) * 1.15);
+        font-weight: 800;
+        font-family: var(--headerFont, var(--bodyFont, inherit));
+        color: var(--dark);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .lex-audio-btn {
+        background: none;
+        border: 1px solid transparent;
+        border-radius: 6px;
+        padding: 0.2rem 0.4rem;
+        cursor: pointer;
+        font-size: 0.95rem;
+        transition: all 0.15s ease;
+
+        &:hover {
+          background: color-mix(in srgb, var(--secondary) 15%, transparent);
+          border-color: var(--secondary);
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    .lex-header-right {
+      .lex-close-btn {
+        background: none;
+        border: none;
+        color: var(--gray);
+        font-size: 1.15rem;
+        font-weight: 700;
+        cursor: pointer;
+        padding: 0.2rem 0.45rem;
+        border-radius: 6px;
+        transition: all 0.15s ease;
+
+        &:hover {
+          background: color-mix(in srgb, var(--darkgray) 15%, transparent);
+          color: var(--dark);
+        }
+      }
+    }
+  }
+
+  .lex-card-body {
+    padding: 1rem 1.15rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    font-size: calc(var(--baseFontSize, 1rem) * 0.9);
+    line-height: 1.5;
+
+    .lex-loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1rem;
+      gap: 0.85rem;
+      color: var(--gray);
+
+      .lex-spinner {
+        width: 32px;
+        height: 32px;
+        border: 3px solid var(--lightgray);
+        border-top-color: var(--secondary);
+        border-radius: 50%;
+        animation: lexSpin 0.75s linear infinite;
+      }
+    }
+
+    .lex-top-translation {
+      background: color-mix(in srgb, var(--secondary) 12%, var(--light));
+      border: 1px solid color-mix(in srgb, var(--secondary) 30%, transparent);
+      padding: 0.5rem 0.85rem;
+      border-radius: 8px;
+      color: var(--dark);
+      font-size: calc(var(--baseFontSize, 1rem) * 0.95);
+
+      strong {
+        color: var(--secondary);
+        font-weight: 700;
+      }
+    }
+
+    .lex-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+
+      .lex-section-title {
+        font-size: calc(var(--baseFontSize, 1rem) * 0.82);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--gray);
+      }
+    }
+
+    .lex-pos-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+
+      .lex-pos-item {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+
+        .lex-pos-tag {
+          font-size: calc(var(--baseFontSize, 1rem) * 0.75);
+          font-weight: 700;
+          padding: 0.15rem 0.5rem;
+          border-radius: 4px;
+          background: color-mix(in srgb, var(--secondary) 15%, var(--light));
+          border: 1px solid color-mix(in srgb, var(--secondary) 35%, transparent);
+          color: var(--secondary);
+          white-space: nowrap;
+        }
+
+        .lex-pos-meanings {
+          color: var(--dark);
+          font-weight: 500;
+        }
+      }
+    }
+
+    .lex-etymology-text {
+      margin: 0;
+      padding: 0.65rem 0.85rem;
+      background: color-mix(in srgb, var(--lightgray) 25%, var(--light));
+      border-left: 3px solid var(--secondary);
+      border-radius: 4px;
+      font-size: calc(var(--baseFontSize, 1rem) * 0.86);
+      color: var(--darkgray);
+      line-height: 1.55;
+    }
+
+    .lex-cognates-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+
+      .lex-cognate-pill {
+        background: var(--light);
+        border: 1px solid var(--lightgray);
+        border-radius: 6px;
+        padding: 0.25rem 0.6rem;
+        font-size: calc(var(--baseFontSize, 1rem) * 0.8);
+        font-weight: 600;
+        color: var(--darkgray);
+        cursor: pointer;
+        transition: all 0.15s ease;
+
+        &:hover {
+          background: var(--secondary);
+          border-color: var(--secondary);
+          color: var(--light);
+          transform: translateY(-1px);
+        }
+      }
+    }
+
+    .lex-links-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      padding-top: 0.4rem;
+      border-top: 1px solid var(--lightgray);
+
+      .lex-ext-link {
+        font-size: calc(var(--baseFontSize, 1rem) * 0.78);
+        font-weight: 600;
+        color: var(--secondary);
+        padding: 0.25rem 0.55rem;
+        border-radius: 6px;
+        background: color-mix(in srgb, var(--secondary) 10%, transparent);
+        text-decoration: none;
+        transition: all 0.15s ease;
+
+        &:hover {
+          background: var(--secondary);
+          color: var(--light);
+        }
+      }
+    }
+
+    .lex-text-muted {
+      color: var(--gray);
+      font-style: italic;
+    }
+  }
+}
+
+// ----------------------------------------------------
 // Animations
 // ----------------------------------------------------
 
@@ -908,4 +1211,32 @@
   0%, 100% { transform: translateX(0); }
   25% { transform: translateX(-3px); }
   75% { transform: translateX(3px); }
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lexPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+}
+
+@keyframes lexSpin {
+  to {
+    transform: rotate(360deg);
+  }
 }
