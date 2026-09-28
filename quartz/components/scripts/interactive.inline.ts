@@ -57,6 +57,29 @@ function decodePayload<T>(base64: string): T | null {
 }
 
 // ----------------------------------------------------
+// FontAwesome SVG Icons (Emoji-free, crisp vector icons)
+// ----------------------------------------------------
+
+const FA_ICONS = {
+  search: `<svg class="fa-icon fa-magnifying-glass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>`,
+  book: `<svg class="fa-icon fa-book" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>`,
+  volume: `<svg class="fa-icon fa-volume-high" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><path d="M533.6 32.5C598.5 85.3 640 165.8 640 256s-41.5 170.8-106.4 223.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C557.5 398.2 592 331.2 592 256s-34.5-142.2-88.7-186.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM473.1 107c43.2 35.2 70.9 88.9 70.9 149s-27.7 113.8-70.9 149c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C478.4 340.1 496 300.1 496 256s-17.6-84.1-54.2-111.7c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM380.6 34.6c9.7 5.6 15.4 16.2 14.8 27.4L372 256l23.4 194c.6 11.2-5.1 21.8-14.8 27.4s-21.7 4.9-30.8-1.8L211.7 368H128c-35.3 0-64-28.7-64-64V208c0-35.3 28.7-64 64-64h83.7L349.8 36.4c9.1-6.7 21.1-7.4 30.8-1.8z"/></svg>`,
+  close: `<svg class="fa-icon fa-xmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>`,
+  tag: `<svg class="fa-icon fa-tag" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L414.8 321.2c25-25 25-65.5 0-90.5L238.7 54.7C226.7 42.7 210.5 36 193.5 36H48C21.5 36 0 57.5 0 84v-4zM112 112a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>`,
+  landmark: `<svg class="fa-icon fa-landmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M240.1 4.2c9.8-5.6 21.9-5.6 31.8 0l216 123.4c8.4 4.8 13.6 13.8 13.6 23.5c0 14.9-12.1 27-27 27H37.5C22.6 178 10.5 166 10.5 151.1c0-9.7 5.2-18.7 13.6-23.5L240.1 4.2zM64 224h48v160H64V224zm144 0h48v160h-48V224zm144 0h48v160h-48V224zM32 448h448c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>`,
+  codeBranch: `<svg class="fa-icon fa-code-branch" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M80 104a24 24 0 1 0 0-48 24 24 0 1 0 0 48zm80-24c0 32.8-19.7 61-48 73.3V358.7c28.3 12.3 48 40.5 48 73.3 0 44.2-35.8 80-80 80s-80-35.8-80-80c0-32.8 19.7-61 48-73.3V153.3C19.7 141 0 112.8 0 80 0 35.8 35.8 0 80 0s80 35.8 80 80zm208 80a24 24 0 1 0 0-48 24 24 0 1 0 0 48zm80-24c0 44.2-35.8 80-80 80-28.3 0-53.1-14.7-67.3-37.1l-66.2 38.6c3.6 12 5.5 24.8 5.5 38.5 0 25.1-7.2 48.5-19.7 68.3l62.4 36.4C294.9 318.7 319.7 304 348 304c44.2 0 80 35.8 80 80s-35.8 80-80 80c-44.2 0-80-35.8-80-80 0-7.3 1-14.3 2.8-21l-63.5-37.1c-14.8 13.7-34.4 22.1-55.9 22.1h-8v-64h8c22.1 0 40-17.9 40-40 0-14.7-8-27.6-19.9-34.6l64.2-37.5c14.2 13.5 33.3 21.9 54.3 21.9 44.2 0 80-35.8 80-80z"/></svg>`,
+  quote: `<svg class="fa-icon fa-quote-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h80c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h80c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V216z"/></svg>`,
+  externalLink: `<svg class="fa-icon fa-arrow-up-right-from-square" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h82.7L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H320zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"/></svg>`,
+  grip: `<svg class="fa-icon fa-grip-vertical" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="currentColor"><path d="M96 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm0 160a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm0 160a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm128-320a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm0 160a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm0 160a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"/></svg>`,
+  resize: `<svg class="fa-icon fa-up-right-and-down-left-from-center" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M344 0H488c13.3 0 24 10.7 24 24V168c0 9.7-5.8 18.5-14.8 22.2s-19.3 1.7-26.2-5.2l-39-39-87 87c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l87-87-39-39c-6.9-6.9-8.9-17.2-5.2-26.2S334.3 0 344 0zM168 512H24c-13.3 0-24-10.7-24-24V344c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 5.2l39 39 87-87c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-87 87 39 39c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8z"/></svg>`,
+  rotateRight: `<svg class="fa-icon fa-rotate-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M449.9 39.96l-48.5 48.53C362.5 53.19 311.4 32 256 32 132.3 32 32 132.3 32 256s100.3 224 224 224c106.1 0 193.3-74.1 216.2-173.3 2.6-11.3-4.5-22.7-15.8-25.3-11.3-2.6-22.7 4.5-25.3 15.8C411.4 374.3 340.5 432 256 432 158.8 432 80 353.2 80 256S158.8 80 256 80c44.1 0 84.4 16.3 115.5 43.4l-57.1 57.1c-15.1 15.1-4.4 41 17 41h144c13.3 0 24-10.7 24-24V56.96c0-21.4-25.9-32.1-49.5-17z"/></svg>`,
+  eye: `<svg class="fa-icon fa-eye" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4 142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 92.9-131.1 3.3-7.9 3.3-16.7 0-24.6-14.8-35.7-46.1-87.7-92.9-131.1C433.5 68.8 368.8 32 288 32zm0 112c61.9 0 112 50.1 112 112s-50.1 112-112 112-112-50.1-112-112 50.1-112 112-112zm0 64c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48z"/></svg>`,
+  eyeSlash: `<svg class="fa-icon fa-eye-slash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2s-6.3 25.5 4.1 33.7l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L526.9 387.8C592.5 338.4 640 256 640 256s-47.5-82.4-113.1-131.8C459.7 75.8 392.2 48 320 48c-42.5 0-83.3 9.7-119.9 26.6L72.6 11.4 38.8 5.1zM320 112c48.6 0 94.3 17.5 131.1 48.2 24.3 20.3 44.5 46.1 58.7 71.8-14.2 25.7-34.4 51.5-58.7 71.8-21.2 17.7-45.7 31.4-72.3 39.8L320 286V112zm-88.7 54.7L181.7 127C143.5 149.2 112.5 181.9 90.2 224c22.3 42.1 53.3 74.8 91.5 97-4.5-12.8-7.7-26.3-9.5-40.3-2-15.6-2.5-31.5-.7-47.2 2-17.7 7.6-34.7 16.1-50.1l-16.3-16.7z"/></svg>`,
+  circleCheck: `<svg class="fa-icon fa-circle-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>`,
+  circleExclamation: `<svg class="fa-icon fa-circle-exclamation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zm32 224a32 32 0 1 1 -64 0 32 32 0 1 1 64 0z"/></svg>`,
+}
+
+// ----------------------------------------------------
 // 1. QUIZ RENDERER
 // ----------------------------------------------------
 
@@ -92,7 +115,7 @@ function initQuiz(container: HTMLElement) {
     <div class="quiz-questions-list"></div>
     <div class="quiz-footer">
       <div class="quiz-result-msg">Soruları yanıtlamak için seçeneklere tıklayın.</div>
-      <button type="button" class="quiz-reset-btn">🔄 Testi Yeniden Başlat</button>
+      <button type="button" class="quiz-reset-btn">${FA_ICONS.rotateRight} Testi Yeniden Başlat</button>
     </div>
   `
 
@@ -181,11 +204,11 @@ function initQuiz(container: HTMLElement) {
         if (answeredCount === totalQuestions) {
           const ratio = score / totalQuestions
           if (ratio === 1) {
-            resultMsgEl.textContent = `🎉 Kusursuz! ${totalQuestions} sorunun tamamını doğru bildiniz!`
+            resultMsgEl.textContent = `Kusursuz! ${totalQuestions} sorunun tamamını doğru bildiniz!`
           } else if (ratio >= 0.7) {
-            resultMsgEl.textContent = `👏 Tebrikler! ${totalQuestions} sorudan ${score} tanesini doğru bildiniz.`
+            resultMsgEl.textContent = `Tebrikler! ${totalQuestions} sorudan ${score} tanesini doğru bildiniz.`
           } else {
-            resultMsgEl.textContent = `📖 ${totalQuestions} sorudan ${score} tanesini bildiniz. Notları tekrar gözden geçirmeniz tavsiye edilir.`
+            resultMsgEl.textContent = `${totalQuestions} sorudan ${score} tanesini bildiniz. Notları tekrar gözden geçirmeniz tavsiye edilir.`
           }
         }
       })
@@ -248,7 +271,7 @@ function initPuzzle(container: HTMLElement) {
     <div class="puzzle-header">
       <div class="puzzle-title-area">
         ${titleHtml}
-        <p class="puzzle-hint">🖱️ Fareyle veya 📱 parmağınızla harflerin üzerinden sürükleyerek kelimeleri bulun.</p>
+        <p class="puzzle-hint">Fareyle veya parmağınızla harflerin üzerinden sürükleyerek kelimeleri bulun.</p>
       </div>
       <div class="puzzle-status-badge">
         <span>Bulunan:</span>
@@ -262,8 +285,8 @@ function initPuzzle(container: HTMLElement) {
       </div>
       <div class="puzzle-toast"></div>
       <div class="puzzle-bottom-controls">
-        <button type="button" class="puzzle-toggle-words-btn">👁️ Kelime Listesini Göster (İpucu)</button>
-        <button type="button" class="puzzle-restart-btn">🔄 Sıfırla</button>
+        <button type="button" class="puzzle-toggle-words-btn">${FA_ICONS.eye} Kelime Listesini Göster (İpucu)</button>
+        <button type="button" class="puzzle-restart-btn">${FA_ICONS.rotateRight} Sıfırla</button>
       </div>
       <div class="puzzle-words-drawer" style="display: none;">
         <div class="words-drawer-title">Aranacak Kelimeler (${totalWords})</div>
@@ -283,9 +306,9 @@ function initPuzzle(container: HTMLElement) {
   toggleWordsBtn.addEventListener("click", () => {
     const isHidden = wordsDrawer.style.display === "none"
     wordsDrawer.style.display = isHidden ? "block" : "none"
-    toggleWordsBtn.textContent = isHidden
-      ? "🙈 Kelime Listesini Gizle"
-      : "👁️ Kelime Listesini Göster (İpucu)"
+    toggleWordsBtn.innerHTML = isHidden
+      ? `${FA_ICONS.eyeSlash} Kelime Listesini Gizle`
+      : `${FA_ICONS.eye} Kelime Listesini Göster (İpucu)`
   })
 
   // Render Grid Cells
@@ -472,18 +495,18 @@ function initPuzzle(container: HTMLElement) {
 
     if (isNew) {
       if (isReveal) {
-        showToast(`💡 "${wordObj.word}" bulmacada gösterildi!`, "success", 2500)
+        showToast(`"${wordObj.word}" bulmacada gösterildi!`, "success", 2500)
       } else {
-        showToast(`🎉 "${wordObj.word}" kelimesi bulundu!`, "success", 2000)
+        showToast(`"${wordObj.word}" kelimesi bulundu!`, "success", 2000)
       }
 
       if (foundWords.size === totalWords) {
         setTimeout(() => {
-          showToast(`🏆 Tebrikler! Tüm kelimeleri tamamladınız!`, "success", 4000)
+          showToast(`Tebrikler! Tüm kelimeleri tamamladınız!`, "success", 4000)
         }, 500)
       }
     } else if (isReveal) {
-      showToast(`✨ "${wordObj.word}" konumu vurgulandı!`, "success", 1500)
+      showToast(`"${wordObj.word}" konumu vurgulandı!`, "success", 1500)
     }
 
     if (isReveal) {
@@ -495,8 +518,8 @@ function initPuzzle(container: HTMLElement) {
   data.words.forEach((w) => {
     const wordKey = w.word.toUpperCase().replace(/\s+/g, "")
     const badge = document.createElement("li")
-    badge.className = "word-badge"
     badge.setAttribute("data-word", wordKey)
+    badge.className = "word-badge"
     const clueText = w.clue ? ` <span class="word-clue">(${escapeHtml(w.clue)})</span>` : ""
     badge.innerHTML = `
       <div class="word-badge-info">
@@ -504,7 +527,7 @@ function initPuzzle(container: HTMLElement) {
         <span class="word-name"><strong>${escapeHtml(w.word.toUpperCase())}</strong>${clueText}</span>
       </div>
       <button type="button" class="word-reveal-btn" title="Bulmacada Göster">
-        👁️ Bulmacada Göster
+        ${FA_ICONS.eye} Bulmacada Göster
       </button>
     `
 
@@ -705,7 +728,7 @@ function initPuzzle(container: HTMLElement) {
       if (icon) icon.textContent = "○"
       const revealBtn = badge.querySelector(".word-reveal-btn") as HTMLButtonElement
       if (revealBtn) {
-        revealBtn.innerHTML = "👁️ Bulmacada Göster"
+        revealBtn.innerHTML = `${FA_ICONS.eye} Bulmacada Göster`
         revealBtn.title = "Bulmacada Göster"
       }
     })
@@ -726,10 +749,12 @@ interface LexiconData {
   }>
   etymology: string
   cognates: string[]
+  examples: string[]
 }
 
 const lexiconCache = new Map<string, LexiconData>()
 let activeLexiconCard: HTMLElement | null = null
+let activeActionPill: HTMLElement | null = null
 
 function speakWord(word: string) {
   if (!("speechSynthesis" in window)) return
@@ -740,34 +765,39 @@ function speakWord(word: string) {
     utter.rate = 0.88
     window.speechSynthesis.speak(utter)
   } catch (err) {
-    console.error("[Lexicon] Speech synthesis error:", err)
+    console.error("[Lexicon] Speech error:", err)
   }
 }
 
 async function fetchLexiconData(rawWord: string): Promise<LexiconData> {
-  const word = rawWord.toLowerCase().replace(/[^a-zA-Z]/g, "")
+  const word = rawWord.toLowerCase().replace(/[^a-zA-Z'-]/g, "").trim()
   if (lexiconCache.has(word)) {
     return lexiconCache.get(word)!
   }
 
-  // 1. Google Translate Dictionary endpoint (CORS supported, fast)
+  // 1. Google Translate GTX (Turkish translation & word classes)
   const gPromise = fetch(
     `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=tr&dt=t&dt=bd&q=${encodeURIComponent(word)}`
   )
     .then((r) => (r.ok ? r.json() : null))
     .catch(() => null)
 
-  // 2. Wiktionary REST HTML (Official Wikimedia API, has full etymology)
-  const wPromise = fetch(`https://en.wiktionary.org/api/rest_v1/page/html/${encodeURIComponent(word)}`)
+  // 2. Wiktionary REST Definitions (Definitions, POS, and authentic examples)
+  const defPromise = fetch(`https://en.wiktionary.org/api/rest_v1/page/definition/${encodeURIComponent(word)}`)
+    .then((r) => (r.ok ? r.json() : null))
+    .catch(() => null)
+
+  // 3. Wiktionary REST HTML (Official Wikimedia Parsoid endpoint for etymology and derived terms)
+  const htmlPromise = fetch(`https://en.wiktionary.org/api/rest_v1/page/html/${encodeURIComponent(word)}`)
     .then((r) => (r.ok ? r.text() : ""))
     .catch(() => "")
 
-  // 3. Datamuse related words / derivations
-  const dPromise = fetch(`https://api.datamuse.com/words?sp=${encodeURIComponent(word)}*&max=10`)
+  // 4. Datamuse related trigger words (fallback for cognates)
+  const dPromise = fetch(`https://api.datamuse.com/words?rel_trg=${encodeURIComponent(word)}&max=8`)
     .then((r) => (r.ok ? r.json() : []))
     .catch(() => [])
 
-  const [gData, wHtml, dWords] = await Promise.all([gPromise, wPromise, dPromise])
+  const [gData, defData, wHtml, dWords] = await Promise.all([gPromise, defPromise, htmlPromise, dPromise])
 
   const posTrMap: Record<string, string> = {
     noun: "İsim (Noun)",
@@ -797,27 +827,114 @@ async function fetchLexiconData(rawWord: string): Promise<LexiconData> {
     }
   }
 
+  // Parse Wiktionary definitions & real example sentences
+  const examples: string[] = []
+  if (defData && Array.isArray(defData.en)) {
+    defData.en.forEach((entry: any) => {
+      const posName = String(entry.partOfSpeech || "").toLowerCase()
+      if (posList.length === 0 && entry.definitions && entry.definitions.length > 0) {
+        const posTr = posTrMap[posName] || entry.partOfSpeech || "Kelime"
+        const enMeanings = entry.definitions
+          .map((d: any) => (d.definition || "").replace(/<[^>]+>/g, "").trim())
+          .filter((t: string) => t.length > 0)
+          .slice(0, 3)
+        if (enMeanings.length > 0) {
+          posList.push({ pos: posName, posTr, meanings: enMeanings })
+        }
+      }
+
+      if (Array.isArray(entry.definitions)) {
+        entry.definitions.forEach((d: any) => {
+          if (Array.isArray(d.parsedExamples)) {
+            d.parsedExamples.forEach((ex: any) => {
+              const str = (ex.example || "").trim()
+              if (str && !examples.includes(str) && examples.length < 4) {
+                examples.push(str)
+              }
+            })
+          } else if (Array.isArray(d.examples)) {
+            d.examples.forEach((ex: any) => {
+              const str = String(ex || "").trim()
+              if (str && !examples.includes(str) && examples.length < 4) {
+                examples.push(str)
+              }
+            })
+          }
+        })
+      }
+    })
+  }
+
+  // Parse Wiktionary HTML for authentic Etymology and Derived / Related terms (Cognates)
   let etymology = ""
+  const cognates: string[] = []
+
   if (wHtml) {
-    const m =
-      wHtml.match(/<section[^>]*id="Etymology[^>]*>([\s\S]*?)<\/section>/i) ||
-      wHtml.match(/<h[234][^>]*id="Etymology[^>]*>[\s\S]*?<\/h[234]>([\s\S]*?)(?=<h[234]|$)/i) ||
-      wHtml.match(/<h[234][^>]*>(?:<span[^>]*>)?Etymology[\s\S]*?<\/h[234]>([\s\S]*?)(?=<h[234]|$)/i)
-    if (m) {
-      etymology = m[1]
-        .replace(/<style[\s\S]*?<\/style>/gi, "")
-        .replace(/<sup[\s\S]*?<\/sup>/gi, "")
-        .replace(/<[^>]+>/g, " ")
-        .replace(/\s+/g, " ")
-        .trim()
+    try {
+      const parser = new DOMParser()
+      const doc = parser.parseFromString(wHtml, "text/html")
+      const headings = Array.from(doc.querySelectorAll("h2, h3, h4, h5"))
+
+      // Find English section
+      const enHeading = headings.find((h) => (h.textContent || "").trim().toLowerCase() === "english")
+      const enScope = enHeading ? enHeading.closest("section") || enHeading.parentElement || doc.body : doc.body
+
+      // 1. Etymology
+      const etymHeading = Array.from(enScope.querySelectorAll("h3, h4, h5")).find((h) =>
+        /etymology/i.test(h.textContent || "")
+      )
+      if (etymHeading) {
+        const parentSec = etymHeading.closest("section") || etymHeading.parentElement
+        if (parentSec) {
+          const paragraphs = Array.from(parentSec.querySelectorAll("p"))
+          for (const p of paragraphs) {
+            const txt = (p.textContent || "").trim()
+            if (
+              txt.length > 15 &&
+              !txt.startsWith("Pronunciation") &&
+              !txt.startsWith("Rhymes") &&
+              !txt.startsWith("IPA")
+            ) {
+              etymology = txt
+              break
+            }
+          }
+        }
+      }
+
+      // 2. Genuine Cognates & Derived / Related terms
+      const termHeadings = Array.from(enScope.querySelectorAll("h3, h4, h5")).filter((h) =>
+        /(derived|related)\s+terms/i.test(h.textContent || "")
+      )
+      termHeadings.forEach((th) => {
+        const sec = th.closest("section") || th.parentElement
+        if (sec) {
+          sec.querySelectorAll("li a, ul a").forEach((a) => {
+            const rawTerm = (a.textContent || "").trim()
+            if (
+              rawTerm &&
+              rawTerm.length >= 2 &&
+              !rawTerm.includes(":") &&
+              !rawTerm.includes("#") &&
+              rawTerm.toLowerCase() !== word &&
+              !cognates.includes(rawTerm) &&
+              cognates.length < 12
+            ) {
+              cognates.push(rawTerm)
+            }
+          })
+        }
+      })
+    } catch (e) {
+      console.warn("[Lexicon] HTML parse fallback:", e)
     }
   }
 
-  const cognates: string[] = []
-  if (Array.isArray(dWords)) {
+  // Fallback cognates / trigger words if Wiktionary had none
+  if (cognates.length === 0 && Array.isArray(dWords)) {
     dWords.forEach((item: any) => {
       const w = String(item.word || "").toLowerCase()
-      if (w !== word && !w.includes(" ") && w.length >= 3 && !cognates.includes(w)) {
+      if (w !== word && !w.includes(" ") && w.length >= 3 && !cognates.includes(w) && cognates.length < 8) {
         cognates.push(w)
       }
     })
@@ -827,8 +944,9 @@ async function fetchLexiconData(rawWord: string): Promise<LexiconData> {
     word,
     mainTranslation,
     posList,
-    etymology: etymology.slice(0, 600),
-    cognates: cognates.slice(0, 8),
+    etymology: etymology.slice(0, 800),
+    cognates,
+    examples,
   }
 
   lexiconCache.set(word, result)
@@ -844,16 +962,93 @@ function ensureLexiconCard(): HTMLElement {
     card.style.display = "none"
     document.body.appendChild(card)
 
-    // Global click listener to close when clicking outside
+    // Make Draggable on PC (Mouse Drag via Header)
+    let isDragging = false
+    let dragStartX = 0
+    let dragStartY = 0
+    let cardStartLeft = 0
+    let cardStartTop = 0
+
+    card.addEventListener("mousedown", (e) => {
+      const target = e.target as HTMLElement
+      const header = target.closest(".lex-card-header")
+      if (!header || target.closest("input, button, a, form")) return
+      if (e.button !== 0) return
+
+      isDragging = true
+      dragStartX = e.clientX
+      dragStartY = e.clientY
+
+      const rect = card!.getBoundingClientRect()
+      cardStartLeft = rect.left
+      cardStartTop = rect.top
+
+      card!.style.right = "auto"
+      card!.style.bottom = "auto"
+      card!.style.left = `${cardStartLeft}px`
+      card!.style.top = `${cardStartTop}px`
+      card!.classList.add("is-dragging")
+
+      const onMouseMove = (ev: MouseEvent) => {
+        if (!isDragging) return
+        const dx = ev.clientX - dragStartX
+        const dy = ev.clientY - dragStartY
+        const maxLeft = Math.max(10, window.innerWidth - card!.offsetWidth - 10)
+        const maxTop = Math.max(10, window.innerHeight - card!.offsetHeight - 10)
+        const newLeft = Math.max(10, Math.min(maxLeft, cardStartLeft + dx))
+        const newTop = Math.max(10, Math.min(maxTop, cardStartTop + dy))
+        card!.style.left = `${newLeft}px`
+        card!.style.top = `${newTop}px`
+      }
+
+      const onMouseUp = () => {
+        isDragging = false
+        card!.classList.remove("is-dragging")
+        document.removeEventListener("mousemove", onMouseMove)
+        document.removeEventListener("mouseup", onMouseUp)
+      }
+
+      document.addEventListener("mousemove", onMouseMove)
+      document.addEventListener("mouseup", onMouseUp)
+    })
+
+    // Corner Resize Grip Drag
+    card.addEventListener("mousedown", (e) => {
+      const target = e.target as HTMLElement
+      if (!target.closest(".lex-resize-grip")) return
+      e.preventDefault()
+
+      const startWidth = card!.offsetWidth
+      const startHeight = card!.offsetHeight
+      const startX = e.clientX
+      const startY = e.clientY
+
+      const onResizeMove = (ev: MouseEvent) => {
+        const newW = Math.max(300, Math.min(window.innerWidth - 20, startWidth + (ev.clientX - startX)))
+        const newH = Math.max(260, Math.min(window.innerHeight - 20, startHeight + (ev.clientY - startY)))
+        card!.style.width = `${newW}px`
+        card!.style.height = `${newH}px`
+      }
+
+      const onResizeUp = () => {
+        document.removeEventListener("mousemove", onResizeMove)
+        document.removeEventListener("mouseup", onResizeUp)
+      }
+
+      document.addEventListener("mousemove", onResizeMove)
+      document.addEventListener("mouseup", onResizeUp)
+    })
+
+    // Click outside to close (ignoring action pill, cognates, or status badge)
     document.addEventListener("click", (e) => {
       const target = e.target as HTMLElement
       if (
         activeLexiconCard &&
         activeLexiconCard.style.display !== "none" &&
         !activeLexiconCard.contains(target) &&
-        !target.closest(".lex-word") &&
+        !target.closest(".lex-action-pill") &&
         !target.closest(".lex-cognate-pill") &&
-        !target.closest(".lex-selection-bubble")
+        !target.closest(".lexicon-status-badge")
       ) {
         closeLexiconInspector()
       }
@@ -883,16 +1078,19 @@ async function showLexiconInspector(rawWord: string) {
   activeLexiconCard = card
   card.style.display = "flex"
 
-  // Render Loading Skeleton
+  // Render Skeleton Header & Loading State
   card.innerHTML = `
     <div class="lex-card-header">
       <div class="lex-header-left">
-        <span class="lex-icon">📖</span>
-        <span class="lex-title-word">${escapeHtml(word)}</span>
-        <button type="button" class="lex-audio-btn" title="Telaffuzu Dinle">🔊</button>
+        <div class="lex-drag-indicator" title="Pencereyi taşımak için sürükleyin">${FA_ICONS.grip}</div>
+        <form class="lex-search-form">
+          <input type="text" class="lex-search-input" value="${escapeHtml(word)}" placeholder="Kelime ara veya düzenle..." />
+          <button type="submit" class="lex-search-btn" title="Kelimeyi Ara">${FA_ICONS.search}</button>
+        </form>
+        <button type="button" class="lex-audio-btn" title="Telaffuzu Dinle">${FA_ICONS.volume}</button>
       </div>
       <div class="lex-header-right">
-        <button type="button" class="lex-close-btn" title="Kapat">✕</button>
+        <button type="button" class="lex-close-btn" title="Kapat">${FA_ICONS.close}</button>
       </div>
     </div>
     <div class="lex-card-body">
@@ -901,12 +1099,27 @@ async function showLexiconInspector(rawWord: string) {
         <span>"${escapeHtml(word)}" araştırılıyor...</span>
       </div>
     </div>
+    <div class="lex-resize-grip" title="Yeniden boyutlandırmak için sürükleyin">${FA_ICONS.resize}</div>
   `
 
+  // Attach search form submit to allow editing & re-searching directly in panel
+  const searchForm = card.querySelector(".lex-search-form") as HTMLFormElement
+  const searchInput = card.querySelector(".lex-search-input") as HTMLInputElement
+  if (searchForm && searchInput) {
+    searchForm.addEventListener("submit", (e) => {
+      e.preventDefault()
+      const newWord = searchInput.value.trim()
+      if (newWord) showLexiconInspector(newWord)
+    })
+  }
+
+  // Audio button
   const audioBtn = card.querySelector(".lex-audio-btn") as HTMLButtonElement
   if (audioBtn) {
     audioBtn.addEventListener("click", () => speakWord(word))
   }
+
+  // Close button
   const closeBtn = card.querySelector(".lex-close-btn") as HTMLButtonElement
   if (closeBtn) {
     closeBtn.addEventListener("click", closeLexiconInspector)
@@ -915,12 +1128,17 @@ async function showLexiconInspector(rawWord: string) {
   try {
     const data = await fetchLexiconData(word)
 
-    // Render POS items HTML
+    // If user edited/searched another word while this was loading, discard stale response
+    if (searchInput && searchInput.value.trim().toLowerCase() !== word.toLowerCase()) {
+      return
+    }
+
+    // 1. POS list HTML
     let posHtml = ""
     if (data.posList.length > 0) {
       posHtml = `
         <div class="lex-section">
-          <div class="lex-section-title">🏷️ Sözcük Türleri & Türkçe Karşılıkları</div>
+          <div class="lex-section-title">${FA_ICONS.tag} Sözcük Türleri & Türkçe Karşılıkları</div>
           <div class="lex-pos-list">
             ${data.posList
               .map(
@@ -938,36 +1156,36 @@ async function showLexiconInspector(rawWord: string) {
     } else if (data.mainTranslation) {
       posHtml = `
         <div class="lex-section">
-          <div class="lex-section-title">🏷️ Türkçe Karşılığı</div>
+          <div class="lex-section-title">${FA_ICONS.tag} Türkçe Karşılığı</div>
           <div class="lex-main-badge">${escapeHtml(data.mainTranslation)}</div>
         </div>
       `
     }
 
-    // Render Etymology HTML
+    // 2. Etymology HTML (Genuine Wiktionary etymology)
     let etymologyHtml = ""
     if (data.etymology) {
       etymologyHtml = `
         <div class="lex-section">
-          <div class="lex-section-title">🏛️ Köken & Etimoloji (Wiktionary)</div>
+          <div class="lex-section-title">${FA_ICONS.landmark} Köken & Etimoloji (Wiktionary)</div>
           <p class="lex-etymology-text">${escapeHtml(data.etymology)}</p>
         </div>
       `
     } else {
       etymologyHtml = `
         <div class="lex-section">
-          <div class="lex-section-title">🏛️ Köken & Etimoloji</div>
-          <p class="lex-etymology-text lex-text-muted">Bu sözcük için doğrudan etimoloji kaydı bulunamadı. Aşağıdaki Etymonline bağlantısından detaylı inceleyebilirsiniz.</p>
+          <div class="lex-section-title">${FA_ICONS.landmark} Köken & Etimoloji</div>
+          <p class="lex-etymology-text lex-text-muted">Bu sözcük için doğrudan etimoloji kaydı bulunamadı. Aşağıdaki Etymonline veya Wiktionary bağlantılarından detaylı inceleyebilirsiniz.</p>
         </div>
       `
     }
 
-    // Render Cognates HTML
+    // 3. Cognates & Word Family HTML (Genuine derivations & related terms)
     let cognatesHtml = ""
     if (data.cognates.length > 0) {
       cognatesHtml = `
         <div class="lex-section">
-          <div class="lex-section-title">🌿 Aynı Kökten Kelimeler (Word Family)</div>
+          <div class="lex-section-title">${FA_ICONS.codeBranch} Aynı Kökten Kelimeler (Word Family)</div>
           <div class="lex-cognates-list">
             ${data.cognates
               .map(
@@ -981,13 +1199,41 @@ async function showLexiconInspector(rawWord: string) {
       `
     }
 
-    // Render External Quick Links
+    // 4. Context Sentences HTML (Genuine examples)
+    let examplesHtml = ""
+    if (data.examples.length > 0) {
+      const reg = new RegExp(`\\b(${escapeHtml(word)})\\b`, "gi")
+      examplesHtml = `
+        <div class="lex-section lex-examples-section">
+          <div class="lex-section-title">${FA_ICONS.quote} Cümle İçi Örnekler</div>
+          <div class="lex-examples-list">
+            ${data.examples
+              .map((ex) => {
+                const clean = ex.replace(/<[^>]+>/g, "")
+                const highlighted = clean.replace(reg, `<strong class="lex-highlight">$1</strong>`)
+                return `<div class="lex-example-item">${highlighted}</div>`
+              })
+              .join("")}
+          </div>
+        </div>
+      `
+    }
+
+    // 5. External Quick Links (Matching pp & oo tool sources)
     const linksHtml = `
       <div class="lex-section lex-links-section">
-        <a href="https://www.etymonline.com/word/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">Etymonline ↗</a>
-        <a href="https://en.wiktionary.org/wiki/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">Wiktionary ↗</a>
-        <a href="https://dictionary.cambridge.org/dictionary/english/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">Cambridge ↗</a>
-        <a href="https://tureng.com/tr/turkce-ingilizce/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">Tureng ↗</a>
+        <a href="https://tureng.com/en/turkish-english/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">
+          <span>Tureng (pp)</span> ${FA_ICONS.externalLink}
+        </a>
+        <a href="https://sentence.yourdictionary.com/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">
+          <span>YourDictionary (pp)</span> ${FA_ICONS.externalLink}
+        </a>
+        <a href="https://www.etymonline.com/word/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">
+          <span>Etymonline (oo)</span> ${FA_ICONS.externalLink}
+        </a>
+        <a href="https://en.wiktionary.org/wiki/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">
+          <span>Wiktionary</span> ${FA_ICONS.externalLink}
+        </a>
       </div>
     `
 
@@ -1002,10 +1248,11 @@ async function showLexiconInspector(rawWord: string) {
         ${posHtml}
         ${etymologyHtml}
         ${cognatesHtml}
+        ${examplesHtml}
         ${linksHtml}
       `
 
-      // Add click listeners to cognate pills
+      // Add click listeners to cognate pills to immediately inspect selected word
       bodyEl.querySelectorAll(".lex-cognate-pill").forEach((btn) => {
         btn.addEventListener("click", (e) => {
           e.stopPropagation()
@@ -1021,10 +1268,10 @@ async function showLexiconInspector(rawWord: string) {
     if (bodyEl) {
       bodyEl.innerHTML = `
         <div class="lex-error">
-          <p>⚠️ Bilgiler alınırken bir sorun oluştu.</p>
+          <p>${FA_ICONS.circleExclamation} Bilgiler alınırken bir sorun oluştu.</p>
           <div class="lex-links-section">
-            <a href="https://www.etymonline.com/word/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">Etymonline'da Ara ↗</a>
-            <a href="https://tureng.com/tr/turkce-ingilizce/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">Tureng'de Ara ↗</a>
+            <a href="https://www.etymonline.com/word/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">Etymonline'da Ara ${FA_ICONS.externalLink}</a>
+            <a href="https://tureng.com/en/turkish-english/${encodeURIComponent(word)}" target="_blank" rel="noopener noreferrer" class="lex-ext-link">Tureng'de Ara ${FA_ICONS.externalLink}</a>
           </div>
         </div>
       `
@@ -1032,70 +1279,108 @@ async function showLexiconInspector(rawWord: string) {
   }
 }
 
-function getWordAtClick(e: MouseEvent): string | null {
+// ----------------------------------------------------
+// Context Menu & Long-Press Floating Action Pill
+// ----------------------------------------------------
+
+function ensureActionPill(): HTMLElement {
+  let pill = document.getElementById("lex-action-pill")
+  if (!pill) {
+    pill = document.createElement("div")
+    pill.id = "lex-action-pill"
+    pill.className = "lex-action-pill"
+    pill.style.display = "none"
+    pill.innerHTML = `
+      <button type="button" class="lex-pill-btn">
+        ${FA_ICONS.search}
+        <span>Kelimeye Bak: <strong class="lex-pill-word"></strong></span>
+      </button>
+    `
+    document.body.appendChild(pill)
+    activeActionPill = pill
+
+    const btn = pill.querySelector(".lex-pill-btn") as HTMLButtonElement
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation()
+      const word = pill!.getAttribute("data-word")
+      hideActionPill()
+      if (word) {
+        showLexiconInspector(word)
+      }
+    })
+
+    document.addEventListener("click", (e) => {
+      if (pill && pill.style.display !== "none" && !pill.contains(e.target as HTMLElement)) {
+        hideActionPill()
+      }
+    })
+  }
+  return pill
+}
+
+function showActionPill(word: string, clientX: number, clientY: number) {
+  const pill = ensureActionPill()
+  pill.setAttribute("data-word", word)
+  const wordEl = pill.querySelector(".lex-pill-word")
+  if (wordEl) wordEl.textContent = word
+
+  // Calculate position keeping within viewport boundaries
+  const pillWidth = 210
+  const pillHeight = 44
+  const posX = Math.max(10, Math.min(window.innerWidth - pillWidth - 10, clientX + 8))
+  const posY = Math.max(10, Math.min(window.innerHeight - pillHeight - 10, clientY - 48))
+
+  pill.style.left = `${posX}px`
+  pill.style.top = `${posY}px`
+  pill.style.display = "block"
+}
+
+function hideActionPill() {
+  const pill = document.getElementById("lex-action-pill")
+  if (pill) pill.style.display = "none"
+}
+
+function getWordAtCoordinates(x: number, y: number): string | null {
+  // 1. Check if user selected/highlighted text
+  const selection = window.getSelection()?.toString().trim()
+  if (selection && /^[a-zA-Z'-]{2,30}$/.test(selection)) {
+    return selection
+  }
+
+  // 2. Fallback: Find word under mouse/touch point
   let range: Range | null = null
   if (document.caretRangeFromPoint) {
-    range = document.caretRangeFromPoint(e.clientX, e.clientY)
+    range = document.caretRangeFromPoint(x, y)
   } else if ((document as any).caretPositionFromPoint) {
-    const pos = (document as any).caretPositionFromPoint(e.clientX, e.clientY)
+    const pos = (document as any).caretPositionFromPoint(x, y)
     if (pos && pos.offsetNode) {
       range = document.createRange()
       range.setStart(pos.offsetNode, pos.offset)
       range.collapse(true)
     }
   }
+
   if (!range || range.startContainer.nodeType !== Node.TEXT_NODE) return null
   const text = range.startContainer.textContent || ""
   const offset = range.startOffset
 
   let start = offset
-  while (start > 0 && /[a-zA-Z]/.test(text[start - 1])) {
+  while (start > 0 && /[a-zA-Z'-]/.test(text[start - 1])) {
     start--
   }
   let end = offset
-  while (end < text.length && /[a-zA-Z]/.test(text[end])) {
+  while (end < text.length && /[a-zA-Z'-]/.test(text[end])) {
     end++
   }
-  const raw = text.slice(start, end).trim()
+  const raw = text.slice(start, end).replace(/^[^a-zA-Z]+|[^a-zA-Z]+$/g, "").trim()
   return raw.length >= 2 ? raw : null
-}
-
-function tokenizeElementWords(el: HTMLElement) {
-  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null)
-  const textNodes: Text[] = []
-  let node: Node | null
-  while ((node = walker.nextNode())) {
-    if (node.parentElement?.closest("a, code, pre, script, style, .lex-word, button, .puzzle-grid, .quiz-option")) {
-      continue
-    }
-    if (node.textContent && /[a-zA-Z]{2,}/.test(node.textContent)) {
-      textNodes.push(node as Text)
-    }
-  }
-  textNodes.forEach((tn) => {
-    const text = tn.textContent || ""
-    const frag = document.createDocumentFragment()
-    // Split into word tokens and non-word tokens
-    const tokens = text.split(/([a-zA-Z][a-zA-Z'-]*[a-zA-Z]|[a-zA-Z]{2,})/)
-    tokens.forEach((t) => {
-      if (/^[a-zA-Z]/.test(t) && t.length >= 2) {
-        const span = document.createElement("span")
-        span.className = "lex-word"
-        span.setAttribute("data-lex-word", t)
-        span.textContent = t
-        frag.appendChild(span)
-      } else {
-        frag.appendChild(document.createTextNode(t))
-      }
-    })
-    tn.parentNode?.replaceChild(frag, tn)
-  })
 }
 
 function initLexiconInspector() {
   const marker = document.querySelector(".interactive-lexicon-page-marker[data-active='true']")
   if (!marker) {
     closeLexiconInspector()
+    hideActionPill()
     document.querySelectorAll(".lexicon-status-badge").forEach((el) => el.remove())
     return
   }
@@ -1104,43 +1389,86 @@ function initLexiconInspector() {
   if (!article || article.hasAttribute("data-lexicon-initialized")) return
   article.setAttribute("data-lexicon-initialized", "true")
 
-  // 1. In tables, wrap English words into .lex-word for visual feedback & hover
-  article.querySelectorAll("table td, table th").forEach((cell) => {
-    tokenizeElementWords(cell as HTMLElement)
-  })
-
-  // 2. Delegate click on article
-  article.addEventListener("click", (e) => {
+  // 1. Right Click (Context Menu) on PC
+  article.addEventListener("contextmenu", (e) => {
     const target = e.target as HTMLElement
-    // Ignore interactive widgets, quizzes, puzzles, external links
-    if (target.closest(".interactive-quiz-widget, .interactive-puzzle-widget, a, button")) {
+    if (target.closest(".interactive-quiz-widget, .interactive-puzzle-widget, #lexicon-inspector-card, input, button")) {
       return
     }
 
-    const lexSpan = target.closest(".lex-word") as HTMLElement
-    if (lexSpan) {
-      const word = lexSpan.getAttribute("data-lex-word") || lexSpan.textContent || ""
-      if (word.length >= 2) {
-        showLexiconInspector(word)
-        return
-      }
-    }
-
-    // Fallback: Click on any word in article
-    const wordAtClick = getWordAtClick(e)
-    if (wordAtClick && /^[a-zA-Z]{2,}$/.test(wordAtClick)) {
-      showLexiconInspector(wordAtClick)
+    const word = getWordAtCoordinates(e.clientX, e.clientY)
+    if (word && /^[a-zA-Z'-]{2,}$/.test(word)) {
+      e.preventDefault()
+      showActionPill(word, e.clientX, e.clientY)
     }
   })
 
-  // 3. Add floating status badge on bottom-right
+  // 2. Long Press on Mobile (450ms touchhold)
+  let touchTimer: number | null = null
+  let touchStartX = 0
+  let touchStartY = 0
+
+  article.addEventListener(
+    "touchstart",
+    (e) => {
+      const target = e.target as HTMLElement
+      if (target.closest(".interactive-quiz-widget, .interactive-puzzle-widget, #lexicon-inspector-card, button, a, input")) {
+        return
+      }
+      if (e.touches.length !== 1) return
+
+      const t = e.touches[0]
+      touchStartX = t.clientX
+      touchStartY = t.clientY
+
+      if (touchTimer) clearTimeout(touchTimer)
+      touchTimer = window.setTimeout(() => {
+        const word = getWordAtCoordinates(touchStartX, touchStartY)
+        if (word && /^[a-zA-Z'-]{2,}$/.test(word)) {
+          showActionPill(word, touchStartX, touchStartY)
+        }
+      }, 450)
+    },
+    { passive: true }
+  )
+
+  article.addEventListener(
+    "touchmove",
+    (e) => {
+      if (touchTimer && e.touches.length === 1) {
+        const t = e.touches[0]
+        const dist = Math.hypot(t.clientX - touchStartX, t.clientY - touchStartY)
+        if (dist > 10) {
+          clearTimeout(touchTimer)
+          touchTimer = null
+        }
+      }
+    },
+    { passive: true }
+  )
+
+  article.addEventListener("touchend", () => {
+    if (touchTimer) {
+      clearTimeout(touchTimer)
+      touchTimer = null
+    }
+  })
+
+  article.addEventListener("touchcancel", () => {
+    if (touchTimer) {
+      clearTimeout(touchTimer)
+      touchTimer = null
+    }
+  })
+
+  // 3. Add floating status badge in bottom-right corner (Clean FontAwesome icon, no emoji)
   if (!document.querySelector(".lexicon-status-badge")) {
     const badge = document.createElement("div")
     badge.className = "lexicon-status-badge"
-    badge.title = "Kelime & Köken Atlası bu sayfada aktif. İncelemek istediğiniz herhangi bir kelimeye tıklayabilirsiniz."
-    badge.innerHTML = `<span class="lex-pulse-dot"></span><span>📚 Kelime Atlası</span>`
+    badge.title = "Kelime & Köken Atlası bu sayfada aktif. Sağ tıklayarak veya basılı tutarak 'Kelimeye Bak' ile inceleyebilirsiniz."
+    badge.innerHTML = `<span class="lex-pulse-dot"></span>${FA_ICONS.book}<span>Kelime Atlası</span>`
     badge.addEventListener("click", () => {
-      showLexiconInspector("language")
+      showLexiconInspector("programming")
     })
     document.body.appendChild(badge)
   }
@@ -1181,3 +1509,4 @@ if (document.readyState === "loading") {
 }
 
 export {}
+
