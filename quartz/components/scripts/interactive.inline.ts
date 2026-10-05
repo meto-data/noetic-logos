@@ -73,6 +73,7 @@ const FA_ICONS = {
   grip: `<svg class="fa-icon fa-grip-vertical" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="currentColor"><path d="M96 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm0 160a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm0 160a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm128-320a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm0 160a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm0 160a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"/></svg>`,
   resize: `<svg class="fa-icon fa-up-right-and-down-left-from-center" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M344 0H488c13.3 0 24 10.7 24 24V168c0 9.7-5.8 18.5-14.8 22.2s-19.3 1.7-26.2-5.2l-39-39-87 87c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l87-87-39-39c-6.9-6.9-8.9-17.2-5.2-26.2S334.3 0 344 0zM168 512H24c-13.3 0-24-10.7-24-24V344c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 5.2l39 39 87-87c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-87 87 39 39c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8z"/></svg>`,
   rotateRight: `<svg class="fa-icon fa-rotate-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M449.9 39.96l-48.5 48.53C362.5 53.19 311.4 32 256 32 132.3 32 32 132.3 32 256s100.3 224 224 224c106.1 0 193.3-74.1 216.2-173.3 2.6-11.3-4.5-22.7-15.8-25.3-11.3-2.6-22.7 4.5-25.3 15.8C411.4 374.3 340.5 432 256 432 158.8 432 80 353.2 80 256S158.8 80 256 80c44.1 0 84.4 16.3 115.5 43.4l-57.1 57.1c-15.1 15.1-4.4 41 17 41h144c13.3 0 24-10.7 24-24V56.96c0-21.4-25.9-32.1-49.5-17z"/></svg>`,
+  copy: `<svg class="fa-icon fa-copy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M384 336H192c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16l140.1 0L384 99.9V320c0 8.8-7.2 16-16 16zM192 0c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-17-6.7-33.3-18.7-45.3L381.3 18.7C369.3 6.7 353 0 336 0H192zM64 128c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H256c35.3 0 64-28.7 64-64V416H272v32c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192c0-8.8 7.2-16 16-16H96V128H64z"/></svg>`,
   eye: `<svg class="fa-icon fa-eye" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4 142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 92.9-131.1 3.3-7.9 3.3-16.7 0-24.6-14.8-35.7-46.1-87.7-92.9-131.1C433.5 68.8 368.8 32 288 32zm0 112c61.9 0 112 50.1 112 112s-50.1 112-112 112-112-50.1-112-112 50.1-112 112-112zm0 64c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48z"/></svg>`,
   eyeSlash: `<svg class="fa-icon fa-eye-slash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2s-6.3 25.5 4.1 33.7l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L526.9 387.8C592.5 338.4 640 256 640 256s-47.5-82.4-113.1-131.8C459.7 75.8 392.2 48 320 48c-42.5 0-83.3 9.7-119.9 26.6L72.6 11.4 38.8 5.1zM320 112c48.6 0 94.3 17.5 131.1 48.2 24.3 20.3 44.5 46.1 58.7 71.8-14.2 25.7-34.4 51.5-58.7 71.8-21.2 17.7-45.7 31.4-72.3 39.8L320 286V112zm-88.7 54.7L181.7 127C143.5 149.2 112.5 181.9 90.2 224c22.3 42.1 53.3 74.8 91.5 97-4.5-12.8-7.7-26.3-9.5-40.3-2-15.6-2.5-31.5-.7-47.2 2-17.7 7.6-34.7 16.1-50.1l-16.3-16.7z"/></svg>`,
   circleCheck: `<svg class="fa-icon fa-circle-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>`,
@@ -902,27 +903,51 @@ async function fetchLexiconData(rawWord: string): Promise<LexiconData> {
         }
       }
 
-      // 2. Genuine Cognates & Derived / Related terms
-      const termHeadings = Array.from(enScope.querySelectorAll("h3, h4, h5")).filter((h) =>
-        /(derived|related)\s+terms/i.test(h.textContent || "")
-      )
+      // 2. Genuine Cognates & Derived / Related terms (strict single-word morphological terms)
+      const relatedCandidates: string[] = []
+      const derivedCandidates: string[] = []
+
+      const termHeadings = Array.from(enScope.querySelectorAll("h3, h4, h5, h6"))
       termHeadings.forEach((th) => {
-        const sec = th.closest("section") || th.parentElement
-        if (sec) {
-          sec.querySelectorAll("li a, ul a").forEach((a) => {
-            const rawTerm = (a.textContent || "").trim()
-            if (
-              rawTerm &&
-              rawTerm.length >= 2 &&
-              !rawTerm.includes(":") &&
-              !rawTerm.includes("#") &&
-              rawTerm.toLowerCase() !== word &&
-              !cognates.includes(rawTerm) &&
-              cognates.length < 12
-            ) {
-              cognates.push(rawTerm)
-            }
-          })
+        const text = (th.textContent || "").trim().toLowerCase()
+        const isRel = text.includes("related terms")
+        const isDer = text.includes("derived terms")
+        if (isRel || isDer) {
+          const sec = th.closest("section") || th.parentElement
+          if (sec) {
+            sec.querySelectorAll("li a, ul a").forEach((a) => {
+              const rawTerm = (a.textContent || "").trim()
+              // Strict filter: purely alphabetical single word, 3-18 chars, no spaces, no hyphens, no digits
+              if (/^[a-zA-Z]{3,18}$/.test(rawTerm)) {
+                const termLower = rawTerm.toLowerCase()
+                // Avoid proper nouns (capitalized word when search term is lowercase)
+                const isProper =
+                  rawTerm[0] === rawTerm[0].toUpperCase() &&
+                  rawTerm[0] !== rawTerm[0].toLowerCase() &&
+                  word[0] === word[0].toLowerCase()
+                if (termLower !== word && !isProper) {
+                  const target = isRel ? relatedCandidates : derivedCandidates
+                  if (!target.includes(termLower)) {
+                    target.push(termLower)
+                  }
+                }
+              }
+            })
+          }
+        }
+      })
+
+      // Prioritize words containing or contained in the base word (morphological family), then related, then derived
+      const combined = [...relatedCandidates, ...derivedCandidates]
+      const score = (w: string) => {
+        if (w.includes(word) || word.includes(w)) return 0
+        return 1
+      }
+      combined.sort((a, b) => score(a) - score(b) || a.length - b.length)
+
+      combined.forEach((w) => {
+        if (!cognates.includes(w) && cognates.length < 14) {
+          cognates.push(w)
         }
       })
     } catch (e) {
@@ -933,8 +958,8 @@ async function fetchLexiconData(rawWord: string): Promise<LexiconData> {
   // Fallback cognates / trigger words if Wiktionary had none
   if (cognates.length === 0 && Array.isArray(dWords)) {
     dWords.forEach((item: any) => {
-      const w = String(item.word || "").toLowerCase()
-      if (w !== word && !w.includes(" ") && w.length >= 3 && !cognates.includes(w) && cognates.length < 8) {
+      const w = String(item.word || "").toLowerCase().trim()
+      if (w !== word && /^[a-zA-Z]{3,18}$/.test(w) && !cognates.includes(w) && cognates.length < 8) {
         cognates.push(w)
       }
     })
@@ -1070,6 +1095,37 @@ function closeLexiconInspector() {
   }
 }
 
+function formatLexiconMarkdown(data: LexiconData): string {
+  const parts: string[] = []
+  parts.push(`## ${data.word}` + (data.mainTranslation ? ` — ${data.mainTranslation}` : ""))
+  parts.push("")
+  if (data.posList && data.posList.length > 0) {
+    parts.push("### Sözcük Türleri & Anlamlar")
+    data.posList.forEach((p) => {
+      parts.push(`- **${p.posTr}:** ${p.meanings.join(", ")}`)
+    })
+    parts.push("")
+  }
+  if (data.etymology) {
+    parts.push("### Köken & Etimoloji")
+    parts.push(data.etymology)
+    parts.push("")
+  }
+  if (data.cognates && data.cognates.length > 0) {
+    parts.push("### Aynı Kökten Kelimeler (Word Family)")
+    parts.push(data.cognates.join(", "))
+    parts.push("")
+  }
+  if (data.examples && data.examples.length > 0) {
+    parts.push("### Örnek Cümleler")
+    data.examples.forEach((ex) => {
+      parts.push(`- ${ex.replace(/<[^>]+>/g, "").trim()}`)
+    })
+    parts.push("")
+  }
+  return parts.join("\n").trim()
+}
+
 async function showLexiconInspector(rawWord: string) {
   const word = rawWord.trim().replace(/^[^a-zA-Z]+|[^a-zA-Z]+$/g, "")
   if (word.length < 2) return
@@ -1087,7 +1143,8 @@ async function showLexiconInspector(rawWord: string) {
           <input type="text" class="lex-search-input" value="${escapeHtml(word)}" placeholder="Kelime ara veya düzenle..." />
           <button type="submit" class="lex-search-btn" title="Kelimeyi Ara">${FA_ICONS.search}</button>
         </form>
-        <button type="button" class="lex-audio-btn" title="Telaffuzu Dinle">${FA_ICONS.volume}</button>
+        <button type="button" class="lex-header-icon-btn lex-audio-btn" title="Telaffuzu Dinle">${FA_ICONS.volume}</button>
+        <button type="button" class="lex-header-icon-btn lex-copy-btn" title="Bilgileri Kopyala">${FA_ICONS.copy}</button>
       </div>
       <div class="lex-header-right">
         <button type="button" class="lex-close-btn" title="Kapat">${FA_ICONS.close}</button>
@@ -1119,6 +1176,29 @@ async function showLexiconInspector(rawWord: string) {
     audioBtn.addEventListener("click", () => speakWord(word))
   }
 
+  // Copy button
+  const copyBtn = card.querySelector(".lex-copy-btn") as HTMLButtonElement
+  let currentLoadedData: LexiconData | null = null
+  if (copyBtn) {
+    copyBtn.addEventListener("click", async () => {
+      if (!currentLoadedData) return
+      const textToCopy = formatLexiconMarkdown(currentLoadedData)
+      try {
+        await navigator.clipboard.writeText(textToCopy)
+        copyBtn.innerHTML = FA_ICONS.circleCheck
+        copyBtn.classList.add("btn-copied")
+        copyBtn.setAttribute("title", "Kopyalandı!")
+        setTimeout(() => {
+          copyBtn.innerHTML = FA_ICONS.copy
+          copyBtn.classList.remove("btn-copied")
+          copyBtn.setAttribute("title", "Bilgileri Kopyala")
+        }, 1800)
+      } catch (err) {
+        console.error("[Lexicon] Copy error:", err)
+      }
+    })
+  }
+
   // Close button
   const closeBtn = card.querySelector(".lex-close-btn") as HTMLButtonElement
   if (closeBtn) {
@@ -1127,6 +1207,7 @@ async function showLexiconInspector(rawWord: string) {
 
   try {
     const data = await fetchLexiconData(word)
+    currentLoadedData = data
 
     // If user edited/searched another word while this was loading, discard stale response
     if (searchInput && searchInput.value.trim().toLowerCase() !== word.toLowerCase()) {

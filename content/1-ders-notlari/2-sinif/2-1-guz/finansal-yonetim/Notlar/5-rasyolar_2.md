@@ -15,7 +15,7 @@ tags:
 - Şirketin risk seviyesini belirleyen oranlardır. Borç yiğidin kamçısıdır ama fazla borç da yiğidi öldürür.
 
 
-### a) Kaldıraç Oranı (**Toplam Borç Oranı**)
+### a) Kaldıraç Oranı (Toplam Borç Oranı)
 - Şirketin toplam varlıklarının yüzde kaçının el parasıyla (borçla) finanse edildiğini gösterir. Varlıkların finansmanında yabancı kaynaklardan yararlanma oranıdır. 
 - **Olmasaydı ne olurdu?** Şirketin varlıklarının gerçek sahibinin kim olduğu bilinemezdi. Şirket sahibi "bu fabrika benim." derdi ama aslında bankanındır, bu görülemezdi. 
 - Alacaklıların (bankalar, tedarikçiler vs.) şirket varlıkları üzerindeki hakkını, yani **[[emniyet marjı]]'nı** gösterir.

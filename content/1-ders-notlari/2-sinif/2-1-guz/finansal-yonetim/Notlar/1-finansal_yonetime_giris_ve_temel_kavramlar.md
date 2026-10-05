@@ -100,7 +100,7 @@ AKTİF (Varlıklar)      =    PASİF (Kaynaklar)
 <br>
 > 	Bir ticarî işletmeyi işleten kişiye "**[[tacir]]**" denir ve bu statü ticaret siciline kaydolma, defter tutma gibi bir dizi hukukî sorumluluğu da beraberinde getirir.
 
-#### [[Şahıs Şirketleri]] (Kollektif, Komandit)
+#### [[Şahıs Şirketleri]] (Kolektif, Komandit)
 - Ortakların kişiliğinin ve emeğinin ön planda olduğu şirketlerdir. 
 - Ortaklar şirketin borçlarından **tüm şahsi mal varlıklarıyla sınırsız** olarak sorumludur. Donunuza kadar alırlar yani.
 #### [[Sermaye Şirketleri]] (Anonim -A.Ş., Limited -Ltd.)

@@ -1,5 +1,11 @@
 ---
-created: 2026-09-23
+title: Bilgisayar Donanımı - 1. Ders
+ders: YBS2023
+konu: Giriş
+created: 2026-09-16
+draft: false
+tags:
+  - akademi/dersler/ybs2023
 ---
 
 Ders, [[Endüstri 4.0]] vizyonunun temel bileşeni olan [[Nesnelerin İnterneti]] (IoT - Internet of Things) ve uç bilişim (edge computing) mimarisi üzerine kuruludur. Bilişim sistemleri analizinde yazılımın ihtiyaç duyduğu fiziksel veri akışını sağlayan donanım birimleri iki ana sınıfta incelenir.
