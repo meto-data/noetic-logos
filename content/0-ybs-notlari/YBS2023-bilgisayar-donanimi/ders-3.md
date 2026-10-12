@@ -19,4 +19,22 @@ tags:
 	- Kampüs giriş turnikeleri, akıllı bariyerler ve manyetik kapı kilitleri [[röle]] modülleriyle sürülür. Öğrenci kartı [[RFID]] okuyucuya yaklaştırıldığında sistem kimliği doğrular. Mikrodenetleyicinin USB portundan sağlanan 5 voltluk zayıf enerji, turnikenin çelik kollarını döndürecek tork motorunu veya bariyeri kaldıracak 12 voltluk mekanizmayı harekete geçirmeye yetersiz kalır. **Kontrol kartı röleye bir tetikleme sinyali iletir. röle içerisindeki elektromıknatıs, hareketli kontağı “tık” sesiyle çekerek harici 12 voltluk besleme hattını motora bağlar ve motorun turnike mekanizmasını hareket ettirmesini sağlar.**
 
 ### Breadboard (Devre Tahtası) Mimarisi
-- Elektronik bileşenlerin lehimleme gerekmeksizin geçici olarak birleştirilmesini, test edilmesini ve prototiplenmesini sağlayan delikli platformdur. Gövde iki ana bölümden ve simetrik iki paralel bloktan oluşur.
+- Elektronik bileşenlerin lehim yapılmadan geçici olarak bağlanmasını sağlayan delikli plastik platformdur. Devre kurma, test etme ve prototip hazırlama amacıyla kullanılır. Bileşenler kolayca takılıp çıkarılabilir.
+- **Güç hatları**: Kenarlarda dikey uzanır, kırmızı (+) ve mavi (-) işaretlidir. Hat boyunca tüm delikler birbirine bağlıdır. Karttan gelen 5V ve GND bu hatlara bağlanarak birçok sensöre aynı anda enerji dağıtılır.
+- **Orta alan**: Aynı satırdaki 5 delik (a-e) yatay olarak birbirine bağlıdır. Aynı satıra takılan bileşenler elektriksel olarak bağlanmış olur.
+- **Orta kanal**: İki bloğu birbirinden ayırır. Entegre devreler kısa devre oluşmaması için bu kanala yerleştirilir.
+
+
+
+---
+
+
+| Mimari Parametre                | [[Arduino Uno]] Mimarisi                                                                                 | [[Raspberry Pi 3B+]] Mimarisi                                     |
+| :------------------------------ | :------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------- |
+| **Donanım Sınıfı**              | 8-bit Mikrodenetleyici Geliştirme Kartı                                                                  | 64-bit Dört Çekirdekli Tek Kart Bilgisayar                        |
+| **İşlemci Çekirdeği**           | ATmega328P (16 MHz Saat Hızı)                                                                            | Broadcom BCM2837B0 ARM Cortex-A53 (1.4 GHz)                       |
+| **İşletim Sistemi Desteği**     | Doğrudan çıplak metal (bare-metal) kod yürütür                                                           | Tam Teşekküllü Linux Tabanlı OS ([[Raspbian]])                    |
+| **Birincil Programlama Ortamı** | Harici PC üzerinden derlenen Arduino IDE \[Hoca "emülatör" dedi, yanlış bu, emülatör değildir.\] (C/C++) | Yerel OS üzerinde çalışan Python, C++, Java ortamları             |
+| **Kod Çalıştırma Mantığı**      | Bilgisayardan derlenip Flash belleğe tek yönlü aktarılır                                                 | İşletim sisteminde dosya olarak (.py) saklanır ve yorumlanır      |
+| **Ağ ve İletişim Yetenekleri**  | Ek modüllerle sağlanan temel ağ desteği                                                                  | Tümleşik Gigabit Ethernet, Çift Bant [[Wi-Fi]], Bluetooth 4.2     |
+| **Birincil Kullanım Amacı**     | Düşük gecikmeli, zaman hassasiyetli pin ve motor kontrolü                                                | Görüntü işleme, veri tabanı, web sunucusu, karmaşık IoT analitiği |

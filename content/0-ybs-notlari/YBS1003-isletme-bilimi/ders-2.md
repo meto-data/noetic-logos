@@ -190,7 +190,6 @@ flowchart TD
     TemelCevreFaktorleri --> IsletmeCekirdegi
 ```
 
-##### Makro
 
 ---
 
