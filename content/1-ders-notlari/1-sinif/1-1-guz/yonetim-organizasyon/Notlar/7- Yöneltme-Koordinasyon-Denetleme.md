@@ -2,7 +2,7 @@
 tags:
   - akademi/dersler/yonetim-organizasyon
 ---
-# [[Yöneltme]]
+# Yöneltme
 
 - Açık ve anlaşılır hedefler belirlenmelidir. Bkz. **[[SMART]]** 
 

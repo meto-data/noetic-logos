@@ -328,12 +328,12 @@ function initPuzzle(container: HTMLElement) {
         if (data.type === "crossword") {
           cell.classList.add("cell-empty")
         } else {
-          // Word search: fill empty cells with deterministic random distractor letters
-          const hash = Math.abs(Math.sin((r + 1) * 997 + (c + 1) * 313 + totalWords * 17) * 10000)
-          char = DISTRACTOR_LETTERS[Math.floor(hash) % DISTRACTOR_LETTERS.length]
+          // Word search: fill empty cells with fresh random distractor letters on every page load
+          char = DISTRACTOR_LETTERS[Math.floor(Math.random() * DISTRACTOR_LETTERS.length)]
           if (!data.grid[r]) data.grid[r] = []
           data.grid[r][c] = char
           cell.textContent = char.toUpperCase()
+          cell.classList.add("cell-distractor")
         }
       } else {
         cell.textContent = char.toUpperCase()
