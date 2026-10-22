@@ -60,7 +60,7 @@ Mahalli bütçeli idareler ise belediyelere bağlı olarak şehir içi taşımac
 **Sermayesinde kamu payı ile özel sektör payının bir arada yer aldığı şirketlerdir.** Türk Hava Yolları (hisselerinin %49,5'i kamuya aittir, kalanı borsada işlem görür) ve Türkiye Cumhuriyet Merkez Bankası bu karma yapının başlıca örnekleridir. Bir şirkette yönetim hakkını veren kontrol payı (%50 + 1 hisse) elde tutulduğunda bu kurum **[[Bağlı Ortaklık|bağlı ortaklık]]** adını alır. Kontrol gücü vermeyen daha düşük oranlı ortaklıklar ise **[[İştirak|iştirak]]** olarak adlandırılır.
 
 #### Türkiye Varlık Fonu
-Kamuya ait büyük ve stratejik şirketlerin paylarını tek bir çatı altında toplayan **[[holding]]** niteliğinde bir fondur. THY, Borsa İstanbul ve Türkiye Petrolleri Anonim Ortaklığı (TPAO) gibi dev işletmeler bu fon üzerinden merkezî bir stratejiyle yönetilir.
+Kamuya ait büyük ve stratejik şirketlerin paylarını tek bir çatı altında toplayan **[[Holding]]** niteliğinde bir fondur. THY, Borsa İstanbul ve Türkiye Petrolleri Anonim Ortaklığı (TPAO) gibi dev işletmeler bu fon üzerinden merkezî bir stratejiyle yönetilir.
 
 
 ### 4. Kamuda Yaşanan Tıkanıklıklar ve Mülkiyet Devri
@@ -250,22 +250,22 @@ flowchart LR
 
 ### C. Hukuki Şirket Modellerinin Karşılaştırmalı Tablosu
 
-| Şirket Türü | Dayandığı Kanun | Tüzel Kişilik Durumu | Ortak Sayısı Sınırı | Ortakların Borç Sorumluluğu | Emek ve İtibarın Sermaye Olması | Pay Devir Şartları |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **[[Tek Kişi İşletmesi]]** | Ticaret / Borçlar Kanunu | Şahsın kendi varlığı geçerlidir | 1 Gerçek Kişi | Tüm kişisel varlığıyla birinci dereceden sınırsız | Kişinin kendi emeği doğrudan işin içindedir | İşletmenin devriyle mümkündür |
-| **[[Adi Ortaklık]]** | Türk Borçlar Kanunu (TBK) | Ortakların şahsında toplanır | En az 2 Kişi | Birinci dereceden, sınırsız ve zincirleme sorumluluk | Sermaye olarak konulabilir | Bütün ortakların oybirliği şarttır |
-| **[[Kollektif Şirket]]** | Türk Ticaret Kanunu (TTK) | Şirketin ayrı tüzel kişiliği vardır | En az 2 Gerçek Kişi | Önce şirket kasası; yetmezse ortaklar sınırsız sorumlu | Sermaye olarak konulabilir | Ortaklar kurulu kararı ve sözleşme değişikliği şarttır |
-| **[[Komandit Şirket]]** | Türk Ticaret Kanunu (TTK) | Şirketin ayrı tüzel kişiliği vardır | En az 1 Komandite + 1 Komanditer | Komandite: Sınırsız<br/>Komanditer: Sermayesi kadar | Komandite koyabilir; Komanditer sadece nakit/mal koyabilir | Şirket sözleşmesi ve ortaklar onayı gerekir |
-| **[[Anonim Şirket]]** | Türk Ticaret Kanunu (TTK) | Şirketin ayrı tüzel kişiliği vardır | En az 1 Kişi | Taahhüt edilen sermaye payı tutarıyla kesin sınırlı | Yalnızca nakit ve maddi mallar konulabilir | Hisse devri serbesttir, kurul onayı gerekmez |
-| **[[Limited Şirket]]** | Türk Ticaret Kanunu (TTK) | Şirketin ayrı tüzel kişiliği vardır | En az 1, en çok 50 Kişi | Taahhüt edilen esas sermaye payıyla sınırlı | Yalnızca nakit ve maddi mallar konulabilir | Genel kurul onayı ve noter tasdiki zorunludur |
+| Şirket Türü                | Dayandığı Kanun           | Tüzel Kişilik Durumu                | Ortak Sayısı Sınırı              | Ortakların Borç Sorumluluğu                            | Emek ve İtibarın Sermaye Olması                            | Pay Devir Şartları                                     |
+| :------------------------- | :------------------------ | :---------------------------------- | :------------------------------- | :----------------------------------------------------- | :--------------------------------------------------------- | :----------------------------------------------------- |
+| **[[Tek Kişi İşletmesi]]** | Ticaret / Borçlar Kanunu  | Şahsın kendi varlığı geçerlidir     | 1 Gerçek Kişi                    | Tüm kişisel varlığıyla birinci dereceden sınırsız      | Kişinin kendi emeği doğrudan işin içindedir                | İşletmenin devriyle mümkündür                          |
+| **[[Adi Ortaklık]]**       | Türk Borçlar Kanunu (TBK) | Ortakların şahsında toplanır        | En az 2 Kişi                     | Birinci dereceden, sınırsız ve zincirleme sorumluluk   | Sermaye olarak konulabilir                                 | Bütün ortakların oybirliği şarttır                     |
+| **[[Kolektif Şirket]]**    | Türk Ticaret Kanunu (TTK) | Şirketin ayrı tüzel kişiliği vardır | En az 2 Gerçek Kişi              | Önce şirket kasası; yetmezse ortaklar sınırsız sorumlu | Sermaye olarak konulabilir                                 | Ortaklar kurulu kararı ve sözleşme değişikliği şarttır |
+| **[[Komandit Şirket]]**    | Türk Ticaret Kanunu (TTK) | Şirketin ayrı tüzel kişiliği vardır | En az 1 Komandite + 1 Komanditer | Komandite: Sınırsız<br/>Komanditer: Sermayesi kadar    | Komandite koyabilir; Komanditer sadece nakit/mal koyabilir | Şirket sözleşmesi ve ortaklar onayı gerekir            |
+| **[[Anonim Şirket]]**      | Türk Ticaret Kanunu (TTK) | Şirketin ayrı tüzel kişiliği vardır | En az 1 Kişi                     | Taahhüt edilen sermaye payı tutarıyla kesin sınırlı    | Yalnızca nakit ve maddi mallar konulabilir                 | Hisse devri serbesttir, kurul onayı gerekmez           |
+| **[[Limited Şirket]]**     | Türk Ticaret Kanunu (TTK) | Şirketin ayrı tüzel kişiliği vardır | En az 1, en çok 50 Kişi          | Taahhüt edilen esas sermaye payıyla sınırlı            | Yalnızca nakit ve maddi mallar konulabilir                 | Genel kurul onayı ve noter tasdiki zorunludur          |
 
 ### D. KOBİ ve Büyük İşletmelerin Karşılaştırmalı Tablosu
 
-| Analiz Alanı | [[Küçük ve Orta Büyüklükteki İşletmeler (KOBİ)]] | [[Büyük İşletmeler]] |
-| :--- | :--- | :--- |
-| **Sayısal Oran ve İstihdam** | İşletmelerin %99,5'i; toplam istihdamın %70-80'i | İşletmelerin binde beşi; toplam istihdamın %20-30'u |
-| **Esneklik ve Değişim Hızı** | Müşteri talebine göre hızla değişebilen butik üretim | Sabit kurallar ve kitle üretimine dayalı standart yapı |
-| **Yönetim ve Uzmanlaşma** | Birkaç görevi tek kişinin yürüttüğü sade yapı | Farklı departmanlara ayrılmış profesyonel kadrolar |
-| **Kredi ve Fon Bulma** | Yüksek faiz oranları ve ağır banka teminatı şartları | Borsaya açılma, tahvil satışı ve düşük maliyetli kurumsal krediler |
-| **Ar-Ge ve Yenilikçilik** | Kısıtlı bütçeler sebebiyle sınırlı teknoloji yatırımı | Özel Ar-Ge birimleri ve yüksek bütçeli patent çalışmaları |
-| **Pazardaki Fiyat Gücü** | Piyasadaki fiyatları kabul eden konum; tekelleri dengeleyici rol | Pazardaki fiyatları belirleme gücü ve sektör liderliği |
+| Analiz Alanı                 | Küçük ve Orta Büyüklükteki İşletmeler (KOBİ)                     | Büyük İşletmeler                                                   |
+| :--------------------------- | :--------------------------------------------------------------- | :----------------------------------------------------------------- |
+| **Sayısal Oran ve İstihdam** | İşletmelerin %99,5'i; toplam istihdamın %70-80'i                 | İşletmelerin binde beşi; toplam istihdamın %20-30'u                |
+| **Esneklik ve Değişim Hızı** | Müşteri talebine göre hızla değişebilen butik üretim             | Sabit kurallar ve kitle üretimine dayalı standart yapı             |
+| **Yönetim ve Uzmanlaşma**    | Birkaç görevi tek kişinin yürüttüğü sade yapı                    | Farklı departmanlara ayrılmış profesyonel kadrolar                 |
+| **Kredi ve Fon Bulma**       | Yüksek faiz oranları ve ağır banka teminatı şartları             | Borsaya açılma, tahvil satışı ve düşük maliyetli kurumsal krediler |
+| **Ar-Ge ve Yenilikçilik**    | Kısıtlı bütçeler sebebiyle sınırlı teknoloji yatırımı            | Özel Ar-Ge birimleri ve yüksek bütçeli patent çalışmaları          |
+| **Pazardaki Fiyat Gücü**     | Piyasadaki fiyatları kabul eden konum; tekelleri dengeleyici rol | Pazardaki fiyatları belirleme gücü ve sektör liderliği             |

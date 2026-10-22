@@ -12,7 +12,7 @@ draft: false
 - **[[Ödev]]**: Hukuk düzeninin veya toplumsal kuralların kişiye yüklediği; belirli bir davranışı sergileme ya da belirli bir davranıştan kaçınma yükümlülüğü.
 - **[[İhsak-ı Hak Yasağı]]**: Bir hakkın ihlali durumunda, hak sahibinin bizzat güç veya cebir kullanarrak hakkını elde etmesininin yasaklanması; hakkın yerine getirilmesinin münhasıran devlet organları (**yargı** ve **icra**) vasıtasıyla talep edilmesi zorunluluğudur.
 - **[[Hukuk]]**: Toplum hâlinde yaşayan kişilerin birbirleriyle ve toplulukların birbiriyle veya devletle olan ilişkilerini düzenleyen, kamu gücüyle desteklenmiş, uyulması zorunlu ve maddi yaptırıma bağlanmış kurallar bütünü.
-- **[[Pozitif Hukuk]] (Yürürlükteki Hukuk/Dogmatik Hukuk)**: Belirli bir ülkede belirli bir zamanda yürürlükte bulunan, yetkili makamlar tarafından konulmuş yaızılı ve yazısız hukuk kurallarının tamamı (*Olan hukuk*).
+- **[[Pozitif hukuk]] (Yürürlükteki Hukuk/Dogmatik Hukuk)**: Belirli bir ülkede belirli bir zamanda yürürlükte bulunan, yetkili makamlar tarafından konulmuş yaızılı ve yazısız hukuk kurallarının tamamı (*Olan hukuk*).
 - **[[İdeal Hukuk]] (Normatif Hukuk/Tabii Hukuk)**: Yürürlükteki hukukun ötesinde; adalete, insan onuruna ve ahlaka en uygun olan, toplumsal gereksinimleri eksiksiz karşılamayı hedefleyen kurgusal ve ulaşılmak istenen hukuk nizamı.
 - **[[Hukuk Pozitivizmi]]**: Hukukun geçerliliğini yalnızca yetkili siyasi otoriterinin iradesine ve usulüne uygun şekilde konulmuş kurallara bağlayan; adalet ve ahlâk gibi soyut değerleri hukukun zorunlu kurucu unsuru saymayan yaklaşımdır.
 - **[[Doğal Hukuk Anlayışı]]**: Hukukun kaynağını akıl, evrensel adalet ilkeleri ve ahlâkî kodlarda gören; pozitif hukuk normlarının meşruiyetini bu üstün ilkelerden aldığını kabul eden yaklaşım.

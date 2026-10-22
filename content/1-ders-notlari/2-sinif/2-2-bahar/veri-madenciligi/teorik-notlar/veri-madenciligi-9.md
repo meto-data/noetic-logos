@@ -16,7 +16,7 @@ Regresyon analizi, iki ya da daha çok değişken arasındaki ilişkinin varlı�
 
 
 >[!info] Yapay Zekânın Temel Formülü
->Makine öğrenmesi ve yapay zekâ temelde bir matematiksel modelleme, bir fonksiyon ($\mathbf{f(x)}$) oluşturma işidir. En kaba tabirle formül şudur: <br>
+>Makine öğrenmesi ve yapay zekâ temelde bir matematiksel modelleme, bir fonksiyon \[$\mathbf{f(x)}$\] oluşturma işidir. En kaba tabirle formül şudur: <br>
 >$Y = (X \cdot w) + b$ <br>
 >Burada amaç; elimizdeki binlerce $X$ ve $Y$ verisini makineye verip, aradaki ilişkiyi en iyi açıklayan $w$ (**ağırlık/weight**) ve $b$ (**başlangıç değeri/bias**) parametrelerinin **optimum** değerlerini öğrenmektir.
 
@@ -63,7 +63,7 @@ Doğadaki veriler her zaman düz bir çizgi (linear doğru) şeklinde ilerlemez.
 
 ### D. Lojistik Regresyon
 Adında regresyon geçmesine rağmen aslında bir **sınıflandırma (classification)** algoritmasıdır. Sayısal bir değer tahmin etmek (örn: ev fiyatı) yerine sonucun iki farklı değerden hangisine ait olduğunu bulur.
-- Matematiksel olarak Sigmoid Fonksiyonu kullanır. Bu fonksiyon grafikte S şeklinde bir eğridir.
+- Matematiksel olarak **Sigmoid Fonksiyonu** kullanır. Bu fonksiyon grafikte $S$ şeklinde bir eğridir.
 - Üretilen değeri her zaman 0 ile 1 arasında sıkıştırır (örn: Doğru/Yanlış, Evet/Hayır, 1/0).
 - **Örnek**: Gelen bir e-postanın **spam (1)** mı yoksa **spam değil (0)** mi olduğunu tahmin etmek. Yahut web sitesindeki bir müşterinin "Sepeti Onayla" butonuna tıklayıp tıklamayacağını öngörmek.
 - İşlevi gereği [[veri-madenciligi-5#B. K-Nearest Neighbors (KNN - K-En Yakın Komşu)|KNN (K-Nearest Neighbors)]] algoritması ile benzer problemlerde kullanılır ve kıyaslanır.

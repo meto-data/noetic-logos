@@ -1,5 +1,6 @@
 ---
 tags:
   - akademi/dersler/finansal-yonetim
+created: 2025-12-04
 ---
-- İşletmenin elde ettiği dönem kârının ortaklara dağıtılmayarak (temettü olarak ödenmeyerek) işletme bünyesinde alıkonulması sûretiyle fon sağlanması.
+Otofinansman, işletmenin dışarıdan borçlanma ya da yeni ortak almadan, kendi faaliyetleri sonucunda yarattığı kaynaklarla (dağıtılmayan kâr ve [[amortisman fonu]]) finansman sağlamasıdır
