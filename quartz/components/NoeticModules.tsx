@@ -36,10 +36,11 @@ const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
       </button>
 
       {/* Arka Plan Bulanıklık & Karartma Katmanı */}
-      <div class="noetic-modules-overlay" data-action="close"></div>
+      <div id="noetic-modules-overlay" class="noetic-modules-overlay" data-action="close"></div>
 
       {/* Ana Modal Penceresi */}
       <section
+        id="noetic-modules-panel"
         class="noetic-modules-panel"
         aria-hidden="true"
         role="dialog"
