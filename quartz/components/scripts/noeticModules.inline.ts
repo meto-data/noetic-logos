@@ -31,15 +31,15 @@ function getBasePath(): string {
   return new URL(currentDir, window.location.origin).toString()
 }
 
-let cleanupNoeticModules = () => { }
+let cleanupNoeticModules = () => {}
 
 const MODULE_ICONS: Record<string, string> = {
-  oop: `<svg class="noetic-modules-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg>`,
-  language: `<svg class="noetic-modules-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg>`,
-  ybs: `<svg class="noetic-modules-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>`,
-  finance: `<svg class="noetic-modules-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>`,
-  web: `<svg class="noetic-modules-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3c2.5 2.7 4 5.7 4 9s-1.5 6.3-4 9c-2.5-2.7-4-5.7-4-9s1.5-6.3 4-9Z" /></svg>`,
-  ethics: `<svg class="noetic-modules-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.2-1.93.3-3 .3s-2.13-.1-3-.3Z" /><path d="m2 16 3-8 3 8c-.87.2-1.93.3-3 .3s-2.13-.1-3-.3Z" /><path d="M7 21h10" /><path d="M12 3v18" /><path d="M3 7h18" /></svg>`,
+  oop: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg>`,
+  language: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg>`,
+  ybs: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>`,
+  finance: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>`,
+  web: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3c2.5 2.7 4 5.7 4 9s-1.5 6.3-4 9c-2.5-2.7-4-5.7-4-9s1.5-6.3 4-9Z" /></svg>`,
+  ethics: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.2-1.93.3-3 .3s-2.13-.1-3-.3Z" /><path d="m2 16 3-8 3 8c-.87.2-1.93.3-3 .3s-2.13-.1-3-.3Z" /><path d="M7 21h10" /><path d="M12 3v18" /><path d="M3 7h18" /></svg>`,
 }
 
 type NoeticModule = {
@@ -49,11 +49,14 @@ type NoeticModule = {
   periodOrder: number
   moduleUrl: string
   iconType: string
+  subtitle?: string
+  university?: "deu" | "duzce"
+  grade?: number
 }
 
 function setupNoeticModules() {
   cleanupNoeticModules()
-  cleanupNoeticModules = () => { }
+  cleanupNoeticModules = () => {}
 
   const root = document.querySelector(".noetic-modules-root") as HTMLElement | null
   if (!root) return
@@ -63,67 +66,40 @@ function setupNoeticModules() {
   ) as HTMLButtonElement | null
   const overlay = root.querySelector(".noetic-modules-overlay") as HTMLElement | null
   const panel = root.querySelector(".noetic-modules-panel") as HTMLElement | null
-  const grid = root.querySelector("[data-noetic-modules-grid]") as HTMLElement | null
-  const closeButton = root.querySelector(".noetic-modules-panel__close") as HTMLButtonElement | null
-  if (!overlay || !panel || !grid) return
+  const scrollContainer = root.querySelector("[data-noetic-modules-scroll]") as HTMLElement | null
+  const searchInput = root.querySelector(".noetic-modules-search__input") as HTMLInputElement | null
+  const searchClear = root.querySelector(".noetic-modules-search__clear") as HTMLButtonElement | null
+  const navWrapper = root.querySelector("[data-univ-dependent='duzce']") as HTMLElement | null
+
+  if (!overlay || !panel || !scrollContainer) return
 
   document.body.appendChild(overlay)
   document.body.appendChild(panel)
 
-  const moduleData = JSON.parse(root.dataset.noeticModules ?? "[]") as NoeticModule[]
+  const moduleData = (JSON.parse(root.dataset.noeticModules ?? "[]") as NoeticModule[]).map(
+    (m) => ({
+      ...m,
+      university: m.university ?? "duzce",
+      grade: m.grade ?? (m.periodOrder === 0 ? 1 : 2),
+    }),
+  )
 
-  const renderModulesIfNeeded = () => {
-    if (grid.childElementCount > 0) return
+  // Durum Yönetimi (Varsayılan olarak DEÜ seçilidir)
+  let currentUniv: "deu" | "duzce" = "deu"
+  let currentGrade: "all" | "1" | "2" = "all"
+  let currentSearch = ""
 
-    const basePath = getBasePath()
-    const fragment = document.createDocumentFragment()
+  // Üniversite etiketleri haritası
+  const UNIV_LABELS: Record<string, string> = {
+    deu: "DEÜ",
+    duzce: "Düzce",
+  }
 
-    const groupedModules = moduleData
-      .slice()
-      .sort((a, b) => a.periodOrder - b.periodOrder || a.title.localeCompare(b.title, "tr"))
-      .reduce((acc, module) => {
-        const key = `${module.periodOrder}-${module.periodLabel}`
-        if (!acc.has(key)) {
-          acc.set(key, { label: module.periodLabel, items: [] as NoeticModule[] })
-        }
-        acc.get(key)!.items.push(module)
-        return acc
-      }, new Map<string, { label: string; items: NoeticModule[] }>())
-
-    groupedModules.forEach((group) => {
-      const section = document.createElement("section")
-      section.className = "noetic-modules-section"
-      section.innerHTML = `<h4 class="noetic-modules-section__title">${group.label}</h4><div class="noetic-modules-section__grid"></div>`
-
-      const sectionGrid = section.querySelector(".noetic-modules-section__grid") as HTMLElement
-
-      group.items.forEach((module) => {
-        const card = document.createElement("a")
-        card.className = "noetic-modules-card"
-        card.dataset.noeticModuleLink = ""
-        card.dataset.moduleUrl = module.moduleUrl
-        card.target = "_blank"
-        card.rel = "noopener noreferrer"
-        card.href = new URL(module.moduleUrl, basePath).toString()
-        card.innerHTML = `
-          <span class="noetic-modules-card__icon">${MODULE_ICONS[module.iconType] ?? MODULE_ICONS.ybs}</span>
-          <span class="noetic-modules-card__body">
-            <span class="noetic-modules-card__title">${module.title}</span>
-          </span>
-          <span class="noetic-modules-card__arrow" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 17L17 7" />
-              <path d="M7 7h10v10" />
-            </svg>
-          </span>
-        `
-        sectionGrid.appendChild(card)
-      })
-
-      fragment.appendChild(section)
-    })
-
-    grid.appendChild(fragment)
+  // Sınıf etiketleri haritası
+  const GRADE_LABELS: Record<string, string> = {
+    all: "Tüm Sınıflar",
+    "1": "1. Sınıf",
+    "2": "2. Sınıf",
   }
 
   const syncLinks = () => {
@@ -138,32 +114,204 @@ function setupNoeticModules() {
     })
   }
 
+  const renderModules = () => {
+    scrollContainer.innerHTML = ""
+    const basePath = getBasePath()
+
+    // 1. DEÜ Seçiliyse: Boş Durum (Empty State) Göster
+    if (currentUniv === "deu") {
+      const emptyDiv = document.createElement("div")
+      emptyDiv.className = "noetic-modules-empty"
+      emptyDiv.innerHTML = `
+        <div class="noetic-modules-empty__icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+          </svg>
+        </div>
+        <h3 class="noetic-modules-empty__title">Dokuz Eylül Üniversitesi</h3>
+        <p class="noetic-modules-empty__desc">
+          DEÜ müfredatı için interaktif test ve konu anlatım modülleri hazırlanma aşamasındadır.
+        </p>
+        <div class="noetic-modules-empty__badge">Pek Yakında</div>
+      `
+      scrollContainer.appendChild(emptyDiv)
+      return
+    }
+
+    // 2. Düzce Seçiliyse: Filtreleme ve Arama
+    let filtered = moduleData.filter((m) => m.university === "duzce")
+
+    // Sınıf filtresi
+    if (currentGrade !== "all") {
+      const gradeNum = parseInt(currentGrade, 10)
+      filtered = filtered.filter((m) => m.grade === gradeNum)
+    }
+
+    // Arama sorgusu filtresi
+    const q = currentSearch.trim().toLocaleLowerCase("tr")
+    if (q.length > 0) {
+      filtered = filtered.filter((m) => {
+        const titleMatch = m.title.toLocaleLowerCase("tr").includes(q)
+        const periodMatch = m.periodLabel.toLocaleLowerCase("tr").includes(q)
+        const subtitleMatch = (m.subtitle ?? "").toLocaleLowerCase("tr").includes(q)
+        return titleMatch || periodMatch || subtitleMatch
+      })
+    }
+
+    // Arama sonucu boşsa
+    if (filtered.length === 0) {
+      const notFound = document.createElement("div")
+      notFound.className = "noetic-modules-empty"
+      notFound.innerHTML = `
+        <div class="noetic-modules-empty__icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            <line x1="8" y1="11" x2="14" y2="11" />
+          </svg>
+        </div>
+        <h3 class="noetic-modules-empty__title">Modül Bulunamadı</h3>
+        <p class="noetic-modules-empty__desc">
+          "${currentSearch}" aramasına uygun bir ders veya test modülü bulunamadı.
+        </p>
+      `
+      scrollContainer.appendChild(notFound)
+      return
+    }
+
+    // Gruplandırma: Dönem ve Sınıfa göre
+    const grouped = filtered
+      .slice()
+      .sort((a, b) => a.periodOrder - b.periodOrder || a.title.localeCompare(b.title, "tr"))
+      .reduce((acc, module) => {
+        const key = `${module.periodOrder}-${module.periodLabel}`
+        if (!acc.has(key)) {
+          acc.set(key, { label: module.periodLabel, items: [] as NoeticModule[] })
+        }
+        acc.get(key)!.items.push(module)
+        return acc
+      }, new Map<string, { label: string; items: NoeticModule[] }>())
+
+    const fragment = document.createDocumentFragment()
+
+    grouped.forEach((group) => {
+      const groupEl = document.createElement("div")
+      groupEl.className = "noetic-modules-group"
+
+      const groupTitle = document.createElement("h4")
+      groupTitle.className = "noetic-modules-group__title"
+      groupTitle.textContent = group.label
+
+      const gridEl = document.createElement("div")
+      gridEl.className = "noetic-modules-grid"
+
+      group.items.forEach((module) => {
+        const card = document.createElement("a")
+        card.className = "noetic-modules-card"
+        card.dataset.noeticModuleLink = ""
+        card.dataset.moduleUrl = module.moduleUrl
+        card.target = "_blank"
+        card.rel = "noopener noreferrer"
+        card.href = new URL(module.moduleUrl, basePath).toString()
+
+        const iconSvg = MODULE_ICONS[module.iconType] ?? MODULE_ICONS.ybs
+
+        card.innerHTML = `
+          <div class="noetic-modules-card__icon-box" aria-hidden="true">
+            ${iconSvg}
+          </div>
+          <div class="noetic-modules-card__body">
+            <span class="noetic-modules-card__tag">${module.periodLabel}</span>
+            <h4 class="noetic-modules-card__title">${module.title}</h4>
+            ${module.subtitle ? `<p class="noetic-modules-card__subtitle">${module.subtitle}</p>` : ""}
+          </div>
+          <div class="noetic-modules-card__arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17 17 7" />
+              <path d="M7 7h10v10" />
+            </svg>
+          </div>
+        `
+        gridEl.appendChild(card)
+      })
+
+      groupEl.appendChild(groupTitle)
+      groupEl.appendChild(gridEl)
+      fragment.appendChild(groupEl)
+    })
+
+    scrollContainer.appendChild(fragment)
+    syncLinks()
+  }
+
+  // Arayüz Senkronizasyonu (Segment, Nav ve Dropdown kontrolleri)
+  const updateUI = () => {
+    // 1. Masaüstü Üniversite Segmenti
+    panel.querySelectorAll(".noetic-modules-segment-item").forEach((btn) => {
+      const btnEl = btn as HTMLButtonElement
+      const isActive = btnEl.dataset.univ === currentUniv
+      btnEl.classList.toggle("is-active", isActive)
+      btnEl.setAttribute("aria-selected", isActive ? "true" : "false")
+    })
+
+    // Sınıf listesini DEÜ'de gizle/pasif yap
+    if (navWrapper) {
+      navWrapper.classList.toggle("is-hidden", currentUniv !== "duzce")
+    }
+
+    // 2. Masaüstü Sınıf Navigasyonu
+    panel.querySelectorAll(".noetic-modules-nav-item").forEach((btn) => {
+      const btnEl = btn as HTMLButtonElement
+      const isActive = btnEl.dataset.grade === currentGrade
+      btnEl.classList.toggle("is-active", isActive)
+    })
+
+    // 3. Mobil Üniversite Dropdown Güncellemesi
+    const univSelect = panel.querySelector("[data-select-type='univ']")
+    if (univSelect) {
+      const label = univSelect.querySelector(".noetic-modules-dropdown__label")
+      if (label) label.textContent = UNIV_LABELS[currentUniv] ?? currentUniv
+      univSelect.querySelectorAll(".noetic-modules-dropdown__option").forEach((opt) => {
+        const optEl = opt as HTMLElement
+        optEl.classList.toggle("is-selected", optEl.dataset.value === currentUniv)
+      })
+    }
+
+    // 4. Mobil Sınıf Dropdown Güncellemesi
+    const gradeSelect = panel.querySelector("[data-select-type='grade']")
+    if (gradeSelect) {
+      const label = gradeSelect.querySelector(".noetic-modules-dropdown__label")
+      if (label) label.textContent = GRADE_LABELS[currentGrade] ?? currentGrade
+      gradeSelect.querySelectorAll(".noetic-modules-dropdown__option").forEach((opt) => {
+        const optEl = opt as HTMLElement
+        optEl.classList.toggle("is-selected", optEl.dataset.value === currentGrade)
+      })
+    }
+
+    renderModules()
+  }
+
   const markSeen = () => {
     localStorage.setItem(NOETIC_MODULES_SEEN_KEY, "true")
     window.dispatchEvent(new CustomEvent("noetic-modules-seen"))
   }
 
-  const positionPanel = (source: "desktop" | "mobile") => {
-    if (source === "desktop" && window.innerWidth >= 800) {
-      panel.style.top = "88px"
-      panel.style.left = "50%"
-      return
-    }
-
-    panel.style.top = "72px"
-    panel.style.left = "50%"
-  }
-
-  const openPanel = (source: "desktop" | "mobile") => {
-    renderModulesIfNeeded()
-    syncLinks()
+  const openPanel = () => {
+    updateUI()
     markSeen()
     root.classList.add("open")
     overlay.classList.add("visible")
     panel.classList.add("visible")
     panel.setAttribute("aria-hidden", "false")
     setModulesModalLock(true)
-    positionPanel(source)
+
+    // Arama kutusuna hafif gecikmeyle odaklan
+    setTimeout(() => {
+      if (window.innerWidth >= 800) {
+        searchInput?.focus()
+      }
+    }, 150)
   }
 
   const closePanel = () => {
@@ -172,61 +320,153 @@ function setupNoeticModules() {
     panel.classList.remove("visible")
     panel.setAttribute("aria-hidden", "true")
     setModulesModalLock(false)
+
+    // Açık dropdown'ları kapat
+    panel.querySelectorAll(".noetic-modules-dropdown.is-open").forEach((d) => {
+      d.classList.remove("is-open")
+    })
   }
 
-  const onTriggerClick = (event: MouseEvent) => {
-    event.stopPropagation()
-    root.classList.contains("open") ? closePanel() : openPanel("desktop")
+  // Olay Dinleyicileri
+  const onTriggerClick = (e: MouseEvent) => {
+    e.stopPropagation()
+    root.classList.contains("open") ? closePanel() : openPanel()
   }
 
-  const onOverlayClick = () => closePanel()
-  const onCloseClick = () => closePanel()
+  // Kapatma butonları ve overlay tıklaması
+  const onPanelClick = (e: MouseEvent) => {
+    const target = e.target as HTMLElement
 
-  const onDocumentClick = (event: MouseEvent) => {
-    const target = event.target as Node
-    if (!root.classList.contains("open")) return
-    if (root.contains(target)) return
-    closePanel()
-  }
-
-  const onKeydown = (event: KeyboardEvent) => {
-    if (event.key === "Escape") {
-      closePanel()
-    }
-  }
-
-  const onResize = () => {
-    if (root.classList.contains("open")) {
-      positionPanel(window.innerWidth >= 800 ? "desktop" : "mobile")
-    }
-  }
-
-  const onToggleEvent = (event: Event) => {
-    const customEvent = event as CustomEvent<{ source?: "desktop" | "mobile" }>
-    if (root.classList.contains("open")) {
+    // data-action="close" tıklandıysa
+    const closeTrigger = target.closest("[data-action='close']")
+    if (closeTrigger) {
       closePanel()
       return
     }
-    openPanel(customEvent.detail?.source ?? "mobile")
+
+    // Masaüstü Segment Değişimi ([ DEÜ | Düzce ])
+    const segmentItem = target.closest(".noetic-modules-segment-item") as HTMLElement | null
+    if (segmentItem && segmentItem.dataset.univ) {
+      currentUniv = segmentItem.dataset.univ as "deu" | "duzce"
+      updateUI()
+      return
+    }
+
+    // Masaüstü Sınıf Değişimi ([ Tümü | 1. Sınıf | 2. Sınıf ])
+    const navItem = target.closest(".noetic-modules-nav-item") as HTMLElement | null
+    if (navItem && navItem.dataset.grade) {
+      currentGrade = navItem.dataset.grade as "all" | "1" | "2"
+      updateUI()
+      return
+    }
+
+    // Mobil Dropdown Aç/Kapa
+    const dropdownTrigger = target.closest(
+      ".noetic-modules-dropdown__trigger",
+    ) as HTMLElement | null
+    if (dropdownTrigger) {
+      const dropdown = dropdownTrigger.closest(".noetic-modules-dropdown")
+      if (dropdown) {
+        const wasOpen = dropdown.classList.contains("is-open")
+        // Diğerlerini kapat
+        panel
+          .querySelectorAll(".noetic-modules-dropdown.is-open")
+          .forEach((d) => d.classList.remove("is-open"))
+        if (!wasOpen) dropdown.classList.add("is-open")
+      }
+      return
+    }
+
+    // Mobil Dropdown Seçenek Tıklaması
+    const dropdownOption = target.closest(
+      ".noetic-modules-dropdown__option",
+    ) as HTMLElement | null
+    if (dropdownOption && dropdownOption.dataset.value) {
+      const selectBox = dropdownOption.closest("[data-select-type]") as HTMLElement | null
+      const selectType = selectBox?.dataset.selectType
+      const val = dropdownOption.dataset.value
+
+      if (selectType === "univ") {
+        currentUniv = val as "deu" | "duzce"
+      } else if (selectType === "grade") {
+        currentGrade = val as "all" | "1" | "2"
+      }
+
+      const dropdown = dropdownOption.closest(".noetic-modules-dropdown")
+      dropdown?.classList.remove("is-open")
+      updateUI()
+      return
+    }
+
+    // Dropdown dışına tıklandıysa menüleri kapa
+    if (!target.closest(".noetic-modules-dropdown")) {
+      panel
+        .querySelectorAll(".noetic-modules-dropdown.is-open")
+        .forEach((d) => d.classList.remove("is-open"))
+    }
   }
 
+  const onOverlayClick = () => closePanel()
+
+  const onKeydown = (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      closePanel()
+    }
+  }
+
+  // Arama Girişi
+  const onSearchInput = () => {
+    currentSearch = searchInput?.value ?? ""
+    if (searchClear) {
+      searchClear.style.display = currentSearch.length > 0 ? "grid" : "none"
+    }
+    renderModules()
+  }
+
+  const onSearchClear = () => {
+    if (searchInput) {
+      searchInput.value = ""
+      currentSearch = ""
+      searchClear!.style.display = "none"
+      searchInput.focus()
+      renderModules()
+    }
+  }
+
+  // Mobil toggle eventi
+  const onToggleEvent = () => {
+    root.classList.contains("open") ? closePanel() : openPanel()
+  }
+
+  // Dinleyicileri Ekle
   trigger?.addEventListener("click", onTriggerClick)
   overlay.addEventListener("click", onOverlayClick)
-  closeButton?.addEventListener("click", onCloseClick)
-  document.addEventListener("click", onDocumentClick)
+  panel.addEventListener("click", onPanelClick)
+  searchInput?.addEventListener("input", onSearchInput)
+  searchClear?.addEventListener("click", onSearchClear)
   document.addEventListener("keydown", onKeydown)
-  window.addEventListener("resize", onResize)
   window.addEventListener("noetic-modules-toggle", onToggleEvent as EventListener)
-  syncLinks()
+
+  // Sayfa dışı tıklamada dropdownları kapat
+  const onDocClick = (e: MouseEvent) => {
+    const target = e.target as HTMLElement
+    if (!target.closest(".noetic-modules-dropdown")) {
+      panel
+        .querySelectorAll(".noetic-modules-dropdown.is-open")
+        .forEach((d) => d.classList.remove("is-open"))
+    }
+  }
+  document.addEventListener("click", onDocClick)
 
   cleanupNoeticModules = () => {
     closePanel()
     trigger?.removeEventListener("click", onTriggerClick)
     overlay.removeEventListener("click", onOverlayClick)
-    closeButton?.removeEventListener("click", onCloseClick)
-    document.removeEventListener("click", onDocumentClick)
+    panel.removeEventListener("click", onPanelClick)
+    searchInput?.removeEventListener("input", onSearchInput)
+    searchClear?.removeEventListener("click", onSearchClear)
     document.removeEventListener("keydown", onKeydown)
-    window.removeEventListener("resize", onResize)
+    document.removeEventListener("click", onDocClick)
     window.removeEventListener("noetic-modules-toggle", onToggleEvent as EventListener)
     root.appendChild(overlay)
     root.appendChild(panel)
@@ -238,3 +478,6 @@ document.addEventListener("nav", setupNoeticModules)
 window.__noeticModules = {
   cleanup: () => cleanupNoeticModules(),
 }
+
+export {}
+

@@ -2,123 +2,18 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 import styles from "./styles/noeticModules.scss"
 // @ts-ignore
 import script from "./scripts/noeticModules.inline"
-import { NOETIC_MODULES, NoeticModuleIcon } from "./data/noeticModules"
-
-const ICONS: Record<NoeticModuleIcon, JSX.Element> = {
-  oop: (
-    <svg
-      class="noetic-modules-icon"
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <polygon points="12 2 2 7 12 12 22 7 12 2" />
-      <polyline points="2 17 12 22 22 17" />
-      <polyline points="2 12 12 17 22 12" />
-    </svg>
-  ),
-  language: (
-    <svg
-      class="noetic-modules-icon"
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-    </svg>
-  ),
-  ybs: (
-    <svg
-      class="noetic-modules-icon"
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-      <line x1="8" y1="21" x2="16" y2="21" />
-      <line x1="12" y1="17" x2="12" y2="21" />
-    </svg>
-  ),
-  finance: (
-    <svg
-      class="noetic-modules-icon"
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <line x1="12" y1="1" x2="12" y2="23" />
-      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-    </svg>
-  ),
-  web: (
-    <svg
-      class="noetic-modules-icon"
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <circle cx="12" cy="12" r="9" />
-      <path d="M3 12h18" />
-      <path d="M12 3c2.5 2.7 4 5.7 4 9s-1.5 6.3-4 9c-2.5-2.7-4-5.7-4-9s1.5-6.3 4-9Z" />
-    </svg>
-  ),
-  ethics: (
-    <svg
-      class="noetic-modules-icon"
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="m16 16 3-8 3 8c-.87.2-1.93.3-3 .3s-2.13-.1-3-.3Z" />
-      <path d="m2 16 3-8 3 8c-.87.2-1.93.3-3 .3s-2.13-.1-3-.3Z" />
-      <path d="M7 21h10" />
-      <path d="M12 3v18" />
-      <path d="M3 7h18" />
-    </svg>
-  ),
-}
+import { NOETIC_MODULES } from "./data/noeticModules"
 
 const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
   return (
     <div class="noetic-modules-root" data-noetic-modules={JSON.stringify(NOETIC_MODULES)}>
-      <button type="button" class="noetic-modules-trigger" data-noetic-modules-trigger="desktop">
+      {/* Masaüstü Tetikleyici Butonu */}
+      <button
+        type="button"
+        class="noetic-modules-trigger"
+        data-noetic-modules-trigger="desktop"
+        aria-label="Modüller"
+      >
         <span class="noetic-modules-trigger__icon" aria-hidden="true">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -140,27 +35,318 @@ const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
         <span class="noetic-modules-trigger__label">Modüller</span>
       </button>
 
-      <div class="noetic-modules-overlay"></div>
+      {/* Arka Plan Bulanıklık & Karartma Katmanı */}
+      <div class="noetic-modules-overlay" data-action="close"></div>
 
-      <section class="noetic-modules-panel" aria-hidden="true" role="dialog">
-        <button type="button" class="noetic-modules-panel__close" aria-label="Kapat">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </button>
+      {/* Ana Modal Penceresi */}
+      <section
+        class="noetic-modules-panel"
+        aria-hidden="true"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Ders Modülleri Portalı"
+      >
+        {/* SOL PANEL (Masaüstü: 280px genişliğinde, mobilde gizlenir) */}
+        <aside class="noetic-modules-sidebar">
+          {/* Sol Header: < Geri/Kapat butonu + Renkli İkon Rozeti + Başlık */}
+          <div class="noetic-modules-sidebar__header">
+            <button
+              type="button"
+              class="noetic-modules-icon-btn"
+              data-action="close"
+              title="Geri / Kapat"
+              aria-label="Geri / Kapat"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+            </button>
 
-        <div class="noetic-modules-panel__grid" data-noetic-modules-grid></div>
+            <div class="noetic-modules-badge" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+                <path d="M6 6h10" />
+                <path d="M6 10h10" />
+              </svg>
+            </div>
+
+            <div class="noetic-modules-sidebar__titles">
+              <span class="noetic-modules-sidebar__title">Modüller</span>
+              <span class="noetic-modules-sidebar__subtitle">Pratik & Sınav</span>
+            </div>
+          </div>
+
+          {/* Segmented Control: DEÜ / Düzce Hap Butonları */}
+          <div class="noetic-modules-segment" role="tablist" aria-label="Üniversite Seçimi">
+            <button
+              type="button"
+              class="noetic-modules-segment-item is-active"
+              data-univ="deu"
+              role="tab"
+              aria-selected="true"
+            >
+              DEÜ
+            </button>
+            <button
+              type="button"
+              class="noetic-modules-segment-item"
+              data-univ="duzce"
+              role="tab"
+              aria-selected="false"
+            >
+              Düzce
+            </button>
+          </div>
+
+          {/* Sınıf Tasnif Menüsü (Düzce aktifken çalışır) */}
+          <div class="noetic-modules-nav-wrapper" data-univ-dependent="duzce">
+            <div class="noetic-modules-sidebar__section-title">Sınıflar</div>
+            <nav class="noetic-modules-nav" aria-label="Sınıf Filtreleri">
+              <button
+                type="button"
+                class="noetic-modules-nav-item is-active"
+                data-grade="all"
+              >
+                <span class="noetic-modules-nav-item__label">Tüm Sınıflar</span>
+                <span class="noetic-modules-nav-item__badge" data-count="all">8</span>
+              </button>
+              <button
+                type="button"
+                class="noetic-modules-nav-item"
+                data-grade="1"
+              >
+                <span class="noetic-modules-nav-item__label">1. Sınıf</span>
+                <span class="noetic-modules-nav-item__badge" data-count="1">1</span>
+              </button>
+              <button
+                type="button"
+                class="noetic-modules-nav-item"
+                data-grade="2"
+              >
+                <span class="noetic-modules-nav-item__label">2. Sınıf</span>
+                <span class="noetic-modules-nav-item__badge" data-count="2">7</span>
+              </button>
+            </nav>
+          </div>
+
+          {/* Sol Alt Sabit Bilgi */}
+          <div class="noetic-modules-sidebar__footer">
+            <span class="noetic-modules-sidebar__footer-badge">Noetic Papers</span>
+            <span class="noetic-modules-sidebar__footer-text">Ders & Test Sistemi</span>
+          </div>
+        </aside>
+
+        {/* SAĞ PANEL (Mobil Header, Arama, 2'li Combobox ve Kart Alanı) */}
+        <main class="noetic-modules-main">
+          {/* Mobil İçin Özel Üst Bar (md:hidden) */}
+          <div class="noetic-modules-mobile-bar">
+            <div class="noetic-modules-mobile-bar__left">
+              <button
+                type="button"
+                class="noetic-modules-icon-btn"
+                data-action="close"
+                title="Geri"
+                aria-label="Geri"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m15 18-6-6 6-6" />
+                </svg>
+              </button>
+              <span class="noetic-modules-mobile-bar__title">Ders Modülleri</span>
+            </div>
+            <button
+              type="button"
+              class="noetic-modules-icon-btn"
+              data-action="close"
+              title="Kapat"
+              aria-label="Kapat"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Arama Girişi */}
+          <div class="noetic-modules-search">
+            <svg
+              class="noetic-modules-search__icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+            <input
+              type="text"
+              class="noetic-modules-search__input"
+              placeholder="Modül veya ders ara..."
+              aria-label="Modül veya ders ara"
+              autocomplete="off"
+              spellcheck={false}
+            />
+            <button
+              type="button"
+              class="noetic-modules-search__clear"
+              aria-label="Aramayı Temizle"
+              style="display: none;"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Mobil İçin Özel 2'li Seçici / Combobox Grid (md:hidden) */}
+          <div class="noetic-modules-mobile-selects">
+            {/* Üniversite Seçimi */}
+            <div class="noetic-modules-select-box" data-select-type="univ">
+              <span class="noetic-modules-select-label">Üniversite</span>
+              <div class="noetic-modules-dropdown">
+                <button type="button" class="noetic-modules-dropdown__trigger">
+                  <span class="noetic-modules-dropdown__label">DEÜ</span>
+                  <svg
+                    class="noetic-modules-dropdown__chevron"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </button>
+                <div class="noetic-modules-dropdown__menu">
+                  <button
+                    type="button"
+                    class="noetic-modules-dropdown__option is-selected"
+                    data-value="deu"
+                  >
+                    DEÜ (Dokuz Eylül)
+                  </button>
+                  <button
+                    type="button"
+                    class="noetic-modules-dropdown__option"
+                    data-value="duzce"
+                  >
+                    Düzce Üniversitesi
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Sınıf Seçimi */}
+            <div class="noetic-modules-select-box" data-select-type="grade">
+              <span class="noetic-modules-select-label">Sınıf</span>
+              <div class="noetic-modules-dropdown">
+                <button type="button" class="noetic-modules-dropdown__trigger">
+                  <span class="noetic-modules-dropdown__label">Tüm Sınıflar</span>
+                  <svg
+                    class="noetic-modules-dropdown__chevron"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </button>
+                <div class="noetic-modules-dropdown__menu">
+                  <button
+                    type="button"
+                    class="noetic-modules-dropdown__option is-selected"
+                    data-value="all"
+                  >
+                    Tüm Sınıflar
+                  </button>
+                  <button
+                    type="button"
+                    class="noetic-modules-dropdown__option"
+                    data-value="1"
+                  >
+                    1. Sınıf
+                  </button>
+                  <button
+                    type="button"
+                    class="noetic-modules-dropdown__option"
+                    data-value="2"
+                  >
+                    2. Sınıf
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Kart Grid & İçerik Alanı */}
+          <div class="noetic-modules-scroll" data-noetic-modules-scroll></div>
+        </main>
       </section>
     </div>
   )
