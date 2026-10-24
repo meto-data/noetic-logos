@@ -47,7 +47,7 @@ const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
         aria-modal="true"
         aria-label="Ders Modülleri Portalı"
       >
-        {/* SOL PANEL (Masaüstü: 280px genişliğinde, mobilde gizlenir) */}
+        {/* SOL PANEL (Masaüstü: 270px genişliğinde, mobilde gizlenir) */}
         <aside class="noetic-modules-sidebar">
           {/* Sol Header: < Geri/Kapat butonu + Renkli İkon Rozeti + Başlık */}
           <div class="noetic-modules-sidebar__header">
@@ -157,8 +157,37 @@ const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
           </div>
         </aside>
 
-        {/* SAĞ PANEL (Mobil Header, Arama, 2'li Combobox ve Kart Alanı) */}
+        {/* SAĞ PANEL (Masaüstü Header, Mobil Header, 2'li Combobox ve Kart Alanı) */}
         <main class="noetic-modules-main">
+          {/* Masaüstü Üst Bilgi Barı */}
+          <div class="noetic-modules-desktop-bar">
+            <div class="noetic-modules-desktop-bar__titles">
+              <span class="noetic-modules-desktop-bar__univ" data-univ-heading>Dokuz Eylül Üniversitesi</span>
+              <span class="noetic-modules-desktop-bar__sub" data-grade-heading>Müfredat Modülleri</span>
+            </div>
+            <button
+              type="button"
+              class="noetic-modules-icon-btn"
+              data-action="close"
+              title="Kapat (Esc)"
+              aria-label="Kapat"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
           {/* Mobil İçin Özel Üst Bar (md:hidden) */}
           <div class="noetic-modules-mobile-bar">
             <div class="noetic-modules-mobile-bar__left">
@@ -196,53 +225,6 @@ const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M18 6 6 18M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-
-          {/* Arama Girişi */}
-          <div class="noetic-modules-search">
-            <svg
-              class="noetic-modules-search__icon"
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.3-4.3" />
-            </svg>
-            <input
-              type="text"
-              class="noetic-modules-search__input"
-              placeholder="Modül veya ders ara..."
-              aria-label="Modül veya ders ara"
-              autocomplete="off"
-              spellcheck={false}
-            />
-            <button
-              type="button"
-              class="noetic-modules-search__clear"
-              aria-label="Aramayı Temizle"
-              style="display: none;"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"

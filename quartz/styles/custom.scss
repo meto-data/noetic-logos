@@ -4,10 +4,8 @@
 // ===== MODAL SCROLL LOCK =====
 html.mobile-menu-open,
 html.settings-modal-open,
-html.modules-modal-open,
 html:has(body.mobile-menu-open),
-html:has(body.settings-modal-open),
-html:has(body.modules-modal-open) {
+html:has(body.settings-modal-open) {
   overflow: hidden !important;
   height: 100vh !important;
   height: 100dvh !important;
@@ -22,12 +20,16 @@ html:has(body.modules-modal-open) {
 }
 
 body.mobile-menu-open,
-body.settings-modal-open,
-body.modules-modal-open {
+body.settings-modal-open {
   overflow: hidden !important;
   height: 100vh !important;
   height: 100dvh !important;
   overscroll-behavior: none !important;
+}
+
+html.modules-modal-open,
+body.modules-modal-open {
+  overflow: hidden !important;
 }
 
 // ==========================================

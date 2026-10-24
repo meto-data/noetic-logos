@@ -34,12 +34,12 @@ function getBasePath(): string {
 let cleanupNoeticModules = () => {}
 
 const MODULE_ICONS: Record<string, string> = {
-  oop: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg>`,
-  language: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg>`,
-  ybs: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>`,
-  finance: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>`,
-  web: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3c2.5 2.7 4 5.7 4 9s-1.5 6.3-4 9c-2.5-2.7-4-5.7-4-9s1.5-6.3 4-9Z" /></svg>`,
-  ethics: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.2-1.93.3-3 .3s-2.13-.1-3-.3Z" /><path d="m2 16 3-8 3 8c-.87.2-1.93.3-3 .3s-2.13-.1-3-.3Z" /><path d="M7 21h10" /><path d="M12 3v18" /><path d="M3 7h18" /></svg>`,
+  oop: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg>`,
+  language: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg>`,
+  ybs: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>`,
+  finance: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>`,
+  web: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3c2.5 2.7 4 5.7 4 9s-1.5 6.3-4 9c-2.5-2.7-4-5.7-4-9s1.5-6.3 4-9Z" /></svg>`,
+  ethics: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.2-1.93.3-3 .3s-2.13-.1-3-.3Z" /><path d="m2 16 3-8 3 8c-.87.2-1.93.3-3 .3s-2.13-.1-3-.3Z" /><path d="M7 21h10" /><path d="M12 3v18" /><path d="M3 7h18" /></svg>`,
 }
 
 type NoeticModule = {
@@ -59,25 +59,35 @@ function setupNoeticModules() {
   cleanupNoeticModules = () => {}
 
   const root = document.querySelector(".noetic-modules-root") as HTMLElement | null
-  const overlay = (document.getElementById("noetic-modules-overlay") ||
-    document.querySelector(".noetic-modules-overlay")) as HTMLElement | null
-  const panel = (document.getElementById("noetic-modules-panel") ||
-    document.querySelector(".noetic-modules-panel")) as HTMLElement | null
+  if (!root) return
+
+  // Eski/stale overlay veya panel varsa temizle ve yenilerini body'ye taşı
+  const existingOverlayInBody = document.querySelector("body > #noetic-modules-overlay")
+  const existingPanelInBody = document.querySelector("body > #noetic-modules-panel")
+
+  let overlay = root.querySelector("#noetic-modules-overlay") as HTMLElement | null
+  let panel = root.querySelector("#noetic-modules-panel") as HTMLElement | null
+
+  if (overlay) {
+    existingOverlayInBody?.remove()
+    document.body.appendChild(overlay)
+  } else {
+    overlay = existingOverlayInBody as HTMLElement | null
+  }
+
+  if (panel) {
+    existingPanelInBody?.remove()
+    document.body.appendChild(panel)
+  } else {
+    panel = existingPanelInBody as HTMLElement | null
+  }
 
   if (!panel || !overlay) return
 
-  // Modal öğelerini document.body'ye güvenle taşı (eğer henüz taşınmadıysa)
-  if (overlay.parentElement !== document.body) {
-    document.body.appendChild(overlay)
-  }
-  if (panel.parentElement !== document.body) {
-    document.body.appendChild(panel)
-  }
-
   const scrollContainer = panel.querySelector("[data-noetic-modules-scroll]") as HTMLElement | null
-  const searchInput = panel.querySelector(".noetic-modules-search__input") as HTMLInputElement | null
-  const searchClear = panel.querySelector(".noetic-modules-search__clear") as HTMLButtonElement | null
   const navWrapper = panel.querySelector("[data-univ-dependent='duzce']") as HTMLElement | null
+  const univHeading = panel.querySelector("[data-univ-heading]") as HTMLElement | null
+  const gradeHeading = panel.querySelector("[data-grade-heading]") as HTMLElement | null
 
   if (!scrollContainer) return
 
@@ -92,7 +102,6 @@ function setupNoeticModules() {
   // Durum Yönetimi (Varsayılan olarak DEÜ seçilidir)
   let currentUniv: "deu" | "duzce" = "deu"
   let currentGrade: "all" | "1" | "2" = "all"
-  let currentSearch = ""
 
   const UNIV_LABELS: Record<string, string> = {
     deu: "DEÜ",
@@ -148,42 +157,12 @@ function setupNoeticModules() {
       return
     }
 
-    // 2. Düzce Seçiliyse: Filtreleme ve Arama
+    // 2. Düzce Seçiliyse: Sınıfa Göre Filtreleme
     let filtered = moduleData.filter((m) => m.university === "duzce")
 
     if (currentGrade !== "all") {
       const gradeNum = parseInt(currentGrade, 10)
       filtered = filtered.filter((m) => m.grade === gradeNum)
-    }
-
-    const q = currentSearch.trim().toLocaleLowerCase("tr")
-    if (q.length > 0) {
-      filtered = filtered.filter((m) => {
-        const titleMatch = m.title.toLocaleLowerCase("tr").includes(q)
-        const periodMatch = m.periodLabel.toLocaleLowerCase("tr").includes(q)
-        const subtitleMatch = (m.subtitle ?? "").toLocaleLowerCase("tr").includes(q)
-        return titleMatch || periodMatch || subtitleMatch
-      })
-    }
-
-    if (filtered.length === 0) {
-      const notFound = document.createElement("div")
-      notFound.className = "noetic-modules-empty"
-      notFound.innerHTML = `
-        <div class="noetic-modules-empty__icon" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            <line x1="8" y1="11" x2="14" y2="11" />
-          </svg>
-        </div>
-        <h3 class="noetic-modules-empty__title">Modül Bulunamadı</h3>
-        <p class="noetic-modules-empty__desc">
-          "${currentSearch}" aramasına uygun bir ders veya test modülü bulunamadı.
-        </p>
-      `
-      scrollContainer.appendChild(notFound)
-      return
     }
 
     // Gruplandırma: Sınıf ve Dönem bilgisine göre
@@ -228,12 +207,11 @@ function setupNoeticModules() {
             ${iconSvg}
           </div>
           <div class="noetic-modules-card__body">
-            <span class="noetic-modules-card__tag">${module.periodLabel}</span>
             <h4 class="noetic-modules-card__title">${module.title}</h4>
             ${module.subtitle ? `<p class="noetic-modules-card__subtitle">${module.subtitle}</p>` : ""}
           </div>
           <div class="noetic-modules-card__arrow" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M7 17 17 7" />
               <path d="M7 7h10v10" />
             </svg>
@@ -272,7 +250,23 @@ function setupNoeticModules() {
       btnEl.classList.toggle("is-active", isActive)
     })
 
-    // 3. Mobil Üniversite Dropdown Güncellemesi
+    // 3. Masaüstü Başlık Güncellemesi
+    if (univHeading) {
+      univHeading.textContent =
+        currentUniv === "deu" ? "Dokuz Eylül Üniversitesi" : "Düzce Üniversitesi"
+    }
+    if (gradeHeading) {
+      if (currentUniv === "deu") {
+        gradeHeading.textContent = "Müfredat Modülleri (Hazırlanıyor)"
+      } else {
+        gradeHeading.textContent =
+          currentGrade === "all"
+            ? "Tüm Sınıflar • 8 Modül"
+            : `${GRADE_LABELS[currentGrade]} Modülleri`
+      }
+    }
+
+    // 4. Mobil Üniversite Dropdown Güncellemesi
     const univSelect = panel.querySelector("[data-select-type='univ']")
     if (univSelect) {
       const label = univSelect.querySelector(".noetic-modules-dropdown__label")
@@ -283,7 +277,7 @@ function setupNoeticModules() {
       })
     }
 
-    // 4. Mobil Sınıf Dropdown Güncellemesi
+    // 5. Mobil Sınıf Dropdown Güncellemesi
     const gradeSelect = panel.querySelector("[data-select-type='grade']")
     if (gradeSelect) {
       const label = gradeSelect.querySelector(".noetic-modules-dropdown__label")
@@ -310,12 +304,6 @@ function setupNoeticModules() {
     panel.classList.add("visible")
     panel.setAttribute("aria-hidden", "false")
     setModulesModalLock(true)
-
-    setTimeout(() => {
-      if (window.innerWidth >= 800) {
-        searchInput?.focus()
-      }
-    }, 150)
   }
 
   const closePanel = () => {
@@ -415,24 +403,6 @@ function setupNoeticModules() {
     }
   }
 
-  const onSearchInput = () => {
-    currentSearch = searchInput?.value ?? ""
-    if (searchClear) {
-      searchClear.style.display = currentSearch.length > 0 ? "grid" : "none"
-    }
-    renderModules()
-  }
-
-  const onSearchClear = () => {
-    if (searchInput) {
-      searchInput.value = ""
-      currentSearch = ""
-      searchClear!.style.display = "none"
-      searchInput.focus()
-      renderModules()
-    }
-  }
-
   const onToggleEvent = () => {
     panel.classList.contains("visible") ? closePanel() : openPanel()
   }
@@ -460,8 +430,6 @@ function setupNoeticModules() {
 
   overlay.addEventListener("click", onOverlayClick)
   panel.addEventListener("click", onPanelClick)
-  searchInput?.addEventListener("input", onSearchInput)
-  searchClear?.addEventListener("click", onSearchClear)
   document.addEventListener("keydown", onKeydown)
   document.addEventListener("click", onGlobalClick)
   window.addEventListener("noetic-modules-toggle", onToggleEvent as EventListener)
@@ -470,8 +438,6 @@ function setupNoeticModules() {
     closePanel()
     overlay.removeEventListener("click", onOverlayClick)
     panel.removeEventListener("click", onPanelClick)
-    searchInput?.removeEventListener("input", onSearchInput)
-    searchClear?.removeEventListener("click", onSearchClear)
     document.removeEventListener("keydown", onKeydown)
     document.removeEventListener("click", onGlobalClick)
     window.removeEventListener("noetic-modules-toggle", onToggleEvent as EventListener)
