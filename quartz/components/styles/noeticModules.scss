@@ -331,7 +331,7 @@
   flex-direction: column;
   min-width: 0;
   flex: 1;
-  padding: 1.25rem 1.5rem;
+  padding: 1.25rem 1.25rem 1rem 1.25rem;
   gap: 1rem;
   overflow: hidden;
 }
@@ -341,7 +341,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 0.75rem;
+  padding: 0 4px 0.75rem 4px;
   border-bottom: 1px solid color-mix(in srgb, var(--lightgray) 60%, transparent);
 }
 
@@ -509,11 +509,10 @@
 .noetic-modules-scroll {
   flex: 1;
   overflow-y: auto;
-  padding-right: 0.35rem;
+  padding: 6px 8px 16px 8px;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  contain: layout;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
 }
@@ -564,19 +563,19 @@
   background: color-mix(in srgb, var(--secondary) 2.5%, var(--light));
   text-decoration: none !important;
   color: inherit;
-  contain: content;
-  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   position: relative;
 
   &:hover {
     transform: translateY(-1px);
-    border-color: color-mix(in srgb, var(--secondary) 50%, transparent);
+    border-color: color-mix(in srgb, var(--secondary) 55%, transparent);
     background: color-mix(in srgb, var(--secondary) 6%, var(--light));
-    box-shadow: 0 4px 16px color-mix(in srgb, var(--secondary) 10%, transparent);
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--secondary) 12%, transparent);
   }
 
   &:active {
     transform: scale(0.985);
+    border-color: var(--secondary);
   }
 }
 
