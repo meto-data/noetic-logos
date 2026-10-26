@@ -110,4 +110,130 @@ Toplam Yatırım Tutar = Sabit Yatırımlar + Çalışma Sermayesi
 #### 3.5. Örgütsel Etüt
 Fabrika içi hiyerarşik kademe sayısını, yönetim yapısını, farklı ürün gruplarının hat organizasyonunu (Tofaş fabrikasında binek ve hafif ticarî araç hatlarının ayrışması) ve ham madde tedarik zinciri modellerini (çiftçilerle yapılan sözleşmeli ekim protokolleri veya batarya tedarik anlaşmaları) yapılandırır. 
 
-## [[Kesin Proje, Deneme Üretimi ve Sosyal Meşruiyet]] (Definitive Project, Pilot Production & Social Legitimacy)
+## [[Kesin Proje, Deneme Üretimi ve Sosyal Meşruiyet]]
+Fizibilite etüdünün olumlu sonuçlanması doğrudan inşaata başlanması için yeterli bir zemin teşkil etmez. Projenin hayata geçirilmesi kesin proje mimarisiyle yürütülür:
+
+- **Kesin Proje**: "Kimin, hangi bütçeyle, ne zaman, hangi görevi icra edeceğini" gösteren operasyonel uygulama planıdır. Görev dağılımı, makine sipariş takvimleri ve nakit akış çizelgeleri kesin projeyle takvime bağlanır.
+- **Deneme Üretimi (Pilot Run)**: Tesis montajı bittikten sonra kâğıt üstündeki mühendislik tasarımları ile fiilî çalışma ortamı arasındaki tolerans farklarını gidermek amacıyla gerçekleştirilen optimizasyon sürecidir. Tesislerin teorik kapasitesi ile ilk çalıştırma anındaki fiilî çıktıları arasında sapmalar kaçınılmazdır.
+	- Kayseri'de günlük 1.500 yatak bazası hedefiyle kurulan bir üretim hattının ilk günlerde 800 adet seviyesinde kalması, ancak hat optimizasyonları ve iş gücü alışma evresi neticesinde 1.200 adet seviyesine ulaşabilmesi deneme üretiminin zorunlu fonksiyonunu gösterir. Türkiye'nin Otomobili Girişim Grubu'nun (`[[TOGG]]`) ilk yılında yıllık 75.000 adetlik kurulu kapasitesine karşın 250 araç üretmesi, deneme üretimi ve montaj hattı kalibrasyonunun zorunlu bir sonucudur.
+- **Sosyal Meşruiyet ve Açılış Merasimi**: İşletmenin faaliyet gösterdiği yerel çevrede bürokratik ve toplumsal kabul görmesi kurumsal sürdürülebilirlik gereğidir. Türkiye'de yatırım yapan bir Japon sanayi kuruluşunun açılış töreni yapmadan faaliyete geçmesi sebebiyle yerel mülki idarenin izin ve ruhsat süreçlerini ağırdan alması, işletmelerin yerel dinamiklere saygı gösterme mecburiyetini açıkça ortaya koyar.
+
+
+
+## Talep Tahmin Yöntemleri
+Geleceğin belirsiz karakteri sebebiyle tüm talep tahminleri yapısal olarak bir sapma payı barındırır. İşletmeler bu sapmayı en aza indirmek üzere nitel ve nicel tahminleme araçlarını kullanırlar.
+
+#### 1. Nitel (Yargısal/Subjektif) Yöntemler
+- **Uzman Görüşü**: Alanda kıdem ve tecrübe sahibi tek bir kişinin kişisel sezgilerine ve deneyimlerine dayanan hızlı ve ekonomik tahmin yöntemidir. Uzmanın iyimser yahut kötümser eğilimlerinden doğrudan etkilenir.
+- **Uzmanlar Kurulu**: Birden fazla yöneticinin ortak tahminde bulunmasıdır. Hiyerarşik baskı, konformizm ve astların üst yöneticilere 'şirin' görünme kaygısı sebebiyle grup içi etkileşim hatalarına açıktır.
+- **Delphi Tekniği**: Uzmanların birbirini tanımadığı, fiziksel olarak bir araya gelmediği, sürecin bağımsız bir moderatör tarafından yazılı soru formları ve geri bildirim turlarıyla yönetildiği konsensüs arama yöntemidir. Sosyal baskıyı ve hiyerarşik çekinceleri ortadan kaldırır; uzun süre ve yüksek maliyet gerektirir.
+- **Pazar Araştırması**: Tüketicilere doğrudan anket uygulama, süpermarket reyonlarında ürün tadım stantları açma ve reyon içi tüketici hareketlerini kamera/gözlem yoluyla kayıt altına alma faaliyetlerini kapsar.
+- **Ürün Yaşam Eğrisi Analojisi**: Yeni bir ürünüün pazardaki geleceğini, benzer bir ürünün geçmiş satış profiline (Sunuş, Büyüme, Olgunluk, Gerileme evreleri) benzeterek tahmin etme yaklaşımıdır; misal, iPhone 18 talebini iPhone 17'nin evrelerine dayandırmak.
+
+#### 2. Nicel (Matematiksel/İstatistiksel) Yöntemler
+- **[[veri-madenciligi-11#1. Zaman Serisi (Time Series) Nedir?|Zaman Serileri]] Modelleri**: Gelecekteki talebi doğrudan doğruya zamanın akışına bağlayan, eşit aralıklarla toplanmış geçmiş verilerin geleceğe projeksiyonudur.
+- **İlişkisel/Nedensel Regresyon Modelleri**: Talebi zamandan ziyade **onu etkileyen bağımsız değişkenlerle açıklayan** modellerdir. Otomobil lastiği talebinin satılan otomobil sayısına bağlanması nedensel bir modeldir. Bu modellerde korelasyon katsayısı ($R$) ilişkinin yönünü ve kuvvetini; determinasyon katsayısı ($R^2$) ise bağımsız değişkenin talepteki değişimi açıklama yüzdesini gösterir.
+- [[veri-madenciligi-12#1. Büyük Veri (Big Data) Nedir? Geleneksel Yöntemlerden Farkı|Büyük Veri]] ve [[Yapay Zekâ]]: Çok katmanlı, sürekli ve anlık veri akışları üzerinden önceden hipotez kurma zorunluluğu olmaksızın sezgisel ve bulgusal örüntüleri ortaya çıkaran modern kestirim altyapısıdır.
+  
+---
+
+# Genel Çerçeve ve Kısıtlar
+
+İşletmelerin yatırım, bütünleşme ve kapasite planlama kararları makroekonomik, sektörel ve yasal çevre kısıtlarının belirlediği dinamik bir ekosistemde şekillenir. Sistem Analizi ve Tasarımı dersinde 5-6. Hafta bu konuya değinildi. Bağlantının daha net anlaşılması için şu kısma bakmak faydalı olabilir:
+
+
+```mermaid
+flowchart TD
+    A[Makro ve Mikro Çevresel Kısıtlar]
+
+    B["Yasal Kısıtlar<br>Rekabet Kurumu, ÇED,<br>Tüketici Hakları"]
+    C["Piyasa ve Talep Kısıtları<br>Belirsizlik, Efektif Talep,<br>Vade Uyuşmazlığı"]
+
+    D["İşletme Stratejik Tercihleri<br>• Kapasite ve Konum Tayini<br>• Finansman ve Çalışma Sermayesi<br>• Tedarik Zinciri Bütünleşmesi"]
+
+    A --> B
+    A --> C
+    B --> D
+    C --> D
+```
+
+### 1. Hukukî ve Düzenleyici Çevre Kısıtları
+Serbest pazar ekonomilerinde tekelci güç odaklarının oluşumu, fiyat mekanizmasını tahrip eden [[Kartel|karteller]] ve pazarı kapatan devasa şirket birleşmeleri kamusal regülasyon organlarının ([[Rekabet Kurulu]]; bkz. *[[antitröst]]*) müdahalesiyle sınırlanır. Birleşmek isteyen dev [[Tröst|tröstlerin]] bazı mağaza veya fabrikalarını rakiplerine devretmek zorunda kalması, kurumsal büyüme stratejilerinin piyasa rekabeti mevzuatıyla sınırlandığını gösterir. Benzer biçimde sanayi yatırımlarının başlangıcında zorunlu tutulan [[ÇED Raporu]], fabrikanın kârlılık potansiyelinden bağımsız olarak çevresel ve ekolojik taşıma kapasitesini bir dış kısıt olarak dayatır.
+
+### 2. Finansman ve Nakit Akışı Zamanlaması Kısıtı
+
+Büyük sanayi yatırımlarında **fonlar tek seferde değil, yıllara yayılan proje aşamalarında harcanır.** 4 milyar dolarlık bir yatırımın tamamını ilk günden kasada tutmak, o paranın başka yerde sağlayacağı getiriden vazgeçmek ([[fırsat maliyeti|alternatif maliyet]]) ve borçlanılmışsa kullanılmayan kısım için faiz ödemek demektir. Dolayısıyla **işletme, parayı aşama aşama temin etmek zorunda. Bu da projenin planını ve hızını sınırlar.**
+
+Üretime geçildikten sonra ise sorun değişir: işletmeyi günlük olarak döndüren [[Çalışma Sermayesi (İşletme Sermayesi)|çalışma sermayesi]] ihtiyacı belirleyici hâle gelir. Ham madde tedarikçisine ödeme yapıldığı an ile mamulün satılıp bedelinin tahsil edildiği an arasında bir boşluk vardır. Bu süre boyunca maaş, enerji ve yeni hammadde alımları sürdüğü için işletme, satış yapıp kâr ediyor olsa bile sürekli nakit ihtiyacıyla karşı karşıya kalır. Dolayısıyla **işletme, talep olsa bile nakdi yetmiyorsa büyüyemez. Kapasitesini nakdi belirler.**
+
+### 3. Kapasite ve Talep Arasındaki Dinamik Gerilim
+
+Tesis kapasitesi kademeli (basamaklı) artırılabilen fiziksel bir büyüklüktür. Pazar talebi ise [[konjonktür|konjonktüre]] ve mevsime göre sürekli dalgalanır.
+
+```mermaid
+xychart-beta
+    title "Kapasite (kesikli, sabit seviyeler) ve Pazar Talebi (dalgalı, artan)"
+    x-axis "Zaman" ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+    y-axis "Kapasite / Talep (birim)" 0 --> 100
+    line [10, 18, 25, 22, 35, 48, 42, 55, 68, 62, 75, 85]
+    line [50, 50, 50, 50, 50, 50, 80, 80, 80, 80, 80, 80]
+```
+
+*Şekil: Dalgalı artan çizgi pazar talebini, basamaklı çizgi kurulu kapasiteyi gösterir. İkisi arasındaki boşluk atıl kapasitedir.*
+
+Fabrika devreye girdiğinde kurulu kapasitenin tamamı pazar tarafından hemen tüketilemez. Kapasite kullanımı düşük olduğu dönemlerde yüksek sabit yatırım maliyeti az sayıda ürüne bölünür ve birim maliyet zirveye çıkar. Bu durum işletmeyi deneme üretimi ve pazara giriş aşamasında yüksek birim maliyetle baş başa bırakır. Yatırımın başarısı, bu atıl kapasite dönemini doğru talep tahminleriyle yönetebilmeye bağlıdır.
+
+
+---
+
+# Şemalar
+
+
+### Yatırım Projesi Karar ve Uygulama Mimarisi
+
+```mermaid
+flowchart TD
+    A["Yatırım Düşüncesinin Doğuşu"] --> B["Olanak Etüdü: İkincil Verilerle Makro Tarama"]
+    B --> C{"Seçenek Sayısı Bire İndi mi?"}
+    C -- Hayır --> D["Ön Fizibilite: Daraltılmış Sektörel Analiz"]
+    D --> E["Kapsamlı Fizibilite Etütleri"]
+    C -- Evet --> E
+    
+    subgraph Fizibilite_Paketi ["Çok Disiplinli Fizibilite Etütleri"]
+        E1["Ekonomik Etüt: Talep, Kapasite ve Konum"]
+        E2["Teknik Etüt: Teknoloji, Su, Enerji ve Atık"]
+        E3["Finansal Etüt: Sabit Yatırım + Çalışma Sermayesi"]
+        E4["Yasal Etüt: Şirket Türü, ÇED, Mevzuat"]
+        E5["Örgütsel Etüt: Hat Mimarisi, Tedarik Zinciri"]
+    end
+    
+    E --> Fizibilite_Paketi
+    Fizibilite_Paketi --> F{"Yatırım Rasyonel mi? (Go / No-Go)"}
+    F -- Hayır --> G["Projenin İptali: Sınırlı Kayıp ile Tasfiye"]
+    F -- Evet --> H["Kesin Proje: Bütçe, İş Takvimi, Görev Dağılımı"]
+    H --> I["İnşaat, Montaj ve Tedarik Süreci"]
+    I --> J["Deneme Üretimi: Hat Kalibrasyonu ve Optimizasyon"]
+    J --> K["Açılış Merasimi: Sosyal Meşruiyet"]
+    K --> L["Tam Kapasiteli Ticari Üretim"]
+```
+
+
+## Karşılaştırma Tabloları
+
+#### Tablo 1: İşletmeler Arası Birlik Türlerinin Karşılaştırmalı Analizi
+| İşbirliği Türü | Hukuki Bağımsızlık Durumu | İktisadi Bağımsızlık Durumu | Yasal Statüsü | Temel Kuruluş Gayesi |
+| :--- | :--- | :--- | :--- | :--- |
+| **[[Centilmenlik Anlaşması]]** | Tamamen Korunur | Tamamen Korunur | Yasaldır (Rekabeti bozmadığı sürece) | Karşılıklı itibar ve gayriresmî işbirliği sağlama |
+| **[[Kartel]]** | Kağıt Üstünde Korunur | Fiilen Ortadan Kalkar | Kesinlikle Yasa Dışıdır | Fiyatı artırma, arzı kısma ve tekel kârı sağlama |
+| **[[Konsorsiyum]]** | Korunur (Proje hariç) | Korunur (Proje hariç) | Yasaldır | Tek başına aşılamayan büyük projeyi ortak taahhüt etme |
+| **[[Holding]]** | Alt şirketlerin tüzel kişiliği sürer | Çatı holding merkezine bağlanır | Yasaldır | Çok sayıda sektördeki şirketi tek elden stratejik yönetme |
+| **[[Tröst]] (Satın Alma / [[Acquisition]])** | Hedef şirket fesholur | Devralan şirkete geçer | [[Rekabet Kurulu]] iznine tabidir | [[Ölçek Ekonomisi|Ölçek ekonomisi]] ve pazar payını bünyeye katarak büyüme |
+| **[[Tröst]] (Kaynaşma / Merger)** | İki şirket de fesholur | Yeni şirkette birleşir | [[Rekabet Kurulu]] iznine tabidir | Yeni bir tüzel kişilik altında sermayeleri kaynaştırma |
+
+#### Tablo 2: Reel Yatırım Türleri Karşılaştırma Matrisi
+| Yatırım Türü | Temel Güdü / Tetikleyici | İkame Edilen Varlığın Durumu | Temel Finansman Kaynağı | Sağlanan Stratejik Fayda |
+| :--- | :--- | :--- | :--- | :--- |
+| **[[Genişleme (tevsi) Yatırımı]] (Tevsi)** | Yüksek pazar talebi ve kapasite yetersizliği | Varlık yoktur veya mevcut kapasite tavanındadır | Özkaynak, kredi, proje finansmanı | Artan pazar talebini karşılama ve pazar payı büyütme |
+| **[[Yenileme Yatırımı]]** | Varlığın [[ekonomik ömür|ekonomik ve faydalı ömrünü]] tüketmesi | Fiziksel olarak çalışır ancak aşırı arıza ve bakım üretir | Zorunlu [[amortisman]] fonu ve hurda değer | Mevcut üretim gücünü ve operasyonel verimliliği koruma |
+| **[[Modernizasyon Yatırımı]]** | Teknolojik devrim ve rakiplerin verimlilik artışı | Fiziksel ve [[ekonomik ömür|ekonomik ömrü]] devam etmektedir | İşletme kârları, teşvikler ve dış kaynak | Birim maliyeti düşürme, kalite ve teknoloji liderliği |
+
