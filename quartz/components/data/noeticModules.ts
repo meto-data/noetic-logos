@@ -1,4 +1,11 @@
-export type NoeticModuleIcon = "oop" | "language" | "ybs" | "finance" | "web" | "ethics"
+export type NoeticModuleIcon =
+  | "oop"
+  | "language"
+  | "ybs"
+  | "finance"
+  | "web"
+  | "ethics"
+  | "research"
 
 export type UniversityCode = "deu" | "duzce"
 
@@ -17,6 +24,42 @@ export interface NoeticModuleDefinition {
 }
 
 export const NOETIC_MODULES: NoeticModuleDefinition[] = [
+  {
+    id: "hukuk",
+    slugPattern: "ybs1001|hukukun-temel-kavramlari|hukuk-temel",
+    title: "Hukukun Temel Kavramları",
+    periodLabel: "1. Sınıf • Güz",
+    periodOrder: 0,
+    moduleUrl: "static/hukuk-module/index.html",
+    iconType: "ethics",
+    university: "deu",
+    grade: 1,
+    subtitle: "Temel hukuk kavramları, normlar hiyerarşisi ve vize/final hazırlık testleri.",
+  },
+  {
+    id: "teknolojik-arastirma",
+    slugPattern: "ybs3005|teknolojik-arastirma-yontemleri|bilisimde-teknolojik-arastirma",
+    title: "Bilişimde Teknolojik Araştırma Yöntemleri",
+    periodLabel: "2. Sınıf • Güz",
+    periodOrder: 1,
+    moduleUrl: "static/teknolojik-arastirma-module/index.html",
+    iconType: "research",
+    university: "deu",
+    grade: 2,
+    subtitle: "Bilimsel araştırma süreçleri, hipotez, literatür taraması ve örnekleme soru bankası.",
+  },
+  {
+    id: "mesleki-yabanci-dil",
+    slugPattern: "ybs3003|mesleki-yabanci-dil",
+    title: "Mesleki Yabancı Dil",
+    periodLabel: "3. Sınıf • Güz",
+    periodOrder: 3,
+    moduleUrl: "static/mesleki-yabanci-dil-module/index.html",
+    iconType: "language",
+    university: "deu",
+    grade: 3,
+    subtitle: "Bilişim ve iş dünyası için mesleki İngilizce kelime, kavram ve sınav simülasyonu.",
+  },
   {
     id: "oop",
     slugPattern: "nesne-tabanli-programlama|object-oriented-programming",

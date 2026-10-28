@@ -119,7 +119,7 @@ const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
             </button>
           </div>
 
-          {/* Sınıf Tasnif Menüsü (Düzce aktifken çalışır) */}
+          {/* Sınıf Tasnif Menüsü */}
           <div class="noetic-modules-nav-wrapper" data-univ-dependent="duzce">
             <div class="noetic-modules-sidebar__section-title">Sınıflar</div>
             <nav class="noetic-modules-nav" aria-label="Sınıf Filtreleri">
@@ -129,7 +129,7 @@ const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
                 data-grade="all"
               >
                 <span class="noetic-modules-nav-item__label">Tüm Sınıflar</span>
-                <span class="noetic-modules-nav-item__badge" data-count="all">8</span>
+                <span class="noetic-modules-nav-item__badge" data-count="all">3</span>
               </button>
               <button
                 type="button"
@@ -145,7 +145,15 @@ const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
                 data-grade="2"
               >
                 <span class="noetic-modules-nav-item__label">2. Sınıf</span>
-                <span class="noetic-modules-nav-item__badge" data-count="2">7</span>
+                <span class="noetic-modules-nav-item__badge" data-count="2">1</span>
+              </button>
+              <button
+                type="button"
+                class="noetic-modules-nav-item"
+                data-grade="3"
+              >
+                <span class="noetic-modules-nav-item__label">3. Sınıf</span>
+                <span class="noetic-modules-nav-item__badge" data-count="3">1</span>
               </button>
             </nav>
           </div>
@@ -321,6 +329,13 @@ const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
                     data-value="2"
                   >
                     2. Sınıf
+                  </button>
+                  <button
+                    type="button"
+                    class="noetic-modules-dropdown__option"
+                    data-value="3"
+                  >
+                    3. Sınıf
                   </button>
                 </div>
               </div>

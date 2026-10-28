@@ -188,6 +188,12 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     "is-etiği": "static/business-ethics-module/index.html",
     isetigi: "static/business-ethics-module/index.html",
     isetiği: "static/business-ethics-module/index.html",
+    hukuk: "static/hukuk-module/index.html",
+    "hukukun-temel-kavramlari": "static/hukuk-module/index.html",
+    "teknolojik-arastirma": "static/teknolojik-arastirma-module/index.html",
+    "arastirma-yontemleri": "static/teknolojik-arastirma-module/index.html",
+    "mesleki-yabanci-dil": "static/mesleki-yabanci-dil-module/index.html",
+    ybs3003: "static/mesleki-yabanci-dil-module/index.html",
   }
 
   // Special commands that trigger events instead of redirects

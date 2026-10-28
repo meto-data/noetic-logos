@@ -40,6 +40,7 @@ const MODULE_ICONS: Record<string, string> = {
   finance: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>`,
   web: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3c2.5 2.7 4 5.7 4 9s-1.5 6.3-4 9c-2.5-2.7-4-5.7-4-9s1.5-6.3 4-9Z" /></svg>`,
   ethics: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.2-1.93.3-3 .3s-2.13-.1-3-.3Z" /><path d="m2 16 3-8 3 8c-.87.2-1.93.3-3 .3s-2.13-.1-3-.3Z" /><path d="M7 21h10" /><path d="M12 3v18" /><path d="M3 7h18" /></svg>`,
+  research: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>`,
 }
 
 type NoeticModule = {
@@ -85,7 +86,7 @@ function setupNoeticModules() {
   if (!panel || !overlay) return
 
   const scrollContainer = panel.querySelector("[data-noetic-modules-scroll]") as HTMLElement | null
-  const navWrapper = panel.querySelector("[data-univ-dependent='duzce']") as HTMLElement | null
+  const navWrapper = panel.querySelector(".noetic-modules-nav-wrapper") as HTMLElement | null
   const univHeading = panel.querySelector("[data-univ-heading]") as HTMLElement | null
   const gradeHeading = panel.querySelector("[data-grade-heading]") as HTMLElement | null
 
@@ -101,7 +102,7 @@ function setupNoeticModules() {
 
   // Durum Yönetimi (Varsayılan olarak DEÜ seçilidir)
   let currentUniv: "deu" | "duzce" = "deu"
-  let currentGrade: "all" | "1" | "2" = "all"
+  let currentGrade: "all" | "1" | "2" | "3" = "all"
 
   const UNIV_LABELS: Record<string, string> = {
     deu: "DEÜ",
@@ -112,6 +113,7 @@ function setupNoeticModules() {
     all: "Tüm Sınıflar",
     "1": "1. Sınıf",
     "2": "2. Sınıf",
+    "3": "3. Sınıf",
   }
 
   const syncLinks = () => {
@@ -130,8 +132,14 @@ function setupNoeticModules() {
     scrollContainer.innerHTML = ""
     const basePath = getBasePath()
 
-    // 1. DEÜ Seçiliyse: Bilgilendirici Boş Durum + Düzce'ye Geçiş Butonu
-    if (currentUniv === "deu") {
+    let filtered = moduleData.filter((m) => m.university === currentUniv)
+
+    if (currentGrade !== "all") {
+      const gradeNum = parseInt(currentGrade, 10)
+      filtered = filtered.filter((m) => m.grade === gradeNum)
+    }
+
+    if (filtered.length === 0) {
       const emptyDiv = document.createElement("div")
       emptyDiv.className = "noetic-modules-empty"
       emptyDiv.innerHTML = `
@@ -141,28 +149,13 @@ function setupNoeticModules() {
             <path d="M6 12v5c3 3 9 3 12 0v-5" />
           </svg>
         </div>
-        <h3 class="noetic-modules-empty__title">Dokuz Eylül Üniversitesi</h3>
+        <h3 class="noetic-modules-empty__title">Modül Bulunamadı</h3>
         <p class="noetic-modules-empty__desc">
-          DEÜ müfredatı için interaktif test ve çalışma modülleri hazırlanma aşamasındadır.
+          Seçili sınıf için henüz modül eklenmemiştir.
         </p>
-        <button type="button" class="noetic-modules-switch-btn" data-action="switch-duzce">
-          <span>Düzce Üniversitesi Modüllerini Gör (8 Modül)</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14" />
-            <path d="m12 5 7 7-7 7" />
-          </svg>
-        </button>
       `
       scrollContainer.appendChild(emptyDiv)
       return
-    }
-
-    // 2. Düzce Seçiliyse: Sınıfa Göre Filtreleme
-    let filtered = moduleData.filter((m) => m.university === "duzce")
-
-    if (currentGrade !== "all") {
-      const gradeNum = parseInt(currentGrade, 10)
-      filtered = filtered.filter((m) => m.grade === gradeNum)
     }
 
     // Gruplandırma: Sınıf ve Dönem bilgisine göre
@@ -230,6 +223,18 @@ function setupNoeticModules() {
   }
 
   const updateUI = () => {
+    const univModules = moduleData.filter((m) => m.university === currentUniv)
+    const counts: Record<string, number> = {
+      all: univModules.length,
+      "1": univModules.filter((m) => m.grade === 1).length,
+      "2": univModules.filter((m) => m.grade === 2).length,
+      "3": univModules.filter((m) => m.grade === 3).length,
+    }
+
+    if (currentGrade !== "all" && (counts[currentGrade] ?? 0) === 0) {
+      currentGrade = "all"
+    }
+
     // 1. Masaüstü Üniversite Segmenti
     panel.querySelectorAll(".noetic-modules-segment-item").forEach((btn) => {
       const btnEl = btn as HTMLButtonElement
@@ -238,15 +243,23 @@ function setupNoeticModules() {
       btnEl.setAttribute("aria-selected", isActive ? "true" : "false")
     })
 
-    // Sınıf listesini DEÜ'de gizle/pasif yap
     if (navWrapper) {
-      navWrapper.classList.toggle("is-hidden", currentUniv !== "duzce")
+      navWrapper.classList.remove("is-hidden")
     }
 
-    // 2. Masaüstü Sınıf Navigasyonu
+    // 2. Masaüstü Sınıf Navigasyonu ve Sayı Rozetleri
     panel.querySelectorAll(".noetic-modules-nav-item").forEach((btn) => {
       const btnEl = btn as HTMLButtonElement
-      const isActive = btnEl.dataset.grade === currentGrade
+      const gradeKey = btnEl.dataset.grade ?? "all"
+      const count = counts[gradeKey] ?? 0
+      const badge = btnEl.querySelector("[data-count]")
+      if (badge) {
+        badge.textContent = String(count)
+      }
+      if (gradeKey !== "all") {
+        btnEl.style.display = count > 0 ? "" : "none"
+      }
+      const isActive = gradeKey === currentGrade
       btnEl.classList.toggle("is-active", isActive)
     })
 
@@ -256,14 +269,11 @@ function setupNoeticModules() {
         currentUniv === "deu" ? "Dokuz Eylül Üniversitesi" : "Düzce Üniversitesi"
     }
     if (gradeHeading) {
-      if (currentUniv === "deu") {
-        gradeHeading.textContent = "Müfredat Modülleri (Hazırlanıyor)"
-      } else {
-        gradeHeading.textContent =
-          currentGrade === "all"
-            ? "Tüm Sınıflar • 8 Modül"
-            : `${GRADE_LABELS[currentGrade]} Modülleri`
-      }
+      const activeCount = counts[currentGrade] ?? univModules.length
+      gradeHeading.textContent =
+        currentGrade === "all"
+          ? `Tüm Sınıflar • ${activeCount} Modül`
+          : `${GRADE_LABELS[currentGrade]} • ${activeCount} Modül`
     }
 
     // 4. Mobil Üniversite Dropdown Güncellemesi
@@ -284,7 +294,11 @@ function setupNoeticModules() {
       if (label) label.textContent = GRADE_LABELS[currentGrade] ?? currentGrade
       gradeSelect.querySelectorAll(".noetic-modules-dropdown__option").forEach((opt) => {
         const optEl = opt as HTMLElement
-        optEl.classList.toggle("is-selected", optEl.dataset.value === currentGrade)
+        const val = optEl.dataset.value ?? "all"
+        if (val !== "all") {
+          optEl.style.display = (counts[val] ?? 0) > 0 ? "" : "none"
+        }
+        optEl.classList.toggle("is-selected", val === currentGrade)
       })
     }
 
@@ -328,13 +342,6 @@ function setupNoeticModules() {
       return
     }
 
-    // DEÜ boş durumundaki "Düzce'ye Geç" butonu
-    if (target.closest("[data-action='switch-duzce']")) {
-      currentUniv = "duzce"
-      updateUI()
-      return
-    }
-
     // Masaüstü Segment Değişimi ([ DEÜ | Düzce ])
     const segmentItem = target.closest(".noetic-modules-segment-item") as HTMLElement | null
     if (segmentItem && segmentItem.dataset.univ) {
@@ -343,10 +350,10 @@ function setupNoeticModules() {
       return
     }
 
-    // Masaüstü Sınıf Değişimi ([ Tümü | 1. Sınıf | 2. Sınıf ])
+    // Masaüstü Sınıf Değişimi ([ Tümü | 1. Sınıf | 2. Sınıf | 3. Sınıf ])
     const navItem = target.closest(".noetic-modules-nav-item") as HTMLElement | null
     if (navItem && navItem.dataset.grade) {
-      currentGrade = navItem.dataset.grade as "all" | "1" | "2"
+      currentGrade = navItem.dataset.grade as "all" | "1" | "2" | "3"
       updateUI()
       return
     }
@@ -379,7 +386,7 @@ function setupNoeticModules() {
       if (selectType === "univ") {
         currentUniv = val as "deu" | "duzce"
       } else if (selectType === "grade") {
-        currentGrade = val as "all" | "1" | "2"
+        currentGrade = val as "all" | "1" | "2" | "3"
       }
 
       dropdownOption.closest(".noetic-modules-dropdown")?.classList.remove("is-open")
