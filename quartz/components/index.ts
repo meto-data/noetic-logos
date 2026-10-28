@@ -32,6 +32,7 @@ import Resize from "./Resize"
 import Hamburger from "./Hamburger"
 import ThemeCanvas from "./ThemeCanvas"
 import ModuleBanner from "./ModuleBanner"
+import AudioPlayer from "./AudioPlayer"
 import NoeticModules from "./NoeticModules"
 import Toast from "./Toast"
 import Enhancements from "./Enhancements"
@@ -72,6 +73,7 @@ export {
   Hamburger,
   ThemeCanvas,
   ModuleBanner,
+  AudioPlayer,
   NoeticModules,
   Toast,
   Enhancements,

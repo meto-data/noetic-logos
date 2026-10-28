@@ -2,6 +2,7 @@
 title: Hukukun Temel Kavramları - 3. Ders
 ders: YBS1001
 konu: Hak Kavramı, Hakların Sınıflandırılması, Hak Sahipliği ve Ölçülülük İlkesi
+audio: static/audio/hukuk/hukuk-3.mp3
 created: 2026-10-01
 draft: false
 ---

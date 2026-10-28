@@ -30,6 +30,7 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) => page.fileData.slug !== "index",
     }),
     Component.ArticleTitle(),
+    Component.AudioPlayer(),
     Component.DesktopOnly(Component.ModuleBanner()),
     Component.PrerequisiteBanner(),
     Component.ContentMeta(),
@@ -66,6 +67,7 @@ export const defaultListPageLayout: PageLayout = {
   beforeBody: [
     Component.Breadcrumbs(),
     Component.ArticleTitle(),
+    Component.AudioPlayer(),
     Component.DesktopOnly(Component.ModuleBanner()),
     Component.ContentMeta(),
   ],
