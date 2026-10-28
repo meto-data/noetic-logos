@@ -119,43 +119,10 @@ const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
             </button>
           </div>
 
-          {/* Sınıf Tasnif Menüsü */}
-          <div class="noetic-modules-nav-wrapper" data-univ-dependent="duzce">
+            {/* Sınıf Tasnif Menüsü (JS ile dinamik doldurulur) */}
+          <div class="noetic-modules-nav-wrapper">
             <div class="noetic-modules-sidebar__section-title">Sınıflar</div>
-            <nav class="noetic-modules-nav" aria-label="Sınıf Filtreleri">
-              <button
-                type="button"
-                class="noetic-modules-nav-item is-active"
-                data-grade="all"
-              >
-                <span class="noetic-modules-nav-item__label">Tüm Sınıflar</span>
-                <span class="noetic-modules-nav-item__badge" data-count="all">3</span>
-              </button>
-              <button
-                type="button"
-                class="noetic-modules-nav-item"
-                data-grade="1"
-              >
-                <span class="noetic-modules-nav-item__label">1. Sınıf</span>
-                <span class="noetic-modules-nav-item__badge" data-count="1">1</span>
-              </button>
-              <button
-                type="button"
-                class="noetic-modules-nav-item"
-                data-grade="2"
-              >
-                <span class="noetic-modules-nav-item__label">2. Sınıf</span>
-                <span class="noetic-modules-nav-item__badge" data-count="2">1</span>
-              </button>
-              <button
-                type="button"
-                class="noetic-modules-nav-item"
-                data-grade="3"
-              >
-                <span class="noetic-modules-nav-item__label">3. Sınıf</span>
-                <span class="noetic-modules-nav-item__badge" data-count="3">1</span>
-              </button>
-            </nav>
+            <nav class="noetic-modules-nav" aria-label="Sınıf Filtreleri" data-grade-nav></nav>
           </div>
 
           {/* Sol Alt Sabit Bilgi */}
@@ -308,36 +275,7 @@ const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
                     <path d="m6 9 6 6 6-6" />
                   </svg>
                 </button>
-                <div class="noetic-modules-dropdown__menu">
-                  <button
-                    type="button"
-                    class="noetic-modules-dropdown__option is-selected"
-                    data-value="all"
-                  >
-                    Tüm Sınıflar
-                  </button>
-                  <button
-                    type="button"
-                    class="noetic-modules-dropdown__option"
-                    data-value="1"
-                  >
-                    1. Sınıf
-                  </button>
-                  <button
-                    type="button"
-                    class="noetic-modules-dropdown__option"
-                    data-value="2"
-                  >
-                    2. Sınıf
-                  </button>
-                  <button
-                    type="button"
-                    class="noetic-modules-dropdown__option"
-                    data-value="3"
-                  >
-                    3. Sınıf
-                  </button>
-                </div>
+                <div class="noetic-modules-dropdown__menu" data-grade-menu></div>
               </div>
             </div>
           </div>

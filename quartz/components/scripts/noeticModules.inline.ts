@@ -247,21 +247,34 @@ function setupNoeticModules() {
       navWrapper.classList.remove("is-hidden")
     }
 
-    // 2. Masaüstü Sınıf Navigasyonu ve Sayı Rozetleri
-    panel.querySelectorAll(".noetic-modules-nav-item").forEach((btn) => {
-      const btnEl = btn as HTMLButtonElement
-      const gradeKey = btnEl.dataset.grade ?? "all"
-      const count = counts[gradeKey] ?? 0
-      const badge = btnEl.querySelector("[data-count]")
-      if (badge) {
-        badge.textContent = String(count)
-      }
-      if (gradeKey !== "all") {
-        btnEl.style.display = count > 0 ? "" : "none"
-      }
-      const isActive = gradeKey === currentGrade
-      btnEl.classList.toggle("is-active", isActive)
-    })
+    // 2. Masaüstü Sınıf Navigasyonu ve Sayı Rozetleri (Sadece o üniversitede var olan sınıflar oluşturulur)
+    const gradeNav =
+      (panel.querySelector("[data-grade-nav]") as HTMLElement | null) ??
+      (panel.querySelector(".noetic-modules-nav") as HTMLElement | null)
+
+    const availableGrades = (["all", "1", "2", "3"] as const).filter(
+      (g) => g === "all" || (counts[g] ?? 0) > 0,
+    )
+
+    if (gradeNav) {
+      gradeNav.innerHTML = availableGrades
+        .map((gradeKey) => {
+          const isActive = gradeKey === currentGrade
+          const count = counts[gradeKey] ?? 0
+          const label = GRADE_LABELS[gradeKey] ?? `${gradeKey}. Sınıf`
+          return `
+            <button
+              type="button"
+              class="noetic-modules-nav-item${isActive ? " is-active" : ""}"
+              data-grade="${gradeKey}"
+            >
+              <span class="noetic-modules-nav-item__label">${label}</span>
+              <span class="noetic-modules-nav-item__badge" data-count="${gradeKey}">${count}</span>
+            </button>
+          `
+        })
+        .join("")
+    }
 
     // 3. Masaüstü Başlık Güncellemesi
     if (univHeading) {
@@ -287,19 +300,31 @@ function setupNoeticModules() {
       })
     }
 
-    // 5. Mobil Sınıf Dropdown Güncellemesi
+    // 5. Mobil Sınıf Dropdown Güncellemesi (Sadece o üniversitede var olan sınıflar)
     const gradeSelect = panel.querySelector("[data-select-type='grade']")
     if (gradeSelect) {
       const label = gradeSelect.querySelector(".noetic-modules-dropdown__label")
       if (label) label.textContent = GRADE_LABELS[currentGrade] ?? currentGrade
-      gradeSelect.querySelectorAll(".noetic-modules-dropdown__option").forEach((opt) => {
-        const optEl = opt as HTMLElement
-        const val = optEl.dataset.value ?? "all"
-        if (val !== "all") {
-          optEl.style.display = (counts[val] ?? 0) > 0 ? "" : "none"
-        }
-        optEl.classList.toggle("is-selected", val === currentGrade)
-      })
+      const gradeMenu =
+        (gradeSelect.querySelector("[data-grade-menu]") as HTMLElement | null) ??
+        (gradeSelect.querySelector(".noetic-modules-dropdown__menu") as HTMLElement | null)
+      if (gradeMenu) {
+        gradeMenu.innerHTML = availableGrades
+          .map((gradeKey) => {
+            const isSelected = gradeKey === currentGrade
+            const optLabel = GRADE_LABELS[gradeKey] ?? `${gradeKey}. Sınıf`
+            return `
+              <button
+                type="button"
+                class="noetic-modules-dropdown__option${isSelected ? " is-selected" : ""}"
+                data-value="${gradeKey}"
+              >
+                ${optLabel}
+              </button>
+            `
+          })
+          .join("")
+      }
     }
 
     renderModules()
@@ -440,6 +465,8 @@ function setupNoeticModules() {
   document.addEventListener("keydown", onKeydown)
   document.addEventListener("click", onGlobalClick)
   window.addEventListener("noetic-modules-toggle", onToggleEvent as EventListener)
+
+  updateUI()
 
   cleanupNoeticModules = () => {
     closePanel()
