@@ -1,7 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="16" fill="#006876"/>
-  <path d="M32 12v40M20 52h24M14 22h36" stroke="#f7ecc2" stroke-width="3.5" stroke-linecap="round"/>
-  <path d="M16 22l-6 16h12l-6-16Z" fill="#e5c158" stroke="#f7ecc2" stroke-width="2" stroke-linejoin="round"/>
-  <path d="M48 22l-6 16h12l-6-16Z" fill="#e5c158" stroke="#f7ecc2" stroke-width="2" stroke-linejoin="round"/>
-  <circle cx="32" cy="12" r="3" fill="#e5c158"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#173842"/>
+      <stop offset="0.55" stop-color="#0f252d"/>
+      <stop offset="1" stop-color="#09161b"/>
+    </linearGradient>
+    <linearGradient id="inner" x1="12" y1="10" x2="52" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#132e37"/>
+      <stop offset="1" stop-color="#0b1c22"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="16" y1="14" x2="48" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe79b"/>
+      <stop offset="0.5" stop-color="#e5c158"/>
+      <stop offset="1" stop-color="#b88722"/>
+    </linearGradient>
+    <linearGradient id="pan" x1="0" y1="36" x2="0" y2="45" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f7df8b"/>
+      <stop offset="1" stop-color="#c49228"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+  <rect x="7" y="7" width="50" height="50" rx="12" fill="url(#inner)" stroke="#244f5c" stroke-width="1.5"/>
+  <!-- Pedestal / Base -->
+  <path d="M22 49h20l-2.5-3.5h-15L22 49Z" fill="url(#gold)"/>
+  <rect x="19" y="49" width="26" height="2.8" rx="1.4" fill="#a87919"/>
+  <!-- Pillar -->
+  <rect x="30.6" y="16" width="2.8" height="30" rx="1.4" fill="url(#gold)"/>
+  <!-- Top Crown & Pivot -->
+  <circle cx="32" cy="14.5" r="3" fill="url(#gold)"/>
+  <circle cx="32" cy="21" r="3.4" fill="#132e37" stroke="url(#gold)" stroke-width="2"/>
+  <!-- Balance Beam -->
+  <path d="M15 21h34" stroke="url(#gold)" stroke-width="2.8" stroke-linecap="round"/>
+  <circle cx="15" cy="21" r="1.8" fill="#ffe79b"/>
+  <circle cx="49" cy="21" r="1.8" fill="#ffe79b"/>
+  <!-- Left Pan Chains & Bowl -->
+  <path d="M15 22.5 10 37M15 22.5 20 37" stroke="#e5c158" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M8.5 37h13c-.8 4.6-3.2 6.8-6.5 6.8S9.3 41.6 8.5 37Z" fill="url(#pan)" stroke="#ffe79b" stroke-width="1"/>
+  <!-- Right Pan Chains & Bowl -->
+  <path d="M49 22.5 44 37M49 22.5 54 37" stroke="#e5c158" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M42.5 37h13c-.8 4.6-3.2 6.8-6.5 6.8s-5.7-2.2-6.5-6.8Z" fill="url(#pan)" stroke="#ffe79b" stroke-width="1"/>
 </svg>

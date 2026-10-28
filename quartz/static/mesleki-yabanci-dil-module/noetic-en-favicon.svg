@@ -1,4 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="16" fill="#006876"/>
-  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="26" letter-spacing="1">EN</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f3d47"/>
+      <stop offset="0.55" stop-color="#0a2930"/>
+      <stop offset="1" stop-color="#06191e"/>
+    </linearGradient>
+    <linearGradient id="inner" x1="12" y1="10" x2="52" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d333b"/>
+      <stop offset="1" stop-color="#071e24"/>
+    </linearGradient>
+    <linearGradient id="globe" x1="14" y1="14" x2="42" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#66d9e8"/>
+      <stop offset="1" stop-color="#22b8cf"/>
+    </linearGradient>
+    <linearGradient id="badge" x1="32" y1="32" x2="54" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd43b"/>
+      <stop offset="1" stop-color="#f08c00"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+  <rect x="7" y="7" width="50" height="50" rx="12" fill="url(#inner)" stroke="#1d525e" stroke-width="1.5"/>
+  <!-- Stylized Globe -->
+  <circle cx="28" cy="28" r="14.5" fill="#0b2830" stroke="url(#globe)" stroke-width="2.2"/>
+  <ellipse cx="28" cy="28" rx="6.8" ry="14.5" fill="none" stroke="url(#globe)" stroke-width="1.7"/>
+  <path d="M14.2 24h27.6M14.2 32h27.6" stroke="url(#globe)" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M28 13.5v29" stroke="url(#globe)" stroke-width="1.6"/>
+  <!-- Speech / EN Pill Badge -->
+  <rect x="29" y="33" width="23" height="16" rx="5.5" fill="url(#badge)" stroke="#081e24" stroke-width="2"/>
+  <text x="40.5" y="44" text-anchor="middle" fill="#081c22" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="10.5" letter-spacing="0.6">EN</text>
 </svg>
