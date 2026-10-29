@@ -57,6 +57,10 @@ const applyCustomTypography = () => applyClass("noetic-custom-typo", "custom-typ
 const applyCodeLineNumbers = () => applyClass("noetic-code-line-numbers", "code-line-numbers")
 const applyCodeCollapsible = () => applyClass("noetic-code-collapsible", "code-collapsible")
 const applyZenMode = () => applyClass("noetic-zen-mode", "zen-mode")
+const applyWalkMode = () => {
+  const isWalk = getToggle("walk-mode", false)
+  document.documentElement.classList.toggle("noetic-walk-mode", isWalk)
+}
 
 function syncChoiceState() {
   document.querySelectorAll(".font-item, .size-item").forEach((item) => {
@@ -74,6 +78,7 @@ applyCustomTypography()
 applyCodeLineNumbers()
 applyCodeCollapsible()
 applyZenMode()
+applyWalkMode()
 if (getToggle("zen-mode")) createZenExitButton()
 
 const runWhenIdle = (cb: () => void) => {
@@ -176,6 +181,7 @@ function syncSettingsInputs() {
     "code-line-numbers": { key: "code-line-numbers", fallback: false },
     "code-collapsible": { key: "code-collapsible", fallback: false },
     "notifications-enabled": { key: "noetic-notifications", fallback: true },
+    "walk-mode": { key: "walk-mode", fallback: false },
     "zen-mode": { key: "zen-mode", fallback: false },
   }
 
@@ -295,7 +301,7 @@ async function syncLoadFromServer() {
 
 function collectAllPreferences(): Record<string, unknown> {
   const prefs: Record<string, unknown> = {}
-  for (const k of ["font-family", "font-size", "line-height", "content-width", "custom-typography", "code-line-numbers", "code-collapsible", "noetic-notifications", "theme", "zen-mode"]) {
+  for (const k of ["font-family", "font-size", "line-height", "content-width", "custom-typography", "code-line-numbers", "code-collapsible", "noetic-notifications", "theme", "walk-mode", "zen-mode"]) {
     const v = localStorage.getItem(k)
     if (v !== null) prefs[k] = v
   }
@@ -323,7 +329,7 @@ function restoreAllPreferences(prefs: Record<string, unknown>) {
   }
   applySavedFontSizeImmediately(); applySavedFontFamilyImmediately()
   applySavedLineHeight(); applySavedContentWidth()
-  applyCustomTypography(); applyCodeLineNumbers(); applyCodeCollapsible(); applyZenMode()
+  applyCustomTypography(); applyCodeLineNumbers(); applyCodeCollapsible(); applyZenMode(); applyWalkMode()
   const t = localStorage.getItem("theme")
   if (t) document.documentElement.setAttribute("saved-theme", t)
 }
@@ -413,6 +419,7 @@ function handleDocumentChange(e: Event) {
     "custom-typography": { apply: applyCustomTypography, onMsg: "Özel tipografi etkinleştirildi", offMsg: "Özel tipografi devre dışı" },
     "code-line-numbers": { apply: applyCodeLineNumbers, onMsg: "Satır numaraları açıldı", offMsg: "Satır numaraları kapatıldı" },
     "code-collapsible": { apply: applyCodeCollapsible, onMsg: "Katlanabilir bloklar açıldı", offMsg: "Katlanabilir bloklar kapatıldı" },
+    "walk-mode": { apply: applyWalkMode, onMsg: "Walk Mode (Yürüyüş Modu) açıldı", offMsg: "Walk Mode kapatıldı" },
     "zen-mode": { apply: () => { applyZenMode(); if (getToggle("zen-mode")) createZenExitButton(); else removeZenExitButton() }, onMsg: "Zen modu açıldı", offMsg: "Zen modu kapatıldı" },
   }
 

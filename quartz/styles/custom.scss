@@ -1422,8 +1422,26 @@ li.section-li {
     }
   }
 
+  // Mobilde ses oynatıcısının yer aldığı üst başlık (page-header) alanı:
+  // Yalnızca ses oynatıcısını (ve varsa ön koşul uyarısını) en üstte göster, diğer başlık kalabalığını gizle
   .page > #quartz-body .page-header {
-    display: none !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    header,
+    .breadcrumb-container,
+    .article-title,
+    .content-meta,
+    .tags,
+    .module-banner {
+      display: none !important;
+    }
+
+    .noetic-audio-player {
+      display: block !important;
+      margin: 0 0 1rem 0 !important;
+    }
   }
 
   // Quartz'ın kendi mobile-explorer butonunu gizle
@@ -2696,6 +2714,38 @@ html.noetic-zen-mode {
 
 html:not(.noetic-zen-mode) .zen-exit-btn {
   display: none;
+}
+
+// ==========================================
+// WALK MODE (YÜRÜYÜŞ MODU - 3X BÜYÜK NOT FONTU)
+// ==========================================
+html.noetic-walk-mode {
+  article,
+  article p,
+  article li,
+  article td,
+  article th,
+  article blockquote {
+    font-size: 3.45rem !important;
+    line-height: 1.45 !important;
+  }
+
+  article h1,
+  .article-title {
+    font-size: 4.5rem !important;
+    line-height: 1.2 !important;
+  }
+
+  article h2 {
+    font-size: 4rem !important;
+    line-height: 1.25 !important;
+  }
+
+  article h3,
+  article h4 {
+    font-size: 3.65rem !important;
+    line-height: 1.3 !important;
+  }
 }
 
 // ==========================================
