@@ -3,8 +3,18 @@ import styles from "./styles/audioPlayer.scss"
 // @ts-ignore
 import script from "./scripts/audioPlayer.inline"
 
+const SLUG_AUDIO_MAP: Record<string, string> = {
+  "0-ybs-notlari/ybs1001-hukukun-temel-kavramlari/hukuk-2": "static/audio/hukuk/hukuk-2.mp3",
+  "0-ybs-notlari/ybs1001-hukukun-temel-kavramlari/hukuk-3": "static/audio/hukuk/hukuk-3.mp3",
+  "0-ybs-notlari/ybs1001-hukukun-temel-kavramlari/hukuk-4": "static/audio/hukuk/hukuk-4.mp3",
+  "0-ybs-notlari/ybs1001-hukukun-temel-kavramlari/hukuk-5": "static/audio/hukuk/hukuk-5.mp3",
+  "0-ybs-notlari/ybs1001-hukukun-temel-kavramlari/hukuk-6": "static/audio/hukuk/hukuk-6.mp3",
+}
+
 const AudioPlayer: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
-  const audioSrc = fileData.frontmatter?.audio as string | undefined
+  const slug = fileData.slug ?? ""
+  const audioSrc =
+    (fileData.frontmatter?.audio as string | undefined) ?? SLUG_AUDIO_MAP[slug]
   if (!audioSrc) {
     return null
   }

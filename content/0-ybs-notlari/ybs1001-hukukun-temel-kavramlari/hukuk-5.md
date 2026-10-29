@@ -1,7 +1,8 @@
 ---
 title: Hukukun Temel Kavramları - 5. Ders
 ders: YBS1001
-konu:
+konu: Hukuk Sistemleri, Normlar Hiyerarşisi, Mütemmim Cüz-Eklenti ve Hukuk Yaratma
+audio: static/audio/hukuk/hukuk-5.mp3
 created: 2026-10-15
 draft: false
 ---
