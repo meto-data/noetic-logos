@@ -1,6 +1,6 @@
 ---
 created: " 2026-09-25"
-title: Dış Çevre, Amaçlar ve İşletmelerin Sınıflandırılması
+title: 2- Dış Çevre, Amaçlar ve İşletmelerin Sınıflandırılması
 ---
 ## Kavramsal Çerçeve
 

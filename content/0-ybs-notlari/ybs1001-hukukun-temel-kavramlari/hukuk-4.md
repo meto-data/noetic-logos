@@ -2,7 +2,6 @@
 title: Hukukun Temel Kavramları - 4. Ders
 ders: YBS1001
 konu: Ceza Hukuku İlkeleri ve Yargılama Evreleri, Kamu Hukuku, Özel Hukuk, Karma Hukuk ve Yargılama Usulü Dalları
-audio: static/audio/hukuk/hukuk-4.mp3
 created: 2026-10-08
 draft: false
 ---

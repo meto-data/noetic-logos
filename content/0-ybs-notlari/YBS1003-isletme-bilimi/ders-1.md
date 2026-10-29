@@ -1,6 +1,6 @@
 ---
 created: " 2026-09-18"
-title: İşletmenin Ontolojisi, Değer-Bedel Dengesi ve Üretim Faktörleri
+title: 1- İşletme, Değer-Bedel Dengesi ve Üretim Faktörleri
 ---
   * **Okuma Listesi:** Kütüphane, basılı yayın ya da üniversitenin elektronik veri tabanları üzerinden temin edebileceğimiz en az bir temel işletme kitabını okumamız gerkeiyor. Takip edilebilecek temel kaynak başlıkları:
      * *Çağdaş İşletmecilik*

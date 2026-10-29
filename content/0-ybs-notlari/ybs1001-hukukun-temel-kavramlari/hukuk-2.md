@@ -2,7 +2,6 @@
 title: Hukukun Temel Kavramları - 2. Hafta
 ders: YBS1001
 konu: Hak, Hürriyet, Ödev, Hukuk, Adalet ve Eşitlik
-audio: static/audio/hukuk/hukuk-2.mp3
 created: 2026-09-24
 draft: false
 ---

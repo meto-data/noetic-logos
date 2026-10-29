@@ -2,7 +2,6 @@
 title: Hukukun Temel Kavramları - 6. Ders
 ders: YBS1001
 konu: Pozitif Hukukun Kaynakları, Hukuk Kurallarının Türleri, Yargı Kolları, Hukukun Uygulanması ve Sistematik Yorum
-audio: static/audio/hukuk/hukuk-6.mp3
 created: 2026-10-22
 draft: false
 ---
