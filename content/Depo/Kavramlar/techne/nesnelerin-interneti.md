@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/techne
-created: 2026-10-05
 ---
 **Nesnelerin İnterneti (IoT - Internet of Things)**; teknolojik cisimlerin (cihazlar, sensörler, beyaz eşyalar, araçlar, fabrikalardaki makineler) internet veya kablosuz ağlar aracılığıyla birbirine bağlanarak **insan müdahalesine ihtiyaç duymadan veri toplaması, paylaşması ve bu veriye göre eyleme geçmesi** sistemidir.
 

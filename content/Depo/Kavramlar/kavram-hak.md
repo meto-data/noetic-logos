@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-12
 ---
 Hukuk düzeninin bir kişiye tanıdığı ve yaptırımla koruduğu yetki veya menfaat. 
 

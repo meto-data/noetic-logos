@@ -1,5 +1,5 @@
 ---
-created: 2026-10-29
+created: " 2026-23-09"
 title: 6- Kapasite Planlaması
 ---
 # Kapasite Planlaması, Ölçek Ekonomileri ve İşletme Yönetimi

@@ -1,6 +1,5 @@
 ---
 title: 0- CISA Giriş
-created: 2026-07-05
 ---
 CISA sertifikasının açacağı kapılar adeta sınırları aşan bir köprü niteliğindedir. Dünyanın dört bir yanında; Avrupa Birliği, ABD, Kanada ve Asya pazarında, **özellikle regülasyonların ve güvenlik ihtiyaçlarının tavan yaptığı coğrafyalarda** muazzam bir iş hacmi bulunmakta.
 

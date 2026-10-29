@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-05
 ---
 **Gözlem veya deneylerle ampirik olarak doğrulanmış, kişisel yorumlardan bağımsız, somut ve tartışmasız gerçekliktir**. Olgular bilimsel bilginin ham maddesidir; hipotez, kanun ve teorilerin üzerine inşa edildiği sarsılmaz ampirik tuğlaları oluşturur.
 

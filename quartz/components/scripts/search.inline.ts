@@ -194,6 +194,8 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     "arastirma-yontemleri": "static/teknolojik-arastirma-module/index.html",
     "mesleki-yabanci-dil": "static/mesleki-yabanci-dil-module/index.html",
     ybs3003: "static/mesleki-yabanci-dil-module/index.html",
+    "bilgisayar-donanimi": "static/bilgisayar-donanimi-module/index.html",
+    ybs2023: "static/bilgisayar-donanimi-module/index.html",
   }
 
   // Special commands that trigger events instead of redirects

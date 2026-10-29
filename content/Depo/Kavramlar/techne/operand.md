@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/techne
-created: 2026-10-05
 ---
 **Operand**, bir operatörün (sembol veya komutun) girdi olarak aldığı, üzerinde matematiksel veya mantıksal bir işlem yürüterek yeni bir değer ürettiği ham veriye/değere denir.
 

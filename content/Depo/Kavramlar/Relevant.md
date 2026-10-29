@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-12
 ---
 Sonuçlar bilimsel bilgiyi, uygulamayı, politikaları veya gelecekteki araştırmaları etkileyecek mi?
 

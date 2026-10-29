@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/techne
-created: 2026-10-12
 ---
 **UTAUT**, **Unified Theory of Acceptance and Use of Technology** (Teknoloji Kabulü ve Kullanımının Birleşik Teorisi) kelimelerinin kısaltmasıdır. Venkatesh, Morris, Davis ve Davis tarafından 2003'te geliştirilen, **bireylerin bir teknolojiyi neden kabul edip kullandığını açıklayan bir modeldir**.
 

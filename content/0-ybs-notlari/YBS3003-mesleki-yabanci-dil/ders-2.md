@@ -6,8 +6,8 @@ bolum: Yönetim Bilişim Sistemleri
 konu: Unit 2 - Introduction to Software (Yazılıma Giriş)
 kaynak: English 4 IT
 etkilesim: "true"
-created: 2026-09-23
 ---
+
 # 📚 Mesleki Yabancı Dil I — Hafta 2: Introduction to Software
 
 ## 1. Haftanın Lojistik & Sınav Taktikleri

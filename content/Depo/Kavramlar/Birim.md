@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-05
 ---
 Evrenin veya örneklemin incelemeye, ölçüme veya veri toplamaya konu olan en küçük yapı taşıdır. (Örn. YBS araştırmasında tek bir öğrenci, trafik araştırmasında incelenen her bir kaza olayı).
 

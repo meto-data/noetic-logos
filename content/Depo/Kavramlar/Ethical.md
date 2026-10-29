@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-12
 ---
 Çalışma katılımcılara zarar vermeden, onam ve gizlilik ilkelerine uygun şekilde yürütülebilir mi (etik kurul onayı alabilir mi)?
 

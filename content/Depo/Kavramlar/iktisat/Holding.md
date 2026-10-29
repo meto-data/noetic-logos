@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar/iktisat
-created: 2026-10-22
 ---
 Holding, başka şirketlerin hisselerini (çoğunluğunu ya da yönetimi belirleyecek kadarını) elinde tutarak onları kontrol eden ana şirket demektir. Kendisi genellikle mal üretip satmaz; asıl işi bağlı şirketlere sahip olmak ve onları yönetmektir. Bu şirketlere [[İştirak|iştirak]] ya da [[Bağlı Ortaklık|bağlı ortaklık]] denir.
 

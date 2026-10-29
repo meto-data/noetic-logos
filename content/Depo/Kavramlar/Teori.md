@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-05
 ---
 Bağımsız olguları, test edilmiş hipotezleri ve matematiksel kanunları birbiriyle mantıksal ve nedensel bir bütünlük içinde bağlayan, **bir sistemin "neden" ve "nasıl" işlediğini açıklayan en kapsamlı ve kanıt gücü yüksek kuramsal çerçevedir**. (Örn. Evrim Teorisi, İzafiyet Teorisi).
 

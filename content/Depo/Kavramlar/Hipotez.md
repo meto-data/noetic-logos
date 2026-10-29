@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-05
 ---
 **Araştırılan bir probleme, henüz açıklanmamış bir doğa durumuna veya değişkenler arasındaki ilişkilere getirilen, doğrulanmaya ya da yanlışlanmaya açık, ampirik olarak test edilebilir geçici kuramsal önermelerdir**. 
 

@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-12
 ---
 Herkese hakkının verilmesi, eşitlerin eşit, farklıların farklı muamele görmesi ve hukuk düzeninde hakça bir dengenin sağlanması ideali. 
 

@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-22
 ---
 **Bir dizi içerisindeki konumu, sırayı veya ardışıklığı belirten; düzenli ve kurallı olan.**
 

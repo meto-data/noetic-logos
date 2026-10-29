@@ -1,8 +1,8 @@
 ---
 tags:
   - bilgi/kavramlar/iktisat
-created: 2026-10-22
 ---
+
 **Acquisition** (devralma, satın alma), **bir şirketin, başka bir şirketin kontrolünü ele geçirmesi** demektir. Genellikle hedef şirketin hisselerinin çoğunluğunu ya da varlıklarını satın alarak yapılır.
 
 **Temel özellikleri:**

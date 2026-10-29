@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-12
 ---
 Soru araştırmacıyı, bilim topluluğunu ve ilgili paydaşları gerçekten ilgilendiriyor mu? Merak uyandırıyor mu?
 

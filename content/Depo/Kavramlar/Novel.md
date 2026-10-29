@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-12
 ---
 Soru mevcut bilgiye yeni bir şey katıyor mu? Önceki bulguları doğruluyor, düzeltiyor ya da genişletiyor mu?
 

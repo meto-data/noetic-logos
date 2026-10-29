@@ -1,6 +1,5 @@
 ---
 title: "Domain 1B: Bilgi Sistemleri Denetim Süreci ve Organizasyonel Yapı"
-created: 2026-07-05
 ---
 # CISA Domain 1: Bilgi Sistemleri Denetim Süreci (Part B - Execution & Reporting)
 

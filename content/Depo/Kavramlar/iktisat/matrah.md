@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar/iktisat
-created: 2026-10-22
 ---
 Verginin hesaplandığı baz tutar.
 

@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-05
 ---
 Bilimsel bir merak, teorik çelişki veya ampirik bir boşluktan doğan; çözülmek veya açıklanmak üzere ampirik olarak sınanabilir hâle getirilmiş temel araştırma sorusudur.
 

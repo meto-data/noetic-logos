@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/techne
-created: 2026-10-05
 ---
 **RFID (Radio Frequency Identification - Radyo Frekansı ile Tanımlama)**; nesnelerin, hayvanların veya insanların radyo dalgaları kullanılarak kablosuz ve temassız bir şekilde kimliğinin tanımlanmasını ve takip edilmesini sağlayan teknolojidir.
 

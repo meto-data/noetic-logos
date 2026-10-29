@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-05
 ---
 Birkaç firmanın ya da kurumun, tek başlarına altından kalkamayacakları büyük bir iş, proje veya yatırım için geçici olarak bir araya gelip ortak hareket etmesidir. Üyeler kendi tüzel kişiliklerini ve bağımsızlıklarını korur, sadece belirli bir amaç için birleşir.
 

@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-12
 ---
 Toplum yaşamını düzenleyen, devletin zorlayıcı gücüyle desteklenen ve uyulmaması hâlinde yaptırım doğuran davranış kurallarının bütünü. 
 

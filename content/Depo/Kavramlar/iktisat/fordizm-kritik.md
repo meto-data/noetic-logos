@@ -1,7 +1,3 @@
----
-created: 2026-03-15
----
-
 Geleneksel tarih anlatısı, Henry Ford'un 1913-1914'te kurduğu yürüyen montaj hattını "maliyet liderliği", "kitle üretimi" masallarıyla böbürlene böbürlene mükafat olarak sunuverir bizlere. Oysa bu mekanizma Taylorizm'in rasyonalitesiyle zihinsel emeği fiziksel emekten bıçak gibi kesip ayıran bir cenderedir aslen. İşçinin elindeki tüm inisiyatif, zanaat ve yaratıcılık gasp edilmiş; insan, o devasa makinenin basit bir dişlisine ve salt refleksif olarak kasılan bir otomata indirgenmiştir.
 
 Meşhurdur, "*Ford işçilerine günde 5 dolar verdi ki gidip araba alsınlar, adam vizyoner bir pazarlamacıydı*" efsanesi anlatılır. Oysa tarumar etmek gerekir bunu. David Harvey'in *Postmodernliğin Durumu* yahut Stephen Meyer'in *The Five Dollar Day* çalışmalarına bakıldığında görünen köy kılavuz istemeyecektir. 1913'deki o bant sistemi öylesine insanlık dışı ve çıldırtıcı bir yabancılaşma üretiyordu ki, işi bırakma oranı yüzde 370-380'lere fırlamıştı. Bant sürekli duruyor ve sistem de kilitleniyordu. Yani o meşhur 5 dolar zammı, piyasanın "görünmez elinin" bahşettiği bir refah yahut tüketici yaratma vizyonu deği, bilakis işçilerin eziyeti reddedip fiili bir boykotla fabrikayı terk etmelerine karşı patronun paçayı kurtarmak için yaptığı mecburî bir kriz yönetimidir.

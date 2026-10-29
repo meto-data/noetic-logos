@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar/hukuk
-created: 2026-10-28
 ---
 Evleviyet, Arapça kökenli bir kelime olup "öncelik", "daha uygun olma" ve "haydi haydi" anlamlarına gelir.
 

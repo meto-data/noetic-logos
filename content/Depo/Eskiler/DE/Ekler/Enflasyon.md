@@ -1,7 +1,6 @@
 ---
 tags:
   - akademi/dersler/dijital-ekonomi
-created: 2025-08-31
 ---
 Latince **inflatio** "şişme, kabarma". < **in-** "içine" + **flare** "üflemek".
 

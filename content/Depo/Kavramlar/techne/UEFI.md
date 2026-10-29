@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/techne
-created: 2026-10-05
 ---
 UEFI; **Unified Extensible Firmware Interface**. Birleştirilmiş Genişletilebilir Ürün Yazılımı Arayüzü.
 

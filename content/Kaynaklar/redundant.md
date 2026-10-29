@@ -1,7 +1,3 @@
----
-created: 2026-07-05
----
-
 ### redundant (adj.)
 **red-** (ön ek \[prefix\]: "geri" veya "tekrar" anlamı katar; ünlülerden önce *re-* yerine bu form kullanılır) + **unda** (kök \[root\]: dalga \[wave\] < PIE **\*wed-** "su/ıslaklık") > **redundant**: **"bir kabın içindeki suyun dalgalanıp dışarı taşması" (overflow).** 
 

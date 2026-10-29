@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-22
 ---
 **İstatistiksel bağlamda "interval" (aralık).** İstatistikte bir "güven aralığı" (confidence interval) dediğimizde, aslında bir değerin düşebileceği alt ve üst limitler arasındaki "boşluğu" veya "mesafeyi" kastediyoruz. 
 

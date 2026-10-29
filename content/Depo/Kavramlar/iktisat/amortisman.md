@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar/iktisat
-created: 2026-10-22
 ---
 **Amortisman**, **duran varlıkların (makine, bina, taşıt, teçhizat gibi) kullanım süresi boyunca aşınma ve eskime nedeniyle uğradığı değer kaybının, maliyet olarak dönemlere dağıtılan payıdır.** 
 

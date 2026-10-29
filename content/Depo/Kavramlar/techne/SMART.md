@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/techne
-created: 2026-10-14
 ---
 - **Specific (Özelleştirilmiş/Belirgin)**: Amacın sınırları kesin çizgilerle belirlenir. Araştırmanın kime ve neye odaklandığı açıktır.
 - **Measurable (Ölçülebilir)**: Ampirik veri toplama araçlarıyla sayısal veya niteliksel olarak gözlemlenebilir parametrelere dayanır.

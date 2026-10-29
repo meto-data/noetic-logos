@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-05
 ---
 **mono-** "tek" + **pōlein** "satmak"; yani "**tek satıcı**".
 

@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar/hukuk
-created: 2026-10-22
 ---
 **Mecelle (Mecelle-i Ahkâm-ı Adliye)**; Osmanlı Devleti’nde 1869-1876 arasında, Ahmet Cevdet Paşa başkanlığındaki bir heyet tarafından hazırlanan, Hanefi fıkhının muamelat (özel hukuk) kısmını kanun maddeleri hâlinde derleyen ilk [[Kodifikasyon|kodifikasyondur]]. Toplam 1851 maddedir.
 

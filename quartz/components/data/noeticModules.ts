@@ -6,6 +6,7 @@ export type NoeticModuleIcon =
   | "web"
   | "ethics"
   | "research"
+  | "cpu"
 
 export type UniversityCode = "deu" | "duzce"
 
@@ -35,6 +36,18 @@ export const NOETIC_MODULES: NoeticModuleDefinition[] = [
     university: "deu",
     grade: 1,
     subtitle: "Temel hukuk kavramları, normlar hiyerarşisi ve vize/final hazırlık testleri.",
+  },
+  {
+    id: "bilgisayar-donanimi",
+    slugPattern: "ybs2023|bilgisayar-donanimi",
+    title: "Bilgisayar Donanımı",
+    periodLabel: "2. Sınıf • Güz",
+    periodOrder: 1,
+    moduleUrl: "static/bilgisayar-donanimi-module/index.html",
+    iconType: "cpu",
+    university: "deu",
+    grade: 2,
+    subtitle: "Arduino, Raspberry Pi, sensörler ve IoT donanım mimarisi soru bankası.",
   },
   {
     id: "teknolojik-arastirma",

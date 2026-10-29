@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-05
 ---
 **mono-** "tek" + **opsōnia** "alışveriş, erzak satın alma".
 

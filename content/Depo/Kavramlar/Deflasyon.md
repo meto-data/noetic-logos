@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-05
 ---
 **de-** "aşağı, uzaklaşma" + **flare** "üflemek, kabarmak" + **-atio** \[fiilden isim yapan ek\]
 

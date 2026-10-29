@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar/iktisat
-created: 2026-10-22
 ---
 **Kartel**, normalde birbiriyle rekabet etmesi gereken bağımsız firmaların, rekabeti ortadan kaldırmak amacıyla fiyat, üretim miktarı, pazar ya da müşteri gibi rekabet unsurlarını **aralarında anlaşarak ortaklaşa belirlemesidir.** Sonuçta birbirinden bağımsız görünen firmalar, fiilen tek bir tekel gibi davranır.
 

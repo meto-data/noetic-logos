@@ -1,7 +1,6 @@
 ---
 tags:
   - bilgi/kavramlar
-created: 2026-10-12
 ---
 Soruya eldeki zaman, bütçe, katılımcı sayısı, erişim ve uzmanlıkla gerçekten cevap aranabilir mi?
 
