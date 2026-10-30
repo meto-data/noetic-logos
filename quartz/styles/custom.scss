@@ -1808,16 +1808,8 @@ li.folder-open > .folder-container {
 // ===== ARTICLE =====
 article > h1,
 .article-title {
-  font-size: 2.25rem !important;
   font-weight: 700 !important;
   color: var(--text) !important;
-}
-
-@media all and (max-width: 799px) {
-  article > h1,
-  .article-title {
-    font-size: 1.5rem !important;
-  }
 }
 
 // Obsidian callout-columns compatibility (`col` / `col-md` fenced blocks)
@@ -2002,6 +1994,7 @@ footer {
 // ===== LINKS =====
 a.internal {
   background-color: transparent !important;
+  line-height: inherit;
 
   &:hover {
     background-color: var(--highlight) !important;
@@ -2561,21 +2554,65 @@ a.internal {
 
 // Article title (makale başlığı) - dinamik boyut
 .article-title {
-  font-size: calc(var(--baseFontSize, 1rem) * 2) !important;
+  font-size: calc(var(--baseFontSize, 1rem) * 2.2) !important;
+  line-height: 1.25 !important;
 }
 
-// İçerik başlıkları için hiyerarşi garantisi
-// (base.scss'deki değerler zaten --baseFontSize kullanıyor)
+// İçerik başlıkları için kesin hiyerarşi garantisi:
+// # > ## > ### > #### > ##### > ###### > **, *, [[]], []
 article h1 {
-  font-size: calc(var(--baseFontSize, 1rem) * 1.75) !important;
+  font-size: calc(var(--baseFontSize, 1rem) * 1.85) !important;
+  line-height: 1.3 !important;
+  margin-top: 2.25rem !important;
+  margin-bottom: 1rem !important;
 }
 
 article h2 {
-  font-size: calc(var(--baseFontSize, 1rem) * 1.4) !important;
+  font-size: calc(var(--baseFontSize, 1rem) * 1.6) !important;
+  line-height: 1.35 !important;
+  margin-top: 1.9rem !important;
+  margin-bottom: 1rem !important;
 }
 
 article h3 {
+  font-size: calc(var(--baseFontSize, 1rem) * 1.4) !important;
+  line-height: 1.4 !important;
+  margin-top: 1.62rem !important;
+  margin-bottom: 1rem !important;
+}
+
+article h4 {
+  font-size: calc(var(--baseFontSize, 1rem) * 1.25) !important;
+  line-height: 1.4 !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.85rem !important;
+}
+
+article h5 {
   font-size: calc(var(--baseFontSize, 1rem) * 1.15) !important;
+  line-height: 1.45 !important;
+  margin-top: 1.35rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+article h6 {
+  font-size: calc(var(--baseFontSize, 1rem) * 1.08) !important;
+  font-weight: 700 !important;
+  line-height: 1.45 !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 0.65rem !important;
+}
+
+// Başlıklar içindeki linkler (ör. # [[Başlık]]) başlığın font boyutunu devralmalı
+article h1 a,
+article h2 a,
+article h3 a,
+article h4 a,
+article h5 a,
+article h6 a,
+.article-title a {
+  font-size: inherit !important;
+  line-height: inherit !important;
 }
 
 // ==========================================
@@ -2720,31 +2757,107 @@ html:not(.noetic-zen-mode) .zen-exit-btn {
 // WALK MODE (YÜRÜYÜŞ MODU - %50 DENGELENMİŞ BÜYÜK FONT)
 // ==========================================
 html.noetic-walk-mode {
+  article {
+    --baseFontSize: 1.725rem !important;
+  }
+
+  // Makale içerisindeki tüm gövde metinleri, paragraflar, listeler, tablolar, alıntılar
   article,
   article p,
   article li,
   article td,
   article th,
-  article blockquote {
+  article blockquote,
+  article dd,
+  article dt,
+  article span,
+  article strong,
+  article b,
+  article em,
+  article i,
+  article mark {
     font-size: 1.725rem !important;
-    line-height: 1.55 !important;
+    line-height: 1.6 !important;
   }
 
-  article h1,
+  // WİKİLİNKLER [[]] ve normal bağlantılar için Walk Mode desteği
+  article a,
+  article a.internal,
+  article a.external,
+  article .callout a,
+  article .callout a.internal {
+    font-size: 1.725rem !important;
+    line-height: inherit !important;
+  }
+
+  article a.internal {
+    padding: 0.1rem 0.35rem !important;
+    border-radius: 6px !important;
+  }
+
+  // Başlıklar içindeki linkler (ör. # [[Başlık]]) başlığın boyutunu devralmalı
+  article h1 a,
+  article h1 a.internal,
+  article h2 a,
+  article h2 a.internal,
+  article h3 a,
+  article h3 a.internal,
+  article h4 a,
+  article h4 a.internal,
+  article h5 a,
+  article h5 a.internal,
+  article h6 a,
+  article h6 a.internal,
+  .article-title a,
+  .article-title a.internal {
+    font-size: inherit !important;
+    line-height: inherit !important;
+  }
+
+  // Walk Mode Başlık Hiyerarşisi: # > ## > ### > #### > ##### > ###### > **, *, [[]], [] (1.725rem)
   .article-title {
-    font-size: 2.35rem !important;
+    font-size: 2.75rem !important;
+    line-height: 1.25 !important;
+  }
+
+  article h1 {
+    font-size: 2.50rem !important;
     line-height: 1.25 !important;
   }
 
   article h2 {
-    font-size: 2.05rem !important;
+    font-size: 2.25rem !important;
     line-height: 1.3 !important;
   }
 
-  article h3,
-  article h4 {
-    font-size: 1.85rem !important;
+  article h3 {
+    font-size: 2.05rem !important;
     line-height: 1.35 !important;
+  }
+
+  article h4 {
+    font-size: 1.92rem !important;
+    line-height: 1.35 !important;
+  }
+
+  article h5 {
+    font-size: 1.83rem !important;
+    line-height: 1.4 !important;
+  }
+
+  article h6 {
+    font-size: 1.77rem !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+  }
+
+  // KaTeX formülleri de walk mode ile orantılı büyümeli
+  article .katex {
+    font-size: 1.725rem !important;
+  }
+
+  article .katex-display {
+    font-size: 1.85rem !important;
   }
 }
 
