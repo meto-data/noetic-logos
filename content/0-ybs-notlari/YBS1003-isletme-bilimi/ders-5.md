@@ -1,5 +1,5 @@
 ---
-created: "2026-09-17"
+created: 2026-10-26
 title: 5- Talep Tahminleme, Kuruluş Yeri Dinamikleri ve Kapasite Yönetim
 ---
 # Talep Tahmini, Kuruluş Yeri Seçimi ve Kapasiteye Giriş
