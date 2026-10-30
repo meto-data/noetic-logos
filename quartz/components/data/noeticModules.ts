@@ -7,6 +7,7 @@ export type NoeticModuleIcon =
   | "ethics"
   | "research"
   | "cpu"
+  | "briefcase"
 
 export type UniversityCode = "deu" | "duzce"
 
@@ -48,6 +49,18 @@ export const NOETIC_MODULES: NoeticModuleDefinition[] = [
     university: "deu",
     grade: 2,
     subtitle: "Arduino, Raspberry Pi, sensörler ve IoT donanım mimarisi soru bankası.",
+  },
+  {
+    id: "isletme-bilimi",
+    slugPattern: "ybs1003|isletme-bilimi",
+    title: "İşletme Bilimi",
+    periodLabel: "2. Sınıf • Güz",
+    periodOrder: 1,
+    moduleUrl: "static/isletme-bilimi-module/index.html",
+    iconType: "briefcase",
+    university: "deu",
+    grade: 2,
+    subtitle: "Temel işletme kavramları, çevre analizi, üretim faktörleri ve büyüme stratejileri soru bankası.",
   },
   {
     id: "teknolojik-arastirma",

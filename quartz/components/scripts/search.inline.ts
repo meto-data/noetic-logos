@@ -196,6 +196,9 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     ybs3003: "static/mesleki-yabanci-dil-module/index.html",
     "bilgisayar-donanimi": "static/bilgisayar-donanimi-module/index.html",
     ybs2023: "static/bilgisayar-donanimi-module/index.html",
+    "isletme-bilimi": "static/isletme-bilimi-module/index.html",
+    isletme: "static/isletme-bilimi-module/index.html",
+    ybs1003: "static/isletme-bilimi-module/index.html",
   }
 
   // Special commands that trigger events instead of redirects
