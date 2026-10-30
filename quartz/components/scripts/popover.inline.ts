@@ -100,6 +100,14 @@ async function mouseEnterHandler(
       if (elts.length === 0) return
 
       elts.forEach((elt) => popoverInner.appendChild(elt))
+
+      // Popover önizlemesinde sadece saf içerik bilgisi gösterilsin:
+      // Konum (breadcrumbs), başlık, modül banner, ses çalar, tarih ve okuma süresi, etiketler temizlenir
+      popoverInner
+        .querySelectorAll(
+          ".breadcrumb-container, .article-title, .module-banner, .prerequisite-banner, .noetic-audio-player, .content-meta, .tags, ul.tags"
+        )
+        .forEach((el) => el.remove())
   }
 
   if (!!document.getElementById(popoverId)) {

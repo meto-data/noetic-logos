@@ -2001,6 +2001,23 @@ a.internal {
   }
 }
 
+// ===== POPOVER İÇERİK TEMİZLİĞİ =====
+// Bağlantı üzerine gelindiğinde sadece saf içerik bilgisi görünsün
+.popover,
+.popover-inner {
+  .breadcrumb-container,
+  nav.breadcrumb-container,
+  .article-title,
+  .module-banner,
+  .prerequisite-banner,
+  .noetic-audio-player,
+  .content-meta,
+  .tags,
+  ul.tags {
+    display: none !important;
+  }
+}
+
 // ===== TEMA SEÇİCİ PANEL =====
 .theme-selector-panel {
   display: none;
