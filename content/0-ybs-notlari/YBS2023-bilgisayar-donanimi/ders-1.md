@@ -10,7 +10,7 @@ tags:
 
 Ders, [[Endüstri 4.0]] vizyonunun temel bileşeni olan [[Nesnelerin İnterneti]] (IoT - Internet of Things) ve uç bilişim (edge computing) mimarisi üzerine kuruludur. Bilişim sistemleri analizinde yazılımın ihtiyaç duyduğu fiziksel veri akışını sağlayan donanım birimleri iki ana sınıfta incelenir.
 
-* **Mikrodenetleyiciler ([[Arduino]]):** Dahili işlemci, kısıtlı bellek ve kalıcı bellek (flash) katmanlarını tek bir çip üzerinde birleştiren, işletim sistemi barındırmayan donanım birimleridir. Önceden yüklenen tek bir ürün yazılımını (firmware) sonsuz bir icra döngüsü (`loop`) içerisinde çalıştırırlar. Düşük güç tüketimiyle doğrudan sensör okuma ve aktüatör tetikleme görevlerini üstlenirler.
+* **Mikrodenetleyiciler ([[Arduino]]):** Dahili işlemci, kısıtlı bellek ve kalıcı bellek (flash) katmanlarını tek bir çip üzerinde birleştiren, **işletim sistemi barındırmayan** donanım birimleridir. Önceden yüklenen tek bir ürün yazılımını (firmware) sonsuz bir icra döngüsü (`loop`) içerisinde çalıştırırlar. Düşük güç tüketimiyle doğrudan sensör okuma ve aktüatör tetikleme görevlerini üstlenirler.
 * **Tek Kart Bilgisayarlar ([[Raspberry Pi]]):** Çok çekirdekli merkezî işlem birimi (CPU), grafik işlemci (GPU), sistem belleği (RAM), kablosuz ağ yongaları ve harici depolama birimiyle (microSD) tam teşekküllü bir bilgisayar mimarisine sahiptir. Çok görevli (multitasking) bir [[Linux]] işletim sistemi (Raspberry Pi OS) çalıştırır. Veri tabanı yönetimi, ağ sunuculuğu, karmaşık karar algoritmaları ve kullanıcı arayüzü sunumunu aynı anda yürütme kapasitesine sahiptir.
 
 | Mimari Parametre    | Mikrodenetleyici ([[Arduino]])                               | Tek Kart Bilgisayar ([[Raspberry Pi]])                             |
