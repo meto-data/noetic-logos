@@ -107,20 +107,6 @@ Toplumda kendiliğinden doğan, uzun süreli bir tatbikatla yerleşen ve devleti
 
 Bu iki unsur gerçekleşince kural hukuk kuralı niteliği kazanır ve devlet otoritesi bunu gerektiğinde [[cebri icra]] ile uygular.
 
-### Eşya Hukukunda Bağlantı Normları
-
-#### Mütemmim Cüz (Ayrılmaz Parça)
-Yerel âdetlere göre asıl şeyin temel unsuru olan, o şey yok edilmedikçe, zarara uğratılmadıkça veya yapısı değiştirilmedikçe ondan ayrılması mümkün olmayan parçadır. Çerçeve ile gözlük camı gibi. Asıl eşyaya yapılan tasarruf ayrılmaz parçayı da doğrudan kapsar.
-
->Bir eşyanın parçası olan, ayırırsan eşyaya ya da o parçaya zarar veren şey. Ayrı bir eşya sayılmaz, asıl eşyanın bir parçasıdır. Ayırınca bozuluyor mu? Bozuluyorsa mütemmim cüzdür. <br> <br>Asıl eşyayı satılırsa parça da kendiliğinden satılmış olur. Ayrıca parçayı ayrı satmak veya ayrı mülkiyete konu etmek mümkün değildir.
-
-
-#### Eklenti (Tamamlayıcı Parça)
-Asıl şeyin mâlikinin, o şeyin işletilmesi, korunması veya ondan yararlanılması için kalıcı olarak asıl şeye tahsis ettiği taşınır eşyadır. Gözlük ile gözlük kılıfı veya telefon ilet aşıma kılıfı eklenti bağına örnektir.
-
-> Asıl eşyanın yanında duran, ona yardımcı olsun diye mal sahibinin bilerek tahsis ettiği ayrı bir eşya. Ayırınca ikisi de bozulmaz, ama beraber kullanılmaları amaçlanır.
-
-
 ### Yargısal Boşluk Doldurma ve Hakimin Hukuk Yaratması
 Hukuk düzeninde yargıcın önüne gelen somut bir davada, olaya uygulanacak hiçbir yazılı ve yazılı olmayan normun bulunmaması durumu bir **hukuk boşluğudur**. Türk Medeni Kanunu'nun 1. maddesi uyarınca yargıç, uyuşmazlığı kesin bir karara bağlamakla mükelleftir; kanun hükmünün yokluğunu gerekçe göstererek davayı sonuçsuz bırakma yetkisinden yoksundur.
 
