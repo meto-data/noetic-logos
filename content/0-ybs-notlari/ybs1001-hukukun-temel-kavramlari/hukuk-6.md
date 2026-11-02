@@ -5,8 +5,6 @@ konu: Pozitif Hukukun Kaynakları, Hukuk Kurallarının Türleri, Yargı Kollar�
 created: 2026-10-22
 draft: false
 ---
-
-
 # 1. Pozitif Hukukun Kaynakları ve Normlar Hiyerarşisi
 
 ## 1.1. Yazılı Kaynaklar

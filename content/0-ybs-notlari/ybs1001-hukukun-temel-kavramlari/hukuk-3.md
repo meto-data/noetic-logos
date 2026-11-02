@@ -9,7 +9,7 @@ draft: false
 ## Kavramsal Çerçeve
 
 - **[[kavram-hak|Hak]]**: Hukuk düzeni tarafından korunan ve sahibine bu korunmadan yararlanma yetkisi tanınan menfaat.
-* **[[Hukuk]]:** Toplumsal ilişkileri düzenleyen, hakları kuran, sınırlarını çizen ve ihlal halinde işletilen kurallar mekanizmasıdır.
+* **[[Hukuk]]:** Toplumsal ilişkileri düzenleyen, hakları kuran, sınırlarını çizen ve ihlal hâlinde işletilen kurallar mekanizmasıdır.
 * **[[Adalet]]**: Hukuk mekanizmasının uyuşmazlıkları çözüme kavuşturarak ortaya çıkardığı nihai ürün ve denge durumudur.
 * **[[Kamu Hakları]]**: Kişilerin veya vatandaşların doğrudan devlete karşı sahip oldukları, kamu hukuku ilişkilerinden doğan haklardır.
 * **[[Özel Haklar]]**: Eşit statüdeki kişiler arasındaki özel hukuk ilişkilerini düzenleyen kurallardan doğan haklardır.
@@ -46,7 +46,7 @@ Haklar, taraf iradeleri ve ilişkinin niteliği bakımından iki temel alana ayr
 #### a) Kamu Hakları ve Devletin Statüleri (Jellinek Sınıflandırması)
 Bireyin devlete karşı konumunu ve devletten beklenen davranış yükümlülüğünü belirler:
 
-- **[[Negatif Statü Hakları]] (Koruyucu Haklar)**: Devletin bireyin özel alanına müdahale etmemesini, pasf kalmasını gerektiren haklardır. Bireyin devlete karşı özerk alanını teminat altına alır (örn: konut dokunulmazlığı, mülkiyet hakkı, haberleşme hürriyeti, şeref ve itibarın korunması).
+- **[[Negatif Statü Hakları]] (Koruyucu Haklar)**: Devletin bireyin özel alanına müdahale etmemesini, pasif kalmasını gerektiren haklardır. Bireyin devlete karşı özerk alanını teminat altına alır (örn: konut dokunulmazlığı, mülkiyet hakkı, haberleşme hürriyeti, şeref ve itibarın korunması).
 - **[[Pozitif Statü Hakları]] (İsteme Hakları)**: Bireyin devletten olumlu bir hizmet, edim ve tesis talep etme yetkisini içeren haklardır. Devletin sosyal ve ekonomik alanda müdahalesini, teşkilatlanmasını ve harcama yapmasını gerektirir (örn: sosyal güvenlik hakkı, sağlık hakkı, dinlenme hakkı, sendikal güvenceler).
 - **[[Aktif Statü Hakları]] (Katılma Hakları)**: Bireyin siyasal mekanizmaya ve devlet yönetimine katılımını sağlayan yetkilerdir. **Bu haklar münhasıran vatandaşlara aittir; yabancılar bu haklardan istifade edemez** (örn: seçme ve seçilme hakkı, dilekçe hakkı).
 
@@ -62,10 +62,10 @@ Buna mukabil, özel hakları bizzat kullanma iktidarı olan [[fiil ehliyeti]] ba
 | Tasnif Ölçütü               | Alt Dalı                      | Hukuki Niteliği                                                                                                             | Tipik Örnekler                                                                          |
 | :-------------------------- | :---------------------------- | :-------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------- |
 | **Niteliklerine Göre**      | [[Mutlak Hak]]                | Herkese karşı ileri sürülebilir; herkes ihlal edebilir; herkes uymakla yükümlüdür.                                          | Yaşam hakkı, vücut bütünlüğü, mülkiyet hakkı, adın korunması.                           |
-| **Niteliklerine Göre**      | [[Nısbi Hak]]                 | Belirli bir hukukî ilişkinin karşı tarafına ileri sürülebilir. Borç ilişkilerinden doğar.                                   | Alacak hakkı, işçinin ücret isteme hakkı, işverenin iş görme talebi.                    |
+| **Niteliklerine Göre**      | [[Nısbi Hak]]                 | **Belirli bir hukukî ilişkinin karşı tarafına ileri sürülebilir**. Borç ilişkilerinden doğar.                               | Alacak hakkı, işçinin ücret isteme hakkı, işverenin iş görme talebi.                    |
 | **Konularına Göre**         | [[Şahıs Varlığı Hakları]]     | Kişinin manevi alanını korur; parayla ölçülemez; kişiye sıkı sıkıya bağlıdır.                                               | Özel hayatın gizliliği, boşanma hakkı, nişanı bozma hakkı, adın değiştirilmesi talebi.  |
 | **Konularına Göre**         | [[Mal Varlığı Hakları]]       | Kişinin maddi menfaatlerini korur; parayla ölçülebilir ekonomik bir değere sahiptir.                                        | [[Mülkiyet Hakkı]], [[Alacak Hakkı]], [[Miras Hakkı]].                                  |
-| **Devir Kabiliyetine Göre** | [[Devredilebilen Haklar]]     | Sözleşmeyle [[temlik]] edilebilir, kiralanabilir, mirasçılara intikal edebilir.                                             | Taşınmaz mülkiyeti, para alacakları, fikri mülkiyetin mali hakları.                     |
+| **Devir Kabiliyetine Göre** | [[Devredilebilen Haklar]]     | Sözleşmeyle [[temlik]] edilebilir, kiralanabilir, mirasçılara intikal edebilir.                                             | Taşınmaz mülkiyeti, para alacakları, fikri mülkiyetin mâlî hakları.                     |
 | **Devir Kabiliyetine Göre** | [[Devredilemeyen Haklar]]     | Kişiye sıkı sıkıya bağlıdır; vekaletle aktarılamaz; miras yoluyla geçmez.                                                   | İtibarın korunması, ergin kılınmayı (kazai rüşt) talep hakkı, nişanı bozma hakkı.       |
 | **Etkilerine Göre**         | [[Yenilik Doğuran Haklar]]    | Hak sahibinin tek taraflı irade beyanıyla hukukî durumu değiştirmesine imkân veren haklardır. Karşı tarafın onayı gerekmez. | Sözleşmenin feshi, ayıplı malda satış bedelinden indirim talebi, boşanma.               |
 | **Etkilerine Göre**         | [[Yenilik Doğurmayan Haklar]] | Kullanılmasıyla mevcut hukukî durumu değiştirmeyen, var olan durumun sürdürülmesinden ibaret haklardır.                     | Kiracının kiralanan konutta oturması, işçinin mevcut sözleşmeyle iş görmeyi sürdürmesi. |
@@ -90,7 +90,7 @@ Biyolojik varlığı bulunan insanlardır. Tam ve sağ doğumla birlikte tüm in
 İnsanların tek başlarına gerçekleştiremeyecekleri amaçları hayata geçirmek üzere oluşturdukları, hukuken bağımsız kabu edilen varlıklardır (bkz. [[Tüzel kişiler]], [[Tüzel kişilik]]):
 
 ##### Kişi Topluluğu
-- **Dernekler**: Kazanç paylaşma amacı gütmeyen, belili amacı gerçekleştirmek üzere kurulan topluluklardır. Önceden izin almaksızın serbestçe kurulurlar. Kâr amacı güdemez ve üyelerine kâr payı dağıtamazlar; ancak dernek amacını gerçekleştirmek üzere iktisadi işletme kurup kâr elde edebilirler.
+- **Dernekler**: Kazanç paylaşma amacı gütmeyen, belirli amacı gerçekleştirmek üzere kurulan topluluklardır. Önceden izin almaksızın serbestçe kurulurlar. Kâr amacı güdemez ve üyelerine kâr payı dağıtamazlar; ancak dernek amacını gerçekleştirmek üzere iktisadi işletme kurup kâr elde edebilirler.
 - **Sendikalar**: Yalnızca **işçiler ve kamu görevlileri (memurlar)** tarafından kurulabilen meslekî kişi topluluklarıdır. **Kanunun belirlediği çalışan statüsünde bulunmayanların (öğrenciler, emekliler) kurduğu örgütlenmeler, *Sendikalar Kanunu* kapsamında sendika tüzel kişiliği kazanamaz; *Dernekler Kanunu* hükümlerine tabi dernek statüsünde kalır.**
 - **Siyasi Partiler**: Demokratik siyasal hayata katılmak amacıyla teşkilatlanan bağımsız kişi topluluklarıdır.
 
