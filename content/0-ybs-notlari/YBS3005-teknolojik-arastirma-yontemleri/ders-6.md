@@ -32,6 +32,16 @@ Temsil yeteneği, seçilen grubun ana kütlenin demografik, davranışsal ve yap
 
 Diyabet araştırmalarında şekerli ve gazlı içecek üreticileriyle finansal bağları bulunan araştırmacıların tüketim ile hastalık arasındaki bağı raporlamaktan kaçınması veya bir siyasi partiden kaynak sağlayan anket şirketlerinin örneklemi yalnızca o partinin güçlü olduğu bölgelerden derlemesi kurumsal örneklem yanlılığı yaratır.
 
+## Veri Toplama Zamanına Göre Araştırma Desenleri
+
+Araştırma desenleri, verilerin hangi zaman aralığında ve kaç kez toplandığına göre **kesitsel** ve **boylamsal** olmak üzere iki temel biçimde sınıflandırılabilir.
+
+- **Kesitsel Desen (Cross-Sectional):** Verilerin belirli bir zaman noktasında, tek seferde toplandığı araştırma desenidir. Mevcut durumun belirli bir andaki görünümünü ortaya koyar. Örneğin üniversite öğrencilerinin çevrimiçi eğitim deneyimlerinin dönem sonunda bir kez ölçülmesi.
+
+- **Boylamsal Desen (Longitudinal):** Aynı araştırma birimlerinden farklı zamanlarda tekrarlı veri toplanarak zaman içerisindeki değişimin incelendiği araştırma desenidir. Örneğin aynı öğrencilerin çevrimiçi eğitim deneyimlerinin dönem başında, ortasında ve sonunda ölçülmesi.
+
+**Temel Ayrım:** Kesitsel araştırma belirli bir andaki durumu gösterirken boylamsal araştırma zaman içerisindeki değişimi gösterir. Kesitsel desen tek seferlik ölçüme, boylamsal desen ise tekrarlı ölçümlere dayanır.
+
 ## Normal Dağılım ve Merkezî Limit Dinamiği
 Normal dağılım, evrendeki gözlemlerin aritmetik ortalama etrafında kümelendiği, ortalamadan uzaklaştıkça gözlem sıklığının simetrik olarak azaldığı çan eğrisi biçimindeki olasılık dağılımıdır. Boy uzunlukları, sınav başarı puanları ve zekâ düzeyleri gibi beşerî değişkenler doğası gereği normal dağılım sergiler. Merkezî Limit Teoremi uyarınca, başlangıçta tekil zar atışı gibi her sonucun eşit şansa sahip olduğu tekdüze (uniform) dağılımlar dahi, yinelenen örnekleme denemeleri ve hacim artışı sayesinde normal dağılıma yakınsar.
 

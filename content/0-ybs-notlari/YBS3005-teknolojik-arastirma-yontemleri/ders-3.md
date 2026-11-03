@@ -34,25 +34,24 @@ Konu daraltma işlemi beş temel boyutta gerçekleştirilir:
 
 **Örnek - YBS Disiplininde Konu Başlığı İnşası**: Salt "Yapay zekâ öğrencilere yararlı mıdır?" ifadesi belirsizdir. Bu ifade beş boyutlu daraltma süzgecinden geçirilerek; "*YBS Öğrencilerinin Üretken Yapay Zekâ Kullanım Niyetlerini Etkileyen Faktörlerin İncelenmesi: [[UTAUT]] (Birleştirilmiş Teknoloji Kabul ve Kullanım Teorisi) Modeli Uygulaması*" biçiminde ampirik ve bilimsel bir başlıpa dönüştürülmüştür.
 
-
 ### Araştırma Probleminin Nitelikleri: FINER Modeli
 Yetkin bir bilimsel araştırma problemi, kuramsal değer taşıyan beş temel kriteri bünyesinde toplar:
 
-| Kriter Kodu | Kriter Adı                                 | Kuramsal Tanım                                                                                                          | Örnekler                                                                                                                                                                                                      |
-| :---------- | :----------------------------------------- | :---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **F**       | **[[Feasible]]** (Uygulanabilirlik)        | Araştırmacının mevcut maliyet, insan gücü, zaman ve veri erişim olanaklarıyla problemi çözebilme kapasitesidir.         |                                                                                                                                                                                                               |
-| **I**       | **[[Interesting]]** (İlginçlik/Değerlilik) | Problemin çözüldüğünde bilimsel, yönetsel veya sektörel bir değer üretme potansiyeli.                                   |                                                                                                                                                                                                               |
-| **N**       | **[[Novel]]** (Özgünlük)                   | Literatürdeki mevcut boşlukları ([[Research Gap]]) tespit ederek daha önce çalışılmamış bir boyutu aydınlatma niteliği. |                                                                                                                                                                                                               |
-| **E**       | **[[Ethical]]** (Etik)                     | İnsana, canlıya ve toplumsal normlara zarar vermeme; verilerin gizliliğini koruma standardıdır.                         | İşçi performansını analiz etmek amacıyla iş yerine kameralar yerleştirip, görüntüleri ve WhatsApp iletişim loglarını yöneticilere anlık bildiren bir yazılım geliştirmek KVKK mevzuatını doğrudan ihlal eder. |
-| **R**       | **[[Relevant]]** (İlgililik)               | Problemin hem genel bilim dünyasıyla hem de araştırmacının kendi yetkinlik/merak alanıyla doğrudan örtüşmesidir.        | **Genel Ölçütler:** Araştırmanın özgünlüğü ve uygulanabilirliğidir.<br>**Özel Ölçütler:** Araştırmacının bilgi/beceri düzeyi (SPSS, R veya Python uzmanlığı) ve konuya duyduğu kişisel ilgidir.               |
+| Kriter Kodu | Kriter Adı                                 | Kuramsal Tanım                                                                                                                                                                                   | Örnekler                                                                                                                                                                                                                                |
+| :---------- | :----------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **F**       | **[[Feasible]]** (Uygulanabilirlik)        | Araştırmacının mevcut maliyet, insan gücü, zaman ve veri erişim olanaklarıyla problemi çözebilme kapasitesidir.                                                                                  | Kendi bölümündeki öğrencilere ulaşabiliyor, anketi ücretsiz uygulayabiliyor ve analizi verilen sürede tamamlayabiliyorsan araştırma uygulanabilirdir. Türkiye’deki bütün öğrencilerle tek tek görüşmek ise mevcut imkânlarını aşabilir. |
+| **I**       | **[[Interesting]]** (İlginçlik/Değerlilik) | Araştırma sorusunun araştırmacıda ve ilgili kişilerde merak uyandırmasıdır.                                                                                                                      | “Yapay zekâ öğrencilerin öğrenmesini destekliyor mu, yoksa yalnızca ödevlerini bitirmelerini mi kolaylaştırıyor?” sorusunun seni ve diğer öğrencileri meraklandırmasıdır.                                                               |
+| **N**       | **[[Novel]]** (Özgünlük)                   | Literatürdeki mevcut boşlukları ([[Research Gap]]) tespit ederek daha önce çalışılmamış bir boyutu aydınlatma niteliği. Mevcut bilgiye yeni bir bulgu, yaklaşım veya inceleme boyutu katmasıdır. | Önceki çalışmalar yalnızca kullanım süresini incelemişse, senin kullanım amacını da ayırman yeni bir boyut sağlayabilir: Konuyu öğrenmek için kullanmakla ödevi doğrudan yaptırmak aynı sonuçları mı veriyor?                           |
+| **E**       | **[[Ethical]]** (Etik)                     | Katılımcıların haklarını, mahremiyetini ve esenliğini koruyarak araştırmayı yürütmektir.                                                                                                         | Öğrencilere araştırmanın amacını açıklamak, gönüllü katılım sağlamak ve kimlikleriyle eşleştirilmiş notlarını izinsiz paylaşmamak.                                                                                                      |
+| **R**       | **[[Relevant]]** (İlgililik)               | Araştırmanın bilimsel veya uygulamalı bir ihtiyaca karşılık gelmesidir.                                                                                                                          | Bulguların, bölümün yapay zekânın derslerde nasıl kullanılacağına ilişkin kararlarına katkı sağlamasıdır.<br>                                                                                                                           |
 
 
 ### Araştırma Amacının Nitelikleri: [[SMART]] Modeli
-Bilimsel amaç ifaddleri, muğlaklığı bertaraf eden beş yapısal sütun üzerinden formüle edilir:
+Bilimsel amaç ifadeleri, muğlaklığı bertaraf eden beş yapısal sütun üzerinden formüle edilir:
 
 - **Specific (Özelleştirilmiş/Belirgin)**: Amacın sınırları kesin çizgilerle belirlenir. Araştırmanın kime ve neye odaklandığı açıktır.
 - **Measurable (Ölçülebilir)**: Ampirik veri toplama araçlarıyla sayısal veya niteliksel olarak gözlemlenebilir parametrelere dayanır.
-- **Achievable (Ulaşılabilir)**: Mevcut örneklem ve bütçe sınırları dahilinde hedeflenen sonuca erişim kabiliyetidir.
+- **Achievable (Erişilebilir)**: Mevcut örneklem ve bütçe sınırları dahilinde hedeflenen sonuca erişim kabiliyetidir.
 - **Realistic (Gerçekçi)**: Olguların ampirik tabiatına ve bilimsel mantığa uygun rasyonel hedefleri temsil eder.
 - **Time-bound (Zaman Odaklı)**: Sürecin ne kadarlık bir takvim diliminde (ay, dönem, yıl) icra edileceği baştan tayin edilir.
 
@@ -72,7 +71,6 @@ Bilimsel amaç ifaddleri, muğlaklığı bertaraf eden beş yapısal sütun üze
 - **Karıştırıcı Değişken (Confounding Variable)**: Birbiriyle doğrudan nedensel bağı bulunmayan iki değişken ($X$ ve $Y$) ile ayrı ayrı ilişkili olan ve bu iki değişken arasında sahte bir ilişki üreten dışsal faktördür. ($Z$)
 	- **Dondurma ve Boğulma Vakası**: Dondurma tüketim oranı ($X$) ile havuzda boğulma vakaları ($Y$) arasında yüksek pozitif korelasyon bulunmaktadır. Bu durumun arkasındaki neden sıcaklık ve yaz mevsimidir ($Z$ - Karıştırıcı Değişken). Sıcaklık arttıkça hem dondurma tüketimi hem de havuza giren insan sayısı ayrı ayrı artmaktadır.
 	- **Çikolata ve Nobel Ödülü Vakası**: Ülkelerin kişi başı çikolata tüketimi ($X$) ile kazandıkları Nobel ödülü sayısı ($Y$) arasında yüksek korelasyon mevcuttur. İlişkinin temelinde ülkelerin ekonomik gelişmişlik düzeyi ($Z$ - Karıştırıcı Değişken) yer alır. Gelişmişlik seviyesi yüksek ülkelerde hem temel ihtiyaç dışı çikolata tüketimi artmakta hem de eğitim ve araştırma kurumlarının kalitesi yükselmektedir.
-
 
 - **Aracı Değişken (Mediator Variable)**: Bağımsız değişken ($X$) ile bağımlı değişken ($Y$) arasındaki nedensel etkiyi doğrudan kendi üzerinden aktaran, araya giren süreç değişkenidir ($M$). Bağımsız değişken aracı değişkeni tetikler, aracı değişken de nihai bağımlı değişkeni şekillendirir.
 	- **Kurumsal Hizmet Örneği**: Çalışanlara verilen hizmet içi eğitim ($X$), müşteri memnuniyetini ($Y$) doğrudan etkilemez. Eğitim faaliyeti, çalışanların hizmet ve iletişim kalitesini ($M$ - Aracı Değişken) yükseltir. Yükselen hizmet kalitesi de müşteri memnuniyetini artırır ($X \to M \to Y$).
@@ -105,6 +103,17 @@ flowchart TD
 end
 ```
 
+
+### Kavramsal ve İşlevsel Tanım (Conceptual and Operational Definition)
+
+Bilimsel araştırmalarda bir kavramın ne anlama geldiğini açıklamak ile nasıl ölçüleceğini belirlemek birbirinden farklı işlemlerdir.
+
+- **Kavramsal Tanım:** Bir kavramın soyut veya kuramsal düzeyde ne anlama geldiğini açıklayan tanımdır. Örneğin *algılanan kullanım kolaylığı*, bireyin bir teknolojiyi kullanmanın fazla çaba gerektirmeyeceğine yönelik inancıdır.
+- **İşlevsel Tanım (Operasyonel Tanım):** Soyut bir kavramın hangi gözlem, gösterge veya ölçüm aracı kullanılarak ölçüleceğinin somut biçimde belirlenmesidir. Örneğin *algılanan kullanım kolaylığının beş maddelik bir ölçekten elde edilen toplam puanla ölçülmesi*.
+
+**Temel Ayrım:** Kavramsal tanım *ne anlama geliyor?*, işlevsel tanım ise *nasıl ölçeceğiz?* sorusuna cevap verir.
+
+İşlevsel tanım, araştırmanın tekrarlanabilirliğine katkı sağlar; çünkü başka araştırmacılar aynı kavramın hangi yöntemle ölçüldüğünü anlayabilir.
 
 ---
 

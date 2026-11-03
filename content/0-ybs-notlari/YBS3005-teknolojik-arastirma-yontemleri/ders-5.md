@@ -13,7 +13,7 @@ draft: false
 
 **Ölçme, bir nesneye, niteliğe veya kavrama belirli kurallar uyarınca sembol atama sürecidir.** Bu semboller sayısal, sözel veya görsel formlar alır. Bir bireyin ikamet ettiği ilçenin kaydedilmesi ile boy uzunluğunun metre cinsinden kaydedilmesi, kavrama önceden tanımlanmış bir sembolün tahsis edilmesi yönüyle özdeş bir ölçme işlemi niteliği taşır. Sayısal veri varlığı, daha derin parametrik istatistiksel testlerin yürütülmesine zemin hazırlar; sözel sembol atamaları ise kategorik ve frekans temelli çözümlemelerin yürütülmesini sağlar.
 
-## Değişken ve Değer Tipolojisi (Variables and Values)
+## Değişken ve Değer (Variables and Values)
 [[kavram-degisken|Değişken]], birden fazla değer alabilen, durağanlıktan uzak her türlü kavramsal veya fiziksel unsuru ifade eder. Değer ise ilgili değişkenin alabileceği her bir gözlemi veya sembolü tanımlar:
 
 - **Nitel Değişkenler**: Sayısal hiyerarşi barındırmayan, durum ve kategori bildiren yapılardır (cinsiyet, ikamet yeri).
@@ -24,12 +24,10 @@ draft: false
 ## Nominal Ölçek (Nominal Scale)
 Bkz. [[nominal]] **:)**
 
-Nominal (isimsel) ölçek, değişkenlerin aldığı değerlerin yalnızca gruplanabildiği, kategorilere ayrılabildiği en temel ölçüm basamağıdır. Değerler arasında büyüklük, küçüklük veya hiyerarşik üstünlük bulunma durumu söz konusu değildir, sadec *string* türünde ölçüme tabi tutulamayan bir değerdir. Cinsiyet ve ikâmetgah gibi.
+Nominal (isimsel) ölçek, değişkenlerin aldığı değerlerin yalnızca gruplanabildiği, kategorilere ayrılabildiği en temel ölçüm basamağıdır. Değerler arasında büyüklük, küçüklük veya hiyerarşik üstünlük bulunma durumu söz konusu değildir, sadece *string* türünde ölçüme tabi tutulamayan bir değerdir. Cinsiyet ve ikâmetgah gibi.
 
-- **İstatistiksel İşlem Sınırı**: Sayısal büyüklük eksikliği sebebiyle bu ölçükte frekans dağılımları ve yüzdelikler hesaplanır. Merkezi eğilim ölçüsü olarak en çok tekrar eden değeri veren mod (tepe değer) kullanılır. İki kategorili (binomial) bağımlı değişkenlerin modellenmesinde ([[veri-madenciligi-9#D. Lojistik Regresyon|lojistik regresyon analizi]]) tercih edilir.
+- **İstatistiksel İşlem Sınırı**: Sayısal büyüklük eksikliği sebebiyle bu ölçekte frekans dağılımları ve yüzdelikler hesaplanır. Merkezî eğilim ölçüsü olarak en çok tekrar eden değeri veren mod (tepe değer) kullanılır. İki kategorili (binomial) bağımlı değişkenlerin modellenmesinde ([[veri-madenciligi-9#D. Lojistik Regresyon|lojistik regresyon analizi]]) tercih edilir.
 	- Bkz. [[veri-madenciligi-9#Regresyonun Temel Mantığı ve Makine Öğrenmesindeki Yeri|veri madenciliğinde regresyon]]
-
-
 
 ## Ordinal Ölçek (Ordinal Scale)
 Bkz. [[ordinal]]
@@ -65,7 +63,7 @@ Rasyo (<ratio; **oran**) ölçeği, eşit aralık özelliğine ek olarak mutlak 
 
 ![[Pasted image 20261027080630.png]]
 ## Semantik Farklılık ve Stapel Ölçekleri
-- **Semantik Farklılık Ölçeği (Osgood)**: Ölçülmek istenen kavramın iki zıt kutbuna antonim sıfatlar (Hızlı-Yavaş, İlkel-Modern, Pahalı-Ucuz) yerleştirilir; araya 5 veya 7 basamaklı eşit aralıklı alanlar konarak katılımcının algı düzeyi tespit edilir. İki farklı markanın veya ürün prototipinin karşılaştırılmasında profil analizine imkân tanır. **Nesnenin ya da kişinin algılanışını zıt anlamlı sıfat çiftleri arasında konumlandırarak ölçen ölçek**.
+- **Semantik Farklılık Ölçeği (Osgood)**: Ölçülmek istenen kavramın iki zıt kutbuna antonim sıfatlar (Hızlı-Yavaş, İlkel-Modern, Pahalı-Ucuz) yerleştirilir; araya 5 veya 7 basamaklı eşit aralıklı alanlar konarak katılımcının algı düzeyi tespit edilir. İki farklı markanın veya ürün prototipinin karşılaştırılmasında profil analizine imkân tanır. **Nesnenin ya da kişinin algılanışını zıt anlamlı sıfat çiftleri arasında konumlandırarak ölçer**.
 - **Stapel Ölçeği**: Zıt sıfat çiftleri yerine merkezde tek bir sıfat yer alır. Bu sıfatın altına ve üstüne $+5$ ile $-5$ arasında değişen basamaklar yerleştirilerek nötr sınıf noktası dışarıda tutulur.
 
 ![[str.png]]
@@ -78,10 +76,10 @@ Rasyo (<ratio; **oran**) ölçeği, eşit aralık özelliğine ek olarak mutlak 
 Bireylerin tutum, algı, niyet ve davranış sıklıklarını önceden belirlenmiş yargı cümlelerine katılım dereceleri üzerinden ölçer (1: Hiç Katılmıyorum  5: Tamamen Katılıyorum):
 * **Kategori Sayısı Seçimi:** Literatürde 2 ile 11 basamak arasında değişen skalalar uygulanır.
 * **Kaçış Rampası Sorunu:** Tek sayılı ölçeklerde (5'li, 7'li) yer alan nötr orta basamak, bilişsel zahmetten kaçınan yanıtlayıcılar için sığınak oluşturur. Bireyi kesin tutum bildirmeye yöneltmek isteyen araştırmacılar nötr noktayı kaldırarak çift sayılı (4'lü veya 6'lı) zorlamalı seçim ölçeklerini tercih eder.
-* **Ayrım Hassasiyeti Riski:** Ölçek basamağının 11'e çıkarılması matematiksel süreklilik hissi verir; ancak insan zihninin 9 ile 10 puan arasındaki farkı bilişsel olarak ayrıştırma kabiliyeti zayıflar.
+* **Ayrım Hassasiyeti Riski:** Ölçek basamağının 11'e çıkarılması matematiksel süreklilik hissi verir ancak insan zihninin 9 ile 10 puan arasındaki farkı bilişsel olarak ayrıştırma kabiliyeti zayıflar.
 
 ## Hizmet Kalitesi Modeli
-**Hizmet kalitesini** tekil bir çıktı algısı üzerinden ölçmek yerine **bireyin deneyim öncesi beklentisi ($B$) ile deneyim sonrası algısı ($A$) arasındaki fark eskseninde tanımlar**:
+**Hizmet kalitesini** tekil bir çıktı algısı üzerinden ölçmek yerine **bireyin deneyim öncesi beklentisi ($B$) ile deneyim sonrası algısı ($A$) arasındaki fark ekseninde tanımlar**:
 
 $$
 \text{Hizmet Kalitesi Skoru} = \text{Algı (A)} - \text{Beklenti (B)}
@@ -94,12 +92,21 @@ $$
 Bkz. [[Müşteri Tatmini]]
 
 
+## Görev-Teknoloji Uyumu (Task-Technology Fit – TTF)
+
+Görev-Teknoloji Uyumu, bir teknolojinin çalışan performansına sağladığı katkının, teknolojinin sunduğu işlevlerle gerçekleştirilecek görevin gereksinimleri arasındaki uyuma bağlı olduğunu savunan yaklaşımdır.
+
+Teknolojinin gelişmiş olması tek başına verimlilik sağlamaz. Teknolojinin yapılacak işe uygun olması gerekir.
+
+**Örnek**: Bir hastanede kullanılan hasta kayıt yazılımı, hemşirelerin işlerini hızlı ve hatasız yapmasını sağlıyorsa görev-teknoloji uyumu yüksektir. Yazılım karmaşıklığı nedeniyle işlemleri zorlaştırıyorsa uyum düşüktür.
+
+
 ---
 
 
 # Sebep-Sonuç zincirleri falan.
 
-Beşerî ve yönetsel bilimlerde doğrudan gözlemlenemeyen soyut yapılar (algı, niyet, memnuniyet), yapay ölçekleme araçları vasıtasıyla sayısallaştırılır. Bu sayısallaştırma süreci indirgeme yapmay zorunlu kılar. Bireylerin bir mobil uygulamaya verdikleri 1 ile 5 arasındaki puanlar sıralı ([[ordinal]]) bir nitelik taşırken, araştırmacılarrın bu verileri toplayıp aritmetik ortalama alarak $3,44$ gibi küsuratlı değerler üretmesi, eşit aralık varsayımının yapay olarak kabul edilmesinden kaynaklanır. Bu varsayım araştırmacıya parametrik test yapma imkânı sağlamasına karşın elde edilen sonucun fiziksel dünyada somut bir nesnel karşılık bulmasını engeller.
+Beşerî ve yönetsel bilimlerde doğrudan gözlemlenemeyen soyut yapılar (algı, niyet, memnuniyet), yapay ölçekleme araçları vasıtasıyla sayısallaştırılır. Bu sayısallaştırma süreci indirgeme yapmayı zorunlu kılar. Bireylerin bir mobil uygulamaya verdikleri 1 ile 5 arasındaki puanlar sıralı ([[ordinal]]) bir nitelik taşırken, araştırmacıların bu verileri toplayıp aritmetik ortalama alarak $3,44$ gibi küsuratlı değerler üretmesi, eşit aralık varsayımının yapay olarak kabul edilmesinden kaynaklanır. Bu varsayım araştırmacıya parametrik test yapma imkânı sağlamasına karşın elde edilen sonucun fiziksel dünyada somut bir nesnel karşılık bulmasını engeller.
 
 ```mermaid
 flowchart TD
@@ -120,12 +127,11 @@ flowchart TD
 ## Öz-bildirim yanlılığına ve kesin veri toplama kısıtına dair
 Bir enformasyon sisteminde kullanıcı davranışını ölçerken araştırmacının karşısına iki temel kısıt çıkar:
 
-1. **Donanıma/yazılıma dair kesin veri toplama kısıtı**: Kullanıcının sistemde geçirdiği süreyi arka plan sevisleriyle milisaniye düzeyinde loglamak, kesin rasyo verisi üretir. Bu durum yüksek yazılım geliştirme maliyeti, sistem kaynak tüketimi, veri güvenliği yükümlülüğü ve kullanıcı rızası bariyeri oluşturur.
-2. **Öz-bildirim maliyeti** Ankete dayalı geri toplama süreci maliyetleri minimize eder ancak insanın kendini değerlendirme konusundaki subjektif yanlılıkları, zamanı algılama hataları ve sosyal beğenilirlik kaygıları sebebiyle verinin güvenilirlik katsayısını düşerir.
+1. **Donanıma/yazılıma dair kesin veri toplama kısıtı**: Kullanıcının sistemde geçirdiği süreyi arka plan servisleriyle milisaniye düzeyinde loglamak, kesin rasyo verisi üretir. Bu durum yüksek yazılım geliştirme maliyeti, sistem kaynak tüketimi, veri güvenliği yükümlülüğü ve kullanıcı rızası bariyeri oluşturur.
+2. **Öz-bildirim maliyeti** Ankete dayalı geri toplama süreci maliyetleri minimize eder ancak insanın kendini değerlendirme konusundaki subjektif yanlılıkları, zamanı algılama hataları ve sosyal beğenilirlik kaygıları sebebiyle verinin güvenilirlik katsayısını düşürür.
 
 ## analiz kasalım...
-İşletmeler açısından hizmet kalitesi, tüketici beklentisinin yönetilmesiyle doğrudan bağlantılıdır, salt operasyonel çıktının kalitesi ile değil. Hizmet işletmelerinin pazarlama iletişiminde aşırı vaatlerde bulunması, müşterinin zihnindeki beklenti eşiğini yükseltir. Operasyonel performans ne kadar yüksek olursa olsun algının beklentinin altında kalması ($A < B$) neticesinde hizmet kalitesi skoru negatife düşer. Algının beklentiyi aşması ($A > B$) tüketici nezdinde geçici bir memnuniyet üretir; ancak işletme açısından ihtiyaç fazlası kaynak tahsisine ve maliyet artışına yol açarak uzun vadeli kârlılığı zedeler. Yönetsel optimizasyon, beklenti ile algının tam eşitlendiği ($A = B$) noktada gerçekleşir.
-
+**İşletmeler açısından hizmet kalitesi, tüketici beklentisinin yönetilmesiyle doğrudan bağlantılıdır**, salt operasyonel çıktının kalitesi ile değil. Hizmet işletmelerinin pazarlama iletişiminde aşırı vaatlerde bulunması, müşterinin zihnindeki beklenti eşiğini yükseltir. Operasyonel performans ne kadar yüksek olursa olsun algının beklentinin altında kalması ($A < B$) neticesinde hizmet kalitesi skoru negatife düşer. Algının beklentiyi aşması ($A > B$) tüketici nezdinde geçici bir memnuniyet üretir; ancak işletme açısından ihtiyaç fazlası kaynak tahsisine ve maliyet artışına yol açarak uzun vadeli kârlılığı zedeler. Yönetsel optimizasyon, beklenti ile algının tam eşitlendiği ($A = B$) noktada gerçekleşir.
 
 
 ---
@@ -179,3 +185,19 @@ flowchart LR
     HizmetKusuru --> DuzelticiFaaliyet["Operasyonel İyileştirme / Beklenti Yönetimi"]
     AsiriMaliyet --> MaliyetRevizyonu["Kaynak Optimizasyonu"]
 ```
+
+### DeLone ve McLean Bilgi Sistemleri Başarı Modeli
+
+**DeLone ve McLean Bilgi Sistemleri Başarı Modeli**, bir bilgi sisteminin başarısını yalnızca teknik performansıyla değil, sistemin kalitesi, kullanımı, kullanıcı memnuniyeti ve sağladığı faydalar üzerinden bütüncül biçimde değerlendiren kuramsal modeldir.
+
+Modelin temel bileşenleri:
+
+- **Sistem Kalitesi:** Yazılımın hızı, güvenilirliği ve kullanım kolaylığı.
+- **Bilgi Kalitesi:** Sistemin ürettiği bilgilerin doğruluğu, güncelliği ve yeterliliği.
+- **Hizmet Kalitesi:** Kullanıcılara sağlanan teknik destek ve hizmetlerin niteliği.
+- **Kullanım ve Kullanıcı Memnuniyeti:** Sistemin fiilen kullanılması ve kullanıcıların deneyimlerinden duyduğu memnuniyet.
+- **Net Fayda:** Sistemin bireylere veya kuruma sağladığı toplam yarar.
+
+**Örnek:** Bir üniversitenin öğrenci bilgi sistemini; yazılımın hızı, not bilgilerinin doğruluğu, teknik destek kalitesi, kullanım oranları ve öğrenci memnuniyeti üzerinden değerlendirmesi.
+
+**Temel Ayrım:** Teknoloji Kabul Modeli, teknolojinin neden benimsendiğini; Görev-Teknoloji Uyumu, teknolojinin işe uygunluğunu; **DeLone ve McLean Modeli ise bilgi sisteminin ne kadar başarılı olduğunu** inceler.

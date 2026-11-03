@@ -9,7 +9,7 @@ created: 2026-09-15
 
 ## Kavramsal Çerçeve
 
-**Bilgi**; insanın bilişsel yetileri, deneyimleri ve algıları aracılığıyla olgular ve gerçeklikler dünyasıyla kurduğu bağ üzerinden üretile, doğrulanabilir ve işlenebilir zihinsel çıktıdır. 
+**Bilgi**; insanın bilişsel yetileri, deneyimleri ve algıları aracılığıyla olgular ve gerçeklikler dünyasıyla kurduğu bağ üzerinden üretilen, doğrulanabilir ve işlenebilir zihinsel çıktıdır. 
 
 İnsan, doğadaki olayları sebep-sonuç ilişkileri bağlamında (deterministik biçimde) anlamlandırma yeteneğine sahiptir. Söz gelimi, New York caddelerinde trafik ışıklarının ritmini takip ederek araçların tekerlekleri vasıtasıyla sert ceviz kabuklarını kıran kargaların davranışı veya Pavlov deneyindeki koşullanmış refleksler biyolojik uyum mekanizmalarıdır. İnsan bilgisi ise kavramsal soyutlama, mantıksal çıkarsama ve kuramsal aktarım yetkinlikleriyle tanımlanır.
 
@@ -20,10 +20,19 @@ Gerçekliği kavrama ve bilgi üretme sürecinde başvurduğumuz meşru zeminler
 - **[[bilgi-kaynagi-otorite|Otorite]]**: Toplumsal, akademik veya kurumsal konumu gereği uzman kabul edilen kişi ve yapıların aktardığı referans bilgidir. Sınıf ortamında dersi yürüten öğretim üyesinin aktarımları da doğrudan bu bilgi kaynağını örnekler.
 - **[[bilgi-kaynagi-mantik|Mantık ve Akıl Yürütme]]**: Zihinsel çıkarsamalar, tümdengelim ve tümevarım yollarıyla ulaşılan tutarlı bilgi durumudur. Aristoteles'in 3 ilkesi gibi (mantığın çelişmezliği, mantığın özdeşliği, üçüncü hâlin imkânsızlığı) yahut yanan bir sobaya doğrudan temas ederek acı deneyimi yaşayan bir bireyi gözlemleyen ikinci bir kişinin, kendisi aynı teması gerçekleştirmeksizin akıl yürütme yoluyla sobanın yakıcı olduğu bilgisine ulaşması mantığın ve akıl yürütmenin bir tezahürüdür. 
 - **[[bilgi-kaynagi-duyular|Duyular ve Duygusal Sezgi]]**: Bireyin çevresel uyarıcıları görme, işitme, dokunma gibi algı kanallarıyla tecrübe etmesi neticesinde oluşan doğrudan [[ampirik]] çıktılardır.
-- [[Bilimsel Metot]]: Nesnel ölçüm araçları, sistematik deneyler ve kontrollü gözlemler yoluyla veri toplayarak inşa edilen yöntemli bilgi kaynağı.
+- **[[Bilimsel Metot]]**: Nesnel ölçüm araçları, sistematik deneyler ve kontrollü gözlemler yoluyla veri toplayarak inşa edilen yöntemli bilgi kaynağı.
+
+### Bilimsel Akıl Yürütme Biçimleri
+
+Bilimsel araştırmalarda akıl yürütme, önermeler ve gözlemler arasında mantıksal bağlantılar kurularak bilgi üretilmesi sürecidir. Üç temel biçimde incelenir:
+
+- **Tümdengelim (Dedüksiyon):** Genel bir ilke veya kuramdan hareketle özel bir durum hakkında sonuç çıkarılmasıdır. *Genelden özele ilerler.* Örneğin bütün metallerin ısıyla genleştiği bilgisinden hareketle demirin de genleşeceği sonucuna ulaşılması.
+- **Tümevarım (Endüksiyon):** Tekil gözlemlerden hareketle genel bir örüntü veya kuram oluşturulmasıdır. *Özelden genele ilerler.* Örneğin farklı sunucularda yüksek işlemci kullanımının sistem yavaşlamasıyla birlikte gözlemlenmesi sonucunda genel bir ilişki önerilmesi.
+- **Abdüksiyon (En İyi Açıklamaya Çıkarım):** Gözlemlenen bir olguyu açıklayabilecek en makul hipotezin geliştirilmesidir. *Gözlemden olası açıklamaya ilerler.* Örneğin sunucu loglarında anormal trafik artışı gözlemleyen araştırmacının bu durumu açıklamak üzere bir siber saldırı ihtimalini öne sürmesi.
+
+**Temel Ayrım:** Tümdengelim genel ilkeden özel sonuca, tümevarım özel gözlemlerden genel sonuca, abdüksiyon ise gözlenen durumdan en olası açıklamaya ulaşır. Abdüksiyonla elde edilen açıklama kesin kanıt değil, sınanması gereken bir hipotezdir.
 
 ### Bilim ve Bilimsel Araştırma
-
 Bilim; evrendeki olguları, tekrarlanan doğa durumlarını ve toplumsal süreçleri metodolojik araçlarla, başka bir ifadeyle **uygun bir şablonla** inceleyen sistematik ve kurallı bir bilgi kümesidir. Günlük hayattaki sıradan bir arayış (söz gelimi; kiralık ev bulma süreci) ile bilimsel araştırmayı birbirinden ayıran temel nitelikler; araştırma deseninin evrensel standartlara bağlılığı (**evrensellik**), elde edilen bilginin **[[genel-geçerlik]]** taşıması, yöntemlerin **[[Tekrarlanabilirlik]]** barındırması ve iddiaların **[[Sınanabilirlik]]** niteliğine sahip olmasıdır. Söz gelimi, *suyun deniz seviyesinde 100 santigrat derecede kaynadığı* önermesini ele alalım. İşbu önerme; kullanılan ısı kaynağı, termometre ve kontrollü ortam koşullarıyla her bağımsız gözlemci tarafından veriyle doğrulanabilir bir bilimsel gerçekliktir. Buna mukabil, doğrulanabilir [[ampirik]] veri barındırmayan kişisel anlatılar (*Tek boynuzlu at gördüm iddiası gibi*), subjektif algı alanında kalarak bilimsel bilgi vasfı kazanamaz.
 
 ### [[ispat yükü|İspat Yükü]] (Burden of Proof)
@@ -31,13 +40,12 @@ Epistemolojide ve araştırma metodolojisinde ispat yükü; bir olguya, ilişkiy
 
 
 ## [[Hipotez]]
-
 **Araştırılan bir probleme, henüz açıklanmamış bir doğa durumuna veya değişkenler arasındaki ilişkilere getirilen, doğrulanmaya ya da yanlışlanmaya açık, ampirik olarak test edilebilir geçici kuramsal önermelerdir**. İnsan zihni belirsizlik durumlarını anlamlandırma eğilimindedir. Doğa olaylarının arkasındaki fiziksel dinamiklerin bilinmediği çağlarda şimşek çarpması olayının doğrudan "Zeus'un gazabı" olarak açıklanması veya mağaradaki gaz sızıntılarının doğaüstü varlıklara atfedilmesi, zihnin boşlukları kapatma refleksiyle kurduğu ilkel modellerdir. Modern bilimsel araştırmada ise, söz gelimi bir sınıftaki öğrencilerin yaş ortalamasına ilişkin öne sürülen belirli bir sayısal değer, anket ve kayıt analizleriyle test edilecek bir hipotez teşkil eder. Hipotezler araştırma sürecinde toplanan verilerin analizi neticesinde kabul edilir veya reddedilir.
 
 
 ### [[Teori]] (Kuram)
 
-Evrene, doğaya veya toplumsal süreçlere değgin **bağımsız olguları, kanıtlanmış hipotezleri ve matematiksel kanunları birbirine bağlayan, kapsamı en geniş, en güçlü açıklama çerçevesidir**. *İzafiyet Teorisi*, *Evrim Teorisi* veya yer çekimine ilişkin kuramsal sistemler doğadaki karmaşık mekanizmaların **"neden" ve "nasıl" işlediğini açıklar**. Teori, sistemin kuramsal omurgasını meydana getirir. **İçerisinde test edilmiş olguları, formüle edilmiş yasaları ve doğrulanmış hipotezleri barındırır**. Deney koşullarının farklılaşması veya yeni değişkenlerin dahil olması durumunda teoriler revize edilebilir, yeni parametrelerle genişletilebilir.
+Evrene, doğaya veya toplumsal süreçlere dair **bağımsız olguları, kanıtlanmış hipotezleri ve matematiksel kanunları birbirine bağlayan, kapsamı en geniş, en güçlü açıklama çerçevesidir**. *İzafiyet Teorisi*, *Evrim Teorisi* veya yer çekimine ilişkin kuramsal sistemler doğadaki karmaşık mekanizmaların **"neden" ve "nasıl" işlediğini açıklar**. Teori, sistemin kuramsal omurgasını meydana getirir. **İçerisinde test edilmiş olguları, formüle edilmiş yasaları ve doğrulanmış hipotezleri barındırır**. Deney koşullarının farklılaşması veya yeni değişkenlerin dahil olması durumunda teoriler revize edilebilir, yeni parametrelerle genişletilebilir.
 
 ### [[Kanun]] (Yasa)
 
@@ -58,7 +66,7 @@ Bilimsel araştırmalar, araştırmacının kişisel anlatım tercihlerinden ba�
 
 ### Bilişim Odaklı Araştırma Yöntemlerinin Ayırt Edici Yönü
 
-Bilişim ve teknoloji alanında yürütülen araştırmalar temel bilimsel yöntem mantığını aynen muhafaza etmekle birlikte; veri toplama safhasında dijital izleme, sensör kayıtları, log analizleri ve büyük veri madenciliği kullanımıyla, veri analizi safhasında ise yapay sinir ağları, bulanık mantık ve makine öğrenmesi algoritmalarıyla klasik yöntemlerden farklılaşır.
+Bilişim ve teknoloji alanında yürütülen araştırmalar temel bilimsel yöntem mantığını aynen muhafaza etmekle birlikte veri toplama safhasında dijital izleme, sensör kayıtları, log analizleri ve büyük veri madenciliği gibi bilişim teknolojilerinin kullanımıyla; veri analizi safhasında ise yapay sinir ağları, bulanık mantık ve makine öğrenmesi algoritmalarıyla klasik yöntemlerden farklılaşır.
 
 ### Bilimsel Kavramlar Arasındaki Yapısal İlişkiler
 

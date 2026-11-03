@@ -12,7 +12,7 @@ draft: false
 ## [[Hipotez]] (Denence) Üzerine
 Araştırma problemini çözüme kavuşturmak amacıyla öne sürülen, henüz doğrulanmamış fakat ampirik verilerle test edilmeye açık olan geçici çözüm önerisidir. 
 
-**Bilimsel bir hipotez kesin bir yargı bildiren bildirim kipiyle kurulur**. İçerisinde sınanabilir bir ilişki, fark veya etki barındırır
+**Bilimsel bir hipotez kesin bir yargı bildiren bildirim kipiyle kurulur**. İçerisinde sınanabilir bir ilişki, fark veya etki barındırır.
 
 #### Örnek: Turizm İşletmelerinde Temizlik Algısı
 Bir turizm işletmesinde veya otelde kalan misafirlerin ortak alanlardaki temizlik algısı araştırma konusu yapıldığında hipotez şu şekilde formüle edilir:
@@ -23,7 +23,6 @@ H_1 = \mu_{\text{kadın}} > \mu_{\text{erkek}}
 $$
 
 Bu formülasyon, "*Kadın müşterilerin otel temizlik algısı puan ortalaması, erkek müşterilerin puan ortalamasından anlamlı düzeyde yüksektir.*" önermesine tekabül eder. Araştırmacı, bu iddiayı anket yoluyla topladığı veriler üzerinden parametrik veya non-parametrik hipotez testleriyle sınar.
-
 
 #### Örnek: Sivil Havacılık Eğitiminde Sanal Gerçeklik
 Sivil havacılık eğitiminde sanal gerçeklik ve oyunlaştırma teknolojilerinin öğrenci tutumlarına etkisini inceleyen bir tez çalışmasında araştırmacı şu hipotezi kurar:
@@ -47,14 +46,14 @@ flowchart TD
 
 
 ### **Boş Hipotez** (Null Hipotezi / Farksızlık Hipotezi $H_0$)
-[[Boş Hipotez]]; incelenen değişkenler, gruplar veya popülasyon parametreleri arasında istatistiksel açıdan anlamlı bir farkın, etkinin veya ilişkinin bulunmadığını bildiren ön tanımlı (default) durumdur. Hukuktaki *[[masumiyet karinesi|masumiyet karinesi]]* ilkesiyle doğrudan örtüşür; **aksi ampirik verilerle ispat edilene kadar değişkenler arasında fark yahut ilişki olmadığı kabul edilir**. 
+[[Boş Hipotez]]; incelenen değişkenler, gruplar veya popülasyon parametreleri arasında istatistiksel açıdan anlamlı bir farkın, etkinin veya ilişkinin bulunmadığını bildiren ön tanımlı (default) durumdur. Hukuktaki *[[masumiyet karinesi|masumiyet karinesi]]* ilkesiyle doğrudan örtüşür; **aksi ampirik verilerle ispat edilene kadar değişkenler arasında fark yahut ilişki olmadığı kabul edilir**.
 
 $H_0$ sembolüyle gösterilir. **Araştırmanın amacı boş hipotezi doğrulamak değil, toplanan verilerle çürütmeye çalışmaktır**. Veriler, $H_0$ doğruymuş gibi beklenecek sonuçlardan anlamlı biçimde sapıyorsa $H_0$ reddedilir; sapma yoksa $H_0$ reddedilemez. $H_0$'ın reddedilememesi onun doğru olduğunu kanıtlamaz, yalnızca elde yeterli kanıt bulunmadığını gösterir.
 
 ### **Alternatif Hipotez** (Araştırma Hipotezi - $H_1$)
 [[Alternatif hipotez]]; araştırmacının kurumsal temellere dayanarak gerçekleşmesini beklediği, değişkenler arasında anlamlı bir farkın veya nedensel etkinin var olduğunu bildiren temel araştırma savıdır.
 
-Boş hipotezin antisi zıddı olan kuramsal beklentiyi yansıtır. Tek yönlü alternatif hipotezler etkinin yönünü (büyüktür, küçüktür, pozitif yönde etkiler) açıkça ilan ederken, çift yönlü alternatif hipotezler yön belirtmeksizin gruplar arasında anlamlı bir farkın varlığına odaklanır.
+Boş hipotezin zıddı olan kuramsal beklentiyi yansıtır. Tek yönlü alternatif hipotezler etkinin yönünü (büyüktür, küçüktür, pozitif yönde etkiler) açıkça ilan ederken, çift yönlü alternatif hipotezler yön belirtmeksizin gruplar arasında anlamlı bir farkın varlığına odaklanır.
 
 ### Literatür Taraması (Yazın Taraması)
 Literatür taraması; seçilen araştırma problemi etrafında üretilmiş kuramsal ve ampirik çalışmaların (tezler, kitaplar, hakemli makaleler, konferans bildirileri, proje raporları) sistematik olarak taranması, sentezlenmesi ve mevcut bilgi birikiminin ortaya konulması sürecidir. 
@@ -62,7 +61,33 @@ Literatür taraması; seçilen araştırma problemi etrafında üretilmiş kuram
 * **Araştırma Boşluğu ([[Research Gap]]):** Literatürdeki kuramsal, yöntemsel veya bağlamsal eksikliklerin teşhis edilmesidir. Bilimsel bir araştırmanın gerekçesi ve özgün değeri, literatürde saptanan bu boşluğun doldurulması esasına dayanır.
 * **Kartopu Tekniği ([[Snowballing]])**: İlgili alanda tespit edilen nitelikli ve öncü bir bilimsel kaynağın kaynakçasında yer alan referansların adım adım incelenerek diğer ilgili temel yayınlara ulaşılması ve literatür hacminin bu yolla genişletilmesi yöntemi.
 
+### Araştırma Boşluklarının Sınıflandırılması (Research Gap Taxonomy)
 
+**Araştırma boşluğu (Research Gap)**, mevcut bilimsel literatürde henüz yeterince açıklanmamış, ampirik verilerle incelenmemiş, farklı yöntemlerle sınanmamış veya belirli bağlamlarda araştırılmamış bilgi eksikliklerini ifade eder. Literatür taraması yoluyla tespit edilen bu eksiklikler, araştırmanın **özgünlük gerekçesini** oluşturur.
+
+Araştırma boşlukları, eksikliğin hangi boyutta bulunduğuna göre beş temel kategoride değerlendirilir:
+
+| Boşluk Türü                                     | Kavramsal Tanımı                                                                                                                                         | Örnek                                                                                                               |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **Kuramsal Boşluk (Theoretical Gap)**           | Bir olgunun belirli bir kuram çerçevesinde henüz açıklanmamış veya mevcut kuramsal ilişkilerin sınanmamış olmasıdır.                                     | Üretken yapay zekâya güvenin, Teknoloji Kabul Modeli çerçevesinde henüz araştırılmamış olması.                      |
+| **Ampirik Boşluk (Empirical Gap)**              | Belirli bir iddiayı destekleyecek veya yanlışlayacak yeterli gözlemsel, deneysel veya ölçümsel verinin bulunmamasıdır.                                   | Yapay zekâ destekli kodlama araçlarının çalışan verimliliğine etkisini gösteren yeterli saha verisinin bulunmaması. |
+| **Yöntemsel Boşluk (Methodological Gap)**       | Bir araştırma probleminin belirli yöntemlerle incelenmiş olmasına rağmen alternatif yöntemlerle henüz değerlendirilmemiş olmasıdır.                      | Çalışan verimliliğinin yalnızca anketlerle araştırılmış, kontrollü deneylerle incelenmemiş olması.                  |
+| **Bağlamsal Boşluk (Contextual Gap)**           | Bir olgunun belirli ülkelerde, sektörlerde, kurumlarda veya topluluklarda araştırılmış olmasına rağmen başka bağlamlarda henüz incelenmemiş olmasıdır.   | Yapay zekânın hastanelerdeki etkisinin Avrupa'da incelenmiş, Türkiye'deki kamu hastanelerinde incelenmemiş olması.  |
+| **Çelişkili Bulgular (Contradictory Findings)** | Aynı araştırma problemi üzerine yürütülen bilimsel çalışmaların birbiriyle uyuşmayan sonuçlara ulaşması ve bu farklılığın henüz açıklanamamış olmasıdır. | Bir araştırmanın uzaktan çalışmanın verimliliği artırdığını, diğerinin ise azalttığını ortaya koyması.              |
+
+#### Araştırma Boşluklarının Ayırt Edilmesi
+
+Bu kategorilerin tasnifinde temel ölçüt, **mevcut literatürde neyin eksik veya belirsiz olduğudur**:
+
+- **Kuramsal:** Hangi teori veya kuramsal açıklama eksik?
+- **Ampirik:** Hangi konuda yeterli gözlemsel veya deneysel veri bulunmuyor?
+- **Yöntemsel:** Hangi araştırma yöntemi henüz uygulanmamış?
+- **Bağlamsal:** Hangi ülke, sektör, kurum veya topluluk henüz incelenmemiş?
+- **Çelişkili Bulgular:** Hangi bilimsel sonuçlar birbiriyle uyuşmuyor?
+
+**Örnek - Hastanelerde Yapay Zekâ Kullanımı:** Yapay zekâ destekli teşhis sistemlerinin başka ülkelerde araştırılmış olmasına rağmen Türkiye'deki kamu hastanelerinde henüz incelenmemesi, *bağlamsal boşluk* niteliğindedir. Çünkü eksiklik araştırma yönteminden veya veri toplama tekniğinden değil, çalışmanın gerçekleştirildiği coğrafi ve kurumsal bağlamdan kaynaklanmaktadır.
+
+**Önemli Ayrım:** Aynı araştırma birden fazla boşluğu hedefleyebilir. Örneğin bir kuramın Türkiye'de hiç sınanmamış olması hem kuramsal hem de bağlamsal bir eksiklik içerebilir. Sınıflandırmada araştırmanın hangi eksikliği gidermeye odaklandığı esas alınır.
 ### Hipotez İnşa Kuralları
 
 1. **Yargı Bildirme İlkesi:** **Hipotezler soru cümleleri yerine kesin bildirim kipleriyle formüle edilir.**
@@ -73,7 +98,7 @@ Literatür taraması; seçilen araştırma problemi etrafında üretilmiş kuram
 Modern bilişim ve veri odaklı araştırma ortamlarında hipotez kurgusu her nicel model için geçerli bir zorunluluk teşkil etmez:
 
 - **Birliktelik Kural Madenciliği (Association Rule Mining)**: Veri madenciliği algoritmalarının veri setine doğrudan uygulanarak önceden tanımlanmış bir kuramsal iddia veya bağımlı-bağımsız değişken modeli olmaksızın gizli örüntülerin ve kuralların algoritma tarafından keşfedildiği desenlerde hipotez yer almaz. Bkz. [[veri-madenciligi-7#1. Birliktelik Kuralları ve Apriori Felsefesi|Birliktelik Kuralları ve Apriori Algoritması, Veri Madenciliği]]
-* **Keşifçi Nitel Desenler:** Belirli bir kuramı ampirik olarak test etmek yerine, derinlemesine mülakat ve odak grup görüşmeleriyle sahadan yeni kavram ve kuram üretmeyi amaçlayan nitel desenlerde önsel hipotezler yerine keşifçi araştırma soruları merkeze alınır.
+* **Keşifçi Nitel Desenler:** Belirli bir kuramı ampirik olarak test etmek yerine, derinlemesine mülakat ve odak grup görüşmeleriyle sahadan yeni kavram ve kuram üretmeyi amaçlayan nitel desenlerde önsel (apriori) hipotezler yerine keşifçi araştırma soruları merkeze alınır.
 
 
 ### Literatür Taramasının Araştırma Sürecindeki Konumu
@@ -95,8 +120,6 @@ flowchart TD
 
 * **Yöntemsel Rehberlik:** Önceki araştırmacıların kullandığı ölçeklerin, anket sorularının, veri analizi yöntemlerinin tespit edilmesini sağlar.
 * **Bulguların Tartışılması:** Araştırma sonucunda elde edilen veriler doğrudan literatürdeki çalışmalarla kıyaslanır; örtüşen ve ayrışan yönler kuramsal zeminde açıklanır.
-
-
 
 ### Akademik İndeks Hiyerarşisi ve Bilimsel Ürün Türleri
 Bilimsel araştırmalar sonucunda beş temel ürün ortaya çıkar: [[Tez]], [[Kitap]], [[Makale]], [[Bildiri]] ve [[Poster]]. Makalelerin bilimsel geçerliliği ve etki gücü, tarandıkları indekslerin niteliğiyle ölçülür.

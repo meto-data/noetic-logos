@@ -30,14 +30,14 @@ flowchart LR
 
 ### Problem Tanımı ve Araştırma Sorusu
 
-[[problem|Problem]], bilimsel bir merakın veya kuramsal bir boşluğun araştırma lisanıyla ifade edilmesidir. Bu basamakta araştırmacı, net ve [[ampirik]] olarak incelenebilir *araştırma sorusu* cümleleri inşa eder. **Araştırma soruları, amaç ile hipotezler arasındaki metodolojik köprüyü oluşturur. **
+[[problem|Problem]], bilimsel bir merakın veya kuramsal bir boşluğun araştırma lisanıyla ifade edilmesidir. Bu basamakta araştırmacı, net ve [[ampirik]] olarak incelenebilir *araştırma sorusu* cümleleri inşa eder. **Araştırma soruları, amaç ile hipotezler arasındaki metodolojik köprüyü oluşturur.**
 
 ### Hipotez (Denence)
 [[Hipotez]], araştırma problemine yönelik öne sürülen, doğrulanması veya yanlışlanması amacıyla [[ampirik]] teste tâbi tutulan geçici çözüm önerisidir. **Hipotezler her zaman kesin yargı bildiren önerme cümleleri biçiminde kurulur.**
 
 Hipotezi bir başka biçimde tanımlarsak; **iki veya daha fazla değişken arasında nedensel ya da ilişkisel bir bağ öngören, test edilmeye açık geçici bir açıklama** deriz.
 
-- *Yerkabuğu neden sarsılmaktadır?* sorusuna karşılık üretilen "*Dünya bir öküzün boynuzları üzerindedir ve öküz başını hareket ettirdikçe deprem meydana gelir*" iddiası yapısal olarak bir hipotezdir. Saçma veya bilim dışı olması onun hiptez formatında kurulduğu gerçeğini hâlâ muhafaza eder; araştırmacı bu iddiayı ampirik test sürecine sokarak sonucunu ortaya koyar. Benzer şekilde iktisadi modellemelerde "*Fiyat yükseldikçe talep düşer*" veya "*Eğitim seviyesi yükseldikçe hata oranı azalır*" ifadeleri de doğrudan test edilebilir birer hipotezdir.
+- *Yerkabuğu neden sarsılmaktadır?* sorusuna karşılık üretilen "*Dünya bir öküzün boynuzları üzerindedir ve öküz başını hareket ettirdikçe deprem meydana gelir*" iddiası **yapısal olarak** bir hipotez gibidir. Saçma veya bilim dışı olması onun hipotez formatında kurulduğu gerçeğini hâlâ muhafaza eder; araştırmacı bu iddiayı ampirik test sürecine sokarak sonucunu ortaya koyar. Benzer şekilde iktisadi modellemelerde "*Fiyat yükseldikçe talep düşer*" veya "*Eğitim seviyesi yükseldikçe hata oranı azalır*" ifadeleri de doğrudan test edilebilir birer hipotezdir.
 
 
 ### Yöntem ve Teknik Ayrımı
@@ -69,7 +69,7 @@ $$
 İşbu formülasyonda, tahmin edilmek istenen "Talep" bağımlı değişken; talebi şekillendiren "Fiyat", "Rakip Ürün Fiyatı", "Enflasyon" ve "Satın Alma Gücü" bağımsız değişkenlerdir. $\beta_0$ sabit katsayıyı, $\alpha$ değerleri değişkenlerin eğim ve duyarlılık katsayılarını, $\epsilon$ ise modelin hata payını temsil eder.
 
 #### Kesikli Değişken ve Sürekli Değişken
-Belirli bir sayısal aralıkta sadece tam ve sınırlı değerler alabilen değişkenler **[[kesikli değişken|kesiklidir]]** (bir ailedeki çocuk sayısı gibi). Belirli iki değer aralığındaki tüm reel sayıları, kesirli değerleri alabilen değişkenler **[[sürekli değişken|süreklidir]]** (marketten alınan unun 1kg 927 gram gelmesi gibi ağırlık ölçümleri).
+Belirli bir sayısal aralıkta sadece tam ve sınırlı değerler alabilen değişkenler **[[kesikli değişken|kesiklidir]]** (bir ailedeki çocuk sayısı gibi). Belirli iki değer aralığındaki tüm reel sayıları, kesirli değerleri alabilen değişkenler **[[sürekli değişken|süreklidir]]** (marketten alınan unun 1927,5 gram gelmesi gibi ağırlık ölçümleri).
 
 ### Teori (Kuram)
 
@@ -128,11 +128,24 @@ flowchart TB
 - **[[inferential-research|Çıkarımsal Araştırmalar]]**: Mevcut verilerden yola çıkarak değişkenler arası örüntüler yakalayan, geleceğe dönük genellemeler ve tahminler üreten araştırmalardır. (Örn. Brexit sürecinde seçmenlerin yaşı arttıkça ayrılıkçı oyların arttığını saptamak veya öğrencilerin matematik notlarından genel başarılarını kestirmek).
 - **Nitel ve Nicel Araştırmalar**: *Nitel Araştırma*, küçük örneklemlerle çalışan, metin analizi, içerik analizi, duygu analizi gibi metin madenciliği tekniklerini kullanan desendir. *Nicel Araştırma*, büyük örneklemlerle yürütülen, istatistiksel farklılık testleri, korelasyon ve regresyon gibi matematiksel teknikleri içeren desendir.
 
+### Karma Yöntem Araştırmaları ve Desenleri
+
+**Karma Yöntem (Mixed Methods)**, nicel ve nitel araştırma yaklaşımlarının aynı bilimsel çalışmada bütünleştirilmesidir. Sayısal bulguların genellenebilirliği ile nitel bulguların açıklayıcı derinliğinden birlikte yararlanmayı amaçlar.
+
+Verilerin toplanma sırasına ve yöntemlerin birbirleriyle ilişkisine göre dört temel desene ayrılır:
+
+- **Açıklayıcı Sıralı Desen (Explanatory Sequential):** Önce nicel veriler toplanır, ardından elde edilen sayısal bulguları açıklamak amacıyla nitel veriler kullanılır. Örneğin önce öğrencilere anket uygulanması, ardından beklenmedik sonuçların görüşmelerle açıklanması.
+- **Keşfedici Sıralı Desen (Exploratory Sequential):** Önce nitel verilerle olgu keşfedilir, ardından elde edilen bulgular nicel yöntemlerle sınanır. Örneğin öğrenci görüşmelerinden hareketle bir ölçek geliştirilmesi ve bu ölçeğin geniş bir örneklemde uygulanması.
+- **Eşzamanlı Yakınsayan Desen (Convergent):** Nicel ve nitel verilerin aynı dönemde toplanması, ayrı ayrı analiz edilmesi ve sonuçların karşılaştırılarak birlikte yorumlanmasıdır. Örneğin öğrencilere aynı dönemde anket ve görüşme uygulanarak sonuçların birbirini destekleyip desteklemediğinin incelenmesi.
+- **Gömülü Desen (Embedded):** Yöntemlerden birinin araştırmanın temel yaklaşımı, diğerinin ise destekleyici unsur olarak kullanılmasıdır. Örneğin deneysel bir araştırmada nicel performans ölçümlerinin kısa görüşmelerle desteklenmesi.
+
+**Temel Ayrım:** Açıklayıcı sıralı desende *nicel → nitel*, keşfedici sıralı desende *nitel → nicel*, eşzamanlı desende *nicel + nitel* birlikte yürütülür. Gömülü desende ise yöntemlerden biri baskın, diğeri destekleyicidir.
+
 ### Bilim Felsefesi Paradigmaları: Pozitivizm ve Yorumlayıcılık
 Geçmişte felsefe, tıp ve ilahiyat sacayağında yürütülülen entelektüel arayışlar 18 ve 19. yüzyıllarda ayrılarak pozitif ve beşerî bilimler ekseninde kurumsallaşmıştır:
 
 - **[[Pozitivizm]]**: Doğa bilimlerinin yöntemlerini toplumsal alana tatbik eder. İnsan davranışları da dâhil tüm gerçekliklerin nesnel olduğunu, matematiksel formüllerle ifade edilebileceğini ve rasyonel kalıplara dökülebileceğini kabul eder. İktisattaki «homo economicus» (her adımında sadece maddî çıkarını maksimize eden insan) modeli bu pozitivist anlayıştan peydah olmuştur.
-- **[[Yorumlayıcılık]]**: Sosyal olayların doğa bilimlerindeki gibi mekanik formüllerle izah edilemeyeceğini savunur. İnsan davranışları genellenemez, karmaşık ve bağlamsaldır. Bu durum Herbert Simon'ın «**[[Sınırlı Rasyonellik]]**» (Bounded Rationality) kuramıyla açıklanır: bireyler mutlak rasyonel kararlar alamaz, sınırlı rasyonel çerçevede hareket eder.
+- **[[Yorumlayıcılık]]**: Sosyal olayların doğa bilimlerindeki gibi mekanik formüllerle izah edilemeyeceğini savunur. İnsan davranışları genellenemez, karmaşık ve bağlamsaldır. Bu durum Herbert Simon'ın «**[[sınırlı rasyonellik]]**» (Bounded Rationality) kuramıyla açıklanır: bireyler mutlak rasyonel kararlar alamaz, sınırlı rasyonel çerçevede hareket eder.
 
 ---
 
@@ -169,8 +182,8 @@ flowchart TD
 ```
 
 ### Süreğen Bileşenler: Literatür Taraması ve Yöntemsel Tercihler
-[[Literatür Taraması]] (Yazın Taraması) ve **Yöntem-Teknik Belirleme** araştırmanın tek bir safhasında yapılıp sonlandırılan işlemlerden bağımsızdır. Tüm adımlarda döngüsel olarak icra edilir:
-1. **Problem Aşamasında Literatür:** Literatürdeki kuramsal boşlukları (**Research Gap**) yakalamak ve çalışılmış konuları mükerrer şekilde ele almaktan kaçınmak için taranır.
+[[ders-4#Literatür Taraması (Yazın Taraması)|Literatür Taraması]] (Yazın Taraması) ve **Yöntem-Teknik Belirleme** araştırmanın tek bir safhasında yapılıp sonlandırılan işlemlerden bağımsızdır. Tüm adımlarda döngüsel olarak icra edilir:
+1. **Problem Aşamasında Literatür:** Literatürdeki kuramsal boşlukları (**[[Research Gap]]**) yakalamak ve çalışılmış konuları mükerrer şekilde ele almaktan kaçınmak için taranır.
 2. **Tasarım Aşamasında Literatür:** Geçerliliği ve güvenilirliği kanıtlanmış ölçekleri devralmak ve araştırma modelini kuramsal tabana oturtmak için taranır.
 3. **Veri Analizi Aşamasında Literatür:** Eldeki veri tipine en uygun analitik ve istatistiksel testleri tayin etmek için taranır.
 4. **Çıktı Aşamasında Literatür:** Elde edilen bulguları mevcut yazınla karşılaştırmak ve tartışmak amacıyla taranır. Her bilimsel ürün (tez, makale, konferans bildirisi) YÖK Tez Merkezi ve indeksli veri tabanları aracılığıyla literatüre geri dönerek yeni araştırmacılara girdi sağlar.

@@ -48,10 +48,10 @@ created: 2026-09-23
 ```mermaid
 graph TD
     AppRules[Application Development Rules]
-    AppRules --> R1["1 - Data: Stored in Relational Database"]
-    AppRules --> R2["2 - Commerce: Buyable on the Internet"]
-    AppRules --> R3["3 - Hardware: Works without Extra Peripherals"]
-    AppRules --> R4["4 - Connectivity: Works with or without Network Connection"]
+    AppRules --> R1["1. Data: Stored in Relational Database"]
+    AppRules --> R2["2. Commerce: Buyable on the Internet"]
+    AppRules --> R3["3. Hardware: Works without Extra Peripherals"]
+    AppRules --> R4["4. Connectivity: Works with or without Network Connection"]
 ```
 
 ---

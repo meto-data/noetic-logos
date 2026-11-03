@@ -28,7 +28,7 @@ flowchart TB
     %% ==========================================
     %% 1. MERKEZİ SİSTEM KATMANI
     %% ==========================================
-    subgraph HostSystem["1 - Karar ve Yönetim Katmanı (Host System)"]
+    subgraph HostSystem["1. Karar ve Yönetim Katmanı (Host System)"]
         DB[("Merkezi Veritabanı\n- Kart UID Listesi\n- Geçiş Yetkileri\n- Bakiye Bilgisi")]
         Middleware["Uygulama Yazılımı / Middleware\n(Turnike Yazılımı, Geçiş Kontrol, ERP)"]
         Actuator["Fiziksel Eyleyici - Aktüatör\n(Turnike Rölesi, Manyetik Kilit, Buzzer)"]
@@ -40,7 +40,7 @@ flowchart TB
     %% ==========================================
     %% 2. OKUYUCU KATMANI
     %% ==========================================
-    subgraph Reader["2 - RFID Okuyucu Donanımı (Interrogator)"]
+    subgraph Reader["2. RFID Okuyucu Donanımı (Interrogator)"]
         HostComm["Haberleşme Modülü\n(Wiegand / RS-485 / TCP-IP / USB)"]
         DSP["Mikrodenetleyici ve DSP\n- Protokol Çözücü: ISO 14443 / EPC Gen2\n- Çakışma Önleme: Anti-Collision"]
         Oscillator["RF Osilatör ve Güç Güçlendirici\n(Sürekli Taşıyıcı Sinyal Üretici)"]
@@ -57,7 +57,7 @@ flowchart TB
     %% ==========================================
     %% 3. HAVA ARAYÜZÜ (KABLOSUZ ALAN)
     %% ==========================================
-    subgraph AirInterface["3 - RF Hava Arayüzü"]
+    subgraph AirInterface["3. RF Hava Arayüzü"]
         Downlink["Taşıyıcı Dalga ve Enerji İletimi\n(Manyetik İndüksiyon / RF Işıma)"]
         Uplink["Geri Saçılma Modülasyonu - Backscatter\n(Kartın Yansıttığı Modüle Sinyal)"]
     end
@@ -65,7 +65,7 @@ flowchart TB
     %% ==========================================
     %% 4. RFID KARTI / ETİKET
     %% ==========================================
-    subgraph Tag["4 - RFID Etiketi veya Kartı (Transponder)"]
+    subgraph Tag["4. RFID Etiketi veya Kartı (Transponder)"]
         TagAntenna["Etiket Anteni\n(Bobin veya Baskı Devre Tel)"]
         PowerHarvesting["Güç Hasatlama Ünitesi\n(Diyot Doğrultucu ve Regülatör)"]
         ModulatorUnit["RF Modülatör\n(Empedans Değiştirici Transistör)"]
