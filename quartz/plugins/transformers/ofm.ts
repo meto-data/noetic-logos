@@ -218,6 +218,26 @@ function parseObsidianColumns(raw: string): ParsedColumn[] {
   return columns
 }
 
+export function sanitizeMermaidLabel(text: string): string {
+  return text
+    .replace(/(^|<br\s*\/?>|\n)(\s*)(\d+)\.\s+/gi, "$1$2$3.\u00A0")
+    .replace(/(^|<br\s*\/?>|\n)(\s*)(?:[-*+]|\u2022)\s+/gi, "$1$2•\u00A0")
+    .replace(/(^|<br\s*\/?>|\n)(\s*)#{1,6}\s+/gi, (_match, prefix, spaces) => `${prefix}${spaces}&#35;\u00A0`)
+    .replace(/(^|<br\s*\/?>|\n)(\s*)>\s+/gi, "$1$2&gt;\u00A0")
+}
+
+export function sanitizeMermaidSource(source: string): string {
+  let sanitized = source.replace(/"([^"\\]*(?:\\.[^"\\]*)*)"/g, (_match, inner) => {
+    return `"${sanitizeMermaidLabel(inner)}"`
+  })
+  sanitized = sanitized.replace(/'([^'\\]*(?:\\.[^'\\]*)*)'/g, (_match, inner) => {
+    return `'${sanitizeMermaidLabel(inner)}'`
+  })
+  sanitized = sanitized.replace(/(\[|\(|\{|\/|\|)(\s*)(\d+)\.\s+/g, "$1$2$3.\u00A0")
+  sanitized = sanitized.replace(/(\[|\(|\{|\/|\|)(\s*)[-*+]\s+/g, "$1$2•\u00A0")
+  return sanitized
+}
+
 export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
   const opts = { ...defaultOptions, ...userOpts }
 
@@ -647,6 +667,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
             visit(tree, "code", (node: Code) => {
               if (node.lang === "mermaid") {
                 file.data.hasMermaidDiagram = true
+                node.value = sanitizeMermaidSource(node.value)
                 node.data = {
                   hProperties: {
                     className: ["mermaid"],
@@ -809,7 +830,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                     tagName: "button",
                     properties: {
                       className: ["expand-button"],
-                      "aria-label": "Expand mermaid diagram",
+                      "aria-label": "Diyagramı tam ekran yap",
                       "data-view-component": true,
                     },
                     children: [
@@ -837,26 +858,6 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                     ],
                   },
                   node,
-                  {
-                    type: "element",
-                    tagName: "div",
-                    properties: { id: "mermaid-container", role: "dialog" },
-                    children: [
-                      {
-                        type: "element",
-                        tagName: "div",
-                        properties: { id: "mermaid-space" },
-                        children: [
-                          {
-                            type: "element",
-                            tagName: "div",
-                            properties: { className: ["mermaid-content"] },
-                            children: [],
-                          },
-                        ],
-                      },
-                    ],
-                  },
                 ]
               }
             })

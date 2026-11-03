@@ -11,6 +11,26 @@ interface Position {
   y: number
 }
 
+export function sanitizeMermaidLabel(text: string): string {
+  return text
+    .replace(/(^|<br\s*\/?>|\n)(\s*)(\d+)\.\s+/gi, "$1$2$3.\u00A0")
+    .replace(/(^|<br\s*\/?>|\n)(\s*)(?:[-*+]|\u2022)\s+/gi, "$1$2•\u00A0")
+    .replace(/(^|<br\s*\/?>|\n)(\s*)#{1,6}\s+/gi, (_match, prefix, spaces) => `${prefix}${spaces}&#35;\u00A0`)
+    .replace(/(^|<br\s*\/?>|\n)(\s*)>\s+/gi, "$1$2&gt;\u00A0")
+}
+
+export function sanitizeMermaidSource(source: string): string {
+  let sanitized = source.replace(/"([^"\\]*(?:\\.[^"\\]*)*)"/g, (_match, inner) => {
+    return `"${sanitizeMermaidLabel(inner)}"`
+  })
+  sanitized = sanitized.replace(/'([^'\\]*(?:\\.[^'\\]*)*)'/g, (_match, inner) => {
+    return `'${sanitizeMermaidLabel(inner)}'`
+  })
+  sanitized = sanitized.replace(/(\[|\(|\{|\/|\|)(\s*)(\d+)\.\s+/g, "$1$2$3.\u00A0")
+  sanitized = sanitized.replace(/(\[|\(|\{|\/|\|)(\s*)[-*+]\s+/g, "$1$2•\u00A0")
+  return sanitized
+}
+
 class DiagramPanZoom {
   private isDragging = false
   private pointers = new Map<number, Position>()
@@ -18,21 +38,22 @@ class DiagramPanZoom {
   private pinchStartScale = 1
   private pinchStartPan: Position = { x: 0, y: 0 }
   private pinchStartCenter: Position = { x: 0, y: 0 }
-  private controls?: HTMLElement
   private startPan: Position = { x: 0, y: 0 }
+  private startPointer: Position = { x: 0, y: 0 }
   private currentPan: Position = { x: 0, y: 0 }
   private scale = 1
-  private readonly MIN_SCALE = 0.2
-  private readonly MAX_SCALE = 5
+  private readonly MIN_SCALE = 0.08
+  private readonly MAX_SCALE = 8.0
 
   cleanups: (() => void)[] = []
 
   constructor(
     private container: HTMLElement,
     private content: HTMLElement,
+    private svgWidth: number,
+    private svgHeight: number,
   ) {
     this.setupEventListeners()
-    this.setupNavigationControls()
     this.resetTransform()
   }
 
@@ -64,38 +85,16 @@ class DiagramPanZoom {
     for (const cleanup of this.cleanups) {
       cleanup()
     }
-    this.controls?.remove()
-  }
-
-  private setupNavigationControls() {
-    this.container.querySelector(".mermaid-controls")?.remove()
-
-    this.controls = document.createElement("div")
-    this.controls.className = "mermaid-controls"
-
-    // Zoom controls
-    const zoomIn = this.createButton("+", () => this.zoom(0.15))
-    const zoomOut = this.createButton("-", () => this.zoom(-0.15))
-    const resetBtn = this.createButton("Reset", () => this.resetTransform())
-
-    this.controls.appendChild(zoomOut)
-    this.controls.appendChild(resetBtn)
-    this.controls.appendChild(zoomIn)
-
-    this.container.appendChild(this.controls)
-  }
-
-  private createButton(text: string, onClick: () => void): HTMLButtonElement {
-    const button = document.createElement("button")
-    button.textContent = text
-    button.className = "mermaid-control-button"
-    button.addEventListener("click", onClick)
-    this.cleanups.push(() => button.removeEventListener("click", onClick))
-    return button
+    this.cleanups = []
+    this.pointers.clear()
+    this.isDragging = false
   }
 
   private isControlTarget(target: EventTarget | null) {
-    return target instanceof Element && !!target.closest(".mermaid-controls, .mermaid-close-btn")
+    return (
+      target instanceof Element &&
+      !!target.closest(".mermaid-modal-controls, .mermaid-controls, .mermaid-modal-close, .mermaid-close-btn")
+    )
   }
 
   private getLocalPoint(clientX: number, clientY: number): Position {
@@ -130,21 +129,19 @@ class DiagramPanZoom {
     this.updateTransform()
   }
 
-  private beginPan(point: Position) {
-    this.isDragging = true
-    this.startPan = { x: point.x - this.currentPan.x, y: point.y - this.currentPan.y }
-    this.updateCursor()
-  }
-
   private onPointerDown(e: PointerEvent) {
     if (this.isControlTarget(e.target)) return
     if (e.pointerType === "mouse" && e.button !== 0) return
 
     this.container.setPointerCapture(e.pointerId)
-    this.pointers.set(e.pointerId, this.getLocalPoint(e.clientX, e.clientY))
+    const pt = this.getLocalPoint(e.clientX, e.clientY)
+    this.pointers.set(e.pointerId, pt)
 
     if (this.pointers.size === 1) {
-      this.beginPan(this.getLocalPoint(e.clientX, e.clientY))
+      this.isDragging = true
+      this.startPointer = pt
+      this.startPan = { ...this.currentPan }
+      this.updateCursor()
       return
     }
 
@@ -162,39 +159,39 @@ class DiagramPanZoom {
   private onPointerMove(e: PointerEvent) {
     if (!this.pointers.has(e.pointerId)) return
 
-    const point = this.getLocalPoint(e.clientX, e.clientY)
-    this.pointers.set(e.pointerId, point)
+    const pt = this.getLocalPoint(e.clientX, e.clientY)
+    this.pointers.set(e.pointerId, pt)
 
     if (this.pointers.size === 1 && this.isDragging) {
       e.preventDefault()
       this.currentPan = {
-        x: point.x - this.startPan.x,
-        y: point.y - this.startPan.y,
+        x: this.startPan.x + (pt.x - this.startPointer.x),
+        y: this.startPan.y + (pt.y - this.startPointer.y),
       }
       this.updateTransform()
       return
     }
 
-    if (this.pointers.size < 2) return
-    e.preventDefault()
+    if (this.pointers.size === 2 && this.pinchStartDistance > 0) {
+      e.preventDefault()
+      const [first, second] = [...this.pointers.values()]
+      const distance = this.getDistance(first, second)
+      if (distance === 0) return
 
-    const [first, second] = [...this.pointers.values()]
-    const distance = this.getDistance(first, second)
-    if (distance === 0 || this.pinchStartDistance === 0) return
+      const midpoint = this.getMidpoint(first, second)
+      const nextScale = this.clampScale(this.pinchStartScale * (distance / this.pinchStartDistance))
+      const contentPoint = {
+        x: (this.pinchStartCenter.x - this.pinchStartPan.x) / this.pinchStartScale,
+        y: (this.pinchStartCenter.y - this.pinchStartPan.y) / this.pinchStartScale,
+      }
 
-    const midpoint = this.getMidpoint(first, second)
-    const nextScale = this.clampScale(this.pinchStartScale * (distance / this.pinchStartDistance))
-    const contentPoint = {
-      x: (this.pinchStartCenter.x - this.pinchStartPan.x) / this.pinchStartScale,
-      y: (this.pinchStartCenter.y - this.pinchStartPan.y) / this.pinchStartScale,
+      this.scale = nextScale
+      this.currentPan = {
+        x: midpoint.x - contentPoint.x * nextScale,
+        y: midpoint.y - contentPoint.y * nextScale,
+      }
+      this.updateTransform()
     }
-
-    this.scale = nextScale
-    this.currentPan = {
-      x: midpoint.x - contentPoint.x * nextScale,
-      y: midpoint.y - contentPoint.y * nextScale,
-    }
-    this.updateTransform()
   }
 
   private onPointerUp(e: PointerEvent) {
@@ -210,7 +207,10 @@ class DiagramPanZoom {
 
     if (this.pointers.size === 1) {
       const [remainingPoint] = [...this.pointers.values()]
-      this.beginPan(remainingPoint)
+      this.isDragging = true
+      this.startPointer = remainingPoint
+      this.startPan = { ...this.currentPan }
+      this.updateCursor()
       return
     }
 
@@ -227,44 +227,209 @@ class DiagramPanZoom {
     if (this.isControlTarget(e.target)) return
     e.preventDefault()
     const point = this.getLocalPoint(e.clientX, e.clientY)
-    const zoomFactor = e.deltaY < 0 ? 1.1 : 0.9
-    this.setScaleAtPoint(this.scale * zoomFactor, point)
+    const factor = e.deltaY < 0 ? 1.15 : 0.85
+    this.setScaleAtPoint(this.scale * factor, point)
   }
 
-  private zoom(delta: number) {
-    this.setScaleAtPoint(this.scale + delta, {
+  zoom(delta: number) {
+    const center = {
       x: this.container.clientWidth / 2,
       y: this.container.clientHeight / 2,
-    })
+    }
+    this.setScaleAtPoint(this.scale + delta, center)
+  }
+
+  resetTransform() {
+    const containerW = this.container.clientWidth || window.innerWidth * 0.95
+    const containerH = this.container.clientHeight || window.innerHeight * 0.9
+
+    const padding = 36
+    const availW = Math.max(80, containerW - padding * 2)
+    const availH = Math.max(80, containerH - padding * 2)
+
+    const scaleX = availW / this.svgWidth
+    const scaleY = availH / this.svgHeight
+    const fitScale = Math.min(scaleX, scaleY, 1.15)
+
+    this.scale = this.clampScale(Math.max(this.MIN_SCALE, fitScale))
+    this.currentPan = {
+      x: (containerW - this.svgWidth * this.scale) / 2,
+      y: (containerH - this.svgHeight * this.scale) / 2,
+    }
+    this.updateTransform()
+    this.updateCursor()
   }
 
   private updateTransform() {
     this.content.style.transform = `translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`
   }
+}
 
-  private resetTransform() {
-    const svg = this.content.querySelector("svg")
-    if (!svg) return
+/**
+ * Global Singleton Mermaid Modal
+ */
+class MermaidGlobalModal {
+  private static instance: MermaidGlobalModal | null = null
+  private modalEl: HTMLElement
+  private backdropEl: HTMLElement
+  private boxEl: HTMLElement
+  private stageEl: HTMLElement
+  private canvasEl: HTMLElement
+  private closeBtn: HTMLButtonElement
+  private controlsEl: HTMLElement
+  private panZoom: DiagramPanZoom | null = null
 
-    const viewBox = svg.viewBox?.baseVal
-    const svgWidth = viewBox?.width || svg.getBBox()?.width || svg.getBoundingClientRect().width || 400
-    const svgHeight = viewBox?.height || svg.getBBox()?.height || svg.getBoundingClientRect().height || 300
+  private constructor() {
+    this.modalEl = document.createElement("div")
+    this.modalEl.id = "mermaid-global-modal"
+    this.modalEl.className = "mermaid-modal"
+    this.modalEl.setAttribute("role", "dialog")
+    this.modalEl.setAttribute("aria-modal", "true")
+    this.modalEl.setAttribute("aria-label", "Mermaid Diyagramı")
 
-    const padding = 24
-    const availableWidth = Math.max(80, this.container.clientWidth - padding * 2)
-    const availableHeight = Math.max(80, this.container.clientHeight - padding * 2)
+    this.backdropEl = document.createElement("div")
+    this.backdropEl.className = "mermaid-modal-backdrop"
 
-    const scaleX = availableWidth / svgWidth
-    const scaleY = availableHeight / svgHeight
-    const fitScale = Math.min(1.0, Math.min(scaleX, scaleY))
-    this.scale = this.clampScale(Math.max(this.MIN_SCALE, fitScale))
+    this.boxEl = document.createElement("div")
+    this.boxEl.className = "mermaid-modal-box"
 
-    this.currentPan = {
-      x: (this.container.clientWidth - svgWidth * this.scale) / 2,
-      y: (this.container.clientHeight - svgHeight * this.scale) / 2,
+    this.stageEl = document.createElement("div")
+    this.stageEl.className = "mermaid-modal-stage"
+
+    this.canvasEl = document.createElement("div")
+    this.canvasEl.className = "mermaid-modal-canvas"
+
+    this.closeBtn = document.createElement("button")
+    this.closeBtn.type = "button"
+    this.closeBtn.className = "mermaid-modal-close"
+    this.closeBtn.setAttribute("aria-label", "Kapat")
+    this.closeBtn.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    `
+
+    this.controlsEl = document.createElement("div")
+    this.controlsEl.className = "mermaid-modal-controls"
+
+    const zoomOut = document.createElement("button")
+    zoomOut.type = "button"
+    zoomOut.className = "mermaid-modal-btn zoom-out"
+    zoomOut.setAttribute("aria-label", "Küçült")
+    zoomOut.textContent = "−"
+    zoomOut.addEventListener("click", (e) => {
+      e.stopPropagation()
+      this.panZoom?.zoom(-0.25)
+    })
+
+    const resetBtn = document.createElement("button")
+    resetBtn.type = "button"
+    resetBtn.className = "mermaid-modal-btn zoom-reset"
+    resetBtn.setAttribute("aria-label", "Sıfırla")
+    resetBtn.textContent = "Sıfırla"
+    resetBtn.addEventListener("click", (e) => {
+      e.stopPropagation()
+      this.panZoom?.resetTransform()
+    })
+
+    const zoomIn = document.createElement("button")
+    zoomIn.type = "button"
+    zoomIn.className = "mermaid-modal-btn zoom-in"
+    zoomIn.setAttribute("aria-label", "Büyüt")
+    zoomIn.textContent = "+"
+    zoomIn.addEventListener("click", (e) => {
+      e.stopPropagation()
+      this.panZoom?.zoom(0.25)
+    })
+
+    this.controlsEl.appendChild(zoomOut)
+    this.controlsEl.appendChild(resetBtn)
+    this.controlsEl.appendChild(zoomIn)
+
+    this.stageEl.appendChild(this.canvasEl)
+    this.boxEl.appendChild(this.closeBtn)
+    this.boxEl.appendChild(this.stageEl)
+    this.boxEl.appendChild(this.controlsEl)
+
+    this.modalEl.appendChild(this.backdropEl)
+    this.modalEl.appendChild(this.boxEl)
+
+    // Events
+    this.backdropEl.addEventListener("click", () => this.close())
+    this.closeBtn.addEventListener("click", (e) => {
+      e.stopPropagation()
+      this.close()
+    })
+
+    registerEscapeHandler(this.modalEl, () => this.close())
+
+    document.body.appendChild(this.modalEl)
+  }
+
+  static getInstance(): MermaidGlobalModal {
+    if (!MermaidGlobalModal.instance || !document.body.contains(MermaidGlobalModal.instance.modalEl)) {
+      MermaidGlobalModal.instance = new MermaidGlobalModal()
     }
-    this.updateTransform()
-    this.updateCursor()
+    return MermaidGlobalModal.instance
+  }
+
+  open(sourceSvg: SVGElement) {
+    if (this.modalEl.parentElement !== document.body) {
+      document.body.appendChild(this.modalEl)
+    }
+
+    this.panZoom?.cleanup()
+    this.panZoom = null
+    removeAllChildren(this.canvasEl)
+
+    // Clone source SVG
+    const clonedSvg = sourceSvg.cloneNode(true) as SVGElement
+
+    // Determine intrinsic dimensions
+    let svgW = 800
+    let svgH = 600
+
+    const vb = clonedSvg.viewBox?.baseVal
+    if (vb && vb.width > 0 && vb.height > 0) {
+      svgW = vb.width
+      svgH = vb.height
+    } else {
+      const bbox = sourceSvg.getBoundingClientRect()
+      if (bbox.width > 0 && bbox.height > 0) {
+        svgW = bbox.width
+        svgH = bbox.height
+      }
+    }
+
+    clonedSvg.removeAttribute("style")
+    clonedSvg.style.display = "block"
+    clonedSvg.style.maxWidth = "none"
+    clonedSvg.style.maxHeight = "none"
+    clonedSvg.style.width = `${svgW}px`
+    clonedSvg.style.height = `${svgH}px`
+    clonedSvg.setAttribute("width", `${svgW}`)
+    clonedSvg.setAttribute("height", `${svgH}`)
+
+    this.canvasEl.style.width = `${svgW}px`
+    this.canvasEl.style.height = `${svgH}px`
+    this.canvasEl.appendChild(clonedSvg)
+
+    this.modalEl.classList.add("active")
+    document.body.style.overflow = "hidden"
+
+    // Allow browser to calculate stage bounding rect before initializing PanZoom
+    requestAnimationFrame(() => {
+      this.panZoom = new DiagramPanZoom(this.stageEl, this.canvasEl, svgW, svgH)
+    })
+  }
+
+  close() {
+    this.modalEl.classList.remove("active")
+    this.panZoom?.cleanup()
+    this.panZoom = null
+    removeAllChildren(this.canvasEl)
+    document.body.style.overflow = ""
   }
 }
 
@@ -280,7 +445,7 @@ const cssVars = [
   "--codeFont",
 ] as const
 
-let mermaidImport = undefined
+let mermaidImport: any = undefined
 window.__noeticMermaid?.cleanup()
 
 let cleanupCurrentMermaids = () => {}
@@ -302,20 +467,19 @@ const setupMermaids = async () => {
 
   const textMapping: WeakMap<HTMLElement, string> = new WeakMap()
   for (const node of nodes) {
-    let source = node.innerText
-    // Auto sanitize to prevent "Unsupported markdown: list" in Mermaid v10/v11
-    source = source.replace(/(\["|\("|"|\|)(\s*\d+)\.\s+/g, "$1$2 - ")
-    textMapping.set(node, source)
-    node.dataset.mermaidSource = source
+    const raw = node.textContent ?? ""
+    const sanitized = sanitizeMermaidSource(raw)
+    textMapping.set(node, sanitized)
+    node.textContent = sanitized
+    node.dataset.mermaidSource = sanitized
   }
 
   async function renderMermaid() {
-    // de-init any other diagrams
     for (const node of nodes) {
       node.removeAttribute("data-processed")
       const oldText = textMapping.get(node)
       if (oldText) {
-        node.innerHTML = oldText
+        node.textContent = oldText
       }
     }
 
@@ -331,6 +495,7 @@ const setupMermaids = async () => {
     mermaid.initialize({
       startOnLoad: false,
       securityLevel: "loose",
+      suppressErrors: true,
       theme: darkMode ? "dark" : "base",
       themeVariables: {
         fontFamily: computedStyleMap["--codeFont"],
@@ -345,7 +510,11 @@ const setupMermaids = async () => {
       },
     })
 
-    await mermaid.run({ nodes })
+    try {
+      await mermaid.run({ nodes, suppressErrors: true })
+    } catch (err) {
+      console.warn("Mermaid run caught non-fatal diagram error:", err)
+    }
   }
 
   await renderMermaid()
@@ -354,120 +523,69 @@ const setupMermaids = async () => {
     () => document.removeEventListener("themechange", renderMermaid),
   ]
 
+  const modal = MermaidGlobalModal.getInstance()
+
   for (let i = 0; i < nodes.length; i++) {
     const codeBlock = nodes[i] as HTMLElement
     const pre = codeBlock.parentElement as HTMLPreElement
+    if (!pre) continue
+
     const clipboardBtn = pre.querySelector(".clipboard-button") as HTMLButtonElement | null
     const expandBtn = pre.querySelector(".expand-button") as HTMLButtonElement | null
-    if (!expandBtn) continue
 
-    if (clipboardBtn) {
-      const clipboardStyle = window.getComputedStyle(clipboardBtn)
-      const clipboardWidth =
-        clipboardBtn.offsetWidth +
-        parseFloat(clipboardStyle.marginLeft || "0") +
-        parseFloat(clipboardStyle.marginRight || "0")
-      expandBtn.style.right = `calc(${clipboardWidth}px + 0.35rem)`
-    } else {
-      expandBtn.style.right = "0.5rem"
-    }
-    pre.prepend(expandBtn)
-
-    // query popup container
-    const popupContainer = pre.querySelector("#mermaid-container") as HTMLElement
-    if (!popupContainer) continue
-
-    let panZoom: DiagramPanZoom | null = null
-    function showMermaid() {
-      // 1. Move to document.body so position: fixed covers the true viewport and avoids ancestor pre clipping
-      if (popupContainer.parentElement !== document.body) {
-        document.body.appendChild(popupContainer)
+    if (expandBtn) {
+      if (clipboardBtn) {
+        const clipboardStyle = window.getComputedStyle(clipboardBtn)
+        const clipboardWidth =
+          clipboardBtn.offsetWidth +
+          parseFloat(clipboardStyle.marginLeft || "0") +
+          parseFloat(clipboardStyle.marginRight || "0")
+        expandBtn.style.right = `calc(${clipboardWidth}px + 0.35rem)`
+      } else {
+        expandBtn.style.right = "0.5rem"
       }
-      document.body.style.overflow = "hidden"
+      pre.prepend(expandBtn)
+    }
 
-      const container = popupContainer.querySelector("#mermaid-space") as HTMLElement
-      const content = popupContainer.querySelector(".mermaid-content") as HTMLElement
-      if (!content || !container) return
-      removeAllChildren(content)
+    const getDiagramSvg = (): SVGElement | null => {
+      return (pre.querySelector("svg:not(.expand-button svg)") ||
+        codeBlock.querySelector("svg")) as SVGElement | null
+    }
 
-      // Add prominent close button if not present
-      let closeBtn = container.querySelector(".mermaid-close-btn") as HTMLButtonElement | null
-      if (!closeBtn) {
-        closeBtn = document.createElement("button")
-        closeBtn.type = "button"
-        closeBtn.className = "mermaid-close-btn"
-        closeBtn.setAttribute("aria-label", "Kapat")
-        closeBtn.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        `
-        closeBtn.addEventListener("click", (e) => {
-          e.stopPropagation()
-          e.preventDefault()
-          hideMermaid()
-        })
-        container.appendChild(closeBtn)
+    const openDiagram = (e?: Event) => {
+      e?.preventDefault()
+      e?.stopPropagation()
+      const svg = getDiagramSvg()
+      if (svg) {
+        modal.open(svg)
       }
-
-      // Clone the mermaid content
-      const sourceSvg = codeBlock.querySelector("svg")
-      if (!sourceSvg) return
-      const mermaidContent = sourceSvg.cloneNode(true) as SVGElement
-      content.appendChild(mermaidContent)
-
-      // Show container
-      popupContainer.classList.add("active")
-      container.style.cursor = "grab"
-
-      // Initialize pan-zoom after showing the popup
-      panZoom = new DiagramPanZoom(container, content)
     }
 
-    function hideMermaid() {
-      popupContainer.classList.remove("active")
-      panZoom?.cleanup()
-      panZoom = null
-      document.body.style.overflow = ""
+    if (expandBtn) {
+      expandBtn.addEventListener("click", openDiagram)
     }
 
-    expandBtn.addEventListener("click", (e) => {
-      e.stopPropagation()
-      showMermaid()
-    })
-
-    // PC ve mobilde diyagram alanına tıklandığında tam ekran modali açılsın
+    // Pre element click to expand (ignoring clicks on buttons)
     const onPreClick = (e: MouseEvent) => {
-      if ((e.target as HTMLElement).closest(".clipboard-button, .expand-button, .code-expand-btn")) return
-      showMermaid()
+      const target = e.target as HTMLElement
+      if (target.closest(".clipboard-button, .expand-button, .code-expand-btn")) return
+      openDiagram(e)
     }
+
     pre.addEventListener("click", onPreClick)
     pre.style.cursor = "zoom-in"
 
-    // Backdrop tıklandığında kapat
-    const onPopupClick = (e: MouseEvent) => {
-      if (e.target === popupContainer) {
-        hideMermaid()
-      }
-    }
-    popupContainer.addEventListener("click", onPopupClick)
-
-    registerEscapeHandler(popupContainer, hideMermaid)
-
     cleanups.push(() => {
-      hideMermaid()
-      expandBtn.removeEventListener("click", showMermaid)
-      pre.removeEventListener("click", onPreClick)
-      popupContainer.removeEventListener("click", onPopupClick)
-      if (popupContainer.parentElement === document.body) {
-        popupContainer.remove()
+      if (expandBtn) {
+        expandBtn.removeEventListener("click", openDiagram)
       }
+      pre.removeEventListener("click", onPreClick)
     })
   }
 
   cleanupCurrentMermaids = () => {
     cleanups.forEach((cleanup) => cleanup())
+    modal.close()
   }
 
   window.addCleanup?.(() => cleanupCurrentMermaids())

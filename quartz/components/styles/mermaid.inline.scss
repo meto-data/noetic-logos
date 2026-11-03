@@ -76,182 +76,182 @@ code.mermaid {
   }
 }
 
-#mermaid-container {
+// Global Singleton Mermaid Modal
+.mermaid-modal {
   position: fixed;
-  contain: layout;
-  z-index: 99999;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  z-index: 999999;
   display: none;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  background: rgba(10, 15, 29, 0.85);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 
   &.active {
     display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
-  & > #mermaid-space {
-    border: 1px solid var(--lightgray);
-    background-color: var(--light);
-    border-radius: 14px;
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    height: 90vh;
-    width: 95vw;
-    max-width: 1600px;
-    overflow: hidden;
-    touch-action: none;
-    overscroll-behavior: contain;
-    cursor: grab;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  .mermaid-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 15, 29, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: pointer;
+  }
 
-    .mermaid-content svg {
+  .mermaid-modal-box {
+    position: relative;
+    z-index: 1;
+    width: 95vw;
+    height: 90vh;
+    max-width: 1600px;
+    background: var(--light);
+    border: 1px solid var(--lightgray);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mermaid-modal-stage {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    overscroll-behavior: contain;
+  }
+
+  .mermaid-modal-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 0 0;
+    will-change: transform;
+    touch-action: none;
+
+    svg {
+      display: block;
       max-width: none !important;
       max-height: none !important;
     }
+  }
 
-    .mermaid-close-btn {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1px solid var(--lightgray);
-      background: var(--light);
-      color: var(--darkgray);
+  .mermaid-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 20;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--lightgray);
+    background: var(--light);
+    color: var(--darkgray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover {
+      background: rgba(239, 68, 68, 0.9);
+      border-color: rgb(239, 68, 68);
+      color: #ffffff;
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  .mermaid-modal-controls {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 20;
+    display: flex;
+    gap: 8px;
+    padding: 6px;
+    background: var(--light);
+    border: 1px solid var(--lightgray);
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+
+    .mermaid-modal-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 1000;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      border: 1px solid var(--lightgray);
+      background: var(--light);
+      color: var(--dark);
+      border-radius: 6px;
       cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: var(--bodyFont);
       transition: all 0.15s ease;
 
       &:hover {
-        background: rgba(239, 68, 68, 0.85);
-        border-color: rgba(239, 68, 68, 1);
-        color: #ffffff;
+        background: color-mix(in srgb, var(--secondary) 15%, var(--light));
+        border-color: var(--secondary);
+        color: var(--secondary);
       }
 
       &:active {
-        transform: scale(0.95);
-      }
-    }
-
-    & > .mermaid-content {
-      padding: 2.5rem;
-      position: relative;
-      transform-origin: 0 0;
-      transition: none;
-      overflow: visible;
-      min-height: 200px;
-      min-width: 200px;
-      user-select: none;
-
-      pre {
-        margin: 0;
-        border: none;
-        background: transparent !important;
+        transform: translateY(1px);
       }
 
-      svg {
-        max-width: none;
-        height: auto;
-      }
-    }
-
-    & > .mermaid-controls {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      gap: 8px;
-      padding: 6px;
-      background: var(--light);
-      border: 1px solid var(--lightgray);
-      border-radius: 10px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-      z-index: 2;
-
-      .mermaid-control-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 36px;
-        height: 36px;
-        padding: 0;
-        border: 1px solid var(--lightgray);
-        background: var(--light);
-        color: var(--dark);
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 16px;
-        font-family: var(--bodyFont);
-        transition: all 0.15s ease;
-
-        &:hover {
-          background: color-mix(in srgb, var(--secondary) 15%, var(--light));
-          border-color: var(--secondary);
-          color: var(--secondary);
-        }
-
-        &:active {
-          transform: translateY(1px);
-        }
-
-        // Style the reset button differently
-        &:nth-child(2) {
-          width: auto;
-          padding: 0 12px;
-          font-size: 13px;
-          font-weight: 600;
-        }
+      &.zoom-reset {
+        width: auto;
+        padding: 0 12px;
+        font-size: 13px;
+        font-weight: 600;
       }
     }
   }
 }
 
-// Mobil ekranlarda tam optimizasyon
+// Mobil ekran uyumluluğu
 @media all and (max-width: 799px) {
-  #mermaid-container {
-    & > #mermaid-space {
+  .mermaid-modal {
+    .mermaid-modal-box {
       width: 96vw !important;
-      height: 90vh !important;
-      border-radius: 16px;
+      height: 92vh !important;
+      border-radius: 12px;
+    }
 
-      .mermaid-close-btn {
-        top: 10px;
-        right: 10px;
+    .mermaid-modal-close {
+      top: 10px;
+      right: 10px;
+      width: 42px;
+      height: 42px;
+    }
+
+    .mermaid-modal-controls {
+      bottom: 12px;
+      right: 12px;
+      gap: 6px;
+      padding: 5px;
+
+      .mermaid-modal-btn {
         width: 40px;
         height: 40px;
-      }
+        font-size: 18px;
 
-      & > .mermaid-content {
-        padding: 1.5rem 1rem;
-      }
-
-      & > .mermaid-controls {
-        bottom: 12px;
-        right: 12px;
-        gap: 6px;
-        padding: 5px;
-
-        .mermaid-control-button {
-          width: 38px;
-          height: 38px;
-          font-size: 18px;
-
-          &:nth-child(2) {
-            padding: 0 10px;
-            font-size: 12px;
-          }
+        &.zoom-reset {
+          font-size: 13px;
+          padding: 0 10px;
         }
       }
     }
