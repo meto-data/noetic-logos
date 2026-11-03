@@ -22,8 +22,8 @@ class DiagramPanZoom {
   private startPan: Position = { x: 0, y: 0 }
   private currentPan: Position = { x: 0, y: 0 }
   private scale = 1
-  private readonly MIN_SCALE = 0.5
-  private readonly MAX_SCALE = 4
+  private readonly MIN_SCALE = 0.2
+  private readonly MAX_SCALE = 5
 
   cleanups: (() => void)[] = []
 
@@ -95,7 +95,7 @@ class DiagramPanZoom {
   }
 
   private isControlTarget(target: EventTarget | null) {
-    return target instanceof Element && !!target.closest(".mermaid-controls")
+    return target instanceof Element && !!target.closest(".mermaid-controls, .mermaid-close-btn")
   }
 
   private getLocalPoint(clientX: number, clientY: number): Position {
@@ -243,16 +243,25 @@ class DiagramPanZoom {
   }
 
   private resetTransform() {
-    this.scale = 1
     const svg = this.content.querySelector("svg")
     if (!svg) return
 
     const viewBox = svg.viewBox?.baseVal
-    const svgWidth = viewBox?.width || svg.getBBox().width || svg.getBoundingClientRect().width
-    const svgHeight = viewBox?.height || svg.getBBox().height || svg.getBoundingClientRect().height
+    const svgWidth = viewBox?.width || svg.getBBox()?.width || svg.getBoundingClientRect().width || 400
+    const svgHeight = viewBox?.height || svg.getBBox()?.height || svg.getBoundingClientRect().height || 300
+
+    const padding = 24
+    const availableWidth = Math.max(80, this.container.clientWidth - padding * 2)
+    const availableHeight = Math.max(80, this.container.clientHeight - padding * 2)
+
+    const scaleX = availableWidth / svgWidth
+    const scaleY = availableHeight / svgHeight
+    const fitScale = Math.min(1.0, Math.min(scaleX, scaleY))
+    this.scale = this.clampScale(Math.max(this.MIN_SCALE, fitScale))
+
     this.currentPan = {
-      x: (this.container.clientWidth - svgWidth) / 2,
-      y: (this.container.clientHeight - svgHeight) / 2,
+      x: (this.container.clientWidth - svgWidth * this.scale) / 2,
+      y: (this.container.clientHeight - svgHeight * this.scale) / 2,
     }
     this.updateTransform()
     this.updateCursor()
@@ -346,18 +355,20 @@ const setupMermaids = async () => {
   for (let i = 0; i < nodes.length; i++) {
     const codeBlock = nodes[i] as HTMLElement
     const pre = codeBlock.parentElement as HTMLPreElement
-    const clipboardBtn = pre.querySelector(".clipboard-button") as HTMLButtonElement
-    const expandBtn = pre.querySelector(".expand-button") as HTMLButtonElement
-    if (!clipboardBtn || !expandBtn) continue
+    const clipboardBtn = pre.querySelector(".clipboard-button") as HTMLButtonElement | null
+    const expandBtn = pre.querySelector(".expand-button") as HTMLButtonElement | null
+    if (!expandBtn) continue
 
-    const clipboardStyle = window.getComputedStyle(clipboardBtn)
-    const clipboardWidth =
-      clipboardBtn.offsetWidth +
-      parseFloat(clipboardStyle.marginLeft || "0") +
-      parseFloat(clipboardStyle.marginRight || "0")
-
-    // Set expand button position
-    expandBtn.style.right = `calc(${clipboardWidth}px + 0.3rem)`
+    if (clipboardBtn) {
+      const clipboardStyle = window.getComputedStyle(clipboardBtn)
+      const clipboardWidth =
+        clipboardBtn.offsetWidth +
+        parseFloat(clipboardStyle.marginLeft || "0") +
+        parseFloat(clipboardStyle.marginRight || "0")
+      expandBtn.style.right = `calc(${clipboardWidth}px + 0.35rem)`
+    } else {
+      expandBtn.style.right = "0.5rem"
+    }
     pre.prepend(expandBtn)
 
     // query popup container
@@ -368,11 +379,34 @@ const setupMermaids = async () => {
     function showMermaid() {
       const container = popupContainer.querySelector("#mermaid-space") as HTMLElement
       const content = popupContainer.querySelector(".mermaid-content") as HTMLElement
-      if (!content) return
+      if (!content || !container) return
       removeAllChildren(content)
 
+      // Add prominent close button if not present
+      let closeBtn = container.querySelector(".mermaid-close-btn") as HTMLButtonElement | null
+      if (!closeBtn) {
+        closeBtn = document.createElement("button")
+        closeBtn.type = "button"
+        closeBtn.className = "mermaid-close-btn"
+        closeBtn.setAttribute("aria-label", "Kapat")
+        closeBtn.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        `
+        closeBtn.addEventListener("click", (e) => {
+          e.stopPropagation()
+          e.preventDefault()
+          hideMermaid()
+        })
+        container.appendChild(closeBtn)
+      }
+
       // Clone the mermaid content
-      const mermaidContent = codeBlock.querySelector("svg")!.cloneNode(true) as SVGElement
+      const sourceSvg = codeBlock.querySelector("svg")
+      if (!sourceSvg) return
+      const mermaidContent = sourceSvg.cloneNode(true) as SVGElement
       content.appendChild(mermaidContent)
 
       // Show container
@@ -389,12 +423,33 @@ const setupMermaids = async () => {
       panZoom = null
     }
 
-    expandBtn.addEventListener("click", showMermaid)
+    expandBtn.addEventListener("click", (e) => {
+      e.stopPropagation()
+      showMermaid()
+    })
+
+    // Mobilde veya dokunmatik ekranda diyagrama tıklandığında da büyütme modali açılsın
+    const onCodeBlockClick = (e: MouseEvent) => {
+      if ((e.target as HTMLElement).closest(".clipboard-button, .expand-button")) return
+      showMermaid()
+    }
+    codeBlock.addEventListener("click", onCodeBlockClick)
+
+    // Backdrop tıklandığında kapat
+    const onPopupClick = (e: MouseEvent) => {
+      if (e.target === popupContainer) {
+        hideMermaid()
+      }
+    }
+    popupContainer.addEventListener("click", onPopupClick)
+
     registerEscapeHandler(popupContainer, hideMermaid)
 
     cleanups.push(() => {
       hideMermaid()
       expandBtn.removeEventListener("click", showMermaid)
+      codeBlock.removeEventListener("click", onCodeBlockClick)
+      popupContainer.removeEventListener("click", onPopupClick)
     })
   }
 

@@ -5,6 +5,8 @@ interface Window {
   __noeticMobileNav?: { cleanup: () => void }
   __noeticSyncSettingsInputs?: () => void
   closeThemePanel?: () => void
+  openSettingsModal?: (tab?: string) => void
+  closeSettingsModal?: () => void
 }
 
 window.__noeticMobileNav?.cleanup()
@@ -231,24 +233,27 @@ const setupMobileChrome = () => {
   const mobileSettingsBtn = mobileHeader.querySelector(".mobile-settings-btn") as HTMLButtonElement
   const onMobileSettingsClick = (e: MouseEvent) => {
     e.stopPropagation()
+    closeMobileFontPanel()
     window.closeThemePanel?.()
-    const overlay = document.getElementById("settings-overlay")
-    if (overlay) {
-      if (overlay.parentElement !== document.body) document.body.appendChild(overlay)
-      overlay.classList.add("active")
-      window.__noeticSyncSettingsInputs?.()
-    }
+    window.openSettingsModal?.()
   }
   mobileSettingsBtn?.addEventListener("click", onMobileSettingsClick)
 
-  // Tema paneli
+  // Mobil tema butonu - ayarlar modalini 'themes' sekmesiyle aç
   const mobileDarkmodeBtn = mobileHeader.querySelector(".mobile-darkmode") as HTMLButtonElement | null
+  const onMobileDarkmodeClick = (e: MouseEvent) => {
+    e.stopPropagation()
+    closeMobileFontPanel()
+    window.openSettingsModal?.("themes")
+  }
+  mobileDarkmodeBtn?.addEventListener("click", onMobileDarkmodeClick)
 
   cleanupMobileChrome = () => {
     closeMenu()
     mobileSearchInput?.removeEventListener("click", onMobileSearchClick)
     mobileModulesBtn?.removeEventListener("click", onMobileModulesClick)
     mobileSettingsBtn?.removeEventListener("click", onMobileSettingsClick)
+    mobileDarkmodeBtn?.removeEventListener("click", onMobileDarkmodeClick)
     window.removeEventListener("noetic-modules-seen", onModulesSeen as EventListener)
     leftSidebar.removeEventListener("click", onSidebarClick)
     overlay.removeEventListener("click", onOverlayClick)

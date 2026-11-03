@@ -2,6 +2,9 @@ interface Window {
   __noeticSettings?: { cleanup: () => void }
   __noeticSyncSettingsInputs?: () => void
   __noeticToast?: (message: string, type?: "info" | "success" | "warning") => void
+  openSettingsModal?: (tab?: string) => void
+  closeSettingsModal?: () => void
+  setTheme?: (theme: string) => void
   closeThemePanel?: () => void
 }
 
@@ -63,13 +66,14 @@ const applyWalkMode = () => {
 }
 
 function syncChoiceState() {
-  document.querySelectorAll(".font-item, .size-item").forEach((item) => {
+  document.querySelectorAll(".settings-font-card, .settings-segmented-item").forEach((item) => {
     const input = item.querySelector("input") as HTMLInputElement | null
     if (!input) return
     ;(item as HTMLElement).dataset.checked = input.checked ? "true" : "false"
   })
 }
 
+// Initial direct execution
 applySavedFontSizeImmediately()
 applySavedFontFamilyImmediately()
 applySavedLineHeight()
@@ -86,7 +90,6 @@ const runWhenIdle = (cb: () => void) => {
     window.requestIdleCallback(cb)
     return
   }
-
   window.setTimeout(cb, 1)
 }
 
@@ -96,7 +99,7 @@ runWhenIdle(() => {
     const link = document.createElement("link")
     link.rel = "stylesheet"
     link.media = "print"
-    link.href = `https://fonts.googleapis.com/css2?family=${f}:wght@400;500&display=swap`
+    link.href = `https://fonts.googleapis.com/css2?family=${f}:wght@400;500;700&display=swap`
     link.onload = () => { link.media = "all" }
     document.head.appendChild(link)
   }
@@ -140,23 +143,97 @@ function applyContentWidth(val: string) {
   window.__noeticToast?.("İçerik genişliği değiştirildi", "success")
 }
 
-function openSettingsModal() {
+// ===== TEMA YÖNETİMİ =====
+function setTheme(newTheme: string) {
+  document.documentElement.setAttribute("saved-theme", newTheme)
+  localStorage.setItem("theme", newTheme)
+  const event = new CustomEvent("themechange", { detail: { theme: newTheme } })
+  document.dispatchEvent(event)
+  updateActiveThemeUI(newTheme)
+}
+
+function updateActiveThemeUI(activeTheme?: string) {
+  const current = activeTheme || document.documentElement.getAttribute("saved-theme") || "light"
+  document.querySelectorAll(".settings-theme-card").forEach((card) => {
+    const theme = card.getAttribute("data-theme")
+    const isSelected = theme === current
+    card.classList.toggle("is-active", isSelected)
+    card.setAttribute("aria-selected", isSelected ? "true" : "false")
+  })
+}
+
+// ===== SEKME YÖNETİMİ =====
+function switchTab(tabId: string) {
+  // Sol masaüstü butonları
+  document.querySelectorAll(".settings-nav-item").forEach((btn) => {
+    const isTarget = btn.getAttribute("data-tab") === tabId
+    btn.classList.toggle("is-active", isTarget)
+    btn.setAttribute("aria-selected", isTarget ? "true" : "false")
+  })
+
+  // Mobil sekmeler
+  document.querySelectorAll(".settings-mobile-tab").forEach((btn) => {
+    const isTarget = btn.getAttribute("data-tab") === tabId
+    btn.classList.toggle("is-active", isTarget)
+    btn.setAttribute("aria-selected", isTarget ? "true" : "false")
+  })
+
+  // İçerik panelleri
+  document.querySelectorAll(".settings-tab-pane").forEach((pane) => {
+    pane.classList.toggle("is-active", pane.getAttribute("data-pane") === tabId)
+  })
+
+  // Masaüstü bar başlık güncellemesi
+  const headingEl = document.querySelector("[data-tab-heading]")
+  const subHeadingEl = document.querySelector("[data-tab-subheading]")
+  if (tabId === "themes") {
+    if (headingEl) headingEl.textContent = "Temalar"
+    if (subHeadingEl) subHeadingEl.textContent = "10 farklı renk paleti ile arayüzü özelleştirin"
+  } else if (tabId === "typography") {
+    if (headingEl) headingEl.textContent = "Tipografi"
+    if (subHeadingEl) subHeadingEl.textContent = "Yazı tipi, boyut ve satır yüksekliği ayarları"
+  } else if (tabId === "preferences") {
+    if (headingEl) headingEl.textContent = "Tercihler"
+    if (subHeadingEl) subHeadingEl.textContent = "Okuma ve arayüz deneyimi tercihleri"
+  }
+}
+
+// ===== MODAL AÇMA / KAPAMA =====
+function openSettingsModal(initialTab?: string) {
   const overlay = document.getElementById("settings-overlay")
-  if (!overlay) return
+  const panel = document.getElementById("settings-panel")
+  if (!overlay || !panel) return
+
   if (overlay.parentElement !== document.body) {
     document.body.appendChild(overlay)
   }
-  overlay.classList.add("active")
+  if (panel.parentElement !== document.body) {
+    document.body.appendChild(panel)
+  }
+
+  overlay.classList.add("visible")
+  panel.classList.add("visible")
+  panel.setAttribute("aria-hidden", "false")
   setSettingsModalLock(true)
+
+  if (initialTab) {
+    switchTab(initialTab)
+  }
   syncSettingsInputs()
 }
 
 function closeSettingsModal() {
-  document.getElementById("settings-overlay")?.classList.remove("active")
+  const overlay = document.getElementById("settings-overlay")
+  const panel = document.getElementById("settings-panel")
+  overlay?.classList.remove("visible")
+  panel?.classList.remove("visible")
+  panel?.setAttribute("aria-hidden", "true")
   setSettingsModalLock(false)
 }
 
 function syncSettingsInputs() {
+  updateActiveThemeUI()
+
   const savedFont = getSavedFont()
   const savedSize = getSavedSize()
   const savedLineHeight = getSavedLineHeight()
@@ -192,216 +269,45 @@ function syncSettingsInputs() {
     })
   }
 
-  updateSyncUI()
   syncChoiceState()
 }
-
-function updateSyncUI() {
-  const key = localStorage.getItem("noetic-sync-key") || ""
-  const unlocked = document.querySelector(".sync-unlocked") as HTMLElement | null
-  const locked = document.querySelector(".sync-locked") as HTMLElement | null
-  const confirm = document.querySelector(".sync-confirm") as HTMLElement | null
-  const display = document.querySelector(".sync-key-display") as HTMLElement | null
-  const input = document.querySelector(".sync-key-input") as HTMLInputElement | null
-
-  if (confirm) confirm.style.display = "none"
-
-  if (key) {
-    if (unlocked) unlocked.style.display = "none"
-    if (locked) locked.style.display = "block"
-    if (display) display.textContent = key
-  } else {
-    if (unlocked) unlocked.style.display = "block"
-    if (locked) locked.style.display = "none"
-    if (input) input.value = ""
-  }
-}
-
-const SYNC_API = "https://noetic-sync.mselayet.workers.dev"
-
-function getSyncStatus(): HTMLElement | null {
-  return document.querySelector(".sync-key-status")
-}
-
-function showSyncStatus(msg: string, type: "saved" | "cleared" | "" = "") {
-  const el = getSyncStatus()
-  if (!el) return
-  el.textContent = msg
-  el.className = `sync-key-status ${type}`
-  if (type) setTimeout(() => { el.textContent = ""; el.className = "sync-key-status" }, 4000)
-}
-
-function generateSyncKey(): string {
-  const c = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789"
-  let k = ""
-  for (let i = 0; i < 12; i++) k += c.charAt(Math.floor(Math.random() * c.length))
-  return k
-}
-
-function getCurrentKey(): string {
-  const saved = localStorage.getItem("noetic-sync-key")
-  if (saved) return saved
-  const input = document.querySelector(".sync-key-input") as HTMLInputElement | null
-  return input?.value.trim() || ""
-}
-
-async function syncSaveToServer() {
-  const key = getCurrentKey()
-  if (!key || key.length < 4) {
-    window.__noeticToast?.("Anahtar en az 4 karakter olmalı", "warning")
-    return
-  }
-  localStorage.setItem("noetic-sync-key", key)
-  showSyncStatus("Kaydediliyor...")
-  try {
-    const data = collectAllPreferences()
-    const res = await fetch(`${SYNC_API}/${encodeURIComponent(key)}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    })
-    if (!res.ok) throw new Error(await res.text())
-    updateSyncUI()
-    showSyncStatus("Kaydedildi!", "saved")
-    window.__noeticToast?.("Tercihler sunucuya kaydedildi", "success")
-  } catch {
-    showSyncStatus("Sunucuya ulaşılamadı", "cleared")
-    window.__noeticToast?.("Sunucuya bağlanılamadı — Worker deploy edilmemiş olabilir", "warning")
-  }
-}
-
-async function syncLoadFromServer() {
-  const key = getCurrentKey()
-  if (!key || key.length < 4) {
-    window.__noeticToast?.("Anahtar en az 4 karakter olmalı", "warning")
-    return
-  }
-  showSyncStatus("Yükleniyor...")
-  try {
-    const res = await fetch(`${SYNC_API}/${encodeURIComponent(key)}`)
-    if (res.status === 404) {
-      showSyncStatus("Bu anahtara ait veri bulunamadı", "cleared")
-      window.__noeticToast?.("Anahtar bulunamadı", "warning")
-      return
-    }
-    if (!res.ok) throw new Error(await res.text())
-    const data = await res.json()
-    localStorage.setItem("noetic-sync-key", key)
-    restoreAllPreferences(data)
-    updateSyncUI()
-    syncSettingsInputs()
-    showSyncStatus("Tercihler yüklendi! Sayfa yenileniyor...", "saved")
-    window.__noeticToast?.("Tercihler yüklendi, sayfa yenileniyor...", "success")
-    setTimeout(() => window.location.reload(), 1000)
-  } catch {
-    showSyncStatus("Sunucuya ulaşılamadı", "cleared")
-    window.__noeticToast?.("Sunucuya bağlanılamadı — Worker deploy edilmemiş olabilir", "warning")
-  }
-}
-
-function collectAllPreferences(): Record<string, unknown> {
-  const prefs: Record<string, unknown> = {}
-  for (const k of ["font-family", "font-size", "line-height", "content-width", "custom-typography", "code-line-numbers", "code-collapsible", "noetic-notifications", "theme", "walk-mode", "zen-mode"]) {
-    const v = localStorage.getItem(k)
-    if (v !== null) prefs[k] = v
-  }
-  const hl: Record<string, string> = {}
-  const mod: Record<string, string> = {}
-  for (let i = 0; i < localStorage.length; i++) {
-    const k = localStorage.key(i)!
-    const v = localStorage.getItem(k)!
-    if (k.startsWith("noetic-highlights-")) hl[k] = v
-    else if (k.startsWith("module-") || k.startsWith("noetic-module") || k.startsWith("quiz-") || k.startsWith("progress-")) mod[k] = v
-  }
-  prefs["_highlights"] = hl
-  prefs["_modules"] = mod
-  return prefs
-}
-
-function restoreAllPreferences(prefs: Record<string, unknown>) {
-  for (const [k, v] of Object.entries(prefs)) {
-    if (k === "_highlights" || k === "_modules" || k === "noetic-sync-key") continue
-    if (typeof v === "string") localStorage.setItem(k, v)
-  }
-  for (const sub of ["_highlights", "_modules"] as const) {
-    const data = prefs[sub] as Record<string, string> | undefined
-    if (data) for (const [k, v] of Object.entries(data)) localStorage.setItem(k, v)
-  }
-  applySavedFontSizeImmediately(); applySavedFontFamilyImmediately()
-  applySavedLineHeight(); applySavedContentWidth()
-  applyCustomTypography(); applyCodeLineNumbers(); applyCodeCollapsible(); applyZenMode(); applyWalkMode()
-  const t = localStorage.getItem("theme")
-  if (t) document.documentElement.setAttribute("saved-theme", t)
-}
-
 
 function handleDocumentClick(e: MouseEvent) {
   const target = e.target as HTMLElement | null
   if (!target) return
 
-  if (target.closest(".settings-trigger")) { e.stopPropagation(); openSettingsModal(); return }
-  if (target.closest(".settings-close") || (target.id === "settings-overlay")) { e.stopPropagation(); closeSettingsModal(); return }
-
-  const showMore = target.closest(".font-show-more") as HTMLElement | null
-  if (showMore?.closest(".settings-modal")) {
+  // Açma butonu
+  if (target.closest(".settings-trigger, [data-action='open-settings']")) {
     e.stopPropagation()
-    const h = showMore.parentElement?.querySelector(".font-hidden") as HTMLElement | null
-    h?.classList.toggle("expanded")
-    showMore.classList.toggle("expanded", h?.classList.contains("expanded") ?? false)
+    openSettingsModal()
     return
   }
 
-  if (target.closest(".sync-key-generate")) {
+  // Kapatma butonu veya backdrop
+  if (target.closest("[data-action='close']") || target.id === "settings-overlay") {
     e.stopPropagation()
-    const inp = document.querySelector(".sync-key-input") as HTMLInputElement | null
-    if (inp) inp.value = generateSyncKey()
+    closeSettingsModal()
     return
   }
-  if (target.closest(".sync-key-generate-new")) {
+
+  // Sekme değiştirme (Sol menü veya mobil sekmeler)
+  const tabBtn = target.closest(".settings-nav-item, .settings-mobile-tab") as HTMLElement | null
+  if (tabBtn) {
     e.stopPropagation()
-    const inp = document.querySelector(".sync-key-new-input") as HTMLInputElement | null
-    if (inp) inp.value = generateSyncKey()
+    const tab = tabBtn.getAttribute("data-tab")
+    if (tab) switchTab(tab)
     return
   }
-  if (target.closest(".sync-key-copy-btn")) {
+
+  // Tema seçimi
+  const themeCard = target.closest(".settings-theme-card") as HTMLElement | null
+  if (themeCard) {
     e.stopPropagation()
-    const key = localStorage.getItem("noetic-sync-key")
-    if (key) navigator.clipboard.writeText(key).then(() => window.__noeticToast?.("Anahtar kopyalandı", "success"))
-    return
-  }
-  if (target.closest(".sync-key-save")) {
-    e.stopPropagation()
-    syncSaveToServer()
-    return
-  }
-  if (target.closest(".sync-key-load")) {
-    e.stopPropagation()
-    syncLoadFromServer()
-    return
-  }
-  if (target.closest(".sync-key-change")) {
-    e.stopPropagation()
-    const confirm = document.querySelector(".sync-confirm") as HTMLElement | null
-    if (confirm) confirm.style.display = "block"
-    return
-  }
-  if (target.closest(".sync-key-confirm-yes")) {
-    e.stopPropagation()
-    const inp = document.querySelector(".sync-key-new-input") as HTMLInputElement | null
-    const newKey = inp?.value.trim()
-    if (!newKey || newKey.length < 4) {
-      window.__noeticToast?.("Anahtar en az 4 karakter olmalı", "warning")
-      return
+    const theme = themeCard.getAttribute("data-theme")
+    if (theme) {
+      setTheme(theme)
+      window.__noeticToast?.("Tema değiştirildi", "success")
     }
-    localStorage.setItem("noetic-sync-key", newKey)
-    updateSyncUI()
-    window.__noeticToast?.("Anahtar değiştirildi", "success")
-    return
-  }
-  if (target.closest(".sync-key-confirm-cancel")) {
-    e.stopPropagation()
-    const confirm = document.querySelector(".sync-confirm") as HTMLElement | null
-    if (confirm) confirm.style.display = "none"
     return
   }
 }
@@ -410,22 +316,47 @@ function handleDocumentChange(e: Event) {
   const t = e.target as HTMLInputElement | null
   if (!t) return
 
-  if (t.matches("input[name='font-choice']")) { applyFontFamily(t.value); syncSettingsInputs(); return }
-  if (t.matches("input[name='font-size-choice']")) { applyFontSize(t.value); syncSettingsInputs(); return }
-  if (t.matches("input[name='line-height-choice']")) { applyLineHeight(t.value); syncSettingsInputs(); return }
-  if (t.matches("input[name='content-width-choice']")) { applyContentWidth(t.value); syncSettingsInputs(); return }
+  if (t.matches("input[name='font-choice']")) {
+    applyFontFamily(t.value)
+    syncSettingsInputs()
+    return
+  }
+  if (t.matches("input[name='font-size-choice']")) {
+    applyFontSize(t.value)
+    syncSettingsInputs()
+    return
+  }
+  if (t.matches("input[name='line-height-choice']")) {
+    applyLineHeight(t.value)
+    syncSettingsInputs()
+    return
+  }
+  if (t.matches("input[name='content-width-choice']")) {
+    applyContentWidth(t.value)
+    syncSettingsInputs()
+    return
+  }
 
   const toggleActions: Record<string, { apply: () => void; onMsg: string; offMsg: string }> = {
     "custom-typography": { apply: applyCustomTypography, onMsg: "Özel tipografi etkinleştirildi", offMsg: "Özel tipografi devre dışı" },
     "code-line-numbers": { apply: applyCodeLineNumbers, onMsg: "Satır numaraları açıldı", offMsg: "Satır numaraları kapatıldı" },
     "code-collapsible": { apply: applyCodeCollapsible, onMsg: "Katlanabilir bloklar açıldı", offMsg: "Katlanabilir bloklar kapatıldı" },
     "walk-mode": { apply: applyWalkMode, onMsg: "Walk Mode (Yürüyüş Modu) açıldı", offMsg: "Walk Mode kapatıldı" },
-    "zen-mode": { apply: () => { applyZenMode(); if (getToggle("zen-mode")) createZenExitButton(); else removeZenExitButton() }, onMsg: "Zen modu açıldı", offMsg: "Zen modu kapatıldı" },
+    "zen-mode": {
+      apply: () => {
+        applyZenMode()
+        if (getToggle("zen-mode")) createZenExitButton()
+        else removeZenExitButton()
+      },
+      onMsg: "Zen modu açıldı",
+      offMsg: "Zen modu kapatıldı",
+    },
   }
 
   for (const [name, { apply, onMsg, offMsg }] of Object.entries(toggleActions)) {
     if (t.matches(`input[name='${name}']`)) {
-      setToggle(name, t.checked); apply()
+      setToggle(name, t.checked)
+      apply()
       window.__noeticToast?.(t.checked ? onMsg : offMsg, "info")
       return
     }
@@ -464,7 +395,8 @@ function removeZenExitButton() {
 
 function handleDocumentKeydown(e: KeyboardEvent) {
   if (e.key === "Escape") {
-    if (document.getElementById("settings-overlay")?.classList.contains("active")) {
+    const panel = document.getElementById("settings-panel")
+    if (panel?.classList.contains("visible")) {
       closeSettingsModal()
     } else if (document.documentElement.classList.contains("noetic-zen-mode")) {
       exitZenMode()
@@ -482,7 +414,12 @@ document.addEventListener("keydown", handleDocumentKeydown)
 document.addEventListener("nav", handleSettingsNav)
 syncSettingsInputs()
 
+window.openSettingsModal = openSettingsModal
+window.closeSettingsModal = closeSettingsModal
+window.setTheme = setTheme
+window.closeThemePanel = closeSettingsModal
 window.__noeticSyncSettingsInputs = syncSettingsInputs
+
 window.__noeticSettings = {
   cleanup: () => {
     closeSettingsModal()
@@ -490,6 +427,9 @@ window.__noeticSettings = {
     document.removeEventListener("change", handleDocumentChange)
     document.removeEventListener("keydown", handleDocumentKeydown)
     document.removeEventListener("nav", handleSettingsNav)
+    if (window.openSettingsModal === openSettingsModal) delete window.openSettingsModal
+    if (window.closeSettingsModal === closeSettingsModal) delete window.closeSettingsModal
+    if (window.setTheme === setTheme) delete window.setTheme
     if (window.__noeticSyncSettingsInputs === syncSettingsInputs) delete window.__noeticSyncSettingsInputs
   },
 }

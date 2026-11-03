@@ -281,23 +281,11 @@ article img:not(.no-lightbox) {
   outline-offset: 2px;
 }
 
-// ===== TEMA GEÇİŞ EFEKTİ - SENKRONİZE =====
-// Tüm renkler aynı anda değişmeli, flash olmamalı
-// cubic-bezier: smooth başlangıç ve bitiş
-$theme-transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+// ===== TEMA GEÇİŞ EFEKTİ - HAFİF VE YÜKSEK PERFORMANSLI =====
+// Sadece üst seviye konteynerlerde hızlı ve pürüzsüz geçiş (0.2s)
+$theme-transition: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 
-// Ana renk geçişleri için mixin
-@mixin theme-transition {
-  transition:
-    background-color $theme-transition,
-    color $theme-transition,
-    border-color $theme-transition,
-    fill $theme-transition,
-    stroke $theme-transition,
-    box-shadow $theme-transition !important;
-}
-
-// Root seviyesinde CSS değişkenlerinin geçişi
+// Root seviyesinde renk değişkenlerinin geçişi
 :root {
   transition:
     background-color $theme-transition,
@@ -305,8 +293,7 @@ $theme-transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border-color $theme-transition;
 }
 
-// Tüm ana elemanlar
-html,
+// Yalnızca ana layout iskeleti geçiş yapar - binlerce DOM elemanını kasmamak için div, span, p vb. seçiciler kaldırıldı
 body,
 .page,
 .sidebar,
@@ -317,58 +304,15 @@ body,
 article,
 header,
 footer,
-nav,
-main,
-section,
-div,
-span,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-a,
-button,
-input,
-select,
-textarea,
-ul,
-ol,
-li,
-.explorer,
-.explorer-content,
-.folder-container,
-.graph,
-.graph-outer,
-.toc,
-.backlinks,
-.search,
-.search-button,
-.darkmode,
-.settings,
-.settings-button,
-.settings-modal,
-.content-meta,
-.meta-item,
-.breadcrumb-container {
-  @include theme-transition;
-}
-
-// SVG elemanları için
-svg,
-svg path,
-svg circle,
-svg line,
-svg rect {
+.settings-panel,
+.noetic-modules-panel {
   transition:
-    fill $theme-transition,
-    stroke $theme-transition,
-    color $theme-transition;
+    background-color $theme-transition,
+    color $theme-transition,
+    border-color $theme-transition;
 }
 
-// Performans için animasyonlu öğeleri hariç tut
+// Performans için animasyonlu ve ağır öğeleri kesin olarak hariç tut
 #theme-canvas,
 canvas,
 .katex,
@@ -380,24 +324,21 @@ img {
   transition: none !important;
 }
 
-// ===== MOBİLDE TEMA GEÇİŞ EFEKTİ =====
-// Ağır bileşenlerde geçişi kapat, renk geçişini ise koru
+// ===== MOBİLDE TEMA GEÇİŞİ: 0-GECİKME & MAKSİMUM PERFORMANS =====
+// Mobil cihazlarda CPU/GPU takılmasını önlemek için anında (0ms) geçiş sağlanır
 @media all and (max-width: 799px) {
-  :root {
-    transition-duration: 0.28s !important;
-  }
-
-  #theme-canvas,
-  canvas,
-  .katex,
-  code,
-  pre,
-  .mermaid,
-  video,
-  img,
-  #mermaid-space,
-  #mermaid-space *,
-  .graph canvas {
+  :root,
+  body,
+  .page,
+  .sidebar,
+  .center,
+  .right-sidebar,
+  article,
+  header,
+  footer,
+  .settings-panel,
+  .noetic-modules-panel,
+  * {
     transition: none !important;
     animation-duration: 0s !important;
   }

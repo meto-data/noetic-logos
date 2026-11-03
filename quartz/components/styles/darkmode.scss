@@ -22,8 +22,9 @@
   & svg {
     width: 18px;
     height: 18px;
-    fill: rgb(249, 250, 251) !important;
-    transition: fill 0.2s ease;
+    fill: currentColor;
+    color: var(--darkgray);
+    transition: color 0.15s ease;
   }
 
   // Hover'da ikon rengi değişmiyor, sadece border vurgusu yeterli

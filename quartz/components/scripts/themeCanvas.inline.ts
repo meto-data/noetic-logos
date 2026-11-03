@@ -136,6 +136,10 @@ document.addEventListener("nav", () => {
 
     let particles: Particle[] = []
 
+    function isAnimatedTheme(theme: string | null): boolean {
+        return theme === "deep-sea" || theme === "deep-void"
+    }
+
     function init() {
         resize()
         whales = []
@@ -145,11 +149,36 @@ document.addEventListener("nav", () => {
         for (let i = 0; i < 150; i++) particles.push(new Particle())
     }
 
+    function startAnimation() {
+        if (animationId !== null) return
+        const theme = document.documentElement.getAttribute("saved-theme")
+        if (!isAnimatedTheme(theme) || document.hidden) {
+            stopAnimation()
+            return
+        }
+        animate()
+    }
+
+    function stopAnimation() {
+        if (animationId !== null) {
+            cancelAnimationFrame(animationId)
+            animationId = null
+        }
+        if (ctx) {
+            ctx.clearRect(0, 0, w, h)
+        }
+        canvas.style.zIndex = "-1"
+    }
+
     function animate() {
         const theme = document.documentElement.getAttribute("saved-theme")
-        ctx!.clearRect(0, 0, w, h)
+        if (!isAnimatedTheme(theme) || document.hidden) {
+            stopAnimation()
+            return
+        }
 
-        canvas.style.top = "0" // Pozisyonu garantiye al
+        ctx!.clearRect(0, 0, w, h)
+        canvas.style.top = "0"
 
         if (theme === "deep-sea") {
             canvas.style.zIndex = "1"
@@ -159,19 +188,49 @@ document.addEventListener("nav", () => {
             canvas.style.zIndex = "1"
             particles.forEach(p => { p.update(); p.draw() })
         } else {
-            canvas.style.zIndex = "-1"
+            stopAnimation()
+            return
         }
 
         animationId = requestAnimationFrame(animate)
     }
 
+    const onThemeChange = () => {
+        const theme = document.documentElement.getAttribute("saved-theme")
+        if (isAnimatedTheme(theme)) {
+            startAnimation()
+        } else {
+            stopAnimation()
+        }
+    }
+
+    const onVisibilityChange = () => {
+        if (document.hidden) {
+            stopAnimation()
+        } else {
+            const theme = document.documentElement.getAttribute("saved-theme")
+            if (isAnimatedTheme(theme)) {
+                startAnimation()
+            }
+        }
+    }
+
     window.addEventListener("resize", resize)
+    document.addEventListener("themechange", onThemeChange)
+    document.addEventListener("visibilitychange", onVisibilityChange)
 
     init()
-    animate()
+    if (isAnimatedTheme(document.documentElement.getAttribute("saved-theme"))) {
+        startAnimation()
+    } else {
+        stopAnimation()
+    }
 
     window.addCleanup(() => {
-        if (animationId) cancelAnimationFrame(animationId)
+        stopAnimation()
+        window.removeEventListener("resize", resize)
+        document.removeEventListener("themechange", onThemeChange)
+        document.removeEventListener("visibilitychange", onVisibilityChange)
         canvas.remove()
     })
 })
