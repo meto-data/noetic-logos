@@ -85,15 +85,10 @@ applyZenMode()
 applyWalkMode()
 if (getToggle("zen-mode")) createZenExitButton()
 
-const runWhenIdle = (cb: () => void) => {
-  if (typeof window.requestIdleCallback === "function") {
-    window.requestIdleCallback(cb)
-    return
-  }
-  window.setTimeout(cb, 1)
-}
-
-runWhenIdle(() => {
+let fontsPreloaded = false
+function preloadTypographyFonts() {
+  if (fontsPreloaded) return
+  fontsPreloaded = true
   const fonts = ["Poppins", "Lato", "Roboto", "Open+Sans", "Quicksand", "Montserrat", "Merriweather", "Source+Sans+Pro", "Atkinson+Hyperlegible"]
   for (const f of fonts) {
     const link = document.createElement("link")
@@ -103,7 +98,7 @@ runWhenIdle(() => {
     link.onload = () => { link.media = "all" }
     document.head.appendChild(link)
   }
-})
+}
 
 function applyFontFamily(name: string) {
   const el = document.getElementById("dynamic-google-font") as HTMLLinkElement | null
@@ -190,6 +185,7 @@ function switchTab(tabId: string) {
     if (headingEl) headingEl.textContent = "Temalar"
     if (subHeadingEl) subHeadingEl.textContent = "10 farklı renk paleti ile arayüzü özelleştirin"
   } else if (tabId === "typography") {
+    preloadTypographyFonts()
     if (headingEl) headingEl.textContent = "Tipografi"
     if (subHeadingEl) subHeadingEl.textContent = "Yazı tipi, boyut ve satır yüksekliği ayarları"
   } else if (tabId === "preferences") {

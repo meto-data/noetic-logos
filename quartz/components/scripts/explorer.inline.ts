@@ -185,6 +185,28 @@ async function setupExplorer(currentSlug: FullSlug) {
   const allExplorers = document.querySelectorAll("div.explorer") as NodeListOf<HTMLElement>
 
   for (const explorer of allExplorers) {
+    const explorerUl = explorer.querySelector(".explorer-ul") as HTMLElement | null
+    if (!explorerUl) continue
+
+    // SPA optimizasyonu: Ağaç zaten oluşturulmuşsa 1.411 düğümü sıfırdan inşa etme
+    // Yalnızca aktif düğümü güncelle ve ebeveyn klasörleri açık tut
+    if (explorerUl.dataset.populated === "true") {
+      explorerUl.querySelectorAll("a.active").forEach((el) => el.classList.remove("active"))
+      const activeLink = explorerUl.querySelector(`a[data-for="${currentSlug}"]`) as HTMLAnchorElement | null
+      if (activeLink) {
+        activeLink.classList.add("active")
+        let parentOuter = activeLink.closest(".folder-outer") as HTMLElement | null
+        while (parentOuter) {
+          parentOuter.classList.add("open")
+          const folderContainer = parentOuter.parentElement?.querySelector(".folder-container") as HTMLElement | null
+          if (folderContainer) syncFolderItemState(folderContainer)
+          parentOuter = parentOuter.parentElement?.closest(".folder-outer") as HTMLElement | null
+        }
+        activeLink.scrollIntoView({ block: "nearest", behavior: "smooth" })
+      }
+      continue
+    }
+
     const dataFns = JSON.parse(explorer.dataset.dataFns || "{}")
     const opts: ParsedOptions = {
       folderClickBehavior: (explorer.dataset.behavior || "collapse") as "collapse" | "link",
@@ -233,9 +255,6 @@ async function setupExplorer(currentSlug: FullSlug) {
       }
     })
 
-    const explorerUl = explorer.querySelector(".explorer-ul")
-    if (!explorerUl) continue
-
     // Create and insert new content
     const fragment = document.createDocumentFragment()
     for (const child of trie.children) {
@@ -246,6 +265,7 @@ async function setupExplorer(currentSlug: FullSlug) {
       fragment.appendChild(node)
     }
     explorerUl.insertBefore(fragment, explorerUl.firstChild)
+    explorerUl.dataset.populated = "true"
 
     // restore explorer scrollTop position if it exists
     const scrollTop = sessionStorage.getItem("explorerScrollTop")

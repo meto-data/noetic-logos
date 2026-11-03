@@ -137,22 +137,41 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
         })
       }
 
-      const fp = joinSegments("static", "contentIndex") as FullSlug
-      const simplifiedIndex = Object.fromEntries(
-        Array.from(linkIndex).map(([slug, content]) => {
-          // remove description and from content index as nothing downstream
-          // actually uses it. we only keep it in the index as we need it
-          // for the RSS feed
-          delete content.description
-          delete content.date
-          return [slug, content]
-        }),
-      )
+      const fpLight = joinSegments("static", "contentIndex") as FullSlug
+      const fpSearch = joinSegments("static", "searchIndex") as FullSlug
+
+      const lightIndex: Record<string, Partial<ContentDetails>> = {}
+      const searchIndex: Record<string, Partial<ContentDetails>> = {}
+
+      for (const [slug, item] of linkIndex) {
+        lightIndex[slug] = {
+          slug: item.slug,
+          filePath: item.filePath,
+          title: item.title,
+          links: item.links,
+          tags: item.tags,
+        }
+        searchIndex[slug] = {
+          slug: item.slug,
+          filePath: item.filePath,
+          title: item.title,
+          links: item.links,
+          tags: item.tags,
+          content: item.content,
+        }
+      }
 
       yield write({
         ctx,
-        content: JSON.stringify(simplifiedIndex),
-        slug: fp,
+        content: JSON.stringify(lightIndex),
+        slug: fpLight,
+        ext: ".json",
+      })
+
+      yield write({
+        ctx,
+        content: JSON.stringify(searchIndex),
+        slug: fpSearch,
         ext: ".json",
       })
     },

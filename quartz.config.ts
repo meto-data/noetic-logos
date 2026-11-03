@@ -181,7 +181,7 @@ const config: QuartzConfig = {
   configuration: {
     pageTitle: "Noetic Logos",
     pageTitleSuffix: "",
-    enableSPA: false,
+    enableSPA: true,
     enablePopovers: true,
     analytics: analyticsConfig,
     locale: "tr-TR",

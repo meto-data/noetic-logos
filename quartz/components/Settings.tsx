@@ -7,7 +7,6 @@ import { classNames } from "../util/lang"
 interface ThemeDefinition {
   id: string
   name: string
-  badge: string
   bg: string
   color: string
   desc: string
@@ -17,7 +16,6 @@ const THEMES: ThemeDefinition[] = [
   {
     id: "light",
     name: "Açık",
-    badge: "Klasik",
     bg: "#ffffff",
     color: "#5993f0",
     desc: "Temiz, ferah ve standart aydınlık arayüz.",
@@ -25,7 +23,6 @@ const THEMES: ThemeDefinition[] = [
   {
     id: "dark",
     name: "Koyu",
-    badge: "Modern",
     bg: "#111827",
     color: "#3b82f6",
     desc: "Göz yormayan dengeli ve modern karanlık mod.",
@@ -33,7 +30,6 @@ const THEMES: ThemeDefinition[] = [
   {
     id: "stone-dark",
     name: "Taş",
-    badge: "Bazalt",
     bg: "#1c1917",
     color: "#d97706",
     desc: "Sıcak antrasit ve volkanik kaya tonları.",
@@ -41,7 +37,6 @@ const THEMES: ThemeDefinition[] = [
   {
     id: "olive-light",
     name: "Fıstık",
-    badge: "Doğal Pastel",
     bg: "#f4f6f0",
     color: "#5c7c4f",
     desc: "Açık zeytin ve yumuşak pastel yeşil zemin.",
@@ -49,7 +44,6 @@ const THEMES: ThemeDefinition[] = [
   {
     id: "olive-dark",
     name: "Koyu Fıstık",
-    badge: "Orman Yeşili",
     bg: "#232822",
     color: "#82A370",
     desc: "Derin orman ve zeytin yeşili tonları.",
@@ -57,7 +51,6 @@ const THEMES: ThemeDefinition[] = [
   {
     id: "library-light",
     name: "Kütüphane",
-    badge: "Sepya",
     bg: "#fbf8f2",
     color: "#8B7355",
     desc: "Eski kitap kağıdı ve parşömen sıcaklığı.",
@@ -65,7 +58,6 @@ const THEMES: ThemeDefinition[] = [
   {
     id: "nord-light",
     name: "Nord",
-    badge: "Arktik",
     bg: "#ECEFF4",
     color: "#5E81AC",
     desc: "Kutup serinliği, pastel buz mavisi ve gri.",
@@ -73,7 +65,6 @@ const THEMES: ThemeDefinition[] = [
   {
     id: "deep-sea",
     name: "Okyanus",
-    badge: "Animasyonlu",
     bg: "#0F172A",
     color: "#38BDF8",
     desc: "Süzülen derin deniz balinası efektiyle okyanus mavisi.",
@@ -81,7 +72,6 @@ const THEMES: ThemeDefinition[] = [
   {
     id: "void",
     name: "Boşluk",
-    badge: "Yüksek Kontrast",
     bg: "#0d0101",
     color: "#ef4444",
     desc: "OLED ekranlar için ultra derin siyah ve keskin kontrast.",
@@ -89,7 +79,6 @@ const THEMES: ThemeDefinition[] = [
   {
     id: "deep-void",
     name: "Uzay",
-    badge: "Kozmik",
     bg: "#050007",
     color: "#a855f7",
     desc: "Kozmik mor partikül ışıltılarıyla derin uzay.",
@@ -371,7 +360,6 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
                       <div class="settings-theme-card__body">
                         <div class="settings-theme-card__header">
                           <span class="settings-theme-card__name">{t.name}</span>
-                          <span class="settings-theme-card__badge">{t.badge}</span>
                         </div>
                         <p class="settings-theme-card__desc">{t.desc}</p>
                       </div>

@@ -525,16 +525,6 @@
   color: var(--settings-text-primary);
 }
 
-.settings-theme-card__badge {
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 0.12rem 0.45rem;
-  border-radius: 6px;
-  background: color-mix(in srgb, var(--secondary) 16%, var(--light));
-  border: 1px solid color-mix(in srgb, var(--secondary) 30%, transparent);
-  color: var(--secondary);
-}
-
 /* Tema Kartı Açıklamaları: TÜM TEMALARDA NET VE OKUNUR */
 .settings-theme-card__desc {
   font-size: 0.78rem;

@@ -579,9 +579,15 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
 
   async function renderLocalGraph() {
     cleanupLocalGraphs()
+    // Mobilde veya dar ekranda (sağ panel gizli) grafik simülasyonunu çalıştırma
+    if (window.innerWidth < 800) return
+
     const localGraphContainers = document.getElementsByClassName("graph-container")
     for (const container of localGraphContainers) {
-      localGraphCleanups.push(await renderGraph(container as HTMLElement, slug))
+      const el = container as HTMLElement
+      // CSS ile görünmez yapılmışsa Pixi/D3 simülasyonunu başlatma
+      if (el.offsetParent === null) continue
+      localGraphCleanups.push(await renderGraph(el, slug))
     }
   }
 
