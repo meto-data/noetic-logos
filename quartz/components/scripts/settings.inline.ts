@@ -139,12 +139,28 @@ function applyContentWidth(val: string) {
 }
 
 // ===== TEMA YÖNETİMİ =====
-function setTheme(newTheme: string) {
+function applyThemeCore(newTheme: string) {
   document.documentElement.setAttribute("saved-theme", newTheme)
   localStorage.setItem("theme", newTheme)
   const event = new CustomEvent("themechange", { detail: { theme: newTheme } })
   document.dispatchEvent(event)
   updateActiveThemeUI(newTheme)
+}
+
+function setTheme(newTheme: string) {
+  // @ts-ignore
+  if (typeof document.startViewTransition === "function") {
+    // @ts-ignore
+    document.startViewTransition(() => {
+      applyThemeCore(newTheme)
+    })
+  } else {
+    document.documentElement.classList.add("theme-transitioning")
+    applyThemeCore(newTheme)
+    setTimeout(() => {
+      document.documentElement.classList.remove("theme-transitioning")
+    }, 280)
+  }
 }
 
 function updateActiveThemeUI(activeTheme?: string) {
@@ -195,7 +211,10 @@ function switchTab(tabId: string) {
 }
 
 // ===== MODAL AÇMA / KAPAMA =====
+let savedScrollBeforeModal = 0
+
 function openSettingsModal(initialTab?: string) {
+  savedScrollBeforeModal = window.scrollY || document.documentElement.scrollTop || 0
   const overlay = document.getElementById("settings-overlay")
   const panel = document.getElementById("settings-panel")
   if (!overlay || !panel) return
@@ -225,6 +244,11 @@ function closeSettingsModal() {
   panel?.classList.remove("visible")
   panel?.setAttribute("aria-hidden", "true")
   setSettingsModalLock(false)
+  if (savedScrollBeforeModal > 0) {
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: savedScrollBeforeModal, left: 0, behavior: "instant" })
+    })
+  }
 }
 
 function syncSettingsInputs() {

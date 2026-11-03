@@ -34,8 +34,8 @@ function saveScrollPosition() {
       `${STORAGE_KEY_PREFIX}${path}`,
       JSON.stringify(position)
     )
+    history.replaceState({ ...history.state, scrollY }, "", window.location.href)
   } catch (e) {
-    // sessionStorage dolu veya devre dışı olabilir - sessizce devam et
     console.debug("Scroll position kaydetme başarısız:", e)
   }
 }
@@ -51,25 +51,28 @@ function restoreScrollPosition() {
   const path = window.location.pathname
 
   try {
+    let targetY = 0
     const saved = sessionStorage.getItem(`${STORAGE_KEY_PREFIX}${path}`)
-    if (!saved) return
-
-    const position: ScrollPosition = JSON.parse(saved)
-
-    if (Date.now() - position.timestamp > EXPIRY_TIME) {
-      sessionStorage.removeItem(`${STORAGE_KEY_PREFIX}${path}`)
-      return
+    if (saved) {
+      const position: ScrollPosition = JSON.parse(saved)
+      if (Date.now() - position.timestamp <= EXPIRY_TIME) {
+        targetY = position.scrollY
+      }
+    } else if (typeof history.state?.scrollY === "number") {
+      targetY = history.state.scrollY
     }
 
-    requestAnimationFrame(() => {
+    if (targetY > 0) {
       requestAnimationFrame(() => {
-        window.scrollTo({
-          top: position.scrollY,
-          left: 0,
-          behavior: "instant" as ScrollBehavior,
+        requestAnimationFrame(() => {
+          window.scrollTo({
+            top: targetY,
+            left: 0,
+            behavior: "instant" as ScrollBehavior,
+          })
         })
       })
-    })
+    }
   } catch (e) {
     console.debug("Scroll position geri yükleme başarısız:", e)
   }
@@ -113,23 +116,22 @@ document.addEventListener("DOMContentLoaded", () => {
   cleanupOldPositions()
 })
 
-// SPA navigation olduğunda (Quartz "nav" event'i)
-document.addEventListener("nav", () => {
+// SPA navigation başlamadan hemen önce mevcut sayfanın scroll pozisyonunu kaydet
+document.addEventListener("prenav", () => {
   saveScrollPosition()
+})
 
+// SPA navigation tamamlandığında scroll pozisyonunu geri yükle (eğer hash yoksa)
+document.addEventListener("nav", () => {
   if (!window.location.hash) {
-    setTimeout(() => {
-      restoreScrollPosition()
-    }, 50)
+    restoreScrollPosition()
   }
 })
 
 // Tarayıcı back/forward butonları için
 window.addEventListener("popstate", () => {
   if (!window.location.hash) {
-    setTimeout(() => {
-      restoreScrollPosition()
-    }, 50)
+    restoreScrollPosition()
   }
 })
 

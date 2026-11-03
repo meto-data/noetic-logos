@@ -33,13 +33,11 @@ body {
 
 p,
 ul,
-text,
 a,
 tr,
 td,
 li,
 ol,
-ul,
 .katex,
 .math,
 .typst-doc,
@@ -49,6 +47,10 @@ ul,
   overflow-wrap: break-word;
   text-wrap: pretty;
   font-size: var(--baseFontSize);
+}
+
+text {
+  fill: currentColor;
 }
 
 .math {

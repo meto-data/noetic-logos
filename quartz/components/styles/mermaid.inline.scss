@@ -94,11 +94,53 @@ div.pele-rendered {
     height: auto !important;
     display: inline-block !important;
   }
+
+  svg.pele {
+    overflow: visible !important;
+
+    text {
+      font-family: var(--pele-font, sans-serif) !important;
+      overflow-wrap: normal !important;
+      text-wrap: nowrap !important;
+    }
+
+    .pele-edge-labels text {
+      font-size: 14px !important;
+      line-height: normal !important;
+    }
+
+    .pele-nodes text,
+    .pele-label {
+      font-size: 16px !important;
+      line-height: normal !important;
+    }
+  }
 }
 
 // Ok ve düğüm metinlerinin şekillerin üstünde net okunması için stil geliştirmeleri
 code.mermaid,
 .mermaid-modal-canvas {
+  svg.pele {
+    overflow: visible !important;
+
+    text {
+      font-family: var(--pele-font, sans-serif) !important;
+      overflow-wrap: normal !important;
+      text-wrap: nowrap !important;
+    }
+
+    .pele-edge-labels text {
+      font-size: 14px !important;
+      line-height: normal !important;
+    }
+
+    .pele-nodes text,
+    .pele-label {
+      font-size: 16px !important;
+      line-height: normal !important;
+    }
+  }
+
   .edgeLabels {
     pointer-events: auto;
   }
@@ -111,12 +153,13 @@ code.mermaid,
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
     color: var(--dark) !important;
     line-height: 1.35 !important;
-    font-size: 0.9em !important;
+    font-size: 13px !important;
     font-weight: 500 !important;
 
     p, span {
       background-color: transparent !important;
       color: inherit !important;
+      font-size: 13px !important;
     }
   }
 
@@ -132,6 +175,7 @@ code.mermaid,
 
     .label {
       color: inherit !important;
+      font-size: 14px !important;
       font-weight: 500 !important;
       line-height: 1.35 !important;
     }

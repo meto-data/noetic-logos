@@ -165,6 +165,11 @@ async function _navigate(url: URL, isBack: boolean = false, navToken: number) {
     } else {
       window.scrollTo({ top: 0 })
     }
+  } else {
+    if (url.hash) {
+      const el = document.getElementById(decodeURIComponent(url.hash.substring(1)))
+      el?.scrollIntoView()
+    }
   }
 
   // now, patch head, re-executing scripts
@@ -238,6 +243,17 @@ function createRouter() {
         history.pushState({}, "", url)
         return
       }
+
+      // Ayrılmadan önce mevcut sayfanın scroll pozisyonunu kaydet
+      const currentScrollY = window.scrollY || document.documentElement.scrollTop || 0
+      try {
+        sessionStorage.setItem(`scroll_position_${window.location.pathname}`, JSON.stringify({
+          path: window.location.pathname,
+          scrollY: currentScrollY,
+          timestamp: Date.now(),
+        }))
+        history.replaceState({ ...history.state, scrollY: currentScrollY }, "", window.location.href)
+      } catch {}
 
       navigate(url, false)
     })

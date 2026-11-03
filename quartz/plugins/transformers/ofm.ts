@@ -675,6 +675,14 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
       }
 
       if (opts.mermaid) {
+        const peleMeasurer = {
+          width(text: string, size: number, style: number) {
+            const isBold = (style & 1) !== 0
+            const factor = isBold ? 0.74 : 0.68
+            return Math.ceil(text.length * size * factor)
+          },
+        }
+
         plugins.push(() => {
           return (tree: Root, file) => {
             visit(tree, "code", (node: Code) => {
@@ -682,7 +690,10 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 file.data.hasMermaidDiagram = true
                 const sanitized = sanitizeMermaidSource(node.value)
                 try {
-                  const { svg } = renderPele(sanitized)
+                  const { svg } = renderPele(sanitized, {
+                    measurer: peleMeasurer,
+                    padding: 28,
+                  })
                   const parsed = fromHtml(svg, { fragment: true })
                   const svgNode = parsed.children[0] as Element
                   node.data = {

@@ -38,11 +38,27 @@ const emitThemeChangeEvent = (theme: Theme) => {
   document.dispatchEvent(event)
 }
 
-const setTheme = (newTheme: Theme) => {
+const applyThemeCore = (newTheme: Theme) => {
   document.documentElement.setAttribute("saved-theme", newTheme)
   localStorage.setItem("theme", newTheme)
   emitThemeChangeEvent(newTheme)
   window.__noeticSyncSettingsInputs?.()
+}
+
+const setTheme = (newTheme: Theme) => {
+  // @ts-ignore
+  if (typeof document.startViewTransition === "function") {
+    // @ts-ignore
+    document.startViewTransition(() => {
+      applyThemeCore(newTheme)
+    })
+  } else {
+    document.documentElement.classList.add("theme-transitioning")
+    applyThemeCore(newTheme)
+    setTimeout(() => {
+      document.documentElement.classList.remove("theme-transitioning")
+    }, 280)
+  }
 }
 
 // Buton tıklaması: Ayarlar modalini doğrudan 'themes' sekmesiyle açar

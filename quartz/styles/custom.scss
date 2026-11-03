@@ -4,32 +4,12 @@
 // ===== MODAL SCROLL LOCK =====
 html.mobile-menu-open,
 html.settings-modal-open,
-html:has(body.mobile-menu-open),
-html:has(body.settings-modal-open) {
-  overflow: hidden !important;
-  height: 100vh !important;
-  height: 100dvh !important;
-  overscroll-behavior: none !important;
-
-  body {
-    overflow: hidden !important;
-    height: 100vh !important;
-    height: 100dvh !important;
-    overscroll-behavior: none !important;
-  }
-}
-
-body.mobile-menu-open,
-body.settings-modal-open {
-  overflow: hidden !important;
-  height: 100vh !important;
-  height: 100dvh !important;
-  overscroll-behavior: none !important;
-}
-
 html.modules-modal-open,
+body.mobile-menu-open,
+body.settings-modal-open,
 body.modules-modal-open {
   overflow: hidden !important;
+  overscroll-behavior: none !important;
 }
 
 // ==========================================
@@ -257,10 +237,36 @@ html:not(.noetic-code-collapsible) pre > .code-expand-btn {
 }
 
 // ===== TEMA GEÇİŞ EFEKTİ - HAFİF VE YÜKSEK PERFORMANSLI =====
-// Sadece üst seviye konteynerlerde hızlı ve pürüzsüz geçiş (0.2s)
+// View Transitions API - Modern tarayıcılarda ipeksi pürüzsüzlükte senkron tema geçişi
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.22s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+// Tema geçişi anında tüm temel bileşenlerin senkronize ve uyumlu geçişi
+html.theme-transitioning,
+html.theme-transitioning body,
+html.theme-transitioning .page,
+html.theme-transitioning .sidebar,
+html.theme-transitioning .center,
+html.theme-transitioning article,
+html.theme-transitioning header,
+html.theme-transitioning footer,
+html.theme-transitioning .settings-panel,
+html.theme-transitioning .settings-modal-box,
+html.theme-transitioning .noetic-modules-panel,
+html.theme-transitioning a,
+html.theme-transitioning button,
+html.theme-transitioning input,
+html.theme-transitioning svg.pele {
+  transition: background-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
 $theme-transition: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 
-// Root seviyesinde renk değişkenlerinin geçişi
 :root {
   transition:
     background-color $theme-transition,
@@ -268,7 +274,6 @@ $theme-transition: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     border-color $theme-transition;
 }
 
-// Yalnızca ana layout iskeleti geçiş yapar - binlerce DOM elemanını kasmamak için div, span, p vb. seçiciler kaldırıldı
 body,
 .page,
 .sidebar,
