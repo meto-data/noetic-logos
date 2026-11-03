@@ -104,7 +104,7 @@ end
 ```
 
 
-### Kavramsal ve İşlevsel Tanım (Conceptual and Operational Definition)
+### Kavramsal ve İşlevsel Tanım
 
 Bilimsel araştırmalarda bir kavramın ne anlama geldiğini açıklamak ile nasıl ölçüleceğini belirlemek birbirinden farklı işlemlerdir.
 
@@ -187,4 +187,26 @@ Bir araştırma önerisinde yer alması gereken asgari zaman planlaması yapıs�
 | **Örneklem Belirleme ve Veri Toplama**      |       |       |   X   |   X   |       |       |
 | **Veri Temizleme ve Düzenleme**             |       |       |       |   X   |   X   |       |
 | **İstatistiksel Analiz (SPSS / Python)**    |       |       |       |       |   X   |   X   |
-| **Bilimsel Raporlama ve Tez/Makale Yazımı** |       |       |       |       |       |   X   |
+| **Bilimsel Raporlama ve Tez/Makale Yazımı** |       |       |       |       |       |   
+
+
+```mermaid
+
+gantt
+    title Araştırmanın Metodolojik İş Akışı
+    dateFormat YYYY-MM-DD
+    axisFormat %m. Ay
+
+    section Araştırma Hazırlığı
+    Problem Tanımı ve Literatür Taraması :a1, 2026-01-01, 2M
+    Öneri Hazırlığı ve Etik Kurul Başvurusu :a2, 2026-02-01, 2M
+
+    section Veri Toplama
+    Örneklem Belirleme ve Veri Toplama :a3, 2026-03-01, 2M
+    Veri Temizleme ve Düzenleme :a4, 2026-04-01, 2M
+
+    section Analiz ve Raporlama
+    İstatistiksel Analiz (SPSS / Python) :a5, 2026-05-01, 2M
+    Bilimsel Raporlama ve Tez/Makale Yazımı :a6, 2026-06-01, 1M
+```
+
