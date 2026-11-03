@@ -79,13 +79,8 @@ const setupMobileChrome = () => {
         </svg>
       </button>
       <button class="mobile-settings-btn" aria-label="Ayarlar">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-          <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
-        </svg>
-      </button>
-      <button class="mobile-darkmode" aria-label="Tema değiştir">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-          <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 -32 576 576" fill="currentColor" width="18" height="18" class="fa-icon" style="overflow: visible;">
+          <path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 10.1-24.6 7.1l-55.6-18.4c-13.7 10.8-28.7 19.9-44.9 26.9l-11.4 57.3c-1.8 9.1-8.9 16.1-18.1 17.5c-12.7 1.9-25.7 2.9-38.9 2.9s-26.2-.9-38.9-2.9c-9.2-1.4-16.3-8.4-18.1-17.5l-11.4-57.3c-16.2-7-31.2-16.1-44.9-26.9L76.5 404c-8.9 3-18.7 .1-24.6-7.1c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C57.9 273.1 57.3 264.6 57.3 256s.6-17.1 1.7-25.4L15.7 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-10.1 24.6-7.1l55.6 18.4c13.7-10.8 28.7-19.9 44.9-26.9l11.4-57.3c1.8-9.1 8.9-16.1 18.1-17.5C215.8 45.7 228.8 44.7 242 44.7s26.2 .9 38.9 2.9c9.2 1.4 16.3 8.4 18.1 17.5l11.4 57.3c16.2 7 31.2 16.1 44.9 26.9l55.6-18.4c8.9-3 18.7-.1 24.6 7.1c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z" />
         </svg>
       </button>
     </div>
@@ -239,21 +234,11 @@ const setupMobileChrome = () => {
   }
   mobileSettingsBtn?.addEventListener("click", onMobileSettingsClick)
 
-  // Mobil tema butonu - ayarlar modalini 'themes' sekmesiyle aç
-  const mobileDarkmodeBtn = mobileHeader.querySelector(".mobile-darkmode") as HTMLButtonElement | null
-  const onMobileDarkmodeClick = (e: MouseEvent) => {
-    e.stopPropagation()
-    closeMobileFontPanel()
-    window.openSettingsModal?.("themes")
-  }
-  mobileDarkmodeBtn?.addEventListener("click", onMobileDarkmodeClick)
-
   cleanupMobileChrome = () => {
     closeMenu()
     mobileSearchInput?.removeEventListener("click", onMobileSearchClick)
     mobileModulesBtn?.removeEventListener("click", onMobileModulesClick)
     mobileSettingsBtn?.removeEventListener("click", onMobileSettingsClick)
-    mobileDarkmodeBtn?.removeEventListener("click", onMobileDarkmodeClick)
     window.removeEventListener("noetic-modules-seen", onModulesSeen as EventListener)
     leftSidebar.removeEventListener("click", onSidebarClick)
     overlay.removeEventListener("click", onOverlayClick)

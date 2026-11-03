@@ -11,30 +11,29 @@
 /* Masaüstü Tetikleyici Buton */
 .noetic-modules-trigger {
   appearance: none;
-  border: 1px solid color-mix(in srgb, var(--secondary) 24%, var(--lightgray));
-  background: color-mix(in srgb, var(--secondary) 8%, var(--light));
-  color: var(--secondary);
-  border-radius: 0.75rem;
+  background: var(--light);
+  border: 1px solid color-mix(in srgb, var(--dark) 18%, transparent);
+  color: var(--dark);
+  cursor: pointer;
+  padding: 0;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.55rem 0.9rem;
-  min-height: 42px;
-  font: inherit;
-  font-size: 0.85rem;
-  font-weight: 700;
-  cursor: pointer;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
   transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
-    border-color: color-mix(in srgb, var(--secondary) 48%, transparent);
-    background: color-mix(in srgb, var(--secondary) 14%, var(--light));
-    box-shadow: 0 6px 20px color-mix(in srgb, var(--secondary) 15%, transparent);
+    color: var(--secondary);
+    border-color: var(--secondary);
+    background: color-mix(in srgb, var(--secondary) 12%, transparent);
     transform: translateY(-1px);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--secondary) 18%, transparent);
   }
 
   &:active {
-    transform: scale(0.97);
+    transform: scale(0.96);
   }
 }
 

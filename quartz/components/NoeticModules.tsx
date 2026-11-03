@@ -12,6 +12,7 @@ const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
         type="button"
         class="noetic-modules-trigger"
         data-noetic-modules-trigger="desktop"
+        title="Modüller"
         aria-label="Modüller"
       >
         <span class="noetic-modules-trigger__icon" aria-hidden="true">
@@ -32,7 +33,6 @@ const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
             <rect x="14" y="14" width="7" height="7" rx="1.5" />
           </svg>
         </span>
-        <span class="noetic-modules-trigger__label">Modüller</span>
       </button>
 
       {/* Arka Plan Bulanıklık & Karartma Katmanı */}
@@ -140,27 +140,6 @@ const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
               <span class="noetic-modules-desktop-bar__univ" data-univ-heading>Dokuz Eylül Üniversitesi</span>
               <span class="noetic-modules-desktop-bar__sub" data-grade-heading>Müfredat Modülleri</span>
             </div>
-            <button
-              type="button"
-              class="noetic-modules-icon-btn"
-              data-action="close"
-              title="Kapat (Esc)"
-              aria-label="Kapat"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M18 6 6 18M6 6l12 12" />
-              </svg>
-            </button>
           </div>
 
           {/* Mobil İçin Özel Üst Bar (md:hidden) */}
@@ -189,27 +168,6 @@ const NoeticModules: QuartzComponent = (_props: QuartzComponentProps) => {
               </button>
               <span class="noetic-modules-mobile-bar__title">Ders Modülleri</span>
             </div>
-            <button
-              type="button"
-              class="noetic-modules-icon-btn"
-              data-action="close"
-              title="Kapat"
-              aria-label="Kapat"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M18 6 6 18M6 6l12 12" />
-              </svg>
-            </button>
           </div>
 
           {/* Mobil İçin Özel 2'li Seçici / Combobox Grid (md:hidden) */}

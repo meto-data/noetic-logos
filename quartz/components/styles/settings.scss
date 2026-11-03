@@ -41,6 +41,10 @@
   &:active {
     transform: scale(0.96);
   }
+
+  svg {
+    overflow: visible;
+  }
 }
 
 /* Arka Plan Bulanıklık & Karartma */

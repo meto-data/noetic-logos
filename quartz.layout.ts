@@ -37,20 +37,14 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
   ],
   left: [
-    Component.Flex({
-      components: [
-        { Component: Component.PageTitle(), grow: true, align: "center" },
-        { Component: Component.NoeticModules(), align: "center" },
-      ],
-      gap: "0.75rem",
-    }),
+    Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    // Arama + Darkmode + Settings
+    // Arama + Modüller + Ayarlar
     Component.Flex({
       components: [
         { Component: Component.Search(), grow: true },
+        { Component: Component.NoeticModules() },
         { Component: Component.Settings() },
-        { Component: Component.Darkmode() },
       ],
     }),
     Component.Explorer(),
@@ -72,19 +66,13 @@ export const defaultListPageLayout: PageLayout = {
     Component.ContentMeta(),
   ],
   left: [
-    Component.Flex({
-      components: [
-        { Component: Component.PageTitle(), grow: true, align: "center" },
-        { Component: Component.NoeticModules(), align: "center" },
-      ],
-      gap: "0.75rem",
-    }),
+    Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Flex({
       components: [
         { Component: Component.Search(), grow: true },
+        { Component: Component.NoeticModules() },
         { Component: Component.Settings() },
-        { Component: Component.Darkmode() },
       ],
     }),
     Component.Explorer(),

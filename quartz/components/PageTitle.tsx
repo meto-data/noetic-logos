@@ -24,6 +24,7 @@ PageTitle.css = `
   font-size: calc(var(--baseFontSize, 1.1rem) + 0.8rem);
   margin: 0;
   font-family: var(--titleFont);
+  white-space: nowrap;
 }
 `
 
