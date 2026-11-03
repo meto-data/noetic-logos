@@ -20,7 +20,9 @@ export function sanitizeMermaidLabel(text: string): string {
 }
 
 export function sanitizeMermaidSource(source: string): string {
-  let sanitized = source.replace(/"([^"\\]*(?:\\.[^"\\]*)*)"/g, (_match, inner) => {
+  // Strip non-directive comments (%% ...) as they cause fatal parser crashes in Mermaid standalone v11
+  let sanitized = source.replace(/^\s*%%(?!{)[^\n]*(\r?\n)?/gm, "")
+  sanitized = sanitized.replace(/"([^"\\]*(?:\\.[^"\\]*)*)"/g, (_match, inner) => {
     return `"${sanitizeMermaidLabel(inner)}"`
   })
   sanitized = sanitized.replace(/'([^'\\]*(?:\\.[^'\\]*)*)'/g, (_match, inner) => {
@@ -240,21 +242,24 @@ class DiagramPanZoom {
   }
 
   resetTransform() {
-    const containerW = this.container.clientWidth || window.innerWidth * 0.95
-    const containerH = this.container.clientHeight || window.innerHeight * 0.9
+    const containerW = Math.max(100, this.container.clientWidth || window.innerWidth * 0.95)
+    const containerH = Math.max(100, this.container.clientHeight || window.innerHeight * 0.9)
 
     const padding = 36
     const availW = Math.max(80, containerW - padding * 2)
     const availH = Math.max(80, containerH - padding * 2)
 
-    const scaleX = availW / this.svgWidth
-    const scaleY = availH / this.svgHeight
+    const w = this.svgWidth > 0 ? this.svgWidth : 800
+    const h = this.svgHeight > 0 ? this.svgHeight : 600
+
+    const scaleX = availW / w
+    const scaleY = availH / h
     const fitScale = Math.min(scaleX, scaleY, 1.15)
 
-    this.scale = this.clampScale(Math.max(this.MIN_SCALE, fitScale))
+    this.scale = this.clampScale(Math.max(this.MIN_SCALE, isFinite(fitScale) ? fitScale : 1))
     this.currentPan = {
-      x: (containerW - this.svgWidth * this.scale) / 2,
-      y: (containerH - this.svgHeight * this.scale) / 2,
+      x: (containerW - w * this.scale) / 2,
+      y: (containerH - h * this.scale) / 2,
     }
     this.updateTransform()
     this.updateCursor()
@@ -386,23 +391,31 @@ class MermaidGlobalModal {
     // Clone source SVG
     const clonedSvg = sourceSvg.cloneNode(true) as SVGElement
 
-    // Determine intrinsic dimensions
+    // Determine intrinsic dimensions from viewBox or rendered bounds
     let svgW = 800
     let svgH = 600
 
-    const vb = clonedSvg.viewBox?.baseVal
-    if (vb && vb.width > 0 && vb.height > 0) {
-      svgW = vb.width
-      svgH = vb.height
+    const vbAttr = sourceSvg.getAttribute("viewBox") || clonedSvg.getAttribute("viewBox")
+    if (vbAttr) {
+      const parts = vbAttr.trim().split(/[\s,]+/).map(Number)
+      if (parts.length === 4 && parts[2] > 0 && parts[3] > 0) {
+        svgW = parts[2]
+        svgH = parts[3]
+      }
     } else {
-      const bbox = sourceSvg.getBoundingClientRect()
-      if (bbox.width > 0 && bbox.height > 0) {
-        svgW = bbox.width
-        svgH = bbox.height
+      const vb = (sourceSvg as SVGSVGElement).viewBox?.baseVal
+      if (vb && vb.width > 0 && vb.height > 0) {
+        svgW = vb.width
+        svgH = vb.height
+      } else {
+        const bbox = sourceSvg.getBoundingClientRect()
+        if (bbox.width > 0 && bbox.height > 0) {
+          svgW = bbox.width
+          svgH = bbox.height
+        }
       }
     }
 
-    clonedSvg.removeAttribute("style")
     clonedSvg.style.display = "block"
     clonedSvg.style.maxWidth = "none"
     clonedSvg.style.maxHeight = "none"
@@ -414,6 +427,18 @@ class MermaidGlobalModal {
     this.canvasEl.style.width = `${svgW}px`
     this.canvasEl.style.height = `${svgH}px`
     this.canvasEl.appendChild(clonedSvg)
+
+    // Synchronously compute initial centering to prevent 1-frame blank or unpositioned jump
+    const containerW = Math.max(100, this.stageEl.clientWidth || window.innerWidth * 0.95)
+    const containerH = Math.max(100, this.stageEl.clientHeight || window.innerHeight * 0.9)
+    const availW = Math.max(80, containerW - 72)
+    const availH = Math.max(80, containerH - 72)
+    const fitScale = Math.min(availW / svgW, availH / svgH, 1.15)
+    const initialScale = Math.max(0.08, isFinite(fitScale) ? fitScale : 1)
+    const initialX = (containerW - svgW * initialScale) / 2
+    const initialY = (containerH - svgH * initialScale) / 2
+
+    this.canvasEl.style.transform = `translate(${initialX}px, ${initialY}px) scale(${initialScale})`
 
     this.modalEl.classList.add("active")
     document.body.style.overflow = "hidden"
@@ -548,8 +573,26 @@ const setupMermaids = async () => {
     }
 
     const getDiagramSvg = (): SVGElement | null => {
-      return (pre.querySelector("svg:not(.expand-button svg)") ||
-        codeBlock.querySelector("svg")) as SVGElement | null
+      const insideCode = codeBlock.querySelector("svg")
+      if (
+        insideCode &&
+        !insideCode.classList.contains("error-icon") &&
+        !insideCode.querySelector(".error-text") &&
+        insideCode.getAttribute("aria-roledescription") !== "error"
+      ) {
+        return insideCode
+      }
+      for (const svg of Array.from(pre.querySelectorAll("svg"))) {
+        if (
+          !svg.closest(".expand-button") &&
+          !svg.closest(".clipboard-button") &&
+          !svg.classList.contains("error-icon") &&
+          svg.getAttribute("aria-roledescription") !== "error"
+        ) {
+          return svg
+        }
+      }
+      return null
     }
 
     const openDiagram = (e?: Event) => {

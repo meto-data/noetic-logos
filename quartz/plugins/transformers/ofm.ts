@@ -227,7 +227,9 @@ export function sanitizeMermaidLabel(text: string): string {
 }
 
 export function sanitizeMermaidSource(source: string): string {
-  let sanitized = source.replace(/"([^"\\]*(?:\\.[^"\\]*)*)"/g, (_match, inner) => {
+  // Strip non-directive comments (%% ...) as they cause fatal parser crashes in Mermaid standalone v11
+  let sanitized = source.replace(/^\s*%%(?!{)[^\n]*(\r?\n)?/gm, "")
+  sanitized = sanitized.replace(/"([^"\\]*(?:\\.[^"\\]*)*)"/g, (_match, inner) => {
     return `"${sanitizeMermaidLabel(inner)}"`
   })
   sanitized = sanitized.replace(/'([^'\\]*(?:\\.[^'\\]*)*)'/g, (_match, inner) => {
