@@ -4,7 +4,6 @@ import { visit } from "unist-util-visit"
 // @ts-ignore
 import interactiveScript from "../../components/scripts/interactive.inline"
 import interactiveStyle from "../../components/styles/interactive.inline.scss"
-import { JSResource, CSSResource } from "../../util/resources"
 
 function safeJsonParse(raw: string) {
   const cleaned = raw
@@ -23,9 +22,16 @@ export const Interactive: QuartzTransformerPlugin = () => {
           return (tree: Root, file) => {
             const frontmatter = (file.data as any)?.frontmatter
             const etkilesimRaw = frontmatter?.etkilesim ?? frontmatter?.interactive
-            const isInteractive = etkilesimRaw === true || etkilesimRaw === "true" || etkilesimRaw === "evet" || etkilesimRaw === 1
+            const isInteractive =
+              etkilesimRaw === true ||
+              etkilesimRaw === "true" ||
+              etkilesimRaw === "evet" ||
+              etkilesimRaw === 1
+
+            let hasWidgets = false
 
             if (isInteractive) {
+              hasWidgets = true
               const markerNode: Html = {
                 type: "html",
                 value: `<div class="interactive-lexicon-page-marker" data-active="true"></div>`,
@@ -38,6 +44,7 @@ export const Interactive: QuartzTransformerPlugin = () => {
               const lang = (node.lang || "").toLowerCase().trim()
 
               if (lang === "quiz" || lang === "puzzle") {
+                hasWidgets = true
                 try {
                   const data = safeJsonParse(node.value)
 
@@ -73,33 +80,42 @@ export const Interactive: QuartzTransformerPlugin = () => {
 
                   const errorNode: Html = {
                     type: "html",
-                    value: `<div class="interactive-error-box"><div class="interactive-error-title">⚠️ ${lang.toUpperCase()} Şablon Ayrıştırma Hatası</div><p class="interactive-error-desc">${errMsg}</p><pre class="interactive-error-code"><code>${escapedCode}</code></pre></div>`,
+                    value: `<div class="interactive-error-box"><div class="interactive-error-title">[!] ${lang.toUpperCase()} Şablon Ayrıştırma Hatası</div><p class="interactive-error-desc">${errMsg}</p><pre class="interactive-error-code"><code>${escapedCode}</code></pre></div>`,
                   }
 
                   parent.children.splice(index, 1, errorNode)
                 }
               }
             })
+
+            if (hasWidgets) {
+              ;(file.data as any).hasInteractive = true
+            }
           }
         },
       ]
     },
     externalResources() {
-      const js: JSResource[] = [
-        {
-          script: interactiveScript,
-          loadTime: "afterDOMReady",
-          contentType: "inline",
-          moduleType: "module",
-        },
-      ]
-      const css: CSSResource[] = [
-        {
-          content: interactiveStyle,
-          inline: true,
-        },
-      ]
-      return { js, css }
+      return {
+        css: [],
+        js: [],
+        additionalHead: [
+          (pageData) => {
+            if ((pageData as any)?.hasInteractive) {
+              return (
+                <>
+                  <style dangerouslySetInnerHTML={{ __html: interactiveStyle }} />
+                  <script
+                    type="module"
+                    dangerouslySetInnerHTML={{ __html: interactiveScript }}
+                  />
+                </>
+              )
+            }
+            return <></>
+          },
+        ],
+      }
     },
   }
 }

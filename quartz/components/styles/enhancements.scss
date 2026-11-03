@@ -1,0 +1,202 @@
+// ----------------------------------------------------
+// Enhancements: Lightbox & Code Block Styles
+// ----------------------------------------------------
+
+article img:not(.no-lightbox) {
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+}
+
+// Lightbox Overlay
+.noetic-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(10, 15, 29, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Header Bar
+.noetic-lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.2rem;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.noetic-lightbox-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 0.2rem;
+}
+
+.noetic-lightbox-btn,
+.noetic-lightbox-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #f1f5f9;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+  padding: 0;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+  }
+
+  &:active {
+    transform: scale(0.92);
+  }
+
+  svg {
+    pointer-events: none;
+  }
+}
+
+.noetic-lightbox-btn-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-family: var(--codeFont, monospace);
+}
+
+.noetic-lightbox-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  &:hover {
+    background: rgba(239, 68, 68, 0.85);
+    border-color: rgba(239, 68, 68, 1);
+    color: #ffffff;
+  }
+}
+
+// Stage & Viewport
+.noetic-lightbox-stage {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+
+  &.is-dragging {
+    cursor: grabbing;
+  }
+}
+
+.noetic-lightbox-content {
+  position: absolute;
+  transform-origin: 0 0;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: none;
+    max-height: none;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+  }
+}
+
+// Caption
+.noetic-lightbox-caption {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 85vw;
+  padding: 0.45rem 1rem;
+  background: rgba(15, 23, 42, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  color: #e2e8f0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  text-align: center;
+  pointer-events: none;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+// ----------------------------------------------------
+// Code Block Language Badge & Mobile Copy Button
+// ----------------------------------------------------
+
+pre {
+  position: relative;
+
+  .code-lang-badge {
+    position: absolute;
+    top: 0.35rem;
+    right: 2.6rem;
+    font-family: var(--codeFont, monospace);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--darkgray);
+    background: var(--lightgray);
+    border: 1px solid var(--gray);
+    border-radius: 4px;
+    padding: 0.15rem 0.45rem;
+    line-height: 1.2;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.75;
+    transition: opacity 0.2s ease, background 0.2s ease;
+    z-index: 2;
+  }
+
+  &:hover .code-lang-badge {
+    opacity: 1;
+  }
+}
+
+// Mobilde kopyalama butonu daima hafif görünür olsun
+@media (hover: none) {
+  pre > .clipboard-button {
+    opacity: 0.85;
+  }
+}

@@ -1588,6 +1588,9 @@ if (document.readyState === "loading") {
 } else {
   initInteractiveWidgets()
 }
+window.addCleanup?.(() => {
+  document.removeEventListener("nav", initInteractiveWidgets)
+})
 
 export {}
 

@@ -216,31 +216,6 @@ html:not(.noetic-code-collapsible) pre > .code-expand-btn {
   }
 }
 
-// Görsel Lightbox
-.noetic-lightbox-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  z-index: 10001;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: zoom-out;
-  opacity: 1;
-  contain: layout style;
-
-  img {
-    max-width: 92vw;
-    max-height: 92vh;
-    border-radius: 8px;
-    object-fit: contain;
-  }
-}
-
-article img:not(.no-lightbox) {
-  cursor: zoom-in;
-}
-
 // Erişilebilirlik: prefers-reduced-motion
 @media (prefers-reduced-motion: reduce) {
   html {
