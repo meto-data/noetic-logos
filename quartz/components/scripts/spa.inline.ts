@@ -46,39 +46,83 @@ function notifyNav(url: FullSlug) {
 const cleanupFns: Set<(...args: any[]) => void> = new Set()
 window.addCleanup = (fn) => cleanupFns.add(fn)
 
-function startLoading() {
-  const loadingBar = document.createElement("div")
-  loadingBar.className = "navigation-progress"
-  loadingBar.style.width = "0"
-  if (!document.body.contains(loadingBar)) {
-    document.body.appendChild(loadingBar)
-  }
+// Bellek içi sayfa önbelleği: Link hover veya dokunma anında önceden çekilir, tıklamada 0ms geçiş sağlar
+const pageCache = new Map<string, string>()
 
-  setTimeout(() => {
-    loadingBar.style.width = "80%"
-  }, 100)
+async function prefetch(url: URL) {
+  const href = url.href
+  if (pageCache.has(href)) return
+  try {
+    const res = await fetchCanonical(url)
+    const contentType = res.headers.get("content-type")
+    if (contentType?.startsWith("text/html")) {
+      const text = await res.text()
+      pageCache.set(href, text)
+      if (pageCache.size > 40) {
+        const firstKey = pageCache.keys().next().value
+        if (firstKey) pageCache.delete(firstKey)
+      }
+    }
+  } catch {
+    // Önyükleme ağ hataları sessizce yoksayılır
+  }
 }
 
-let isNavigating = false
-let p: DOMParser
-async function _navigate(url: URL, isBack: boolean = false) {
-  isNavigating = true
-  startLoading()
-  p = p || new DOMParser()
-  const contents = await fetchCanonical(url)
-    .then((res) => {
-      const contentType = res.headers.get("content-type")
-      if (contentType?.startsWith("text/html")) {
-        return res.text()
-      } else {
-        window.location.assign(url)
-      }
-    })
-    .catch(() => {
-      window.location.assign(url)
-    })
+function startLoading() {
+  let loadingBar = document.querySelector<HTMLElement>(".navigation-progress")
+  if (!loadingBar) {
+    loadingBar = document.createElement("div")
+    loadingBar.className = "navigation-progress"
+    document.body.appendChild(loadingBar)
+  }
+  loadingBar.style.width = "0%"
+  loadingBar.style.opacity = "1"
+  requestAnimationFrame(() => {
+    if (loadingBar) loadingBar.style.width = "75%"
+  })
+}
 
-  if (!contents) return
+function stopLoading() {
+  const loadingBar = document.querySelector<HTMLElement>(".navigation-progress")
+  if (loadingBar) {
+    loadingBar.style.width = "100%"
+    setTimeout(() => {
+      loadingBar.style.opacity = "0"
+      setTimeout(() => {
+        loadingBar.style.width = "0%"
+      }, 200)
+    }, 120)
+  }
+}
+
+let currentNavToken = 0
+let p: DOMParser
+
+async function _navigate(url: URL, isBack: boolean = false, navToken: number) {
+  p = p || new DOMParser()
+
+  let contents = pageCache.get(url.href)
+  if (!contents) {
+    startLoading()
+    const res = await fetchCanonical(url).catch(() => null)
+    if (navToken !== currentNavToken) return // Yeni bir tıklama geldiğinde eski navigasyonu iptal et
+
+    if (!res) {
+      window.location.assign(url)
+      return
+    }
+
+    const contentType = res.headers.get("content-type")
+    if (contentType?.startsWith("text/html")) {
+      contents = await res.text()
+      pageCache.set(url.href, contents)
+    } else {
+      window.location.assign(url)
+      return
+    }
+  }
+
+  if (navToken !== currentNavToken) return
 
   // notify about to nav
   const event: CustomEventMap["prenav"] = new CustomEvent("prenav", { detail: {} })
@@ -104,6 +148,12 @@ async function _navigate(url: URL, isBack: boolean = false) {
   announcer.dataset.persist = ""
   html.body.appendChild(announcer)
 
+  // Mevcut explorer DOM ağacını koru (1.411 düğümün sıfırdan yıkılıp yeniden yapılmasını engeller)
+  const existingExplorers = document.querySelectorAll(".explorer")
+  existingExplorers.forEach((el) => el.setAttribute("data-persist", "explorer"))
+  const incomingExplorers = html.body.querySelectorAll(".explorer")
+  incomingExplorers.forEach((el) => el.setAttribute("data-persist", "explorer"))
+
   // morph body
   micromorph(document.body, html.body)
 
@@ -124,7 +174,6 @@ async function _navigate(url: URL, isBack: boolean = false) {
   elementsToAdd.forEach((el) => document.head.appendChild(el))
 
   // delay setting the url until now
-  // at this point everything is loaded so changing the url should resolve to the correct addresses
   if (!isBack) {
     history.pushState({}, "", url)
   }
@@ -134,15 +183,18 @@ async function _navigate(url: URL, isBack: boolean = false) {
 }
 
 async function navigate(url: URL, isBack: boolean = false) {
-  if (isNavigating) return
-  isNavigating = true
+  const navToken = ++currentNavToken
   try {
-    await _navigate(url, isBack)
+    await _navigate(url, isBack, navToken)
   } catch (e) {
-    console.error(e)
-    window.location.assign(url)
+    if (navToken === currentNavToken) {
+      console.error("SPA navigation error:", e)
+      window.location.assign(url)
+    }
   } finally {
-    isNavigating = false
+    if (navToken === currentNavToken) {
+      stopLoading()
+    }
   }
 }
 
@@ -150,6 +202,30 @@ window.spaNavigate = navigate
 
 function createRouter() {
   if (typeof window !== "undefined") {
+    let prefetchTimeout: number | undefined
+    document.addEventListener(
+      "pointerover",
+      (event) => {
+        const opts = getOpts(event)
+        if (!opts) return
+        window.clearTimeout(prefetchTimeout)
+        prefetchTimeout = window.setTimeout(() => {
+          void prefetch(opts.url)
+        }, 60)
+      },
+      { passive: true },
+    )
+
+    document.addEventListener(
+      "touchstart",
+      (event) => {
+        const opts = getOpts(event)
+        if (!opts) return
+        void prefetch(opts.url)
+      },
+      { passive: true },
+    )
+
     window.addEventListener("click", async (event) => {
       const { url } = getOpts(event) ?? {}
       // dont hijack behaviour, just let browser act normally

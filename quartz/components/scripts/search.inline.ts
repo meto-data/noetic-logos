@@ -1,7 +1,7 @@
 import FlexSearch, { DefaultDocumentSearchResults } from "flexsearch"
 import { ContentDetails } from "../../plugins/emitters/contentIndex"
 import { registerEscapeHandler, removeAllChildren } from "./util"
-import { FullSlug, normalizeRelativeURLs, resolveRelative } from "../../util/path"
+import { FullSlug, normalizeRelativeURLs, resolveRelative, pathToRoot, getFullSlug, joinSegments } from "../../util/path"
 
 interface Item {
   id: number
@@ -19,8 +19,13 @@ let currentSearchTerm: string = ""
 const encoder = (str: string) => {
   return str
     .toLocaleLowerCase("tr-TR")
+    .replace(/[.,/#!$%^&*;:{}=\-_`~()?"'\\[\\]]/g, " ")
     .split(/\s+/)
     .filter((token) => token.length > 0)
+}
+
+function escapeRegex(str: string): string {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
 }
 
 let index = new FlexSearch.Document<Item>({
@@ -95,7 +100,7 @@ function highlight(searchTerm: string, text: string, trim?: boolean) {
       // see if this tok is prefixed by any search terms
       for (const searchTok of tokenizedTerms) {
         if (tok.toLocaleLowerCase("tr-TR").includes(searchTok.toLocaleLowerCase("tr-TR"))) {
-          const regex = new RegExp(searchTok.toLocaleLowerCase("tr-TR"), "gi")
+          const regex = new RegExp(escapeRegex(searchTok.toLocaleLowerCase("tr-TR")), "gi")
           return tok.replace(regex, `<span class="highlight">$&</span>`)
         }
       }
@@ -123,7 +128,7 @@ function highlightHTML(searchTerm: string, el: HTMLElement) {
   const highlightTextNodes = (node: Node, term: string) => {
     if (node.nodeType === Node.TEXT_NODE) {
       const nodeText = node.nodeValue ?? ""
-      const regex = new RegExp(term.toLocaleLowerCase("tr-TR"), "gi")
+      const regex = new RegExp(escapeRegex(term.toLocaleLowerCase("tr-TR")), "gi")
       const matches = nodeText.match(regex)
       if (!matches || matches.length === 0) return
       const spanContainer = document.createElement("span")
@@ -149,10 +154,16 @@ function highlightHTML(searchTerm: string, el: HTMLElement) {
   return html.body
 }
 
-let searchData: ContentIndex | null = null
+let searchData: Record<string, Partial<ContentDetails>> | null = null
 let idDataMap: FullSlug[] = []
 let indexPopulated = false
 let indexPopulatePromise: Promise<void> | null = null
+
+function getSearchIndexUrl(): string {
+  const currentSlug = getFullSlug(window)
+  const relPath = joinSegments(pathToRoot(currentSlug), "static", "searchIndex.json")
+  return new URL(relPath, window.location.href).href
+}
 
 async function ensureIndexPopulated() {
   if (indexPopulated && searchData) return
@@ -160,18 +171,34 @@ async function ensureIndexPopulated() {
 
   indexPopulatePromise = (async () => {
     try {
-      const dataSupplier = typeof fetchSearchData === "function" ? fetchSearchData : () => fetchData
-      const data = await dataSupplier()
+      let data: Record<string, Partial<ContentDetails>> | null = null
+      try {
+        const url = getSearchIndexUrl()
+        const res = await fetch(url)
+        if (res.ok) {
+          data = await res.json()
+        }
+      } catch (e) {
+        console.warn("Could not fetch searchIndex via dynamic URL, trying fallback:", e)
+      }
+
+      if (!data) {
+        const dataSupplier = typeof fetchSearchData === "function" ? fetchSearchData : () => fetchData
+        data = (await dataSupplier()) as Record<string, Partial<ContentDetails>>
+      }
+
       searchData = data
-      idDataMap = Object.keys(data) as FullSlug[]
+      idDataMap = []
       let id = 0
       const promises: Array<Promise<unknown>> = []
-      for (const [slug, fileData] of Object.entries<ContentDetails>(data)) {
+      for (const [slug, fileData] of Object.entries<Partial<ContentDetails>>(data)) {
+        const currentId = id++
+        idDataMap[currentId] = slug as FullSlug
         promises.push(
-          index.addAsync(id++, {
-            id,
+          index.addAsync(currentId, {
+            id: currentId,
             slug: slug as FullSlug,
-            title: fileData.title,
+            title: fileData.title || slug,
             content: fileData.content ?? "",
             tags: fileData.tags ?? [],
           }),
@@ -185,6 +212,13 @@ async function ensureIndexPopulated() {
   })()
 
   return indexPopulatePromise
+}
+
+if (typeof window !== "undefined") {
+  const scheduleIdle = window.requestIdleCallback || ((cb: () => void) => setTimeout(cb, 1200))
+  scheduleIdle(() => {
+    void ensureIndexPopulated()
+  })
 }
 
 async function setupSearch(searchElement: Element, currentSlug: FullSlug) {

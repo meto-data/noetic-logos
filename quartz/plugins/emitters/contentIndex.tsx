@@ -153,9 +153,7 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
         }
         searchIndex[slug] = {
           slug: item.slug,
-          filePath: item.filePath,
           title: item.title,
-          links: item.links,
           tags: item.tags,
           content: item.content,
         }

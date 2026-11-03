@@ -27,12 +27,18 @@ export function pageResources(
   staticResources: StaticResources,
 ): StaticResources {
   const contentIndexPath = joinSegments(baseDir, "static/contentIndex.json")
-  const searchIndexPath = joinSegments(baseDir, "static/searchIndex.json")
   const contentIndexScript = `const fetchData = fetch("${contentIndexPath}").then(data => data.json());
 let _searchDataPromise = null;
 const fetchSearchData = () => {
   if (!_searchDataPromise) {
-    _searchDataPromise = fetch("${searchIndexPath}").then(data => data.json()).catch(() => fetchData);
+    const slug = document.body.dataset.slug || "";
+    const depth = slug.split("/").filter(Boolean).length;
+    const prefix = depth > 1 ? "../".repeat(depth - 1) : "./";
+    const path = new URL(prefix + "static/searchIndex.json", window.location.href).href;
+    _searchDataPromise = fetch(path).then(res => {
+      if (!res.ok) throw new Error("Search index fetch failed: " + res.status);
+      return res.json();
+    }).catch(() => fetchData);
   }
   return _searchDataPromise;
 };`
