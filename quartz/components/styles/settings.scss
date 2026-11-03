@@ -6,12 +6,20 @@
   align-items: center;
 }
 
+/* FontAwesome Vektör İkon Standardı */
+.fa-icon {
+  display: inline-block;
+  vertical-align: -0.125em;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
 /* Masaüstü Tetikleyici Buton */
 .settings-trigger {
   appearance: none;
   background: var(--light);
-  border: 1px solid var(--lightgray);
-  color: var(--darkgray);
+  border: 1px solid color-mix(in srgb, var(--dark) 18%, transparent);
+  color: var(--dark);
   cursor: pointer;
   padding: 0;
   display: inline-flex;
@@ -23,21 +31,15 @@
   transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
-    color: var(--dark);
+    color: var(--secondary);
     border-color: var(--secondary);
-    background: color-mix(in srgb, var(--secondary) 10%, transparent);
+    background: color-mix(in srgb, var(--secondary) 12%, transparent);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px color-mix(in srgb, var(--secondary) 15%, transparent);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--secondary) 18%, transparent);
   }
 
   &:active {
     transform: scale(0.96);
-  }
-
-  svg {
-    width: 18px;
-    height: 18px;
-    fill: currentColor;
   }
 }
 
@@ -45,9 +47,9 @@
 .settings-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   opacity: 0;
   pointer-events: none;
   z-index: 99998 !important;
@@ -61,8 +63,18 @@
   }
 }
 
-/* Modal Ana Penceresi (Modüller Tasarımında Solid Glass) */
+/* Modal Ana Penceresi (Tüm Temalarda Yüksek Kontrast Garantili) */
 .settings-panel {
+  // Dinamik Kontrast Değişkenleri (Nord, Taş, Boşluk, Uzay ve Aydınlık temalar için otomatik uyum)
+  --settings-text-primary: var(--dark);
+  --settings-text-secondary: color-mix(in srgb, var(--dark) 78%, var(--light));
+  --settings-text-muted: color-mix(in srgb, var(--dark) 62%, var(--light));
+  --settings-border: color-mix(in srgb, var(--dark) 16%, transparent);
+  --settings-border-subtle: color-mix(in srgb, var(--dark) 10%, transparent);
+  --settings-card-bg: color-mix(in srgb, var(--dark) 4%, var(--light));
+  --settings-card-hover-bg: color-mix(in srgb, var(--secondary) 10%, var(--light));
+  --settings-card-hover-border: color-mix(in srgb, var(--secondary) 65%, transparent);
+
   position: fixed;
   z-index: 99999 !important;
   top: 50%;
@@ -70,12 +82,13 @@
   transform: translate(-50%, -48%) scale(0.98);
   width: min(1040px, 94vw);
   height: min(680px, 86vh);
+  max-height: 86vh;
   display: none;
   grid-template-columns: 260px 1fr;
   border-radius: 24px;
-  border: 1px solid color-mix(in srgb, var(--lightgray) 80%, transparent);
+  border: 1px solid var(--settings-border);
   background: var(--light);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.38), 0 0 0 1px color-mix(in srgb, var(--lightgray) 30%, transparent);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--settings-border);
   opacity: 0;
   pointer-events: none;
   overflow: hidden;
@@ -91,15 +104,16 @@
   }
 }
 
-/* SOL PANEL (Masaüstü: 260px) */
+/* SOL PANEL (Masaüstü: 260px sabit) */
 .settings-sidebar {
   display: flex;
   flex-direction: column;
   gap: 1.15rem;
   padding: 1.25rem 1rem;
-  background: color-mix(in srgb, var(--secondary) 3%, var(--light));
-  border-right: 1px solid color-mix(in srgb, var(--lightgray) 70%, transparent);
+  background: color-mix(in srgb, var(--dark) 2.5%, var(--light));
+  border-right: 1px solid var(--settings-border);
   overflow-y: auto;
+  min-height: 0;
   user-select: none;
 }
 
@@ -114,9 +128,9 @@
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  border: 1px solid color-mix(in srgb, var(--lightgray) 70%, transparent);
-  background: var(--light);
-  color: var(--darkgray);
+  border: 1px solid var(--settings-border);
+  background: var(--settings-card-bg);
+  color: var(--settings-text-primary);
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -124,8 +138,8 @@
   transition: all 0.18s ease;
 
   &:hover {
-    background: color-mix(in srgb, var(--secondary) 12%, var(--light));
-    color: var(--secondary);
+    background: var(--secondary);
+    color: #fff;
     border-color: var(--secondary);
     transform: scale(1.04);
   }
@@ -139,17 +153,12 @@
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: color-mix(in srgb, var(--secondary) 14%, transparent);
+  background: color-mix(in srgb, var(--secondary) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--secondary) 30%, transparent);
   color: var(--secondary);
   display: grid;
   place-items: center;
   flex-shrink: 0;
-
-  svg {
-    fill: currentColor;
-    width: 18px;
-    height: 18px;
-  }
 }
 
 .settings-sidebar__titles {
@@ -161,14 +170,14 @@
 .settings-sidebar__title {
   font-size: 1rem;
   font-weight: 750;
-  color: var(--dark);
+  color: var(--settings-text-primary);
   line-height: 1.2;
 }
 
 .settings-sidebar__subtitle {
-  font-size: 0.72rem;
+  font-size: 0.73rem;
   font-weight: 500;
-  color: var(--gray);
+  color: var(--settings-text-muted);
   line-height: 1.2;
 }
 
@@ -177,7 +186,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--gray);
+  color: var(--settings-text-muted);
   margin-bottom: 0.4rem;
   padding-left: 0.4rem;
 }
@@ -207,27 +216,30 @@
   font: inherit;
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--darkgray);
+  color: var(--settings-text-secondary);
   cursor: pointer;
   text-align: left;
   transition: all 0.15s ease;
 
   &:hover {
-    background: color-mix(in srgb, var(--secondary) 7%, var(--light));
-    color: var(--dark);
+    background: var(--settings-card-bg);
+    color: var(--settings-text-primary);
   }
 
   &.is-active {
-    background: color-mix(in srgb, var(--secondary) 14%, var(--light));
-    border-color: color-mix(in srgb, var(--secondary) 30%, transparent);
+    background: color-mix(in srgb, var(--secondary) 15%, var(--light));
+    border-color: color-mix(in srgb, var(--secondary) 40%, transparent);
     color: var(--secondary);
     font-weight: 700;
   }
 }
 
 .settings-nav-icon {
-  font-size: 1.05rem;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
 }
 
 .settings-nav-label {
@@ -246,7 +258,7 @@
 .settings-sidebar__footer {
   margin-top: auto;
   padding-top: 0.75rem;
-  border-top: 1px solid color-mix(in srgb, var(--lightgray) 60%, transparent);
+  border-top: 1px solid var(--settings-border-subtle);
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
@@ -254,7 +266,7 @@
 
 .settings-sidebar__footer-badge {
   font-size: 0.68rem;
-  font-weight: 700;
+  font-weight: 750;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--secondary);
@@ -262,18 +274,22 @@
 
 .settings-sidebar__footer-text {
   font-size: 0.72rem;
-  color: var(--gray);
+  color: var(--settings-text-muted);
 }
 
-/* SAĞ PANEL */
+/* SAĞ PANEL (PC'de Scroll Garantisi İçin min-height: 0 ve overflow: hidden) */
 .settings-main {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  min-height: 0;
   height: 100%;
+  max-height: 100%;
+  flex: 1;
   padding: 1.25rem 1.5rem;
   gap: 1rem;
   background: var(--light);
+  overflow: hidden;
 }
 
 .settings-desktop-bar {
@@ -281,26 +297,29 @@
   align-items: center;
   justify-content: space-between;
   padding-bottom: 0.85rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--lightgray) 70%, transparent);
+  border-bottom: 1px solid var(--settings-border);
+  flex-shrink: 0;
 }
 
 .settings-desktop-bar__titles {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
+  gap: 0.2rem;
 }
 
 .settings-desktop-bar__title {
   font-size: 1.15rem;
   font-weight: 800;
-  color: var(--dark);
+  color: var(--settings-text-primary);
   line-height: 1.2;
 }
 
+/* Açıklama Yazısı: TÜM TEMALARDA %100 OKUNABİLİR */
 .settings-desktop-bar__sub {
-  font-size: 0.8rem;
-  color: var(--gray);
-  line-height: 1.2;
+  font-size: 0.82rem;
+  color: var(--settings-text-secondary) !important;
+  line-height: 1.35;
+  font-weight: 500;
 }
 
 .settings-mobile-bar {
@@ -308,6 +327,7 @@
   align-items: center;
   justify-content: space-between;
   padding-bottom: 0.5rem;
+  flex-shrink: 0;
 }
 
 .settings-mobile-bar__left {
@@ -319,7 +339,7 @@
 .settings-mobile-bar__title {
   font-size: 1.05rem;
   font-weight: 800;
-  color: var(--dark);
+  color: var(--settings-text-primary);
 }
 
 .settings-mobile-tabs {
@@ -327,9 +347,10 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 0.35rem;
   padding: 0.3rem;
-  background: color-mix(in srgb, var(--secondary) 5%, var(--light));
-  border: 1px solid color-mix(in srgb, var(--lightgray) 70%, transparent);
+  background: var(--settings-card-bg);
+  border: 1px solid var(--settings-border);
   border-radius: 12px;
+  flex-shrink: 0;
 }
 
 .settings-mobile-tab {
@@ -341,9 +362,12 @@
   font: inherit;
   font-size: 0.8rem;
   font-weight: 650;
-  color: var(--darkgray);
+  color: var(--settings-text-secondary);
   cursor: pointer;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
   transition: all 0.15s ease;
 
   &.is-active {
@@ -353,13 +377,34 @@
   }
 }
 
-/* Kaydırılabilir İçerik Alanı */
+/* PC VE MOBİL İÇİN KESİNTİSİZ SCROLL ALANI */
 .settings-scroll {
   flex: 1;
+  min-height: 0;
+  height: 100%;
   overflow-y: auto;
-  padding: 4px 6px 16px 4px;
+  overflow-x: hidden;
+  padding: 4px 8px 36px 4px;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+
+  /* Masaüstü Şık ve Belirgin Scrollbar */
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--dark) 22%, transparent);
+    border-radius: 6px;
+
+    &:hover {
+      background: color-mix(in srgb, var(--dark) 42%, transparent);
+    }
+  }
 }
 
 .settings-tab-pane {
@@ -379,7 +424,7 @@
 }
 
 .settings-group__title {
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 750;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -399,7 +444,7 @@
   }
 }
 
-/* TEMA KARTLARI GRİDİ */
+/* TEMA KARTLARI GRİDİ (Yüksek Kontrast & Belirgin Sınırlar) */
 .settings-theme-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -410,10 +455,10 @@
   display: flex;
   align-items: center;
   gap: 0.9rem;
-  padding: 0.9rem 1.05rem;
+  padding: 0.95rem 1.05rem;
   border-radius: 16px;
-  border: 1px solid color-mix(in srgb, var(--lightgray) 80%, transparent);
-  background: color-mix(in srgb, var(--secondary) 2.5%, var(--light));
+  border: 1px solid var(--settings-border);
+  background: var(--settings-card-bg);
   cursor: pointer;
   position: relative;
   transition: all 0.15s ease;
@@ -421,9 +466,9 @@
 
   &:hover {
     transform: translateY(-1px);
-    border-color: color-mix(in srgb, var(--secondary) 55%, transparent);
-    background: color-mix(in srgb, var(--secondary) 6%, var(--light));
-    box-shadow: 0 4px 16px color-mix(in srgb, var(--secondary) 12%, transparent);
+    border-color: var(--settings-card-hover-border);
+    background: var(--settings-card-hover-bg);
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--secondary) 14%, transparent);
   }
 
   &:active {
@@ -432,8 +477,8 @@
 
   &.is-active {
     border-color: var(--secondary);
-    background: color-mix(in srgb, var(--secondary) 9%, var(--light));
-    box-shadow: 0 0 0 1.5px var(--secondary), 0 4px 16px color-mix(in srgb, var(--secondary) 18%, transparent);
+    background: color-mix(in srgb, var(--secondary) 10%, var(--light));
+    box-shadow: 0 0 0 1.5px var(--secondary), 0 4px 16px color-mix(in srgb, var(--secondary) 20%, transparent);
 
     .settings-theme-card__check {
       opacity: 1;
@@ -446,18 +491,18 @@
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  border: 1px solid color-mix(in srgb, var(--lightgray) 70%, transparent);
+  border: 1px solid var(--settings-border);
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .settings-theme-card__dot {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
 }
 
 .settings-theme-card__body {
@@ -465,7 +510,7 @@
   flex-direction: column;
   flex: 1;
   min-width: 0;
-  gap: 0.2rem;
+  gap: 0.25rem;
 }
 
 .settings-theme-card__header {
@@ -476,24 +521,26 @@
 
 .settings-theme-card__name {
   font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--dark);
+  font-weight: 750;
+  color: var(--settings-text-primary);
 }
 
 .settings-theme-card__badge {
   font-size: 0.65rem;
   font-weight: 700;
-  padding: 0.1rem 0.4rem;
+  padding: 0.12rem 0.45rem;
   border-radius: 6px;
-  background: color-mix(in srgb, var(--secondary) 15%, transparent);
+  background: color-mix(in srgb, var(--secondary) 16%, var(--light));
+  border: 1px solid color-mix(in srgb, var(--secondary) 30%, transparent);
   color: var(--secondary);
 }
 
+/* Tema Kartı Açıklamaları: TÜM TEMALARDA NET VE OKUNUR */
 .settings-theme-card__desc {
   font-size: 0.78rem;
-  color: var(--gray);
+  color: var(--settings-text-secondary) !important;
   margin: 0;
-  line-height: 1.35;
+  line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -529,10 +576,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 0.95rem;
+  padding: 0.8rem 1rem;
   border-radius: 12px;
-  border: 1px solid color-mix(in srgb, var(--lightgray) 80%, transparent);
-  background: color-mix(in srgb, var(--secondary) 2%, var(--light));
+  border: 1px solid var(--settings-border);
+  background: var(--settings-card-bg);
   cursor: pointer;
   margin: 0 !important;
   transition: all 0.15s ease;
@@ -542,17 +589,17 @@
   }
 
   &:hover {
-    border-color: color-mix(in srgb, var(--secondary) 45%, transparent);
-    background: color-mix(in srgb, var(--secondary) 5%, var(--light));
+    border-color: var(--settings-card-hover-border);
+    background: var(--settings-card-hover-bg);
   }
 
   &[data-checked="true"] {
     border-color: var(--secondary);
-    background: color-mix(in srgb, var(--secondary) 10%, var(--light));
+    background: color-mix(in srgb, var(--secondary) 12%, var(--light));
 
     .settings-font-card__name {
       color: var(--secondary);
-      font-weight: 700;
+      font-weight: 750;
     }
 
     .settings-font-card__radio {
@@ -568,14 +615,14 @@
 
 .settings-font-card__name {
   font-size: 0.9rem;
-  color: var(--dark);
+  color: var(--settings-text-primary);
 }
 
 .settings-font-card__radio {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border: 2px solid var(--lightgray);
+  border: 2px solid var(--settings-border);
   position: relative;
   display: inline-block;
   transition: all 0.15s ease;
@@ -598,9 +645,9 @@
 .settings-segmented-control {
   display: flex;
   gap: 0.5rem;
-  padding: 0.25rem;
-  background: color-mix(in srgb, var(--secondary) 3%, var(--light));
-  border: 1px solid color-mix(in srgb, var(--lightgray) 80%, transparent);
+  padding: 0.3rem;
+  background: var(--settings-card-bg);
+  border: 1px solid var(--settings-border);
   border-radius: 12px;
 }
 
@@ -609,13 +656,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.6rem 0.8rem;
+  padding: 0.65rem 0.8rem;
   border-radius: 9px;
   cursor: pointer;
   margin: 0 !important;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--darkgray);
+  color: var(--settings-text-secondary);
   transition: all 0.15s ease;
 
   input[type="radio"] {
@@ -623,14 +670,14 @@
   }
 
   &:hover {
-    color: var(--dark);
-    background: color-mix(in srgb, var(--secondary) 6%, transparent);
+    color: var(--settings-text-primary);
+    background: color-mix(in srgb, var(--dark) 6%, transparent);
   }
 
   &[data-checked="true"] {
     background: var(--secondary);
     color: #fff;
-    font-weight: 700;
+    font-weight: 750;
     box-shadow: 0 2px 8px color-mix(in srgb, var(--secondary) 25%, transparent);
   }
 }
@@ -647,35 +694,42 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.25rem;
-  padding: 0.85rem 1.15rem;
+  padding: 0.95rem 1.15rem;
   border-radius: 14px;
-  border: 1px solid color-mix(in srgb, var(--lightgray) 80%, transparent);
-  background: color-mix(in srgb, var(--secondary) 2%, var(--light));
+  border: 1px solid var(--settings-border);
+  background: var(--settings-card-bg);
   transition: all 0.15s ease;
 
   &:hover {
-    border-color: color-mix(in srgb, var(--secondary) 40%, transparent);
-    background: color-mix(in srgb, var(--secondary) 4.5%, var(--light));
+    border-color: var(--settings-card-hover-border);
+    background: var(--settings-card-hover-bg);
   }
 }
 
 .settings-toggle-card__body {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.25rem;
   flex: 1;
 }
 
+.settings-toggle-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--settings-text-primary);
+}
+
 .settings-toggle-card__title {
-  font-size: 0.92rem;
+  font-size: 0.93rem;
   font-weight: 700;
-  color: var(--dark);
+  color: var(--settings-text-primary);
 }
 
 .settings-toggle-card__desc {
   font-size: 0.78rem;
-  color: var(--gray);
-  line-height: 1.35;
+  color: var(--settings-text-secondary) !important;
+  line-height: 1.4;
 }
 
 /* TOGGLE SWITCH BİLEŞENİ */
@@ -697,7 +751,8 @@
     position: absolute;
     cursor: pointer;
     inset: 0;
-    background-color: var(--lightgray);
+    background-color: color-mix(in srgb, var(--dark) 24%, var(--light));
+    border: 1px solid var(--settings-border);
     border-radius: 24px;
     transition: background-color 0.2s ease;
 
@@ -706,11 +761,11 @@
       position: absolute;
       height: 18px;
       width: 18px;
-      left: 3px;
-      bottom: 3px;
+      left: 2px;
+      bottom: 2px;
       background-color: var(--light);
       border-radius: 50%;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
       transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
   }
@@ -726,6 +781,21 @@
   input:focus-visible + .toggle-slider {
     outline: 2px solid var(--secondary);
     outline-offset: 2px;
+  }
+}
+
+/* VOID VE DEEP-VOID TEMALARI İÇİN ÖZEL SEÇİM KONTRASTI */
+// Void ve Deep-Void temalarında --secondary beyaz olduğu için aktif hap butonlarında siyah yazı zorlanır
+[saved-theme="void"],
+[saved-theme="deep-void"] {
+  .settings-segmented-item[data-checked="true"],
+  .settings-mobile-tab.is-active,
+  .settings-theme-card__check {
+    color: #000000 !important;
+
+    svg {
+      stroke: #000000 !important;
+    }
   }
 }
 

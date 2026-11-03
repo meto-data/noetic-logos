@@ -33,10 +33,10 @@ const THEMES: ThemeDefinition[] = [
   {
     id: "stone-dark",
     name: "Taş",
-    badge: "Sıcak Koyu",
+    badge: "Bazalt",
     bg: "#1c1917",
     color: "#d97706",
-    desc: "Sıcak antrasit ve doğal taş tonları.",
+    desc: "Sıcak antrasit ve volkanik kaya tonları.",
   },
   {
     id: "olive-light",
@@ -49,7 +49,7 @@ const THEMES: ThemeDefinition[] = [
   {
     id: "olive-dark",
     name: "Koyu Fıstık",
-    badge: "Doğal Koyu",
+    badge: "Orman Yeşili",
     bg: "#232822",
     color: "#82A370",
     desc: "Derin orman ve zeytin yeşili tonları.",
@@ -73,7 +73,7 @@ const THEMES: ThemeDefinition[] = [
   {
     id: "deep-sea",
     name: "Okyanus",
-    badge: "Animasyonlu 🐋",
+    badge: "Animasyonlu",
     bg: "#0F172A",
     color: "#38BDF8",
     desc: "Süzülen derin deniz balinası efektiyle okyanus mavisi.",
@@ -89,7 +89,7 @@ const THEMES: ThemeDefinition[] = [
   {
     id: "deep-void",
     name: "Uzay",
-    badge: "Animasyonlu ✨",
+    badge: "Kozmik",
     bg: "#050007",
     color: "#a855f7",
     desc: "Kozmik mor partikül ışıltılarıyla derin uzay.",
@@ -121,15 +121,15 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
         data-action="open-settings"
         title="Ayarlar & Temalar"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-          <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" width="18" height="18" class="fa-icon">
+          <path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 10.1-24.6 7.1l-55.6-18.4c-13.7 10.8-28.7 19.9-44.9 26.9l-11.4 57.3c-1.8 9.1-8.9 16.1-18.1 17.5c-12.7 1.9-25.7 2.9-38.9 2.9s-26.2-.9-38.9-2.9c-9.2-1.4-16.3-8.4-18.1-17.5l-11.4-57.3c-16.2-7-31.2-16.1-44.9-26.9L76.5 404c-8.9 3-18.7 .1-24.6-7.1c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C57.9 273.1 57.3 264.6 57.3 256s.6-17.1 1.7-25.4L15.7 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-10.1 24.6-7.1l55.6 18.4c13.7-10.8 28.7-19.9 44.9-26.9l11.4-57.3c1.8-9.1 8.9-16.1 18.1-17.5C215.8 45.7 228.8 44.7 242 44.7s26.2 .9 38.9 2.9c9.2 1.4 16.3 8.4 18.1 17.5l11.4 57.3c16.2 7 31.2 16.1 44.9 26.9l55.6-18.4c8.9-3 18.7-.1 24.6 7.1c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z" />
         </svg>
       </button>
 
       {/* Arka Plan Bulanıklık & Karartma Katmanı */}
       <div id="settings-overlay" class="settings-overlay" data-action="close"></div>
 
-      {/* Ana Modal Penceresi (Modüller Portalı Tarzında) */}
+      {/* Ana Modal Penceresi */}
       <section
         id="settings-panel"
         class="settings-panel"
@@ -138,9 +138,9 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
         aria-modal="true"
         aria-label="Ayarlar Portalı"
       >
-        {/* SOL PANEL (Masaüstü: 260px sabit genişlik, mobilde gizlenir) */}
+        {/* SOL PANEL (Masaüstü: 260px) */}
         <aside class="settings-sidebar">
-          {/* Sol Header: < Kapat butonu + Renkli İkon Rozeti + Başlık */}
+          {/* Sol Header: Kapat butonu + İkon Rozeti + Başlık */}
           <div class="settings-sidebar__header">
             <button
               type="button"
@@ -149,24 +149,14 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
               title="Kapat"
               aria-label="Kapat"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="fa-icon">
                 <path d="m15 18-6-6 6-6" />
               </svg>
             </button>
 
             <div class="settings-badge" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" width="16" height="16" class="fa-icon">
+                <path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 10.1-24.6 7.1l-55.6-18.4c-13.7 10.8-28.7 19.9-44.9 26.9l-11.4 57.3c-1.8 9.1-8.9 16.1-18.1 17.5c-12.7 1.9-25.7 2.9-38.9 2.9s-26.2-.9-38.9-2.9c-9.2-1.4-16.3-8.4-18.1-17.5l-11.4-57.3c-16.2-7-31.2-16.1-44.9-26.9L76.5 404c-8.9 3-18.7 .1-24.6-7.1c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C57.9 273.1 57.3 264.6 57.3 256s.6-17.1 1.7-25.4L15.7 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-10.1 24.6-7.1l55.6 18.4c13.7-10.8 28.7-19.9 44.9-26.9l11.4-57.3c1.8-9.1 8.9-16.1 18.1-17.5C215.8 45.7 228.8 44.7 242 44.7s26.2 .9 38.9 2.9c9.2 1.4 16.3 8.4 18.1 17.5l11.4 57.3c16.2 7 31.2 16.1 44.9 26.9l55.6-18.4c8.9-3 18.7-.1 24.6 7.1c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z" />
               </svg>
             </div>
 
@@ -187,10 +177,15 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
                 role="tab"
                 aria-selected="true"
               >
-                <span class="settings-nav-icon">🎨</span>
+                <span class="settings-nav-icon">
+                  <svg class="fa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16" fill="currentColor">
+                    <path d="M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3H344c-26.5 0-48 21.5-48 48c0 3.5 .4 7 1.1 10.4c2.5 11.7 3.8 24.1 3.8 36.6c0 53-43 96-96 96c-114.9 0-208-93.1-208-208C-3.1 139.1 89.1 46.9 203 46.9c13.7 0 27.2 1.3 40.3 3.8C397.6 77.9 512 173.8 512 256zM152 144a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-48 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm80 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm128-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/>
+                  </svg>
+                </span>
                 <span class="settings-nav-label">Temalar</span>
                 <span class="settings-nav-badge">10</span>
               </button>
+
               <button
                 type="button"
                 class="settings-nav-item"
@@ -198,9 +193,14 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
                 role="tab"
                 aria-selected="false"
               >
-                <span class="settings-nav-icon">🔤</span>
+                <span class="settings-nav-icon">
+                  <svg class="fa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="15" height="15" fill="currentColor">
+                    <path d="M254 52.8C249.3 40.3 237.3 32 224 32s-25.3 8.3-30 20.8L57.8 416H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H103.4l27-72h187.2l27 72H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32h-25.8L254 52.8zM154.4 288L224 102.4 293.6 288H154.4z"/>
+                  </svg>
+                </span>
                 <span class="settings-nav-label">Tipografi</span>
               </button>
+
               <button
                 type="button"
                 class="settings-nav-item"
@@ -208,7 +208,11 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
                 role="tab"
                 aria-selected="false"
               >
-                <span class="settings-nav-icon">⚙️</span>
+                <span class="settings-nav-icon">
+                  <svg class="fa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="15" height="15" fill="currentColor">
+                    <path d="M0 416c0-17.7 14.3-32 32-32l54.7 0c12.3-28.3 40.5-48 73.3-48s61 19.7 73.3 48L480 384c17.7 0 32 14.3 32 32s-14.3 32-32 32l-246.7 0c-12.3 28.3-40.5 48-73.3 48s-61-19.7-73.3-48L32 448c-17.7 0-32-14.3-32-32zm192 0a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM352 96c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32zm-73.3 48c-12.3 28.3-40.5 48-73.3 48s-61-19.7-73.3-48L32 144c-17.7 0-32-14.3-32-32s14.3-32 32-32l101.4 0c12.3-28.3 40.5-48 73.3-48s61 19.7 73.3 48L240 80c17.7 0 32 14.3 32 32s-14.3 32-32 32l-1.3 0zM205.4 128a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM352 256c0-17.7 14.3-32 32-32l96 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-96 0c-17.7 0-32-14.3-32-32zm-73.3 48c-12.3 28.3-40.5 48-73.3 48s-61-19.7-73.3-48L32 304c-17.7 0-32-14.3-32-32s14.3-32 32-32l101.4 0c12.3-28.3 40.5-48 73.3-48s61 19.7 73.3 48L240 240c17.7 0 32 14.3 32 32s-14.3 32-32 32l-1.3 0zM205.4 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/>
+                  </svg>
+                </span>
                 <span class="settings-nav-label">Tercihler</span>
               </button>
             </nav>
@@ -245,9 +249,10 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
+                stroke-width="2.5"
                 stroke-linecap="round"
                 stroke-linejoin="round"
+                class="fa-icon"
               >
                 <path d="M18 6 6 18M6 6l12 12" />
               </svg>
@@ -266,14 +271,15 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
+                  width="18"
+                  height="18"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  stroke-width="2.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
+                  class="fa-icon"
                 >
                   <path d="m15 18-6-6 6-6" />
                 </svg>
@@ -289,14 +295,15 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="18"
+                height="18"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
+                stroke-width="2.5"
                 stroke-linecap="round"
                 stroke-linejoin="round"
+                class="fa-icon"
               >
                 <path d="M18 6 6 18M6 6l12 12" />
               </svg>
@@ -312,7 +319,10 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
               role="tab"
               aria-selected="true"
             >
-              🎨 Temalar
+              <svg class="fa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" height="14" fill="currentColor">
+                <path d="M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3H344c-26.5 0-48 21.5-48 48c0 3.5 .4 7 1.1 10.4c2.5 11.7 3.8 24.1 3.8 36.6c0 53-43 96-96 96c-114.9 0-208-93.1-208-208C-3.1 139.1 89.1 46.9 203 46.9c13.7 0 27.2 1.3 40.3 3.8C397.6 77.9 512 173.8 512 256zM152 144a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-48 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm80 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm128-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/>
+              </svg>
+              <span>Temalar</span>
             </button>
             <button
               type="button"
@@ -321,7 +331,10 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
               role="tab"
               aria-selected="false"
             >
-              🔤 Tipografi
+              <svg class="fa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="13" height="13" fill="currentColor">
+                <path d="M254 52.8C249.3 40.3 237.3 32 224 32s-25.3 8.3-30 20.8L57.8 416H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H103.4l27-72h187.2l27 72H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32h-25.8L254 52.8zM154.4 288L224 102.4 293.6 288H154.4z"/>
+              </svg>
+              <span>Tipografi</span>
             </button>
             <button
               type="button"
@@ -330,11 +343,14 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
               role="tab"
               aria-selected="false"
             >
-              ⚙️ Tercihler
+              <svg class="fa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="13" height="13" fill="currentColor">
+                <path d="M0 416c0-17.7 14.3-32 32-32l54.7 0c12.3-28.3 40.5-48 73.3-48s61 19.7 73.3 48L480 384c17.7 0 32 14.3 32 32s-14.3 32-32 32l-246.7 0c-12.3 28.3-40.5 48-73.3 48s-61-19.7-73.3-48L32 448c-17.7 0-32-14.3-32-32zm192 0a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM352 96c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32zm-73.3 48c-12.3 28.3-40.5 48-73.3 48s-61-19.7-73.3-48L32 144c-17.7 0-32-14.3-32-32s14.3-32 32-32l101.4 0c12.3-28.3 40.5-48 73.3-48s61 19.7 73.3 48L240 80c17.7 0 32 14.3 32 32s-14.3 32-32 32l-1.3 0zM205.4 128a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM352 256c0-17.7 14.3-32 32-32l96 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-96 0c-17.7 0-32-14.3-32-32zm-73.3 48c-12.3 28.3-40.5 48-73.3 48s-61-19.7-73.3-48L32 304c-17.7 0-32-14.3-32-32s14.3-32 32-32l101.4 0c12.3-28.3 40.5-48 73.3-48s61 19.7 73.3 48L240 240c17.7 0 32 14.3 32 32s-14.3 32-32 32l-1.3 0zM205.4 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/>
+              </svg>
+              <span>Tercihler</span>
             </button>
           </div>
 
-          {/* Kaydırılabilir İçerik Alanı */}
+          {/* Kaydırılabilir İçerik Alanı (PC'de kesintisiz scroll) */}
           <div class="settings-scroll">
             {/* SEKME 1: TEMALAR */}
             <div class="settings-tab-pane is-active" data-pane="themes">
@@ -362,14 +378,15 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
                       <div class="settings-theme-card__check" aria-hidden="true">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
+                          width="14"
+                          height="14"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
                           stroke-width="3"
                           stroke-linecap="round"
                           stroke-linejoin="round"
+                          class="fa-icon"
                         >
                           <polyline points="20 6 9 17 4 12" />
                         </svg>
@@ -457,7 +474,12 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
                 <div class="settings-toggle-list">
                   <div class="settings-toggle-card walk-mode-row">
                     <div class="settings-toggle-card__body">
-                      <span class="settings-toggle-card__title">🚶‍♂️ Walk Mode (Yürüyüş Modu)</span>
+                      <div class="settings-toggle-card__header">
+                        <svg class="fa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="14" height="14" fill="currentColor">
+                          <path d="M208 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM90.1 143.9C79.7 137.9 66.4 141.4 60.4 151.9L22.9 216.8C16.9 227.3 20.4 240.6 30.9 246.6s23.7-3.5 29.7-14.1l25.8-44.6 22 55.1-40.6 81.3c-7.9 15.7-1.5 35 14.2 42.9s35 1.5 42.9-14.2l39.5-79.1 27.8 27.8c11.8 11.8 18.4 27.8 18.4 44.5V480c0 17.7 14.3 32 32 32s32-14.3 32-32V389c0-33.7-13.4-66-37.2-89.8l-15.5-15.5 15.3-38.3 44.6 37.2c13.6 11.3 33.7 9.5 45.1-4.1s9.5-33.7-4.1-45.1l-64-53.3c-10.7-8.9-24.9-13-38.8-11.2l-68.4 8.6-13.4-33.6 31.8-19.9c15.1-9.4 19.6-29.3 10.2-44.4s-29.3-19.6-44.4-10.2l-47.5 29.7z"/>
+                        </svg>
+                        <span class="settings-toggle-card__title">Walk Mode (Yürüyüş Modu)</span>
+                      </div>
                       <span class="settings-toggle-card__desc">
                         Yürürken okumayı kolaylaştıran genişletilmiş satır ve kontrast optimizasyonu.
                       </span>
@@ -470,7 +492,12 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
 
                   <div class="settings-toggle-card zen-mode-row">
                     <div class="settings-toggle-card__body">
-                      <span class="settings-toggle-card__title">🧘 Zen Modu</span>
+                      <div class="settings-toggle-card__header">
+                        <svg class="fa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" height="14" fill="currentColor">
+                          <path d="M256 0c0 141.4-114.6 256-256 256c141.4 0 256 114.6 256 256c0-141.4 114.6-256 256-256C370.6 256 256 141.4 256 0z"/>
+                        </svg>
+                        <span class="settings-toggle-card__title">Zen Modu</span>
+                      </div>
                       <span class="settings-toggle-card__desc">
                         Yan panelleri ve menüleri gizleyerek sadece okuduğunuz nota odaklanın.
                       </span>
@@ -483,9 +510,14 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
 
                   <div class="settings-toggle-card">
                     <div class="settings-toggle-card__body">
-                      <span class="settings-toggle-card__title">🔔 Sistem Bildirimleri</span>
+                      <div class="settings-toggle-card__header">
+                        <svg class="fa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="14" height="14" fill="currentColor">
+                          <path d="M224 0c-17.7 0-32 14.3-32 32V49.9C119.7 67.5 64 132.2 64 208v96l-34.7 69.5C21.7 388.7 26.5 400 36.1 400H411.9c9.6 0 14.4-11.3 6.8-26.5L384 304V208c0-75.8-55.7-140.5-128-158.1V32c0-17.7-14.3-32-32-32zm45.3 448H178.7c5.4 27.6 29.8 48 58.7 48s53.2-20.4 58.7-48z"/>
+                        </svg>
+                        <span class="settings-toggle-card__title">Sistem Bildirimleri</span>
+                      </div>
                       <span class="settings-toggle-card__desc">
-                        Kopyalama, tema ve ayar değişikliklerinde toast bildirimleri gösterir.
+                        Kopyalama, tema ve ayar değişikliklerinde geri bildirim toast'ları gösterir.
                       </span>
                     </div>
                     <label class="toggle-switch">
@@ -501,7 +533,12 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
                 <div class="settings-toggle-list">
                   <div class="settings-toggle-card">
                     <div class="settings-toggle-card__body">
-                      <span class="settings-toggle-card__title">Satır Numaraları</span>
+                      <div class="settings-toggle-card__header">
+                        <svg class="fa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="14" height="14" fill="currentColor">
+                          <path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/>
+                        </svg>
+                        <span class="settings-toggle-card__title">Satır Numaraları</span>
+                      </div>
                       <span class="settings-toggle-card__desc">
                         Kod bloklarının sol tarafında satır numaralarını görüntüler.
                       </span>
@@ -514,7 +551,12 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
 
                   <div class="settings-toggle-card">
                     <div class="settings-toggle-card__body">
-                      <span class="settings-toggle-card__title">Katlanabilir Bloklar</span>
+                      <div class="settings-toggle-card__header">
+                        <svg class="fa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="14" height="14" fill="currentColor">
+                          <path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/>
+                        </svg>
+                        <span class="settings-toggle-card__title">Katlanabilir Bloklar</span>
+                      </div>
                       <span class="settings-toggle-card__desc">
                         Uzun kod parçalarını katlanabilir başlık ile daraltılabilir yapar.
                       </span>
