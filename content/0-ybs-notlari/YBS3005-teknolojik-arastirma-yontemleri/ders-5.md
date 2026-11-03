@@ -24,7 +24,7 @@ draft: false
 ## Nominal Ölçek (Nominal Scale)
 Bkz. [[nominal]] **:)**
 
-Nominal (isimsel) ölçek, değişkenlerin aldığı değerlerin yalnızca gruplanabildiği, kategorilere ayrılabildiği en temel ölçüm basamağıdır. Değerler arasında büyüklük, küçüklük veya hiyerarşik üstünlük bulunma durumu söz konusu değildir, sadece *string* türünde ölçüme tabi tutulamayan bir değerdir. Cinsiyet ve ikâmetgah gibi.
+Nominal (isimsel) ölçek, değişkenlerin aldığı değerlerin yalnızca gruplanabildiği, kategorilere ayrılabildiği en temel ölçüm basamağıdır. Değerler arasında büyüklük, küçüklük veya hiyerarşik üstünlük bulunma durumu söz konusu değildir, sadece *string* türünde ölçüme tabi tutulamayan bir değerdir. Cinsiyet ve ikametgâh gibi.
 
 - **İstatistiksel İşlem Sınırı**: Sayısal büyüklük eksikliği sebebiyle bu ölçekte frekans dağılımları ve yüzdelikler hesaplanır. Merkezî eğilim ölçüsü olarak en çok tekrar eden değeri veren mod (tepe değer) kullanılır. İki kategorili (binomial) bağımlı değişkenlerin modellenmesinde ([[veri-madenciligi-9#D. Lojistik Regresyon|lojistik regresyon analizi]]) tercih edilir.
 	- Bkz. [[veri-madenciligi-9#Regresyonun Temel Mantığı ve Makine Öğrenmesindeki Yeri|veri madenciliğinde regresyon]]
@@ -40,7 +40,7 @@ Ordinal (sıralı) ölçek, değişkenin aldığı değerlerin belirli bir hiyer
 ## İnterval Ölçek (Interval Scale)
 Bkz. [[interval]]
 
-**İnterval (eşit aralıklı) ölçek, birimler arasındaki mesafelerin birbirine tam olarak eşitlendiği ve uzlaşımsal (itibarî) bir başlangıç noktasının tanımlandığı ölçüm yapısıdır**. Bu düzeyde bulunan sıfır noktası mutlak yokluk bildiriminden uzaktır; toplumun veya bilimsel otoritenin belirlediği bir referans hizasını temsil eder.
+**İnterval (eşit aralıklı) ölçek, birimler arasındaki mesafelerin birbirine tam olarak eşitlendiği ve uzlaşımsal (itibarî) bir başlangıç noktasının tanımlandığı ölçüm yapısıdır**. Bu düzeyde bulunan sıfır noktası mutlak yokluk bildiriminden ziyade toplumun veya bilimsel otoritenin belirlediği bir referans hizasını temsil eder.
 
 Örneğin, *Celcius* termometresi ($0^\circ\text{C}$ sıcaklığın yokluğu anlamına gelmez, suyun donma çizgisini gösterir), Takvim yılları.
 
@@ -85,7 +85,7 @@ $$
 \text{Hizmet Kalitesi Skoru} = \text{Algı (A)} - \text{Beklenti (B)}
 $$
 
- - $A=B$: İdeal tatmin dengisi.
+ - $A=B$: İdeal tatmin dengesi.
  - $A \lt B$: Hizmet kusuru veya müşteri tatminsizliği.
  - $A \gt B$: Müşteri süprizi, beklentiyi aşan hizmet (Operasyonel maliyet fazlalığı ve aşırı kaynak tahsisi riski barındırır).
 
