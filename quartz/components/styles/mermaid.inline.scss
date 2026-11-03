@@ -67,6 +67,52 @@ code.mermaid {
   }
 }
 
+// Ok ve düğüm metinlerinin şekillerin üstünde net okunması için stil geliştirmeleri
+code.mermaid,
+.mermaid-modal-canvas {
+  .edgeLabels {
+    pointer-events: auto;
+  }
+
+  .edgeLabel {
+    background-color: var(--light) !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    border: 1px solid var(--lightgray) !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
+    color: var(--dark) !important;
+    line-height: 1.35 !important;
+    font-size: 0.9em !important;
+    font-weight: 500 !important;
+
+    p, span {
+      background-color: transparent !important;
+      color: inherit !important;
+    }
+  }
+
+  .edgeLabel rect {
+    fill: var(--light) !important;
+    opacity: 0.95 !important;
+  }
+
+  .node {
+    foreignObject {
+      overflow: visible !important;
+    }
+
+    .label {
+      color: inherit !important;
+      font-weight: 500 !important;
+      line-height: 1.35 !important;
+    }
+  }
+
+  .cluster rect {
+    stroke-width: 1.5px !important;
+  }
+}
+
 // Mobilde ve dokunmatik cihazlarda büyüt butonu her zaman görünür olsun
 @media (hover: none), (max-width: 799px) {
   .expand-button {

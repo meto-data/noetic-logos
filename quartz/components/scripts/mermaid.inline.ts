@@ -424,6 +424,19 @@ class MermaidGlobalModal {
     clonedSvg.setAttribute("width", `${svgW}`)
     clonedSvg.setAttribute("height", `${svgH}`)
 
+    // Ensure edge labels and node labels are painted above shapes in modal
+    const edgeLabels = clonedSvg.querySelector(".edgeLabels")
+    if (edgeLabels && edgeLabels.parentElement) {
+      edgeLabels.parentElement.appendChild(edgeLabels)
+    }
+    const nodeGroups = clonedSvg.querySelectorAll(".node")
+    for (const ng of Array.from(nodeGroups)) {
+      const label = ng.querySelector(".label")
+      if (label && label.parentElement) {
+        label.parentElement.appendChild(label)
+      }
+    }
+
     this.canvasEl.style.width = `${svgW}px`
     this.canvasEl.style.height = `${svgH}px`
     this.canvasEl.appendChild(clonedSvg)
@@ -522,8 +535,16 @@ const setupMermaids = async () => {
       securityLevel: "loose",
       suppressErrors: true,
       theme: darkMode ? "dark" : "base",
+      flowchart: {
+        htmlLabels: true,
+        useMaxWidth: false,
+        curve: "basis",
+        padding: 20,
+        nodeSpacing: 70,
+        rankSpacing: 70,
+      },
       themeVariables: {
-        fontFamily: computedStyleMap["--codeFont"],
+        fontFamily: computedStyleMap["--codeFont"] || "inherit",
         primaryColor: computedStyleMap["--light"],
         primaryTextColor: computedStyleMap["--darkgray"],
         primaryBorderColor: computedStyleMap["--tertiary"],
@@ -531,12 +552,33 @@ const setupMermaids = async () => {
         secondaryColor: computedStyleMap["--secondary"],
         tertiaryColor: computedStyleMap["--tertiary"],
         clusterBkg: computedStyleMap["--light"],
-        edgeLabelBackground: computedStyleMap["--highlight"],
+        edgeLabelBackground: computedStyleMap["--light"],
       },
     })
 
     try {
       await mermaid.run({ nodes, suppressErrors: true })
+
+      // Ensure all text labels are painted on top of shapes, clusters, and lines
+      for (const node of Array.from(nodes)) {
+        const svg = node.querySelector("svg")
+        if (!svg) continue
+
+        // Move edgeLabels group to the end of diagram so it is rendered above nodes and paths
+        const edgeLabels = svg.querySelector(".edgeLabels")
+        if (edgeLabels && edgeLabels.parentElement) {
+          edgeLabels.parentElement.appendChild(edgeLabels)
+        }
+
+        // Ensure node labels are rendered above node background shapes
+        const nodeGroups = svg.querySelectorAll(".node")
+        for (const ng of Array.from(nodeGroups)) {
+          const label = ng.querySelector(".label")
+          if (label && label.parentElement) {
+            label.parentElement.appendChild(label)
+          }
+        }
+      }
     } catch (err) {
       console.warn("Mermaid run caught non-fatal diagram error:", err)
     }

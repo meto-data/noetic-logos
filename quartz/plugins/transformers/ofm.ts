@@ -253,7 +253,16 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
     textTransform(_ctx, src) {
       // do comments at text level
       if (opts.comments) {
+        // Protect fenced code blocks (``` or ~~~) and inline code from multiline Obsidian comment stripping
+        const codeBlocks: string[] = []
+        src = src.replace(/(```[\s\S]*?```|~~~[\s\S]*?~~~|`[^`\n]+`)/g, (match) => {
+          codeBlocks.push(match)
+          return `__QUARTZ_CODE_BLOCK_${codeBlocks.length - 1}__`
+        })
         src = src.replace(commentRegex, "")
+        src = src.replace(/__QUARTZ_CODE_BLOCK_(\d+)__/g, (_match, idx) => {
+          return codeBlocks[Number(idx)]
+        })
       }
 
       // pre-transform blockquotes
@@ -673,7 +682,6 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 node.data = {
                   hProperties: {
                     className: ["mermaid"],
-                    "data-clipboard": JSON.stringify(node.value),
                   },
                 }
               }

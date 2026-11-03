@@ -117,7 +117,6 @@ export default (() => {
             __html: `if ("serviceWorker" in navigator) { window.addEventListener("load", () => { navigator.serviceWorker.register("${serviceWorkerPath}").catch(() => undefined) }) }`,
           }}
         />
-        <script src={joinSegments(baseDir, "static/scripts/core.min.js")} defer></script>
       </head>
     )
   }
