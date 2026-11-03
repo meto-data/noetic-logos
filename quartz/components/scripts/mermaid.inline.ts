@@ -30,6 +30,9 @@ export function sanitizeMermaidSource(source: string): string {
   })
   sanitized = sanitized.replace(/(\[|\(|\{|\/|\|)(\s*)(\d+)\.\s+/g, "$1$2$3.\u00A0")
   sanitized = sanitized.replace(/(\[|\(|\{|\/|\|)(\s*)[-*+]\s+/g, "$1$2•\u00A0")
+  // Strip hardcoded dark/Catppuccin overrides (e.g. fill:#1e1e2e, fill:#181825) that conflict with Quartz themes
+  sanitized = sanitized.replace(/^\s*classDef\s+\w+\s+fill:#(?:1e1e2e|181825|313244)[^\n]*(\r?\n)?/gim, "")
+  sanitized = sanitized.replace(/^\s*class\s+\w+\s+(?:dep|doc|money|default);?(\r?\n)?/gim, "")
   return sanitized
 }
 
