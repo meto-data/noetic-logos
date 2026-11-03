@@ -497,109 +497,89 @@ const setupMermaids = async () => {
 
   const center = document.querySelector(".center") as HTMLElement
   if (!center) return
-  const nodes = center.querySelectorAll("code.mermaid") as NodeListOf<HTMLElement>
-  if (nodes.length === 0) return
 
-  mermaidImport ||= await import(
-    // @ts-ignore
-    "https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs"
-  )
-  const mermaid = mermaidImport.default
+  const cleanups: Array<() => void> = []
 
-  const textMapping: WeakMap<HTMLElement, string> = new WeakMap()
-  for (const node of nodes) {
-    const raw = node.textContent ?? ""
-    const sanitized = sanitizeMermaidSource(raw)
-    textMapping.set(node, sanitized)
-    node.textContent = sanitized
-    node.dataset.mermaidSource = sanitized
-  }
+  // Unrendered nodes that need traditional client-side Mermaid fallback
+  const unrenderedNodes = center.querySelectorAll("code.mermaid:not([data-rendered-by])") as NodeListOf<HTMLElement>
 
-  async function renderMermaid() {
-    for (const node of nodes) {
-      node.removeAttribute("data-processed")
-      const oldText = textMapping.get(node)
-      if (oldText) {
-        node.textContent = oldText
-      }
-    }
-
-    const computedStyleMap = cssVars.reduce(
-      (acc, key) => {
-        acc[key] = window.getComputedStyle(document.documentElement).getPropertyValue(key)
-        return acc
-      },
-      {} as Record<(typeof cssVars)[number], string>,
+  if (unrenderedNodes.length > 0) {
+    mermaidImport ||= await import(
+      // @ts-ignore
+      "https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs"
     )
+    const mermaid = mermaidImport.default
 
-    const darkMode = document.documentElement.getAttribute("saved-theme") === "dark"
-    mermaid.initialize({
-      startOnLoad: false,
-      securityLevel: "loose",
-      suppressErrors: true,
-      theme: darkMode ? "dark" : "base",
-      flowchart: {
-        htmlLabels: true,
-        useMaxWidth: false,
-        curve: "basis",
-        padding: 20,
-        nodeSpacing: 70,
-        rankSpacing: 70,
-      },
-      themeVariables: {
-        fontFamily: computedStyleMap["--codeFont"] || "inherit",
-        primaryColor: computedStyleMap["--light"],
-        primaryTextColor: computedStyleMap["--darkgray"],
-        primaryBorderColor: computedStyleMap["--tertiary"],
-        lineColor: computedStyleMap["--darkgray"],
-        secondaryColor: computedStyleMap["--secondary"],
-        tertiaryColor: computedStyleMap["--tertiary"],
-        clusterBkg: computedStyleMap["--light"],
-        edgeLabelBackground: computedStyleMap["--light"],
-      },
-    })
+    const textMapping: WeakMap<HTMLElement, string> = new WeakMap()
+    for (const node of Array.from(unrenderedNodes)) {
+      const raw = node.textContent ?? ""
+      const sanitized = sanitizeMermaidSource(raw)
+      textMapping.set(node, sanitized)
+      node.textContent = sanitized
+      node.dataset.mermaidSource = sanitized
+    }
 
-    try {
-      await mermaid.run({ nodes, suppressErrors: true })
-
-      // Ensure all text labels are painted on top of shapes, clusters, and lines
-      for (const node of Array.from(nodes)) {
-        const svg = node.querySelector("svg")
-        if (!svg) continue
-
-        // Move edgeLabels group to the end of diagram so it is rendered above nodes and paths
-        const edgeLabels = svg.querySelector(".edgeLabels")
-        if (edgeLabels && edgeLabels.parentElement) {
-          edgeLabels.parentElement.appendChild(edgeLabels)
-        }
-
-        // Ensure node labels are rendered above node background shapes
-        const nodeGroups = svg.querySelectorAll(".node")
-        for (const ng of Array.from(nodeGroups)) {
-          const label = ng.querySelector(".label")
-          if (label && label.parentElement) {
-            label.parentElement.appendChild(label)
-          }
+    async function renderMermaid() {
+      for (const node of Array.from(unrenderedNodes)) {
+        node.removeAttribute("data-processed")
+        const oldText = textMapping.get(node)
+        if (oldText) {
+          node.textContent = oldText
         }
       }
-    } catch (err) {
-      console.warn("Mermaid run caught non-fatal diagram error:", err)
+
+      const computedStyleMap = cssVars.reduce(
+        (acc, key) => {
+          acc[key] = window.getComputedStyle(document.documentElement).getPropertyValue(key)
+          return acc
+        },
+        {} as Record<(typeof cssVars)[number], string>,
+      )
+
+      const darkMode = document.documentElement.getAttribute("saved-theme") === "dark"
+      mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: "loose",
+        suppressErrors: true,
+        theme: darkMode ? "dark" : "base",
+        flowchart: {
+          htmlLabels: true,
+          useMaxWidth: false,
+          curve: "basis",
+          padding: 20,
+          nodeSpacing: 70,
+          rankSpacing: 70,
+        },
+        themeVariables: {
+          fontFamily: computedStyleMap["--codeFont"] || "inherit",
+          primaryColor: computedStyleMap["--light"],
+          primaryTextColor: computedStyleMap["--darkgray"],
+          primaryBorderColor: computedStyleMap["--tertiary"],
+          lineColor: computedStyleMap["--darkgray"],
+          secondaryColor: computedStyleMap["--secondary"],
+          tertiaryColor: computedStyleMap["--tertiary"],
+          clusterBkg: computedStyleMap["--light"],
+          edgeLabelBackground: computedStyleMap["--light"],
+        },
+      })
+
+      try {
+        await mermaid.run({ nodes: unrenderedNodes, suppressErrors: true })
+      } catch (err) {
+        console.warn("Mermaid run caught non-fatal diagram error:", err)
+      }
     }
+
+    await renderMermaid()
+    document.addEventListener("themechange", renderMermaid)
+    cleanups.push(() => document.removeEventListener("themechange", renderMermaid))
   }
 
-  await renderMermaid()
-  document.addEventListener("themechange", renderMermaid)
-  const cleanups: Array<() => void> = [
-    () => document.removeEventListener("themechange", renderMermaid),
-  ]
-
+  // Set up Pan-Zoom modal and expand buttons for all diagrams (both Pele and fallback)
   const modal = MermaidGlobalModal.getInstance()
+  const containers = center.querySelectorAll("pre:has(> .mermaid), pre:has(> code.mermaid), pre:has(> .pele-rendered), pre:has(> svg.pele)") as NodeListOf<HTMLPreElement>
 
-  for (let i = 0; i < nodes.length; i++) {
-    const codeBlock = nodes[i] as HTMLElement
-    const pre = codeBlock.parentElement as HTMLPreElement
-    if (!pre) continue
-
+  for (const pre of Array.from(containers)) {
     const clipboardBtn = pre.querySelector(".clipboard-button") as HTMLButtonElement | null
     const expandBtn = pre.querySelector(".expand-button") as HTMLButtonElement | null
 
@@ -618,15 +598,6 @@ const setupMermaids = async () => {
     }
 
     const getDiagramSvg = (): SVGElement | null => {
-      const insideCode = codeBlock.querySelector("svg")
-      if (
-        insideCode &&
-        !insideCode.classList.contains("error-icon") &&
-        !insideCode.querySelector(".error-text") &&
-        insideCode.getAttribute("aria-roledescription") !== "error"
-      ) {
-        return insideCode
-      }
       for (const svg of Array.from(pre.querySelectorAll("svg"))) {
         if (
           !svg.closest(".expand-button") &&

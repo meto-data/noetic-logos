@@ -32,6 +32,8 @@ import { unified } from "unified"
 import remarkParse from "remark-parse"
 import remarkMath from "remark-math"
 import remarkGfm from "remark-gfm"
+import { render as renderPele } from "pele"
+import { fromHtml } from "hast-util-from-html"
 
 export interface Options {
   comments: boolean
@@ -678,11 +680,26 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
             visit(tree, "code", (node: Code) => {
               if (node.lang === "mermaid") {
                 file.data.hasMermaidDiagram = true
-                node.value = sanitizeMermaidSource(node.value)
-                node.data = {
-                  hProperties: {
-                    className: ["mermaid"],
-                  },
+                const sanitized = sanitizeMermaidSource(node.value)
+                try {
+                  const { svg } = renderPele(sanitized)
+                  const parsed = fromHtml(svg, { fragment: true })
+                  const svgNode = parsed.children[0] as Element
+                  node.data = {
+                    hName: "div",
+                    hProperties: {
+                      className: ["mermaid", "pele-rendered"],
+                      "data-rendered-by": "pele",
+                    },
+                    hChildren: [svgNode],
+                  }
+                } catch (_err) {
+                  node.value = sanitized
+                  node.data = {
+                    hProperties: {
+                      className: ["mermaid"],
+                    },
+                  }
                 }
               }
             })
@@ -831,7 +848,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
           return (tree: HtmlRoot, _file) => {
             visit(tree, "element", (node: Element, _idx, parent) => {
               if (
-                node.tagName === "code" &&
+                (node.tagName === "code" || node.tagName === "div") &&
                 ((node.properties?.className ?? []) as string[])?.includes("mermaid")
               ) {
                 parent!.children = [

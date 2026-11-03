@@ -1,3 +1,28 @@
+:root {
+  --pele-bg: var(--light);
+  --pele-fg: var(--dark);
+  --pele-muted: var(--gray);
+  --pele-line: var(--darkgray);
+  --pele-surface: var(--light);
+  --pele-surface-alt: var(--lightgray);
+  --pele-border: var(--lightgray);
+  --pele-accent: var(--secondary);
+  --pele-font: var(--bodyFont);
+  --pele-font-mono: var(--codeFont);
+  --pele-radius: 6px;
+}
+
+[saved-theme="dark"] {
+  --pele-bg: var(--light);
+  --pele-fg: var(--dark);
+  --pele-muted: var(--gray);
+  --pele-line: var(--darkgray);
+  --pele-surface: color-mix(in srgb, var(--lightgray) 35%, var(--light));
+  --pele-surface-alt: var(--lightgray);
+  --pele-border: var(--lightgray);
+  --pele-accent: var(--secondary);
+}
+
 .expand-button {
   position: absolute;
   top: 0.4rem;
@@ -36,7 +61,9 @@
   }
 }
 
-pre:has(> code.mermaid) {
+pre:has(> code.mermaid),
+pre:has(> div.mermaid),
+pre:has(> .pele-rendered) {
   position: relative !important;
   display: block !important;
   max-width: 100% !important;
@@ -53,7 +80,9 @@ pre:has(> code.mermaid) {
   }
 }
 
-code.mermaid {
+code.mermaid,
+div.mermaid,
+div.pele-rendered {
   display: block !important;
   width: 100% !important;
   overflow-x: auto !important;
