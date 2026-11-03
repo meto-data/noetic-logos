@@ -10,8 +10,11 @@
 .fa-icon {
   display: inline-block;
   vertical-align: -0.125em;
-  fill: currentColor;
   flex-shrink: 0;
+
+  &:not([fill="none"]) {
+    fill: currentColor;
+  }
 }
 
 /* Masaüstü Tetikleyici Buton */

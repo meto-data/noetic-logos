@@ -302,7 +302,9 @@ const setupMermaids = async () => {
 
   const textMapping: WeakMap<HTMLElement, string> = new WeakMap()
   for (const node of nodes) {
-    const source = node.innerText
+    let source = node.innerText
+    // Auto sanitize to prevent "Unsupported markdown: list" in Mermaid v10/v11
+    source = source.replace(/(\["|\("|"|\|)(\s*\d+)\.\s+/g, "$1$2 - ")
     textMapping.set(node, source)
     node.dataset.mermaidSource = source
   }
@@ -377,6 +379,12 @@ const setupMermaids = async () => {
 
     let panZoom: DiagramPanZoom | null = null
     function showMermaid() {
+      // 1. Move to document.body so position: fixed covers the true viewport and avoids ancestor pre clipping
+      if (popupContainer.parentElement !== document.body) {
+        document.body.appendChild(popupContainer)
+      }
+      document.body.style.overflow = "hidden"
+
       const container = popupContainer.querySelector("#mermaid-space") as HTMLElement
       const content = popupContainer.querySelector(".mermaid-content") as HTMLElement
       if (!content || !container) return
@@ -421,6 +429,7 @@ const setupMermaids = async () => {
       popupContainer.classList.remove("active")
       panZoom?.cleanup()
       panZoom = null
+      document.body.style.overflow = ""
     }
 
     expandBtn.addEventListener("click", (e) => {
@@ -428,12 +437,13 @@ const setupMermaids = async () => {
       showMermaid()
     })
 
-    // Mobilde veya dokunmatik ekranda diyagrama tıklandığında da büyütme modali açılsın
-    const onCodeBlockClick = (e: MouseEvent) => {
-      if ((e.target as HTMLElement).closest(".clipboard-button, .expand-button")) return
+    // PC ve mobilde diyagram alanına tıklandığında tam ekran modali açılsın
+    const onPreClick = (e: MouseEvent) => {
+      if ((e.target as HTMLElement).closest(".clipboard-button, .expand-button, .code-expand-btn")) return
       showMermaid()
     }
-    codeBlock.addEventListener("click", onCodeBlockClick)
+    pre.addEventListener("click", onPreClick)
+    pre.style.cursor = "zoom-in"
 
     // Backdrop tıklandığında kapat
     const onPopupClick = (e: MouseEvent) => {
@@ -448,8 +458,11 @@ const setupMermaids = async () => {
     cleanups.push(() => {
       hideMermaid()
       expandBtn.removeEventListener("click", showMermaid)
-      codeBlock.removeEventListener("click", onCodeBlockClick)
+      pre.removeEventListener("click", onPreClick)
       popupContainer.removeEventListener("click", onPopupClick)
+      if (popupContainer.parentElement === document.body) {
+        popupContainer.remove()
+      }
     })
   }
 

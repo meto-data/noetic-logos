@@ -90,7 +90,7 @@ function normalizeLanguage(lang: string): string {
 }
 
 // ----------------------------------------------------
-// Image Lightbox with Pinch-to-Zoom & Pan
+// Image Lightbox with Pinch-to-Zoom & Pan (Mobile Optimized)
 // ----------------------------------------------------
 
 class ImageLightbox {
@@ -100,18 +100,15 @@ class ImageLightbox {
   private img: HTMLImageElement
   private activePointers = new Map<number, Position>()
   private isDragging = false
-  private startPointerPan: Position = { x: 0, y: 0 }
+  private startPointerPos: Position = { x: 0, y: 0 }
+  private startPan: Position = { x: 0, y: 0 }
   private currentPan: Position = { x: 0, y: 0 }
-  private scale = 1
-  private initialFitScale = 1
-  private readonly MIN_SCALE = 0.4
-  private readonly MAX_SCALE = 5
+  private scale = 1.0
+  private readonly MIN_SCALE = 1.0
+  private readonly MAX_SCALE = 5.0
   private pinchStartDistance = 0
-  private pinchStartScale = 1
-  private pinchStartCenter: Position = { x: 0, y: 0 }
-  private pinchStartPan: Position = { x: 0, y: 0 }
+  private pinchStartScale = 1.0
   private lastTapTime = 0
-  private lastTapPos: Position = { x: 0, y: 0 }
   private cleanups: (() => void)[] = []
   private movedDistance = 0
 
@@ -209,29 +206,27 @@ class ImageLightbox {
     closeBtn.addEventListener("click", onClose)
     zoomInBtn.addEventListener("click", (e) => {
       e.stopPropagation()
-      this.zoom(0.35)
+      this.zoom(0.5)
     })
     zoomOutBtn.addEventListener("click", (e) => {
       e.stopPropagation()
-      this.zoom(-0.35)
+      this.zoom(-0.5)
     })
     resetBtn.addEventListener("click", (e) => {
       e.stopPropagation()
-      this.resetTransform()
+      this.resetTransform(true)
     })
 
     const onPointerDown = this.onPointerDown.bind(this)
     const onPointerMove = this.onPointerMove.bind(this)
     const onPointerUp = this.onPointerUp.bind(this)
     const onWheel = this.onWheel.bind(this)
-    const onResize = () => this.resetTransform()
 
     this.stage.addEventListener("pointerdown", onPointerDown)
     this.stage.addEventListener("pointermove", onPointerMove)
     this.stage.addEventListener("pointerup", onPointerUp)
     this.stage.addEventListener("pointercancel", onPointerUp)
     this.stage.addEventListener("wheel", onWheel, { passive: false })
-    window.addEventListener("resize", onResize)
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -246,7 +241,6 @@ class ImageLightbox {
       () => this.stage.removeEventListener("pointerup", onPointerUp),
       () => this.stage.removeEventListener("pointercancel", onPointerUp),
       () => this.stage.removeEventListener("wheel", onWheel),
-      () => window.removeEventListener("resize", onResize),
       () => document.removeEventListener("keydown", onKeyDown),
     )
 
@@ -262,11 +256,7 @@ class ImageLightbox {
     // Animate in after append
     requestAnimationFrame(() => {
       this.overlay.classList.add("active")
-      if (this.img.complete && this.img.naturalWidth > 0) {
-        this.resetTransform()
-      } else {
-        this.img.onload = () => this.resetTransform()
-      }
+      this.resetTransform(false)
     })
   }
 
@@ -274,64 +264,29 @@ class ImageLightbox {
     return Math.min(Math.max(scale, this.MIN_SCALE), this.MAX_SCALE)
   }
 
-  private getLocalPoint(clientX: number, clientY: number): Position {
-    const rect = this.stage.getBoundingClientRect()
-    return { x: clientX - rect.left, y: clientY - rect.top }
-  }
-
   private getDistance(a: Position, b: Position): number {
     return Math.hypot(a.x - b.x, a.y - b.y)
   }
 
-  private getMidpoint(a: Position, b: Position): Position {
-    return { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }
-  }
-
-  private updateTransform() {
+  private updateTransform(animate: boolean = false) {
+    this.content.classList.toggle("animating", animate)
     this.content.style.transform = `translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`
   }
 
-  private resetTransform() {
-    const stageWidth = this.stage.clientWidth
-    const stageHeight = this.stage.clientHeight
-    if (stageWidth <= 0 || stageHeight <= 0) return
-
-    const imgWidth = this.img.naturalWidth || 800
-    const imgHeight = this.img.naturalHeight || 600
-
-    const padding = 32
-    const availableWidth = Math.max(80, stageWidth - padding * 2)
-    const availableHeight = Math.max(80, stageHeight - padding * 2)
-
-    const scaleX = availableWidth / imgWidth
-    const scaleY = availableHeight / imgHeight
-    this.initialFitScale = Math.min(1.0, Math.min(scaleX, scaleY))
-    this.scale = this.clampScale(this.initialFitScale)
-
-    this.currentPan = {
-      x: (stageWidth - imgWidth * this.scale) / 2,
-      y: (stageHeight - imgHeight * this.scale) / 2,
-    }
-
-    this.updateTransform()
-  }
-
-  private setScaleAtPoint(newScale: number, point: Position) {
-    const nextScale = this.clampScale(newScale)
-    const scaleRatio = nextScale / this.scale
-    this.currentPan = {
-      x: point.x - (point.x - this.currentPan.x) * scaleRatio,
-      y: point.y - (point.y - this.currentPan.y) * scaleRatio,
-    }
-    this.scale = nextScale
-    this.updateTransform()
+  private resetTransform(animate: boolean = true) {
+    this.scale = 1.0
+    this.currentPan = { x: 0, y: 0 }
+    this.updateTransform(animate)
   }
 
   private zoom(delta: number) {
-    this.setScaleAtPoint(this.scale + delta, {
-      x: this.stage.clientWidth / 2,
-      y: this.stage.clientHeight / 2,
-    })
+    const nextScale = this.clampScale(this.scale + delta)
+    if (nextScale <= 1.05) {
+      this.resetTransform(true)
+      return
+    }
+    this.scale = nextScale
+    this.updateTransform(true)
   }
 
   private onPointerDown(e: PointerEvent) {
@@ -340,30 +295,29 @@ class ImageLightbox {
     }
 
     this.stage.setPointerCapture(e.pointerId)
-    const pt = this.getLocalPoint(e.clientX, e.clientY)
+    const pt: Position = { x: e.clientX, y: e.clientY }
     this.activePointers.set(e.pointerId, pt)
     this.movedDistance = 0
 
     // Double tap / double click detection
     const now = Date.now()
-    if (this.activePointers.size === 1 && now - this.lastTapTime < 300) {
-      const distFromLastTap = Math.hypot(pt.x - this.lastTapPos.x, pt.y - this.lastTapPos.y)
-      if (distFromLastTap < 25) {
-        if (this.scale > this.initialFitScale * 1.2) {
-          this.resetTransform()
-        } else {
-          this.setScaleAtPoint(this.initialFitScale * 2.2, pt)
-        }
-        this.lastTapTime = 0
-        return
+    if (this.activePointers.size === 1 && now - this.lastTapTime < 320) {
+      if (this.scale > 1.2) {
+        this.resetTransform(true)
+      } else {
+        this.scale = 2.4
+        this.currentPan = { x: 0, y: 0 }
+        this.updateTransform(true)
       }
+      this.lastTapTime = 0
+      return
     }
     this.lastTapTime = now
-    this.lastTapPos = pt
 
     if (this.activePointers.size === 1) {
       this.isDragging = true
-      this.startPointerPan = { x: pt.x - this.currentPan.x, y: pt.y - this.currentPan.y }
+      this.startPointerPos = pt
+      this.startPan = { ...this.currentPan }
       this.stage.classList.add("is-dragging")
       return
     }
@@ -374,26 +328,26 @@ class ImageLightbox {
       this.stage.classList.remove("is-dragging")
       this.pinchStartDistance = this.getDistance(first, second)
       this.pinchStartScale = this.scale
-      this.pinchStartPan = { ...this.currentPan }
-      this.pinchStartCenter = this.getMidpoint(first, second)
     }
   }
 
   private onPointerMove(e: PointerEvent) {
     if (!this.activePointers.has(e.pointerId)) return
 
-    const pt = this.getLocalPoint(e.clientX, e.clientY)
+    const pt: Position = { x: e.clientX, y: e.clientY }
     const prev = this.activePointers.get(e.pointerId)!
     this.movedDistance += Math.hypot(pt.x - prev.x, pt.y - prev.y)
     this.activePointers.set(e.pointerId, pt)
 
     if (this.activePointers.size === 1 && this.isDragging) {
-      e.preventDefault()
-      this.currentPan = {
-        x: pt.x - this.startPointerPan.x,
-        y: pt.y - this.startPointerPan.y,
+      if (this.scale > 1.05) {
+        e.preventDefault()
+        this.currentPan = {
+          x: this.startPan.x + (pt.x - this.startPointerPos.x),
+          y: this.startPan.y + (pt.y - this.startPointerPos.y),
+        }
+        this.updateTransform(false)
       }
-      this.updateTransform()
       return
     }
 
@@ -403,19 +357,12 @@ class ImageLightbox {
       const distance = this.getDistance(first, second)
       if (distance === 0) return
 
-      const midpoint = this.getMidpoint(first, second)
-      const nextScale = this.clampScale(this.pinchStartScale * (distance / this.pinchStartDistance))
-      const contentPoint = {
-        x: (this.pinchStartCenter.x - this.pinchStartPan.x) / this.pinchStartScale,
-        y: (this.pinchStartCenter.y - this.pinchStartPan.y) / this.pinchStartScale,
+      const ratio = distance / this.pinchStartDistance
+      this.scale = this.clampScale(this.pinchStartScale * ratio)
+      if (this.scale <= 1.05) {
+        this.currentPan = { x: 0, y: 0 }
       }
-
-      this.scale = nextScale
-      this.currentPan = {
-        x: midpoint.x - contentPoint.x * nextScale,
-        y: midpoint.y - contentPoint.y * nextScale,
-      }
-      this.updateTransform()
+      this.updateTransform(false)
     }
   }
 
@@ -430,11 +377,15 @@ class ImageLightbox {
       this.stage.classList.remove("is-dragging")
 
       // Single tap on backdrop (without drag) closes lightbox
-      if (wasDragging && this.movedDistance < 6) {
+      if (wasDragging && this.movedDistance < 8) {
         const isBackdropClick = !(e.target instanceof Element && e.target.closest(".noetic-lightbox-content, .noetic-lightbox-header, .noetic-lightbox-caption"))
         if (isBackdropClick) {
           this.close()
         }
+      }
+
+      if (this.scale <= 1.05) {
+        this.resetTransform(true)
       }
       return
     }
@@ -442,7 +393,8 @@ class ImageLightbox {
     if (this.activePointers.size === 1) {
       const [remainingPoint] = [...this.activePointers.values()]
       this.isDragging = true
-      this.startPointerPan = { x: remainingPoint.x - this.currentPan.x, y: remainingPoint.y - this.currentPan.y }
+      this.startPointerPos = remainingPoint
+      this.startPan = { ...this.currentPan }
       this.stage.classList.add("is-dragging")
     }
   }
@@ -450,9 +402,8 @@ class ImageLightbox {
   private onWheel(e: WheelEvent) {
     if (e.target instanceof Element && e.target.closest(".noetic-lightbox-header")) return
     e.preventDefault()
-    const pt = this.getLocalPoint(e.clientX, e.clientY)
-    const factor = e.deltaY < 0 ? 1.15 : 0.85
-    this.setScaleAtPoint(this.scale * factor, pt)
+    const delta = e.deltaY < 0 ? 0.35 : -0.35
+    this.zoom(delta)
   }
 
   close() {
@@ -501,6 +452,11 @@ function setupLazyLoading() {
 function setupCodeBlocks() {
   document.querySelectorAll("pre:not([data-enhanced])").forEach((pre) => {
     const preEl = pre as HTMLElement
+    // NEVER touch Mermaid diagrams! Mermaid has its own dedicated fullscreen & panzoom modal
+    if (preEl.querySelector("code.mermaid") || preEl.classList.contains("mermaid")) {
+      return
+    }
+
     preEl.setAttribute("data-enhanced", "true")
 
     const code = preEl.querySelector("code")

@@ -72,20 +72,20 @@ flowchart TD
 
     subgraph CPU ["İŞLEMCİ ÇEKİRDEĞİ (CPU Pipeline)"]
         direction TB
-        P1["1. Getir (Fetch)<br/><small>Bellek adresinden komut çekilir</small>"]
-        P2["2. Çöz (Decode)<br/><small>Kontrol birimi sinyalleri üretir</small>"]
-        P3["3. Yürüt (Execute)<br/><small>Mantık kapıları ve toplayıcılar çalışır</small>"]
-        P4["4. Geri Yaz (Write-back)<br/><small>Sonuç RAM veya depolamaya yazılır</small>"]
+        P1["1 - Getir (Fetch)<br/><small>Bellek adresinden komut çekilir</small>"]
+        P2["2 - Çöz (Decode)<br/><small>Kontrol birimi sinyalleri üretir</small>"]
+        P3["3 - Yürüt (Execute)<br/><small>Mantık kapıları ve toplayıcılar çalışır</small>"]
+        P4["4 - Geri Yaz (Write-back)<br/><small>Sonuç RAM veya depolamaya yazılır</small>"]
         
         P1 --> P2 --> P3 --> P4
     end
 
     E["<b>ÇIKTI BİRİMLERİ (Output Devices)</b><br/>Monitör, Yazıcı, Ağ Portu, SSD/HDD"]
 
-    A -->|"1. Donanım Kesmesi / Giriş Verisi"| B
-    B -->|"2. Adresleme ve Aktarım"| C
-    C -->|"3. Komut Çekme (Fetch)"| P1
-    P4 -->|"4. İşlenmiş Veri / Çıkış Sinyali"| E
+    A -->|"1 - Donanım Kesmesi / Giriş Verisi"| B
+    B -->|"2 - Adresleme ve Aktarım"| C
+    C -->|"3 - Komut Çekme (Fetch)"| P1
+    P4 -->|"4 - İşlenmiş Veri / Çıkış Sinyali"| E
 ```
 
 ### Bilgisayar Kuşakları

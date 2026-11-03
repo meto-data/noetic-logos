@@ -128,13 +128,13 @@ Hukuk düzeninde yargıcın önüne gelen somut bir davada, olaya uygulanacak hi
 ```mermaid
 flowchart TB
     A["Yargıcın önüne gelen somut uyuşmazlık"]
-    B["1. Yazılı kaynakları hiyerarşik sırayla inceler<br/>(Anayasa, Kanun, CBK, Yönetmelik, İBK)"]
+    B["1 - Yazılı kaynakları hiyerarşik sırayla inceler<br/>(Anayasa, Kanun, CBK, Yönetmelik, İBK)"]
     C{"Yazılı kural var mı?"}
     D["Kural uygulanır, dava biter"]
-    E["2. KANUN BOŞLUĞU<br/>Örf ve âdet hukukunu araştırır"]
+    E["2 - KANUN BOŞLUĞU<br/>Örf ve âdet hukukunu araştırır"]
     F{"Örf-âdet kuralı var mı?"}
     G["Örf-âdet kuralı uygulanır, dava biter"]
-    H["3. HUKUK BOŞLUĞU<br/>Kanun koyucu olsaydı nasıl koyardı?<br/>Hâkim hukuk yaratır"]
+    H["3 - HUKUK BOŞLUĞU<br/>Kanun koyucu olsaydı nasıl koyardı?<br/>Hâkim hukuk yaratır"]
     I["Yöntem: KIYAS<br/>Benzer ilişki için konan kanun maddesi<br/>olaya uygulanır"]
     J["Münferit hüküm kurulur<br/>(sadece taraflar bağlanır, inter partes)"]
     K["İstinaf / Yargıtay denetimi<br/>(hukuka aykırıysa bozulur)"]

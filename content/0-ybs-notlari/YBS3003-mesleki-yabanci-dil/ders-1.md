@@ -4,8 +4,8 @@ hafta: 1
 tarih: 2026-09-16
 bolum: Yönetim Bilişim Sistemleri (YBS)
 konu: Unit 1 - Welcome to English for IT & Information Technology 101
+created: 2026-09-23
 ---
-
 # 📚 Mesleki Yabancı Dil I — Hafta 1: Information Technology 101
 
 
@@ -48,10 +48,10 @@ konu: Unit 1 - Welcome to English for IT & Information Technology 101
 ```mermaid
 graph TD
     AppRules[Application Development Rules]
-    AppRules --> R1["1. Data: Stored in Relational Database"]
-    AppRules --> R2["2. Commerce: Buyable on the Internet"]
-    AppRules --> R3["3. Hardware: Works without Extra Peripherals"]
-    AppRules --> R4["4. Connectivity: Works with or without Network Connection"]
+    AppRules --> R1["1 - Data: Stored in Relational Database"]
+    AppRules --> R2["2 - Commerce: Buyable on the Internet"]
+    AppRules --> R3["3 - Hardware: Works without Extra Peripherals"]
+    AppRules --> R4["4 - Connectivity: Works with or without Network Connection"]
 ```
 
 ---

@@ -1,20 +1,22 @@
 .expand-button {
   position: absolute;
+  top: 0.4rem;
+  right: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  float: right;
-  padding: 0.45rem;
-  margin: 0.35rem;
-  right: 0; // NOTE: right will be set in mermaid.inline.ts
+  width: 32px;
+  height: 32px;
+  padding: 0;
   color: var(--darkgray);
   border-color: var(--lightgray);
   background-color: var(--light);
   border: 1px solid var(--lightgray);
-  border-radius: 8px;
-  opacity: 0;
+  border-radius: 6px;
+  opacity: 0.85;
   transition: opacity 0.2s ease, transform 0.15s ease, border-color 0.15s ease;
-  z-index: 5;
+  z-index: 10;
+  cursor: pointer;
 
   & > svg {
     fill: currentColor;
@@ -23,10 +25,10 @@
   }
 
   &:hover {
-    cursor: pointer;
+    opacity: 1;
     border-color: var(--secondary);
     color: var(--secondary);
-    transform: translateY(-1px);
+    transform: scale(1.05);
   }
 
   &:focus {
@@ -34,13 +36,34 @@
   }
 }
 
-pre {
+pre:has(> code.mermaid) {
+  position: relative !important;
+  display: block !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  background: var(--light) !important;
+  border: 1px solid var(--lightgray) !important;
+  border-radius: 10px !important;
+  padding: 1.2rem !important;
+  margin: 1.5rem 0 !important;
+  cursor: zoom-in !important;
+
   &:hover > .expand-button {
     opacity: 1;
   }
+}
 
-  code.mermaid {
-    cursor: zoom-in;
+code.mermaid {
+  display: block !important;
+  width: 100% !important;
+  overflow-x: auto !important;
+  text-align: center !important;
+  cursor: zoom-in;
+
+  svg {
+    max-width: 100% !important;
+    height: auto !important;
+    display: inline-block !important;
   }
 }
 
@@ -57,15 +80,14 @@ pre {
   position: fixed;
   contain: layout;
   z-index: 99999;
-  left: 0;
-  top: 0;
+  inset: 0;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   display: none;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(10, 15, 29, 0.85);
 
   &.active {
     display: flex;
@@ -76,42 +98,46 @@ pre {
   & > #mermaid-space {
     border: 1px solid var(--lightgray);
     background-color: var(--light);
-    border-radius: 18px;
+    border-radius: 14px;
     position: relative;
     top: auto;
     left: auto;
     transform: none;
-    height: 84vh;
-    width: 88vw;
-    max-width: 1200px;
+    height: 90vh;
+    width: 95vw;
+    max-width: 1600px;
     overflow: hidden;
     touch-action: none;
     overscroll-behavior: contain;
     cursor: grab;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+
+    .mermaid-content svg {
+      max-width: none !important;
+      max-height: none !important;
+    }
 
     .mermaid-close-btn {
       position: absolute;
       top: 14px;
       right: 14px;
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
       border: 1px solid var(--lightgray);
-      background: color-mix(in srgb, var(--secondary) 6%, var(--light));
+      background: var(--light);
       color: var(--darkgray);
       display: flex;
       align-items: center;
       justify-content: center;
+      z-index: 1000;
       cursor: pointer;
-      z-index: 10;
       transition: all 0.15s ease;
 
       &:hover {
-        background: var(--secondary);
-        color: #fff;
-        border-color: var(--secondary);
-        transform: scale(1.05);
+        background: rgba(239, 68, 68, 0.85);
+        border-color: rgba(239, 68, 68, 1);
+        color: #ffffff;
       }
 
       &:active {
