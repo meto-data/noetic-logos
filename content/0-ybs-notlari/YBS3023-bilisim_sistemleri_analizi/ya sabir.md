@@ -1,7 +1,5 @@
 # Sistem Analizi ve Tasarımı — 9 Klasik Soru ve Örnek Cevap
 
-Bu çalışma, paylaşılan beş ders transkriptindeki kavramlar esas alınarak hazırlanmıştır. Sorular olası sınav sorularıdır. Cevaplar; tanımdan başlayıp amaç, yapı, ilişkiler ve gerekçeli sonuca ilerleyecek biçimde düzenlenmiştir.
-
 ## 1. İşletmeyi bir sistem olarak açıklayınız.
 
 Sistem, belirli bir amaca yönelen ve aralarında karşılıklı ilişkiler bulunan ögelerin oluşturduğu bütündür. Bir topluluğu sistem olarak değerlendirebilmek için yalnızca parçaların bulunması yeterli değildir; bu parçaların belirli bir amaç doğrultusunda etkileşim içinde çalışması gerekir. İşletme de insan ihtiyaçlarını karşılayan mal ve hizmetler üretmek üzere kaynakları bir araya getiren ekonomik ve teknik bir birimdir. Kâr elde etmek ve bu faaliyetleri sürdürebilmek, derste ele alınan işletmenin temel amaçlarıdır.
