@@ -237,59 +237,51 @@ html:not(.noetic-code-collapsible) pre > .code-expand-btn {
 }
 
 // ===== TEMA GEÇİŞ EFEKTİ - HAFİF VE YÜKSEK PERFORMANSLI =====
-// View Transitions API - Modern tarayıcılarda ipeksi pürüzsüzlükte senkron tema geçişi
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.22s;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-}
+// Masaüstünde View Transitions API ve senkron yumuşak geçiş
+@media (min-width: 800px) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.22s;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
-// Tema geçişi anında tüm temel bileşenlerin senkronize ve uyumlu geçişi
-html.theme-transitioning,
-html.theme-transitioning body,
-html.theme-transitioning .page,
-html.theme-transitioning .sidebar,
-html.theme-transitioning .center,
-html.theme-transitioning article,
-html.theme-transitioning header,
-html.theme-transitioning footer,
-html.theme-transitioning .settings-panel,
-html.theme-transitioning .settings-modal-box,
-html.theme-transitioning .noetic-modules-panel,
-html.theme-transitioning a,
-html.theme-transitioning button,
-html.theme-transitioning input,
-html.theme-transitioning svg.pele {
-  transition: background-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
+  // Masaüstünde sadece ana iskelet bileşenleri geçiş yapar (binlerce a/button/input elemanı hariç tutulur)
+  html.theme-transitioning body,
+  html.theme-transitioning .page,
+  html.theme-transitioning .sidebar,
+  html.theme-transitioning .center,
+  html.theme-transitioning article,
+  html.theme-transitioning header,
+  html.theme-transitioning footer,
+  html.theme-transitioning .settings-panel {
+    transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
 
-$theme-transition: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  $theme-transition: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 
-:root {
-  transition:
-    background-color $theme-transition,
-    color $theme-transition,
-    border-color $theme-transition;
-}
+  :root {
+    transition:
+      background-color $theme-transition,
+      border-color $theme-transition;
+  }
 
-body,
-.page,
-.sidebar,
-.sidebar.left,
-.sidebar.right,
-.center,
-.right-sidebar,
-article,
-header,
-footer,
-.settings-panel,
-.noetic-modules-panel {
-  transition:
-    background-color $theme-transition,
-    color $theme-transition,
-    border-color $theme-transition;
+  body,
+  .page,
+  .sidebar,
+  .sidebar.left,
+  .sidebar.right,
+  .center,
+  .right-sidebar,
+  article,
+  header,
+  footer,
+  .settings-panel,
+  .noetic-modules-panel {
+    transition:
+      background-color $theme-transition,
+      border-color $theme-transition;
+  }
 }
 
 // Performans için animasyonlu ve ağır öğeleri kesin olarak hariç tut
@@ -305,8 +297,20 @@ img {
 }
 
 // ===== MOBİLDE TEMA GEÇİŞİ: 0-GECİKME & MAKSİMUM PERFORMANS =====
-// Mobil cihazlarda CPU/GPU takılmasını önlemek için anında (0ms) geçiş sağlanır
+// Mobil cihazlarda CPU/GPU takılmasını önlemek için anında (0ms) doğrudan geçiş sağlanır
 @media all and (max-width: 799px) {
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+    animation-duration: 0s !important;
+  }
+
+  html.theme-transitioning,
+  html.theme-transitioning * {
+    transition: none !important;
+  }
+
   :root,
   body,
   .page,
@@ -317,10 +321,16 @@ img {
   header,
   footer,
   .settings-panel,
-  .noetic-modules-panel,
-  * {
+  .noetic-modules-panel {
     transition: none !important;
-    animation-duration: 0s !important;
+  }
+
+  // Animasyonlu canvas ve okyanus dalgalarını mobilde kesin olarak kapat
+  #theme-canvas,
+  [saved-theme="deep-sea"] body::before,
+  [saved-theme="deep-sea"] body::after {
+    display: none !important;
+    animation: none !important;
   }
 }
 

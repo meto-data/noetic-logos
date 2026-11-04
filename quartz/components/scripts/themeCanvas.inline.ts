@@ -136,11 +136,16 @@ document.addEventListener("nav", () => {
 
     let particles: Particle[] = []
 
+    function isMobile() {
+        return window.innerWidth < 800
+    }
+
     function isAnimatedTheme(theme: string | null): boolean {
         return theme === "deep-sea" || theme === "deep-void"
     }
 
     function init() {
+        if (isMobile()) return
         resize()
         whales = []
         particles = []
@@ -151,6 +156,10 @@ document.addEventListener("nav", () => {
 
     function startAnimation() {
         if (animationId !== null) return
+        if (isMobile()) {
+            stopAnimation()
+            return
+        }
         const theme = document.documentElement.getAttribute("saved-theme")
         if (!isAnimatedTheme(theme) || document.hidden) {
             stopAnimation()
@@ -171,6 +180,10 @@ document.addEventListener("nav", () => {
     }
 
     function animate() {
+        if (isMobile()) {
+            stopAnimation()
+            return
+        }
         const theme = document.documentElement.getAttribute("saved-theme")
         if (!isAnimatedTheme(theme) || document.hidden) {
             stopAnimation()
@@ -196,6 +209,10 @@ document.addEventListener("nav", () => {
     }
 
     const onThemeChange = () => {
+        if (isMobile()) {
+            stopAnimation()
+            return
+        }
         const theme = document.documentElement.getAttribute("saved-theme")
         if (isAnimatedTheme(theme)) {
             startAnimation()

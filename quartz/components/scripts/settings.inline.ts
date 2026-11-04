@@ -139,6 +139,8 @@ function applyContentWidth(val: string) {
 }
 
 // ===== TEMA YÖNETİMİ =====
+const isMobileDevice = () => window.innerWidth < 800 || window.matchMedia("(max-width: 799px)").matches
+
 function applyThemeCore(newTheme: string) {
   document.documentElement.setAttribute("saved-theme", newTheme)
   localStorage.setItem("theme", newTheme)
@@ -148,6 +150,13 @@ function applyThemeCore(newTheme: string) {
 }
 
 function setTheme(newTheme: string) {
+  // Mobilde CPU/GPU takılmasını önlemek için anında (0ms) doğrudan geçiş
+  if (isMobileDevice()) {
+    applyThemeCore(newTheme)
+    return
+  }
+
+  // Masaüstünde destekleniyorsa View Transitions API, yoksa hafif sınıf geçişi
   // @ts-ignore
   if (typeof document.startViewTransition === "function") {
     // @ts-ignore
@@ -326,7 +335,9 @@ function handleDocumentClick(e: MouseEvent) {
     const theme = themeCard.getAttribute("data-theme")
     if (theme) {
       setTheme(theme)
-      window.__noeticToast?.("Tema değiştirildi", "success")
+      if (!isMobileDevice()) {
+        window.__noeticToast?.("Tema değiştirildi", "success")
+      }
     }
     return
   }
