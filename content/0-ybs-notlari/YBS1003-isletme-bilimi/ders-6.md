@@ -70,18 +70,19 @@ Mevsimsel talep karşısında kısa dönem kapasitesi sabit kalabilir. Dondurma 
 
 Kapasiteyi talebin yanında **hammadde ve bileşenlerin miktarı, kalitesi ve fiyatı; enerji, su, yakıt ve ulaşım; sermaye, iş gücü ve teknolojiye erişim** sınırlar. Salça fabrikasının ölçeği, erişilebilen domates miktarı ve bozulmadan taşınabileceği mesafeyle ilişkilidir. Fabrikanın iç üretim gücü, dış lojistik ağı bu hacmi taşıyamıyorsa bütünüyle kullanılamaz.
 
-İçeride ise işlem sıralaması, yerleşim, bekleme, ürün çeşitliliği, çalışan becerisi, motivasyon ve yönetim yapısı etkilidir. Teknik olarak mümkün iki farklı işlem sırası farklı akış ve kapasite sonuçları yaratabilir. Kuruluş yeri, kapasite ve üretim yöntemi birlikte değerlendirilmelidir.
+İçeride ise işlem sıralaması, yerleşim, bekleme, ürün çeşitliliği, çalışan becerisi, motivasyon ve yönetim yapısı etkilidir. Teknik olarak mümkün iki farklı işlem sırası farklı akış ve kapasite sonuçları yaratabilir. **Kuruluş yeri, kapasite ve üretim yöntemi birlikte değerlendirilmelidir.**
 
 ## Kapasite, maliyet ve ölçek ekonomileri
 
-[[Birim Satın Alma Maliyeti|birim maliyeti]], **tesis/kapasite ölçeği, üretim yöntemi ve girdi fiyatları** şekillendirir. Ortalama maliyet, toplam maliyetin üretim miktarına bölümüdür:
+[[Birim Satın Alma Maliyeti|Birim maliyeti]] **tesis/kapasite ölçeği, üretim yöntemi ve girdi fiyatları** şekillendirir. Ortalama maliyet, toplam maliyetin üretim miktarına bölümüdür:
 
 $$AC(Q)=\frac{TC(Q)}{Q},\qquad Q>0$$
 Sabit giderin ($AFC(Q)$) birim payı $FC/Q$ olduğundan üretim azaldığında aynı gider daha az ürüne dağılır. Atıl kapasite bu yolla birim maliyeti yükseltebilir; toplam sabit giderin mutlaka arttığı anlamına gelmez.
 
 Uzun dönemde tesis büyüklüğü değiştirilebilir. **Ölçek ekonomileri**, büyüklüğün sağladığı birim maliyet tasarruflarıdır. Tasarruflar belli noktadan sonra koordinasyon ve denetim sorunları karşısında yetersiz kalırsa maliyet yeniden yükselir.
 
-!![[03_uzun_donem_maliyet.png]]
+
+![[03_uzun_donem_maliyet.png]]
 
 U eğrisinin dip noktası **optimum kapasiteyi**, bu noktadaki değer minimum ortalama maliyeti gösterir. Minimum birim maliyet, maksimum toplam kârla aynı şey değildir; kâr için satış fiyatı ve miktarı da gerekir.
 
@@ -94,7 +95,7 @@ Sol kol ölçek tasarruflarını; sağ kol ölçeğin olumsuz etkilerini göster
 
 A, B, C ve D farklı tesis alternatifleridir. **Maliyetler aynı üretim miktarında karşılaştırılır.** Büyük tesisin dip maliyeti düşük olsa bile pazar o miktarı satın almıyorsa o noktada çalışılamaz. Düşük hacimde küçük tesis daha uygun olabilir.
 
-!![[04_tesis_alternatifleri.png]]
+![[04_tesis_alternatifleri.png]]
 
 **Karşılaştırma aynı üretim miktarında yapılır.** Bir tesisin eğrisinin dip noktası çok düşük olsa bile pazar o miktarı satın almıyorsa işletme o maliyet noktasında çalışamaz. Büyük tesisi düşük hacimde işletmek, küçük bir tesisten pahalı olabilir.
 
@@ -108,17 +109,21 @@ Görselde C en düşük dip maliyetine sahipken D daha büyük hacimlere uygundu
 
 **Emek ekonomileri:** Yeterli iş hacmi, çalışanı belirli işte uzmanlaştırmayı mümkün kılar. Tekrar arttıkça işin süresi ve hata azalabilir. Aynı ücretle daha fazla çıktı elde edilmesi birim işçilik maliyetini düşürür. Deneyim paylaşımı da öğrenmeyi destekleyebilir.
 
-!![[05_ogrenme.png]]
+![[05_ogrenme.png]]
 
 Öğrenme eğrisinde yatay eksen tekrar sayısı, dikey eksen birim iş için gereken süre veya kaynaktır. Vida sıkma süresinin örneğin 30 saniyeden 8 saniyeye yaklaşması, deneyimin etkisini gösterir. Eğrinin yataylaşması ek öğrenmenin katkısının küçülmesidir.
 
-**Teknik ekonomiler:** Büyük hacim, uzmanlaşmış makine kullanımını ekonomik hale getirebilir. Ayrıca üretim faktörleri bölünmez: Makinenin yarısını kullanmak bedelinin yarısını ödemek değildir. Kapasite daha çok kullanıldığında yatırımın birim payı azalabilir. Kapasite iki katına çıkarken makine fiyatının aynı oranda artması da gerekmez.
+**Teknik ekonomiler:** Büyük hacim, uzmanlaşmış makine kullanımını ekonomik hâle getirebilir. Ayrıca üretim faktörleri bölünmez: Makinenin yarısını kullanmak bedelinin yarısını ödemek değildir. Kapasite daha çok kullanıldığında yatırımın birim payı azalabilir. Kapasite iki katına çıkarken makine fiyatının aynı oranda artması da gerekmez.
 
-Örneğin 1.000 işlem/gün kapasiteli makinenin bedeli 100, 2.000'liğin 175, 4.000'liğin 300 olsun. Bedelin kapasiteye oranı sırasıyla 0,10; 0,0875 ve 0,075'tir. Bunlar **kapasite başına yatırım göstergeleridir**; gerçek üretim maliyetinin tamamını göstermez. Avantaj, kapasitenin kullanılmasına bağlıdır. Uzmanlaşmış insan veya makineden yararlanmanın ekonomik koşulu, mesaisini dolduracak kadar ilgili işe sahip olmaktır. İş hacmi düşükken aynı çalışanı birbirinden farklı görevlere dağıtmak gerekebilir; uzmanlaşmanın kazancı bu durumda sınırlanır.
+Örneğin 1.000 işlem/gün kapasiteli makinenin bedeli 100, 2.000'liğin 175, 4.000'liğin 300 olsun. Bedelin kapasiteye oranı sırasıyla 0,10; 0,0875 ve 0,075'tir. Avantaj, kapasitenin kullanılmasına bağlıdır. Uzmanlaşmış insan veya makineden yararlanmanın ekonomik koşulu, mesaisini dolduracak kadar ilgili işe sahip olmaktır. İş hacmi düşükken aynı çalışanı birbirinden farklı görevlere dağıtmak gerekebilir; uzmanlaşmanın kazancı bu durumda sınırlanır.
 
-**Yönetim ekonomileri:** Uzman yöneticiler daha iyi kararlarla kaynak kullanımını iyileştirebilir. **Pazarlama ekonomileri:** Araştırma, reklam ve dağıtım sisteminin sabit giderleri daha çok ürüne yayılabilir.
+**Yönetim ekonomileri:** Uzman yöneticiler daha iyi kararlarla kaynak kullanımını iyileştirebilir. 
 
-**Depolama ve stok ekonomileri:** Büyük deponun maliyeti hacmiyle aynı oranda artmayabilir. Stoka bağlanan kaynağın finansman maliyeti de önemlidir. **Finansal ekonomiler:** Uygun borçlanma koşulları veya sermaye sağlama işlemlerinin sabit giderlerini daha büyük tutara yaymak avantaj yaratabilir. Stokta depolama gideriyle finansman yükü ayrıdır: Ürün beklerken ona bağlanan para başka işte kullanılamaz. Finansman borçla sağlanıyorsa faiz, öz kaynakla sağlanıyorsa fırsat maliyeti değerlendirilir. Büyük işletmenin finansman avantajı koşullara bağlıdır; büyüklük tek başına düşük risk garantisi vermez.
+**Pazarlama ekonomileri:** Araştırma, reklam ve dağıtım sisteminin sabit giderleri daha çok ürüne yayılabilir.
+
+**Depolama ve stok ekonomileri:** Büyük deponun maliyeti hacmiyle aynı oranda artmayabilir. Stoka bağlanan kaynağın finansman maliyeti de önemlidir. 
+
+**Finansal ekonomiler:** Uygun borçlanma koşulları veya sermaye sağlama işlemlerinin sabit giderlerini daha büyük tutara yaymak avantaj yaratabilir. Stokta depolama gideriyle finansman yükü ayrıdır: Ürün beklerken ona bağlanan para başka işte kullanılamaz. Finansman borçla sağlanıyorsa faiz, öz kaynakla sağlanıyorsa fırsat maliyeti değerlendirilir.
 
 **Satın alma ve artıkların değerlendirilmesi:** Büyük sipariş pazarlık gücü sağlayabilir. İktisadi kullanım açısından atık, uzaklaştırılması gereken fazlalık; artık, yeniden değer üretmekte kullanılabilen fazlalıktır. Bir torba talaşı işlemek ekonomik olmayabilirken çok miktardaki talaşı işletme içinde değerlendirmek mümkün olabilir.
 
@@ -139,9 +144,10 @@ Kısa dönemde tesis gibi bazı girdiler sabittir. **Azalan verimler**, sabit gi
 Girdi fiyatı sabitken ek çıktı elde etmek zorlaştığında marjinal maliyet artar. Uzun dönemdeki ölçek etkisiyle kısa dönemdeki verim etkisi, benzer U eğrileri oluştursa da farklı mekanizmalardır.
 
 **Kapasite bant genişliği**, minimum birim maliyetten kabul edilen sapma içinde çalışılabilecek üretim aralığıdır. Örneğin %10 tolerans seçilirse:
+
 $$AC(Q)\leq1{,}10\,AC^*$$
 
-!![[07_bant_genisligi.png]]
+![[07_bant_genisligi.png]]
 
 Tolerans çizgisinin eğriyi kestiği $Q_{min}$ ile $Q_{max}$ arasındaki mesafe bant genişliğidir. %10 örnek bir tercihtir. Yayvan eğri, aynı toleransta daha geniş hacim esnekliği sağlayabilir. Toleransı artırmak da bandı genişletir; fakat daha yüksek maliyeti kabul etmek demektir. Üretim yöntemi seçilirken minimum maliyet kadar hacim değişimlerine uyum da önemlidir. Tek bir miktarda çok düşük maliyet sunan katı sistem, talep biraz değiştiğinde pahalı hale gelebilir. Daha geniş bantlı yöntem dalgalanmalara daha kolay cevap verebilir. Bununla birlikte bant içinde kalmak tek başına kârı garanti etmez; kabul edilebilir maliyet ile satış geliri birlikte değerlendirilir.
 
@@ -151,13 +157,13 @@ Saatte 100 işlem yapan makinenin 8 saatlik teorik kapasitesi 800 adet/gündür.
 
 ![[08_kapasite_duzeyleri.png]]
 
-| Kapasite | Anlamı | Örnek |
-| --- | --- | --- |
-| **Maksimum / teorik / tasarım** | Tanımlanan çalışma süresindeki ideal üst sınır | 800 |
-| **Normal / pratik** | Olağan kayıplar sonrası ulaşılabilir üretim gücü | 600 |
-| **Fiili / gerçek** | Gerçekleşen çıktı | 450 |
-| **Atıl / boş / aylak** | Normal kapasitenin kullanılmayan kısmı | 150 |
-| **Zorlanmış** | Normal koşullar geçici zorlanarak erişilen çıktı | Örneğin 700 |
+| Kapasite                        | Anlamı                                           | Örnek       |
+| ------------------------------- | ------------------------------------------------ | ----------- |
+| **Maksimum / teorik / tasarım** | Tanımlanan çalışma süresindeki ideal üst sınır   | 800         |
+| **Normal / pratik**             | Olağan kayıplar sonrası ulaşılabilir üretim gücü | 600         |
+| **Fiili / gerçek**              | Gerçekleşen çıktı                                | 450         |
+| **Atıl / boş / aylak**          | Normal kapasitenin kullanılmayan kısmı           | 150         |
+| **Zorlanmış**                   | Normal koşullar geçici zorlanarak erişilen çıktı | Örneğin 700 |
 
 Teorikten normale düşen **200**, olağan kayıp payıdır. Normalden fiiliye kalan **150**, atıl kapasitedir. Atıllık; talep yetersizliği, beklenmeyen arıza, girdi gecikmesi veya fazla fireyle oluşabilir.
 
