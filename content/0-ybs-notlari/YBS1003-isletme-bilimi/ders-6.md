@@ -62,7 +62,8 @@ Kapasite artırımında **ne zaman** ve **ne kadar** soruları birlikte cevaplan
 
 Mevsimsel talep karşısında kısa dönem kapasitesi sabit kalabilir. Dondurma üretiminde yazın talep kapasiteyi aşarken kışın tesisin bir bölümü kullanılmayabilir. Kapasiteyi yaz zirvesine göre kurmak atıllığı, kış tabanına göre kurmak yüksek sezondaki satış kaybını artırır.
 
-!![[06_mevsimsellik.png]]
+
+![[06_mevsimsellik.png]]
 
 
 Ürün ve saklama koşulları uygunsa ilkbaharda fazla üretip yaz talebinin bir bölümünü stoktan karşılamak mümkündür. Bunun depolama, bozulma ve finansman maliyetleri vardır. Üretim gücünü kurmakla onu sürekli kullanmak bu nedenle ayrı planlama problemleridir. Grafikteki miktarlar temsilidir.
