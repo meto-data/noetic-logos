@@ -9,9 +9,9 @@ title: 6- Kapasite Planlaması
 
 Kapasiteyi değerlendirirken iki soruyu ayırmak gerekir: **Ne kadar yapılabilir? Ne kadarı gerçekten yapıldı?** Bir fabrikanın günde 600 ürün üretebilmesi, o gün 600 ürün ürettiği anlamına gelmez.
 
-Zaman boyutu üretim kapasitesinde açıkça belirtilmelidir: 1.000 adet/gün, 100 işlem/saat gibi. Şişenin 500 mililitre hacmi veya hastanenin 50 yatağı gibi statik göstergeler de kapasite ölçüsü olarak kullanılabilir; fakat bunlardan belirli bir dönemdeki hizmet çıktısına geçmek için kullanım ve işgal süresini bilmek gerekir. Hoca bu örneklerle zaman boyutunun bazen örtük kaldığını vurgular.
+Zaman boyutu üretim kapasitesinde açıkça belirtilmelidir: 1.000 adet/gün, 100 işlem/saat gibi. Şişenin 500 mililitre hacmi veya hastanenin 50 yatağı gibi statik göstergeler de kapasite ölçüsü olarak kullanılabilir; fakat bunlardan belirli bir dönemdeki hizmet çıktısına geçmek için kullanım ve işgal süresini bilmek gerekir.
 
-### 1Girdi ve çıktı ölçütleri
+### Girdi ve çıktı ölçütleri
 
 | Ölçüt | Neyi gösterir? | Örnek | Dikkat edilecek nokta |
 | --- | --- | --- | --- |
@@ -35,7 +35,7 @@ Talep zaman içinde değişirken tesis kapasitesi bir süre sabit kalır ve yat�
 
 Ortalama stratejide dönemin tam yarısının aşırı, diğer yarısının eksik olması gerekmez. Strateji; sermaye olanakları, pazar büyümesi ve rekabet koşullarına göre belirlenir. Talep yüksek olsa bile arızalar nedeniyle bütün kapasitenin kullanılması garanti değildir.
 
-![Kapasite stratejileri](assets/01_stratejiler.png)
+[[01_stratejiler.png]]
 
 **Nasıl okunur?** Kırmızı basamak kapasiteyi, mavi doğru talebi gösterir. Talep üstteyse karşılanamayan talep; kapasite üstteyse kullanılmayan kapasite vardır.
 
@@ -53,7 +53,9 @@ Kapasite artırımında **ne zaman** ve **ne kadar** soruları birlikte cevaplan
 **Kapasite genişleme büyüklüğü**, bir yatırımda eklenen üretim gücüdür. Basamağın dikey yüksekliği olan $\Delta Q$ ile gösterilir. Örneğin 10.000 adet/yıldan 15.000 adet/yıla çıkışta artırım 5.000 adet/yıldır.
 
 
-![Kapasite genişleme ritmi](assets/02_genisleme_ritmi.png)
+![[01_stratejiler.png]]
+
+
 
 **Küçük ve sık artırım**, talepteki değişime daha yakın uyum sağlayabilir; fakat sık finansman, kurulum ve fiziki alan düzenlemesi gerektirir. **Büyük ve seyrek artırım**, daha uzun dönemli öngörü gerektirir ve tahmin hatası halinde daha büyük kullanılmayan kapasite veya talep açığı doğurabilir.
 
@@ -63,7 +65,8 @@ Kapasite artırımında **ne zaman** ve **ne kadar** soruları birlikte cevaplan
 
 Mevsimsel talep karşısında kısa dönem kapasitesi sabit kalabilir. Dondurma üretiminde yazın talep kapasiteyi aşarken kışın tesisin bir bölümü kullanılmayabilir. Kapasiteyi yaz zirvesine göre kurmak atıllığı, kış tabanına göre kurmak yüksek sezondaki satış kaybını artırır.
 
-![Mevsimsel talep ve sabit kapasite](assets/06_mevsimsellik.png)
+![[06_mevsimsellik.png]]
+
 
 Ürün ve saklama koşulları uygunsa ilkbaharda fazla üretip yaz talebinin bir bölümünü stoktan karşılamak mümkündür. Bunun depolama, bozulma ve finansman maliyetleri vardır. Üretim gücünü kurmakla onu sürekli kullanmak bu nedenle ayrı planlama problemleridir. Grafikteki miktarlar temsilidir.
 
@@ -80,7 +83,7 @@ Sabit giderin ($AFC(Q)$) birim payı $FC/Q$ olduğundan üretim azaldığında a
 
 Uzun dönemde tesis büyüklüğü değiştirilebilir. **Ölçek ekonomileri**, büyüklüğün sağladığı birim maliyet tasarruflarıdır. Tasarruflar belli noktadan sonra koordinasyon ve denetim sorunları karşısında yetersiz kalırsa maliyet yeniden yükselir.
 
-![Uzun dönem ortalama maliyet](assets/03_uzun_donem_maliyet.png)
+![[03_uzun_donem_maliyet.png]]
 
 U eğrisinin dip noktası **optimum kapasiteyi**, bu noktadaki değer minimum ortalama maliyeti gösterir. Minimum birim maliyet, maksimum toplam kârla aynı şey değildir; kâr için satış fiyatı ve miktarı da gerekir.
 
@@ -93,8 +96,7 @@ Sol kol ölçek tasarruflarını; sağ kol ölçeğin olumsuz etkilerini göster
 
 A, B, C ve D farklı tesis alternatifleridir. **Maliyetler aynı üretim miktarında karşılaştırılır.** Büyük tesisin dip maliyeti düşük olsa bile pazar o miktarı satın almıyorsa o noktada çalışılamaz. Düşük hacimde küçük tesis daha uygun olabilir.
 
-![Tesis alternatiflerinin karşılaştırılması](assets/04_tesis_alternatifleri.png)
-
+![[04_tesis_alternatifleri.png]]
 
 **Karşılaştırma aynı üretim miktarında yapılır.** Bir tesisin eğrisinin dip noktası çok düşük olsa bile pazar o miktarı satın almıyorsa işletme o maliyet noktasında çalışamaz. Büyük tesisi düşük hacimde işletmek, küçük bir tesisten pahalı olabilir.
 
@@ -108,7 +110,7 @@ Görselde C en düşük dip maliyetine sahipken D daha büyük hacimlere uygundu
 
 **Emek ekonomileri:** Yeterli iş hacmi, çalışanı belirli işte uzmanlaştırmayı mümkün kılar. Tekrar arttıkça işin süresi ve hata azalabilir. Aynı ücretle daha fazla çıktı elde edilmesi birim işçilik maliyetini düşürür. Deneyim paylaşımı da öğrenmeyi destekleyebilir.
 
-![Öğrenme eğrisi](assets/05_ogrenme.png)
+![[05_ogrenme.png]]
 
 Öğrenme eğrisinde yatay eksen tekrar sayısı, dikey eksen birim iş için gereken süre veya kaynaktır. Vida sıkma süresinin örneğin 30 saniyeden 8 saniyeye yaklaşması, deneyimin etkisini gösterir. Eğrinin yataylaşması ek öğrenmenin katkısının küçülmesidir.
 
@@ -140,7 +142,8 @@ Girdi fiyatı sabitken ek çıktı elde etmek zorlaştığında marjinal maliyet
 
 **Kapasite bant genişliği**, minimum birim maliyetten kabul edilen sapma içinde çalışılabilecek üretim aralığıdır. Örneğin %10 tolerans seçilirse:
 $$AC(Q)\leq1{,}10\,AC^*$$
-![Kapasite bant genişliği](assets/07_bant_genisligi.png)
+
+![[07_bant_genisligi.png]]
 
 Tolerans çizgisinin eğriyi kestiği $Q_{min}$ ile $Q_{max}$ arasındaki mesafe bant genişliğidir. %10 örnek bir tercihtir. Yayvan eğri, aynı toleransta daha geniş hacim esnekliği sağlayabilir. Toleransı artırmak da bandı genişletir; fakat daha yüksek maliyeti kabul etmek demektir. Üretim yöntemi seçilirken minimum maliyet kadar hacim değişimlerine uyum da önemlidir. Tek bir miktarda çok düşük maliyet sunan katı sistem, talep biraz değiştiğinde pahalı hale gelebilir. Daha geniş bantlı yöntem dalgalanmalara daha kolay cevap verebilir. Bununla birlikte bant içinde kalmak tek başına kârı garanti etmez; kabul edilebilir maliyet ile satış geliri birlikte değerlendirilir.
 
@@ -148,7 +151,7 @@ Tolerans çizgisinin eğriyi kestiği $Q_{min}$ ile $Q_{max}$ arasındaki mesafe
 
 Saatte 100 işlem yapan makinenin 8 saatlik teorik kapasitesi 800 adet/gündür. Bakım, mola, ayar ve beklenen fireler sonrasında normal kapasite 600; gerçekleşen üretim 450 olsun.
 
-![Kapasite düzeyleri](assets/08_kapasite_duzeyleri.png)
+![[08_kapasite_duzeyleri.png]]
 
 | Kapasite | Anlamı | Örnek |
 | --- | --- | --- |
