@@ -235,7 +235,7 @@ const config: QuartzConfig = {
       Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.Interactive(),
-      Plugin.TableOfContents(),
+      Plugin.TableOfContents({ maxDepth: 6 }),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
     ],
