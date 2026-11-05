@@ -166,7 +166,8 @@ async function _navigate(url: URL, isBack: boolean = false, navToken: number) {
       window.scrollTo({ top: 0 })
     }
   } else {
-    if (url.hash) {
+    // Geri navigasyonda kaydedilmiş bir scroll pozisyonu yoksa hash'e git
+    if (url.hash && (typeof history.state?.scrollY !== "number" || history.state.scrollY === 0)) {
       const el = document.getElementById(decodeURIComponent(url.hash.substring(1)))
       el?.scrollIntoView()
     }

@@ -45,16 +45,41 @@ ul.toc-content.overflow {
   padding: 0;
   max-height: calc(100% - 2rem);
   overscroll-behavior: contain;
-  list-style: none;
+  scroll-behavior: smooth;
 
-  & > li > a {
-    color: var(--dark);
-    opacity: 0.35;
-    transition:
-      0.5s ease opacity,
-      0.3s ease color;
-    &.in-view {
-      opacity: 0.75;
+  & > li {
+    border-radius: 6px;
+    transition: background-color 0.2s ease, padding 0.2s ease;
+    margin: 2px 0;
+
+    & > a {
+      color: var(--dark);
+      opacity: 0.35;
+      transition:
+        0.3s ease opacity,
+        0.2s ease color;
+      display: block;
+      border-radius: 4px;
+
+      &.in-view {
+        opacity: 0.75;
+      }
+
+      &.is-active {
+        color: var(--secondary) !important;
+        opacity: 1 !important;
+        font-weight: 600 !important;
+      }
+    }
+
+    &.is-active {
+      background-color: color-mix(in srgb, var(--secondary) 14%, transparent);
+
+      & > a {
+        color: var(--secondary) !important;
+        opacity: 1 !important;
+        font-weight: 600 !important;
+      }
     }
   }
 

@@ -11,7 +11,7 @@ title: 2- Dış Çevre, Amaçlar ve İşletmelerin Sınıflandırılması
 ### Kıtlık Prensibi ve İktisat Bilimi
 İktisat bilimi, **sınırsız insan ihtiyaçlarının kıt kaynaklarla karşılanması sürecinde kaynak tahsisi, üretim ve bölüşüm mekanizmalarını araştıran sosyal bilimdir.** 
 
-Kıtlık, bir kaynağın fizikî mevcudiyetinin sınırlı bulunmasını ifade edebileceği gibi o kaynağa serbestçe erişimin belirli bir maliyet, kota veya teknik engelleri tabi olmasını da içerir. Üretim süreci, kıt üretim faktörlerinin ([[Üretim Faktörleri|emek, sermaye, doğal kaynaklar, girişimci ve teknoloji]]) fayda üretecek mal ve hizmetlere dönüştürülmesini sağlar. [[6- Kripto Paralar#Paranın Fonksiyonları|Para]], mal ve hizmetlerin el değiştirmesini kolaylaştıran bir takas aracıdır. Paraya değerini veren ise onun karşılığında alınabilecek mal ve hizmetleri üreten reel faaliyetlerdir.
+Kıtlık, bir kaynağın fizikî mevcudiyetinin sınırlı bulunmasını ifade edebileceği gibi o kaynağa serbestçe erişimin belirli bir maliyet, kota veya teknik engellere tabi olmasını da içerir. Üretim süreci, kıt üretim faktörlerinin ([[Üretim Faktörleri|emek, sermaye, doğal kaynaklar, girişimci ve teknoloji]]) fayda üretecek mal ve hizmetlere dönüştürülmesini sağlar. [[6- Kripto Paralar#Paranın Fonksiyonları|Para]], mal ve hizmetlerin el değiştirmesini kolaylaştıran bir takas aracıdır. Paraya değerini veren ise onun karşılığında alınabilecek mal ve hizmetleri üreten reel faaliyetlerdir.
 
 ### Dış Çevre Analizi (5+1 Modeli)
 İşletmeler, örgütsel stratejilerini inşa ederken iç dinamiklerini şekillendiren beş temel makro çevre faktörünü ve bu faktörlerin tamamını küresel ölçekte içeren ilave bir boyutu analiz eder:
@@ -68,9 +68,9 @@ Coğrafî yapı, topoğrafya, iklim koşulları, su kaynakları, ham madde rezer
 #### 4. Yasal ve Politik Çevre
 Devletin ve düzenleyici kurumların yürürlüğe koyduğu mevzuat bütünü (İş Kanunu, Türk Ticaret Kanunu, Borçlar Kanunu) ile benimsediği stratejik yönelimlerdir.
 
-**Kamu Politikaları ve Teşvikler**: Türkiye'nin yerli otomobil [[kavram-konsorsiyum|konsorsiyumu]] TOGG, devletin otomotiv sektöründe yerli marka oluşturma ve yönlendirme politikası doğrultusunda kurulmuştur. Savunma sanayiinde dış kaynak temin kısıtları (F-35 programı yaptırımları) sonrasında güdülen teknolojik bağımsızlık politikası, yerli savunma firmalarına sağlanan kamu alım garantileri ve sübvansiyonlarla yürütülmektedir.
+**Kamu Politikaları ve Teşvikler**: Türkiye'nin yerli otomobil [[kavram-konsorsiyum|konsorsiyumu]] TOGG, devletin otomotiv sektöründe yerli marka oluşturma ve yönlendirme politikası doğrultusunda kurulmuştur. Savunma sanayiinde dış kaynak temin kısıtları (F-35 programı yaptırımları) sonrasında güdülen teknolojik bağımsızlık politikası, yerli savunma firmalarına sağlanan kamu alım garantileri ve [[Sübvansiyon|sübvansiyonlarla]] yürütülmektedir.
 
-**Yasal Sınırlamalar**: Tütün ve alkollü içecekler piyasasında tek tip koyu ambalaj mecburiyeti, tanıtım asakları ve yaş kısıtlamaları, yasal-politik çevrenin [[Pazarlama Karması|pazarlama karmasını]] doğrudan kısıtlayan müdahaleleridir.
+**Yasal Sınırlamalar**: Tütün ve alkollü içecekler piyasasında tek tip koyu ambalaj mecburiyeti, tanıtım yasakları ve yaş kısıtlamaları, yasal-politik çevrenin [[Pazarlama Karması|pazarlama karmasını]] doğrudan kısıtlayan müdahaleleridir.
 
 
 #### 5. Teknolojik Çevre
@@ -114,7 +114,7 @@ Girişimcinin şahsi değerlerinden, vizyonundan ve aidiyetlerinden kaynaklanan 
 ### İşletmenin Sosyo-Ekonomik İşlevleri
 
 ##### Üretici Birim İşlevi
-[[ATLAS/0-ybs-notlari/YBS1003-isletme-bilimi/ders-1#Üretim Faktörleri Mimarisi|Üretim faktörlerini]] tüketim mallarına dönüştürerek gelir yaratır. İktisadi büyüme, girdilerin iç kaynaklardan temin edilip [[mâmul|mamullerin]] dış pazarlara ihraç edildiği modelle ivmelenir.
+[[0-ybs-notlari/YBS1003-isletme-bilimi/ders-1#Üretim Faktörleri Mimarisi|Üretim faktörlerini]] tüketim mallarına dönüştürerek gelir yaratır. İktisadi büyüme, girdilerin iç kaynaklardan temin edilip [[mâmul|mamullerin]] dış pazarlara ihraç edildiği modelle ivmelenir.
 
 ##### Yaratıcı Birim (Yenilik) İşlevi
 Üniversiteler temel araştırma seviyesine odaklanırken işletmeler uygulamalı araştırma ve deneysel geliştirme süreçlerini finanse ederek bilgiyi ticarîleştirebilir metaya \[**teknolojiye**\] dönüştürür. Dokunmatik ekranların ve akıllı telefonların kitlesel tüketim standardı hâline gelmesi Apple ve benzeri teknoloji işletmelerinin bu yaratıcı fonksiyonuyla gerçekleşmiştir.

@@ -2,4 +2,4 @@
 tags:
   - akademi/dersler/dijital-ekonomi
 ---
-- Sübvansiyon, devletin belirli bir ekonomik faaliyeti veya sektörü desteklemek amacıyla bireylere veya kuruluşlara sağladığı mali yardımdır.
+Sübvansiyon, devletin belirli bir ekonomik faaliyeti veya sektörü desteklemek amacıyla bireylere veya kuruluşlara sağladığı mali yardımdır.

@@ -28,6 +28,12 @@ const setSettingsModalLock = (locked: boolean) => {
   document.documentElement.classList.toggle("settings-modal-open", locked)
 }
 
+const applySavedThemeImmediately = () => {
+  const t = localStorage.getItem("theme") || "light"
+  document.documentElement.setAttribute("saved-theme", t)
+  updateActiveThemeUI(t)
+}
+
 const applySavedFontSizeImmediately = () => {
   const s = getSavedSize()
   if (s) document.documentElement.style.setProperty("--baseFontSize", s)
@@ -74,6 +80,7 @@ function syncChoiceState() {
 }
 
 // Initial direct execution
+applySavedThemeImmediately()
 applySavedFontSizeImmediately()
 applySavedFontFamilyImmediately()
 applySavedLineHeight()
@@ -436,6 +443,16 @@ function handleDocumentKeydown(e: KeyboardEvent) {
 }
 
 function handleSettingsNav() {
+  applySavedThemeImmediately()
+  applySavedFontSizeImmediately()
+  applySavedFontFamilyImmediately()
+  applySavedLineHeight()
+  applySavedContentWidth()
+  applyCustomTypography()
+  applyCodeLineNumbers()
+  applyCodeCollapsible()
+  applyZenMode()
+  applyWalkMode()
   requestAnimationFrame(syncSettingsInputs)
 }
 

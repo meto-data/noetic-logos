@@ -1820,6 +1820,12 @@ ul.toc-content.overflow > li > a {
     color: var(--secondary) !important;
     font-weight: 500;
   }
+
+  &.is-active {
+    color: var(--secondary) !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+  }
 }
 
 // ===== BACKLINKS =====

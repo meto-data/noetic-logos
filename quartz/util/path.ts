@@ -94,6 +94,7 @@ export function simplifySlug(fp: FullSlug): SimpleSlug {
 
 export function transformInternalLink(link: string): RelativeURL {
   let [fplike, anchor] = splitAnchor(decodeURI(link))
+  fplike = fplike.replace(/^(\/)?ATLAS\//i, "")
 
   const folderPath = isFolderPath(fplike)
   let segments = fplike.split("/").filter((x) => x.length > 0)
@@ -227,6 +228,7 @@ export interface TransformOptions {
 }
 
 export function transformLink(src: FullSlug, target: string, opts: TransformOptions): RelativeURL {
+  target = target.replace(/^(\/)?ATLAS\//i, "")
   let targetSlug = transformInternalLink(target)
 
   if (opts.strategy === "relative") {

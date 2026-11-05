@@ -98,6 +98,13 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   node.properties.target = "_blank"
                 }
 
+                // Sanitize ATLAS prefix in links
+                if (typeof dest === "string") {
+                  dest = dest.replace(/^(https?:\/\/[^\/]+(?:\/noetic-papers)?)\/ATLAS\//i, "$1/")
+                  dest = dest.replace(/^(\/)?ATLAS\//i, "/")
+                  node.properties.href = dest
+                }
+
                 // don't process external links or intra-document anchors
                 const isInternal = !(isAbsoluteUrl(dest) || dest.startsWith("#"))
                 if (isInternal) {

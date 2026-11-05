@@ -367,7 +367,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
               wikilinkRegex,
               (value: string, ...capture: string[]) => {
                 let [rawFp, rawHeader, rawAlias] = capture
-                const fp = rawFp?.trim() ?? ""
+                let fp = (rawFp?.trim() ?? "").replace(/^(\/)?ATLAS\//i, "")
                 const anchor = rawHeader?.trim() ?? ""
                 const alias: string | undefined = rawAlias?.slice(1).trim()
 

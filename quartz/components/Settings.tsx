@@ -1,6 +1,8 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import styles from "./styles/settings.scss"
 // @ts-ignore
+import settingsEarlyScript from "./scripts/settingsEarly.inline"
+// @ts-ignore
 import settingsScript from "./scripts/settings.inline"
 import { classNames } from "../util/lang"
 
@@ -528,6 +530,7 @@ const Settings: QuartzComponent = (props: QuartzComponentProps) => {
   )
 }
 
+Settings.beforeDOMLoaded = settingsEarlyScript
 Settings.afterDOMLoaded = settingsScript
 Settings.css = styles
 

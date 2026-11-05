@@ -42,39 +42,53 @@ function saveScrollPosition() {
 
 /**
  * Kaydedilmiş scroll pozisyonunu geri yükle
- * URL'de hash (#başlık) varsa geri yükleme YAPMA — tarayıcının
- * anchor'a scroll etmesine izin ver.
  */
-function restoreScrollPosition() {
-  if (window.location.hash) return
-
+function restoreScrollPosition(force = false) {
   const path = window.location.pathname
+  let targetY: number | null = null
 
-  try {
-    let targetY = 0
-    const saved = sessionStorage.getItem(`${STORAGE_KEY_PREFIX}${path}`)
-    if (saved) {
-      const position: ScrollPosition = JSON.parse(saved)
-      if (Date.now() - position.timestamp <= EXPIRY_TIME) {
-        targetY = position.scrollY
+  // 1. Öncelik: Bu geçmiş kaydına özel history.state.scrollY
+  if (typeof history.state?.scrollY === "number" && history.state.scrollY > 0) {
+    targetY = history.state.scrollY
+  }
+
+  // 2. İkinci öncelik: sessionStorage (URL'de hash yoksa veya geri navigasyon ise)
+  if (targetY === null && (force || !window.location.hash)) {
+    try {
+      const saved = sessionStorage.getItem(`${STORAGE_KEY_PREFIX}${path}`)
+      if (saved) {
+        const position: ScrollPosition = JSON.parse(saved)
+        if (Date.now() - position.timestamp <= EXPIRY_TIME) {
+          targetY = position.scrollY
+        }
       }
-    } else if (typeof history.state?.scrollY === "number") {
-      targetY = history.state.scrollY
+    } catch (e) {
+      // ignore
     }
+  }
 
-    if (targetY > 0) {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          window.scrollTo({
-            top: targetY,
-            left: 0,
-            behavior: "instant" as ScrollBehavior,
-          })
-        })
+  if (targetY !== null && targetY > 0) {
+    const doScroll = () => {
+      window.scrollTo({
+        top: targetY!,
+        left: 0,
+        behavior: "instant" as ScrollBehavior,
       })
     }
-  } catch (e) {
-    console.debug("Scroll position geri yükleme başarısız:", e)
+
+    // DOM çizimi, KaTeX, Mermaid ve font gecikmeleri için çok adımlı kesin hizalama
+    requestAnimationFrame(() => {
+      doScroll()
+      requestAnimationFrame(() => {
+        doScroll()
+        setTimeout(doScroll, 50)
+        setTimeout(doScroll, 150)
+        setTimeout(doScroll, 300)
+      })
+    })
+  } else if (window.location.hash) {
+    const el = document.getElementById(decodeURIComponent(window.location.hash.substring(1)))
+    el?.scrollIntoView()
   }
 }
 
@@ -121,17 +135,21 @@ document.addEventListener("prenav", () => {
   saveScrollPosition()
 })
 
-// SPA navigation tamamlandığında scroll pozisyonunu geri yükle (eğer hash yoksa)
-document.addEventListener("nav", () => {
-  if (!window.location.hash) {
-    restoreScrollPosition()
-  }
-})
+let isBackNav = false
 
 // Tarayıcı back/forward butonları için
 window.addEventListener("popstate", () => {
-  if (!window.location.hash) {
-    restoreScrollPosition()
+  isBackNav = true
+  restoreScrollPosition(true)
+})
+
+// SPA navigation tamamlandığında scroll pozisyonunu geri yükle
+document.addEventListener("nav", () => {
+  if (isBackNav) {
+    isBackNav = false
+    restoreScrollPosition(true)
+  } else if (!window.location.hash) {
+    restoreScrollPosition(false)
   }
 })
 
