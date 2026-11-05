@@ -13,7 +13,7 @@ Markette satılan bir şişe su örneğinde; müşteri suyu raftan almak istedi�
 
 Ürünün rafta bulunmaması yalnızca o anki satışı kaybettirmez; müşteri rakip markalara yönelerek kalıcı olarak kaybedilebilir. Buna karşılık aşırı hazırlık yapmak da satılmayan stoklara, depolama maliyetine ve atıl sermaye yüküne yol açar.
 
-Kuruluş aşamasında bu problem daha kritik hale gelir. Bir fabrikanın projelendirilip açılması yıllar sürebilir. Girişimci, tesisin faaliyete geçeceği tarihteki pazar büyüklüğünü ve sonraki olası dalgalanmaları bugünden öngörerek fabrika ölçeğini belirlemek zorundadır. Zira fiziki olarak kurulan bir kapasiteyi kısa vadede değiştirmek maliyetli ve güçtür.
+Kuruluş aşamasında bu problem daha kritik hâle gelir. Bir fabrikanın projelendirilip açılması yıllar sürebilir. Girişimci, tesisin faaliyete geçeceği tarihteki pazar büyüklüğünü ve sonraki olası dalgalanmaları bugünden öngörerek fabrika ölçeğini belirlemek zorundadır. Zira fiziki olarak kurulan bir kapasiteyi kısa vadede değiştirmek maliyetli ve güçtür.
 
 #### Tahminin Kapsamı (Talep Dışı Alanlar)
 Tahminleme yalnızca satış adetleri için yapılmaz. Döviz kurları, faiz oranları, enflasyon, gelecekteki girdi maliyetleri ve insan kaynakları ihtiyacı da tahmin konusudur. Örneğin bir işletme, gelecek faaliyet döneminde kaç personelin işten ayrılabileceğini ve bu pozisyonlar için ne kadarlık istihdam açılacağını önceden tahmin etmeye çalışır.
@@ -115,7 +115,7 @@ Bir değişkenin eşit aralıklı ardışık zaman noktalarında kaydedilmiş de
 * **Rassallık:** Düzenli örüntüler çıkarıldıktan sonra kalan, öngörülemeyen dalgalanmadır. Bütün olasılıkların eşit olduğu anlamına gelmez; mevcut modelle açıklanamayan sapmayı temsil eder.
 
 ##### İlişkisel (Nedensel) Modeller
-Talepteki değişimi zamana değil; onu etkileyen başka bir bağımsız değişken veya değişkenler grubuna bağlayan modellerdir (ör. sıfır araç satışları ile lastik talebi ilişkisi). **İki değişken arasında istatistiksel bir ilişki saptanması, tek başına kesin bir neden-sonuç bağını ispatlamaz.**
+Talepteki değişimi onu etkileyen başka bir bağımsız değişken veya değişkenler grubuna bağlayan modellerdir (ör. sıfır araç satışları ile lastik talebi ilişkisi). **İki değişken arasında istatistiksel bir ilişki saptanması, tek başına kesin bir neden-sonuç bağını ispatlamaz.**
 
 * **[[Korelasyon]] Katsayısı ($r$):** Değişkenler arasındaki doğrusal ilişkinin yönünü ve gücünü gösterir:
   $$-1 \leq r \leq 1$$
@@ -152,7 +152,7 @@ Girişimci kâr maksimizasyonunu hedefler; ancak gelecekteki satış fiyatı ve 
 ---
 
 ### 2.2. Lojistik Yaklaşım: Kaynağa mı, Pazara mı Yakınlık?
-Kararda ana kriter, girdi ve nihai ürünün **toplam lojistik maliyetidir**. Bu maliyet yalnızca navlunu kapsamaz; fire, bozulma, sigorta, güvenlik ve depolama unsurlarını da içerir.
+Kararda ana kriter, girdi ve nihai ürünün **toplam lojistik maliyetidir**. Bu maliyet yalnızca [[kavram-navlun|navlunu]] kapsamaz; fire, bozulma, sigorta, güvenlik ve depolama unsurlarını da içerir.
 
 #### 2.2.1. Girdi Kaynağına Yakınlık (Ağırlık Kaybeden Üretim)
 Üretim sürecinde hammadde büyük oranda ağırlık veya hacim kaybına uğruyorsa tesisi kaynağın yanında kurmak avantajlıdır.
@@ -170,7 +170,7 @@ Girdi ile ürünün taşıma maliyet ve şartları birbirine denk ise iki uç no
 ### 2.3. Kuruluş Yerini Etkileyen Faktörler
 
 #### Pazar ve Talep Koşulları
-İşletmenin kurulduğu bölge yalnızca yerel pazarı değil; hinterlandındaki diğer pazarları da kapsar. Tesisin iç ve dış pazarlara dağıtım arterlerine olan erişimi değerlendirilir.
+İşletmenin kurulduğu bölge yalnızca yerel pazarı değil; [[kavram-hinterland|hinterlandındaki]] diğer pazarları da kapsar. Tesisin iç ve dış pazarlara dağıtım [[kavram-arter|arterlerine]] olan erişimi değerlendirilir.
 
 #### Hammadde, Malzeme ve Yan Sanayi
 Hammadde doğadan doğrudan alınan temel girdidir (ör. pancar); malzeme ve parçalar ise önceden işlenmiş bileşenlerdir (ör. otomobil montajındaki motor bloğu veya elektronik kartlar). Yer seçiminde yalnızca ana hammadde değil, gelişmiş bir yan sanayi kümelenmesine erişim de incelenir.
@@ -180,8 +180,8 @@ Hammadde doğadan doğrudan alınan temel girdidir (ör. pancar); malzeme ve par
 #### [[Sözleşmeli Tarım]] ve Belirsizliğin Azaltılması
 İşletmenin üreticiyle ekim öncesinde anlaşarak miktar, kalite, ekim-hasat takvimi ve fiyatlandırma koşullarını protokole bağladığı modeldir.
 * Sanayici tedarik güvencesi sağlarken, çiftçi satış ve fiyat belirsizliğini azaltır.
-* Sözleşmeli tarım tüm rekolte ve doğal afet risklerini sıfırlamaz; sabit fiyat da tek model değildir (kademeli veya endeksli modeller mevcuttur).
-* Sanayici her zaman en ucuz girdiyi hedeflemez; operasyonel planlama yapabilmek adına öngörülebilir tedarik koşullarını tercih edebilir. (Üründeki bir QR kod izlenebilirlik sağlar; fakat ürünün mutlak surette sözleşmeli tarımla üretildiğinin göstergesi değildir).
+* Sözleşmeli tarım tüm [[kavram-rekolte|rekolte]] ve doğal afet risklerini sıfırlamaz; sabit fiyat da tek model değildir (kademeli veya endeksli modeller mevcuttur).
+* Sanayici her zaman en ucuz girdiyi hedeflemez; operasyonel planlama yapabilmek adına öngörülebilir tedarik koşullarını tercih edebilir. 
 
 #### İş Gücü Mevcudiyeti ve Yaşam Koşulları
 İş gücünün sayısal çokluğu yeterli değildir; nitelik ve maliyet dengesi aranır. Yerel pazarda ucuz iş gücü bulunsa dahi, aranan mühendis ve teknik kadro yoksa dışarıdan personel transferi gerekir. Bu da barınma (lojman), servis, sosyal yaşam, eğitim ve sağlık imkânları gibi ek yan maliyetler doğurur. İnsanlar sadece iş yerinde çalışmaz, o yerleşim yerinde yaşar.
@@ -192,7 +192,7 @@ Hammadde doğadan doğrudan alınan temel girdidir (ör. pancar); malzeme ve par
 * **Su:** Soğutma, buhar, arıtma, boyama ve kimyasal testlerde kritik girdidir. Suyun debisi kadar sertlik derecesi de önemlidir; kireçli sular yüksek maliyetli yumuşatma/arıtma yatırımları gerektirir.
 
 #### Ulaşım ve Lojistik Altyapısı
-Bir ulaştırma koridoruna fiziki olarak yakın olmak, orayı verimli kullanabilmek anlamına gelmez. Uygun terminal, rampa, liman derinliği ve elleçleme kapasitesi bulunmalıdır.
+Bir ulaştırma koridoruna fiziki olarak yakın olmak, orayı verimli kullanabilmek anlamına gelmez. Uygun terminal, rampa, liman derinliği ve [[elleçleme]] kapasitesi bulunmalıdır.
 
 | Taşıma Türü | Temel Avantaj | Kritik Hususlar |
 | :--- | :--- | :--- |
@@ -218,6 +218,15 @@ Sanayi işletmelerinin çarpık kentleşmeyi önleyecek şekilde planlı alanlar
 * İzmir Gaziemir'deki Ege Serbest Bölgesi ([[ESBAŞ]]) bu modelin örneğidir. 
 * Bölgeye giren yabancı menşeili hammadde ve makineler gümrük vergisine tabi tutulmaz. Üretilen mamuller azaltılmış bürokratik prosedürlerle doğrudan yurt dışına ihraç edilir. 
 * Serbest bölgeden Türkiye iç pazarına yapılacak satışlar ise normal bir ülkeden ithalat yapılıyormuş gibi genel dış ticaret ve gümrük rejimine tabidir.
+
+| Kriter         | Organize Sanayi Bölgesi (OSB) | Serbest Bölge                       |
+| -------------- | ----------------------------- | ----------------------------------- |
+| Temel amaç     | Sanayiyi planlı geliştirmek   | Dış ticareti ve yatırımı artırmak   |
+| Odak noktası   | Üretim ve sanayi altyapısı    | İhracat, ticaret ve üretim          |
+| Gümrük statüsü | Normal gümrük rejimi          | Gümrük bölgesi dışında kabul edilir |
+| Avantajı       | Ortak altyapı, enerji, ulaşım | Özel gümrük ve vergi avantajları    |
+| Örnek          | İzmir Atatürk OSB             | Ege Serbest Bölgesi                 |
+
 
 ---
 
