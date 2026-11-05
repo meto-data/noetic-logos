@@ -91,7 +91,7 @@ Yabancı şirketlerin bir ülkede fabrika açması, sabit tesis kurması veya me
 
 İşletmelerin büyüklüğü sektöre ve zamana göre değişir. 
 
-- **Niceliksel Ölçütler**: Çalışan sayısı, sermaye tutarı, yıllık satış cirosu, fabrika alanı va makine kapasitesi gibi [[kantitatif]] ölçütlerdir.
+- **Niceliksel Ölçütler**: Çalışan sayısı, sermaye tutarı, yıllık satış cirosu, fabrika alanı ve makine kapasitesi gibi [[kantitatif]] ölçütlerdir.
 - **Niteliksel (Yorumsal) Ölçütler**: Şirketin yönetim biçimi ve pazardaki hâkimiyeti gibi [[kalitatif]] ölçütlerdir. Örneğin, sadece 7 çalışanı olan bir yazılım şirketi niş bir sektör pazarının %70'ini tek başına elinde tutabilir.
 
 
