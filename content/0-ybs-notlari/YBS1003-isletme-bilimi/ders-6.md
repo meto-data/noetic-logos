@@ -35,7 +35,7 @@ Talep zaman içinde değişirken tesis kapasitesi bir süre sabit kalır ve yat�
 
 Ortalama stratejide dönemin tam yarısının aşırı, diğer yarısının eksik olması gerekmez. Strateji; sermaye olanakları, pazar büyümesi ve rekabet koşullarına göre belirlenir. Talep yüksek olsa bile arızalar nedeniyle bütün kapasitenin kullanılması garanti değildir.
 
-![[01_stratejiler.png]]
+!![[01_stratejiler.png]]
 
 **Nasıl okunur?** Kırmızı basamak kapasiteyi, mavi doğru talebi gösterir. Talep üstteyse karşılanamayan talep; kapasite üstteyse kullanılmayan kapasite vardır.
 
@@ -52,10 +52,7 @@ Kapasite artırımında **ne zaman** ve **ne kadar** soruları birlikte cevaplan
 
 **Kapasite genişleme büyüklüğü**, bir yatırımda eklenen üretim gücüdür. Basamağın dikey yüksekliği olan $\Delta Q$ ile gösterilir. Örneğin 10.000 adet/yıldan 15.000 adet/yıla çıkışta artırım 5.000 adet/yıldır.
 
-
-!![[01_stratejiler.png]]
-
-
+![[02_genisleme_ritmi.png]]
 
 **Küçük ve sık artırım**, talepteki değişime daha yakın uyum sağlayabilir; fakat sık finansman, kurulum ve fiziki alan düzenlemesi gerektirir. **Büyük ve seyrek artırım**, daha uzun dönemli öngörü gerektirir ve tahmin hatası halinde daha büyük kullanılmayan kapasite veya talep açığı doğurabilir.
 
