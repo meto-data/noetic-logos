@@ -188,12 +188,11 @@ Bkz. **[[1-finansal_yonetime_giris_ve_temel_kavramlar#Limited Şirket (LTD. ŞT�
 
 Özel sermayenin az olduğu dönemlerde kamu işletmeleri üretime doğrudan girerek öncülük eder. Dışarıdan gelen doğrudan yabancı yatırımlar ise yerli yan sanayiyi beslediği ve ihracat sağladığı ölçüde ülke rezervlerine katkı sunar. Ancak dış girdiye aşırı bağımlılık kâr transferi yoluyla döviz çıkışına sebebiyet verebilir.
 
-
 ### B. Kaynak Kıtlığı, Ölçek Sınırları ve Büyüme Engelleri
 İşletmenin ölçek büyüklüğü onun hareket kabiliyetini sınırlar:
 
 - **[[Finansman]] Engeli**: KOBİ'ler bankalardan borçlanırken yüksek teminat ve ağır faiz şartlarıyla karşılaşır. Büyük işletmeler ise [[Tahviller|tahvil]] çıkararak veya borsaya açılarak düşük maliyetli fon bulur.
-- **Uzmanlaşma Engeli**: Küçük işletmelerde kısıtlı bütçeler sebebiyle bir çalışan birden fazla işi üstlenir. Bu durum stratejik yönetim kalitesini düşürür. 
+- **Uzmanlaşma Engeli**: Küçük işletmelerde kısıtlı bütçeler sebebiyle bir çalışan birden fazla işi üstlenir. Bu durum stratejik yönetim kalitesini düşürür, uzmanlaşma azalır. Buna mukabil büyük işletmelerde uzmanlaşma artar. [[ATLAS/0-ybs-notlari/YBS1003-isletme-bilimi/ders-6|6. Derste]] bu konu işlendi.
 - **Bürokrasi Engeli**: Kamu kuruluşlarında bir kararın uygulanması çok sayıda hiyerarşik kademenin onayını gerektirdiği için piyasadaki hızlı değişimlere uyum zorlaşır.
 
 ### C. Hukukî Yapı Tercihinin Finansman ve Risk Yönetimine Etkileri
