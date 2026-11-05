@@ -24,7 +24,7 @@ Altyapı yatırımlarında, baraj, asma köprü veya nükleer santral gibi kamu 
 
 > Bkz. [[antitröst]]
 
-Tröst, aynı veya birbiriyle ilişkili sektörlerde çalışan işletmelerin sermaye, yönetim ve hukukî varlıklarını tek bir dev çatı altında ebediyen birleştirmeleri neticesinde ortaya çıkan tekelleşme veya yüksek pazar konsantrasyonu formudur. Tröstleşme iki temek hukukî mekanizmayla hayat bulur:
+Tröst, aynı veya birbiriyle ilişkili sektörlerde çalışan işletmelerin sermaye, yönetim ve hukukî varlıklarını tek bir dev çatı altında birleştirmeleri neticesinde ortaya çıkan tekelleşme veya yüksek pazar konsantrasyonu formudur. Tröstleşme iki temek hukukî mekanizmayla hayat bulur:
 
 1. **Ele Geçirme / Satın Alma ([[Acquisition]])**: Güçlü bir şirketin diğer bir şirketin tüm hisselerini ve operasyonel varlıklarını satın alarak kendi bünyesine katması ve hedef şirketin tüzel kişiliğine son vermesidir. Migros'un *Tesco* bünyesindeki Kipa perakende zincirini satın alması bu yapının örneğidir. Süreç esnasında Rekabet Kurulu, alışveriş merkezlerindeki perakende pazar payının Migros lehine mutlak bir tekele dönüşmesini engellemek amacıyla, belirli lokasyonlardaki Kipa mağazalarının Carrefour gibi rakip perakendecilere devredilmesi şartıyla birleşmeye onay vermiştir.
 2. **Birleşme / Kaynaşma**: İki veya daha fazla bağımsız şirketin mevcut tüzel kişiliklerini eşzamanlı olarak feshederek yepyeni bir hukukî ve ticarı kimlik altında bütünleşmesidir. Aycell ve Aria isimli iki GSM operatörünün kendi kurumsal kimliklerini tasviye edip "*Avea* unvanlı yeni bir anonim ortaklık kurması merger operasyonudur.
@@ -41,14 +41,13 @@ Holding; doğrudan doğruya [[sınai]] veya ticarî bir mal ya da hizmet üretim
 Holdingin alt şirketlerle olan sermaye bağı iki kurumsal kategoride somutlaşır:
 
 - **[[Bağlı Ortaklık]] (Subsidiary)**: Holdingin yönetim kurulu üyelerini seçme ve şirketin operasyonel kararlarını belirleme yetkisine sahip olduğu, ekseriyetle hisselerin yüzde 50'sinden fazlasını veya dağınık halka açık paylar sebebiyle fiili yönetim çoğunluğunu elinde tuttuğu ortaklıktır.
-- **[[İştirak]] (Associate)**: Holdingin sermaye payının yönetimsel tahakküm kurmaya yetmediği, genellikle yüzde 20 ile yüzde 50 arasında seyreden, kâr payı ([[temettü]]) ve değer artışından istifade etmeyi amaçlayan stratejik ortaklık modelidir. **Sabancı Holding'in CarrefourSA üzerindeki hâkim hisselerini devrederek payını yüzde 20 düzeyidne muhafaza etmesi, ilgili kuruluşu [[Bağlı Ortaklık|bağlı ortaklık]] statüsünden [[İştirak|iştirak]] konumuna geçirmiştir.**
+- **[[İştirak]] (Associate)**: Holdingin sermaye payının yönetimsel tahakküm kurmaya yetmediği, genellikle yüzde 20 ile yüzde 50 arasında seyreden, kâr payı ([[temettü]]) ve değer artışından istifade etmeyi amaçlayan stratejik ortaklık modelidir. **Sabancı Holding'in CarrefourSA üzerindeki hâkim hisselerini devrederek payını yüzde 20 düzeyinde muhafaza etmesi, ilgili kuruluşu [[Bağlı Ortaklık|bağlı ortaklık]] statüsünden [[İştirak|iştirak]] konumuna geçirmiştir.**
 
 
-## Reel Yatırım Türleri (Types of Real Capital Investment)
+## Reel Yatırım Türleri
 İşletme biliminde [[reel yatırım|reel yatırım]]; *atıl fonların menkul kıymet piyasalarında gelir getiren finansal enstrümanlara dönüştürülmesini ifade eden* [[Portföy Yatırımı|portföy yatırımlarından]] ayrışır. **Reel yatırım, ekonomik sisteme fizikî ve kalıcı bir üretim tesisi, makine parkı veya hizmet sunum kapasitesi ekleme faaliyetidir.** Reel yatırımlar üç temel gruba ayrılır:
 
-
-- **[[Genişleme (tevsi) Yatırımı]] (Expansion Investment / Tevsî)**: Mevcut ürün hattında sıfırdan yeni bir kapasite yaratılması veya var olan kapasite tavanının yukarıya çekilmesidir. Yılda 10000 gömlek üreten bir fabrikanın üretim hattını genişleterek kapasitesini 250.000 gömleğe çıkarması ya da gömlek üretiminde [[ham madde]] olarak kullandığı kumaşı kendisi üretmek üzere 60.000 metrelik iplik-dokuma tesisi eklemesi [[Genişleme (tevsi) Yatırımı|tevsi yatırımı]] mahiyetindedir.
+- **[[Genişleme (tevsi) Yatırımı]] (Expansion Investment / Tevsi)**: Mevcut ürün hattında sıfırdan yeni bir kapasite yaratılması veya var olan kapasite tavanının yukarıya çekilmesidir. Yılda 10000 gömlek üreten bir fabrikanın üretim hattını genişleterek kapasitesini 250.000 gömleğe çıkarması ya da gömlek üretiminde [[ham madde]] olarak kullandığı kumaşı kendisi üretmek üzere 60.000 metrelik iplik-dokuma tesisi eklemesi [[Genişleme (tevsi) Yatırımı|tevsi yatırımı]] mahiyetindedir.
 - **[[Yenileme Yatırımı]] (Replacement Investment)**: Fiziksel olarak çalışmaya devam etse dahi aşınma ve eskime neticesinde arıza sıklığı artan, yakıt ve bakım giderleri ekonomik sınırları aşan ve böylece [[ekonomik ömür|ekonomik ömrünü]] tamamlayan üretim araçlarının yerine yenilerinin ikame edilmesidir. İşletmeler, mevzuat gereği her yıl ayırdıkları [[amortisman]] fonlarını ve eski makinenin hurda değerini birleştirerek üretim güçlerinin sürekliliğini teminat altına alırlar.
 - **[[Modernizasyon Yatırımı]] (Modernization Investment)**: Mevcut makine parkının fiziksel ve ekonomik ömrü tükenmemiş olmasına rağmen, küresel teknolojik gelişmelerin gerisinde kalmamak adına daha hızlı, daha az enerji tüketen, daha düşük birim maliyetle ve en yüksek kalite standardıyla çalışan yeni nesil teknolojilere geçilmesidir. İşletmenin rakipleri karşısında maliyet ve kalite liderliğini korumasını sağlar.
 
@@ -83,7 +82,7 @@ flowchart TD
 Girişimcinin veya kurumsal yönetim grubunun olası yatırım alanlarını genel ekonomik göstergeler, küresel talep eğilimleri ve [[ikincil veri kaynakları]] üzerinden hızlıca değerlendirdiği ilk fikir süzgecidir. Çok sayıda alternatif sektör arasından pazar potansiyeli taşıyan alanlar bu aşamada öne çıkar.
 
 ### 2. [[Ön Fizibilite Etüdü]] (Pre-Feasibility Study)
-Olanak etüdü neticesinde tespit edilen birkaç yatırım alternatifinin(örn. gıda, otomotiv veya tekstil) kuruluş yeri gereksinimleri, tahmini tesis kapasiteleri ve yasal teşvikler çerçevesinde biraz daha derinlemesine incelenerek tek bir yatırım alanına indirgenmesidir.
+Olanak etüdü neticesinde tespit edilen birkaç yatırım alternatifinin (örn. gıda, otomotiv veya tekstil) kuruluş yeri gereksinimleri, tahmini tesis kapasiteleri ve yasal teşvikler çerçevesinde biraz daha derinlemesine incelenerek tek bir yatırım alanına indirgenmesidir.
 
 ### 3. Kapsamlı Fizibilite Etüdü (Feasibility Study)
 Tercih edilen tek alanda projenin hayata geçirilip geçirilmeyeceğini belirleyen çok disiplinli, aylar süren ve yüzlerce sayfalık teknik, ekonomik ve finansal raporlar üreten nihai karar evresidir.
@@ -102,7 +101,7 @@ Projenin toplam yatırım tutarını ortaya koyar. Toplam yatırımın tutarı i
 Toplam Yatırım Tutar = Sabit Yatırımlar + Çalışma Sermayesi
 ```
 
-- **Sabit Yatırımlar**: Arsa, inşaat, patent, şirket kuruluş harçları ve makine donanımını kapsar. [[Çalışma Sermayesi (İşletme Sermayesi)]]; fabrika kurulduktan sonra ürünlerin üretilip satılması ve [[vadeli satış]] bedellerinin tahsil edilmesine kadar geçecek cari işletme döneminde (asgari bir yıl) işçi ücretlerinin, elektrik faturalarının, ham madde ödemelerinin ve sigorta primlerinin karşılanmasını sağlayan nakit rezdrvidir. Finansal etüt ayrıca sermaye maliyetini, borç-öz kaynak oranını ve projenin kârlılığa geçiş takvimini (yatırımın geri dönüş süresi) hesaplar.
+- **Sabit Yatırımlar**: Arsa, inşaat, patent, şirket kuruluş harçları ve makine donanımını kapsar. [[Çalışma Sermayesi (İşletme Sermayesi)]]; fabrika kurulduktan sonra ürünlerin üretilip satılması ve [[vadeli satış]] bedellerinin tahsil edilmesine kadar geçecek cari işletme döneminde (asgari bir yıl) işçi ücretlerinin, elektrik faturalarının, ham madde ödemelerinin ve sigorta primlerinin karşılanmasını sağlayan nakit rezervidir. Finansal etüt ayrıca sermaye maliyetini, borç-öz kaynak oranını ve projenin kârlılığa geçiş takvimini (yatırımın geri dönüş süresi) hesaplar.
 
 #### 3.4. Yasal Etüt
 Şirket türünün seçimi ([[Anonim Şirket]], [[Limited Şirket]] vb.), İş Kanunu, Türk Gıda Kodeksi, çevre izinleri ve Çevresel Etki Değerlendirmesi ([[ÇED Raporu]]) süreçlerinin incelenmesidir.
@@ -115,7 +114,7 @@ Fizibilite etüdünün olumlu sonuçlanması doğrudan inşaata başlanması iç
 
 - **Kesin Proje**: "Kimin, hangi bütçeyle, ne zaman, hangi görevi icra edeceğini" gösteren operasyonel uygulama planıdır. Görev dağılımı, makine sipariş takvimleri ve nakit akış çizelgeleri kesin projeyle takvime bağlanır.
 - **Deneme Üretimi (Pilot Run)**: Tesis montajı bittikten sonra kâğıt üstündeki mühendislik tasarımları ile fiilî çalışma ortamı arasındaki tolerans farklarını gidermek amacıyla gerçekleştirilen optimizasyon sürecidir. Tesislerin teorik kapasitesi ile ilk çalıştırma anındaki fiilî çıktıları arasında sapmalar kaçınılmazdır.
-	- Kayseri'de günlük 1.500 yatak bazası hedefiyle kurulan bir üretim hattının ilk günlerde 800 adet seviyesinde kalması, ancak hat optimizasyonları ve iş gücü alışma evresi neticesinde 1.200 adet seviyesine ulaşabilmesi deneme üretiminin zorunlu fonksiyonunu gösterir. Türkiye'nin Otomobili Girişim Grubu'nun (`[[TOGG]]`) ilk yılında yıllık 75.000 adetlik kurulu kapasitesine karşın 250 araç üretmesi, deneme üretimi ve montaj hattı kalibrasyonunun zorunlu bir sonucudur.
+	- Kayseri'de günlük 1.500 yatak bazası hedefiyle kurulan bir üretim hattının ilk günlerde 800 adet seviyesinde kalması, ancak hat optimizasyonları ve iş gücü alışma evresi neticesinde 1.200 adet seviyesine ulaşabilmesi deneme üretiminin zorunlu fonksiyonunu gösterir. Türkiye'nin Otomobili Girişim Grubu'nun (TOGG) ilk yılında yıllık 75.000 adetlik kurulu kapasitesine karşın 250 araç üretmesi, deneme üretimi ve montaj hattı kalibrasyonunun zorunlu bir sonucudur.
 - **Sosyal Meşruiyet ve Açılış Merasimi**: İşletmenin faaliyet gösterdiği yerel çevrede bürokratik ve toplumsal kabul görmesi kurumsal sürdürülebilirlik gereğidir. Türkiye'de yatırım yapan bir Japon sanayi kuruluşunun açılış töreni yapmadan faaliyete geçmesi sebebiyle yerel mülki idarenin izin ve ruhsat süreçlerini ağırdan alması, işletmelerin yerel dinamiklere saygı gösterme mecburiyetini açıkça ortaya koyar.
 
 
@@ -128,7 +127,7 @@ Geleceğin belirsiz karakteri sebebiyle tüm talep tahminleri yapısal olarak bi
 - **Uzmanlar Kurulu**: Birden fazla yöneticinin ortak tahminde bulunmasıdır. Hiyerarşik baskı, konformizm ve astların üst yöneticilere 'şirin' görünme kaygısı sebebiyle grup içi etkileşim hatalarına açıktır.
 - **Delphi Tekniği**: Uzmanların birbirini tanımadığı, fiziksel olarak bir araya gelmediği, sürecin bağımsız bir moderatör tarafından yazılı soru formları ve geri bildirim turlarıyla yönetildiği konsensüs arama yöntemidir. Sosyal baskıyı ve hiyerarşik çekinceleri ortadan kaldırır; uzun süre ve yüksek maliyet gerektirir.
 - **Pazar Araştırması**: Tüketicilere doğrudan anket uygulama, süpermarket reyonlarında ürün tadım stantları açma ve reyon içi tüketici hareketlerini kamera/gözlem yoluyla kayıt altına alma faaliyetlerini kapsar.
-- **Ürün Yaşam Eğrisi Analojisi**: Yeni bir ürünüün pazardaki geleceğini, benzer bir ürünün geçmiş satış profiline (Sunuş, Büyüme, Olgunluk, Gerileme evreleri) benzeterek tahmin etme yaklaşımıdır; misal, iPhone 18 talebini iPhone 17'nin evrelerine dayandırmak.
+- **Ürün Yaşam Eğrisi Analojisi**: Yeni bir ürünün pazardaki geleceğini, benzer bir ürünün geçmiş satış profiline (Sunuş, Büyüme, Olgunluk, Gerileme evreleri) benzeterek tahmin etme yaklaşımıdır; misal, iPhone 18 talebini iPhone 17'nin evrelerine dayandırmak.
 
 #### 2. Nicel (Matematiksel/İstatistiksel) Yöntemler
 - **[[veri-madenciligi-11#1. Zaman Serisi (Time Series) Nedir?|Zaman Serileri]] Modelleri**: Gelecekteki talebi doğrudan doğruya zamanın akışına bağlayan, eşit aralıklarla toplanmış geçmiş verilerin geleceğe projeksiyonudur.
@@ -139,7 +138,7 @@ Geleceğin belirsiz karakteri sebebiyle tüm talep tahminleri yapısal olarak bi
 
 # Genel Çerçeve ve Kısıtlar
 
-İşletmelerin yatırım, bütünleşme ve kapasite planlama kararları makroekonomik, sektörel ve yasal çevre kısıtlarının belirlediği dinamik bir ekosistemde şekillenir. Sistem Analizi ve Tasarımı dersinde 5-6. Hafta bu konuya değinildi. Bağlantının daha net anlaşılması için şu kısma bakmak faydalı olabilir:
+İşletmelerin yatırım, bütünleşme ve kapasite planlama kararları makroekonomik, sektörel ve yasal çevre kısıtlarının belirlediği dinamik bir ekosistemde şekillenir.
 
 
 ```mermaid
@@ -220,7 +219,7 @@ flowchart TD
 
 ## Karşılaştırma Tabloları
 
-#### Tablo 1: İşletmeler Arası Birlik Türlerinin Karşılaştırmalı Analizi
+#### İşletmeler Arası Birlik Türlerinin Karşılaştırmalı Analizi
 | İşbirliği Türü | Hukuki Bağımsızlık Durumu | İktisadi Bağımsızlık Durumu | Yasal Statüsü | Temel Kuruluş Gayesi |
 | :--- | :--- | :--- | :--- | :--- |
 | **[[Centilmenlik Anlaşması]]** | Tamamen Korunur | Tamamen Korunur | Yasaldır (Rekabeti bozmadığı sürece) | Karşılıklı itibar ve gayriresmî işbirliği sağlama |
@@ -229,11 +228,4 @@ flowchart TD
 | **[[Holding]]** | Alt şirketlerin tüzel kişiliği sürer | Çatı holding merkezine bağlanır | Yasaldır | Çok sayıda sektördeki şirketi tek elden stratejik yönetme |
 | **[[Tröst]] (Satın Alma / [[Acquisition]])** | Hedef şirket fesholur | Devralan şirkete geçer | [[Rekabet Kurulu]] iznine tabidir | [[Ölçek Ekonomisi|Ölçek ekonomisi]] ve pazar payını bünyeye katarak büyüme |
 | **[[Tröst]] (Kaynaşma / Merger)** | İki şirket de fesholur | Yeni şirkette birleşir | [[Rekabet Kurulu]] iznine tabidir | Yeni bir tüzel kişilik altında sermayeleri kaynaştırma |
-
-#### Tablo 2: Reel Yatırım Türleri Karşılaştırma Matrisi
-| Yatırım Türü | Temel Güdü / Tetikleyici | İkame Edilen Varlığın Durumu | Temel Finansman Kaynağı | Sağlanan Stratejik Fayda |
-| :--- | :--- | :--- | :--- | :--- |
-| **[[Genişleme (tevsi) Yatırımı]] (Tevsi)** | Yüksek pazar talebi ve kapasite yetersizliği | Varlık yoktur veya mevcut kapasite tavanındadır | Özkaynak, kredi, proje finansmanı | Artan pazar talebini karşılama ve pazar payı büyütme |
-| **[[Yenileme Yatırımı]]** | Varlığın [[ekonomik ömür|ekonomik ve faydalı ömrünü]] tüketmesi | Fiziksel olarak çalışır ancak aşırı arıza ve bakım üretir | Zorunlu [[amortisman]] fonu ve hurda değer | Mevcut üretim gücünü ve operasyonel verimliliği koruma |
-| **[[Modernizasyon Yatırımı]]** | Teknolojik devrim ve rakiplerin verimlilik artışı | Fiziksel ve [[ekonomik ömür|ekonomik ömrü]] devam etmektedir | İşletme kârları, teşvikler ve dış kaynak | Birim maliyeti düşürme, kalite ve teknoloji liderliği |
 

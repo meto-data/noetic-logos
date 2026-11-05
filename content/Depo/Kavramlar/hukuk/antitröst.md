@@ -1,6 +1,6 @@
 ---
 tags:
-  - bilgi/kavramlar/iktisat
+  - bilgi/kavramlar/hukuk
 ---
 
 **Antitröst**, tröstlerin ve onlara benzeyen tekelci yapıların, kartellerin ve rekabeti bozan diğer uygulamaların **önlenmesi, denetlenmesi ve cezalandırılması** amacını taşıyan hukuk alanı ve politikadır. Kelime İngilizce *anti-trust* ("tröste karşı") ifadesinden gelir. Başlangıçta yalnızca 19. yüzyıl tröstlerine karşı çıkan hareketi anlatırken, zamanla rekabeti koruyan hukukun tamamının adı oldu. Bugün ABD'de **rekabet hukuku** ile aynı anlamda kullanılır.
@@ -22,7 +22,6 @@ Antitröstün temel fikri şudur: Piyasada güç birkaç elde toplanırsa fiyatl
 - **Federal Ticaret Komisyonu Yasası (1914):** Haksız ve aldatıcı ticari uygulamaları denetleyen FTC'yi kurdu.
 
 Daha sonra Robinson-Patman Yasası (1936) ve Hart-Scott-Rodino Yasası (1976) eklendi.
-
 
 
 | Kavram                 | Ne olduğu                                                                                                                             |
