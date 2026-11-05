@@ -191,9 +191,6 @@ Birim adet/gündür. Bu sayısal modelde teorik darboğaz B=1.200, normal koşul
 
 B'nin teorik kapasitesini 2.400'e çıkarmak sistem kapasitesini ikiye katlamaz; yeni sınır A=2.000 olur. Normal koşullarda ise yalnız B'yi artırmak başlangıçtaki A=1.000 sınırını kaldırmaz. Önce A yeterince artırılırsa sonraki sınır B=1.150 olur; ilk artış en fazla 150'dir. **Yatırımın getirisi yerel makine hızından değil, sistemin yeni kısıtından hesaplanır.**
 
-> [!note] Sayısal belirsizlik
-> Görüntüde netleşmeyen istasyon değerleri için bu şemadaki sayılar model kabulüdür; kritik karşılaştırma teorik ve normal darboğazın farklılaşmasıdır.
-
 ### Montaj ve ayrılan akışlar
 
 Bir ürün için 2 A ve 3 B parçası gerekiyorsa kapasite, bileşen oranlarıyla hesaplanır:
@@ -222,6 +219,7 @@ Ancak 600 ürün için 1.200 D1 ve yalnız 600 D2 kullanılır. İki kol da 1.20
 **Yönetim**, insan, makine, para ve bilgiyi amaç doğrultusunda yönlendiren üst fonksiyondur. **Üretim** mal veya hizmeti ortaya çıkarır; **pazarlama** ihtiyaçları ve müşteriye ulaşmayı düzenler; **finans** gerekli fonları sağlar ve kullanımını yönetir. Satış, pazarlamanın bir boyutudur.
 
 Destek fonksiyonlar; **insan kaynakları, muhasebe, AR-GE, bakım-onarım ve tedarik zinciri yönetimidir.** İnsan kaynakları personel ihtiyacı, işe alım, özlük ve motivasyonla ilgilenir. Muhasebe işlemleri kaydeder, maliyet ve raporlama bilgisi sağlar. AR-GE ürün ve süreç geliştirir; bakım donanımın sürekliliğini destekler. Tedarik zinciri girdi, stok ve dağıtım akışlarını birlikte yönetir. Destek olmak önemsiz olmak değildir. **Finans ile muhasebe ayrımı**, fonu sağlama ve kullanma kararlarıyla bu işlemlerin kaydedilmesi arasındadır. Tedarik zinciri bazı işletmelerde ana faaliyet kadar belirleyici olabilir. Fonksiyonların ayrı departmanlarda mı yoksa başka görevlerle birlikte mi yürütüleceği işletmenin büyüklüğüne ve iş yapısına bağlıdır.
+
 
 ### Yönetim kademeleri ve kararlar
 
