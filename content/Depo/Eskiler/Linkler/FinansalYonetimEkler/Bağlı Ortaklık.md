@@ -4,8 +4,6 @@ tags:
 ---
 > 	Pay oranının **%50'den fazla (%51 ve üzeri)** olmasıdır. Bu durumda ana şirket, bağlı ortaklığın yönetiminde çoğunluk hissesi sayesinde kontrol ve karar yetkisine sahip olur. 
 
-**Başka bir şirketin (ana şirketin) kontrol ettiği şirkettir. Hukuken ayrı bir tüzel kişidir, ama kararları fiilen ana şirket belirler.**
-
 #### Kontrol nasıl sağlanır?
 
 - **Oy hakkının yarıdan fazlasına (%50+1) sahip olmakla**. Bu en yaygın yoldur.

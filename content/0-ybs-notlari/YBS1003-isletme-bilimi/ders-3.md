@@ -31,11 +31,11 @@ Müşteriye soyut fayda sağlayan işletmelerdir. Bankacılık, sigortacılık, 
 ### 1. Sermaye Sahipliğine Göre Temel Ayrım
 
 #### Özel İşletmeler
-Sermayesi bireylere veya özel [[Tüzel kişiler|tüzel kişilere]] ait olan yapılardır. **Bu işletmelerin birinci önceliği kâr elde etmek ve yatırılan sermayeyi büyütmektir.**
+Sermayesi bireylere veya özel [[Tüzel kişiler|tüzel kişilere]] ait olan yapılardır. **Bu işletmelerin birincil önceliği kâr elde etmek ve yatırılan sermayeyi büyütmektir.**
 
 
 #### Kamu İşletmeleri
-Sermayesinin tamamı veya büyük kısmı devlete ait olan işletmelerdir. **Kamunun işletme kurmasındaki temel amaçlar; piyasada rekabet ortamı sağlamak, doğal tekelleri toplum ararına işletmek, stratejik alanları korumak ve özel sektörün henüz giremediği alanlarda sermaye birikimi oluşturmaktır.**
+Sermayesinin tamamı veya büyük kısmı devlete ait olan işletmelerdir. **Kamunun işletme kurmasındaki temel amaçlar; piyasada rekabet ortamı sağlamak, doğal tekelleri toplum yararına işletmek, stratejik alanları korumak ve özel sektörün henüz giremediği alanlarda sermaye birikimi oluşturmaktır.**
 
 - **Cumhuriyetin Kuruluşu ve Türkiye İş Bankası Örneği**: Cumhuriyetin ilk yıllarında uzun savaşlar sebebiyle ülkede özel sermaye birikimi tükenmiş durumdaydı. Atatürk öncülüğünde uygulanan devletçilik politikası, devletin öncülük ederek sermaye birikimi oluşturmasını ve bu gücü zamanla özel sektöre devretmesini hedeflemiştir. Bu dönemde kurulan Türkiye İş Bankası, devlet öncülüğünde kurulan ilk özel banka olarak bu kalkınma modelinin en somut adımıdır.
 - **Stratejik Kontrol ve BOTAŞ**: Petrol ve doğal gaz boru hatlarını işleten BOTAŞ, uluslararası anlaşmalar ve enerji arz güvenliği açısından kritik bir geçiş koridoru oluşturur. Bu stratejik değer sebebiyle kurumun kamu mülkiyetinde kalması tercih edilir.
@@ -69,7 +69,7 @@ Kamuya ait büyük ve stratejik şirketlerin paylarını tek bir çatı altında
 Kamu işletmelerinde karar süreçleri çok sayıda resmî makamın onayına bağlıdır. Bu hiyerarşi piyasa fırsatlarına hızlı cevap verilmesini zorlaştırır.
 
 - **Çatışan Mevzuat Örneği**: Elektrik hattı bulunmayan tarlasında sulama yapabilmek için güneş paneli kuran bir çiftçiye bir kamu kurumunun hibe desteği vermesi, aynı anda elektrik dağıtım şirketinin izinsiz üretim gerekçesiyle ceza kesmesi bürokratik kuralların birbiriyle çelişebildiğini gösterir.
-- **Ekonomik Ömür ve [[kavram-amortisman|Amortisman]] Kısıtı**: Kamuda kullanılan bir bilgisayar veya teknik cihaz, mevzuatta yazılı resmî kullanım süresi dolana kadar yenilenemez. Bu durum çağın gerisinde kalan teknolojilerin kullanımını zorunlu kılar. 
+- **Ekonomik Ömür ve [[amortisman|Amortisman]] Kısıtı**: Kamuda kullanılan bir bilgisayar veya teknik cihaz, mevzuatta yazılı resmî kullanım süresi dolana kadar yenilenemez. Bu durum çağın gerisinde kalan teknolojilerin kullanımını zorunlu kılar. 
 - **Aşırı İstihdam**: Kamu işletmelerinde siyasî etkilerle ihtiyaç duyulandan çok daha fazla kişi işe alınabilir (200 kişilik şeker fabrikasında 1.500 kişinin çalışması). Bu durum personel giderlerini büyüterek verimliliği düşürür.
 
 #### Özelleştirme

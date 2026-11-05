@@ -2,7 +2,7 @@
 tags:
   - akademi/dersler/finansal-yonetim
 ---
-> 	Pay oranının %$10$ ile %$50$ arasında olmasıdır. Yönetimde kısmî söz hakkı vardır.
+> Pay oranının %$10$ ile %$50$ arasında olmasıdır. Yönetimde kısmî söz hakkı vardır.
 
 
 Başka bir şirketin **önemli etkiye sahip olduğu ama kontrol etmediği şirkettir.** Ortaklık vardır, ama yönetim kararlarını tek başına belirleme gücü yoktur.
