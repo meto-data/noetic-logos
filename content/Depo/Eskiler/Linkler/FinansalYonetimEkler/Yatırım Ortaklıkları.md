@@ -1,0 +1,7 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
+- Bu yapı bir şirkettir (Anonim Şirket). 
+- Şirketleşme yoluna gidilmiştir ve **tüzel kişiliği mevcuttur.** 
+- Profesyonel kadrolar tarafından yönetilen bir portföyü işletirler; **yatırımcı ise bu şirketin hisse senedini alarak doğrudan şirkete ortak olur.**

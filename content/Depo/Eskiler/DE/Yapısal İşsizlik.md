@@ -1,0 +1,7 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
+- **Bir endüstrinin/sektörün yapısının değişmesi sonucunda ortaya çıkan uzun süreli işsizlik türü**. Bkz. Yapay Zekâ sonucunda çevirmenlerin işsiz kalması vb.
+- Ekonominin temelinde meydana gelen değişimlerle ortaya çıkar. Teknolojik ilerlemeler, küreselleşme, tüketici tercihlerindeki değişimler vs.
+- **[[Yeniden becerilendirme]]** **(reskilling)** eğitimiyle atlatılabilir.

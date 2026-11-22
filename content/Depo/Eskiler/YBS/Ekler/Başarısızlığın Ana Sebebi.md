@@ -1,0 +1,5 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
+**Başarısızlığın Ana Sebebi:** Büyük projelerin (özellikle BT projelerinin) başarısız olmasındaki en yaygın sebep, değişime karşı gösterilen organizasyonel ve politik dirençtir.

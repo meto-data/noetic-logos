@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türk Dili I - İnteraktif Sınav Modülü</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --theme-bg: #EAF6F6;
+        --theme-text: #333745;
+        --theme-card: #ffffff;
+        --theme-muted: #f5fbfb;
+        --theme-border: #d6e4f0;
+        --theme-accent: #4A90E2;
+      }
+
+      html,
+      body {
+        font-family: 'Inter', sans-serif;
+        background: var(--theme-bg);
+        color: var(--theme-text);
+        min-height: 100%;
+      }
+
+      body,
+      .bg-slate-100,
+      .bg-slate-50,
+      .dark .bg-slate-900,
+      .dark .bg-slate-800,
+      .dark .bg-slate-700,
+      .dark .bg-slate-600 {
+        background-color: var(--theme-bg) !important;
+        color: var(--theme-text) !important;
+      }
+
+      .bg-white,
+      .dark .bg-white,
+      .bg-slate-200,
+      .dark .bg-slate-500\/50 {
+        background-color: var(--theme-card) !important;
+        color: var(--theme-text) !important;
+        box-shadow: 0 4px 18px rgba(52, 84, 122, 0.12);
+      }
+
+      .text-slate-900,
+      .text-slate-800,
+      .text-slate-700,
+      .text-slate-600,
+      .text-slate-500,
+      .dark .text-slate-200,
+      .dark .text-slate-300,
+      .dark .text-slate-400,
+      .dark .text-white,
+      .text-white {
+        color: var(--theme-text) !important;
+      }
+
+      .border-slate-300,
+      .border-slate-200,
+      .dark .border-slate-600,
+      .dark .border-slate-700 {
+        border-color: var(--theme-border) !important;
+      }
+
+      .bg-sky-600,
+      .hover\:bg-sky-700:hover,
+      .dark .bg-sky-600,
+      .dark .hover\:bg-sky-700:hover,
+      .text-sky-600,
+      .dark .text-sky-400 {
+        background-color: var(--theme-accent) !important;
+        color: #fff !important;
+      }
+
+      .bg-slate-700,
+      .bg-slate-600,
+      .bg-slate-500,
+      .dark .bg-slate-500,
+      .dark .bg-slate-400 {
+        background-color: var(--theme-muted) !important;
+        color: var(--theme-text) !important;
+      }
+
+      .prose h2,
+      .prose h3,
+      .prose h4,
+      .prose h5,
+      .prose p,
+      .prose ul,
+      .prose ol,
+      .prose strong,
+      .prose b,
+      .dark .prose strong,
+      .dark .prose b {
+        color: var(--theme-text);
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #dfeff0;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #a7c5c5;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #89b1b1;
+      }
+
+      .sidebar {
+        transition: transform 0.3s ease-in-out;
+      }
+
+      @keyframes highlight-scroll {
+        from {
+          background-color: rgba(74, 144, 226, 0.25);
+          box-shadow: 0 0 10px rgba(74, 144, 226, 0.4);
+        }
+        to {
+          background-color: transparent;
+          box-shadow: none;
+        }
+      }
+      .highlight-scroll {
+        animation: highlight-scroll 2s ease-out;
+        scroll-margin-top: 10px;
+      }
+    </style>
+    <script>
+      (function enforceLightTheme() {
+        try {
+          const stored = JSON.parse(localStorage.getItem('appSettings') || '{}') || {}
+          if (stored.darkMode) {
+            stored.darkMode = false
+            localStorage.setItem('appSettings', JSON.stringify(stored))
+          }
+        } catch (error) {
+          console.warn('Tema ayarları okunamadı, varsayılana dönülüyor.', error)
+        }
+        document.documentElement.classList.remove('dark')
+      })()
+    </script>
+  <script type="module" crossorigin src="./assets/index-BShGXWWS.js"></script>
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 font-sans antialiased text-slate-800 dark:text-slate-200">
+    <div id="root"></div>
+</body>
+</html>

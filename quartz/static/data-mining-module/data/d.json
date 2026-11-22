@@ -1,0 +1,726 @@
+[
+  {
+    "topic": "k-means-on-isleme",
+    "değiştir": "k-means-ön-işleme"
+  },
+  {
+    "topic": "knn-k-degeri-tek-sayi",
+    "değiştir": "knn-k-değeri-tek-sayı"
+  },
+  {
+    "topic": "disiplinlerarasi-iliski",
+    "değiştir": "disiplinlerarası-ilişki"
+  },
+  {
+    "topic": "model-katsayilari",
+    "değiştir": "model-katsayıları"
+  },
+  {
+    "topic": "uygulama-alanlari",
+    "değiştir": "uygulama-alanları"
+  },
+  {
+    "topic": "kod-mantigi-predict",
+    "değiştir": "kod-mantığı-predict"
+  },
+  {
+    "topic": "knn-kullanim-amaci",
+    "değiştir": "knn-kullanım-amacı"
+  },
+  {
+    "topic": "sepet-matrisi-donusumu",
+    "değiştir": "sepet-matrisi-dönüşümü"
+  },
+  {
+    "topic": "algoritma-karsilastirma-dt-knn",
+    "değiştir": "algoritma-karşılaştırma-dt-knn"
+  },
+  {
+    "topic": "confusion-matrix-kavrami",
+    "değiştir": "confusion-matrix-kavramı"
+  },
+  {
+    "topic": "siniflandirma-eda-bank",
+    "değiştir": "sınıflandırma-eda-bank"
+  },
+  {
+    "topic": "veri-donusum",
+    "değiştir": "veri-dönüşüm"
+  },
+  {
+    "topic": "oznitelik-cikarimi",
+    "değiştir": "öznitelik-çıkarımı"
+  },
+  {
+    "topic": "model-egitimi",
+    "değiştir": "model-eğitimi"
+  },
+  {
+    "topic": "pandas-veri-manipulasyonu",
+    "değiştir": "pandas-veri-manipülasyonu"
+  },
+  {
+    "topic": "karar-agaci-yaprak-dugum",
+    "değiştir": "karar-ağacı-yaprak-düğüm"
+  },
+  {
+    "topic": "knn-büyük-k-degeri",
+    "değiştir": "knn-büyük-k-değeri"
+  },
+  {
+    "topic": "elbow-k-secimi-pratik",
+    "değiştir": "elbow-k-seçimi-pratik"
+  },
+  {
+    "topic": "gorsellestirme-network",
+    "değiştir": "görselleştirme-network"
+  },
+  {
+    "topic": "ogrenme-vs-ezberleme",
+    "değiştir": "öğrenme-vs-ezberleme"
+  },
+  {
+    "topic": "makine-ogrenmesinde-regresyon",
+    "değiştir": "makine-öğrenmesinde-regresyon"
+  },
+  {
+    "topic": "kdd-sureci",
+    "değiştir": "kdd-süreci"
+  },
+  {
+    "topic": "teknoloji-secimi",
+    "değiştir": "teknoloji-seçimi"
+  },
+  {
+    "topic": "yeni-nesil-veri-araclari",
+    "değiştir": "yeni-nesil-veri-araçları"
+  },
+  {
+    "topic": "veri-isleme-teknolojileri",
+    "değiştir": "veri-işleme-teknolojileri"
+  },
+  {
+    "topic": "karar-agaclari-avantajlari",
+    "değiştir": "karar-ağaçları-avantajları"
+  },
+  {
+    "topic": "birliktelik-kurallari",
+    "değiştir": "birliktelik-kuralları"
+  },
+  {
+    "topic": "spark-action-komutlari",
+    "değiştir": "spark-action-komutları"
+  },
+  {
+    "topic": "k-means-ve-knn-farki",
+    "değiştir": "k-means-ve-knn-farkı"
+  },
+  {
+    "topic": "spark-veri-olusturma",
+    "değiştir": "spark-veri-oluşturma"
+  },
+  {
+    "topic": "metin-madenciligi-temelleri",
+    "değiştir": "metin-madenciliği-temelleri"
+  },
+  {
+    "topic": "kok-dugum-secimi",
+    "değiştir": "kök-düğüm-seçimi"
+  },
+  {
+    "topic": "apriori-pipeline-gozetimsiz",
+    "değiştir": "apriori-pipeline-gözetimsiz"
+  },
+  {
+    "topic": "cikti-yorumu",
+    "değiştir": "çıktı-yorumu"
+  },
+  {
+    "topic": "kumeleme-algoritmalari",
+    "değiştir": "kümeleme-algoritmaları"
+  },
+  {
+    "topic": "scikit-learn-islemleri",
+    "değiştir": "scikit-learn-işlemleri"
+  },
+  {
+    "topic": "zaman-olcumu-yorumu",
+    "değiştir": "zaman-ölçümü-yorumu"
+  },
+  {
+    "topic": "makine-ogrenmesi-turleri",
+    "değiştir": "makine-öğrenmesi-türleri"
+  },
+  {
+    "topic": "regresyon-algoritmalari",
+    "değiştir": "regresyon-algoritmaları"
+  },
+  {
+    "topic": "matplotlib-gorsellestrirme",
+    "değiştir": "matplotlib-görselleştirme"
+  },
+  {
+    "topic": "spark-action-sonuclari",
+    "değiştir": "spark-action-sonuçları"
+  },
+  {
+    "topic": "model-degerlendirme-accuracy",
+    "değiştir": "model-değerlendirme-accuracy"
+  },
+  {
+    "topic": "kume-degerlendirme",
+    "değiştir": "küme-değerlendirme"
+  },
+  {
+    "topic": "degisken-secimi",
+    "değiştir": "değişken-seçimi"
+  },
+  {
+    "topic": "k-means-mesafe-algoritmalari",
+    "değiştir": "k-means-mesafe-algoritmaları"
+  },
+  {
+    "topic": "karar-agaci-yorumlama",
+    "değiştir": "karar-ağacı-yorumlama"
+  },
+  {
+    "topic": "veri-on-isleme-id-sutunu",
+    "değiştir": "veri-ön-işleme-id-sütunu"
+  },
+  {
+    "topic": "model-degerlendirme",
+    "değiştir": "model-değerlendirme"
+  },
+  {
+    "topic": "gorsellestirme-araclari",
+    "değiştir": "görselleştirme-araçları"
+  },
+  {
+    "topic": "k-means-gorsellestirme-siniri",
+    "değiştir": "k-means-görselleştirme-sınırı"
+  },
+  {
+    "topic": "k-means-dezavantajlari",
+    "değiştir": "k-means-dezavantajları"
+  },
+  {
+    "topic": "knn-ve-ölcekleme-farki",
+    "değiştir": "knn-ve-ölçekleme-farkı"
+  },
+  {
+    "topic": "oruntusu-tanimli-varliklar",
+    "değiştir": "örüntüsü-tanımlı-varlıklar"
+  },
+  {
+    "topic": "kategorik-veri-donusumu",
+    "değiştir": "kategorik-veri-dönüşümü"
+  },
+  {
+    "topic": "knn-minkowski-varsayilan",
+    "değiştir": "knn-minkowski-varsayılan"
+  },
+  {
+    "topic": "test-verisi-hazirlama",
+    "değiştir": "test-verisi-hazırlama"
+  },
+  {
+    "topic": "hata-yonetimi",
+    "değiştir": "hata-yönetimi"
+  },
+  {
+    "topic": "apriori-calisma-mekanizmasi",
+    "değiştir": "apriori-çalışma-mekanizması"
+  },
+  {
+    "topic": "metin-on-isleme-aşamaları",
+    "değiştir": "metin-ön-işleme-aşamaları"
+  },
+  {
+    "topic": "polinomal-donusum-islemi",
+    "değiştir": "polinomal-dönüşüm-işlemi"
+  },
+  {
+    "topic": "ornek-uygulama-yazar-tanima",
+    "değiştir": "örnek-uygulama-yazar-tanıma"
+  },
+  {
+    "topic": "birliktelik-kurallari-metrikleri",
+    "değiştir": "birliktelik-kuralları-metrikleri"
+  },
+  {
+    "topic": "k-means-baslangic-duyarliligi",
+    "değiştir": "k-means-başlangıç-duyarlılığı"
+  },
+  {
+    "topic": "aykiri-degerler",
+    "değiştir": "aykırı-değerler"
+  },
+  {
+    "topic": "knn-olcekleme-zorunlulugu",
+    "değiştir": "knn-ölçekleme-zorunluluğu"
+  },
+  {
+    "topic": "denetimsiz-ogrenme-amaci",
+    "değiştir": "denetimsiz-öğrenme-amacı"
+  },
+  {
+    "topic": "degisken-anlami",
+    "değiştir": "değişken-anlamı"
+  },
+  {
+    "topic": "veri-hazirligi",
+    "değiştir": "veri-hazırlığı"
+  },
+  {
+    "topic": "random-forest-adimlar",
+    "değiştir": "random-forest-adımlar"
+  },
+  {
+    "topic": "cikti-kod-eslestirme",
+    "değiştir": "çıktı-kod-eşleştirme"
+  },
+  {
+    "topic": "karar-agaclari-yapisi",
+    "değiştir": "karar-ağaçları-yapısı"
+  },
+  {
+    "topic": "sinif-dengesizligi",
+    "değiştir": "sınıf-dengesizliği"
+  },
+  {
+    "topic": "ozellik-secimi",
+    "değiştir": "özellik-seçimi"
+  },
+  {
+    "topic": "knn-kullanim-senaryolari",
+    "değiştir": "knn-kullanım-senaryoları"
+  },
+  {
+    "topic": "veri-sizintisi",
+    "değiştir": "veri-sızıntısı"
+  },
+  {
+    "topic": "k-means-calisma-mantigi",
+    "değiştir": "k-means-çalışma-mantığı"
+  },
+  {
+    "topic": "karar-agaci-durma-kriteri",
+    "değiştir": "karar-ağacı-durma-kriteri"
+  },
+  {
+    "topic": "gurultu-temizleme",
+    "değiştir": "gürültü-temizleme"
+  },
+  {
+    "topic": "veri-tipi-donusumu",
+    "değiştir": "veri-tipi-dönüşümü"
+  },
+  {
+    "topic": "varlik-tanima-ve-cikarim",
+    "değiştir": "varlık-tanıma-ve-çıkarım"
+  },
+  {
+    "topic": "veri-boyutlandirma",
+    "değiştir": "veri-boyutlandırma"
+  },
+  {
+    "topic": "veri-olcekleme",
+    "değiştir": "veri-ölçekleme"
+  },
+  {
+    "topic": "veri-on-isleme",
+    "değiştir": "veri-ön-işleme"
+  },
+  {
+    "topic": "veri-tasima-ve-entegrasyon",
+    "değiştir": "veri-taşıma-ve-entegrasyon"
+  },
+  {
+    "topic": "karar-agaci",
+    "değiştir": "karar-ağacı"
+  },
+  {
+    "topic": "spark-hata-ayiklama",
+    "değiştir": "spark-hata-ayıklama"
+  },
+  {
+    "topic": "birliktelik-kurallari-temelleri",
+    "değiştir": "birliktelik-kuralları-temelleri"
+  },
+  {
+    "topic": "veri-gorsellestirme",
+    "değiştir": "veri-görselleştirme"
+  },
+  {
+    "topic": "veri-formatlari",
+    "değiştir": "veri-formatları"
+  },
+  {
+    "topic": "logaritmik-donusum",
+    "değiştir": "logaritmik-dönüşüm"
+  },
+  {
+    "topic": "veri-sikistirma-farki",
+    "değiştir": "veri-sıkıştırma-farkı"
+  },
+  {
+    "topic": "modelleme-karsilastirmasi",
+    "değiştir": "modelleme-karşılaştırması"
+  },
+  {
+    "topic": "is-mantigi-donusumu",
+    "değiştir": "iş-mantığı-dönüşümü"
+  },
+  {
+    "topic": "random-forest-agac-sayisi",
+    "değiştir": "random-forest-ağaç-sayısı"
+  },
+  {
+    "topic": "eda-turleri",
+    "değiştir": "eda-türleri"
+  },
+  {
+    "topic": "entropy-kavrami",
+    "değiştir": "entropy-kavramı"
+  },
+  {
+    "topic": "eksik-veri-ve-on-isleme",
+    "değiştir": "eksik-veri-ve-ön-işleme"
+  },
+  {
+    "topic": "veri-sizintisi-ve-olcekleme",
+    "değiştir": "veri-sızıntısı-ve-ölçekleme"
+  },
+  {
+    "topic": "verinin-yasam-dongusu",
+    "değiştir": "verinin-yaşam-döngüsü"
+  },
+  {
+    "topic": "etiketleme-mantigi",
+    "değiştir": "etiketleme-mantığı"
+  },
+  {
+    "topic": "tahmin-vs-kumeleme",
+    "değiştir": "tahmin-vs-kümeleme"
+  },
+  {
+    "topic": "x-ve-y-ayrimi",
+    "değiştir": "x-ve-y-ayrımı"
+  },
+  {
+    "topic": "veri-donusumu",
+    "değiştir": "veri-dönüşümü"
+  },
+  {
+    "topic": "veri-madenciligi-tarihcesi",
+    "değiştir": "veri-madenciliği-tarihçesi"
+  },
+  {
+    "topic": "hata-ayiklama",
+    "değiştir": "hata-ayıklama"
+  },
+  {
+    "topic": "veri-toplama-ve-isleme",
+    "değiştir": "veri-toplama-ve-işleme"
+  },
+  {
+    "topic": "majority-voting-kavrami",
+    "değiştir": "majority-voting-kavramı"
+  },
+  {
+    "topic": "random-forest-ve-bankacilik",
+    "değiştir": "random-forest-ve-bankacılık"
+  },
+  {
+    "topic": "veri-uretme-sintaks",
+    "değiştir": "veri-üretme-sintaks"
+  },
+  {
+    "topic": "veri-madenciligi-temel-kavramlar",
+    "değiştir": "veri-madenciliği-temel-kavramlar"
+  },
+  {
+    "topic": "algoritma-secimi",
+    "değiştir": "algoritma-seçimi"
+  },
+  {
+    "topic": "algoritma-secimi-senaryo",
+    "değiştir": "algoritma-seçimi-senaryo"
+  },
+  {
+    "topic": "veri-madenciligi-algoritmalari",
+    "değiştir": "veri-madenciliği-algoritmaları"
+  },
+  {
+    "topic": "k-means-algoritma-ozellikleri",
+    "değiştir": "k-means-algoritma-özellikleri"
+  },
+  {
+    "topic": "kumeleme-uygulama-alanlari",
+    "değiştir": "kümeleme-uygulama-alanları"
+  },
+  {
+    "topic": "kumeleme-temel-kavramlar",
+    "değiştir": "kümeleme-temel-kavramlar"
+  },
+  {
+    "topic": "denetimsiz-ogrenme",
+    "değiştir": "denetimsiz-öğrenme"
+  },
+  {
+    "topic": "overfitting-cozumu",
+    "değiştir": "overfitting-çözümü"
+  },
+  {
+    "topic": "gorsellestirme",
+    "değiştir": "görselleştirme"
+  },
+  {
+    "topic": "ozellik-muhendisligi",
+    "değiştir": "özellik-mühendisliği"
+  },
+  {
+    "topic": "veri-ambari",
+    "değiştir": "veri-ambarı"
+  },
+  {
+    "topic": "veri-olceklendirme",
+    "değiştir": "veri-ölçeklendirme"
+  },
+  {
+    "topic": "metin-on-isleme",
+    "değiştir": "metin-ön-işleme"
+  },
+  {
+    "topic": "dogrusal-polinomal-iliski",
+    "değiştir": "doğrusal-polinomal-ilişki"
+  },
+  {
+    "topic": "karsilastirma",
+    "değiştir": "karşılaştırma"
+  },
+  {
+    "topic": "veri-boyutlari",
+    "değiştir": "veri-boyutları"
+  },
+  {
+    "topic": "veri-on-isleme-eda",
+    "değiştir": "veri-ön-işleme-eda"
+  },
+  {
+    "topic": "algoritma-kod-baglami",
+    "değiştir": "algoritma-kod-bağlamı"
+  },
+  {
+    "topic": "siniflandirma-eda-adult",
+    "değiştir": "sınıflandırma-eda-adult"
+  },
+  {
+    "topic": "veri-yukleme",
+    "değiştir": "veri-yükleme"
+  },
+  {
+    "topic": "makine-ogrenmesi-ayrimi",
+    "değiştir": "makine-öğrenmesi-ayrımı"
+  },
+  {
+    "topic": "kavram-algoritma-eslestirmesi",
+    "değiştir": "kavram-algoritma-eşleştirmesi"
+  },
+  {
+    "topic": "random-forest-ve-dt-farki",
+    "değiştir": "random-forest-ve-dt-farkı"
+  },
+  {
+    "topic": "veri-birlestirme",
+    "değiştir": "veri-birleştirme"
+  },
+  {
+    "topic": "model-oznitelikleri",
+    "değiştir": "model-öznitelikleri"
+  },
+  {
+    "topic": "gorsellestirme-ve-yorumlama",
+    "değiştir": "görselleştirme-ve-yorumlama"
+  },
+  {
+    "topic": "cocuk-soba-analojisi",
+    "değiştir": "çocuk-soba-analojisi"
+  },
+  {
+    "topic": "random-forest-veri-cesitliligi",
+    "değiştir": "random-forest-veri-çeşitliliği"
+  },
+  {
+    "topic": "wordcloud-gorsellestirme",
+    "değiştir": "wordcloud-görselleştirme"
+  },
+  {
+    "topic": "karar-agaci-adult",
+    "değiştir": "karar-ağacı-adult"
+  },
+  {
+    "topic": "overfitting-sinirda",
+    "değiştir": "overfitting-sınırda"
+  },
+  {
+    "topic": "train-test-ayrimi",
+    "değiştir": "train-test-ayrımı"
+  },
+  {
+    "topic": "gorsellestirme-scatter",
+    "değiştir": "görselleştirme-scatter"
+  },
+  {
+    "topic": "veri-tipleri-ve-yapi",
+    "değiştir": "veri-tipleri-ve-yapı"
+  },
+  {
+    "topic": "degerlendirme-metrikleri",
+    "değiştir": "değerlendirme-metrikleri"
+  },
+  {
+    "topic": "hiyerarsik-kumeleme-ornegi",
+    "değiştir": "hiyerarşik-kümeleme-örneği"
+  },
+  {
+    "topic": "bool-donusumu",
+    "değiştir": "bool-dönüşümü"
+  },
+  {
+    "topic": "model-basarisi-yorumlama",
+    "değiştir": "model-başarısı-yorumlama"
+  },
+  {
+    "topic": "arka-plan-matematigi",
+    "değiştir": "arka-plan-matematiği"
+  },
+  {
+    "topic": "arac-secimi-senaryosu",
+    "değiştir": "araç-seçimi-senaryosu"
+  },
+  {
+    "topic": "kod-mantigi-fit",
+    "değiştir": "kod-mantığı-fit"
+  },
+  {
+    "topic": "random-forest-ve-paralel-islem",
+    "değiştir": "random-forest-ve-paralel-işlem"
+  },
+  {
+    "topic": "tahmin-degerlendirme",
+    "değiştir": "tahmin-değerlendirme"
+  },
+  {
+    "topic": "siniflandirma-algoritmalari",
+    "değiştir": "sınıflandırma-algoritmaları"
+  },
+  {
+    "topic": "eda-oncesi",
+    "değiştir": "eda-öncesi"
+  },
+  {
+    "topic": "pca-k-means-siralama",
+    "değiştir": "pca-k-means-sıralama"
+  },
+  {
+    "topic": "diger-büyük-veri-teknolojileri",
+    "değiştir": "diğer-büyük-veri-teknolojileri"
+  },
+  {
+    "topic": "overfitting-kavrami",
+    "değiştir": "overfitting-kavramı"
+  },
+  {
+    "topic": "knn-k-degeri-secimi",
+    "değiştir": "knn-k-değeri-seçimi"
+  },
+  {
+    "topic": "random-forest-avantajlari",
+    "değiştir": "random-forest-avantajları"
+  },
+  {
+    "topic": "pca-amaci",
+    "değiştir": "pca-amacı"
+  },
+  {
+    "topic": "algoritma-siniflandirmasi",
+    "değiştir": "algoritma-sınıflandırması"
+  },
+  {
+    "topic": "metin-madenciligi-hedefleri",
+    "değiştir": "metin-madenciliği-hedefleri"
+  },
+  {
+    "topic": "veri-bolme",
+    "değiştir": "veri-bölme"
+  },
+  {
+    "topic": "knn-ve-karar-agaci-yorumlama",
+    "değiştir": "knn-ve-karar-ağacı-yorumlama"
+  },
+  {
+    "topic": "kavram-eslestirmeleri",
+    "değiştir": "kavram-eşleştirmeleri"
+  },
+  {
+    "topic": "dt-vs-rf-yapi",
+    "değiştir": "dt-vs-rf-yapı"
+  },
+  {
+    "topic": "knn-temel-mantik",
+    "değiştir": "knn-temel-mantık"
+  },
+  {
+    "topic": "kumeleme-akis",
+    "değiştir": "kümeleme-akış"
+  },
+  {
+    "topic": "sinir-aglari-katmanlari",
+    "değiştir": "sinir-ağları-katmanları"
+  },
+  {
+    "topic": "pipeline-siralamasi",
+    "değiştir": "pipeline-sıralaması"
+  },
+  {
+    "topic": "makine-ogrenmesi-kurali",
+    "değiştir": "makine-öğrenmesi-kuralı"
+  },
+  {
+    "topic": "gorsel-sikistirma-k-means",
+    "değiştir": "görsel-sıkıştırma-k-means"
+  },
+  {
+    "topic": "siniflandirma-algoritmalari-listesi",
+    "değiştir": "sınıflandırma-algoritmaları-listesi"
+  },
+  {
+    "topic": "pca-varyans-karari",
+    "değiştir": "pca-varyans-kararı"
+  },
+  {
+    "topic": "model-secimi",
+    "değiştir": "model-seçimi"
+  },
+  {
+    "topic": "veri-donusumu-ve-encoding",
+    "değiştir": "veri-dönüşümü-ve-encoding"
+  },
+  {
+    "topic": "algoritma-secimi-knn-dezavantaj",
+    "değiştir": "algoritma-seçimi-knn-dezavantaj"
+  },
+  {
+    "topic": "gercek-hayat-uygulamalari",
+    "değiştir": "gerçek-hayat-uygulamaları"
+  },
+  {
+    "topic": "model-karsilastirma",
+    "değiştir": "model-karşılaştırma"
+  },
+  {
+    "topic": "karar-agaci-olcutleri",
+    "değiştir": "karar-ağacı-ölçütleri"
+  }
+]

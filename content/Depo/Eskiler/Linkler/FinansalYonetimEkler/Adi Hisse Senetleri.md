@@ -1,0 +1,6 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
+- Şirketin mülkiyetini temsil eden temel birimdir; yatırımcıya **temettü hakkı** ve **genel kurulda oy kullanma** yetkisi verir.
+- Şirketin tasfiyesi durumunda, **alacaklılar ve imtiyazlı pay sahiplerinden sonra – tabiri caizse artakalanla – yetinmek zorundadır**. 

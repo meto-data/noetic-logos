@@ -1,0 +1,31 @@
+import { pathToRoot } from "../util/path"
+import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
+import { classNames } from "../util/lang"
+import { i18n } from "../i18n"
+
+const PageTitle: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzComponentProps) => {
+  const title = cfg?.pageTitle ?? i18n(cfg.locale).propertyDefaults.title
+  const baseDir = pathToRoot(fileData.slug!)
+  const homeUrl = cfg?.baseUrl
+    ? (() => {
+        const { pathname } = new URL(`https://${cfg.baseUrl}`)
+        return pathname.endsWith("/") ? pathname : `${pathname}/`
+      })()
+    : baseDir
+  return (
+    <h2 class={classNames(displayClass, "page-title")}>
+      <a href={homeUrl}>{title}</a>
+    </h2>
+  )
+}
+
+PageTitle.css = `
+.page-title {
+  font-size: calc(var(--baseFontSize, 1.1rem) + 0.8rem);
+  margin: 0;
+  font-family: var(--titleFont);
+  white-space: nowrap;
+}
+`
+
+export default (() => PageTitle) satisfies QuartzComponentConstructor

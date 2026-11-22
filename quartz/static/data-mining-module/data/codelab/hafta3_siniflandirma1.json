@@ -1,0 +1,1366 @@
+{
+  "id": "hafta3_siniflandirma1",
+  "title": "Sınıflandırma 1: Bank Veri Seti EDA",
+  "week": 3,
+  "csvFiles": [
+    "bank-full.csv"
+  ],
+  "blocks": [
+    {
+      "id": "hafta3_siniflandirma1-b001",
+      "title": "Kütüphaneler ve Bank verisini yükleme",
+      "blockExplanation": "Bu hücre, bank-full.csv veri setini pandas ile okur; tema ayarını yapar ve ilk satırları göstererek EDA akışını başlatır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Gerekli kütüphaneleri içe aktarıyoruz",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Gerekli kütüphaneleri içe aktarıyoruz' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Gerekli kütüphaneleri içe aktarıyoruz",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Bank verisini yükleme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import pandas as pd",
+          "lineExplanation": "pandas modülünü pd takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "pandas modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "pd",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Bank verisini yükleme' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "import numpy as np",
+          "lineExplanation": "numpy modülünü np takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "numpy modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "np",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Bank verisini yükleme' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "import seaborn as sns",
+          "lineExplanation": "seaborn modülünü sns takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "seaborn",
+              "explanation": "seaborn modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "sns",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Bank verisini yükleme' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "matplotlib.pyplot modülünü plt takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "matplotlib.pyplot modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "plt",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Bank verisini yükleme' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 6,
+          "code": "# Görselleştirme stilini ayarlıyoruz",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Görselleştirme stilini ayarlıyoruz' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Görselleştirme stilini ayarlıyoruz",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Bank verisini yükleme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "sns.set_theme(style=\"whitegrid\")",
+          "lineExplanation": "Seaborn için genel tema ayarını whitegrid stiline çevirir.",
+          "tokens": [
+            {
+              "token": "style=\"whitegrid\"",
+              "explanation": "Seaborn temasının parametrelerini belirler.",
+              "turkce": "Tema",
+              "amac": "Grafiklerin daha okunabilir görünmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Bank verisini yükleme' bloğunda görsel temayı beyaz ızgara düzenine geçirir."
+        },
+        {
+          "lineNumber": 8,
+          "code": "# Bank veri setini yüklüyoruz",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Bank veri setini yüklüyoruz' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Bank veri setini yüklüyoruz",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Bank verisini yükleme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "# Not: Bu veri seti genellikle \";\" ile ayrılmıştır.",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Not: Bu veri seti genellikle \";\" ile ayrılmıştır.' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Not: Bu veri seti genellikle \";\" ile ayrılmıştır.",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Bank verisini yükleme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "df = pd.read_csv(\"../Datas/bank-full.csv\", sep=\";\") # Seperator",
+          "lineExplanation": "bank-full.csv dosyasını noktalı virgül ayırıcıyla okuyup df adlı DataFrame'e yükler.",
+          "tokens": [
+            {
+              "token": "pd.read_csv",
+              "explanation": "CSV benzeri dosyayı pandas DataFrame olarak okur.",
+              "turkce": "Dosya Okuma",
+              "amac": "Ham veriyi tablo biçimine çevirmek."
+            },
+            {
+              "token": "\"../Datas/bank-full.csv\"",
+              "explanation": "Bank Marketing veri setinin göreli dosya yoludur.",
+              "turkce": "Veri Dosyası",
+              "amac": "Doğru bank veri setini hedeflemek."
+            },
+            {
+              "token": "sep=\";\"",
+              "explanation": "Dosyadaki sütunların noktalı virgülle ayrıldığını belirtir.",
+              "turkce": "Ayraç",
+              "amac": "Bank veri setini doğru sütunlara bölmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Bank verisini yükleme' bloğunda bank veri setini doğru ayraçla belleğe alır."
+        },
+        {
+          "lineNumber": 11,
+          "code": "# İlk 5 satırı görüntüleyelim",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'İlk 5 satırı görüntüleyelim' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# İlk 5 satırı görüntüleyelim",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Bank verisini yükleme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 12,
+          "code": "df.head()",
+          "lineExplanation": "DataFrame'in ilk 5 satırını göstererek verinin görünümünü hızlıca kontrol ettirir.",
+          "tokens": [
+            {
+              "token": ".head()",
+              "explanation": "Varsayılan olarak ilk 5 satırı getirir.",
+              "turkce": "Önizleme",
+              "amac": "Dosyanın doğru okunup okunmadığını hızlıca görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Bank verisini yükleme' bloğunda tablonun ilk satırlarını önizleme amaçlı ekrana getirir."
+        }
+      ],
+      "expectedOutput": "   age           job  marital  education  ... pdays  previous poutcome   y\n0   58    management  married   tertiary  ...    -1         0  unknown  no\n1   44    technician   single  secondary  ...    -1         0  unknown  no\n2   33  entrepreneur  married  secondary  ...    -1         0  unknown  no\n3   47   blue-collar  married    unknown  ...    -1         0  unknown  no\n4   33       unknown   single    unknown  ...    -1         0  unknown  no\n\n[5 rows x 17 columns]"
+    },
+    {
+      "id": "hafta3_siniflandirma1-b002",
+      "title": "Veri boyutunu kontrol etme",
+      "blockExplanation": "Bu hücre, bank veri setinin kaç satır ve kaç sütundan oluştuğunu tek adımda verir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Veri setinin boyutunu kontrol ediyoruz",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Veri setinin boyutunu kontrol ediyoruz' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Veri setinin boyutunu kontrol ediyoruz",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veri boyutunu kontrol etme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df.shape",
+          "lineExplanation": "DataFrame'in satır ve sütun sayısını tuple olarak döndürür.",
+          "tokens": [
+            {
+              "token": ".shape",
+              "explanation": "Satır ve sütun sayısını verir.",
+              "turkce": "Boyut",
+              "amac": "Verinin büyüklüğünü anında kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veri boyutunu kontrol etme' bloğunda veri setinin boyut bilgisini verir."
+        }
+      ],
+      "expectedOutput": "(45211, 17)"
+    },
+    {
+      "id": "hafta3_siniflandirma1-b003",
+      "title": "info() ile veri yapısını anlama",
+      "blockExplanation": "Bu hücre, sütun tiplerini, doluluk durumunu ve bellek kullanımını göstererek veri şemasını görünür kılar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Sütun türlerini ve eksik veri durumunu kontrol ediyoruz",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Sütun türlerini ve eksik veri durumunu kontrol ediyoruz' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Sütun türlerini ve eksik veri durumunu kontrol ediyoruz",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'info() ile veri yapısını anlama' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df.info()",
+          "lineExplanation": "Sütunların doluluk sayısını, veri tiplerini ve bellek kullanımını ekrana yazar.",
+          "tokens": [
+            {
+              "token": ".info()",
+              "explanation": "DataFrame'in yapısal özetini üretir.",
+              "turkce": "Yapı Özeti",
+              "amac": "Eksik veri ve tip bilgisini tek çıktıda görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'info() ile veri yapısını anlama' bloğunda veri setinin genel yapısını özetler."
+        }
+      ],
+      "expectedOutput": "<class 'pandas.core.frame.DataFrame'>\nRangeIndex: 45211 entries, 0 to 45210\nData columns (total 17 columns):\n #   Column     Non-Null Count  Dtype\n---  ------     --------------  -----\n 0   age        45211 non-null  int64\n 1   job        45211 non-null  object\n 2   marital    45211 non-null  object\n 3   education  45211 non-null  object\n 4   default    45211 non-null  object\n 5   balance    45211 non-null  int64\n 6   housing    45211 non-null  object\n 7   loan       45211 non-null  object\n 8   contact    45211 non-null  object\n 9   day        45211 non-null  int64\n 10  month      45211 non-null  object\n 11  duration   45211 non-null  int64\n 12  campaign   45211 non-null  int64\n 13  pdays      45211 non-null  int64\n 14  previous   45211 non-null  int64\n 15  poutcome   45211 non-null  object\n 16  y          45211 non-null  object\ndtypes: int64(7), object(10)\nmemory usage: 5.9+ MB"
+    },
+    {
+      "id": "hafta3_siniflandirma1-b004",
+      "title": "describe().T ile sayısal özet",
+      "blockExplanation": "Bu hücre, sayısal sütunların temel istatistiklerini sütun bazında okunabilir bir tablo halinde sunar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Sayısal değişkenlerin istatistiksel özetini alıyoruz",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Sayısal değişkenlerin istatistiksel özetini alıyoruz' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Sayısal değişkenlerin istatistiksel özetini alıyoruz",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'describe().T ile sayısal özet' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "# Describe'den nelerin alınabileceğine de bak.",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Describe'den nelerin alınabileceğine de bak.' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Describe'den nelerin alınabileceğine de bak.",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'describe().T ile sayısal özet' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df.describe().T",
+          "lineExplanation": "Sayısal sütunların istatistiksel özetini alır ve transpozunu göstererek her değişkeni satır halinde okunur kılar.",
+          "tokens": [
+            {
+              "token": ".describe()",
+              "explanation": "Sayısal sütunlar için count, mean, std, min, max gibi özetler üretir.",
+              "turkce": "İstatistik Özeti",
+              "amac": "Sayısal dağılımları özetlemek."
+            },
+            {
+              "token": ".T",
+              "explanation": "Tabloyu transpoze ederek satır-sütun düzenini çevirir.",
+              "turkce": "Transpoz",
+              "amac": "Değişken bazlı okumayı kolaylaştırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'describe().T ile sayısal özet' bloğunda sayısal özet tablosunu daha okunabilir forma çevirir."
+        }
+      ],
+      "expectedOutput": "            count         mean          std  ...    50%     75%       max\nage       45211.0    40.936210    10.618762  ...   39.0    48.0      95.0\nbalance   45211.0  1362.272058  3044.765829  ...  448.0  1428.0  102127.0\nday       45211.0    15.806419     8.322476  ...   16.0    21.0      31.0\nduration  45211.0   258.163080   257.527812  ...  180.0   319.0    4918.0\ncampaign  45211.0     2.763841     3.098021  ...    2.0     3.0      63.0\npdays     45211.0    40.197828   100.128746  ...   -1.0    -1.0     871.0\nprevious  45211.0     0.580323     2.303441  ...    0.0     0.0     275.0\n\n[7 rows x 8 columns]"
+    },
+    {
+      "id": "hafta3_siniflandirma1-b005",
+      "title": "Eksik değer kontrolü",
+      "blockExplanation": "Bu hücre, her sütunda kaç eksik değer olduğunu sayar ve veri kalitesini test eder.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.isnull().sum()",
+          "lineExplanation": "Her sütundaki eksik değer sayısını hesaplar.",
+          "tokens": [
+            {
+              "token": "isnull().sum()",
+              "explanation": "Sütun bazında NaN sayısını verir.",
+              "turkce": "Eksik Değer Sayımı",
+              "amac": "Boş veri olup olmadığını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eksik değer kontrolü' bloğunda eksik veri durumunu ölçer."
+        }
+      ],
+      "expectedOutput": "age          0\njob          0\nmarital      0\neducation    0\ndefault      0\nbalance      0\nhousing      0\nloan         0\ncontact      0\nday          0\nmonth        0\nduration     0\ncampaign     0\npdays        0\nprevious     0\npoutcome     0\ny            0\ndtype: int64"
+    },
+    {
+      "id": "hafta3_siniflandirma1-b006",
+      "title": "Duplicate kontrolü",
+      "blockExplanation": "Bu hücre, veri setinde tekrar eden satır sayısını ölçer.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.duplicated().sum()",
+          "lineExplanation": "Aynı satırın veri setinde kaç kez tekrarlandığını sayar.",
+          "tokens": [
+            {
+              "token": ".duplicated().sum()",
+              "explanation": "Önce duplicate satırları işaretler, sonra toplamlarını verir.",
+              "turkce": "Duplicate Sayımı",
+              "amac": "Tekrarlayan kayıt miktarını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Duplicate kontrolü' bloğunda tekrar eden kayıt sayısını ölçer."
+        }
+      ],
+      "expectedOutput": "np.int64(0)"
+    },
+    {
+      "id": "hafta3_siniflandirma1-b007",
+      "title": "Hedef sınıf frekansları",
+      "blockExplanation": "Bu hücre, hedef değişken y içindeki yes/no sınıf sayımlarını çıkarır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df[\"y\"].value_counts()",
+          "lineExplanation": "df[\"y\"] içindeki benzersiz değerlerin frekansını hesaplar.",
+          "tokens": [
+            {
+              "token": "value_counts()",
+              "explanation": "Her benzersiz değerin kaç kez geçtiğini sayar.",
+              "turkce": "Frekans",
+              "amac": "Sınıf veya küme dağılımını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef sınıf frekansları' bloğunda dağılım bilgisini sayım olarak üretir."
+        }
+      ],
+      "expectedOutput": "y\nno     39922\nyes     5289\nName: count, dtype: int64"
+    },
+    {
+      "id": "hafta3_siniflandirma1-b008",
+      "title": "Hedef sınıf oranları",
+      "blockExplanation": "Bu hücre, hedef değişkenin normalize edilmiş sınıf oranlarını vererek sınıf dengesizliğini görünür kılar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df[\"y\"].value_counts(normalize=True)",
+          "lineExplanation": "y hedef değişkenindeki sınıf oranlarını normalize edilmiş frekans olarak hesaplar.",
+          "tokens": [
+            {
+              "token": "df[\"y\"]",
+              "explanation": "Bank veri setindeki hedef değişkeni seçer.",
+              "turkce": "Hedef Sütun",
+              "amac": "Sınıf dağılımını hedef değişken üstünde ölçmek."
+            },
+            {
+              "token": "value_counts(normalize=True)",
+              "explanation": "Ham sayım yerine oran döndürür.",
+              "turkce": "Oran Hesabı",
+              "amac": "Sınıf dengesizliğini yüzde/oran olarak görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef sınıf oranları' bloğunda hedef sınıf oranlarını doğrudan hesaplar."
+        }
+      ],
+      "expectedOutput": "y\nno     0.883015\nyes    0.116985\nName: proportion, dtype: float64"
+    },
+    {
+      "id": "hafta3_siniflandirma1-b009",
+      "title": "Hedef değişkeni countplot ile çizme",
+      "blockExplanation": "Bu hücre, y sınıflarının frekansını countplot ile görselleştirir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Hedef değişken için görselleştirme",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Hedef değişken için görselleştirme' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Hedef değişken için görselleştirme",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef değişkeni countplot ile çizme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.figure(figsize=(6,4))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 6,4 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef değişkeni countplot ile çizme' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "sns.countplot(data=df, x=\"y\")",
+          "lineExplanation": "y sınıflarının frekansını sayıp countplot olarak çizer.",
+          "tokens": [
+            {
+              "token": "sns.countplot",
+              "explanation": "Kategorik frekansları çubuk grafiği şeklinde üretir.",
+              "turkce": "Countplot",
+              "amac": "Sınıf dağılımını görsel olarak göstermek."
+            },
+            {
+              "token": "x=\"y\"",
+              "explanation": "X ekseninde hedef sınıf sütununu kullanır.",
+              "turkce": "Hedef Ekseni",
+              "amac": "yes/no sınıflarını çubuk olarak ayırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef değişkeni countplot ile çizme' bloğunda hedef değişkenin frekans grafiğini üretir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.title(\"Hedef Değişken Dağılımı (y)\")",
+          "lineExplanation": "Grafiğin başlığını \"Hedef Değişken Dağılımı (y)\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef değişkeni countplot ile çizme' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef değişkeni countplot ile çizme' bloğunda görsel üretimini tamamlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.close()",
+          "lineExplanation": "Açık matplotlib figürünü kapatıp belleği temizler.",
+          "tokens": [
+            {
+              "token": "plt.close()",
+              "explanation": "Mevcut figürü kapatır.",
+              "turkce": "Figür Kapatma",
+              "amac": "Art arda çok sayıda grafik üretirken bellek ve karışıklığı azaltmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef değişkeni countplot ile çizme' bloğunda aktif figürü kapatır."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h3-cls1-b009.png"
+    },
+    {
+      "id": "hafta3_siniflandirma1-b010",
+      "title": "Balance histogramı",
+      "blockExplanation": "Bu hücre, balance değişkeninin dağılımını histogram ve KDE ile inceleyerek çarpıklığı görünür kılar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Balance histogramı",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Balance histogramı' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Balance histogramı",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Balance histogramı' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.figure(figsize=(6,4))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 6,4 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Balance histogramı' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "sns.histplot(df[\"balance\"], kde=True)",
+          "lineExplanation": "balance sütununun histogramını çizer ve KDE eğrisini aynı grafiğe ekler.",
+          "tokens": [
+            {
+              "token": "sns.histplot",
+              "explanation": "Histogram ve isteğe bağlı KDE eğrisi üretir.",
+              "turkce": "Histogram",
+              "amac": "Dağılımın şeklini görmek."
+            },
+            {
+              "token": "df[\"balance\"]",
+              "explanation": "Balance değişkenini çizim girdisi yapar.",
+              "turkce": "Sütun Seçimi",
+              "amac": "Banka bakiyesinin dağılımını incelemek."
+            },
+            {
+              "token": "kde=True",
+              "explanation": "Yoğunluk eğrisini histogramın üstüne ekler.",
+              "turkce": "KDE",
+              "amac": "Dağılımın pürüzsüz şeklini görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Balance histogramı' bloğunda balance dağılımını histogram ve KDE ile birlikte çizer."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.title(\"Balance Histogram\")",
+          "lineExplanation": "Grafiğin başlığını \"Balance Histogram\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Balance histogramı' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Balance histogramı' bloğunda görsel üretimini tamamlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.close()",
+          "lineExplanation": "Açık matplotlib figürünü kapatıp belleği temizler.",
+          "tokens": [
+            {
+              "token": "plt.close()",
+              "explanation": "Mevcut figürü kapatır.",
+              "turkce": "Figür Kapatma",
+              "amac": "Art arda çok sayıda grafik üretirken bellek ve karışıklığı azaltmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Balance histogramı' bloğunda aktif figürü kapatır."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h3-cls1-b010.png"
+    },
+    {
+      "id": "hafta3_siniflandirma1-b011",
+      "title": "Duration histogramı",
+      "blockExplanation": "Bu hücre, duration değişkeninin dağılımını histogram ve KDE ile inceler.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Duration değişkeninin histogramını çiziyoruz",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Duration değişkeninin histogramını çiziyoruz' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Duration değişkeninin histogramını çiziyoruz",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Duration histogramı' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.figure(figsize=(6,4))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 6,4 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Duration histogramı' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "sns.histplot(df[\"duration\"], kde=True)",
+          "lineExplanation": "duration sütununun histogramını çizer ve KDE eğrisini ekler.",
+          "tokens": [
+            {
+              "token": "sns.histplot",
+              "explanation": "Histogram ve isteğe bağlı KDE eğrisi üretir.",
+              "turkce": "Histogram",
+              "amac": "Dağılımın şeklini görmek."
+            },
+            {
+              "token": "df[\"duration\"]",
+              "explanation": "Duration değişkenini çizim girdisi yapar.",
+              "turkce": "Sütun Seçimi",
+              "amac": "Görüşme süresi dağılımını incelemek."
+            },
+            {
+              "token": "kde=True",
+              "explanation": "Yoğunluk eğrisini histogramın üstüne ekler.",
+              "turkce": "KDE",
+              "amac": "Sağa çarpıklığı daha net görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Duration histogramı' bloğunda duration dağılımını histogram ve KDE ile gösterir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.title(\"Duration Histogram\")",
+          "lineExplanation": "Grafiğin başlığını \"Duration Histogram\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Duration histogramı' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Duration histogramı' bloğunda görsel üretimini tamamlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.close()",
+          "lineExplanation": "Açık matplotlib figürünü kapatıp belleği temizler.",
+          "tokens": [
+            {
+              "token": "plt.close()",
+              "explanation": "Mevcut figürü kapatır.",
+              "turkce": "Figür Kapatma",
+              "amac": "Art arda çok sayıda grafik üretirken bellek ve karışıklığı azaltmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Duration histogramı' bloğunda aktif figürü kapatır."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h3-cls1-b011.png"
+    },
+    {
+      "id": "hafta3_siniflandirma1-b012",
+      "title": "Duration ve target ilişkisi",
+      "blockExplanation": "Bu hücre, duration değişkeninin y sınıflarına göre nasıl değiştiğini boxplot ile gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "sns.boxplot(x=\"y\", y=\"duration\", data=df)",
+          "lineExplanation": "y sınıflarına göre duration dağılımını boxplot ile karşılaştırır.",
+          "tokens": [
+            {
+              "token": "sns.boxplot",
+              "explanation": "Dağılımı medyan, çeyrekler ve aykırı değerlerle gösterir.",
+              "turkce": "Boxplot",
+              "amac": "Sınıflar arası farkı özetlemek."
+            },
+            {
+              "token": "x=\"y\"",
+              "explanation": "Kutuları hedef sınıfa göre böler.",
+              "turkce": "Sınıf Ayrımı",
+              "amac": "yes/no gruplarını ayrı görmek."
+            },
+            {
+              "token": "y=\"duration\"",
+              "explanation": "Dikey eksende duration değişkenini kullanır.",
+              "turkce": "Ölçüm Ekseni",
+              "amac": "Sınıfa göre duration farkını incelemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Duration ve target ilişkisi' bloğunda duration değişkenini hedef sınıfa göre karşılaştırır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Duration ve target ilişkisi' bloğunda görsel üretimini tamamlar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h3-cls1-b012.png"
+    },
+    {
+      "id": "hafta3_siniflandirma1-b013",
+      "title": "İlk korelasyon ısı haritası",
+      "blockExplanation": "Bu hücre, sayısal sütunları seçer ve aralarındaki korelasyon matrisini heatmap ile çizer.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import numpy as np",
+          "lineExplanation": "numpy modülünü np takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "numpy modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "np",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk korelasyon ısı haritası' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "num_df = df.select_dtypes(include=np.number)",
+          "lineExplanation": "Sadece sayısal sütunları seçerek num_df adlı alt tabloyu oluşturur.",
+          "tokens": [
+            {
+              "token": "select_dtypes(include=np.number)",
+              "explanation": "Sayısal veri tiplerini filtreler.",
+              "turkce": "Sayısal Sütun Seçimi",
+              "amac": "Korelasyon hesabını yalnızca sayısal alanlarda yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk korelasyon ısı haritası' bloğunda korelasyon için sayısal alt tabloyu ayırır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "corr = num_df.corr()",
+          "lineExplanation": "num_df içindeki sayısal sütunların korelasyon matrisini hesaplar.",
+          "tokens": [
+            {
+              "token": ".corr()",
+              "explanation": "Sütunlar arası korelasyon katsayılarını üretir.",
+              "turkce": "Korelasyon",
+              "amac": "Değişkenler arasındaki doğrusal ilişkiyi ölçmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk korelasyon ısı haritası' bloğunda korelasyon matrisini hesaplar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "sns.heatmap(corr)",
+          "lineExplanation": "Korelasyon matrisini renk yoğunluğu ile heatmap olarak çizer.",
+          "tokens": [
+            {
+              "token": "sns.heatmap",
+              "explanation": "Matrisi renklerle görselleştirir.",
+              "turkce": "Heatmap",
+              "amac": "Korelasyonları hızlı görsel okumaya çevirmek."
+            },
+            {
+              "token": "corr",
+              "explanation": "Çizilecek korelasyon matrisidir.",
+              "turkce": "Korelasyon Matrisi",
+              "amac": "Her değişken çiftinin ilişki gücünü göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk korelasyon ısı haritası' bloğunda korelasyonları ısı haritası olarak görünür kılar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'İlk korelasyon ısı haritası' bloğunda görsel üretimini tamamlar."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h3-cls1-b013.png"
+    },
+    {
+      "id": "hafta3_siniflandirma1-b014",
+      "title": "y_binary üretme ve duration-target boxplotu",
+      "blockExplanation": "Bu hücre, hedef değişkeni 0-1 formuna çevirir ve duration-target ilişkisini tekrar vurgulayan boxplot üretir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# y değişkenini 0-1'e dönüştürelim (analiz için)",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'y değişkenini 0-1'e dönüştürelim (analiz için)' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# y değişkenini 0-1'e dönüştürelim (analiz için)",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'y_binary üretme ve duration-target boxplotu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df[\"y_binary\"] = df[\"y\"].map({\"no\":0, \"yes\":1})",
+          "lineExplanation": "y sütunundaki no/yes etiketlerini 0 ve 1 değerlerine çevirerek sayısal hedef sütunu üretir.",
+          "tokens": [
+            {
+              "token": "df[\"y\"]",
+              "explanation": "Orijinal hedef sınıf sütununu seçer.",
+              "turkce": "Kaynak Hedef",
+              "amac": "Metinsel hedefi sayısallaştırmak."
+            },
+            {
+              "token": ".map({\"no\":0, \"yes\":1})",
+              "explanation": "Sınıf etiketlerini 0-1 eşlemesine göre dönüştürür.",
+              "turkce": "Etiket Eşleme",
+              "amac": "Korelasyon gibi sayısal analizleri mümkün kılmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'y_binary üretme ve duration-target boxplotu' bloğunda hedef değişkeni sayısal biçime çevirir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "# Duration ile target ilişkisini inceleyelim",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Duration ile target ilişkisini inceleyelim' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Duration ile target ilişkisini inceleyelim",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'y_binary üretme ve duration-target boxplotu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.figure(figsize=(6,4))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 6,4 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'y_binary üretme ve duration-target boxplotu' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "sns.boxplot(x=\"y\", y=\"duration\", data=df)",
+          "lineExplanation": "y sınıflarına göre duration dağılımını boxplot ile karşılaştırır.",
+          "tokens": [
+            {
+              "token": "sns.boxplot",
+              "explanation": "Dağılımı medyan, çeyrekler ve aykırı değerlerle gösterir.",
+              "turkce": "Boxplot",
+              "amac": "Sınıflar arası farkı özetlemek."
+            },
+            {
+              "token": "x=\"y\"",
+              "explanation": "Kutuları hedef sınıfa göre böler.",
+              "turkce": "Sınıf Ayrımı",
+              "amac": "yes/no gruplarını ayrı görmek."
+            },
+            {
+              "token": "y=\"duration\"",
+              "explanation": "Dikey eksende duration değişkenini kullanır.",
+              "turkce": "Ölçüm Ekseni",
+              "amac": "Sınıfa göre duration farkını incelemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'y_binary üretme ve duration-target boxplotu' bloğunda duration değişkenini hedef sınıfa göre karşılaştırır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.title(\"Duration - Target İlişkisi\")",
+          "lineExplanation": "Grafiğin başlığını \"Duration - Target İlişkisi\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'y_binary üretme ve duration-target boxplotu' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'y_binary üretme ve duration-target boxplotu' bloğunda görsel üretimini tamamlar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.close()",
+          "lineExplanation": "Açık matplotlib figürünü kapatıp belleği temizler.",
+          "tokens": [
+            {
+              "token": "plt.close()",
+              "explanation": "Mevcut figürü kapatır.",
+              "turkce": "Figür Kapatma",
+              "amac": "Art arda çok sayıda grafik üretirken bellek ve karışıklığı azaltmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'y_binary üretme ve duration-target boxplotu' bloğunda aktif figürü kapatır."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h3-cls1-b014.png"
+    },
+    {
+      "id": "hafta3_siniflandirma1-b015",
+      "title": "Balance için log dönüşüm",
+      "blockExplanation": "Bu hücre, negatif balance değerlerini kaydırıp log dönüşüm uygular; sonra yeni dağılımı histogram ile gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Balance değişkenini pozitif aralığa kaydırıyoruz",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Balance değişkenini pozitif aralığa kaydırıyoruz' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Balance değişkenini pozitif aralığa kaydırıyoruz",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Balance için log dönüşüm' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df[\"balance_shifted\"] = df[\"balance\"] - df[\"balance\"].min() + 1",
+          "lineExplanation": "Negatif değer sorununu kaldırmak için balance sütununu minimum değeri kadar kaydırıp tüm değerleri pozitif alana taşır.",
+          "tokens": [
+            {
+              "token": "df[\"balance\"]",
+              "explanation": "Kaydırılacak orijinal bakiye sütunudur.",
+              "turkce": "Kaynak Sütun",
+              "amac": "Log dönüşüm öncesi negatif değerleri kaldırmak."
+            },
+            {
+              "token": ".min()",
+              "explanation": "Sütunun en küçük değerini bulur.",
+              "turkce": "Minimum",
+              "amac": "Tüm değerleri pozitif alana taşımak için referans almak."
+            },
+            {
+              "token": "+ 1",
+              "explanation": "Sıfır ihtimalini de engelleyerek tüm değerleri 1'in üstüne iter.",
+              "turkce": "Pozitif Kaydırma",
+              "amac": "log1p öncesi güvenli giriş üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Balance için log dönüşüm' bloğunda balance değerlerini log dönüşüme uygun pozitif aralığa kaydırır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "# Log dönüşüm uyguluyoruz",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Log dönüşüm uyguluyoruz' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Log dönüşüm uyguluyoruz",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Balance için log dönüşüm' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "df[\"balance_log\"] = np.log1p(df[\"balance_shifted\"])",
+          "lineExplanation": "Kaydırılmış balance sütununa log1p uygulayarak çarpıklığı azaltan yeni bir sütun üretir.",
+          "tokens": [
+            {
+              "token": "np.log1p",
+              "explanation": "x yerine log(1+x) hesaplar.",
+              "turkce": "Log Dönüşüm",
+              "amac": "Sıfıra yakın değerlerde daha güvenli log dönüşümü yapmak."
+            },
+            {
+              "token": "df[\"balance_shifted\"]",
+              "explanation": "Log uygulanacak pozitif bakiye sütunudur.",
+              "turkce": "Kaydırılmış Sütun",
+              "amac": "Çarpıklığı azaltmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Balance için log dönüşüm' bloğunda balance için log dönüşümlü özellik üretir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.figure(figsize=(6,4))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 6,4 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Balance için log dönüşüm' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "sns.histplot(df[\"balance_log\"], kde=True)",
+          "lineExplanation": "Log dönüşüm uygulanmış balance sütununun yeni dağılımını histogram ve KDE ile gösterir.",
+          "tokens": [
+            {
+              "token": "df[\"balance_log\"]",
+              "explanation": "Log dönüşüm sonrası oluşan yeni sütundur.",
+              "turkce": "Dönüşmüş Sütun",
+              "amac": "Dağılımın dengelenip dengelenmediğini görmek."
+            },
+            {
+              "token": "kde=True",
+              "explanation": "Yoğunluk eğrisini ekler.",
+              "turkce": "KDE",
+              "amac": "Yeni dağılımı daha rahat okumak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Balance için log dönüşüm' bloğunda log dönüşüm sonrası dağılımı görselleştirir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.title(\"Log Dönüşüm Sonrası Balance\")",
+          "lineExplanation": "Grafiğin başlığını \"Log Dönüşüm Sonrası Balance\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Balance için log dönüşüm' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Balance için log dönüşüm' bloğunda görsel üretimini tamamlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.close()",
+          "lineExplanation": "Açık matplotlib figürünü kapatıp belleği temizler.",
+          "tokens": [
+            {
+              "token": "plt.close()",
+              "explanation": "Mevcut figürü kapatır.",
+              "turkce": "Figür Kapatma",
+              "amac": "Art arda çok sayıda grafik üretirken bellek ve karışıklığı azaltmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Balance için log dönüşüm' bloğunda aktif figürü kapatır."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h3-cls1-b015.png"
+    },
+    {
+      "id": "hafta3_siniflandirma1-b016",
+      "title": "Geniş korelasyon haritası",
+      "blockExplanation": "Bu hücre, sayısal sütunların korelasyonunu daha büyük bir figür ve renk paletiyle yeniden görselleştirir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "num_df = df.select_dtypes(include=np.number)",
+          "lineExplanation": "Sadece sayısal sütunları seçerek num_df adlı alt tabloyu oluşturur.",
+          "tokens": [
+            {
+              "token": "select_dtypes(include=np.number)",
+              "explanation": "Sayısal veri tiplerini filtreler.",
+              "turkce": "Sayısal Sütun Seçimi",
+              "amac": "Korelasyon hesabını yalnızca sayısal alanlarda yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Geniş korelasyon haritası' bloğunda korelasyon için sayısal alt tabloyu ayırır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "corr = num_df.corr()",
+          "lineExplanation": "num_df içindeki sayısal sütunların korelasyon matrisini hesaplar.",
+          "tokens": [
+            {
+              "token": ".corr()",
+              "explanation": "Sütunlar arası korelasyon katsayılarını üretir.",
+              "turkce": "Korelasyon",
+              "amac": "Değişkenler arasındaki doğrusal ilişkiyi ölçmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Geniş korelasyon haritası' bloğunda korelasyon matrisini hesaplar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.figure(figsize=(8,6))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 8,6 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Geniş korelasyon haritası' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "sns.heatmap(corr, cmap=\"coolwarm\")",
+          "lineExplanation": "Korelasyon matrisini renk yoğunluğu ile heatmap olarak çizer.",
+          "tokens": [
+            {
+              "token": "sns.heatmap",
+              "explanation": "Matrisi renklerle görselleştirir.",
+              "turkce": "Heatmap",
+              "amac": "Korelasyonları hızlı görsel okumaya çevirmek."
+            },
+            {
+              "token": "corr",
+              "explanation": "Çizilecek korelasyon matrisidir.",
+              "turkce": "Korelasyon Matrisi",
+              "amac": "Her değişken çiftinin ilişki gücünü göstermek."
+            },
+            {
+              "token": "cmap=\"coolwarm\"",
+              "explanation": "Negatif ve pozitif korelasyonları ayıran renk paletini seçer.",
+              "turkce": "Renk Paleti",
+              "amac": "Korelasyon yönünü daha net ayırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Geniş korelasyon haritası' bloğunda korelasyonları ısı haritası olarak görünür kılar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.title(\"Korelasyon Haritası\")",
+          "lineExplanation": "Grafiğin başlığını \"Korelasyon Haritası\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Geniş korelasyon haritası' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Geniş korelasyon haritası' bloğunda görsel üretimini tamamlar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.close()",
+          "lineExplanation": "Açık matplotlib figürünü kapatıp belleği temizler.",
+          "tokens": [
+            {
+              "token": "plt.close()",
+              "explanation": "Mevcut figürü kapatır.",
+              "turkce": "Figür Kapatma",
+              "amac": "Art arda çok sayıda grafik üretirken bellek ve karışıklığı azaltmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Geniş korelasyon haritası' bloğunda aktif figürü kapatır."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h3-cls1-b016.png"
+    },
+    {
+      "id": "hafta3_siniflandirma1-b017",
+      "title": "Target ile korelasyon sıralaması",
+      "blockExplanation": "Bu hücre, y_binary ile en ilişkili sayısal değişkenleri korelasyon katsayısına göre sıralar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Target ile korelasyon",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Target ile korelasyon' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Target ile korelasyon",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Target ile korelasyon sıralaması' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "target_corr = num_df.corr()[\"y_binary\"].sort_values(ascending=False)",
+          "lineExplanation": "y_binary sütunuyla korelasyonları çıkarır ve en yüksekten en düşüğe sıralar.",
+          "tokens": [
+            {
+              "token": "num_df.corr()[\"y_binary\"]",
+              "explanation": "Tüm sayısal değişkenlerin y_binary ile korelasyon serisini alır.",
+              "turkce": "Hedef Korelasyonu",
+              "amac": "Hedefle en ilişkili sayısal değişkenleri bulmak."
+            },
+            {
+              "token": "sort_values(ascending=False)",
+              "explanation": "Korelasyonları büyükten küçüğe sıralar.",
+              "turkce": "Sıralama",
+              "amac": "En güçlü ilişkileri en üstte görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Target ile korelasyon sıralaması' bloğunda hedefle en ilişkili değişkenleri sıralar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "target_corr",
+          "lineExplanation": "Hedefle korelasyon sıralamasını olduğu gibi ekrana getirir.",
+          "tokens": [
+            {
+              "token": "target_corr",
+              "explanation": "Az önce hesaplanan korelasyon sıralamasını gösterir.",
+              "turkce": "Korelasyon Listesi",
+              "amac": "En etkili değişkenleri doğrudan görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Target ile korelasyon sıralaması' bloğunda sıralanmış korelasyon listesini yazdırır."
+        }
+      ],
+      "expectedOutput": "y_binary           1.000000\nduration           0.394521\npdays              0.103621\nprevious           0.093236\nbalance_log        0.070682\nbalance_shifted    0.052838\nbalance            0.052838\nage                0.025155\nday               -0.028348\ncampaign          -0.073172\nName: y_binary, dtype: float64"
+    }
+  ]
+}

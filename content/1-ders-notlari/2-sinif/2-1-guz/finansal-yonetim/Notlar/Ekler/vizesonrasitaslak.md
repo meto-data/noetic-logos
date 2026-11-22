@@ -1,0 +1,25 @@
+---
+title: vizesonrasitaslak
+type: ogrenis
+ders: "[[Ivır Zıvır/felsefe-notlari/Hapishanenin Doğuşu/Notlar]]"
+created: 2025-11-26
+tags:
+  - ders/notlar
+  - ders/notlar/vizesonrasitaslak
+HUB:
+cssclasses:
+  - ders-notu
+---
+Kaldıraç oranından ve finansman oranından sorumluyuz.
+Otofinansman, sermaye çarpanı oranı, kâr yedekleri
+
+Amortisman = nakit 
+
+net kâr marşı + brüt kâr marşından sorumluyuz. (dönem net kârı?
+	en geneli ve en darı isteniyor yani.) 
+
+
+adiye (ADG?) aş bilançosu? rasyolar bitti btw.
+
+
+

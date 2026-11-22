@@ -1,0 +1,9 @@
+---
+tags:
+  - akademi/dersler/yonetim-organizasyon
+---
+- NASIL? sorusuna cevap verir.
+	- Bu ürün/hizmet bana nasıl sunuluyor? Hangi deneyimi yaşıyorum?
+- Algılanan hizmetin kalitesidir.
+	- Müşterinin algısıyla alakalıdır.
+- Ürününün/hizmetin dışında kalan ama kaliteyi etkileyen unsurların tamamıdır.

@@ -1,0 +1,6 @@
+---
+tags:
+  - akademi/dersler/ybs
+---
+- İnternetin teknik standartları (TCP/IP, HTML vb.) tüm dünyada aynıdır. Bu, farklı bilgisayar sistemlerinin birbirleriyle konuşabilmesini sağlar.
+- Babil Kulesi sorununun çözümü...

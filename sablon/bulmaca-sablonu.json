@@ -1,0 +1,41 @@
+{
+  "title": "Computer Words Bulmacası",
+  "type": "wordsearch",
+  "dimensions": {
+    "rows": 5,
+    "cols": 5
+  },
+  "grid": [
+    ["M", "O", "U", "S", "E"],
+    ["C", "P", "U", "X", "D"],
+    ["D", "A", "T", "A", "A"],
+    ["B", "U", "G", "S", "T"],
+    ["N", "E", "T", "W", "A"]
+  ],
+  "words": [
+    {
+      "word": "MOUSE",
+      "direction": "HORIZONTAL_LTR",
+      "start": [0, 0],
+      "end": [0, 4],
+      "path": [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4]],
+      "clue": "Fare / İşaretçi Aygıtı"
+    },
+    {
+      "word": "DATA",
+      "direction": "HORIZONTAL_LTR",
+      "start": [2, 0],
+      "end": [2, 3],
+      "path": [[2, 0], [2, 1], [2, 2], [2, 3]],
+      "clue": "Ham Bilgi / Veri"
+    },
+    {
+      "word": "CPU",
+      "direction": "HORIZONTAL_LTR",
+      "start": [1, 0],
+      "end": [1, 2],
+      "path": [[1, 0], [1, 1], [1, 2]],
+      "clue": "Merkezi İşlem Birimi"
+    }
+  ]
+}

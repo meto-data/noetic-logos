@@ -1,0 +1,6 @@
+---
+tags:
+  - akademi/dersler/uhy
+created: 2026-11-22
+---
+- **Tanım:** Özellikle [[Tam Zamanında Üretim|JIT]] ve [[Çekme Sistemi|çekme]] sisteminin uygulanmasında kullanılan, bir sonraki işleme/üretime ne zaman başlanılacağını, neyin/ne kadar üretileceğini veya taşınacağını bildiren, genellikle <u>görsel bir sinyalizasyon ve iş akışı </u> yönetim yöntemidir.

@@ -1,0 +1,8 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
+- Firmalar, en çok inovasyon süreçlerinde prototip yaparken 3D Yazıcıları kullanırlar.
+	- İmplant ve protez üretimi.
+	- Bina modelleri (mimarlık)
+	- Otomotiv parçaları vb.

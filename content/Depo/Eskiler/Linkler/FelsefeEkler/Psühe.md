@@ -1,0 +1,1 @@
+İnsanın logos'u anlama potansiyelini taşıyan parçası. Ancak bu ruhun arındırılması gerekir.

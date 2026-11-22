@@ -1,0 +1,5 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
+Başka bir şirkette sahip olunan pay oranının %0 ile %10 arasında olmasıdır. Yönetimde fazla söz hakkı yoktur, amaç genellikle gelir elde etmektir.

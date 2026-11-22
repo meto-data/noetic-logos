@@ -1,0 +1,2 @@
+:HL["/noetic-logos/static/hukuk-module/_next/static/chunks/6245b0012d2cc93c.css","style"]
+0:{"buildId":"_aQgQ_pUQynR6WbDKVNP8","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

@@ -1,0 +1,2137 @@
+{
+  "id": "hafta3_siniflandirma2",
+  "title": "Sınıflandırma 2: Adult Gelir Veri Seti EDA",
+  "week": 3,
+  "csvFiles": [
+    "adult.data"
+  ],
+  "blocks": [
+    {
+      "id": "hafta3_siniflandirma2-b001",
+      "title": "Adult verisini yükleme ve sütunları tanımlama",
+      "blockExplanation": "Bu hücre, başlıksız adult.data dosyasını doğru kolon adlarıyla okuyup ilk satırları gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import pandas as pd",
+          "lineExplanation": "pandas modülünü pd takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "pandas modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "pd",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult verisini yükleme ve sütunları tanımlama' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "columns = [",
+          "lineExplanation": "columns değişkenine [ ifadesinin sonucunu atar.",
+          "tokens": [
+            {
+              "token": "columns",
+              "explanation": "Sonucun yazıldığı değişkendir.",
+              "turkce": "Atama Hedefi",
+              "amac": "Ara sonucu daha sonra kullanmak."
+            },
+            {
+              "token": "[",
+              "explanation": "Bu satırda hesaplanan ya da çağrılan ifadedir.",
+              "turkce": "Atama İfadesi",
+              "amac": "Hesaplanan sonucu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult verisini yükleme ve sütunları tanımlama' bloğunda ara sonucu bir değişkende saklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    \"age\", \"workclass\", \"fnlwgt\", \"education\", \"education_num\",",
+          "lineExplanation": "Kümeleme listesine age, workclass, fnlwgt, education ve education_num sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "age",
+              "explanation": "age bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "workclass",
+              "explanation": "workclass bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "fnlwgt",
+              "explanation": "fnlwgt bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "education",
+              "explanation": "education bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "education_num",
+              "explanation": "education_num bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult verisini yükleme ve sütunları tanımlama' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    \"marital_status\", \"occupation\", \"relationship\", \"race\",",
+          "lineExplanation": "Kümeleme listesine marital_status, occupation, relationship ve race sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "marital_status",
+              "explanation": "marital_status bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "occupation",
+              "explanation": "occupation bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "relationship",
+              "explanation": "relationship bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "race",
+              "explanation": "race bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult verisini yükleme ve sütunları tanımlama' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    \"sex\", \"capital_gain\", \"capital_loss\",",
+          "lineExplanation": "Kümeleme listesine sex, capital_gain ve capital_loss sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "sex",
+              "explanation": "sex bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "capital_gain",
+              "explanation": "capital_gain bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "capital_loss",
+              "explanation": "capital_loss bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult verisini yükleme ve sütunları tanımlama' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    \"hours_per_week\", \"native_country\", \"income\"",
+          "lineExplanation": "Kümeleme listesine hours_per_week, native_country ve income sütunlarını ekler.",
+          "tokens": [
+            {
+              "token": "hours_per_week",
+              "explanation": "hours_per_week bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "native_country",
+              "explanation": "native_country bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            },
+            {
+              "token": "income",
+              "explanation": "income bilgisini temsil eden sütundur.",
+              "turkce": "Sütun Adı",
+              "amac": "Bu özelliği model girdisine dahil etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult verisini yükleme ve sütunları tanımlama' bloğunda kullanılacak özellik listesini genişletir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "]",
+          "lineExplanation": "Bir önceki çok satırlı liste tanımını kapatır.",
+          "tokens": [
+            {
+              "token": "]",
+              "explanation": "Liste tanımının kapanış işaretidir.",
+              "turkce": "Liste Kapanışı",
+              "amac": "Çok satırlı listeyi bitirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult verisini yükleme ve sütunları tanımlama' bloğunda sütun listesini tamamlar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "df = pd.read_csv(\"adult.data\", names=columns, skipinitialspace=True)",
+          "lineExplanation": "adult.data dosyasını önceden tanımlanan sütun adlarıyla okuyup baştaki gereksiz boşlukları temizleyerek df'e yükler.",
+          "tokens": [
+            {
+              "token": "pd.read_csv",
+              "explanation": "Düz metin veri dosyasını DataFrame olarak okur.",
+              "turkce": "Dosya Okuma",
+              "amac": "Adult veri setini pandas tablosuna çevirmek."
+            },
+            {
+              "token": "names=columns",
+              "explanation": "Başlıksız dosyaya sütun adlarını elle atar.",
+              "turkce": "Sütun Şeması",
+              "amac": "Adult verisini doğru kolon isimleriyle açmak."
+            },
+            {
+              "token": "skipinitialspace=True",
+              "explanation": "Virgülden sonra gelen baştaki boşlukları temizler.",
+              "turkce": "Boşluk Temizleme",
+              "amac": "Kategorik değerlerin başındaki boşlukları normalize etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult verisini yükleme ve sütunları tanımlama' bloğunda Adult veri setini doğru şemayla okur."
+        },
+        {
+          "lineNumber": 9,
+          "code": "df.head()",
+          "lineExplanation": "DataFrame'in ilk 5 satırını göstererek verinin görünümünü hızlıca kontrol ettirir.",
+          "tokens": [
+            {
+              "token": ".head()",
+              "explanation": "Varsayılan olarak ilk 5 satırı getirir.",
+              "turkce": "Önizleme",
+              "amac": "Dosyanın doğru okunup okunmadığını hızlıca görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult verisini yükleme ve sütunları tanımlama' bloğunda tablonun ilk satırlarını önizleme amaçlı ekrana getirir."
+        }
+      ],
+      "expectedOutput": "   age         workclass  fnlwgt  ... hours_per_week  native_country income\n0   39         State-gov   77516  ...             40   United-States  <=50K\n1   50  Self-emp-not-inc   83311  ...             13   United-States  <=50K\n2   38           Private  215646  ...             40   United-States  <=50K\n3   53           Private  234721  ...             40   United-States  <=50K\n4   28           Private  338409  ...             40            Cuba  <=50K\n\n[5 rows x 15 columns]"
+    },
+    {
+      "id": "hafta3_siniflandirma2-b002",
+      "title": "Veri boyutunu görme",
+      "blockExplanation": "Bu hücre, Adult veri setinin satır ve sütun sayısını verir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.shape",
+          "lineExplanation": "DataFrame'in satır ve sütun sayısını tuple olarak döndürür.",
+          "tokens": [
+            {
+              "token": ".shape",
+              "explanation": "Satır ve sütun sayısını verir.",
+              "turkce": "Boyut",
+              "amac": "Verinin büyüklüğünü anında kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veri boyutunu görme' bloğunda veri setinin boyut bilgisini verir."
+        }
+      ],
+      "expectedOutput": "(32561, 15)"
+    },
+    {
+      "id": "hafta3_siniflandirma2-b003",
+      "title": "info() ve describe() ile yapıyı anlama",
+      "blockExplanation": "Bu hücre, önce veri tiplerini ve doluluk durumunu, ardından sayısal sütunların istatistiksel özetini gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.info()",
+          "lineExplanation": "Sütunların doluluk sayısını, veri tiplerini ve bellek kullanımını ekrana yazar.",
+          "tokens": [
+            {
+              "token": ".info()",
+              "explanation": "DataFrame'in yapısal özetini üretir.",
+              "turkce": "Yapı Özeti",
+              "amac": "Eksik veri ve tip bilgisini tek çıktıda görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'info() ve describe() ile yapıyı anlama' bloğunda veri setinin genel yapısını özetler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df.describe()",
+          "lineExplanation": "Sayısal sütunların temel istatistik özetini üretir.",
+          "tokens": [
+            {
+              "token": ".describe()",
+              "explanation": "count, mean, std, min, max gibi istatistikleri üretir.",
+              "turkce": "İstatistik Özeti",
+              "amac": "Sayısal dağılımları özetlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'info() ve describe() ile yapıyı anlama' bloğunda sayısal özet tablosunu üretir."
+        }
+      ],
+      "expectedOutput": "<class 'pandas.core.frame.DataFrame'>\nRangeIndex: 32561 entries, 0 to 32560\nData columns (total 15 columns):\n #   Column          Non-Null Count  Dtype\n---  ------          --------------  -----\n 0   age             32561 non-null  int64\n 1   workclass       32561 non-null  object\n 2   fnlwgt          32561 non-null  int64\n 3   education       32561 non-null  object\n 4   education_num   32561 non-null  int64\n 5   marital_status  32561 non-null  object\n 6   occupation      32561 non-null  object\n 7   relationship    32561 non-null  object\n 8   race            32561 non-null  object\n 9   sex             32561 non-null  object\n 10  capital_gain    32561 non-null  int64\n 11  capital_loss    32561 non-null  int64\n 12  hours_per_week  32561 non-null  int64\n 13  native_country  32561 non-null  object\n 14  income          32561 non-null  object\ndtypes: int64(6), object(9)\nmemory usage: 3.7+ MB\n\n                age        fnlwgt  ...  capital_loss  hours_per_week\ncount  32561.000000  3.256100e+04  ...  32561.000000    32561.000000\nmean      38.581647  1.897784e+05  ...     87.303830       40.437456\nstd       13.640433  1.055500e+05  ...    402.960219       12.347429\nmin       17.000000  1.228500e+04  ...      0.000000        1.000000\n25%       28.000000  1.178270e+05  ...      0.000000       40.000000\n50%       37.000000  1.783560e+05  ...      0.000000       40.000000\n75%       48.000000  2.370510e+05  ...      0.000000       45.000000\nmax       90.000000  1.484705e+06  ...   4356.000000       99.000000\n\n[8 rows x 6 columns]"
+    },
+    {
+      "id": "hafta3_siniflandirma2-b004",
+      "title": "Eksik ve duplicate kontrolü",
+      "blockExplanation": "Bu hücre, eksik değer sayılarını ve duplicate kayıt miktarını birlikte kontrol eder.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.isnull().sum()",
+          "lineExplanation": "Her sütundaki eksik değer sayısını hesaplar.",
+          "tokens": [
+            {
+              "token": "isnull().sum()",
+              "explanation": "Sütun bazında NaN sayısını verir.",
+              "turkce": "Eksik Değer Sayımı",
+              "amac": "Boş veri olup olmadığını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eksik ve duplicate kontrolü' bloğunda eksik veri durumunu ölçer."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df.duplicated().sum()",
+          "lineExplanation": "Aynı satırın veri setinde kaç kez tekrarlandığını sayar.",
+          "tokens": [
+            {
+              "token": ".duplicated().sum()",
+              "explanation": "Önce duplicate satırları işaretler, sonra toplamlarını verir.",
+              "turkce": "Duplicate Sayımı",
+              "amac": "Tekrarlayan kayıt miktarını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eksik ve duplicate kontrolü' bloğunda tekrar eden kayıt sayısını ölçer."
+        }
+      ],
+      "expectedOutput": "age               0\nworkclass         0\nfnlwgt            0\neducation         0\neducation_num     0\nmarital_status    0\noccupation        0\nrelationship      0\nrace              0\nsex               0\ncapital_gain      0\ncapital_loss      0\nhours_per_week    0\nnative_country    0\nincome            0\ndtype: int64\n\nnp.int64(24)"
+    },
+    {
+      "id": "hafta3_siniflandirma2-b005",
+      "title": "Income dağılımı countplotu",
+      "blockExplanation": "Bu hücre, gelir hedef değişkeninin sınıf dağılımını countplot ile gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "matplotlib.pyplot modülünü plt takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "matplotlib.pyplot modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "plt",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Income dağılımı countplotu' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import seaborn as sns",
+          "lineExplanation": "seaborn modülünü sns takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "seaborn",
+              "explanation": "seaborn modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "sns",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Income dağılımı countplotu' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.figure(figsize=(6,4))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 6,4 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Income dağılımı countplotu' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "sns.countplot(data=df_adult, x=\"income\")",
+          "lineExplanation": "income hedef sınıflarının frekansını countplot olarak çizer.",
+          "tokens": [
+            {
+              "token": "sns.countplot",
+              "explanation": "Kategorik frekansları çubuk grafiği olarak üretir.",
+              "turkce": "Countplot",
+              "amac": "Gelir sınıf dağılımını görselleştirmek."
+            },
+            {
+              "token": "x=\"income\"",
+              "explanation": "X ekseninde income sınıflarını kullanır.",
+              "turkce": "Hedef Ekseni",
+              "amac": "Gelir sınıflarını doğrudan çubuklara ayırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Income dağılımı countplotu' bloğunda income dağılımını görsel hale getirir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.title(\"Income (Target) Dağılımı\")",
+          "lineExplanation": "Grafiğin başlığını \"Income (Target) Dağılımı\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Income dağılımı countplotu' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.xticks(rotation=0)",
+          "lineExplanation": "X ekseni etiketlerini döndürmeden düz biçimde bırakır.",
+          "tokens": [
+            {
+              "token": "rotation=0",
+              "explanation": "Etiketlerin düz yatay kalmasını sağlar.",
+              "turkce": "Döndürme",
+              "amac": "Kısa sınıf adlarını sade biçimde göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Income dağılımı countplotu' bloğunda x ekseni etiketlerini düz biçimde tutar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Grafik elemanlarının kenarlara veya birbirine çarpmasını önlemek için otomatik yerleşim ayarı yapar.",
+          "tokens": [
+            {
+              "token": "plt.tight_layout()",
+              "explanation": "Şekil içindeki boşlukları otomatik düzenler.",
+              "turkce": "Yerleşim",
+              "amac": "Başlık ve eksen yazılarının taşmasını önlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Income dağılımı countplotu' bloğunda grafik yerleşimini otomatik sıkılaştırır."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Income dağılımı countplotu' bloğunda görsel üretimini tamamlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "#plt.savefig(\"outputs_adult/fig04_target_count.png\", dpi=300)",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'plt.savefig(\"outputs_adult/fig04_target_count.png\", dpi=300)' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "#plt.savefig(\"outputs_adult/fig04_target_count.png\", dpi=300)",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Income dağılımı countplotu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.close()",
+          "lineExplanation": "Açık matplotlib figürünü kapatıp belleği temizler.",
+          "tokens": [
+            {
+              "token": "plt.close()",
+              "explanation": "Mevcut figürü kapatır.",
+              "turkce": "Figür Kapatma",
+              "amac": "Art arda çok sayıda grafik üretirken bellek ve karışıklığı azaltmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Income dağılımı countplotu' bloğunda aktif figürü kapatır."
+        }
+      ],
+      "expectedOutput": "([0, 1], [Text(0, 0, '<=50K'), Text(1, 0, '>50K')])",
+      "plotImage": "h3-cls2-b005.png"
+    },
+    {
+      "id": "hafta3_siniflandirma2-b006",
+      "title": "Age histogram + KDE",
+      "blockExplanation": "Bu hücre, age değişkeninin dağılımını histogram ve KDE ile inceler.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.figure(figsize=(6,4))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 6,4 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Age histogram + KDE' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "sns.histplot(df_adult[\"age\"], bins=30, kde=True)",
+          "lineExplanation": "Age sütununun histogramını çizer ve KDE eğrisi ekler.",
+          "tokens": [
+            {
+              "token": "df_adult[\"age\"]",
+              "explanation": "Age değişkenini çizim girdisi yapar.",
+              "turkce": "Sütun Seçimi",
+              "amac": "Yaş dağılımını incelemek."
+            },
+            {
+              "token": "bins=30",
+              "explanation": "Histogramı 30 kovaya böler.",
+              "turkce": "Kova Sayısı",
+              "amac": "Dağılımı okunabilir ayrıntıda göstermek."
+            },
+            {
+              "token": "kde=True",
+              "explanation": "Yoğunluk eğrisini ekler.",
+              "turkce": "KDE",
+              "amac": "Dağılımın pürüzsüz şeklini görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Age histogram + KDE' bloğunda age dağılımını histogram ve KDE ile çizer."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.title(\"Age Dağılımı (Histogram + KDE)\")",
+          "lineExplanation": "Grafiğin başlığını \"Age Dağılımı (Histogram + KDE)\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Age histogram + KDE' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Grafik elemanlarının kenarlara veya birbirine çarpmasını önlemek için otomatik yerleşim ayarı yapar.",
+          "tokens": [
+            {
+              "token": "plt.tight_layout()",
+              "explanation": "Şekil içindeki boşlukları otomatik düzenler.",
+              "turkce": "Yerleşim",
+              "amac": "Başlık ve eksen yazılarının taşmasını önlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Age histogram + KDE' bloğunda grafik yerleşimini otomatik sıkılaştırır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Age histogram + KDE' bloğunda görsel üretimini tamamlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "#plt.savefig(\"outputs_adult/fig04_age_hist.png\", dpi=300)",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'plt.savefig(\"outputs_adult/fig04_age_hist.png\", dpi=300)' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "#plt.savefig(\"outputs_adult/fig04_age_hist.png\", dpi=300)",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Age histogram + KDE' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.close()",
+          "lineExplanation": "Açık matplotlib figürünü kapatıp belleği temizler.",
+          "tokens": [
+            {
+              "token": "plt.close()",
+              "explanation": "Mevcut figürü kapatır.",
+              "turkce": "Figür Kapatma",
+              "amac": "Art arda çok sayıda grafik üretirken bellek ve karışıklığı azaltmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Age histogram + KDE' bloğunda aktif figürü kapatır."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h3-cls2-b006.png"
+    },
+    {
+      "id": "hafta3_siniflandirma2-b007",
+      "title": "Hours per week histogram + KDE",
+      "blockExplanation": "Bu hücre, haftalık çalışma saatlerinin dağılımını inceler.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.figure(figsize=(6,4))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 6,4 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hours per week histogram + KDE' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "sns.histplot(df_adult[\"hours_per_week\"], bins=30, kde=True)",
+          "lineExplanation": "hours_per_week sütununun histogramını çizer ve KDE eğrisi ekler.",
+          "tokens": [
+            {
+              "token": "df_adult[\"hours_per_week\"]",
+              "explanation": "Çalışma saati sütununu çizim girdisi yapar.",
+              "turkce": "Sütun Seçimi",
+              "amac": "Haftalık çalışma süresi dağılımını incelemek."
+            },
+            {
+              "token": "bins=30",
+              "explanation": "Histogramı 30 kovaya böler.",
+              "turkce": "Kova Sayısı",
+              "amac": "Dağılımı okunabilir yapmak."
+            },
+            {
+              "token": "kde=True",
+              "explanation": "Yoğunluk eğrisini ekler.",
+              "turkce": "KDE",
+              "amac": "Dağılımı pürüzsüz okumak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hours per week histogram + KDE' bloğunda çalışma saati dağılımını histogram ve KDE ile gösterir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.title(\"Hours per Week Dağılımı (Histogram + KDE)\")",
+          "lineExplanation": "Grafiğin başlığını \"Hours per Week Dağılımı (Histogram + KDE)\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hours per week histogram + KDE' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Grafik elemanlarının kenarlara veya birbirine çarpmasını önlemek için otomatik yerleşim ayarı yapar.",
+          "tokens": [
+            {
+              "token": "plt.tight_layout()",
+              "explanation": "Şekil içindeki boşlukları otomatik düzenler.",
+              "turkce": "Yerleşim",
+              "amac": "Başlık ve eksen yazılarının taşmasını önlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hours per week histogram + KDE' bloğunda grafik yerleşimini otomatik sıkılaştırır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hours per week histogram + KDE' bloğunda görsel üretimini tamamlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "#plt.savefig(\"outputs_adult/fig04_hours_hist.png\", dpi=300)",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'plt.savefig(\"outputs_adult/fig04_hours_hist.png\", dpi=300)' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "#plt.savefig(\"outputs_adult/fig04_hours_hist.png\", dpi=300)",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hours per week histogram + KDE' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.close()",
+          "lineExplanation": "Açık matplotlib figürünü kapatıp belleği temizler.",
+          "tokens": [
+            {
+              "token": "plt.close()",
+              "explanation": "Mevcut figürü kapatır.",
+              "turkce": "Figür Kapatma",
+              "amac": "Art arda çok sayıda grafik üretirken bellek ve karışıklığı azaltmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hours per week histogram + KDE' bloğunda aktif figürü kapatır."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h3-cls2-b007.png"
+    },
+    {
+      "id": "hafta3_siniflandirma2-b008",
+      "title": "Capital gain histogramı",
+      "blockExplanation": "Bu hücre, çok çarpık olan capital_gain değişkenini ham histogram olarak gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.figure(figsize=(6,4))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 6,4 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Capital gain histogramı' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "sns.histplot(df_adult[\"capital_gain\"], bins=50, kde=False)",
+          "lineExplanation": "capital_gain sütununun ham histogramını çizer.",
+          "tokens": [
+            {
+              "token": "df_adult[\"capital_gain\"]",
+              "explanation": "Capital gain sütununu çizim girdisi yapar.",
+              "turkce": "Sütun Seçimi",
+              "amac": "Çarpık kazanç dağılımını görmek."
+            },
+            {
+              "token": "bins=50",
+              "explanation": "Histogramı 50 kovaya böler.",
+              "turkce": "Kova Sayısı",
+              "amac": "Çarpık dağılımda daha detaylı görünüm almak."
+            },
+            {
+              "token": "kde=False",
+              "explanation": "Yoğunluk eğrisi eklemez.",
+              "turkce": "KDE Kapalı",
+              "amac": "Ham histogramı doğrudan göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Capital gain histogramı' bloğunda capital_gain dağılımını ham histogram olarak çizer."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.title(\"Capital Gain Dağılımı (Ham)\")",
+          "lineExplanation": "Grafiğin başlığını \"Capital Gain Dağılımı (Ham)\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Capital gain histogramı' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Grafik elemanlarının kenarlara veya birbirine çarpmasını önlemek için otomatik yerleşim ayarı yapar.",
+          "tokens": [
+            {
+              "token": "plt.tight_layout()",
+              "explanation": "Şekil içindeki boşlukları otomatik düzenler.",
+              "turkce": "Yerleşim",
+              "amac": "Başlık ve eksen yazılarının taşmasını önlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Capital gain histogramı' bloğunda grafik yerleşimini otomatik sıkılaştırır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Capital gain histogramı' bloğunda görsel üretimini tamamlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "#plt.savefig(\"outputs_adult/fig04_capital_gain_hist.png\", dpi=300)",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'plt.savefig(\"outputs_adult/fig04_capital_gain_hist.png\", dpi=300)' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "#plt.savefig(\"outputs_adult/fig04_capital_gain_hist.png\", dpi=300)",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Capital gain histogramı' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.close()",
+          "lineExplanation": "Açık matplotlib figürünü kapatıp belleği temizler.",
+          "tokens": [
+            {
+              "token": "plt.close()",
+              "explanation": "Mevcut figürü kapatır.",
+              "turkce": "Figür Kapatma",
+              "amac": "Art arda çok sayıda grafik üretirken bellek ve karışıklığı azaltmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Capital gain histogramı' bloğunda aktif figürü kapatır."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h3-cls2-b008.png"
+    },
+    {
+      "id": "hafta3_siniflandirma2-b009",
+      "title": "Age vs Income boxplotu",
+      "blockExplanation": "Bu hücre, yaşın gelir sınıflarına göre nasıl dağıldığını boxplot ile karşılaştırır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.figure(figsize=(6,4))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 6,4 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Age vs Income boxplotu' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "sns.boxplot(data=df_adult, x=\"income\", y=\"age\")",
+          "lineExplanation": "income sınıflarına göre age dağılımını boxplot ile karşılaştırır.",
+          "tokens": [
+            {
+              "token": "sns.boxplot",
+              "explanation": "Dağılımı medyan ve çeyreklerle özetler.",
+              "turkce": "Boxplot",
+              "amac": "Gelir sınıfları arasındaki yaş farklarını görmek."
+            },
+            {
+              "token": "x=\"income\"",
+              "explanation": "Kutuları gelir sınıfına göre böler.",
+              "turkce": "Sınıf Ayrımı",
+              "amac": "Sınıfları ayrı kutular halinde görmek."
+            },
+            {
+              "token": "y=\"age\"",
+              "explanation": "Dikey eksende yaş değişkenini kullanır.",
+              "turkce": "Ölçüm Ekseni",
+              "amac": "Yaş dağılımını sınıf bazında incelemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Age vs Income boxplotu' bloğunda yaş dağılımını gelir sınıfına göre karşılaştırır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.title(\"Age vs Income (Boxplot)\")",
+          "lineExplanation": "Grafiğin başlığını \"Age vs Income (Boxplot)\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Age vs Income boxplotu' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Grafik elemanlarının kenarlara veya birbirine çarpmasını önlemek için otomatik yerleşim ayarı yapar.",
+          "tokens": [
+            {
+              "token": "plt.tight_layout()",
+              "explanation": "Şekil içindeki boşlukları otomatik düzenler.",
+              "turkce": "Yerleşim",
+              "amac": "Başlık ve eksen yazılarının taşmasını önlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Age vs Income boxplotu' bloğunda grafik yerleşimini otomatik sıkılaştırır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Age vs Income boxplotu' bloğunda görsel üretimini tamamlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "#plt.savefig(\"outputs_adult/fig05_age_vs_income_box.png\", dpi=300)",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'plt.savefig(\"outputs_adult/fig05_age_vs_income_box.png\", dpi=300)' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "#plt.savefig(\"outputs_adult/fig05_age_vs_income_box.png\", dpi=300)",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Age vs Income boxplotu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.close()",
+          "lineExplanation": "Açık matplotlib figürünü kapatıp belleği temizler.",
+          "tokens": [
+            {
+              "token": "plt.close()",
+              "explanation": "Mevcut figürü kapatır.",
+              "turkce": "Figür Kapatma",
+              "amac": "Art arda çok sayıda grafik üretirken bellek ve karışıklığı azaltmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Age vs Income boxplotu' bloğunda aktif figürü kapatır."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h3-cls2-b009.png"
+    },
+    {
+      "id": "hafta3_siniflandirma2-b010",
+      "title": "Hours per week vs Income boxplotu",
+      "blockExplanation": "Bu hücre, çalışma saatlerinin gelir sınıflarına göre dağılımını boxplot ile gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.figure(figsize=(6,4))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 6,4 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hours per week vs Income boxplotu' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "sns.boxplot(data=df_adult, x=\"income\", y=\"hours_per_week\")",
+          "lineExplanation": "income sınıflarına göre hours_per_week dağılımını boxplot ile karşılaştırır.",
+          "tokens": [
+            {
+              "token": "sns.boxplot",
+              "explanation": "Dağılımı medyan ve çeyreklerle özetler.",
+              "turkce": "Boxplot",
+              "amac": "Gelir sınıfları arasındaki çalışma saati farklarını görmek."
+            },
+            {
+              "token": "y=\"hours_per_week\"",
+              "explanation": "Dikey eksende çalışma saati değişkenini kullanır.",
+              "turkce": "Ölçüm Ekseni",
+              "amac": "Çalışma saati dağılımını sınıf bazında incelemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hours per week vs Income boxplotu' bloğunda çalışma saati dağılımını gelir sınıfına göre karşılaştırır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.title(\"Hours per Week vs Income (Boxplot)\")",
+          "lineExplanation": "Grafiğin başlığını \"Hours per Week vs Income (Boxplot)\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hours per week vs Income boxplotu' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Grafik elemanlarının kenarlara veya birbirine çarpmasını önlemek için otomatik yerleşim ayarı yapar.",
+          "tokens": [
+            {
+              "token": "plt.tight_layout()",
+              "explanation": "Şekil içindeki boşlukları otomatik düzenler.",
+              "turkce": "Yerleşim",
+              "amac": "Başlık ve eksen yazılarının taşmasını önlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hours per week vs Income boxplotu' bloğunda grafik yerleşimini otomatik sıkılaştırır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hours per week vs Income boxplotu' bloğunda görsel üretimini tamamlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "#plt.savefig(\"outputs_adult/fig05_hours_vs_income_box.png\", dpi=300)",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'plt.savefig(\"outputs_adult/fig05_hours_vs_income_box.png\", dpi=300)' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "#plt.savefig(\"outputs_adult/fig05_hours_vs_income_box.png\", dpi=300)",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hours per week vs Income boxplotu' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.close()",
+          "lineExplanation": "Açık matplotlib figürünü kapatıp belleği temizler.",
+          "tokens": [
+            {
+              "token": "plt.close()",
+              "explanation": "Mevcut figürü kapatır.",
+              "turkce": "Figür Kapatma",
+              "amac": "Art arda çok sayıda grafik üretirken bellek ve karışıklığı azaltmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hours per week vs Income boxplotu' bloğunda aktif figürü kapatır."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h3-cls2-b010.png"
+    },
+    {
+      "id": "hafta3_siniflandirma2-b011",
+      "title": "Education’a göre >50K oranı",
+      "blockExplanation": "Bu hücre, eğitim sınıflarına göre yüksek gelir oranını crosstab ve barplot ile hesaplayıp görselleştirir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Her education sınıfında >50K oranı",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Her education sınıfında >50K oranı' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Her education sınıfında >50K oranı",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "edu_rate = (",
+          "lineExplanation": "Education ve income ilişkisini hesaplayacak çok satırlı crosstab ifadesini başlatır.",
+          "tokens": [
+            {
+              "token": "edu_rate",
+              "explanation": "Eğitime göre gelir oranlarını tutacak ara tablodur.",
+              "turkce": "Ara Tablo",
+              "amac": "Crosstab sonucunu sonraki adımlarda kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda eğitim-gelir oran tablosunun kurulumunu başlatır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    pd.crosstab(df_adult[\"education\"], df_adult[\"income\"], normalize=\"index\")",
+          "lineExplanation": "Education ve income arasında satır bazında normalize edilmiş çapraz tablo üretir.",
+          "tokens": [
+            {
+              "token": "pd.crosstab",
+              "explanation": "İki kategorik alan arasında çapraz tablo kurar.",
+              "turkce": "Crosstab",
+              "amac": "Eğitime göre gelir oranlarını hesaplamak."
+            },
+            {
+              "token": "normalize=\"index\"",
+              "explanation": "Her education satırını kendi içinde oranlar.",
+              "turkce": "Satır Normalizasyonu",
+              "amac": "Her eğitim sınıfında >50K oranını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda eğitime göre gelir oran tablosunu hesaplar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    .reset_index()",
+          "lineExplanation": "Crosstab sonucundaki index'i normal sütuna çevirerek tabloyu çizime daha uygun hale getirir.",
+          "tokens": [
+            {
+              "token": ".reset_index()",
+              "explanation": "Index alanını tekrar normal sütun yapar.",
+              "turkce": "Index Sıfırlama",
+              "amac": "Barplot gibi işlemlerde tabloyu daha rahat kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda oran tablosunun index yapısını düzleştirir."
+        },
+        {
+          "lineNumber": 5,
+          "code": ")",
+          "lineExplanation": "Bir önceki çok satırlı fonksiyon çağrısını veya matematiksel ifadeyi kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Açık bırakılmış çağrıyı veya ifadeyi sonlandırır.",
+              "turkce": "Kapanış",
+              "amac": "Çok satırlı yapının sentaksını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda çok satırlı yapıyı sözdizimsel olarak tamamlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "# Sütun isimleri veri setine göre değişebilir: ' >50K' veya '>50K'",
+          "lineExplanation": "Veri setindeki >50K sütununun boşluklu veya boşluksuz adlandırılmış olabileceğini not eder.",
+          "tokens": [
+            {
+              "token": "# Sütun isimleri veri setine göre değişebilir: ' >50K' veya '>50K'",
+              "explanation": "Kodun niyetini açıklayan yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Sütun adı varyasyonuna karşı dikkat çekmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda veri seti sürümleri arasındaki olası isim farkını açıklar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "# Güvenli seçim:",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Güvenli seçim:' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Güvenli seçim:",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "income_cols = [c for c in edu_rate.columns if \"50K\" in c]",
+          "lineExplanation": "edu_rate sütunları içinden 50K ifadesini taşıyan gelir sütunlarını seçer.",
+          "tokens": [
+            {
+              "token": "edu_rate.columns",
+              "explanation": "Oran tablosunun tüm sütun adlarını verir.",
+              "turkce": "Sütun Listesi",
+              "amac": "İlgili gelir sütunlarını ayıklamak."
+            },
+            {
+              "token": "\"50K\" in c",
+              "explanation": "Adında 50K geçen sütunları filtreler.",
+              "turkce": "Filtre",
+              "amac": "Gelir sınıfı sütunlarını bulmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda gelir oranı sütunlarını otomatik ayıklar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "high_col = [c for c in income_cols if \">\" in c][0]  # >50K sütunu",
+          "lineExplanation": "income_cols içinden '>' karakteri taşıyan sütunu seçerek yüksek gelir sütununun adını bulur.",
+          "tokens": [
+            {
+              "token": "income_cols",
+              "explanation": "Gelirle ilgili aday sütun listesidir.",
+              "turkce": "Aday Sütunlar",
+              "amac": "Yüksek gelir sütununu daraltmak."
+            },
+            {
+              "token": "[0]",
+              "explanation": "Filtre sonucundaki ilk ve doğru sütunu alır.",
+              "turkce": "İlk Eleman",
+              "amac": "Tek hedef sütunu seçmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda >50K sütununun gerçek adını güvenli biçimde belirler."
+        },
+        {
+          "lineNumber": 10,
+          "code": "edu_rate_sorted = edu_rate.sort_values(by=high_col, ascending=False)",
+          "lineExplanation": "Education oran tablosunu >50K oranına göre azalan sırada dizer.",
+          "tokens": [
+            {
+              "token": "sort_values(by=high_col, ascending=False)",
+              "explanation": "Tabloyu yüksek gelir oranı büyükten küçüğe sıralar.",
+              "turkce": "Sıralama",
+              "amac": "En yüksek gelir oranına sahip eğitimleri üstte görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda eğitim sınıflarını yüksek gelir oranına göre sıralar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "plt.figure(figsize=(8,5))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 8,5 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 12,
+          "code": "sns.barplot(data=edu_rate_sorted, x=\"education\", y=high_col)",
+          "lineExplanation": "Sıralanmış eğitim sınıfları için >50K oranını barplot olarak çizer.",
+          "tokens": [
+            {
+              "token": "sns.barplot",
+              "explanation": "Kategorik alanlara göre sayısal oran çizer.",
+              "turkce": "Barplot",
+              "amac": "Eğitime göre yüksek gelir oranlarını görselleştirmek."
+            },
+            {
+              "token": "x=\"education\"",
+              "explanation": "X ekseninde eğitim sınıfını kullanır.",
+              "turkce": "Kategori Ekseni",
+              "amac": "Her eğitim düzeyini ayrı çubuk yapmak."
+            },
+            {
+              "token": "y=high_col",
+              "explanation": "Y ekseninde yüksek gelir oranını kullanır.",
+              "turkce": "Oran Ekseni",
+              "amac": "Her eğitim sınıfının >50K oranını göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda eğitim bazlı yüksek gelir oranlarını çubuk grafiğe dönüştürür."
+        },
+        {
+          "lineNumber": 13,
+          "code": "plt.title(\"Education’a Göre >50K Oranı\")",
+          "lineExplanation": "Grafiğin başlığını \"Education’a Göre >50K Oranı\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 14,
+          "code": "plt.xticks(rotation=45, ha=\"right\")",
+          "lineExplanation": "X eksenindeki eğitim etiketlerini 45 derece döndürüp sağ hizalayarak üst üste binmeyi azaltır.",
+          "tokens": [
+            {
+              "token": "rotation=45",
+              "explanation": "Etiketleri 45 derece döndürür.",
+              "turkce": "Döndürme",
+              "amac": "Uzun kategori adlarını okunabilir kılmak."
+            },
+            {
+              "token": "ha=\"right\"",
+              "explanation": "Etiketleri sağa hizalar.",
+              "turkce": "Hizalama",
+              "amac": "Döndürülmüş etiketlerin daha temiz görünmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda kategori etiketlerinin okunabilirliğini artırır."
+        },
+        {
+          "lineNumber": 15,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Grafik elemanlarının kenarlara veya birbirine çarpmasını önlemek için otomatik yerleşim ayarı yapar.",
+          "tokens": [
+            {
+              "token": "plt.tight_layout()",
+              "explanation": "Şekil içindeki boşlukları otomatik düzenler.",
+              "turkce": "Yerleşim",
+              "amac": "Başlık ve eksen yazılarının taşmasını önlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda grafik yerleşimini otomatik sıkılaştırır."
+        },
+        {
+          "lineNumber": 16,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda görsel üretimini tamamlar."
+        },
+        {
+          "lineNumber": 17,
+          "code": "#plt.savefig(\"outputs_adult/fig05_education_vs_income_rate.png\", dpi=300)",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'plt.savefig(\"outputs_adult/fig05_education_vs_income_rate.png\", dpi=300)' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "#plt.savefig(\"outputs_adult/fig05_education_vs_income_rate.png\", dpi=300)",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 18,
+          "code": "plt.close()",
+          "lineExplanation": "Açık matplotlib figürünü kapatıp belleği temizler.",
+          "tokens": [
+            {
+              "token": "plt.close()",
+              "explanation": "Mevcut figürü kapatır.",
+              "turkce": "Figür Kapatma",
+              "amac": "Art arda çok sayıda grafik üretirken bellek ve karışıklığı azaltmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Education’a göre >50K oranı' bloğunda aktif figürü kapatır."
+        }
+      ],
+      "expectedOutput": "([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],",
+      "plotImage": "h3-cls2-b011.png"
+    },
+    {
+      "id": "hafta3_siniflandirma2-b012",
+      "title": "Sayısal korelasyon heatmapi",
+      "blockExplanation": "Bu hücre, Adult veri setindeki sayısal sütunların korelasyon matrisini heatmap ile çizer.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import numpy as np",
+          "lineExplanation": "numpy modülünü np takma adıyla içe aktarır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "numpy modülünü projeye yükler.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu modülün fonksiyonlarını kullanabilmek."
+            },
+            {
+              "token": "np",
+              "explanation": "Modülü kısa bir takma ad ile çağırmayı sağlar.",
+              "turkce": "Takma Ad",
+              "amac": "Kod yazarken daha kısa ve okunabilir çağrılar yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sayısal korelasyon heatmapi' bloğunda ihtiyaç duyulan aracı çalışma alanına ekler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "num_df = df_adult.select_dtypes(include=[np.number]).copy()",
+          "lineExplanation": "Adult veri setinden yalnızca sayısal sütunları seçip bağımsız bir kopya oluşturur.",
+          "tokens": [
+            {
+              "token": "select_dtypes(include=[np.number])",
+              "explanation": "Sadece sayısal sütunları filtreler.",
+              "turkce": "Sayısal Sütun Seçimi",
+              "amac": "Korelasyon hesabını sayısal alanlarla sınırlamak."
+            },
+            {
+              "token": ".copy()",
+              "explanation": "Bağımsız kopya oluşturur.",
+              "turkce": "Kopya",
+              "amac": "Sonraki işlemlerin kaynak tabloyu etkilemesini önlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sayısal korelasyon heatmapi' bloğunda korelasyon analizi için sayısal alt tabloyu üretir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "corr = num_df.corr()",
+          "lineExplanation": "num_df içindeki sayısal sütunların korelasyon matrisini hesaplar.",
+          "tokens": [
+            {
+              "token": ".corr()",
+              "explanation": "Sütunlar arası korelasyon katsayılarını üretir.",
+              "turkce": "Korelasyon",
+              "amac": "Değişkenler arasındaki doğrusal ilişkiyi ölçmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sayısal korelasyon heatmapi' bloğunda korelasyon matrisini hesaplar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.figure(figsize=(8,6))",
+          "lineExplanation": "Yeni bir matplotlib figürü açar ve boyutunu 8,6 olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.figure",
+              "explanation": "Yeni bir çizim yüzeyi oluşturur.",
+              "turkce": "Figür",
+              "amac": "Bir sonraki grafiği temiz bir yüzeyde çizmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sayısal korelasyon heatmapi' bloğunda görselin çizileceği boş figürü hazırlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "sns.heatmap(corr, annot=False)",
+          "lineExplanation": "Korelasyon matrisini sayısal değerleri yazmadan, sadece renk yoğunluğu ile heatmap olarak çizer.",
+          "tokens": [
+            {
+              "token": "annot=False",
+              "explanation": "Her hücre içine sayısal katsayı yazmaz.",
+              "turkce": "Anotasyon Kapalı",
+              "amac": "Grafiği daha sade ve okunur tutmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sayısal korelasyon heatmapi' bloğunda korelasyonları sade heatmap biçiminde çizer."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.title(\"Sayısal Özellikler Korelasyon Haritası\")",
+          "lineExplanation": "Grafiğin başlığını \"Sayısal Özellikler Korelasyon Haritası\" olarak belirler.",
+          "tokens": [
+            {
+              "token": "plt.title",
+              "explanation": "Grafiğin üst başlığını ayarlar.",
+              "turkce": "Başlık",
+              "amac": "Okuyucunun grafiğin ne anlattığını hemen görmesi."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sayısal korelasyon heatmapi' bloğunda grafiğin başlığını anlamlı hale getirir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Grafik elemanlarının kenarlara veya birbirine çarpmasını önlemek için otomatik yerleşim ayarı yapar.",
+          "tokens": [
+            {
+              "token": "plt.tight_layout()",
+              "explanation": "Şekil içindeki boşlukları otomatik düzenler.",
+              "turkce": "Yerleşim",
+              "amac": "Başlık ve eksen yazılarının taşmasını önlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sayısal korelasyon heatmapi' bloğunda grafik yerleşimini otomatik sıkılaştırır."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sayısal korelasyon heatmapi' bloğunda görsel üretimini tamamlar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "#plt.savefig(\"outputs_adult/fig06_corr_heatmap.png\", dpi=300)",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'plt.savefig(\"outputs_adult/fig06_corr_heatmap.png\", dpi=300)' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "#plt.savefig(\"outputs_adult/fig06_corr_heatmap.png\", dpi=300)",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sayısal korelasyon heatmapi' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.close()",
+          "lineExplanation": "Açık matplotlib figürünü kapatıp belleği temizler.",
+          "tokens": [
+            {
+              "token": "plt.close()",
+              "explanation": "Mevcut figürü kapatır.",
+              "turkce": "Figür Kapatma",
+              "amac": "Art arda çok sayıda grafik üretirken bellek ve karışıklığı azaltmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sayısal korelasyon heatmapi' bloğunda aktif figürü kapatır."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca metin çıktısı üretmez; görsel çıktı alttaki grafik alanında gösterilir.",
+      "plotImage": "h3-cls2-b012.png"
+    },
+    {
+      "id": "hafta3_siniflandirma2-b013",
+      "title": "Pairplot ile çoklu ilişki analizi",
+      "blockExplanation": "Bu hücre, küçük bir örneklem üstünde pairplot üretmek için veriyi sadeleştirir, log dönüşüm uygular ve gelir sınıfına göre çoklu ilişkileri gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Pairplot için hedefi sadeleştirelim",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Pairplot için hedefi sadeleştirelim' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Pairplot için hedefi sadeleştirelim",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pairplot ile çoklu ilişki analizi' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df_pp = df_adult[[\"age\", \"education_num\", \"hours_per_week\", \"capital_gain\", \"income\"]].copy()",
+          "lineExplanation": "Pairplot için yalnızca temel sütunları seçer ve bunların kopyasını alır.",
+          "tokens": [
+            {
+              "token": "\"age\", \"education_num\", \"hours_per_week\", \"capital_gain\", \"income\"",
+              "explanation": "Pairplotta kullanılacak sütun listesidir.",
+              "turkce": "Sütun Altkümesi",
+              "amac": "Çok ağır olmayan sade bir çoklu analiz tablosu üretmek."
+            },
+            {
+              "token": ".copy()",
+              "explanation": "Bağımsız kopya oluşturur.",
+              "turkce": "Kopya",
+              "amac": "Bu alt tabloda güvenle dönüşüm yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pairplot ile çoklu ilişki analizi' bloğunda pairplot için sadeleştirilmiş alt tabloyu oluşturur."
+        },
+        {
+          "lineNumber": 3,
+          "code": "# capital_gain çok çarpık → log dönüşümüyle daha okunur",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'capital_gain çok çarpık → log dönüşümüyle daha okunur' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# capital_gain çok çarpık → log dönüşümüyle daha okunur",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pairplot ile çoklu ilişki analizi' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "df_pp[\"capital_gain_log\"] = np.log1p(df_pp[\"capital_gain\"])",
+          "lineExplanation": "capital_gain sütununa log1p uygulayıp pairplot için daha okunur yeni bir sütun üretir.",
+          "tokens": [
+            {
+              "token": "np.log1p",
+              "explanation": "x için log(1+x) dönüşümü yapar.",
+              "turkce": "Log Dönüşüm",
+              "amac": "Çarpık dağılımı yumuşatmak."
+            },
+            {
+              "token": "df_pp[\"capital_gain\"]",
+              "explanation": "Dönüştürülecek orijinal kazanç sütunudur.",
+              "turkce": "Kaynak Sütun",
+              "amac": "Pairplotta daha dengeli bir eksen kullanmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pairplot ile çoklu ilişki analizi' bloğunda capital_gain için log dönüşümlü sütun üretir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "df_pp = df_pp.drop(columns=[\"capital_gain\"])",
+          "lineExplanation": "Orijinal capital_gain sütununu düşürüp yerine log dönüşümlü sürümü bırakır.",
+          "tokens": [
+            {
+              "token": "drop(columns=[\"capital_gain\"])",
+              "explanation": "capital_gain sütununu alt tablodan çıkarır.",
+              "turkce": "Sütun Silme",
+              "amac": "Aynı bilginin ham ve log sürümünü birlikte taşımamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pairplot ile çoklu ilişki analizi' bloğunda ham ve log sütunun aynı anda kalmasını engeller."
+        },
+        {
+          "lineNumber": 6,
+          "code": "# Pairplot (örnekleme yaparak hızlandıralım)",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Pairplot (örnekleme yaparak hızlandıralım)' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Pairplot (örnekleme yaparak hızlandıralım)",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pairplot ile çoklu ilişki analizi' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "sample = df_pp.sample(n=min(3000, len(df_pp)), random_state=42)",
+          "lineExplanation": "Pairplotu hızlandırmak için en fazla 3000 satırlık rastgele ama tekrar üretilebilir bir örneklem alır.",
+          "tokens": [
+            {
+              "token": "sample(...)",
+              "explanation": "Veri setinden rastgele örnek satırlar seçer.",
+              "turkce": "Örnekleme",
+              "amac": "Pairplot maliyetini düşürmek."
+            },
+            {
+              "token": "random_state=42",
+              "explanation": "Aynı örneklemin tekrar üretilebilmesini sağlar.",
+              "turkce": "Tekrar Üretilebilirlik",
+              "amac": "Grafiği her çalıştırmada tutarlı kılmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pairplot ile çoklu ilişki analizi' bloğunda pairplot için yönetilebilir büyüklükte örneklem üretir."
+        },
+        {
+          "lineNumber": 8,
+          "code": "sns.pairplot(sample, hue=\"income\", corner=True)",
+          "lineExplanation": "Örneklemdeki sayısal ilişkileri income sınıfına göre renklendirerek pairplot şeklinde çizer.",
+          "tokens": [
+            {
+              "token": "sns.pairplot",
+              "explanation": "Birden fazla değişken çifti için dağılım grafikleri üretir.",
+              "turkce": "Pairplot",
+              "amac": "Çoklu ilişkileri tek görsel ailesinde görmek."
+            },
+            {
+              "token": "hue=\"income\"",
+              "explanation": "Noktaları gelir sınıfına göre renklendirir.",
+              "turkce": "Renk Ayrımı",
+              "amac": "Sınıf farklarını ikili grafiklerde görmek."
+            },
+            {
+              "token": "corner=True",
+              "explanation": "Aynı bilginin tekrarını azaltmak için sadece alt üçgeni çizer.",
+              "turkce": "Köşe Görünümü",
+              "amac": "Grafiği daha hafif ve okunur tutmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pairplot ile çoklu ilişki analizi' bloğunda çoklu değişken ilişkilerini sınıf bilgisiyle birlikte çizer."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda görünür hale getirir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafik üretimini tamamlayıp görsel çıktıyı verir.",
+              "turkce": "Grafik Göster",
+              "amac": "Hazırlanan figürü kullanıcıya göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pairplot ile çoklu ilişki analizi' bloğunda görsel üretimini tamamlar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "#plt.savefig(\"outputs_adult/fig06_pairplot.png\", dpi=200, bbox_inches=\"tight\")",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'plt.savefig(\"outputs_adult/fig06_pairplot.png\", dpi=200, bbox_inches=\"tight\")' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "#plt.savefig(\"outputs_adult/fig06_pairplot.png\", dpi=200, bbox_inches=\"tight\")",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pairplot ile çoklu ilişki analizi' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "plt.close()",
+          "lineExplanation": "Açık matplotlib figürünü kapatıp belleği temizler.",
+          "tokens": [
+            {
+              "token": "plt.close()",
+              "explanation": "Mevcut figürü kapatır.",
+              "turkce": "Figür Kapatma",
+              "amac": "Art arda çok sayıda grafik üretirken bellek ve karışıklığı azaltmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pairplot ile çoklu ilişki analizi' bloğunda aktif figürü kapatır."
+        }
+      ],
+      "expectedOutput": "<seaborn.axisgrid.PairGrid at 0x7f102afe1d30>",
+      "plotImage": "h3-cls2-b013.png"
+    },
+    {
+      "id": "hafta3_siniflandirma2-b014",
+      "title": "Duplicate temizliği",
+      "blockExplanation": "Bu hücre, duplicate kayıt sayısını bulur; ardından bunları atıp yeni veri boyutunu yazdırır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "dup_count = df_adult.duplicated().sum()",
+          "lineExplanation": "Adult veri setindeki duplicate kayıt sayısını dup_count değişkenine yazar.",
+          "tokens": [
+            {
+              "token": "dup_count",
+              "explanation": "Duplicate sayısını saklayan değişkendir.",
+              "turkce": "Sayaç",
+              "amac": "Temizlik öncesi tekrar miktarını saklamak."
+            },
+            {
+              "token": ".duplicated().sum()",
+              "explanation": "Tekrarlayan satırların toplamını verir.",
+              "turkce": "Duplicate Sayımı",
+              "amac": "Temizlik öncesi sorunun boyutunu ölçmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Duplicate temizliği' bloğunda duplicate miktarını kaydeder."
+        },
+        {
+          "lineNumber": 2,
+          "code": "print(\"Duplicate kayıt sayısı:\", dup_count)",
+          "lineExplanation": "Bulunan duplicate sayısını terminale yazar.",
+          "tokens": [
+            {
+              "token": "dup_count",
+              "explanation": "Hesaplanan duplicate sayısıdır.",
+              "turkce": "Duplicate Sayısı",
+              "amac": "Kullanıcıya sonucu görünür kılmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Duplicate temizliği' bloğunda duplicate sayısını raporlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df_adult_clean = df_adult.drop_duplicates().copy()",
+          "lineExplanation": "Duplicate satırları atıp temizlenmiş tablonun kopyasını df_adult_clean olarak oluşturur.",
+          "tokens": [
+            {
+              "token": "drop_duplicates()",
+              "explanation": "Tekrarlayan satırları kaldırır.",
+              "turkce": "Duplicate Temizliği",
+              "amac": "Temiz bir modelleme tablosu üretmek."
+            },
+            {
+              "token": ".copy()",
+              "explanation": "Bağımsız kopya oluşturur.",
+              "turkce": "Kopya",
+              "amac": "Sonraki temizlikleri güvenle sürdürmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Duplicate temizliği' bloğunda duplicate temizliği sonrası yeni çalışma tablosunu üretir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "print(\"Yeni boyut:\", df_adult_clean.shape)",
+          "lineExplanation": "Duplicate temizliği sonrası yeni satır-sütun boyutunu terminale yazar.",
+          "tokens": [
+            {
+              "token": "df_adult_clean.shape",
+              "explanation": "Temizlenmiş tablonun boyut bilgisini verir.",
+              "turkce": "Yeni Boyut",
+              "amac": "Temizlik sonrası tablonun küçülmesini görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Duplicate temizliği' bloğunda duplicate temizliği sonrası boyutu raporlar."
+        }
+      ],
+      "expectedOutput": "Duplicate kayıt sayısı: 24\n\nYeni boyut: (32537, 15)"
+    },
+    {
+      "id": "hafta3_siniflandirma2-b015",
+      "title": "Gizli eksik değer olarak '?' kontrolü",
+      "blockExplanation": "Bu hücre, Adult veri setinde sık görülen soru işareti biçimli gizli eksikleri sayar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Bazı sürümlerde eksikler \"?\" olarak gelir",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Bazı sürümlerde eksikler \"?\" olarak gelir' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Bazı sürümlerde eksikler \"?\" olarak gelir",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gizli eksik değer olarak '?' kontrolü' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "question_missing = (df_adult_clean == \"?\").sum().sort_values(ascending=False)",
+          "lineExplanation": "df_adult_clean içindeki '?' değerlerini gizli eksik kabul edip sütun bazında sayar; sonra büyükten küçüğe sıralar.",
+          "tokens": [
+            {
+              "token": "(df_adult_clean == \"?\")",
+              "explanation": "Soru işareti olan hücreleri True yaparak işaretler.",
+              "turkce": "Gizli Eksik Tespiti",
+              "amac": "NaN olmayan ama eksik anlamı taşıyan değerleri yakalamak."
+            },
+            {
+              "token": "sort_values(ascending=False)",
+              "explanation": "Eksik sayısını yüksekten düşüğe sıralar.",
+              "turkce": "Sıralama",
+              "amac": "En problemli sütunları üstte görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gizli eksik değer olarak '?' kontrolü' bloğunda gizli eksikleri sütun bazında sıralar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "print(question_missing[question_missing > 0])",
+          "lineExplanation": "Sadece gerçekten soru işareti içeren sütunları terminale yazar.",
+          "tokens": [
+            {
+              "token": "question_missing > 0",
+              "explanation": "Pozitif eksik sayısı olan sütunları filtreler.",
+              "turkce": "Filtre",
+              "amac": "Sadece sorunlu sütunları göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gizli eksik değer olarak '?' kontrolü' bloğunda gizli eksik barındıran sütunları görünür kılar."
+        }
+      ],
+      "expectedOutput": "occupation        1843\nworkclass         1836\nnative_country     582\ndtype: int64"
+    },
+    {
+      "id": "hafta3_siniflandirma2-b016",
+      "title": "'?' değerlerini NaN yapıp temizleme",
+      "blockExplanation": "Bu hücre, '?' değerlerini NaN'e çevirir, eksik sayılarını gösterir ve satır bazında dropna ile temizler.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df_adult_clean = df_adult_clean.replace(\"?\", np.nan)",
+          "lineExplanation": "Soru işareti biçimindeki gizli eksikleri gerçek NaN değerlerine dönüştürür.",
+          "tokens": [
+            {
+              "token": "replace(\"?\", np.nan)",
+              "explanation": "Soru işaretlerini NaN ile değiştirir.",
+              "turkce": "NaN Dönüşümü",
+              "amac": "Pandas eksik veri araçlarının bu hücreleri tanımasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, ''?' değerlerini NaN yapıp temizleme' bloğunda gizli eksikleri pandas'ın anlayacağı NaN biçimine çevirir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "print(df_adult_clean.isnull().sum().sort_values(ascending=False).head(10))",
+          "lineExplanation": "NaN dönüşümünden sonra en çok eksik değer içeren ilk 10 sütunu terminale yazar.",
+          "tokens": [
+            {
+              "token": "isnull().sum()",
+              "explanation": "NaN sayılarını hesaplar.",
+              "turkce": "NaN Sayımı",
+              "amac": "Dönüşüm sonrası eksik yoğunluğunu görmek."
+            },
+            {
+              "token": "head(10)",
+              "explanation": "İlk 10 sonucu alır.",
+              "turkce": "İlk 10",
+              "amac": "En problemli sütunları daraltmak."
+            }
+          ],
+          "codeContext": "Bu satır, ''?' değerlerini NaN yapıp temizleme' bloğunda eksik dağılımının en yoğun olduğu sütunları listeler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "# Çok azsa satır bazında düşürmek mantıklı:",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Çok azsa satır bazında düşürmek mantıklı:' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Çok azsa satır bazında düşürmek mantıklı:",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, ''?' değerlerini NaN yapıp temizleme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "df_adult_clean = df_adult_clean.dropna().copy()",
+          "lineExplanation": "NaN içeren satırları atar ve temiz tablonun kopyasını yeniden oluşturur.",
+          "tokens": [
+            {
+              "token": "dropna()",
+              "explanation": "Eksik değer içeren satırları kaldırır.",
+              "turkce": "NaN Temizliği",
+              "amac": "Modelleme öncesi eksik satır bırakmamak."
+            },
+            {
+              "token": ".copy()",
+              "explanation": "Bağımsız kopya oluşturur.",
+              "turkce": "Kopya",
+              "amac": "Temiz tabloyu sonraki dönüşümler için saklamak."
+            }
+          ],
+          "codeContext": "Bu satır, ''?' değerlerini NaN yapıp temizleme' bloğunda NaN içeren satırları temizler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "print(\"NaN temizliği sonrası boyut:\", df_adult_clean.shape)",
+          "lineExplanation": "NaN temizliği sonrası veri setinin yeni boyutunu terminale yazar.",
+          "tokens": [
+            {
+              "token": "df_adult_clean.shape",
+              "explanation": "Temizlik sonrası boyut bilgisini verir.",
+              "turkce": "Yeni Boyut",
+              "amac": "NaN temizliğinin veri miktarına etkisini görmek."
+            }
+          ],
+          "codeContext": "Bu satır, ''?' değerlerini NaN yapıp temizleme' bloğunda NaN temizliği sonrası boyutu raporlar."
+        }
+      ],
+      "expectedOutput": "occupation        1843\nworkclass         1836\nnative_country     582\nfnlwgt               0\neducation            0\neducation_num        0\nage                  0\nmarital_status       0\nrelationship         0\nsex                  0\ndtype: int64\n\nNaN temizliği sonrası boyut: (30139, 15)"
+    },
+    {
+      "id": "hafta3_siniflandirma2-b017",
+      "title": "Capital gain/loss log dönüşümü",
+      "blockExplanation": "Bu hücre, çarpık capital_gain ve capital_loss sütunları için log dönüşümlü yeni sütunlar üretir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df_adult_clean[\"capital_gain_log\"] = np.log1p(df_adult_clean[\"capital_gain\"])",
+          "lineExplanation": "capital_gain için log dönüşümlü yeni sütun üretir.",
+          "tokens": [
+            {
+              "token": "np.log1p",
+              "explanation": "log(1+x) dönüşümü yapar.",
+              "turkce": "Log Dönüşüm",
+              "amac": "Çarpık kazanç dağılımını yumuşatmak."
+            },
+            {
+              "token": "df_adult_clean[\"capital_gain\"]",
+              "explanation": "Dönüştürülecek ham kazanç sütunudur.",
+              "turkce": "Kaynak Sütun",
+              "amac": "Yeni log sütunu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Capital gain/loss log dönüşümü' bloğunda capital_gain için log sütunu üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df_adult_clean[\"capital_loss_log\"] = np.log1p(df_adult_clean[\"capital_loss\"])",
+          "lineExplanation": "capital_loss için log dönüşümlü yeni sütun üretir.",
+          "tokens": [
+            {
+              "token": "np.log1p",
+              "explanation": "log(1+x) dönüşümü yapar.",
+              "turkce": "Log Dönüşüm",
+              "amac": "Çarpık loss dağılımını yumuşatmak."
+            },
+            {
+              "token": "df_adult_clean[\"capital_loss\"]",
+              "explanation": "Dönüştürülecek ham kayıp sütunudur.",
+              "turkce": "Kaynak Sütun",
+              "amac": "Yeni log sütunu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Capital gain/loss log dönüşümü' bloğunda capital_loss için log sütunu üretir."
+        }
+      ],
+      "expectedOutput": "Bu hücre çalışınca görünür bir metin basılmaz; capital gain/loss log dönüşümü adımının sonucu bellekte tutulur."
+    },
+    {
+      "id": "hafta3_siniflandirma2-b018",
+      "title": "education ve education_num ilişkisini görme",
+      "blockExplanation": "Bu hücre, kategorik education ile sayısal education_num alanlarının aynı bilgiyi ne kadar taşıdığını örnek satırlarda gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# education (kategori) ve education_num (sayısal) benzer bilgiyi taşır.",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'education (kategori) ve education_num (sayısal) benzer bilgiyi taşır.' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# education (kategori) ve education_num (sayısal) benzer bilgiyi taşır.",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'education ve education_num ilişkisini görme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "# Modelleme için genelde birini seçmek iyi olur.",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Modelleme için genelde birini seçmek iyi olur.' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Modelleme için genelde birini seçmek iyi olur.",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'education ve education_num ilişkisini görme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df_adult_clean[[\"education\", \"education_num\"]].head()",
+          "lineExplanation": "education ve education_num sütunlarının ilk satırlarını yan yana göstererek benzer bilgi taşıyıp taşımadıklarını kontrol ettirir.",
+          "tokens": [
+            {
+              "token": "[\"education\", \"education_num\"]",
+              "explanation": "Karşılaştırılacak iki sütunu birlikte seçer.",
+              "turkce": "Sütun Çifti",
+              "amac": "Aynı bilgiyi taşıyan sütunları birlikte görmek."
+            },
+            {
+              "token": ".head()",
+              "explanation": "İlk satırları gösterir.",
+              "turkce": "Önizleme",
+              "amac": "İki sütunun örnek düzeyde nasıl hizalandığını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'education ve education_num ilişkisini görme' bloğunda education ve education_num alanlarını birlikte önizler."
+        }
+      ],
+      "expectedOutput": "   education  education_num\n0  Bachelors             13\n1  Bachelors             13\n2    HS-grad              9\n3       11th              7\n4  Bachelors             13"
+    },
+    {
+      "id": "hafta3_siniflandirma2-b019",
+      "title": "income_bin üretme",
+      "blockExplanation": "Bu hücre, gelir hedefini 0-1 etiketine çevirir ve normalize edilmiş sınıf oranlarını verir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "# Target mapping (etiket)",
+          "lineExplanation": "Bu yorum satırı, hücrenin bu bölümünde ne yapılacağını 'Target mapping (etiket)' ifadesiyle not düşer.",
+          "tokens": [
+            {
+              "token": "# Target mapping (etiket)",
+              "explanation": "Python tarafından çalıştırılmayan, sadece okuyucuya bağlam veren yorum satırıdır.",
+              "turkce": "Yorum",
+              "amac": "Kodun niyetini ve sonraki adımı açık etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'income_bin üretme' bloğunda hücrenin niyetini metin olarak açıklar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df_adult_clean[\"income_bin\"] = df_adult_clean[\"income\"].apply(lambda x: 1 if \">\" in x else 0)",
+          "lineExplanation": "income sütunundaki >50K / <=50K etiketlerini 1 ve 0 biçimine çevirerek ikili hedef sütunu üretir.",
+          "tokens": [
+            {
+              "token": "df_adult_clean[\"income\"]",
+              "explanation": "Orijinal gelir hedef sütunudur.",
+              "turkce": "Kaynak Hedef",
+              "amac": "Metinsel hedefi sayısala çevirmek."
+            },
+            {
+              "token": "lambda x: 1 if \">\" in x else 0",
+              "explanation": "İçinde > geçen gelir etiketini 1, diğerlerini 0 yapar.",
+              "turkce": "Koşullu Etiketleme",
+              "amac": "Binary hedef sütunu üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'income_bin üretme' bloğunda gelir hedefini ikili etiket haline getirir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df_adult_clean[\"income_bin\"].value_counts(normalize=True)",
+          "lineExplanation": "income_bin sınıflarının normalize edilmiş oranlarını hesaplar.",
+          "tokens": [
+            {
+              "token": "value_counts(normalize=True)",
+              "explanation": "Sınıf oranlarını frekans yerine oran olarak verir.",
+              "turkce": "Oran Hesabı",
+              "amac": "Yeni binary hedefin dağılımını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'income_bin üretme' bloğunda binary hedefin sınıf oranlarını çıkarır."
+        }
+      ],
+      "expectedOutput": "income_bin\n0    0.750954\n1    0.249046\nName: proportion, dtype: float64"
+    }
+  ],
+  "csvOptions": {
+    "header": false,
+    "columns": [
+      "age",
+      "workclass",
+      "fnlwgt",
+      "education",
+      "education_num",
+      "marital_status",
+      "occupation",
+      "relationship",
+      "race",
+      "sex",
+      "capital_gain",
+      "capital_loss",
+      "hours_per_week",
+      "native_country",
+      "income"
+    ]
+  }
+}

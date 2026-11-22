@@ -1,0 +1,6 @@
+---
+tags:
+  - akademi/dersler/muhasebe
+---
+- İşletmenin uzun vadede kullanmayı amaçladığı, bir yıldan daha uzun süre işletmede kalacak olan varlıklar.
+	- **Örneğin:** **[[Taşıtlar]]**, **[[Binalar]]**

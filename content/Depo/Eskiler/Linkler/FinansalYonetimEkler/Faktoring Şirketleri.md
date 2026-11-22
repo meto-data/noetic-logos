@@ -1,0 +1,10 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
+- Firmaların **kısa vadeli, senetsiz (*faturalı*) yurt içi ve yurt dışı alacakların** devralarak karşılığında anında nakit sağlayan kurumlardır.
+	- Bkz. [[faktoring]]
+- Genellikle 30-180 gün vadelidir.
+- **[[rücusuz|Rüculu]]** veya **[[rücusuz]]** olabilir.
+- **İşleyiş**: Bir işletme vadeli olarak sattığı bir malın faturasını faktoring şirketine götürür. Faktoring şirketi fatura tutarından kendi komisyonunu ve faizini (*[[iskonto]]*) düştükten sonra kalan tutarı işletmeye peşin olarak öder. Vadesi geldiğindeyse alacağı müşteriden kendisi tahsil eder.
+- **Amacı**: İşletmenin nakit akışını hızlandırır, işletme sermayesi ihtiyacını karşılar.

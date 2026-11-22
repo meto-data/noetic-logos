@@ -1,0 +1,366 @@
+{
+  "id": "veri_donusum",
+  "title": "Veri Dönüşüm İşlemleri",
+  "week": 2,
+  "csvFiles": [],
+  "blocks": [
+    {
+      "id": "veri_donusum-b001",
+      "title": "Min-Max Normalizasyon",
+      "blockExplanation": "Gelir sütununu 0 ile 1 arasına sıkıştırarak ölçek farkını azaltır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "from sklearn.preprocessing import MinMaxScaler",
+          "lineExplanation": "Min-Max ölçekleme yapacak `MinMaxScaler` sınıfını scikit-learn içinden içe aktarır.",
+          "tokens": [
+            {
+              "token": "MinMaxScaler",
+              "explanation": "Sayısal sütunu minimum 0, maksimum 1 olacak şekilde ölçekleyen sınıftır.",
+              "turkce": "Min-Max Ölçekleyiçi",
+              "amac": "Gelir değerlerini ortak aralığa taşımak."
+            }
+          ],
+          "codeContext": "Bu satır, sayısal sütunu belirli bir aralığa taşımak için kullanılacak dönüşüm aracını hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import pandas as pd",
+          "lineExplanation": "Pandas'ı içe aktarır; örnek gelir tablosunu DataFrame olarak kuracağız.",
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "DataFrame tabanlı veri okuma ve tablo işlemleri için kullanılan ana kütüphanedir.",
+              "turkce": "Veri Analizi",
+              "amac": "CSV dosyalarını tabloya almak ve sütun bazlı işlem yapmak.",
+              "detay": "Bu projedeki çoğu veri manipülasyonu pandas üzerinden yürür."
+            }
+          ],
+          "codeContext": "Bu satır, dönüşüm uygulanacak küçük örnek veri setini tablo biçiminde oluşturmak için gereklidir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df = pd.DataFrame({\"Gelir\": [2500, 3000, 4000, 10000, 15000]})",
+          "lineExplanation": "Gelir sütunundan oluşan örnek DataFrame'i kurar.",
+          "tokens": [
+            {
+              "token": "\"Gelir\": [2500, 3000, 4000, 10000, 15000]",
+              "explanation": "Örnek gelir sütununu ve değerlerini tanımlar.",
+              "turkce": "Gelir Verisi",
+              "amac": "Dönüşümlerin etkisini küçük örnek tablo üzerinde göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, farklı ölçeklerde gelir değerleri içeren küçük bir örnek veri seti oluşturur."
+        },
+        {
+          "lineNumber": 4,
+          "code": "scaler = MinMaxScaler()",
+          "lineExplanation": "Varsayılan ayarlarla bir MinMaxScaler nesnesi oluşturur.",
+          "tokens": [
+            {
+              "token": "MinMaxScaler()",
+              "explanation": "Yeni bir min-max ölçekleyiçi nesnesi oluşturur.",
+              "turkce": "Scaler Nesnesi",
+              "amac": "Veriyi fit edip dönüştürmeye hazırlanmak."
+            }
+          ],
+          "codeContext": "Bu satır, gelir değerlerini minimumu 0, maksimumu 1 olacak şekilde ölçekleyecek dönüştürücüyü hazırlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "df[\"Gelir_Normalize\"] = scaler.fit_transform(df[[\"Gelir\"]])",
+          "lineExplanation": "Gelir sütununu öğrenip dönüştürerek sonucu yeni `Gelir_Normalize` sütununa yazar.",
+          "tokens": [
+            {
+              "token": "fit_transform(df[[\"Gelir\"]])",
+              "explanation": "Gelir sütununu öğrenip aynı adımda dönüştürür.",
+              "turkce": "Fit + Transform",
+              "amac": "Ölçekleyiçiyi veri üzerinde uygulamak."
+            },
+            {
+              "token": "df[[\"Gelir\"]]",
+              "explanation": "Gelir sütununu 2 boyutlu tablo biçiminde seçer.",
+              "turkce": "Sütun Seçimi",
+              "amac": "Scikit-learn'ün beklediği girdi biçimini sağlamak."
+            },
+            {
+              "token": "\"Gelir_Normalize\"",
+              "explanation": "Dönüşen sonucu yazacağımız yeni sütun adıdır.",
+              "turkce": "Yeni Sütun",
+              "amac": "Orijinal değerleri koruyup dönüşüm sonucunu ayrıca saklamak."
+            }
+          ],
+          "codeContext": "Bu satır, en küçük gelir değerini 0'a, en büyük gelir değerini 1'e taşıyıp aradaki değerleri doğrusal olarak ölçekler."
+        },
+        {
+          "lineNumber": 6,
+          "code": "df",
+          "lineExplanation": "Orijinal gelir ile normalize edilmiş gelir sütununu birlikte gösterir.",
+          "tokens": [
+            {
+              "token": "df",
+              "explanation": "O anki `df` DataFrame'ini notebook çıktısı olarak gösterir.",
+              "turkce": "Tablo Çıktısı",
+              "amac": "İşlem öncesi veya sonrası tabloyu görmek."
+            }
+          ],
+          "codeContext": "Bu satır, normalizasyon öncesi ve sonrası değerleri aynı tabloda karşılaştırmalı olarak görünür kılar."
+        }
+      ],
+      "expectedOutput": "Gelir  Gelir_Normalize\n0   2500             0.00\n1   3000             0.04\n2   4000             0.12\n3  10000             0.60\n4  15000             1.00"
+    },
+    {
+      "id": "veri_donusum-b002",
+      "title": "Standardizasyon (Z-Score)",
+      "blockExplanation": "Gelir sütununu ortalaması 0, standart sapması 1 olacak biçimde dönüştürür.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "from sklearn.preprocessing import StandardScaler",
+          "lineExplanation": "Z-score standardizasyonu yapacak `StandardScaler` sınıfını içe aktarır.",
+          "tokens": [
+            {
+              "token": "StandardScaler",
+              "explanation": "Sütunu ortalaması 0, standart sapması 1 olacak biçimde dönüştüren sınıftır.",
+              "turkce": "Z-Score Ölçekleyiçi",
+              "amac": "Gelir değerlerini standartlaştırmak."
+            }
+          ],
+          "codeContext": "Bu satır, sayısal sütunu ortalama ve standart sapma üzerinden dönüştürmek için gerekli aracı hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "scaler = StandardScaler()",
+          "lineExplanation": "Varsayılan ayarlarla bir StandardScaler nesnesi oluşturur.",
+          "tokens": [
+            {
+              "token": "StandardScaler()",
+              "explanation": "Yeni bir standardizasyon nesnesi oluşturur.",
+              "turkce": "Scaler Nesnesi",
+              "amac": "Gelir sütununu z-score mantığıyla dönüştürmek."
+            }
+          ],
+          "codeContext": "Bu satır, gelir dağılımını z-score mantığıyla yeniden ölçekleyecek dönüştürücüyü hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df[\"Gelir_Standardize\"] = scaler.fit_transform(df[[\"Gelir\"]])",
+          "lineExplanation": "Gelir sütununu standartlaştırıp sonucu `Gelir_Standardize` sütununa yazar.",
+          "tokens": [
+            {
+              "token": "fit_transform(df[[\"Gelir\"]])",
+              "explanation": "Gelir sütununu standartlaştırıp yeni skora dönüştürür.",
+              "turkce": "Standardizasyon",
+              "amac": "Her değeri ortalamadan sapmasına göre yeniden ölçeklemek."
+            },
+            {
+              "token": "\"Gelir_Standardize\"",
+              "explanation": "Z-score sonuçlarını yazdığımız yeni sütun adıdır.",
+              "turkce": "Yeni Sütun",
+              "amac": "Standartlaştırma sonucunu ayrı kolon olarak saklamak."
+            }
+          ],
+          "codeContext": "Bu satır, her gelir değerini sütunun ortalamasından ne kadar uzak olduğuna göre yeni bir skora dönüştürür."
+        },
+        {
+          "lineNumber": 4,
+          "code": "df",
+          "lineExplanation": "Normalize edilmiş ve standartlaştırılmış gelir sütunlarını birlikte gösterir.",
+          "tokens": [
+            {
+              "token": "df",
+              "explanation": "O anki `df` DataFrame'ini notebook çıktısı olarak gösterir.",
+              "turkce": "Tablo Çıktısı",
+              "amac": "İşlem öncesi veya sonrası tabloyu görmek."
+            }
+          ],
+          "codeContext": "Bu satır, aynı tablo içinde hem min-max hem de z-score dönüşümünün sonucunu yan yana karşılaştırmamızı sağlar."
+        }
+      ],
+      "expectedOutput": "Gelir  Gelir_Normalize  Gelir_Standardize\n0   2500             0.00          -0.904959\n1   3000             0.04          -0.802123\n2   4000             0.12          -0.596450\n3  10000             0.60           0.637585\n4  15000             1.00           1.665947"
+    },
+    {
+      "id": "veri_donusum-b003",
+      "title": "Log Dönüşümü",
+      "blockExplanation": "Pozitif gelir değerlerine log dönüşümü uygulayarak ölçek farkını sıkıştırır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import numpy as np",
+          "lineExplanation": "NumPy kütüphanesini içe aktarır; logaritma dönüşümü için kullanılacaktır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "Sayısal hesaplama ve log gibi matematiksel işlemler için kullanılan kütüphanedir.",
+              "turkce": "Sayısal Hesaplama",
+              "amac": "Log dönüşümü ve rastgele üretim yapmak.",
+              "detay": "Bu satır farklı bloklarda aynı kütüphaneyi farklı amaçlarla kullanır."
+            }
+          ],
+          "codeContext": "Bu satır, gelir değerlerine log fonksiyonu uygulayabilmek için gerekli matematiksel aracı yükler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df[\"Gelir_Log\"] = np.log(df[\"Gelir\"])",
+          "lineExplanation": "Gelir sütunundaki her değerin doğal logaritmasını alıp yeni `Gelir_Log` sütununa yazar.",
+          "tokens": [
+            {
+              "token": "np.log(df[\"Gelir\"])",
+              "explanation": "Gelir sütunundaki her değerin doğal logaritmasını hesaplar.",
+              "turkce": "Log Dönüşümü",
+              "amac": "Büyük değerlerin etkisini sıkıştırmak."
+            },
+            {
+              "token": "\"Gelir_Log\"",
+              "explanation": "Log dönüşümünün yazıldığı yeni sütundur.",
+              "turkce": "Yeni Sütun",
+              "amac": "Orijinal gelirle dönüşen geliri birlikte saklamak."
+            }
+          ],
+          "codeContext": "Bu satır, özellikle büyük değerlerin etkisini sıkıştırarak çarpık dağılımı daha dengeli hale getirebilecek log dönüşümünü uygular."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df",
+          "lineExplanation": "Log dönüşümü eklenmiş son tabloyu gösterir.",
+          "tokens": [
+            {
+              "token": "df",
+              "explanation": "O anki `df` DataFrame'ini notebook çıktısı olarak gösterir.",
+              "turkce": "Tablo Çıktısı",
+              "amac": "İşlem öncesi veya sonrası tabloyu görmek."
+            }
+          ],
+          "codeContext": "Bu satır, aynı gelir değerlerinin orijinal, normalize, standardize ve log sürümlerini birlikte karşılaştırmalı olarak ekrana basar."
+        }
+      ],
+      "expectedOutput": "Gelir  Gelir_Normalize  Gelir_Standardize  Gelir_Log\n0   2500             0.00          -0.904959   7.824046\n1   3000             0.04          -0.802123   8.006368\n2   4000             0.12          -0.596450   8.294050\n3  10000             0.60           0.637585   9.210340\n4  15000             1.00           1.665947   9.615805"
+    },
+    {
+      "id": "veri_donusum-b004",
+      "title": "One-Hot Encoding",
+      "blockExplanation": "Şehir kategorilerini ayrı 0-1 sütunlara ayırarak makine tarafından okunabilir hale getirir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df_kategori = pd.DataFrame({\"Şehir\": [\"İstanbul\", \"Ankara\", \"İzmir\", \"İstanbul\"]})",
+          "lineExplanation": "Şehir isimlerinden oluşan küçük kategorik örnek tabloyu kurar.",
+          "tokens": [
+            {
+              "token": "\"Şehir\": [...]",
+              "explanation": "Kategorik şehir değerlerinden oluşan örnek sütunu tanımlar.",
+              "turkce": "Kategorik Veri",
+              "amac": "Encoding işlemlerini küçük örnek üzerinde göstermek."
+            }
+          ],
+          "codeContext": "Bu satır, kategorik veri dönüşümünü göstermek için şehir adlarından oluşan örnek bir DataFrame oluşturur."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df_encoded = pd.get_dummies(df_kategori, columns=[\"Şehir\"])",
+          "lineExplanation": "Şehir sütununu her şehir için ayrı bir 0-1 sütuna dönüştürür.",
+          "tokens": [
+            {
+              "token": "pd.get_dummies(...)",
+              "explanation": "Şehir kategorilerini ayrı 0-1 sütunlara ayırır.",
+              "turkce": "One-Hot Encoding",
+              "amac": "Metin kategorilerini makinenin okuyacağı ayrı sütunlara çevirmek."
+            },
+            {
+              "token": "columns=[\"Şehir\"]",
+              "explanation": "Dönüştürülecek kategorik sütunu belirtir.",
+              "turkce": "Hedef Sütun",
+              "amac": "Hangi kolonun encode edileceğini seçmek."
+            }
+          ],
+          "codeContext": "Bu satır, İstanbul, Ankara ve İzmir kategorilerini ayrı dummy sütunlar olarak açarak one-hot encoding uygular."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df_encoded",
+          "lineExplanation": "One-hot encoding sonucu oluşan yeni sütun yapısını gösterir.",
+          "tokens": [
+            {
+              "token": "df_encoded",
+              "explanation": "One-hot encoding sonucu oluşan yeni tabloyu gösterir.",
+              "turkce": "Çıktı Tablosu",
+              "amac": "Yeni şehir sütunlarının nasıl açıldığını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, her satırın ilgili şehri için `True`, diğer şehirler için `False` aldığı dönüşüm çıktısını görünür kılar."
+        }
+      ],
+      "expectedOutput": "Şehir_Ankara  Şehir_İstanbul  Şehir_İzmir\n0         False            True        False\n1          True           False        False\n2         False           False         True\n3         False            True        False"
+    },
+    {
+      "id": "veri_donusum-b005",
+      "title": "Label Encoding",
+      "blockExplanation": "Şehir kategorilerini tek sütunda sayısal etiketlere çevirir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "from sklearn.preprocessing import LabelEncoder",
+          "lineExplanation": "Kategorileri tek sütunda sayılara çevirecek `LabelEncoder` sınıfını içe aktarır.",
+          "tokens": [
+            {
+              "token": "LabelEncoder",
+              "explanation": "Kategorileri tek sütunda sayısal etiketlere çeviren sınıftır.",
+              "turkce": "Etiket Kodlayıcı",
+              "amac": "Şehir adlarını 0,1,2 gibi kodlara çevirmek."
+            }
+          ],
+          "codeContext": "Bu satır, şehir etiketlerini 0, 1, 2 gibi tek kolonluk numerik etiketlere dönüştürmek için gereken aracı hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "encoder = LabelEncoder()",
+          "lineExplanation": "Yeni bir LabelEncoder nesnesi oluşturur.",
+          "tokens": [
+            {
+              "token": "LabelEncoder()",
+              "explanation": "Yeni bir etiket kodlayıcı nesnesi oluşturur.",
+              "turkce": "Kodlayıcı Nesne",
+              "amac": "Kategori-sayı eşlemesini başlatmak."
+            }
+          ],
+          "codeContext": "Bu satır, şehir kategorilerini öğrenip sayısal etiket eşlemesi kuracak kodlayıcıyı başlatır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df_kategori[\"Şehir_Encoded\"] = encoder.fit_transform(df_kategori[\"Şehir\"])",
+          "lineExplanation": "Şehir sütunundaki benzersiz etiketleri öğrenip bunları `Şehir_Encoded` adlı yeni sayısal sütuna yazar.",
+          "tokens": [
+            {
+              "token": "encoder.fit_transform(df_kategori[\"Şehir\"])",
+              "explanation": "Şehir değerlerini öğrenip tek sütunda sayısal etiketlere dönüştürür.",
+              "turkce": "Label Encoding",
+              "amac": "Kategorik şehirleri tek kolonluk numerik forma çevirmek."
+            },
+            {
+              "token": "\"Şehir_Encoded\"",
+              "explanation": "Sonuç etiketlerinin yazıldığı yeni sütundur.",
+              "turkce": "Yeni Sütun",
+              "amac": "Kodlanan değerleri orijinal şehir adıyla birlikte saklamak."
+            }
+          ],
+          "codeContext": "Bu satır, şehir adlarını tek kolonda sayısal kodlara dönüştürür; her kategori bir integer etiket alır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "df_kategori",
+          "lineExplanation": "Orijinal şehir adları ile sayısal etiketlerini aynı tabloda gösterir.",
+          "tokens": [
+            {
+              "token": "df_kategori",
+              "explanation": "Orijinal şehir sütunu ile yeni kodlanmış sütunu birlikte gösterir.",
+              "turkce": "Çıktı Tablosu",
+              "amac": "Label encoding sonucunu doğrudan görmek."
+            }
+          ],
+          "codeContext": "Bu satır, label encoding sonrası her şehir adının hangi sayısal koda karşılık geldiğini çıktı olarak görünür kılar."
+        }
+      ],
+      "expectedOutput": "Şehir  Şehir_Encoded\n0  İstanbul              1\n1    Ankara              0\n2     İzmir              2\n3  İstanbul              1"
+    }
+  ]
+}

@@ -1,0 +1,2350 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurumsal Bilişim Sistemleri Öğrenme Uygulaması</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 20px auto;
+            overflow: hidden;
+            padding: 25px;
+            background-color: #fff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            flex-grow: 1;
+        }
+
+        header {
+            background: #1a5276;
+            color: #eaf2f8;
+            padding: 1.5rem 0;
+            text-align: center;
+            border-bottom: #2980b9 5px solid;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.4em;
+            font-weight: 600;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.1em;
+            color: #bdc3c7;
+        }
+
+        nav {
+            background: #2c3e50;
+            color: #fff;
+            padding: 0;
+            /* Adjusted padding for ul based nav */
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 0 0 10px 10px;
+            display: flex;
+            /* Added for centering ul */
+            justify-content: center;
+            /* Added for centering ul */
+        }
+
+        nav ul {
+            /* New style for the navigation list */
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            /* Allow wrapping on smaller screens */
+            justify-content: center;
+        }
+
+        nav ul li {
+            /* New style for list items */
+            margin: 0;
+        }
+
+        nav ul li a {
+            /* New style for navigation links */
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            /* Adjust padding as needed */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1em;
+            /* Consistent with old button font-size */
+            font-weight: 500;
+            /* Consistent with old button font-weight */
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            /* Combined hover and active styles */
+            background: #2980b9;
+            transform: translateY(-2px);
+            /* Subtle lift effect */
+        }
+
+        /* Dropdown Menu Styles */
+        nav ul li.dropdown {
+            position: relative;
+            /* Needed for absolute positioning of submenu */
+        }
+
+        nav ul li.dropdown>a::after {
+            /* Add dropdown arrow */
+            content: ' ▾';
+            /* Simple down arrow */
+            font-size: 0.8em;
+        }
+
+        nav ul ul.submenu {
+            display: none;
+            /* Hidden by default */
+            position: absolute;
+            top: 100%;
+            /* Position below the parent */
+            left: 0;
+            background-color: #34495e;
+            /* Slightly lighter than main nav for distinction */
+            padding: 0;
+            min-width: 200px;
+            /* Or adjust as needed */
+            z-index: 1000;
+            border-radius: 0 0 6px 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul li.dropdown:hover>ul.submenu {
+            display: block;
+            /* Show on hover */
+        }
+
+        nav ul ul.submenu li {
+            width: 100%;
+        }
+
+        nav ul ul.submenu li a {
+            padding: 0.7rem 1rem;
+            white-space: nowrap;
+            /* Prevent text wrapping */
+        }
+
+        nav ul ul.submenu li a:hover,
+        nav ul ul.submenu li a.active {
+            /* Style for active/hover submenu items */
+            background-color: #2980b9;
+        }
+
+        /* End Dropdown Menu Styles */
+
+        /* Remove old button styles or ensure they don't conflict if parts are reused by other elements */
+        /* nav button { ... } */
+        /* nav button:hover, nav button.active { ... } */
+
+        .section {
+            display: none;
+            padding: 25px;
+            border: 1px solid #dfe6e9;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            background-color: #fdfefe;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #1a5276;
+            border-bottom: 3px solid #2980b9;
+            padding-bottom: 15px;
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-top: 25px;
+        }
+
+        h4 {
+            color: #566573;
+            font-size: 1.2em;
+        }
+
+        .info-box {
+            background-color: #e8f6f3;
+            border-left: 6px solid #1abc9c;
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .info-box ul {
+            padding-left: 20px;
+        }
+
+        .info-box li {
+            margin-bottom: 8px;
+        }
+
+        .game-container,
+        .interactive-area {
+            margin-bottom: 25px;
+        }
+
+        .game-question,
+        .quiz-question {
+            background-color: #f8f9fa;
+            padding: 18px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #e5e7e9;
+        }
+
+        .game-options,
+        .quiz-options {
+            margin-top: 10px;
+        }
+
+        .game-options label,
+        .quiz-options label {
+            display: block;
+            background-color: #e9ecef;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s, border-left 0.2s;
+            border-left: 4px solid transparent;
+        }
+
+        .game-options label:hover,
+        .quiz-options label:hover {
+            background-color: #d1d9e0;
+            border-left: 4px solid #2980b9;
+        }
+
+        .game-options input[type="radio"],
+        .quiz-options input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.1);
+        }
+
+        .game-button,
+        .quiz-button {
+            background-color: #27ae60;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.05em;
+            margin-right: 12px;
+            transition: background-color 0.3s, box-shadow 0.2s;
+        }
+
+        .game-button:hover,
+        .quiz-button:hover {
+            opacity: 0.9;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-button.reset,
+        .quiz-button.reset {
+            background-color: #c0392b;
+        }
+
+        .feedback {
+            padding: 15px;
+            margin-top: 18px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-align: center;
+            font-size: 1.05em;
+        }
+
+        .feedback.correct {
+            background-color: #d1f2eb;
+            color: #0e6251;
+            border: 1px solid #a3e4d7;
+        }
+
+        .feedback.incorrect {
+            background-color: #fdedec;
+            color: #943126;
+            border: 1px solid #fadbd8;
+        }
+
+        .game-options label.incorrect-choice {
+            background-color: #fdedec !important;
+            border-left: 4px solid #c0392b !important;
+            color: #943126 !important;
+        }
+
+        .game-options label.correct-choice {
+            background-color: #d1f2eb !important;
+            border-left: 4px solid #27ae60 !important;
+            color: #0e6251 !important;
+        }
+
+        .game-options label.correct-answer-highlight {
+            outline: 2px dashed #1e8449;
+            outline-offset: 1px;
+            box-shadow: 0 0 5px rgba(39, 174, 96, 0.5);
+        }
+
+        #scoreBoard {
+            background-color: #eaf2f8;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 25px;
+        }
+
+        #scoreBoard h3 {
+            margin-top: 0;
+            color: #1a5276;
+        }
+
+        #scoreBoard p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        #scoreBoard strong {
+            color: #2980b9;
+        }
+
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .quiz-navigation button {
+            background-color: #566573;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.95em;
+        }
+
+        .quiz-navigation button:hover {
+            background-color: #2c3e50;
+        }
+
+        .quiz-navigation button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .learn-more-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #eafaf1;
+            color: #1e8449;
+            border: 1px solid #a9dfbf;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .learn-more-link:hover {
+            background-color: #d4efdf;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        th,
+        td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #566573;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tr:hover {
+            background-color: #e9ecef;
+        }
+
+        .pyramid-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f4f6f6;
+            border-radius: 8px;
+        }
+
+        .pyramid-level {
+            background-color: #aed6f1;
+            color: #154360;
+            padding: 10px 20px;
+            margin-bottom: 5px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 4px;
+            width: 80%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .pyramid-level.strategic {
+            background-color: #85c1e9;
+            width: 60%;
+        }
+
+        .pyramid-level.management {
+            background-color: #aed6f1;
+            width: 80%;
+        }
+
+        .pyramid-level.operational {
+            background-color: #d6eaf8;
+            width: 100%;
+        }
+
+        .pyramid-level small {
+            display: block;
+            font-weight: normal;
+            font-size: 0.9em;
+            color: #2874a6;
+        }
+
+        .detailed-pyramid-representation {
+            border: 1px solid #bdc3c7;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            grid-template-rows: auto auto auto auto;
+            grid-template-areas:
+                "kind-title . group-title"
+                "kind-labels core-pyramid group-labels"
+                "functional-areas functional-areas functional-areas";
+            gap: 10px;
+            align-items: stretch;
+        }
+
+        .pyramid-section-title {
+            font-weight: bold;
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .pyramid-kind-title-area {
+            grid-area: kind-title;
+            text-align: center;
+        }
+
+        .pyramid-core-area {
+            grid-area: core-pyramid;
+        }
+
+        .pyramid-group-title-area {
+            grid-area: group-title;
+            text-align: center;
+        }
+
+        .pyramid-kind-labels-area {
+            grid-area: kind-labels;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: right;
+            font-size: 0.9em;
+            padding-right: 15px;
+        }
+
+        .pyramid-kind-labels-area>.level-label-group {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            color: #34495e;
+            padding: 5px 0;
+        }
+
+        .pyramid-kind-labels-area>.level-label-group:nth-child(1) {
+            min-height: 60px;
+        }
+
+        .pyramid-kind-labels-area>.level-label-group:nth-child(2) {
+            min-height: 80px;
+        }
+
+        .pyramid-kind-labels-area>.level-label-group:nth-child(3) {
+            min-height: 60px;
+        }
+
+        .pyramid-core-structure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .pyramid-core-level-detailed {
+            border: 1px solid #aed6f1;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            text-align: center;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
+            color: #154360;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 50px;
+        }
+
+        .strategic-core-detailed {
+            width: 65%;
+            background-color: #85c1e9;
+            min-height: 60px;
+        }
+
+        .management-core-detailed {
+            width: 85%;
+            background-color: #aed6f1;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 10px;
+            min-height: 80px;
+        }
+
+        .management-core-detailed>div {
+            flex: 1;
+            padding: 10px;
+            background-color: #d6eaf8;
+            border: 1px solid #b8d7f3;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .operational-core-detailed {
+            width: 100%;
+            background-color: #d6eaf8;
+            min-height: 60px;
+        }
+
+        .system-block-name {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1.05em;
+        }
+
+        .system-block-desc {
+            font-size: 0.85em;
+            color: #2874a6;
+        }
+
+        .pyramid-group-labels-area {
+            grid-area: group-labels;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left;
+            font-size: 0.9em;
+            padding-left: 15px;
+        }
+
+        .pyramid-group-labels-area>.level-label-group {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            /* Vertically center text */
+            justify-content: flex-start;
+            /* Text to the left */
+            color: #34495e;
+            padding: 5px 0;
+        }
+
+        .pyramid-group-labels-area>.level-label-group:nth-child(1) {
+            min-height: 60px;
+        }
+
+        .pyramid-group-labels-area>.level-label-group:nth-child(2) {
+            min-height: 80px;
+        }
+
+        .pyramid-group-labels-area>.level-label-group:nth-child(3) {
+            min-height: 60px;
+        }
+
+
+        .functional-areas-detailed-row {
+            grid-area: functional-areas;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #2980b9;
+            /* Stronger separator */
+        }
+
+        .functional-area-item-detailed {
+            flex: 1;
+            text-align: center;
+            font-size: 0.9em;
+            padding: 10px 5px;
+            background-color: #eaf2f8;
+            /* Light background for items */
+            border: 1px solid #dfe6e9;
+            border-radius: 6px;
+            margin: 0 5px;
+            /* Spacing between items */
+            color: #1a5276;
+        }
+
+        .functional-area-item-detailed strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1em;
+        }
+
+        .functional-area-item-detailed small {
+            font-size: 0.9em;
+            color: #566573;
+        }
+
+
+        /* Mobil Uyum */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            nav button {
+                padding: 10px 15px;
+                font-size: 0.95em;
+            }
+
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.8rem;
+            background: #1a5276;
+            color: #eaf2f8;
+            margin-top: auto;
+        }
+
+        .nav-container {
+            background: #2c3e50;
+            /* Koyu mavi-gri */
+            color: #fff;
+            padding: 0.3rem 0;
+            margin-bottom: 30px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .nav-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-category {
+            flex: 1 1 300px;
+            margin: 5px;
+            position: relative;
+        }
+
+        .category-title {
+            background: #1a5276;
+            color: #f0f4f8;
+            padding: 8px 12px;
+            font-size: 0.9em;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 6px 6px 0 0;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .category-buttons {
+            background: #34495e;
+            padding: 8px;
+            border-radius: 0 0 6px 6px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .category-buttons button,
+        .category-buttons .button-link {
+            background: #566573;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin: 2px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .category-buttons button:hover,
+        .category-buttons .button-link:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-buttons button.active,
+        .category-buttons .button-link.active {
+            background: #1a5276;
+            /* Daha koyu mavi */
+            color: #f9e79f;
+            /* Açık sarı metin */
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+            border-bottom: 3px solid #f9e79f;
+        }
+
+        @media (max-width: 1200px) {
+            .nav-categories {
+                flex-wrap: wrap;
+            }
+
+        }
+
+        @media (max-width: 900px) {
+            .nav-categories {
+                flex-direction: column;
+            }
+
+            .nav-category {
+                flex: 1 1 100%;
+            }
+
+            .category-buttons {
+                flex-direction: column;
+            }
+
+            nav button,
+            nav .button-link {
+                font-size: 0.9em;
+                padding: 8px 12px;
+            }
+        }
+
+        .podcast-play-button {
+            background-color: #27ae60;
+            /* Green */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            /* Circular button */
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            /* Icon size */
+            line-height: 40px;
+            /* Center icon vertically */
+            text-align: center;
+            cursor: pointer;
+            margin-right: 10px;
+            /* Changed from margin-left */
+            transition: background-color 0.3s;
+            vertical-align: middle;
+            /* Align with heading */
+        }
+
+        .podcast-play-button:hover {
+            background-color: #2ecc71;
+            /* Lighter green */
+        }
+
+        .podcast-duration {
+            font-size: 0.9em;
+            margin-left: 5px;
+            color: #555;
+            vertical-align: middle;
+        }
+
+        .playback-speed-controls button {
+            background-color: #bdc3c7;
+            color: #2c3e50;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 8px;
+            margin-left: 5px;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: background-color 0.3s;
+            vertical-align: middle;
+        }
+
+        .playback-speed-controls button:hover {
+            background-color: #95a5a6;
+        }
+
+        .playback-speed-controls button.active-speed {
+            background-color: #3498db;
+            color: white;
+        }
+
+        /* Styles for pyramid synchronization */
+        .pyramid-section {
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+        }
+
+        .pyramid-highlight-dim .pyramid-section:not(.pyramid-highlight-active) {
+            opacity: 0.5;
+        }
+
+        .pyramid-highlight-active {
+            opacity: 1 !important;
+            /* Ensure active is fully visible */
+            border: 2px solid #e67e22;
+            /* A distinct but not overly aggressive color */
+            background-color: rgba(230, 126, 34, 0.05);
+            /* Very subtle background tint */
+            transform: scale(1.02);
+            box-shadow: 0 0 12px rgba(230, 126, 34, 0.4);
+            border-radius: 6px;
+            /* Match existing border radius if any, or add a new one */
+        }
+
+        /* Ensure specific targeted elements like labels also get highlighting if they are direct targets */
+        .level-label-group.pyramid-highlight-active,
+        .pyramid-core-level-detailed.pyramid-highlight-active,
+        .functional-areas-detailed-row.pyramid-highlight-active,
+        div.detailed-pyramid-representation.pyramid-highlight-active {
+            opacity: 1 !important;
+            border: 2px solid #e67e22;
+            background-color: rgba(230, 126, 34, 0.05);
+            transform: scale(1.01);
+            /* Slight scale for labels might be better */
+            box-shadow: 0 0 12px rgba(230, 126, 34, 0.4);
+            border-radius: 6px;
+            padding: 5px;
+            /* Add some padding so border isn't too tight */
+            margin: -5px;
+            /* Counteract padding to maintain layout */
+        }
+
+
+        .modules-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        /* Styles for comparison table synchronization */
+        #comparisonTable.table-dim-inactive th,
+        #comparisonTable.table-dim-inactive td {
+            opacity: 0.6;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        #comparisonTable th.table-highlight-primary,
+        #comparisonTable td.table-highlight-primary,
+        #comparisonTable tr.table-highlight-primary>td,
+        /* Apply to all cells in a primary highlighted row */
+        #comparisonTable tr.table-highlight-primary>th {
+            opacity: 1 !important;
+            background-color: rgba(70, 130, 180, 0.15);
+            /* Light steel blue tint for primary */
+            border: 1px dashed #4682b4;
+            /* Steel blue dashed border */
+            transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+        }
+
+        #comparisonTable th.table-highlight-secondary,
+        #comparisonTable td.table-highlight-secondary {
+            opacity: 1 !important;
+            background-color: rgba(255, 165, 0, 0.25);
+            /* Brighter orange tint for secondary */
+            border: 2px solid #ffa500;
+            /* Solid orange border */
+            transform: scale(1.03);
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+            transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out, border 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            position: relative;
+            /* For z-index if needed, and better transform behavior */
+            z-index: 10;
+        }
+
+        /* Ensure row header cells also get highlighted if they are primary target */
+        #comparisonTable td.table-highlight-primary {
+            font-weight: bold;
+            /* Make text bold for primary row header */
+        }
+
+        /* ADD NEW Micro-Highlight Style */
+        .table-cell-micro-highlight {
+            background-color: #ffe082 !important;
+            /* A light, distinct yellow */
+            border: 2px solid #ffc107 !important;
+            /* A matching, sharper border */
+            opacity: 1 !important;
+            transition: background-color 0.05s linear, border-color 0.05s linear;
+            /* Fast, sharp transition */
+            box-shadow: 0 0 8px rgba(255, 193, 7, 0.5);
+            position: relative;
+            /* Ensures border and shadow are drawn correctly */
+            z-index: 20;
+            /* Above other elements if any overlap */
+        }
+
+        /* For full table highlight, just a border might be less intrusive */
+        #comparisonTable.table-cell-micro-highlight {
+            border: 3px solid #ffc107 !important;
+            background-color: transparent !important;
+            /* No background for the whole table container */
+            box-shadow: 0 0 12px rgba(255, 193, 7, 0.6);
+        }
+
+        #comparisonTableTitle.table-cell-micro-highlight {
+            background-color: #fff9c4 !important;
+            /* Lighter yellow for title */
+            border: 2px dashed #ffeb3b !important;
+            padding: 2px 5px;
+            border-radius: 4px;
+            display: inline-block;
+            /* To make padding and border wrap title content */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Kurumsal Bilişim Sistemleri ve Uygulamaları</h1>
+        <p>Etkileşimli Öğrenme Modülü</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Modül İçeriği</a>
+                <ul class="submenu">
+                    <li><a href="#home" class="nav-link">Kurumlardaki Temel Bilişim Sistemleri</a></li>
+                    <li><a href="#systemTypes" class="nav-link">KBS Türleri</a></li>
+                    <li><a href="#functionalSystems" class="nav-link">Fonksiyonel Alanlar</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="nav-link-dropdown">Oyun Merkezi</a>
+                <ul class="submenu">
+                    <li><a href="#levelGame" class="nav-link">Organizasyonel Düzey Eşleştirme Oyunu</a></li>
+                    <li><a href="#functionalGame" class="nav-link">Fonksiyonel Sistem Tanıma Oyunu</a></li>
+                    <li><a href="#systemComparison" class="nav-link">Sistem Karşılaştırma Oyunu</a></li>
+                </ul>
+            </li>
+            <li><a href="#quiz" class="nav-link">Quiz</a></li>
+            <li><a href="#progress" class="nav-link">İlerleme</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Ana Sayfa Bölümü -->
+        <div id="home" class="section active">
+            <h2>Öğrenme Amaçları</h2>
+            <p>Bu uygulama ile aşağıdaki konularda bilgi sahibi olmanız hedeflenmektedir:</p>
+            <div class="info-box">
+                <ul>
+                    <li>İşletmelerde kullanılan ana bilişim sistemlerini değerlendirmek ve aralarındaki ilişkileri
+                        saptamak.</li>
+                    <li>Ana bilişim sistemlerini tanımlamak: Satış ve pazarlama, imalat ve üretim sistemleri, finans ve
+                        muhasebe, insan kaynakları.</li>
+                    <li>Organizasyon, bilişim sistemleri ve iş süreçleri arasındaki ilişkileri incelemek.</li>
+                    <li>Kurumsal uygulamaların, iş süreçlerinin entegrasyonunu ve kurumsal performansın
+                        iyileştirilmesini nasıl cazip hale getirdiğini açıklamak.</li>
+                    <li>Kurumsal çözümlerde bilişim sistemleri tarafından ortaya konan fırsatları belirlemek.</li>
+                    <li>Organizasyon, bilişim sistemleri ve iş süreçleri arasındaki temel ilişkileri anlamak.</li>
+                    <li>Kurumsal uygulamaların iş süreçlerini nasıl entegre ettiğini ve performansı nasıl
+                        iyileştirdiğini kavramak.</li>
+                </ul>
+            </div>
+
+            <h3>Temel Kavramlar</h3>
+            <div class="info-box">
+                <p><strong>Bilgi İşlem:</strong> Organizasyonların işlevlerini yerine getirmek, ürün ve hizmetlerini
+                    sunmak için sahip oldukları bilgileri işleyerek kullandıkları birimdir.</p>
+                <p><strong>Bilişim (Bilgi) Sistemleri:</strong> İş süreçlerini geliştirmek için bilgi sağlar.</p>
+            </div>
+
+            <h3>
+                <button id="podcastPlayButton1" class="podcast-play-button"
+                    onclick="togglePodcast('podcastPlayer1', 'SESLER/kurumtemelbilisim1.wav', this)">&#9658;</button>
+                <span id="podcastDuration1" class="podcast-duration"></span>
+                Kurumlardaki Temel Bilişim Sistemleri
+                <div id="playbackSpeedControls1" class="playback-speed-controls"
+                    style="display: inline-block; margin-left: 15px;">
+                    <button onclick="setPlaybackSpeed('podcastPlayer1', 0.75, this)">0.75x</button>
+                    <button onclick="setPlaybackSpeed('podcastPlayer1', 1, this)" class="active-speed">1x</button>
+                    <button onclick="setPlaybackSpeed('podcastPlayer1', 1.25, this)">1.25x</button>
+                    <button onclick="setPlaybackSpeed('podcastPlayer1', 1.5, this)">1.5x</button>
+                    <button onclick="setPlaybackSpeed('podcastPlayer1', 2, this)">2x</button>
+                </div>
+            </h3>
+            <audio id="podcastPlayer1" style="display: none;"></audio>
+
+            <!-- Eski Piramit Başlangıcı - Burası Değişecek -->
+            <div id="pyramidDiagram" class="detailed-pyramid-representation">
+                <div class="pyramid-kind-title-area pyramid-section">
+                    <h4 class="pyramid-section-title">BİLİŞİM SİSTEMİ TÜRLERİ</h4>
+                </div>
+                <div class="pyramid-group-title-area pyramid-section">
+                    <h4 class="pyramid-section-title">HİZMET EDİLEN GRUPLAR</h4>
+                </div>
+
+                <div class="pyramid-kind-labels-area pyramid-section">
+                    <div id="pyramid-strat-label-left" class="level-label-group pyramid-section">Stratejik Düzey
+                        Sistemler</div>
+                    <div id="pyramid-mgmt-label-left" class="level-label-group pyramid-section">Yönetim Düzeyi Sistemler
+                    </div>
+                    <div id="pyramid-op-label-left" class="level-label-group pyramid-section">Operasyonel Düzey
+                        Sistemler</div>
+                </div>
+
+                <div class="pyramid-core-area pyramid-section">
+                    <div class="pyramid-core-structure">
+                        <div id="pyramid-strat-core"
+                            class="pyramid-core-level-detailed strategic-core-detailed pyramid-section">
+                            <span class="system-block-name">ESS</span>
+                            <span class="system-block-desc">Yönetici Destek Sistemleri</span>
+                        </div>
+                        <div id="pyramid-mgmt-core"
+                            class="pyramid-core-level-detailed management-core-detailed pyramid-section">
+                            <div>
+                                <span class="system-block-name">MIS</span>
+                                <span class="system-block-desc">Yönetim Bilişim Sis.</span>
+                            </div>
+                            <div>
+                                <span class="system-block-name">DSS</span>
+                                <span class="system-block-desc">Karar Destek Sis.</span>
+                            </div>
+                        </div>
+                        <div id="pyramid-op-core"
+                            class="pyramid-core-level-detailed operational-core-detailed pyramid-section">
+                            <span class="system-block-name">TPS</span>
+                            <span class="system-block-desc">İşlem İşleme Sistemleri</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pyramid-group-labels-area pyramid-section">
+                    <div id="pyramid-strat-label-right" class="level-label-group pyramid-section">Üst Düzey Yöneticiler
+                    </div>
+                    <div id="pyramid-mgmt-label-right" class="level-label-group pyramid-section">Orta Kademe Yöneticiler
+                    </div>
+                    <div id="pyramid-op-label-right" class="level-label-group pyramid-section">Operasyonel Yöneticiler
+                    </div>
+                </div>
+
+                <div id="pyramid-func-areas" class="functional-areas-detailed-row pyramid-section">
+                    <div class="functional-area-item-detailed">
+                        <strong>Satış ve Pazarlama</strong>
+                        <small>Sipariş İşleme</small>
+                    </div>
+                    <div class="functional-area-item-detailed">
+                        <strong>İmalat ve Üretim</strong>
+                        <small>Malzeme Hareket Kontrolü</small>
+                    </div>
+                    <div class="functional-area-item-detailed">
+                        <strong>Finans ve Muhasebe</strong>
+                        <small>Maaş, Borç Hesapları</small>
+                    </div>
+                    <div class="functional-area-item-detailed">
+                        <strong>İnsan Kaynakları</strong>
+                        <small>Çalışan Kayıtları</small>
+                    </div>
+                </div>
+            </div>
+            <!-- Eski Piramit Sonu -->
+
+            <div class="info-box">
+                <h4>Organizasyonel Düzeylere Göre Sistemler:</h4>
+                <ul>
+                    <li><strong>Operasyonel Sistemler:</strong> Temel faaliyetlere ve işlemlere ilişkin kayıtları
+                        tutarak operasyonel yöneticileri destekler. (Kullanıcıları: Operasyonel Yöneticiler)</li>
+                    <li><strong>Yönetsel Sistemler:</strong> Yönetsel faaliyetlere ilişkin izleme, kontrol ve karar alma
+                        işlevlerinde kullanılır. (Kullanıcıları: Orta Kademe Yöneticiler)</li>
+                    <li><strong>Stratejik Sistemler:</strong> Üst düzey yöneticilerin stratejik konuları belirlemelerine
+                        ve çözmek için çaba sarf etmelerine yardımcı olur. (Kullanıcıları: Üst Düzey Yöneticiler)</li>
+                </ul>
+            </div>
+            <p>Ayrıca, bu sistemler işletmenin Satış ve Pazarlama, Üretim, Finans ve Muhasebe, İnsan Kaynakları gibi
+                fonksiyonel alanlarını destekler.</p>
+
+            <h3>İş Süreçleri</h3>
+            <div class="info-box">
+                <p><strong>Tanım:</strong> Katma değerli bir ürün veya hizmet üretmek için organize ve koordine bir
+                    şekilde çalışılan işlerdir. Müşteri tarafından istenen bir mal ya da hizmet üretebilmek için işin
+                    organizasyon, koordinasyon ve odaklanılma biçimidir. Bir dizi faaliyetten oluşur: malzeme,
+                    enformasyon ve bilgiye ilişkin iş akışları. Yönetimin işleri koordine etme biçimi ve bir işin
+                    yapılış şeklini oluşturan sürekli işlemler, eylemler dizisidir.</p>
+                <p>Her işletme, birtakım iş süreçlerinin topluluğudur. Know-how denilen olguyu iş süreçleri oluşturur.
+                    Söz gelişi, her işletmenin bir işe alım prosedürü vardır. Bazıları insan kaynakları ile insan
+                    alırken birtakım adımların yerine getirilmesi gerekir.</p>
+                <div class="info-box" style="border-left-color: #e67e22; background-color: #fef5e7;">
+                    <!-- Important box style -->
+                    <h4 style="color: #e67e22;">Önemli</h4>
+                    <p>Bir iş ancak süreç olarak tanımlandığı takdirde sınırları netleşir ve denetimi kolaylaşır. Bu
+                        sayede gereksiz veya tekrarlanan görevlere son verilerek zaman ve kaynak israfı önlenir. Süreç
+                        olarak tanımlanması, başlangıcının ve bitişinin belli olması, hangi aşamalardan geçeceğinin
+                        planlanmasıdır.</p>
+                </div>
+                <p>Bilgi sisteminin esas amaçlarından birisi, iş süreçlerinin çok etkili bir şekilde yerine
+                    getirilmesini sağlamaktır. Bir işletmenin performansının ölçütü, iş süreçlerinin ne ölçüde iyi
+                    organize ve koordine edildiğine bağlıdır.</p>
+                <p><strong>Özetle:</strong></p>
+                <ul>
+                    <li>İşletmenin performansını belirleyen iş süreçleridir.</li>
+                    <li>İş süreçleri ne kadar iyi planlanır ve yönetilirse, işletme performansı da o ölçüde yüksek olur.
+                    </li>
+                    <li>İş süreçlerinin etkinliği işletmenin rakiplerine karşı rekabet avantajı oluşturmasına ve marka
+                        değerine katkı sağlayabilir.</li>
+                </ul>
+            </div>
+            <h4>İş Süreçlerinde Etkinlik ve Dönüşüm</h4>
+            <div class="info-box">
+                <p>Bilişim teknolojileri, iş süreçlerinin gelişmesini iki şekilde sağlar:</p>
+                <ul>
+                    <li>Mevcut iş süreçlerinin etkinliğini artırarak.</li>
+                    <li>İşletmeyi dönüştürebilecek yeni iş süreçleri geliştirerek.</li>
+                </ul>
+                <p><strong>Süreç Optimizasyonu:</strong> İş akışlarının tüm adımlarını derinlemesine inceleyip gerçek
+                    uygulanış biçimlerini netleştirmek; ardından bu adımları etkinlik ve verimlilik odaklı yeniden
+                    tasarlayarak, işletmenin performansını zirveye taşıyacak somut adımları atmak.</p>
+            </div>
+
+            <h3>İşletmelerde Kullanılan Çeşitli Bilişim Sistemi Örnekleri</h3>
+            <div class="info-box">
+                <p>Kuruluşlarda tek bir sistem tüm ihtiyaçları karşılayamaz. Farklı süreçler için farklı sistemler
+                    kullanılır. Her sistem kendi uzmanlık alanını tek bir araçla çözer; birlikte çalıştıklarında iş
+                    akışlarını hızlandırır, hataları azaltır ve verimliliği artırır. Örnekler:</p>
+                <ul>
+                    <li><strong>Satış › Sipariş › Faturalama Sistemleri:</strong> Sipariş kaydı, stok takibi ve fatura
+                        kesme işlevlerini uçtan uca yönetir.</li>
+                    <li><strong>E-posta ve İç İletişim Sistemleri:</strong> Kurumsal mesajları, duyuruları ve ekip içi
+                        koordinasyonu sağlar.</li>
+                    <li><strong>CRM (Müşteri İlişkileri Yönetimi) Sistemleri:</strong> Potansiyel ve mevcut müşterileri
+                        takip eder, satış hunisini yönetir, müşteri sadakatini artırır.</li>
+                    <li><strong>MRP (Üretim Kaynak Planlaması) Sistemleri:</strong> Hammadde alımından üretime, planlama
+                        ve malzeme kullanımını optimize eder.</li>
+                    <li><strong>BPM (İş Süreçleri Yönetimi) Sistemleri:</strong> Farklı sistem ve departman süreçlerini
+                        modelleyip otomatikleştirir, performansı izler ve iyileştirir.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bilişim Sistemi Türleri Bölümü -->
+        <div id="systemTypes" class="section">
+            <h2>Farklı Organizasyonel Düzeylerde Kullanılan Bilişim Sistemleri</h2>
+            <p>Kurumlarda kullanılan dört ana bilişim sistemi türü bulunmaktadır: TPS, MIS, DSS ve ESS. Bu sistemler,
+                farklı organizasyonel düzeylerdeki ihtiyaçlara cevap verir ve çeşitli fonksiyonel alanları destekler.
+            </p>
+
+            <div id="tpsDefinition" class="info-box">
+                <h4>1. İşlem İşleme Sistemleri (TPS - Transaction Processing Systems)</h4>
+                <p><strong>Tanım:</strong> Günlük operasyonel işler için temel işlemleri (örneğin, sipariş işleme,
+                    bordro) gerçekleştiren ve kaydeden sistemlerdir. Operasyonel düzeyde kullanılırlar.</p>
+                <p><strong>Düzey:</strong> Operasyonel</p>
+                <p><strong>Kullanıcılar:</strong> Operasyonel personel, denetçiler.</p>
+                <p><strong>Girdiler:</strong> Günlük işlemler, olaylar.</p>
+                <p><strong>Süreç / İşleme:</strong> Sıralama, listeleme, birleştirme, güncelleme.</p>
+                <p><strong>Çıktılar:</strong> Detaylı raporlar, listeler, özetler.</p>
+                <p><strong>Fonksiyonel Alan Örnekleri:</strong>
+                <ul>
+                    <li>Satış ve Pazarlama: Sipariş İşleme (Müşteri siparişlerini kaydetme, işleme süreci).</li>
+                    <li>Üretim ve İmalat: Malzeme Hareketi Kontrolü (Ham maddenin, yarı mamulün, ürünün depo ve üretim
+                        alanlarında takibi).</li>
+                    <li>Finans ve Muhasebe: Bordro ve Borç İşlemleri.</li>
+                    <li>İnsan Kaynakları: Çalışan Kayıtlarının Tutulması.</li>
+                    <li>Üniversite: Kabul işlemleri, not kayıtları, mezun kayıtları.</li>
+                </ul>
+                </p>
+            </div>
+
+            <div id="misDefinition" class="info-box">
+                <h4>2. Yönetim Bilişim Sistemleri (MIS - Management Information Systems)</h4>
+                <p><strong>Tanım:</strong> Orta kademe yöneticiler için düzenli raporlar ve özet bilgiler sağlar.
+                    TPS'lerden gelen verileri kullanarak planlama, kontrol ve karar verme süreçlerini destekler.</p>
+                <p><strong>Düzey:</strong> Yönetim</p>
+                <p><strong>Girdiler:</strong> Çok miktarda operasyonel düzeydeki işlemsel veriler, özetlenmiş iç
+                    veriler.</p>
+                <p><strong>Süreç/İşleme:</strong> Basit modellerle işler, rutin raporlar üretir, düşük seviye analiz
+                    yapar.</p>
+                <p><strong>Çıktılar:</strong> Özet raporlar, istisna raporları.</p>
+                <p><strong>Kullanıcılar:</strong> Orta kademe yöneticiler.</p>
+            </div>
+
+            <div id="dssDefinition" class="info-box">
+                <h4>3. Karar Destek Sistemleri (DSS - Decision-Support Systems)</h4>
+                <p><strong>Tanım:</strong> Karmaşık ve yapılandırılmamış kararların alınmasına yardımcı olur. Analitik
+                    araçlar ve modellemeler kullanarak orta ve üst düzey yöneticilere destek sağlar.</p>
+                <p><strong>Düzey:</strong> Yönetim</p>
+                <p><strong>Girdiler:</strong> İşlemlere ait veriler, düşük hacimli veri, analitik modeller, dış veriler.
+                </p>
+                <p><strong>İşleme Süreci:</strong> Etkileşimli bir süreçle karar analizi yapar, simülasyonlar kullanır.
+                </p>
+                <p><strong>Çıktılar:</strong> Karar analizleri, özel raporlar.</p>
+                <p><strong>Kullanıcılar:</strong> Profesyoneller, personel analistleri, orta yöneticiler.</p>
+            </div>
+
+            <div id="essDefinition" class="info-box">
+                <h4>4. Yönetici Destek Sistemleri (ESS - Executive Support Systems)</h4>
+                <p><strong>Tanım:</strong> Üst yönetimin stratejik kararlar almasını sağlayan özet, analiz ve dış
+                    kaynaklardan gelen bilgileri sunar. Genellikle grafiksel ve kullanımı kolay arayüzlere sahiptir.
+                    CEO'yu diğer bütün birimlere bağlar.</p>
+                <p><strong>Düzey:</strong> Stratejik</p>
+                <p><strong>Girdiler:</strong> Bütünleşik veri, toplu iç ve dış veriler, özetler, grafikler.</p>
+                <p><strong>Süreç/İşleme:</strong> Etkileşimli, grafikler, simülasyonlar, öngörüler üretir.</p>
+                <p><strong>Çıktılar:</strong> Projeksiyonlar, öngörüler, senaryo analizleri.</p>
+                <p><strong>Kullanıcılar:</strong> Üst düzey yöneticiler.</p>
+                <p><strong>Özellikleri:</strong> Çok pahalı olabilir, destek personeline gerek duyulabilir.</p>
+            </div>
+
+            <h3>BS'ler Arasındaki İlişki</h3>
+            <p>Bilişim sistemleri arasında veri ve bilgi akışı söz konusudur. Genellikle TPS'lerden elde edilen veriler
+                MIS ve DSS'lere, bu sistemlerden elde edilen bilgiler de ESS'lere akar (TPS → MIS/DSS → ESS).</p>
+            <p><strong>Çağdaş Firmalarda:</strong> Bilişim sistemleri arasında genellikle kopuksuz bir ilişki ve
+                kesintisiz bir akış hedeflenir. Bu entegrasyon, verimliliği ve karar alma süreçlerini iyileştirir.</p>
+            <p><strong>Geleneksel Firmalarda:</strong> Sistemler birbirinden kopuk olabilir. Baştan sona kesintisiz bir
+                akış söz konusu olmayabilir, bu da etkinlik ve iş değeri açısından sorunlar yaratabilir.</p>
+        </div>
+
+        <!-- Yeni Oyun Merkezi Bölümü -->
+        <div id="gamesHub" class="section">
+            <h2>Oyun Merkezi</h2>
+            <p>Aşağıdaki oyun modüllerinden birini seçerek etkileşimli öğrenmeye devam edebilirsiniz:</p>
+            <ul style="list-style-type: disc; padding-left: 40px;">
+                <li style="margin-bottom: 10px;"><a href="javascript:void(0);"
+                        onclick="showSection('levelGame'); updateActiveLink('levelGame');"
+                        style="text-decoration: underline; color: #1a5276;">Organizasyonel Düzey Eşleştirme Oyunu</a>
+                </li>
+                <li style="margin-bottom: 10px;"><a href="javascript:void(0);"
+                        onclick="showSection('functionalGame'); updateActiveLink('functionalGame');"
+                        style="text-decoration: underline; color: #1a5276;">Fonksiyonel Sistem Tanıma Oyunu</a></li>
+                <li style="margin-bottom: 10px;"><a href="javascript:void(0);"
+                        onclick="showSection('systemComparison'); updateActiveLink('systemComparison');"
+                        style="text-decoration: underline; color: #1a5276;">Sistem Karşılaştırma Oyunu</a></li>
+            </ul>
+        </div>
+
+        <!-- Organizasyonel Düzeyler Oyunu Bölümü -->
+        <div id="levelGame" class="section">
+            <h2>Organizasyonel Düzey Eşleştirme Oyunu</h2>
+            <p>Aşağıdaki bilişim sistemi türlerini ve kullanıcılarını doğru organizasyonel düzeyle eşleştirin.</p>
+            <div id="levelGameContainer" class="game-container"></div>
+            <button class="game-button" onclick="checkLevelGameAnswers()">Cevapları Kontrol Et</button>
+            <div id="levelGameFeedback" class="feedback"></div>
+        </div>
+
+        <!-- Fonksiyonel Alan BS'leri Bölümü -->
+        <div id="functionalSystems" class="section">
+            <h2>Fonksiyonel Açıdan Bilişim Sistemleri</h2>
+            <p>İşletmelerdeki bilişim sistemleri, temel iş fonksiyonlarını desteklemek üzere özelleşmiştir. Başlıca
+                fonksiyonel alanlar satış-pazarlama, imalat-üretim, muhasebe-finans ve insan kaynaklarıdır.</p>
+            <div class="info-box">
+                <h4>Satış-Pazarlama Sistemleri</h4>
+                <p><strong>Ana Fonksiyonlar:</strong> Satış yönetimi, Pazar araştırması, promosyonlar, fiyatlama, yeni
+                    ürünler.</p>
+                <p><strong>Ana Uygulama Sistemleri:</strong> Satış siparişleri bilgi sistemi, Pazar araştırma sistemi,
+                    fiyatlama sistemi.</p>
+                <h4>Sistem Örnekleri:</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sistem</th>
+                            <th>Açıklama</th>
+                            <th>Düzey</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sipariş işleme</td>
+                            <td>Siparişlerin girilmesi, işlenmesi ve takibi</td>
+                            <td>Operasyonel</td>
+                        </tr>
+                        <tr>
+                            <td>Fiyat analizi</td>
+                            <td>Ürün ve hizmetler için fiyat belirleme</td>
+                            <td>Yönetim</td>
+                        </tr>
+                        <tr>
+                            <td>Satış trend kestirimi</td>
+                            <td>5 yıllık satış tahminlerinin yapılması</td>
+                            <td>Stratejik</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-box">
+                <h4>İmalat ve Üretim Sistemleri</h4>
+                <p><strong>Ana Fonksiyonlar:</strong> Çizelgeleme, satınalma, nakliye, dağıtım, kabul, mühendislik,
+                    operasyonlar.</p>
+                <p><strong>Ana Uygulama Sistemleri:</strong> Malzeme Kaynak Planlama (MRP I & II) sistemleri, satınalma
+                    sipariş kontrol sistemleri, kalite kontrol sistemleri.</p>
+                <p><strong>Örnek Envanter Kontrol Sistemi:</strong> Sevkiyat ve sipariş verileri ile envanter ana
+                    dosyasını (ürün kodu, açıklama, stoktaki birim vb. bilgileri içerir) girdi olarak kullanır. Sistem,
+                    çevrimiçi sorgulara izin verir ve yönetim raporları (örneğin, Envanter Durum Raporu) üretir.</p>
+                <h4>Sistem Örnekleri:</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sistem</th>
+                            <th>Açıklama</th>
+                            <th>Organizasyonel Düzey</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Makine kontrolü (Machine control)</td>
+                            <td>Makinelerin ve ekipmanların hareketlerini kontrol etme</td>
+                            <td>Operasyonel</td>
+                        </tr>
+                        <tr>
+                            <td>Üretim planlama (Production planning)</td>
+                            <td>Ne zaman ve ne kadar ürün üretileceğine karar verme</td>
+                            <td>Yönetim</td>
+                        </tr>
+                        <tr>
+                            <td>Tesis yerleşimi (Facilities location)</td>
+                            <td>Yeni üretim tesislerinin nereye kurulacağına karar verme</td>
+                            <td>Stratejik</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-box">
+                <h4>Muhasebe-Finans Sistemleri</h4>
+                <p><strong>Ana Fonksiyonlar:</strong> Bütçeleme, faturalama, maliyet hesapları.</p>
+                <p><strong>Ana Uygulama Sistemleri:</strong> Defter-i Kebir, alacak ve borçlar hesabı, bütçeleme, fon
+                    yönetim sistemleri.</p>
+                <h4>Sistem Örnekleri:</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sistem</th>
+                            <th>Açıklama</th>
+                            <th>Organizasyonel Düzey</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alacak hesapları (Accounts receivable)</td>
+                            <td>Firmaya borçlu olunan parayı takip etme</td>
+                            <td>Operasyonel</td>
+                        </tr>
+                        <tr>
+                            <td>Bütçeleme (Budgeting)</td>
+                            <td>Kısa vadeli bütçeleri hazırlama</td>
+                            <td>Yönetim</td>
+                        </tr>
+                        <tr>
+                            <td>Kâr planlaması (Profit planning)</td>
+                            <td>Uzun vadeli kârları planlama</td>
+                            <td>Stratejik</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-box">
+                <h4>İnsan Kaynakları Sistemleri</h4>
+                <p><strong>Ana Fonksiyonlar:</strong> Çalışanlara ait kayıtların tutulması, ücret ve benzeri diğer
+                    hesapların kaydı, çalışanlarla ilişkiler, eğitim.</p>
+                <p><strong>Ana Uygulama Sistemleri:</strong> Maaş ödeme, çalışan kayıtlarının tutulması, ödüllendirme
+                    sistemleri, kariyer takip sistemleri, kişisel eğitim sistemleri.</p>
+                <p><strong>Örnek Çalışan Kayıt Tutma Sistemi:</strong> Çeşitli departmanlardan gelen çalışan verilerini
+                    ve çalışan ana dosyasını (çalışan no, isim, adres, yaş, medeni durum, maaş, eğitim geçmişi, iş
+                    unvanı, işe giriş tarihi vb. bilgileri içerir) girdi olarak kullanır. Sistem, çevrimiçi sorgulara
+                    izin verir ve yönetim raporları (örneğin, İşten Ayrılma Raporu) üretir. Ayrıca bordro sistemine veri
+                    aktarır.</p>
+                <h4>Sistem Örnekleri:</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sistem</th>
+                            <th>Açıklama</th>
+                            <th>Organizasyonel Düzey</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Eğitim ve gelişim (Training and development)</td>
+                            <td>Çalışan eğitimi, becerileri ve performans değerlendirmelerini takip etme</td>
+                            <td>Operasyonel</td>
+                        </tr>
+                        <tr>
+                            <td>Ücret analizi (Compensation analysis)</td>
+                            <td>Çalışan ücret, maaş ve yan haklarının dağılımını ve aralığını izleme</td>
+                            <td>Yönetim</td>
+                        </tr>
+                        <tr>
+                            <td>İnsan kaynakları planlaması (Human resources planning)</td>
+                            <td>Organizasyonun uzun vadeli işgücü ihtiyaçlarını planlama</td>
+                            <td>Stratejik</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3>Fonksiyonlar Arası İş Süreçleri</h3>
+            <p>Satış, pazarlama, imalat ve AR-GE gibi fonksiyonel alanlar arasındaki sınırlar her zaman kesin çizgilerle
+                ayrılamaz. Birçok iş süreci, farklı fonksiyonel alanlardan gelen bir grup insanın birlikte çalışmasını
+                gerektirir. Örneğin, bir müşteri siparişini karşılama süreci, satış, envanter yönetimi (üretim/depo),
+                sevkiyat (lojistik) ve faturalama (muhasebe) gibi birden fazla departmanın koordinasyonunu içerir.
+                Bilişim sistemleri, bu fonksiyonlar arası süreçlerin etkin bir şekilde yürütülmesinde kritik rol oynar.
+            </p>
+        </div>
+
+        <!-- Fonksiyonel Sistem Tanıma Oyunu -->
+        <div id="functionalGame" class="section">
+            <h2>Fonksiyonel Sistem Tanıma Oyunu</h2>
+            <p>Aşağıdaki sistem açıklamalarının hangi fonksiyonel alana ve organizasyonel düzeye ait olduğunu
+                belirleyin.</p>
+            <div id="functionalGameContainer" class="game-container"></div>
+            <button class="game-button" onclick="checkFunctionalGameAnswers()">Cevapları Kontrol Et</button>
+            <div id="functionalGameFeedback" class="feedback"></div>
+        </div>
+
+        <!-- Sistem Karşılaştırma Bölümü -->
+        <div id="systemComparison" class="section">
+            <h2>Bilişim Sistemi Türleri Karşılaştırması</h2>
+
+            <div class="podcast-controls"
+                style="margin-bottom: 15px; padding:10px; background-color:#f0f4f8; border-radius:8px;">
+                <button id="podcastPlayButton2" class="podcast-play-button"
+                    onclick="togglePodcast('podcastPlayer2', 'SESLER/kurumtemelbilisim2.wav', this, 'comparisonTable')">&#9658;</button>
+                <span id="podcastDuration2" class="podcast-duration"></span>
+                <strong style="margin-left:10px; vertical-align:middle;">Sistem Karşılaştırma Anlatımı</strong>
+                <div id="playbackSpeedControls2" class="playback-speed-controls"
+                    style="display: inline-block; margin-left: 15px;">
+                    <button onclick="setPlaybackSpeed('podcastPlayer2', 0.75, this)">0.75x</button>
+                    <button onclick="setPlaybackSpeed('podcastPlayer2', 1, this)" class="active-speed">1x</button>
+                    <button onclick="setPlaybackSpeed('podcastPlayer2', 1.25, this)">1.25x</button>
+                    <button onclick="setPlaybackSpeed('podcastPlayer2', 1.5, this)">1.5x</button>
+                    <button onclick="setPlaybackSpeed('podcastPlayer2', 2, this)">2x</button>
+                </div>
+            </div>
+            <audio id="podcastPlayer2" style="display: none;"></audio>
+
+            <p>Farklı sistem türlerinin temel özelliklerini inceleyelim.</p>
+            <table id="comparisonTable">
+                <thead>
+                    <tr>
+                        <th>Özellik</th>
+                        <th>TPS (İşlem İşleme)</th>
+                        <th>MIS (Yönetim Bilişim)</th>
+                        <th>DSS (Karar Destek)</th>
+                        <th>ESS (Yönetici Destek)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Girdiler</strong></td>
+                        <td>Günlük işlemler, olaylar</td>
+                        <td>Operasyonel veriler, özetlenmiş iç veriler</td>
+                        <td>Düşük hacimli veri, analitik modeller, dış veriler</td>
+                        <td>Toplu iç ve dış veriler, özetler, grafikler</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Süreç / İşleme</strong></td>
+                        <td>Sıralama, listeleme, birleştirme, güncelleme</td>
+                        <td>Rutin raporlar, basit modeller, düşük seviye analiz</td>
+                        <td>Etkileşimli, simülasyonlar, analiz</td>
+                        <td>Etkileşimli, grafikler, simülasyonlar, öngörüler</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Çıktılar</strong></td>
+                        <td>Detaylı raporlar, listeler, özetler</td>
+                        <td>Özet ve istisna raporları</td>
+                        <td>Karar analizleri, özel raporlar</td>
+                        <td>Projeksiyonlar, senaryo analizleri</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kullanıcılar</strong></td>
+                        <td>Operasyonel personel, denetçiler</td>
+                        <td>Orta kademe yöneticiler</td>
+                        <td>Profesyoneller, personel analistleri, orta yöneticiler</td>
+                        <td>Üst düzey yöneticiler</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Karşılaştırma Oyunu</h3>
+            <p>Aşağıdaki özellikleri doğru bilişim sistemi türü ile eşleştirin.</p>
+            <div id="comparisonGameContainer" class="game-container"></div>
+            <button class="game-button" onclick="checkComparisonGameAnswers()">Cevapları Kontrol Et</button>
+            <div id="comparisonGameFeedback" class="feedback"></div>
+        </div>
+
+        <!-- Kısa Test Bölümü -->
+        <div id="quiz" class="section">
+            <h2>Test: Kurumsal Bilişim Sistemleri</h2>
+            <div id="quizContainer" class="quiz-container">
+                <!-- Question will be loaded here by JavaScript -->
+            </div>
+            <div id="questionFeedback" class="feedback" style="display:none; margin-bottom:15px;"></div>
+            <div id="learnMoreContainer" style="margin-top:10px; text-align:center;"></div>
+
+            <div class="quiz-navigation">
+                <button id="prevQuestionBtn" onclick="prevQuestion()">Önceki Soru</button>
+                <button id="nextQuestionBtn" onclick="nextQuestion()">Sonraki Soru</button>
+            </div>
+            <button id="submitQuizBtn" class="quiz-button" onclick="submitQuiz()"
+                style="display:none; margin-top: 20px;">Testi Bitir ve Sonuçları Gör</button>
+            <div id="quizScore" class="quiz-score" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- İlerleme Takibi Bölümü -->
+        <div id="progress" class="section">
+            <h2>Skorlama ve İlerleme Takibi</h2>
+            <div id="scoreBoard">
+                <h3>Genel Başarı Durumu</h3>
+                <p>Düzey Eşleştirme Oyunu Skoru: <span id="levelGameScore">0</span>/<span id="levelGameTotal">0</span>
+                </p>
+                <p>Fonksiyonel Sistem Tanıma Oyunu Skoru: <span id="functionalGameScore">0</span>/<span
+                        id="functionalGameTotal">0</span></p>
+                <p>Sistem Karşılaştırma Oyunu Skoru: <span id="comparisonGameScore">0</span>/<span
+                        id="comparisonGameTotal">0</span></p>
+                <p>Test Skoru: <span id="quizTotalScore">0</span>/<span id="quizTotalQuestions">0</span></p>
+                <hr>
+                <p><strong>Toplam Başarı: <span id="overallScore">0</span>%</strong></p>
+            </div>
+            <button class="game-button reset" onclick="resetProgress()">Tüm İlerlemeyi Sıfırla</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Kurumsal Bilişim Sistemleri Öğrenme Uygulaması</p>
+    </footer>
+
+    <script>
+        // --- Global Veriler ---
+        const levelGameData = [
+            { item: "TPS (İşlem İşleme Sistemleri)", correctAnswer: "Operasyonel Düzey" },
+            { item: "MIS (Yönetim Bilişim Sistemleri)", correctAnswer: "Yönetim Düzeyi" },
+            { item: "DSS (Karar Destek Sistemleri)", correctAnswer: "Yönetim Düzeyi" },
+            { item: "ESS (Yönetici Destek Sistemleri)", correctAnswer: "Stratejik Düzey" },
+            { item: "Günlük rutin işlemleri kaydeder", correctAnswer: "Operasyonel Düzey" },
+            { item: "Orta kademe yöneticiler kullanır", correctAnswer: "Yönetim Düzeyi" },
+            { item: "Uzun vadeli planlama için kullanılır", correctAnswer: "Stratejik Düzey" }
+        ];
+        const levelOptions = ["Operasyonel Düzey", "Yönetim Düzeyi", "Stratejik Düzey"];
+
+        const functionalGameData = [
+            { description: "Müşteri siparişlerinin sisteme girilmesi ve takibi.", correctFunctionalArea: "Satış-Pazarlama", correctLevel: "Operasyonel" },
+            { description: "Üretilecek ürün miktarının ve zamanlamasının belirlenmesi.", correctFunctionalArea: "İmalat-Üretim", correctLevel: "Yönetim" },
+            { description: "Firmanın 5 yıllık kâr projeksiyonlarının oluşturulması.", correctFunctionalArea: "Muhasebe-Finans", correctLevel: "Stratejik" },
+            { description: "Yeni işe alınacak personelin beceri ve eğitim ihtiyaçlarının planlanması.", correctFunctionalArea: "İnsan Kaynakları", correctLevel: "Stratejik" },
+            { description: "Hammadde stok seviyelerinin günlük kontrolü.", correctFunctionalArea: "İmalat-Üretim", correctLevel: "Operasyonel" }
+        ];
+        const functionalAreaOptions = ["Satış-Pazarlama", "İmalat-Üretim", "Muhasebe-Finans", "İnsan Kaynakları"];
+        const organizationalLevelOptions = ["Operasyonel", "Yönetim", "Stratejik"];
+
+        const comparisonGameData = [
+            { characteristic: "Girdileri günlük işlemler ve olaylardır.", correctAnswer: "TPS" },
+            { characteristic: "Çıktıları projeksiyonlar ve senaryo analizleridir.", correctAnswer: "ESS" },
+            { characteristic: "Kullanıcıları orta kademe yöneticilerdir ve özet raporlar sunar.", correctAnswer: "MIS" },
+            { characteristic: "İşleme süreci etkileşimli olup simülasyonlar ve analizler içerir.", correctAnswer: "DSS" }
+        ];
+        const systemTypeOptions = ["TPS", "MIS", "DSS", "ESS"];
+
+        const quizQuestions = [
+
+            {
+                question: "Organizasyonel düzeylere göre bilişim sistemleri genellikle hangi üç seviyede sınıflandırılır?",
+                options: ["Teknik, Taktik, Stratejik", "Operasyonel, Yönetim, Stratejik", "Veri, Bilgi, Karar", "Giriş, İşlem, Çıkış"],
+                answer: "Operasyonel, Yönetim, Stratejik"
+            },
+            {
+                question: "Günlük rutin işlemleri gerçekleştiren ve kaydeden, operasyonel seviyedeki en basit iş sistemleri hangisidir?",
+                options: ["MIS", "DSS", "ESS", "TPS"],
+                answer: "TPS"
+            },
+            {
+                question: "Bir maaş ödeme TPS'i örneğinde, sistemin ana girdilerinden biri nedir?",
+                options: ["Stratejik planlar", "Pazar araştırma verileri", "Çalışan verileri ve ana maaş dosyası", "Rakip analizleri"],
+                answer: "Çalışan verileri ve ana maaş dosyası"
+            },
+            {
+                question: "Yönetim Bilişim Sistemleri (MIS) temel olarak hangi tür veriyi girdi olarak kullanır ve ne tür çıktılar üretir?",
+                options: ["Dışsal veriler / Detaylı tahminler", "Operasyonel veriler / Özet raporlar", "Analitik modeller / Senaryo analizleri", "Gerçek zamanlı sensör verileri / Kontrol sinyalleri"],
+                answer: "Operasyonel veriler / Özet raporlar"
+            },
+            {
+                question: "'Birleşik Tüketici Ürünleri Şirketi Ürün ve Satış Bölgesine Göre Satışlar: 2005\' raporu hangi sistem türüne örnektir?",
+                options: ["TPS", "MIS", "DSS", "ESS"],
+                answer: "MIS"
+            },
+            {
+                question: "Etkileşimli bir süreçle karar analizi yapan ve kullanıcıları profesyoneller ile yöneticiler olan sistem türü hangisidir?",
+                options: ["TPS", "MIS", "DSS", "ESS"],
+                answer: "DSS"
+            },
+            {
+                question: "Bir lojistik maliyet hesaplama sistemi, aşağıdaki sistem türlerinden hangisine iyi bir örnektir?",
+                options: ["TPS", "MIS", "DSS", "ESS"],
+                answer: "DSS"
+            },
+            {
+                question: "Üst düzey yöneticilerin stratejik konuları belirlemelerine yardımcı olan, genellikle projeksiyonlar ve öngörüler üreten sistem hangisidir?",
+                options: ["TPS", "MIS", "DSS", "ESS"],
+                answer: "ESS"
+            },
+            {
+                question: "Aşağıdakilerden hangisi Yönetici Destek Sistemleri'nin (ESS) bir özelliği olabilir?",
+                options: ["Sadece sayısal veri işler", "Düşük maliyetlidir", "Destek personeline ihtiyaç duyabilir", "Sadece iç verileri kullanır"],
+                answer: "Destek personeline ihtiyaç duyabilir"
+            },
+            {
+                question: "Çağdaş firmalarda bilişim sistemleri arasındaki ideal ilişki nasıldır?",
+                options: ["Birbirinden bağımsız ve izole", "Sadece tek bir merkezi sistem", "Kopuksuz bir ilişki ve kesintisiz akış", "Sadece dış kaynaklı sistemler"],
+                answer: "Kopuksuz bir ilişki ve kesintisiz akış"
+            },
+            {
+                question: "İşletmenin satış yönetimi, pazar araştırması ve fiyatlama gibi fonksiyonlarını destekleyen sistemler hangi ana kategoriye girer?",
+                options: ["İmalat ve Üretim Sistemleri", "Muhasebe-Finans Sistemleri", "Satış-Pazarlama Sistemleri", "İnsan Kaynakları Sistemleri"],
+                answer: "Satış-Pazarlama Sistemleri"
+            },
+            {
+                question: "Bir işletmede 'iş süreci' neyi ifade eder?",
+                options: ["Sadece teknolojik altyapıyı", "Belirli bir mal ya da hizmet üretmek için işin organize edilme biçimini", "Yalnızca üst yönetimin aldığı kararları", "Çalışanların sosyal etkileşimlerini"],
+                answer: "Belirli bir mal ya da hizmet üretmek için işin organize edilme biçimini"
+            },
+            {
+                question: "Aşağıdakilerden hangisi bilişim sistemlerinin iş süreçlerine temel katkılarından biridir?",
+                options: ["İş süreçlerini daha karmaşık hale getirmek", "Sadece maliyetleri artırmak", "İş süreçlerinin otomasyonu ve verimlilik artışı", "İnsan etkileşimini tamamen ortadan kaldırmak"],
+                answer: "İş süreçlerinin otomasyonu ve verimlilik artışı"
+            }
+        ];
+
+        let scores = {
+            levelGame: { correct: 0, total: levelGameData.length },
+            functionalGame: { correct: 0, total: functionalGameData.length },
+            comparisonGame: { correct: 0, total: comparisonGameData.length },
+            quiz: { correct: 0, total: quizQuestions.length, answered: [] }
+        };
+
+        let currentQuestionIndex = 0;
+
+        // --- Sayfa Yönlendirme ---
+        function showSection(sectionId, elementId = null) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) targetSection.classList.add('active');
+
+            document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+            const activeButton = Array.from(document.querySelectorAll('nav button')).find(
+                btn => btn.onclick.toString().includes(`showSection('${sectionId}'`)
+            );
+            if (activeButton) activeButton.classList.add('active');
+
+            if (sectionId === 'levelGame') initLevelGame();
+            if (sectionId === 'functionalGame') initFunctionalGame();
+            if (sectionId === 'systemComparison') initComparisonGame();
+            if (sectionId === 'quiz') initQuiz();
+            if (sectionId === 'progress') updateScoreBoard();
+
+            if (elementId) {
+                setTimeout(() => { // Allow section to become visible first
+                    const el = document.getElementById(elementId);
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            }
+        }
+
+        // --- Düzey Eşleştirme Oyunu ---
+        function initLevelGame() {
+            const container = document.getElementById('levelGameContainer');
+            container.innerHTML = '';
+            scores.levelGame.correct = 0;
+            levelGameData.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'game-question';
+                let optionsHtml = levelOptions.map(opt => `
+                    <label><input type="radio" name="level_q${index}" value="${opt}"> ${opt}</label>
+                `).join('');
+                div.innerHTML = `<p><strong>Eşleştirilecek İfade:</strong> ${item.item}</p><div class="game-options">${optionsHtml}</div>`;
+                container.appendChild(div);
+            });
+            document.getElementById('levelGameFeedback').innerHTML = '';
+            updateScoreBoard();
+        }
+
+        function checkLevelGameAnswers() {
+            scores.levelGame.correct = 0;
+            let allAnswered = true;
+            levelGameData.forEach((item, index) => {
+                const selected = document.querySelector(`input[name="level_q${index}"]:checked`);
+                if (selected) {
+                    if (selected.value === item.correctAnswer) scores.levelGame.correct++;
+                } else {
+                    allAnswered = false;
+                }
+            });
+            const feedback = document.getElementById('levelGameFeedback');
+            if (!allAnswered) {
+                feedback.textContent = "Lütfen tüm ifadeler için bir düzey seçin.";
+                feedback.className = 'feedback incorrect';
+                return;
+            }
+            feedback.textContent = `Düzey Eşleştirme oyununda ${scores.levelGame.correct}/${levelGameData.length} doğru yaptınız.`;
+            feedback.className = scores.levelGame.correct === levelGameData.length ? 'feedback correct' : 'feedback incorrect';
+            updateScoreBoard();
+        }
+
+        // --- Fonksiyonel Sistem Tanıma Oyunu ---
+        function initFunctionalGame() {
+            const container = document.getElementById('functionalGameContainer');
+            container.innerHTML = '';
+            scores.functionalGame.correct = 0;
+            functionalGameData.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'game-question';
+                let areaOptionsHtml = functionalAreaOptions.map(opt => `
+                    <label><input type="radio" name="func_area_q${index}" value="${opt}"> ${opt}</label>
+                `).join('');
+                let levelOptionsHtml = organizationalLevelOptions.map(opt => `
+                    <label><input type="radio" name="func_level_q${index}" value="${opt}"> ${opt}</label>
+                `).join('');
+                div.innerHTML = `
+                    <p><strong>Sistem Açıklaması:</strong> ${item.description}</p>
+                    <h4>Fonksiyonel Alan:</h4><div class="game-options">${areaOptionsHtml}</div>
+                    <h4>Organizasyonel Düzey:</h4><div class="game-options">${levelOptionsHtml}</div>`;
+                container.appendChild(div);
+            });
+            document.getElementById('functionalGameFeedback').innerHTML = '';
+            updateScoreBoard();
+        }
+
+        function checkFunctionalGameAnswers() {
+            scores.functionalGame.correct = 0;
+            let allQuestionsFullyAnswered = true;
+            const questions = document.querySelectorAll('#functionalGameContainer .game-question');
+
+            // Clear previous highlights/feedback from labels
+            questions.forEach(q => {
+                q.querySelectorAll('.game-options label').forEach(label => {
+                    label.classList.remove('correct-choice', 'incorrect-choice', 'correct-answer-highlight');
+                });
+            });
+
+            functionalGameData.forEach((item, index) => {
+                const selectedAreaInput = document.querySelector(`input[name="func_area_q${index}"]:checked`);
+                const selectedLevelInput = document.querySelector(`input[name="func_level_q${index}"]:checked`);
+
+                if (selectedAreaInput && selectedLevelInput) {
+                    const selectedAreaLabel = selectedAreaInput.parentElement;
+                    const selectedLevelLabel = selectedLevelInput.parentElement;
+
+                    const isAreaCorrect = selectedAreaInput.value === item.correctFunctionalArea;
+                    const isLevelCorrect = selectedLevelInput.value === item.correctLevel;
+
+                    if (isAreaCorrect) {
+                        selectedAreaLabel.classList.add('correct-choice');
+                    } else {
+                        selectedAreaLabel.classList.add('incorrect-choice');
+                        const correctAreaLabel = document.querySelector(`input[name="func_area_q${index}"][value="${item.correctFunctionalArea}"]`).parentElement;
+                        if (correctAreaLabel) correctAreaLabel.classList.add('correct-answer-highlight');
+                    }
+
+                    if (isLevelCorrect) {
+                        selectedLevelLabel.classList.add('correct-choice');
+                    } else {
+                        selectedLevelLabel.classList.add('incorrect-choice');
+                        const correctLevelLabel = document.querySelector(`input[name="func_level_q${index}"][value="${item.correctLevel}"]`).parentElement;
+                        if (correctLevelLabel) correctLevelLabel.classList.add('correct-answer-highlight');
+                    }
+
+                    if (isAreaCorrect && isLevelCorrect) {
+                        scores.functionalGame.correct++;
+                    }
+                } else {
+                    allQuestionsFullyAnswered = false;
+                }
+            });
+
+            const feedback = document.getElementById('functionalGameFeedback');
+            if (!allQuestionsFullyAnswered) {
+                feedback.textContent = "Lütfen tüm sistemler için hem fonksiyonel alanı hem de düzeyi seçin.";
+                feedback.className = 'feedback incorrect';
+                // Do not update scoreboard yet if not all answered to avoid confusion with partial feedback
+                return;
+            }
+            feedback.textContent = `Fonksiyonel Sistem Tanıma oyununda ${scores.functionalGame.correct}/${functionalGameData.length} doğru yaptınız.`;
+            feedback.className = scores.functionalGame.correct === functionalGameData.length ? 'feedback correct' : 'feedback incorrect';
+            updateScoreBoard();
+        }
+
+        // --- Sistem Karşılaştırma Oyunu ---
+        function initComparisonGame() {
+            const container = document.getElementById('comparisonGameContainer');
+            container.innerHTML = '';
+            scores.comparisonGame.correct = 0;
+            scores.comparisonGame.total = comparisonGameData.length;
+
+            comparisonGameData.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'game-question';
+                let optionsHtml = systemTypeOptions.map(opt => `
+                    <label><input type="radio" name="comparison_q${index}" value="${opt}"> ${opt}</label>
+                `).join('');
+                div.innerHTML = `<p><strong>Özellik:</strong> ${item.characteristic}</p><div class="game-options">${optionsHtml}</div>`;
+                container.appendChild(div);
+            });
+            document.getElementById('comparisonGameFeedback').innerHTML = '';
+            updateScoreBoard();
+        }
+
+        function checkComparisonGameAnswers() {
+            let currentCorrectAnswers = 0;
+            comparisonGameData.forEach((item, index) => {
+                const selected = document.querySelector(`input[name="comparison_q${index}"]:checked`);
+                if (selected) {
+                    if (selected.value === item.correctAnswer) {
+                        currentCorrectAnswers++;
+                    }
+                }
+            });
+            scores.comparisonGame.correct = currentCorrectAnswers;
+
+            const feedback = document.getElementById('comparisonGameFeedback');
+            if (currentCorrectAnswers === comparisonGameData.length) {
+                feedback.className = 'feedback correct';
+                feedback.innerText = 'Tebrikler! Tüm eşleştirmeler doğru!';
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerText = `Bazı eşleştirmeler yanlış. Doğru sayısı: ${currentCorrectAnswers} / ${comparisonGameData.length}`;
+            }
+            updateScoreBoard();
+        }
+
+        // --- Kısa Test ---
+        function initQuiz() {
+            currentQuestionIndex = 0;
+            scores.quiz.correct = 0;
+            // Initialize answered array for the current quiz attempt
+            scores.quiz.answered = new Array(quizQuestions.length).fill(null);
+
+            document.getElementById('quizScore').innerHTML = ''; // Clear previous score
+            document.getElementById('submitQuizBtn').style.display = 'none'; // Hide submit button initially
+            document.getElementById('questionFeedback').style.display = 'none';
+            document.getElementById('learnMoreContainer').innerHTML = '';
+
+            displayQuestion(currentQuestionIndex);
+            updateQuizNavigation();
+            updateScoreBoard(); // Update total questions count on scoreboard
+        }
+
+        function displayQuestion(index) {
+            const qc = document.getElementById('quizContainer');
+            const qFeedback = document.getElementById('questionFeedback');
+            const learnMoreContainer = document.getElementById('learnMoreContainer');
+            qc.innerHTML = ''; // Clear previous question
+            qFeedback.style.display = 'none';
+            learnMoreContainer.innerHTML = '';
+
+            if (index < 0 || index >= quizQuestions.length) return;
+
+            const qData = quizQuestions[index];
+            const qDiv = document.createElement('div');
+            qDiv.className = 'quiz-question';
+
+            let optsHtml = qData.options.map((opt, i) =>
+                `<label><input type="radio" name="q${index}" value="${opt}" data-option-index="${i}"> ${opt}</label>`
+            ).join('');
+
+            qDiv.innerHTML = `<p><strong>Soru ${index + 1}/${quizQuestions.length}:</strong> ${qData.question}</p><div class="quiz-options">${optsHtml}</div>`;
+            qc.appendChild(qDiv);
+
+            const radioButtons = qc.querySelectorAll(`input[name="q${index}"]`);
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', handleAnswerSelection);
+                // If question was already answered, re-select and show feedback
+                if (scores.quiz.answered[index] !== null && scores.quiz.answered[index].selectedOptionValue === radio.value) {
+                    radio.checked = true;
+                    showAnswerFeedback(qData, radio.value, radio.parentElement);
+                    disableOptions(radioButtons, radio);
+                }
+            });
+
+            // If all questions answered, show submit button
+            if (scores.quiz.answered.every(ans => ans !== null)) {
+                document.getElementById('submitQuizBtn').style.display = 'block';
+            }
+        }
+
+        function handleAnswerSelection(event) {
+            const selectedRadio = event.target;
+            const questionIndex = currentQuestionIndex;
+            const qData = quizQuestions[questionIndex];
+            const selectedValue = selectedRadio.value;
+            const selectedLabel = selectedRadio.parentElement;
+
+            const isCorrect = selectedValue === qData.answer;
+            scores.quiz.answered[questionIndex] = { selectedOptionValue: selectedValue, isCorrect: isCorrect };
+
+            showAnswerFeedback(qData, selectedValue, selectedLabel);
+            disableOptions(document.querySelectorAll(`input[name="q${questionIndex}"]`), selectedRadio);
+
+            if (isCorrect) {
+                scores.quiz.correct = scores.quiz.answered.filter(a => a && a.isCorrect).length;
+            }
+            updateScoreBoard(); // Update score as answers are given
+
+            // If all questions answered, show submit button
+            if (scores.quiz.answered.every(ans => ans !== null)) {
+                document.getElementById('submitQuizBtn').style.display = 'block';
+            }
+        }
+
+        function showAnswerFeedback(qData, selectedValue, selectedLabel) {
+            const qFeedback = document.getElementById('questionFeedback');
+            const learnMoreContainer = document.getElementById('learnMoreContainer');
+            const isCorrect = selectedValue === qData.answer;
+
+            qFeedback.style.display = 'block';
+            learnMoreContainer.innerHTML = ''; // Clear previous link
+
+            if (isCorrect) {
+                qFeedback.textContent = `Doğru! 🎉`;
+                qFeedback.className = 'feedback correct';
+                selectedLabel.classList.add('correct-choice');
+            } else {
+                qFeedback.textContent = `Yanlış. Doğru cevap: ${qData.answer}.`;
+                qFeedback.className = 'feedback incorrect';
+                selectedLabel.classList.add('incorrect-choice');
+
+                // Highlight the correct answer
+                const correctOptionLabel = Array.from(selectedLabel.parentElement.children).find(label =>
+                    label.querySelector('input') && label.querySelector('input').value === qData.answer
+                );
+                if (correctOptionLabel) correctOptionLabel.classList.add('correct-answer-highlight');
+
+                if (qData.topicId && qData.topicText) {
+                    const link = document.createElement('a');
+                    link.href = "#"; // Prevent page jump
+                    link.className = 'learn-more-link';
+                    link.textContent = qData.topicText;
+                    link.onclick = (e) => {
+                        e.preventDefault();
+                        showSection(qData.topicId.startsWith('#') ? qData.topicId.substring(1) : qData.topicId, qData.topicId.startsWith('#') ? null : qData.topicId);
+                        if (qData.topicId.includes('Definition')) { // if it is a specific definition id, use that as elementId
+                            showSection('systemTypes', qData.topicId);
+                        }
+                    };
+                    learnMoreContainer.appendChild(link);
+                }
+            }
+        }
+
+        function disableOptions(radioButtons, selectedRadio) {
+            radioButtons.forEach(rb => {
+                if (rb !== selectedRadio) {
+                    rb.disabled = true;
+                    rb.parentElement.style.cursor = 'not-allowed';
+                    rb.parentElement.style.opacity = '0.7';
+                }
+                rb.removeEventListener('change', handleAnswerSelection); // Remove listener to prevent re-answering
+            });
+        }
+
+        function updateQuizNavigation() {
+            document.getElementById('prevQuestionBtn').disabled = currentQuestionIndex === 0;
+            document.getElementById('nextQuestionBtn').disabled = currentQuestionIndex === quizQuestions.length - 1;
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < quizQuestions.length - 1) {
+                currentQuestionIndex++;
+                displayQuestion(currentQuestionIndex);
+                updateQuizNavigation();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                displayQuestion(currentQuestionIndex);
+                updateQuizNavigation();
+            }
+        }
+
+        function submitQuiz() {
+            scores.quiz.correct = scores.quiz.answered.filter(a => a && a.isCorrect).length; // Recalculate just in case
+
+            const feedback = document.getElementById('questionFeedback'); // Use general feedback div
+            const scoreDiv = document.getElementById('quizScore');
+
+            const allAttempted = scores.quiz.answered.every(ans => ans !== null);
+
+            if (!allAttempted && !confirm("Tüm soruları cevaplamadınız. Yine de testi bitirmek istiyor musunuz?")) {
+                return;
+            }
+
+            scoreDiv.innerHTML = `<h3>Test Sonucu: ${scores.quiz.correct}/${quizQuestions.length} doğru.</h3>`;
+            if (allAttempted) {
+                feedback.textContent = scores.quiz.correct === quizQuestions.length ? "Mükemmel! Testteki tüm soruları doğru yanıtladınız!" : "Test tamamlandı. Sonuçlarınızı yukarıda görebilirsiniz.";
+            }
+            else {
+                feedback.textContent = "Test tamamlandı (bazı sorular cevaplanmadı). Sonuçlarınızı yukarıda görebilirsiniz.";
+            }
+            feedback.className = scores.quiz.correct === quizQuestions.length && allAttempted ? 'feedback correct' : 'feedback'; // General feedback class, not incorrect
+            feedback.style.display = 'block';
+
+            // Hide navigation and submit buttons, maybe show a reset quiz button or similar
+            document.getElementById('quizContainer').innerHTML = "<p style='text-align:center;'>Testi yeniden başlatmak için lütfen 'İlerleme' sekmesinden ilerlemeyi sıfırlayın veya Test sekmesine yeniden tıklayın.</p>";
+            document.querySelector('.quiz-navigation').style.display = 'none';
+            document.getElementById('submitQuizBtn').style.display = 'none';
+            document.getElementById('learnMoreContainer').innerHTML = ''; // Clear any learn more link
+
+            updateScoreBoard();
+        }
+
+        // --- Skorlama ---
+        function updateScoreBoard() {
+            document.getElementById('levelGameScore').textContent = scores.levelGame.correct;
+            document.getElementById('levelGameTotal').textContent = scores.levelGame.total;
+            document.getElementById('functionalGameScore').textContent = scores.functionalGame.correct;
+            document.getElementById('functionalGameTotal').textContent = scores.functionalGame.total;
+            document.getElementById('comparisonGameScore').textContent = scores.comparisonGame.correct;
+            document.getElementById('comparisonGameTotal').textContent = scores.comparisonGame.total;
+            document.getElementById('quizTotalScore').textContent = scores.quiz.correct;
+            document.getElementById('quizTotalQuestions').textContent = scores.quiz.total;
+
+            let totalCorrect = scores.levelGame.correct + scores.functionalGame.correct + scores.comparisonGame.correct + scores.quiz.correct;
+            let totalPossible = scores.levelGame.total + scores.functionalGame.total + scores.comparisonGame.total + scores.quiz.total;
+
+            document.getElementById('overallScore').textContent = totalPossible > 0 ? ((totalCorrect / totalPossible) * 100).toFixed(0) : 0;
+            localStorage.setItem('kurumsalBsAppScores', JSON.stringify(scores));
+        }
+        function loadScores() {
+            const saved = localStorage.getItem('kurumsalBsAppScores');
+            if (saved) scores = JSON.parse(saved);
+            // Total'leri güncelle (veri değişirse)
+            scores.levelGame.total = levelGameData.length;
+            scores.functionalGame.total = functionalGameData.length;
+            scores.comparisonGame.total = comparisonGameData.length;
+            scores.quiz.total = quizQuestions.length;
+        }
+        function resetProgress() {
+            if (confirm("Tüm ilerlemenizi ve skorlarınızı sıfırlamak istediğinizden emin misiniz?")) {
+                scores = {
+                    levelGame: { correct: 0, total: levelGameData.length },
+                    functionalGame: { correct: 0, total: functionalGameData.length },
+                    comparisonGame: { correct: 0, total: comparisonGameData.length },
+                    quiz: { correct: 0, total: quizQuestions.length, answered: [] }
+                };
+                localStorage.removeItem('kurumsalBsAppScores');
+                updateScoreBoard();
+                // Aktif bölümleri de sıfırla
+                ['levelGame', 'functionalGame', 'systemComparison', 'quiz'].forEach(id => {
+                    if (document.getElementById(id).classList.contains('active')) {
+                        if (id === 'levelGame') initLevelGame();
+                        if (id === 'functionalGame') initFunctionalGame();
+                        if (id === 'systemComparison') initComparisonGame();
+                        if (id === 'quiz') initQuiz();
+                    }
+                });
+                alert("İlerlemeniz sıfırlandı.");
+            }
+        }
+
+        // --- Başlangıç ---
+        window.onload = () => {
+            loadScores();
+            initializeNavigation();
+
+            const initialSectionId = window.location.hash ? window.location.hash.substring(1) : 'home';
+            showSection(initialSectionId);
+            // For initial load, pass the section ID. If it's a game section, updateActiveLink will handle it.
+            updateActiveLink(initialSectionId);
+        };
+
+        function initializeNavigation() {
+            const navLinks = document.querySelectorAll('nav ul a.nav-link'); // All clickable links including top-level ones
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (event) { // 'this' will be the clicked <a> tag
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        event.preventDefault();
+                        const sectionId = href.substring(1);
+                        showSection(sectionId);
+                        updateActiveLink(this); // Pass the clicked link element itself
+                    }
+                    // External links (like index.html) will navigate normally
+                });
+            });
+
+            document.querySelectorAll('nav ul li.dropdown > a.nav-link-dropdown').forEach(ddLink => {
+                ddLink.addEventListener('click', function (event) {
+                    event.preventDefault(); // These are not direct links, they just toggle dropdown via CSS hover
+                });
+            });
+        }
+
+        function updateActiveLink(target) { // target can be a section ID (string) or a link element
+            const allNavLinksAndToggles = document.querySelectorAll('nav ul a');
+            allNavLinksAndToggles.forEach(link => link.classList.remove('active'));
+
+            let activeLinkElement = null;
+            let activeSectionId = '';
+
+            if (typeof target === 'string') { // Target is a section ID (e.g., from initial load or game hub click)
+                activeSectionId = target;
+                if (['levelGame', 'functionalGame', 'systemComparison'].includes(activeSectionId)) {
+                    // If a game section is active, highlight the "Oyun Merkezi" top-level link
+                    activeLinkElement = document.querySelector('nav ul > li > a.nav-link[href="#gamesHub"]');
+                } else {
+                    // For other section IDs (including 'home', 'quiz', 'progress', 'systemTypes', etc.)
+                    // find the first nav link that matches this sectionId.
+                    // For 'home', this will default to the 'Giriş' link under 'Modül İçeriği'.
+                    activeLinkElement = document.querySelector(`nav ul a.nav-link[href="#${activeSectionId}"]`);
+                }
+            } else if (target && target.nodeName === 'A') { // Target is the clicked link element
+                activeLinkElement = target;
+            }
+
+            if (activeLinkElement) {
+                activeLinkElement.classList.add('active');
+                const parentDropdown = activeLinkElement.closest('li.dropdown');
+                if (parentDropdown) {
+                    const parentToggle = parentDropdown.querySelector('a.nav-link-dropdown');
+                    if (parentToggle) {
+                        parentToggle.classList.add('active');
+                    }
+                }
+            }
+        }
+
+        function togglePodcast(playerId, audioSrc, buttonElement, relatedTableId = null) {
+            const audioPlayer = document.getElementById(playerId);
+            const durationElement = document.getElementById(buttonElement.id.replace('PlayButton', 'Duration')); // e.g., podcastDuration1
+            const pyramidDiagram = document.getElementById('pyramidDiagram');
+
+            if (!audioPlayer) return;
+
+            // Set src only if it's different or not set yet
+            // For this specific case, we assume audioSrc doesn't change for a given button, so load only if not loaded.
+            let sourceNeedsUpdate = !audioPlayer.currentSrc || !audioPlayer.currentSrc.endsWith(audioSrc);
+
+            if (sourceNeedsUpdate) {
+                audioPlayer.src = audioSrc;
+                audioPlayer.onloadedmetadata = function () {
+                    if (durationElement) {
+                        const minutes = Math.floor(audioPlayer.duration / 60);
+                        const seconds = Math.floor(audioPlayer.duration % 60).toString().padStart(2, '0');
+                        durationElement.textContent = ` (${minutes}:${seconds})`;
+                    }
+                    // Removed seek bar and current time display initialization for podcastPlayer2
+                };
+            }
+
+            if (audioPlayer.paused || audioPlayer.ended) {
+                audioPlayer.play().then(() => {
+                    buttonElement.innerHTML = '&#10074;&#10074;'; // Pause icon
+                    if (playerId === 'podcastPlayer1' && pyramidDiagram) {
+                        audioPlayer.addEventListener('timeupdate', handleTimeUpdatePyramid);
+                        pyramidDiagram.classList.add('pyramid-highlight-dim');
+                    } else if (playerId === 'podcastPlayer2') {
+                        // No event listener for table highlighting or seekbar needed now
+                    }
+                }).catch(error => {
+                    console.error("Error playing audio:", error, playerId);
+                    if (sourceNeedsUpdate) buttonElement.innerHTML = '&#9658;';
+                });
+            } else {
+                audioPlayer.pause();
+                buttonElement.innerHTML = '&#9658;'; // Play icon
+                // Listeners and dimming remain on pause
+            }
+
+            audioPlayer.onended = function () {
+                buttonElement.innerHTML = '&#9658;';
+                audioPlayer.currentTime = 0;
+                if (playerId === 'podcastPlayer1' && pyramidDiagram) {
+                    audioPlayer.removeEventListener('timeupdate', handleTimeUpdatePyramid);
+                    clearPyramidHighlights(); // This also removes dim from pyramidDiagram
+                } else if (playerId === 'podcastPlayer2') {
+                    // No highlighting or seekbar logic to clear/reset
+                }
+            };
+        }
+
+        function setPlaybackSpeed(playerId, speed, speedButtonElement) {
+            const audioPlayer = document.getElementById(playerId);
+            if (audioPlayer) {
+                audioPlayer.playbackRate = speed;
+                // Update active speed button
+                const speedControls = speedButtonElement.parentElement;
+                speedControls.querySelectorAll('button').forEach(btn => {
+                    btn.classList.remove('active-speed');
+                });
+                speedButtonElement.classList.add('active-speed');
+            }
+        }
+
+        const highlightData = [
+            // 0:01 (and more prominent 0:08): Entire pyramid
+            { timeStart: 1, timeEnd: 12, targets: ['pyramidDiagram'], description: "Full Pyramid Intro" },
+            // 0:13: Operational Level (TPS) + Op. Managers
+            { timeStart: 13, timeEnd: 35, targets: ['pyramid-op-label-left', 'pyramid-op-core', 'pyramid-op-label-right'], description: "Operational Level" },
+            // 0:36: Management Level (MIS/DSS) + Mid. Managers
+            { timeStart: 36, timeEnd: 76, targets: ['pyramid-mgmt-label-left', 'pyramid-mgmt-core', 'pyramid-mgmt-label-right'], description: "Management Level" },
+            // 1:17: Strategic Level (ESS) + Top Managers
+            { timeStart: 77, timeEnd: 98, targets: ['pyramid-strat-label-left', 'pyramid-strat-core', 'pyramid-strat-label-right'], description: "Strategic Level" },
+            // 1:39: Functional Areas row
+            { timeStart: 99, timeEnd: 109, targets: ['pyramid-func-areas'], description: "Functional Areas" } // Assuming audio duration around 1:49 or more.
+        ];
+
+        const allPyramidSectionIds = [
+            'pyramidDiagram',
+            'pyramid-op-label-left', 'pyramid-op-core', 'pyramid-op-label-right',
+            'pyramid-mgmt-label-left', 'pyramid-mgmt-core', 'pyramid-mgmt-label-right',
+            'pyramid-strat-label-left', 'pyramid-strat-core', 'pyramid-strat-label-right',
+            'pyramid-func-areas',
+            // Add titles if they should also be part of the dimming/highlighting individually
+            'pyramidDiagram > .pyramid-kind-title-area',
+            'pyramidDiagram > .pyramid-group-title-area'
+        ];
+
+
+        function clearPyramidHighlights() {
+            allPyramidSectionIds.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.classList.remove('pyramid-highlight-active');
+                }
+            });
+            // Also clear from general pyramid sections if ID not specific enough
+            document.querySelectorAll('.pyramid-section').forEach(el => {
+                el.classList.remove('pyramid-highlight-active');
+            });
+            const pyramidDiagram = document.getElementById('pyramidDiagram');
+            if (pyramidDiagram) pyramidDiagram.classList.remove('pyramid-highlight-dim');
+
+        }
+
+        function handleTimeUpdatePyramid() {
+            const audioPlayer = document.getElementById('podcastPlayer1');
+            const pyramidDiagram = document.getElementById('pyramidDiagram');
+            if (!audioPlayer || !pyramidDiagram) return;
+
+            const currentTime = audioPlayer.currentTime;
+            let activeTargetsFound = false;
+
+            // First, ensure all sections are potentially dimmed if sync is active
+            // The 'pyramid-highlight-dim' class is now added to pyramidDiagram on play start
+
+            // Remove active from all highlightable elements first
+            allPyramidSectionIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.remove('pyramid-highlight-active');
+            });
+            document.querySelectorAll('.pyramid-section.pyramid-highlight-active').forEach(el => el.classList.remove('pyramid-highlight-active'));
+
+
+            for (const region of highlightData) {
+                if (currentTime >= region.timeStart && currentTime < region.timeEnd) {
+                    activeTargetsFound = true;
+                    region.targets.forEach(targetId => {
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            targetElement.classList.add('pyramid-highlight-active');
+                        }
+                    });
+                    break; // Assuming only one region is active at a time
+                }
+            }
+
+            if (activeTargetsFound) {
+                pyramidDiagram.classList.add('pyramid-highlight-dim');
+            } else {
+                // If no region is active, remove dimming effect entirely
+                clearPyramidHighlights(); // also removes pyramid-highlight-dim
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,2 @@
+- Bir verinin sistem genelinde tutarlılığının ve doğruluğunun korunması.
+	- Bir tablodan silinen kayıt diğer ilgili tablolardan da silinmelidir.

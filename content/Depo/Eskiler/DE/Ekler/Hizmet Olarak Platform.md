@@ -1,0 +1,6 @@
+---
+tags:
+  - akademi/dersler/dijital-ekonomi
+---
+- Sağlayıcı işletme, internet üzerinden erişilen platform sunar (yazılım/uygulama vb.).
+- **Örneğin:** Google App Engine, Microsoft Azure

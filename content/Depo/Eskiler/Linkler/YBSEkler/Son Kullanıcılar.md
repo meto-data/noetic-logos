@@ -1,0 +1,1 @@
+Yazılımı doğrudan kullanır.

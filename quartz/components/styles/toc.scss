@@ -1,0 +1,91 @@
+@use "../../styles/variables.scss" as *;
+
+.toc {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  min-height: 1.4rem;
+  flex: 0 0.5 auto;
+  &.collapsed {
+    flex: 0 1 1.4rem;
+  }
+}
+
+button.toc-header {
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+
+  & h3 {
+    font-size: 1rem;
+    display: inline-block;
+    margin: 0;
+  }
+
+  & .fold {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+    opacity: 0.8;
+  }
+
+  &.collapsed .fold {
+    transform: rotateZ(-90deg);
+  }
+}
+
+ul.toc-content.overflow {
+  list-style: none;
+  position: relative;
+  margin: 0.5rem 0;
+  padding: 0;
+  max-height: calc(100% - 2rem);
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+
+  & > li {
+    border-radius: 6px;
+    transition: background-color 0.2s ease, padding 0.2s ease;
+    margin: 2px 0;
+
+    & > a {
+      color: var(--dark);
+      opacity: 0.35;
+      transition:
+        0.3s ease opacity,
+        0.2s ease color;
+      display: block;
+      border-radius: 4px;
+
+      &.in-view {
+        opacity: 0.75;
+      }
+
+      &.is-active {
+        color: var(--secondary) !important;
+        opacity: 1 !important;
+        font-weight: 600 !important;
+      }
+    }
+
+    &.is-active {
+      background-color: color-mix(in srgb, var(--secondary) 14%, transparent);
+
+      & > a {
+        color: var(--secondary) !important;
+        opacity: 1 !important;
+        font-weight: 600 !important;
+      }
+    }
+  }
+
+  @for $i from 0 through 6 {
+    & .depth-#{$i} {
+      padding-left: calc(0.75rem * #{$i});
+    }
+  }
+}

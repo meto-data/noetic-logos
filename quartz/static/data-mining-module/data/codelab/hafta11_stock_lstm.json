@@ -1,0 +1,798 @@
+{
+  "id": "hafta11_stock_lstm",
+  "title": "Hafta 11: IBM Stock Price LSTM",
+  "week": 11,
+  "csvFiles": [
+    "IBM_2006-01-01_to_2018-01-01.csv"
+  ],
+  "blocks": [
+    {
+      "id": "hafta11_stock_lstm-b001",
+      "title": "Kütüphaneler ve Yardımcı Fonksiyonlar",
+      "blockExplanation": "Başlangıçtaki genel hazırlık kodları burada gruplanır. Çizim ve hata metriği fonksiyonları birlikte tanımlanır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import numpy as np",
+          "lineExplanation": "Bu satır, analizde veya model kurulumunda ihtiyaç duyulacak kütüphaneyi çalışma ortamına dahil eder.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "Sayısal hesaplama kütüphanesi",
+              "turkce": "numpy",
+              "amac": "Diziler ve matrisler üzerinde hızlı işlem yapmak için kullanılır.",
+              "detay": "NumPy özellikle dizi tabanlı hesaplamalarda standarttır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunda kullanılacak araçları hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "Bu satır, analizde veya model kurulumunda ihtiyaç duyulacak kütüphaneyi çalışma ortamına dahil eder.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "Görselleştirme modülü",
+              "turkce": "matplotlib.pyplot",
+              "amac": "Grafik üretmek için kullanılır.",
+              "detay": "Çizgi, çubuk, histogram gibi görsellerin temel aracıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunda kullanılacak araçları hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "import pandas as pd",
+          "lineExplanation": "Bu satır, analizde veya model kurulumunda ihtiyaç duyulacak kütüphaneyi çalışma ortamına dahil eder.",
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "Veri analizi kütüphanesi",
+              "turkce": "pandas",
+              "amac": "CSV ve tablo işlemlerini yapmak için kullanılır.",
+              "detay": "DataFrame yapısı ile tabloyu Python içinde işler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunda kullanılacak araçları hazırlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "from sklearn.preprocessing import MinMaxScaler",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [
+            {
+              "token": "MinMaxScaler",
+              "explanation": "Ölçekleme aracı",
+              "turkce": "MinMaxScaler",
+              "amac": "Veriyi 0 ile 1 aralığına sıkıştırır.",
+              "detay": "Sinir ağları ölçeklenmiş verilerle daha stabil öğrenir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "",
+          "lineExplanation": "Boş satır bırakılmıştır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunda okunabilirlik için ayrılmıştır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "def plot_predictions(test, predicted):",
+          "lineExplanation": "Yardımcı bir fonksiyon tanımlar; tekrar eden işlem zincirini tek isim altında toplayarak notebook’u sadeleştirir.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunda tekrar kullanılacak mantığı kapsüller."
+        },
+        {
+          "lineNumber": 8,
+          "code": "    plt.plot(test, color='red', label='Real IBM Stock Price')",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [
+            {
+              "token": "plt.plot()",
+              "explanation": "Çizgi grafiği",
+              "turkce": "plt.plot()",
+              "amac": "Zaman içindeki değişimi veya iki seri arasındaki ilişkiyi çizgi ile gösterir.",
+              "detay": "Zaman serilerinde trend, mevsimsellik ve sapma okumak için temel araçtır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunda görsel çıktı üretir."
+        },
+        {
+          "lineNumber": 9,
+          "code": "    plt.plot(predicted, color='blue', label='Predicted IBM Stock Price')",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [
+            {
+              "token": "plt.plot()",
+              "explanation": "Çizgi grafiği",
+              "turkce": "plt.plot()",
+              "amac": "Zaman içindeki değişimi veya iki seri arasındaki ilişkiyi çizgi ile gösterir.",
+              "detay": "Zaman serilerinde trend, mevsimsellik ve sapma okumak için temel araçtır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunda görsel çıktı üretir."
+        },
+        {
+          "lineNumber": 10,
+          "code": "    plt.title('IBM Stock Price Prediction')",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 11,
+          "code": "    plt.xlabel('Time')",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 12,
+          "code": "    plt.ylabel('IBM Stock Price')",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 13,
+          "code": "    plt.legend()",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 14,
+          "code": "    plt.show()",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafiği gösterme",
+              "turkce": "plt.show()",
+              "amac": "Hazırlanan grafiği ekranda görünür hale getirir.",
+              "detay": "Notebook akışında görselleştirmenin son adımıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunda görsel çıktı üretir."
+        },
+        {
+          "lineNumber": 15,
+          "code": "",
+          "lineExplanation": "Boş satır bırakılmıştır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunda okunabilirlik için ayrılmıştır."
+        },
+        {
+          "lineNumber": 16,
+          "code": "def return_rmse(test, predicted):",
+          "lineExplanation": "Yardımcı bir fonksiyon tanımlar; tekrar eden işlem zincirini tek isim altında toplayarak notebook’u sadeleştirir.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunda tekrar kullanılacak mantığı kapsüller."
+        },
+        {
+          "lineNumber": 17,
+          "code": "    pass",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Kütüphaneler ve Yardımcı Fonksiyonlar' bloğunun bir parçasıdır."
+        }
+      ],
+      "expectedOutput": "Yardımcı fonksiyonlar tanımlanır; henüz grafik veya metrik çıktısı üretilmez.",
+      "outputInterpretation": "Zaman serileri tahmini ve derin öğrenme süreçlerinde kullanılacak temel Python kütüphanelerinin sisteme dahil edilmesi, projenin altyapısını oluşturur. Matris ve dizi işlemleri için `numpy`, veri çerçevelerinin yönetimi için `pandas` ve görselleştirme için `matplotlib.pyplot` modülleri bu aşamada belleğe yüklenir.\n\nBu proje bir sürekli değer tahmini (regresyon) problemi olarak kurgulanmıştır. Bu sebeple sınıflandırma metrikleri yerine model performansını değerlendirmek üzere `sklearn.metrics` altından `mean_squared_error` (`MSE`), `mean_absolute_error` (`MAE`) ve `r2_score` (`R²`) gibi regresyona özgü metrikler çalışma ortamına aktarılmıştır.\n\nKodun bu aşaması doğrudan bir görsel veya sayısal çıktı üretmez. Ancak veri madenciliği döngüsünün ilk adımı olarak analizde kullanılacak araçların hazırlandığını ve model başarısının hata minimizasyonu prensibiyle ölçüleceğini netleştirir."
+    },
+    {
+      "id": "hafta11_stock_lstm-b002",
+      "title": "Hisse Verisini Yükleme",
+      "blockExplanation": "IBM veri seti tarih indeksli biçimde okunur ve ilk satırlar incelenir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "dataset = pd.read_csv('IBM_2006-01-01_to_2018-01-01.csv', index_col='Date', parse_dates=['Date'])",
+          "lineExplanation": "CSV dosyasını okuyup veri çerçevesi oluşturur; veri madenciliği sürecinin veri yükleme adımını başlatır.",
+          "tokens": [
+            {
+              "token": "pd.read_csv()",
+              "explanation": "CSV okuma fonksiyonu",
+              "turkce": "pd.read_csv()",
+              "amac": "Dış kaynaktaki tabloyu DataFrame olarak belleğe yükler.",
+              "detay": "Veri madenciliği sürecinde ilk adım çoğunlukla veriyi doğru biçimde içeri almaktır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hisse Verisini Yükleme' bloğunda dış veriyi içeri alır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "dataset.head()",
+          "lineExplanation": "İlk satırları önizleyerek sütun yapısının ve örnek kayıtların beklenen biçimde gelip gelmediğini kontrol eder.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Hisse Verisini Yükleme' bloğunda verinin doğru okunup okunmadığını kontrol eder."
+        }
+      ],
+      "expectedOutput": "İlk 5 satırda Open, High, Low, Close gibi fiyat sütunları tarih indeksli biçimde görünür.",
+      "outputInterpretation": "Ham veri kümesinin sisteme entegre edilmesi ve zaman serisi yapısının kurulması sürecin başlangıcıdır. `pd.read_csv()` fonksiyonu çağrılırken `index_col='Date'` ve `parse_dates=['Date']` parametrelerinin kullanılması, verinin rastgele bir tablo yerine kronolojik bir indeks düzenine (`DatetimeIndex`) kavuşmasını sağlar.\n\nZaman serisi verilerinde gözlemlerin sırası ve ardışıklığı, geçmişin geleceği etkileme örüntüsünü barındırdığı için korunmalıdır. Bu indeks yapısı kurulmadığı takdirde model, veriler arasındaki zamansal ilişkiyi ve trend yapısını doğru kavrayamaz.\n\nElde edilen veri çerçevesinin (`DataFrame`) ilk satırları incelendiğinde `Open`, `High`, `Low`, `Close` ve `Volume` gibi hisse senedine ait çoklu değişkenler (`multivariate`) görülür. Bu aşamadan sonra analizde kullanılacak tekil hedef değişkenin seçilmesi gerekmektedir."
+    },
+    {
+      "id": "hafta11_stock_lstm-b003",
+      "title": "Train-Test Dönemlerini Ayırma",
+      "blockExplanation": "2016 sonuna kadar eğitim, 2017 sonrası test olarak ayrılır; model yalnızca High fiyat sütununu kullanır. Bu kronolojik ayırım, teorik notlarda vurgulanan 'zaman serilerinde random split yoktur' ilkesinin doğrudan uygulanmasıdır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "training_set = dataset[:'2016'].iloc[:,1:2].values",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Train-Test Dönemlerini Ayırma' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "test_set = dataset['2017':].iloc[:,1:2].values",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Train-Test Dönemlerini Ayırma' bloğunda bir ara sonuç üretir."
+        }
+      ],
+      "expectedOutput": "training_set ve test_set yalnızca High sütununu içeren iki NumPy dizisine dönüşür.",
+      "outputInterpretation": "Zaman serisi modellemesinde veri sızıntısını (`data leakage`) önlemek amacıyla eğitim (`Train`) ve test (`Test`) kümelerinin doğru ayrılması gerekir. Klasik makine öğrenmesi algoritmalarındaki rastgele bölme (`random split`) yöntemi kronolojik sırayı bozacağı için zaman serilerinde kesinlikle tercih edilmez.\n\nBu gereksinim doğrultusunda 2016 yılının sonunu baz alan zamansal bir eşik belirlenmiş ve bu tarihten öncesi eğitim, sonrası ise test kümesi olarak bölünmüştür. Modelin tek bir değişken üzerinden öğrenmesini sağlamak (tek değişkenli/ `univariate` zaman serisi) amacıyla yalnızca `High` (en yüksek fiyat) sütunu analiz kapsamına alınmıştır.\n\nBölme işleminin ardından elde edilen `training_set` ve `test_set` NumPy dizileri, modelin geçmiş davranışları öğrenmesini ve gelecekteki görünmeyen günleri başarıyla simüle etmesini sağlayacak biçimde birbirlerinden tamamen izole edilmiştir."
+    },
+    {
+      "id": "hafta11_stock_lstm-b004",
+      "title": "High Fiyatının Eğitim/Test Dağılımını Görmek",
+      "blockExplanation": "Eğitim ve test dönemindeki High fiyatları aynı grafikte çizilerek rejim farkı gözlenir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "dataset[\"High\"][:'2016'].plot(figsize=(16,4), legend=True)",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'High Fiyatının Eğitim/Test Dağılımını Görmek' bloğunda görsel çıktı üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "dataset[\"High\"]['2017':].plot(figsize=(16,4), legend=True)",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'High Fiyatının Eğitim/Test Dağılımını Görmek' bloğunda görsel çıktı üretir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.legend(['Training set (Before 2017)', 'Test set (2017 and beyond)'])",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'High Fiyatının Eğitim/Test Dağılımını Görmek' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.title('IBM stock price')",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'High Fiyatının Eğitim/Test Dağılımını Görmek' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.show()",
+          "lineExplanation": "Grafik çıktısını üretir veya gösterir; bu görsel, model veya veri davranışını insan gözüyle yorumlamayı kolaylaştırır.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Grafiği gösterme",
+              "turkce": "plt.show()",
+              "amac": "Hazırlanan grafiği ekranda görünür hale getirir.",
+              "detay": "Notebook akışında görselleştirmenin son adımıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'High Fiyatının Eğitim/Test Dağılımını Görmek' bloğunda görsel çıktı üretir."
+        }
+      ],
+      "expectedOutput": "(Grafik çıktısı) 2016 öncesi eğitim çizgisi ile 2017 test çizgisi aynı eksende görünür.",
+      "plotImage": "h11-stock-b004.png",
+      "outputInterpretation": "Eğitim ve test dönemlerindeki `High` fiyatı değerlerinin zaman içindeki dağılımını, trendini ve olası rejim değişimlerini izlemek için iki seri tek bir grafik üzerinde çizdirilmiştir. Bu tür görsel analizler, test kümesindeki fiyat hareketlerinin eğitim kümesine kıyasla nasıl bir konjonktürel dalgalanma gösterdiğini gözlemlemeyi sağlar.\n\nGrafik incelendiğinde fiyatların zamanla yükselip alçaldığı belirgin trendler taşıdığı, dolayısıyla serinin durağan (`stationary`) olmadığı açıkça görülür. Sabit bir ortalama ve varyansa sahip olmayan bu ham yapı, derin öğrenme modelinin stabil öğrenmesini zorlaştırabilir.\n\nEğitim ve test serileri arasındaki genlik ve varyans farkları, yapay sinir ağlarında optimizasyon sürecini tıkayabileceği için modelleme öncesinde verilerin normalize edilmesi ve ölçeklenmesi gerektiği kararını doğurur."
+    },
+    {
+      "id": "hafta11_stock_lstm-b005",
+      "title": "Ölçekleme ve 60 Zaman Adımlı Pencereleme",
+      "blockExplanation": "LSTM için eğitim verisi 0-1 aralığına çekilir ve her örnek için son 60 gün giriş olacak şekilde pencere yapısı oluşturulur. Pencere uzunluğu burada bağlam bilgisidir; model karar verirken son 60 günü birlikte görür.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "sc = MinMaxScaler(feature_range=(0,1))",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [
+            {
+              "token": "MinMaxScaler",
+              "explanation": "Ölçekleme aracı",
+              "turkce": "MinMaxScaler",
+              "amac": "Veriyi 0 ile 1 aralığına sıkıştırır.",
+              "detay": "Sinir ağları ölçeklenmiş verilerle daha stabil öğrenir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ölçekleme ve 60 Zaman Adımlı Pencereleme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "training_set_scaled = sc.fit_transform(training_set)",
+          "lineExplanation": "Veriyi ölçekler veya dönüştürür; özellikle sinir ağlarında değişken aralıklarını dengeler.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Ölçekleme ve 60 Zaman Adımlı Pencereleme' bloğunda model öncesi normalizasyon yapar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "X_train = []",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Ölçekleme ve 60 Zaman Adımlı Pencereleme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "y_train = []",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Ölçekleme ve 60 Zaman Adımlı Pencereleme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "for i in range(60,2769):",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Ölçekleme ve 60 Zaman Adımlı Pencereleme' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    X_train.append(training_set_scaled[i-60:i,0])",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Ölçekleme ve 60 Zaman Adımlı Pencereleme' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    y_train.append(training_set_scaled[i,0])",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Ölçekleme ve 60 Zaman Adımlı Pencereleme' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 8,
+          "code": "X_train, y_train = np.array(X_train), np.array(y_train)",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Ölçekleme ve 60 Zaman Adımlı Pencereleme' bloğunda bir ara sonuç üretir."
+        }
+      ],
+      "expectedOutput": "X_train 60 günlük geçmişi, y_train ise bir sonraki günü temsil eden dizilere dönüşür.",
+      "outputInterpretation": "Derin öğrenme modellerinde gradyanların patlamasını veya sıfıra yaklaşmasını (`exploding/vanishing gradients`) engellemek adına normalizasyon işlemi uygulanmıştır. `MinMaxScaler` kullanılarak ham fiyat değerleri 0 ile 1 aralığına sıkıştırılmış ve ağın daha kararlı eğitilmesi hedeflenmiştir.\n\nAynı zamanda zaman serisi verisini denetimli öğrenme (`Supervised Learning`) yapısına kavuşturmak amacıyla pencere boyutu (`window length`) 60 olarak seçilmiştir. Bu parametrik karar, modelin bugünün fiyatını tahmin edebilmek için geçmiş 60 işlem günündeki örüntülere bakacağını ifade eder.\n\nYapılan döngüsel pencereleme işlemi sonucunda bağımsız bir zaman serisi, her satırında geçmiş 60 günün ölçeklenmiş fiyatlarını taşıyan bir `X_train` matrisine ve karşılık gelen sonraki günün değerini tutan `y_train` hedef vektörüne dönüştürülmüştür."
+    },
+    {
+      "id": "hafta11_stock_lstm-b006",
+      "title": "LSTM Giriş Tensörünü Hazırlama",
+      "blockExplanation": "Eğitim pencereleri 3 boyutlu tensöre çevrilir; böylece her örnek zaman adımlarıyla modele verilebilir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "X_train = np.reshape(X_train, (X_train.shape[0],X_train.shape[1],1))",
+          "lineExplanation": "Dizinin boyutunu modelin beklediği tensör biçimine dönüştürür; bu adım yapılmazsa LSTM/CNN katmanları girişi kabul etmez.",
+          "tokens": [
+            {
+              "token": "reshape()",
+              "explanation": "Dizi biçimlendirme",
+              "turkce": "reshape()",
+              "amac": "Veriyi modelin beklediği tensör boyutuna dönüştürür.",
+              "detay": "Derin öğrenme modelleri giriş verisinin boyut düzenine çok duyarlıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'LSTM Giriş Tensörünü Hazırlama' bloğunda tensör boyutunu ayarlar."
+        }
+      ],
+      "expectedOutput": "X_train şekli (örnek_sayısı, 60, 1) biçimine dönüşür.",
+      "outputInterpretation": "Bu adımın amacı, hazırlanan veri matrisini `Keras` veya `TensorFlow` tabanlı derin öğrenme kütüphanelerinin standart giriş formatına uydurmaktır. Klasik makine öğrenmesi modelleri iki boyutlu (`2D`) veri yapılarıyla çalışabilirken, `LSTM` gibi ardışık ağlar girdiyi üç boyutlu (`3D`) tensörler olarak talep eder.\n\nBu gereksinim doğrultusunda `np.reshape()` fonksiyonu kullanılarak `X_train` verisi `[örnek sayısı, zaman adımı, özellik sayısı]` temsiline getirilmiştir. Bu yapısal dönüşüm, verinin ağ içindeki hafıza hücrelerine (`memory cells`) zaman adımları halinde beslenmesini mümkün kılar."
+    },
+    {
+      "id": "hafta11_stock_lstm-b007",
+      "title": "Derin LSTM Mimarisi",
+      "blockExplanation": "Dört katmanlı, dropout’lu daha derin bir LSTM mimarisi tanımlanır ve özetlenir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "from keras.models import Sequential",
+          "lineExplanation": "Model nesnesini kurar; bundan sonraki katman ekleme ve eğitim adımları bu nesne üzerinde ilerler.",
+          "tokens": [
+            {
+              "token": "Sequential",
+              "explanation": "Sıralı sinir ağı modeli",
+              "turkce": "Sequential",
+              "amac": "Katmanları sırayla eklenen modelleri kurar.",
+              "detay": "Keras içinde en temel model kurma yapısıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Derin LSTM Mimarisi' bloğunda makine öğrenmesi modelini oluşturur."
+        },
+        {
+          "lineNumber": 2,
+          "code": "from keras.layers import Dense, LSTM, Dropout",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [
+            {
+              "token": "LSTM",
+              "explanation": "Uzun-kısa süreli bellek katmanı",
+              "turkce": "LSTM",
+              "amac": "Zaman serilerindeki bağımlılıkları öğrenmek için kullanılır.",
+              "detay": "Geçmiş adımları hafızada tutabildiği için sekans verilerinde tercih edilir."
+            },
+            {
+              "token": "Dense",
+              "explanation": "Tam bağlı katman",
+              "turkce": "Dense",
+              "amac": "Sinir ağında öğrenilen temsilleri yeni uzaya dönüştürür.",
+              "detay": "Çıkış veya ara karar katmanı olarak sık kullanılır."
+            },
+            {
+              "token": "Dropout",
+              "explanation": "Aşırı öğrenmeyi azaltma katmanı",
+              "turkce": "Dropout",
+              "amac": "Eğitim sırasında bazı nöronları geçici olarak kapatır.",
+              "detay": "Modelin ezber yapmasını zorlaştırır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Derin LSTM Mimarisi' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "regressor = Sequential()",
+          "lineExplanation": "Model nesnesini kurar; bundan sonraki katman ekleme ve eğitim adımları bu nesne üzerinde ilerler.",
+          "tokens": [
+            {
+              "token": "Sequential",
+              "explanation": "Sıralı sinir ağı modeli",
+              "turkce": "Sequential",
+              "amac": "Katmanları sırayla eklenen modelleri kurar.",
+              "detay": "Keras içinde en temel model kurma yapısıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Derin LSTM Mimarisi' bloğunda makine öğrenmesi modelini oluşturur."
+        },
+        {
+          "lineNumber": 4,
+          "code": "regressor.add(LSTM(units=50, return_sequences=True, input_shape=(X_train.shape[1],1)))",
+          "lineExplanation": "Modele yeni katman ekler; bu katman veri içindeki örüntüleri öğrenen mimarinin bir bileşenidir.",
+          "tokens": [
+            {
+              "token": "LSTM",
+              "explanation": "Uzun-kısa süreli bellek katmanı",
+              "turkce": "LSTM",
+              "amac": "Zaman serilerindeki bağımlılıkları öğrenmek için kullanılır.",
+              "detay": "Geçmiş adımları hafızada tutabildiği için sekans verilerinde tercih edilir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Derin LSTM Mimarisi' bloğunda ağ mimarisini inşa eder."
+        },
+        {
+          "lineNumber": 5,
+          "code": "regressor.add(Dropout(0.2))",
+          "lineExplanation": "Modele yeni katman ekler; bu katman veri içindeki örüntüleri öğrenen mimarinin bir bileşenidir.",
+          "tokens": [
+            {
+              "token": "Dropout",
+              "explanation": "Aşırı öğrenmeyi azaltma katmanı",
+              "turkce": "Dropout",
+              "amac": "Eğitim sırasında bazı nöronları geçici olarak kapatır.",
+              "detay": "Modelin ezber yapmasını zorlaştırır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Derin LSTM Mimarisi' bloğunda ağ mimarisini inşa eder."
+        },
+        {
+          "lineNumber": 6,
+          "code": "regressor.add(LSTM(units=50, return_sequences=True))",
+          "lineExplanation": "Modele yeni katman ekler; bu katman veri içindeki örüntüleri öğrenen mimarinin bir bileşenidir.",
+          "tokens": [
+            {
+              "token": "LSTM",
+              "explanation": "Uzun-kısa süreli bellek katmanı",
+              "turkce": "LSTM",
+              "amac": "Zaman serilerindeki bağımlılıkları öğrenmek için kullanılır.",
+              "detay": "Geçmiş adımları hafızada tutabildiği için sekans verilerinde tercih edilir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Derin LSTM Mimarisi' bloğunda ağ mimarisini inşa eder."
+        },
+        {
+          "lineNumber": 7,
+          "code": "regressor.add(Dropout(0.2))",
+          "lineExplanation": "Modele yeni katman ekler; bu katman veri içindeki örüntüleri öğrenen mimarinin bir bileşenidir.",
+          "tokens": [
+            {
+              "token": "Dropout",
+              "explanation": "Aşırı öğrenmeyi azaltma katmanı",
+              "turkce": "Dropout",
+              "amac": "Eğitim sırasında bazı nöronları geçici olarak kapatır.",
+              "detay": "Modelin ezber yapmasını zorlaştırır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Derin LSTM Mimarisi' bloğunda ağ mimarisini inşa eder."
+        },
+        {
+          "lineNumber": 8,
+          "code": "regressor.add(LSTM(units=50, return_sequences=True))",
+          "lineExplanation": "Modele yeni katman ekler; bu katman veri içindeki örüntüleri öğrenen mimarinin bir bileşenidir.",
+          "tokens": [
+            {
+              "token": "LSTM",
+              "explanation": "Uzun-kısa süreli bellek katmanı",
+              "turkce": "LSTM",
+              "amac": "Zaman serilerindeki bağımlılıkları öğrenmek için kullanılır.",
+              "detay": "Geçmiş adımları hafızada tutabildiği için sekans verilerinde tercih edilir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Derin LSTM Mimarisi' bloğunda ağ mimarisini inşa eder."
+        },
+        {
+          "lineNumber": 9,
+          "code": "regressor.add(Dropout(0.2))",
+          "lineExplanation": "Modele yeni katman ekler; bu katman veri içindeki örüntüleri öğrenen mimarinin bir bileşenidir.",
+          "tokens": [
+            {
+              "token": "Dropout",
+              "explanation": "Aşırı öğrenmeyi azaltma katmanı",
+              "turkce": "Dropout",
+              "amac": "Eğitim sırasında bazı nöronları geçici olarak kapatır.",
+              "detay": "Modelin ezber yapmasını zorlaştırır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Derin LSTM Mimarisi' bloğunda ağ mimarisini inşa eder."
+        },
+        {
+          "lineNumber": 10,
+          "code": "regressor.add(LSTM(units=50))",
+          "lineExplanation": "Modele yeni katman ekler; bu katman veri içindeki örüntüleri öğrenen mimarinin bir bileşenidir.",
+          "tokens": [
+            {
+              "token": "LSTM",
+              "explanation": "Uzun-kısa süreli bellek katmanı",
+              "turkce": "LSTM",
+              "amac": "Zaman serilerindeki bağımlılıkları öğrenmek için kullanılır.",
+              "detay": "Geçmiş adımları hafızada tutabildiği için sekans verilerinde tercih edilir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Derin LSTM Mimarisi' bloğunda ağ mimarisini inşa eder."
+        },
+        {
+          "lineNumber": 11,
+          "code": "regressor.add(Dropout(0.2))",
+          "lineExplanation": "Modele yeni katman ekler; bu katman veri içindeki örüntüleri öğrenen mimarinin bir bileşenidir.",
+          "tokens": [
+            {
+              "token": "Dropout",
+              "explanation": "Aşırı öğrenmeyi azaltma katmanı",
+              "turkce": "Dropout",
+              "amac": "Eğitim sırasında bazı nöronları geçici olarak kapatır.",
+              "detay": "Modelin ezber yapmasını zorlaştırır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Derin LSTM Mimarisi' bloğunda ağ mimarisini inşa eder."
+        },
+        {
+          "lineNumber": 12,
+          "code": "regressor.add(Dense(units=1))",
+          "lineExplanation": "Modele yeni katman ekler; bu katman veri içindeki örüntüleri öğrenen mimarinin bir bileşenidir.",
+          "tokens": [
+            {
+              "token": "Dense",
+              "explanation": "Tam bağlı katman",
+              "turkce": "Dense",
+              "amac": "Sinir ağında öğrenilen temsilleri yeni uzaya dönüştürür.",
+              "detay": "Çıkış veya ara karar katmanı olarak sık kullanılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Derin LSTM Mimarisi' bloğunda ağ mimarisini inşa eder."
+        },
+        {
+          "lineNumber": 13,
+          "code": "regressor.summary()",
+          "lineExplanation": "Model özetini yazdırır; katmanlar, parametre sayıları ve çıkış boyutları bu ekranda kontrol edilir.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Derin LSTM Mimarisi' bloğunda mimariyi kontrol etmeyi sağlar."
+        }
+      ],
+      "expectedOutput": "Model özeti katman katman görünür; dört LSTM ve dropout katmanı listelenir.",
+      "outputInterpretation": "Zaman serisinde gizli olan karmaşık ve uzun vadeli bağımlılıkları, dönemsel hareketleri öğrenmek amacıyla çok katmanlı, derin bir sinir ağı tasarlanmıştır. `Sequential` yapı üzerine kurulan model, üst üste eklenen 4 ayrı `LSTM` katmanından oluşmaktadır.\n\nAğda yer alan `return_sequences=True` parametresi, bir `LSTM` katmanının ürettiği zamansal diziyi bozmadan sonraki `LSTM` katmanına aktarmasını sağlar. Ağın ezberlemesini (`overfitting`) önlemek amacıyla da katmanlar arasına %20 oranında nöron kapatan `Dropout` katmanları konumlandırılmıştır.\n\nYazdırılan model özeti (`summary()`), ağın mimarisini, katmanların çıktı boyutlarını ve optimize edilecek parametre sayılarını gösterir. Modelin sonundaki `Dense` katmanı ise tek bir nörona sahip olup, regresyon probleminin gereği olarak tekil bir fiyat tahmini üretir."
+    },
+    {
+      "id": "hafta11_stock_lstm-b008",
+      "title": "Modeli Derleme ve Eğitme",
+      "blockExplanation": "RMSprop optimizasyonu ile model derlenir ve 50 epoch boyunca eğitim verisi üzerinde eğitilir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "regressor.compile(optimizer='rmsprop',loss='mean_squared_error')",
+          "lineExplanation": "Modelin optimizasyon, kayıp ve başarı ölçütlerini tanımlar; eğitim stratejisi bu satırda kesinleşir.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Modeli Derleme ve Eğitme' bloğunda eğitim ayarlarını belirler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "regressor.fit(X_train,y_train,epochs=50,batch_size=32)",
+          "lineExplanation": "Modeli eğitim verisi üzerinde iteratif olarak eğitir; ağırlıklar bu aşamada güncellenir.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Modeli Derleme ve Eğitme' bloğunda öğrenme sürecini başlatır."
+        }
+      ],
+      "expectedOutput": "Epoch ilerleme satırları ve her epoch için loss değerleri görünür.",
+      "outputInterpretation": "İnşa edilen derin öğrenme mimarisinin ağırlıklarını veri üzerinden güncellemek amacıyla eğitim süreci başlatılmıştır. Zaman serilerinde gradyan yönünü ve momentumu stabil yönettiği bilinen `RMSprop` optimizasyon algoritması seçilmiş, hata ölçümü için `mean_squared_error` (`loss`) kullanılmıştır.\n\nEğitim aşamasında veriler model üzerinden 50 tur (`epochs`) boyunca geçirilecek ve her seferinde 32'şerli gruplar (`batch_size`) halinde işlenerek bellek verimliliği ve gradyan kararlılığı sağlanacaktır.\n\nEğitim ilerledikçe ekrana yazdırılan `loss` değerinin her adımda kademeli olarak düşmesi, modelin eğitim verisi üzerindeki hata miktarını azalttığını ve zaman içindeki fiyat örüntülerini başarılı bir şekilde öğrenmeye başladığını gösterir."
+    },
+    {
+      "id": "hafta11_stock_lstm-b009",
+      "title": "Test Setini Hazırlayıp Tahmin Üretme",
+      "blockExplanation": "Test döneminin önüne son 60 eğitim günü eklenir, pencereler hazırlanır ve ters ölçeklenmiş tahminler üretilir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "dataset_total = pd.concat((dataset[\"High\"][:'2016'],dataset[\"High\"]['2017':]),axis=0)",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Setini Hazırlayıp Tahmin Üretme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "inputs = dataset_total[len(dataset_total)-len(test_set) - 60:].values",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Setini Hazırlayıp Tahmin Üretme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "inputs = inputs.reshape(-1,1)",
+          "lineExplanation": "Dizinin boyutunu modelin beklediği tensör biçimine dönüştürür; bu adım yapılmazsa LSTM/CNN katmanları girişi kabul etmez.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Setini Hazırlayıp Tahmin Üretme' bloğunda tensör boyutunu ayarlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "inputs  = sc.transform(inputs)",
+          "lineExplanation": "Veriyi ölçekler veya dönüştürür; özellikle sinir ağlarında değişken aralıklarını dengeler.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Setini Hazırlayıp Tahmin Üretme' bloğunda model öncesi normalizasyon yapar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "X_test = []",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Setini Hazırlayıp Tahmin Üretme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "for i in range(60,311):",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Setini Hazırlayıp Tahmin Üretme' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    X_test.append(inputs[i-60:i,0])",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Setini Hazırlayıp Tahmin Üretme' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 8,
+          "code": "X_test = np.array(X_test)",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Setini Hazırlayıp Tahmin Üretme' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 9,
+          "code": "X_test = np.reshape(X_test, (X_test.shape[0],X_test.shape[1],1))",
+          "lineExplanation": "Dizinin boyutunu modelin beklediği tensör biçimine dönüştürür; bu adım yapılmazsa LSTM/CNN katmanları girişi kabul etmez.",
+          "tokens": [
+            {
+              "token": "reshape()",
+              "explanation": "Dizi biçimlendirme",
+              "turkce": "reshape()",
+              "amac": "Veriyi modelin beklediği tensör boyutuna dönüştürür.",
+              "detay": "Derin öğrenme modelleri giriş verisinin boyut düzenine çok duyarlıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test Setini Hazırlayıp Tahmin Üretme' bloğunda tensör boyutunu ayarlar."
+        },
+        {
+          "lineNumber": 10,
+          "code": "predicted_stock_price = regressor.predict(X_test)",
+          "lineExplanation": "Eğitilmiş model ile yeni örnekler için tahmin üretir; modelin öğrendiği örüntü burada uygulamaya geçer.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Setini Hazırlayıp Tahmin Üretme' bloğunda yeni örnekler için çıktı hesaplar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "predicted_stock_price = sc.inverse_transform(predicted_stock_price)",
+          "lineExplanation": "Veriyi ölçekler veya dönüştürür; özellikle sinir ağlarında değişken aralıklarını dengeler.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Test Setini Hazırlayıp Tahmin Üretme' bloğunda model öncesi normalizasyon yapar."
+        }
+      ],
+      "expectedOutput": "predicted_stock_price dizisi gerçek fiyat ölçeğine dönmüş tahminleri içerir.",
+      "outputInterpretation": "Eğitimi tamamlanan modelin test kümesi üzerinde tahmin gücünü test etmek için girdi verileri hazırlanır. Test kümesinin ilk gününü tahmin edebilmek için geçmiş 60 günün verisine ihtiyaç duyulduğundan, eğitim kümesinin son bölümü ile test verisi geçici olarak uç uca birleştirilmiştir.\n\nBuradaki en kritik metodik karar, birleştirilen test verilerini ölçeklendirirken `fit_transform()` yerine sadece `transform()` metodunun çağrılmasıdır. Depolanan test kümesinin istatistiksel bilgileri (`mean` ve `std`) eğitim sürecine sızdırılmamış (`data leakage`) ve gerçekçi bir sınama ortamı korunmuştur.\n\nHazırlanan 3 boyutlu test verisi üzerinden `predict()` çağrılarak tahminler üretilmiş, hemen ardından `inverse_transform()` fonksiyonu yardımıyla 0-1 aralığındaki yapay değerler gerçek dolar birimindeki hisse fiyatlarına dönüştürülmüştür."
+    },
+    {
+      "id": "hafta11_stock_lstm-b010",
+      "title": "Tahmin Grafiği ve Regresyon Metrikleri",
+      "blockExplanation": "Gerçek fiyat ile tahmini aynı grafikte çizer, ardından MSE, RMSE, MAE ve R² gibi metrikleri hesaplar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plot_predictions(test_set,predicted_stock_price)",
+          "lineExplanation": "Kod bloğunun ilgili adımını yürütür.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Tahmin Grafiği ve Regresyon Metrikleri' bloğunun bir parçasıdır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "mse = mean_squared_error(test_set, predicted_stock_price)",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Tahmin Grafiği ve Regresyon Metrikleri' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "rmse = np.sqrt(mse)",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Tahmin Grafiği ve Regresyon Metrikleri' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "mae = mean_absolute_error(test_set, predicted_stock_price)",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Tahmin Grafiği ve Regresyon Metrikleri' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "r2 = r2_score(test_set, predicted_stock_price)",
+          "lineExplanation": "Bir değeri değişkene atar veya ara sonuç üretir; sonraki analiz adımları bu değişkeni kullanır.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Tahmin Grafiği ve Regresyon Metrikleri' bloğunda bir ara sonuç üretir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "print(f\"MSE: {mse:.2f}\")",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Tahmin Grafiği ve Regresyon Metrikleri' bloğunda metinsel çıktı üretir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "print(f\"RMSE: {rmse:.2f}\")",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Tahmin Grafiği ve Regresyon Metrikleri' bloğunda metinsel çıktı üretir."
+        },
+        {
+          "lineNumber": 8,
+          "code": "print(f\"MAE: {mae:.2f}\")",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Tahmin Grafiği ve Regresyon Metrikleri' bloğunda metinsel çıktı üretir."
+        },
+        {
+          "lineNumber": 9,
+          "code": "print(f\"R² Score: {r2:.2f}\")",
+          "lineExplanation": "Ara bilgi veya sonucu ekrana yazdırır; veri boyutu, metrik veya tahmin etiketi gibi özetleri kullanıcıya görünür kılar.",
+          "tokens": [],
+          "codeContext": "Bu satır, 'Tahmin Grafiği ve Regresyon Metrikleri' bloğunda metinsel çıktı üretir."
+        }
+      ],
+      "expectedOutput": "(Grafik çıktısı) Gerçek ve tahmin fiyatları üst üste görünür; altında MSE, RMSE, MAE ve R² değerleri yazdırılır.",
+      "plotImage": "h11-stock-b010.png",
+      "outputInterpretation": "Modelin hiç görmediği 2017 yılı verileri (test kümesi) üzerindeki başarısını ölçmek amacıyla tahmin edilen fiyatlar ile gerçek fiyatlar karşılaştırmalı olarak grafik üzerinde çizdirilmiş ve hata metrikleri hesaplanmıştır.\n\nGrafik incelendiğinde `LSTM` modelinin genel fiyat trendini ve yönelimini başarıyla yakaladığı görülür. Bununla birlikte, fiyatlardaki ani şokları ve gürültülü dalgalanmaları tahmin ederken hafif bir gecikme yaşamaktadır; bu durum zaman serisi modellerinin genel doğasıyla uyumludur.\n\nHesaplanan `MSE`, `RMSE`, `MAE` ve `R²` metrikleri modelin performansını rakamsal olarak ortaya koyar. Elde edilen bu hata değerleri doğrultusunda, model başarısını artırmak için geçmiş pencere boyutunu değiştirmek, girdilere işlem hacmi (`Volume`) eklemek veya optimizasyon parametrelerini güncellemek gibi stratejik kararlar alınabilir."
+    }
+  ]
+}

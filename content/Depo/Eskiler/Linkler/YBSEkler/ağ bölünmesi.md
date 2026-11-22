@@ -1,0 +1,6 @@
+---
+tags:
+  - bilgi/bilisim
+---
+
+İki düğüm (sunucu) arasındaki internet kablosunun çekilmesi veya router'ın bozulması gibi bir ağ arızası. Sunucular 'ayaktadır' ama birbirleriyle konuşamazlar.

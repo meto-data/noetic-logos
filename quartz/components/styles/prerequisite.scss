@@ -1,0 +1,135 @@
+@use "../../styles/variables.scss" as *;
+
+.prerequisite-banner {
+  margin: 1.5rem 0;
+  display: none; // Default hidden, client-side script shows if needed
+
+  .prerequisite-banner-content {
+    border-radius: 8px;
+    padding: 1.25rem;
+    border-left: 4px solid;
+
+    &.warning {
+      background-color: rgba(var(--light), 0.05);
+      border-left-color: var(--secondary);
+    }
+
+    &.info {
+      background-color: rgba(var(--tertiary), 0.05);
+      border-left-color: var(--tertiary);
+    }
+  }
+
+  .prerequisite-header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 0.75rem;
+
+    svg {
+      flex-shrink: 0;
+      color: var(--secondary);
+    }
+
+    .prerequisite-title {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--dark);
+    }
+  }
+
+  .prerequisite-message {
+    margin: 0 0 0.875rem 0;
+    color: var(--darkgray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .prerequisite-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    li {
+      padding-left: 1.5rem;
+      position: relative;
+
+      &::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--secondary);
+        font-weight: bold;
+      }
+
+      a {
+        color: var(--secondary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: var(--tertiary);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .prerequisite-dismiss {
+    background-color: var(--lightgray);
+    color: var(--darkgray);
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: var(--gray);
+      color: var(--dark);
+      border-color: var(--darkgray);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+// Mobil uyumluluk
+@media (max-width: $mobileBreakpoint) {
+  .prerequisite-banner {
+    margin: 1rem 0;
+
+    .prerequisite-banner-content {
+      padding: 1rem;
+    }
+
+    .prerequisite-header {
+      .prerequisite-title {
+        font-size: 1rem;
+      }
+    }
+
+    .prerequisite-message {
+      font-size: 0.9rem;
+    }
+
+    .prerequisite-list {
+      li {
+        font-size: 0.9rem;
+      }
+    }
+
+    .prerequisite-dismiss {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

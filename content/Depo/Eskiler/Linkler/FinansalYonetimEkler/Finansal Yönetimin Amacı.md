@@ -1,0 +1,7 @@
+---
+tags:
+  - akademi/dersler/finansal-yonetim
+---
+- Geleneksek finansta tek hedef kârdır (bkz. **[[Firmalar Neden Kurulur]]**). Modern finansta ise $\text{ zaman + itibar + risk + kâr = piyasa değeri}$'dir.
+- Finansal yönetimin başlıca amacı **ortakların servetini (firma değerini)** maksimize etmektir.
+- Finans ekiplerinin öncelikli hedefleri ise **yeterli nakit akışını sağlamak (ödeme gücünü korumak)**, **işletmenin sürekliliğini temin etmek** ve **kârlılığını artırmaktır**.

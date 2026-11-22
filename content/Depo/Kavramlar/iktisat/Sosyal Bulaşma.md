@@ -1,0 +1,2 @@
+- Ağ üyelerinin yeniliklerle ilgili tutum ve davranışlara diğer üyeler aracılığıyla maruz kalmasıdır. Virüs gibidir bir nevi. Bilgi doğru da olsa yanlış da olsa hızla yayılır.
+	- Bulaşma iki yönlü olabilir: Yukarıdan aşağıya (üst gelir grubundan alt gelir grubuna) veya aşağıdan yukarıya (alt gelir grubundan üst gelir grubuna).

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#142847"/>
+      <stop offset="0.55" stop-color="#0d1c33"/>
+      <stop offset="1" stop-color="#081120"/>
+    </linearGradient>
+    <linearGradient id="inner" x1="12" y1="10" x2="52" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#11223d"/>
+      <stop offset="1" stop-color="#0a1526"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="16" y1="16" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#74c0fc"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="north" x1="32" y1="15" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd43b"/>
+      <stop offset="1" stop-color="#f08c00"/>
+    </linearGradient>
+    <linearGradient id="south" x1="32" y1="32" x2="32" y2="49" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e2e8f0"/>
+      <stop offset="1" stop-color="#94a3b8"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+  <rect x="7" y="7" width="50" height="50" rx="12" fill="url(#inner)" stroke="#233b63" stroke-width="1.5"/>
+  <!-- Outer Compass Ring & Ticks -->
+  <circle cx="32" cy="32" r="18" fill="none" stroke="url(#ring)" stroke-width="2.4" opacity="0.92"/>
+  <circle cx="32" cy="32" r="14" fill="none" stroke="#335280" stroke-width="1" stroke-dasharray="2.5 2.5"/>
+  <path d="M32 11.5v3M32 49.5v3M11.5 32h3M49.5 32h3" stroke="#74c0fc" stroke-width="2" stroke-linecap="round"/>
+  <!-- Research Data Nodes -->
+  <circle cx="20" cy="20" r="2" fill="#63e6be"/>
+  <circle cx="44" cy="20" r="2" fill="#ffd43b"/>
+  <circle cx="20" cy="44" r="2" fill="#74c0fc"/>
+  <circle cx="44" cy="44" r="2" fill="#ff8787"/>
+  <!-- Compass Diamond Needle (Tilted NE/SW) -->
+  <g transform="rotate(38 32 32)">
+    <polygon points="32,15 36.5,32 27.5,32" fill="url(#north)"/>
+    <polygon points="32,49 36.5,32 27.5,32" fill="url(#south)"/>
+  </g>
+  <circle cx="32" cy="32" r="3.2" fill="#0d1c33" stroke="#ffd43b" stroke-width="2"/>
+</svg>

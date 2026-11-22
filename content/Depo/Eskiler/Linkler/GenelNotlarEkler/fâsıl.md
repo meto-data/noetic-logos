@@ -1,0 +1,1 @@
+Ayıran, bölen, fasleden.

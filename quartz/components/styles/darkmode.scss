@@ -1,0 +1,44 @@
+.darkmode {
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--secondary);
+    background: color-mix(in srgb, var(--secondary) 10%, transparent);
+  }
+
+  & svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    color: var(--darkgray);
+    transition: color 0.15s ease;
+  }
+
+  // Hover'da ikon rengi değişmiyor, sadece border vurgusu yeterli
+
+  // Palette ikonu için
+  & .palette-icon {
+    position: static;
+  }
+}
+
+:root[saved-theme="dark"] {
+  color-scheme: dark;
+}
+
+:root[saved-theme="light"] {
+  color-scheme: light;
+}

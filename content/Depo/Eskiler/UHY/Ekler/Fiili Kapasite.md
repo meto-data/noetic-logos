@@ -1,0 +1,8 @@
+---
+tags:
+  - akademi/dersler/uhy
+---
+- İşletmenin herhangi bir dönemindeki fiili (gerçekleşen) üretim kapasitesine denir. 
+- Geçmişe dönük bir **gerçektir**. "Ne kadar _yaptık_?" sorusuna cevap verir.
+- Gerçek üretim miktarını ifade eder.
+- "Gün bitti, _gerçekte_ şu kadar ürettik" dediğimiz **sonuçtur**.

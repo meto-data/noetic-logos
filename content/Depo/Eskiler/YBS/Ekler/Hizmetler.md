@@ -1,0 +1,6 @@
+---
+tags:
+  - akademi/dersler/ybs
+created: 2026-11-22
+---
+- Ürün satıldıktan sonra müşteriye sunulan destek faaliyetleri (kurulum, eğitim, bakım, onarım, garanti hizmetleri, müşteri şikayet yönetimi vb.). (Değer: Müşteri memnuniyetini sürdürmek, ürünün değerini korumak/artırmak).

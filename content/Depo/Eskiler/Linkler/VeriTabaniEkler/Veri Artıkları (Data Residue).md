@@ -1,0 +1,5 @@
+---
+tags:
+  - akademi/dersler/veri-tabani
+---
+Genellike fiziksel veri depolama katmanında silinmiş veya taşınmış verilerden geriye kalan izleri ifade eder. Veri tabanı yönetim sistemleri bu tür artıkları temizlemek için mekanizmalara sahiptir. Mantıksal tasarım aşamasındaki normalizasyon ile doğrudan ilgili değildir.

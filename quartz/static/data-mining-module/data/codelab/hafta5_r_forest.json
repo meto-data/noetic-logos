@@ -1,0 +1,2737 @@
+{
+  "id": "hafta5_r_forest",
+  "title": "Hafta 5: Adult ile Decision Tree ve Random Forest",
+  "week": 5,
+  "csvFiles": [
+    "adult.data"
+  ],
+  "blocks": [
+    {
+      "id": "hafta5_r_forest-b001",
+      "title": "Adult veri seti için sütun isimlerini tanımlıyoruz",
+      "blockExplanation": "Adult veri seti için sütun isimlerini tanımlıyoruz adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import pandas as pd",
+          "lineExplanation": "Pandas kütüphanesini içe aktarır; tablo biçimindeki verileri DataFrame olarak işleyeceğiz.",
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "Pandas kütüphanesini içe aktarır; tablo biçimindeki verileri DataFrame olarak işleyeceğiz.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda pandas kütüphanesini içe aktarır; tablo biçimindeki verileri dataframe olarak işleyeceğiz."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda pandas kütüphanesini içe aktarır; tablo biçimindeki verileri dataframe olarak işleyeceğiz."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import numpy as np",
+          "lineExplanation": "NumPy kütüphanesini içe aktarır; sayısal hesaplama ve dizi işlemleri için kullanılacaktır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "NumPy kütüphanesini içe aktarır; sayısal hesaplama ve dizi işlemleri için kullanılacaktır.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda numpy kütüphanesini içe aktarır; sayısal hesaplama ve dizi işlemleri için kullanılacaktır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda numpy kütüphanesini içe aktarır; sayısal hesaplama ve dizi işlemleri için kullanılacaktır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "Matplotlib'in pyplot modülünü içe aktarır; grafik başlıkları, eksenleri ve figürleri bununla yöneteceğiz.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "Matplotlib'in pyplot modülünü içe aktarır; grafik başlıkları, eksenleri ve figürleri bununla yöneteceğiz.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda matplotlib'in pyplot modülünü içe aktarır; grafik başlıkları, eksenleri ve figürleri bununla yöneteceğiz."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda matplotlib'in pyplot modülünü içe aktarır; grafik başlıkları, eksenleri ve figürleri bununla yöneteceğiz."
+        },
+        {
+          "lineNumber": 4,
+          "code": "import seaborn as sns",
+          "lineExplanation": "Seaborn kütüphanesini içe aktarır; istatistiksel grafikler için üst düzey çizim aracı sağlar.",
+          "tokens": [
+            {
+              "token": "seaborn",
+              "explanation": "Seaborn kütüphanesini içe aktarır; istatistiksel grafikler için üst düzey çizim aracı sağlar.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda seaborn kütüphanesini içe aktarır; istatistiksel grafikler için üst düzey çizim aracı sağlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda seaborn kütüphanesini içe aktarır; istatistiksel grafikler için üst düzey çizim aracı sağlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "from sklearn.model_selection import train_test_split",
+          "lineExplanation": "Veriyi eğitim ve test kümelerine bölecek yardımcı fonksiyonu içe aktarır.",
+          "tokens": [
+            {
+              "token": "train_test_split",
+              "explanation": "Veriyi eğitim ve test kümelerine bölecek yardımcı fonksiyonu içe aktarır.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda veriyi eğitim ve test kümelerine bölecek yardımcı fonksiyonu içe aktarır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda veriyi eğitim ve test kümelerine bölecek yardımcı fonksiyonu içe aktarır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "from sklearn.tree import DecisionTreeClassifier",
+          "lineExplanation": "Karar ağacı modelini veya ağacı görselleştirme fonksiyonunu içe aktarır.",
+          "tokens": [
+            {
+              "token": "DecisionTreeClassifier",
+              "explanation": "Karar ağacı modelini veya ağacı görselleştirme fonksiyonunu içe aktarır.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda karar ağacı modelini veya ağacı görselleştirme fonksiyonunu içe aktarır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda karar ağacı modelini veya ağacı görselleştirme fonksiyonunu içe aktarır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "from sklearn.ensemble import RandomForestClassifier",
+          "lineExplanation": "Random Forest modelini içe aktarır.",
+          "tokens": [
+            {
+              "token": "RandomForestClassifier",
+              "explanation": "Random Forest modelini içe aktarır.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda random forest modelini içe aktarır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda random forest modelini içe aktarır."
+        },
+        {
+          "lineNumber": 8,
+          "code": "from sklearn.metrics import accuracy_score, classification_report, confusion_matrix",
+          "lineExplanation": "Accuracy, classification report ve confusion matrix gibi değerlendirme araçlarını içe aktarır.",
+          "tokens": [
+            {
+              "token": "accuracy_score, classification_report, confusion_matrix",
+              "explanation": "Accuracy, classification report ve confusion matrix gibi değerlendirme araçlarını içe aktarır.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda accuracy, classification report ve confusion matrix gibi değerlendirme araçlarını içe aktarır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda accuracy, classification report ve confusion matrix gibi değerlendirme araçlarını içe aktarır."
+        },
+        {
+          "lineNumber": 9,
+          "code": "columns = [",
+          "lineExplanation": "Adult veri seti için kullanılacak sütun isimleri listesini başlatır.",
+          "tokens": [
+            {
+              "token": "columns = [",
+              "explanation": "Sütun isimlerini tutacak Python listesini başlatır.",
+              "turkce": "Kolon Listesi",
+              "amac": "Bir sonraki satırlarda kolon adlarını sırayla tanımlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda başlıksız veri dosyasını doğru şemayla okumak için kolon tanımını başlatır."
+        },
+        {
+          "lineNumber": 10,
+          "code": "    \"age\", \"workclass\", \"fnlwgt\", \"education\", \"education_num\",",
+          "lineExplanation": "Kolon listesinin ilk bölümünde yaş, iş sınıfı, ağırlık ve eğitim alanlarını tanımlar.",
+          "tokens": [
+            {
+              "token": "\"age\" ... \"education_num\"",
+              "explanation": "Yaş, iş sınıfı, örnek ağırlığı, eğitim ve eğitim numarası kolonlarını listeye ekler.",
+              "turkce": "İlk Kolonlar",
+              "amac": "Başlıksız CSV'nin ilk alanlarını doğru etiketlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda Adult veri setinin ilk beş kolonunu isimlendirir."
+        },
+        {
+          "lineNumber": 11,
+          "code": "    \"marital_status\", \"occupation\", \"relationship\", \"race\",",
+          "lineExplanation": "Kolon listesinin orta bölümünde medeni durum, meslek, ilişki ve ırk alanlarını tanımlar.",
+          "tokens": [
+            {
+              "token": "\"marital_status\" ... \"race\"",
+              "explanation": "Medeni durum, meslek, ilişki ve ırk kolonlarını listeye ekler.",
+              "turkce": "Orta Kolonlar",
+              "amac": "Adult veri setindeki sosyodemografik alanları isimlendirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda kategorik kimlik kolonlarını şemaya ekler."
+        },
+        {
+          "lineNumber": 12,
+          "code": "    \"sex\", \"capital_gain\", \"capital_loss\",",
+          "lineExplanation": "Kolon listesinin devamında cinsiyet ile sermaye kazanç/kayıp alanlarını tanımlar.",
+          "tokens": [
+            {
+              "token": "\"sex\" ... \"capital_loss\"",
+              "explanation": "Cinsiyet, sermaye kazancı ve sermaye kaybı kolonlarını listeye ekler.",
+              "turkce": "Finansal Kolonlar",
+              "amac": "Sonraki analizlerde kullanılacak alanları isimlendirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda finansal ve cinsiyet kolonlarını şemaya ekler."
+        },
+        {
+          "lineNumber": 13,
+          "code": "    \"hours_per_week\", \"native_country\", \"income\"",
+          "lineExplanation": "Kolon listesinin son bölümünde çalışma saati, ülke ve hedef değişken olan income alanını tanımlar.",
+          "tokens": [
+            {
+              "token": "\"hours_per_week\" ... \"income\"",
+              "explanation": "Çalışma saati, ülke ve hedef değişken kolonlarını listeye ekler.",
+              "turkce": "Son Kolonlar",
+              "amac": "Veri setinin son alanlarını doğru sırayla tanımlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda şemayı hedef sütun dahil tamamlar."
+        },
+        {
+          "lineNumber": 14,
+          "code": "]",
+          "lineExplanation": "Kolon isimleri listesini kapatır.",
+          "tokens": [
+            {
+              "token": "]",
+              "explanation": "Açılmış liste tanımını sonlandırır.",
+              "turkce": "Liste Kapanışı",
+              "amac": "Kolon şeması tanımını bitirmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda Adult veri seti için tanımlanan kolon listesini tamamlar."
+        },
+        {
+          "lineNumber": 15,
+          "code": "df = pd.read_csv(\"adult.data\", names=columns, skipinitialspace=True)",
+          "lineExplanation": "adult.data dosyasını elle verdiğimiz sütun isimleriyle okuyup başlangıç boşluklarını temizler.",
+          "tokens": [
+            {
+              "token": "pd.read_csv(\"adult.data\", ...)",
+              "explanation": "Adult veri dosyasını okuyup tabloya dönüştürür.",
+              "turkce": "CSV Okuma",
+              "amac": "Veri setini belleğe almak."
+            },
+            {
+              "token": "names=columns",
+              "explanation": "Elle tanımlanan kolon isimlerini dosyaya uygular.",
+              "turkce": "Kolon Atama",
+              "amac": "Başlıksız dosyayı doğru şemayla okumak."
+            },
+            {
+              "token": "skipinitialspace=True",
+              "explanation": "Virgülden sonra gelen baştaki boşlukları temizler.",
+              "turkce": "Boşluk Temizleme",
+              "amac": "Kategorik değerlerin başında istenmeyen boşluk bırakmamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda başlıksız Adult veri setini DataFrame'e dönüştürür."
+        },
+        {
+          "lineNumber": 16,
+          "code": "df.head()",
+          "lineExplanation": "Tablonun ilk satırlarını önizleme olarak gösterir.",
+          "tokens": [
+            {
+              "token": "head()",
+              "explanation": "İlk satırları gösterir.",
+              "turkce": "Önizleme",
+              "amac": "Veri yapısını hızlıca kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult veri seti için sütun isimlerini tanımlıyoruz' bloğunda tablonun ilk satırlarını önizleme olarak gösterir."
+        }
+      ],
+      "expectedOutput": "age         workclass  fnlwgt  education  education_num      marital_status         occupation   relationship   race     sex  capital_gain  capital_loss  hours_per_week native_country income\n0   39         State-gov   77516  Bachelors             13       Never-married       Adm-clerical  Not-in-family  White    Male          2174             0              40  United-States  <=50K\n1   50  Self-emp-not-inc   83311  Bachelors             13  Married-civ-spouse    Exec-managerial        Husband  White    Male             0             0              13  United-States  <=50K\n2   38           Private  215646    HS-grad              9            Divorced  Handlers-cleaners  Not-in-family  White    Male             0             0              40  United-States  <=50K\n3   53           Private  234721       11th              7  Married-civ-spouse  Handlers-cleaners        Husband  Black    Male             0             0              40  United-States  <=50K\n4   28           Private  338409  Bachelors             13  Married-civ-spouse     Prof-specialty           Wife  Black  Female             0             0              40           Cuba  <=50K"
+    },
+    {
+      "id": "hafta5_r_forest-b002",
+      "title": "Veri setinin boyutu",
+      "blockExplanation": "Veri setinin boyutu adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.shape",
+          "lineExplanation": "Veri setinin veya eğitim/test parçalarının boyut bilgisini verir.",
+          "tokens": [
+            {
+              "token": ".shape",
+              "explanation": "Satır ve sütun sayısını tuple olarak verir.",
+              "turkce": "Boyut",
+              "amac": "Verinin büyüklüğünü doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Veri setinin boyutu' bloğunda veri setinin veya eğitim/test parçalarının boyut bilgisini verir."
+        }
+      ],
+      "expectedOutput": "(32561, 15)"
+    },
+    {
+      "id": "hafta5_r_forest-b003",
+      "title": "Sütun tipleri ve eksik değer durumu",
+      "blockExplanation": "Sütun tipleri ve eksik değer durumu adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.info()",
+          "lineExplanation": "Sütun tiplerini, dolu hücre sayılarını ve bellek kullanımını özetler.",
+          "tokens": [
+            {
+              "token": ".info()",
+              "explanation": "Sütun tipleri ve doluluk bilgisi üretir.",
+              "turkce": "Yapı Özeti",
+              "amac": "Veri tiplerini ve eksik durumu görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sütun tipleri ve eksik değer durumu' bloğunda sütun tiplerini, dolu hücre sayılarını ve bellek kullanımını özetler."
+        }
+      ],
+      "expectedOutput": "<class 'pandas.core.frame.DataFrame'>\nRangeIndex: 32561 entries, 0 to 32560\nData columns (total 15 columns):\n #   Column          Non-Null Count  Dtype \n---  ------          --------------  ----- \n 0   age             32561 non-null  int64 \n 1   workclass       32561 non-null  object\n 2   fnlwgt          32561 non-null  int64 \n 3   education       32561 non-null  object\n 4   education_num   32561 non-null  int64 \n 5   marital_status  32561 non-null  object\n 6   occupation      32561 non-null  object\n 7   relationship    32561 non-null  object\n 8   race            32561 non-null  object\n 9   sex             32561 non-null  object\n 10  capital_gain    32561 non-null  int64 \n 11  capital_loss    32561 non-null  int64 \n 12  hours_per_week  32561 non-null  int64 \n 13  native_country  32561 non-null  object\n 14  income          32561 non-null  object\ndtypes: int64(6), object(9)\nmemory usage: 3.7+ MB"
+    },
+    {
+      "id": "hafta5_r_forest-b004",
+      "title": "Sayısal özelliklerin temel istatistikleri",
+      "blockExplanation": "Sayısal özelliklerin temel istatistikleri adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df.describe().T",
+          "lineExplanation": "Sayısal sütunların temel istatistiksel özetini üretir.",
+          "tokens": [
+            {
+              "token": ".describe()",
+              "explanation": "Temel istatistik özetini üretir.",
+              "turkce": "İstatistik Özeti",
+              "amac": "Dağılımın merkezi ve saçılımını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sayısal özelliklerin temel istatistikleri' bloğunda sayısal sütunların temel istatistiksel özetini üretir."
+        }
+      ],
+      "expectedOutput": "count           mean            std      min       25%       50%       75%        max\nage             32561.0      38.581647      13.640433     17.0      28.0      37.0      48.0       90.0\nfnlwgt          32561.0  189778.366512  105549.977697  12285.0  117827.0  178356.0  237051.0  1484705.0\neducation_num   32561.0      10.080679       2.572720      1.0       9.0      10.0      12.0       16.0\ncapital_gain    32561.0    1077.648844    7385.292085      0.0       0.0       0.0       0.0    99999.0\ncapital_loss    32561.0      87.303830     402.960219      0.0       0.0       0.0       0.0     4356.0\nhours_per_week  32561.0      40.437456      12.347429      1.0      40.0      40.0      45.0       99.0"
+    },
+    {
+      "id": "hafta5_r_forest-b005",
+      "title": "Adult veri setinde bazı eksikler ? olarak tutulabilir",
+      "blockExplanation": "Adult veri setinde bazı eksikler ? olarak tutulabilir adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "(df == \"?\").sum()",
+          "lineExplanation": "Veri setindeki gizli eksik değer işareti olan `?` karakterlerinin sütun bazında kaç kez geçtiğini sayar.",
+          "tokens": [
+            {
+              "token": "(df == \"?\")",
+              "explanation": "Tüm tabloda `?` karakteri var mı diye hücre hücre kontrol eder.",
+              "turkce": "Karşılaştırma Matrisi",
+              "amac": "Gizli eksik değerleri bulmak."
+            },
+            {
+              "token": ".sum()",
+              "explanation": "True değerlerini toplayarak sütun bazında kaç `?` bulunduğunu verir.",
+              "turkce": "Sayıma Çevirme",
+              "amac": "Hangi kolonlarda ne kadar gizli eksik veri olduğunu görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Adult veri setinde bazı eksikler ? olarak tutulabilir' bloğunda Pandas'ın doğrudan NaN saymadığı `?` değerlerini tespit eder."
+        }
+      ],
+      "expectedOutput": "age                  0\nworkclass         1836\nfnlwgt               0\neducation            0\neducation_num        0\n                  ... \ncapital_gain         0\ncapital_loss         0\nhours_per_week       0\nnative_country     583\nincome               0\nLength: 15, dtype: int64"
+    },
+    {
+      "id": "hafta5_r_forest-b006",
+      "title": "Eksik değer sayılarını tekrar kontrol ediyoruz",
+      "blockExplanation": "Eksik değer sayılarını tekrar kontrol ediyoruz adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df = df.replace(\"?\", np.nan)",
+          "lineExplanation": "`?` karakterlerini gerçek eksik değer olan `NaN` ile değiştirir.",
+          "tokens": [
+            {
+              "token": "replace(\"?\", np.nan)",
+              "explanation": "`?` işaretlerini NaN değerine dönüştürür.",
+              "turkce": "Eksik Değer Dönüşümü",
+              "amac": "dropna ve isnull işlemlerinin bu hücreleri algılamasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eksik değer sayılarını tekrar kontrol ediyoruz' bloğunda gizli eksik değerleri Pandas'ın tanıyacağı biçime çevirir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df.isnull().sum()",
+          "lineExplanation": "Her sütundaki gerçek NaN sayısını hesaplayıp liste halinde gösterir.",
+          "tokens": [
+            {
+              "token": "isnull()",
+              "explanation": "Her hücre için NaN olup olmadığını test eder.",
+              "turkce": "Eksik Kontrolü",
+              "amac": "Boş hücreleri bulmak."
+            },
+            {
+              "token": "sum()",
+              "explanation": "True değerlerini toplayarak her sütundaki NaN sayısını verir.",
+              "turkce": "Sayı Özeti",
+              "amac": "Eksik veri yoğunluğunu kolon bazında görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Eksik değer sayılarını tekrar kontrol ediyoruz' bloğunda eksik veri dönüşümünden sonra sütun bazlı boşluk özetini verir."
+        }
+      ],
+      "expectedOutput": "age                  0\nworkclass         1836\nfnlwgt               0\neducation            0\neducation_num        0\n                  ... \ncapital_gain         0\ncapital_loss         0\nhours_per_week       0\nnative_country     583\nincome               0\nLength: 15, dtype: int64"
+    },
+    {
+      "id": "hafta5_r_forest-b007",
+      "title": "Tekrarlı kayıtları siliyoruz",
+      "blockExplanation": "Tekrarlı kayıtları siliyoruz adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df = df.dropna()",
+          "lineExplanation": "En az bir NaN içeren tüm satırları veri setinden kaldırır.",
+          "tokens": [
+            {
+              "token": "dropna()",
+              "explanation": "NaN içeren satırları tablodan siler.",
+              "turkce": "Eksik Satır Temizleme",
+              "amac": "Modeli eksik kayıtlar olmadan eğitmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tekrarlı kayıtları siliyoruz' bloğunda eksik veri taşıyan kayıtları tamamen temizler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df = df.drop_duplicates()",
+          "lineExplanation": "Tamamen aynı olan tekrarlı kayıtları veri setinden kaldırır.",
+          "tokens": [
+            {
+              "token": "drop_duplicates()",
+              "explanation": "Aynı içeriğe sahip tekrar satırları siler.",
+              "turkce": "Duplicate Temizleme",
+              "amac": "Veri setindeki kopya kayıtları ortadan kaldırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tekrarlı kayıtları siliyoruz' bloğunda yinelenen satırları temizleyerek veri kalitesini artırır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "df.shape",
+          "lineExplanation": "Veri setinin veya eğitim/test parçalarının boyut bilgisini verir.",
+          "tokens": [
+            {
+              "token": ".shape",
+              "explanation": "Satır ve sütun sayısını tuple olarak verir.",
+              "turkce": "Boyut",
+              "amac": "Verinin büyüklüğünü doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tekrarlı kayıtları siliyoruz' bloğunda veri setinin veya eğitim/test parçalarının boyut bilgisini verir."
+        }
+      ],
+      "expectedOutput": "(30139, 15)"
+    },
+    {
+      "id": "hafta5_r_forest-b008",
+      "title": "income sütununu 0 ve 1 olarak kodluyoruz",
+      "blockExplanation": "income sütununu 0 ve 1 olarak kodluyoruz adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df[\"income\"] = df[\"income\"].apply(lambda x: 1 if \">50K\" in x else 0)",
+          "lineExplanation": "Hedef değişkeni DataFrame'e ayrı sütun olarak ekler veya sayısallaştırır.",
+          "tokens": [
+            {
+              "token": "df[\"income\"]",
+              "explanation": "Hedef değişkeni DataFrame'e ayrı sütun olarak ekler veya sayısallaştırır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'income sütununu 0 ve 1 olarak kodluyoruz' bloğunda hedef değişkeni dataframe'e ayrı sütun olarak ekler veya sayısallaştırır."
+            }
+          ],
+          "codeContext": "Bu satır, 'income sütununu 0 ve 1 olarak kodluyoruz' bloğunda hedef değişkeni dataframe'e ayrı sütun olarak ekler veya sayısallaştırır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df[\"income\"].value_counts()",
+          "lineExplanation": "Sınıf veya kategori frekanslarını adet olarak hesaplar.",
+          "tokens": [
+            {
+              "token": "value_counts(...)",
+              "explanation": "Kategori frekanslarını veya oranlarını hesaplar.",
+              "turkce": "Frekans Analizi",
+              "amac": "Sınıf dağılımını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'income sütununu 0 ve 1 olarak kodluyoruz' bloğunda sınıf veya kategori frekanslarını adet olarak hesaplar."
+        }
+      ],
+      "expectedOutput": "income\n0    22633\n1     7506\nName: count, dtype: int64"
+    },
+    {
+      "id": "hafta5_r_forest-b009",
+      "title": "Oransal dağılım",
+      "blockExplanation": "Oransal dağılım adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df[\"income\"].value_counts(normalize=True)",
+          "lineExplanation": "Sınıf dağılımını oransal olarak hesaplar.",
+          "tokens": [
+            {
+              "token": "value_counts(...)",
+              "explanation": "Kategori frekanslarını veya oranlarını hesaplar.",
+              "turkce": "Frekans Analizi",
+              "amac": "Sınıf dağılımını görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Oransal dağılım' bloğunda sınıf dağılımını oransal olarak hesaplar."
+        }
+      ],
+      "expectedOutput": "income\n0    0.750954\n1    0.249046\nName: proportion, dtype: float64"
+    },
+    {
+      "id": "hafta5_r_forest-b010",
+      "title": "Kategorik sütunları one-hot encoding ile sayısallaştırıyoruz",
+      "blockExplanation": "Kategorik sütunları one-hot encoding ile sayısallaştırıyoruz adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "df_encoded = pd.get_dummies(df, drop_first=True)",
+          "lineExplanation": "Kategorik sütunları one-hot encoding ile 0-1 sütunlara dönüştürür ve ilk sınıfı düşürür.",
+          "tokens": [
+            {
+              "token": "pd.get_dummies(df, drop_first=True)",
+              "explanation": "Kategorik alanları ayrı dummy sütunlara açar.",
+              "turkce": "One-Hot Encoding",
+              "amac": "Karar ağacı ve random forest için sayısal giriş matrisi hazırlamak."
+            },
+            {
+              "token": "drop_first=True",
+              "explanation": "Her kategorik alanda ilk sınıfı dışarıda bırakır.",
+              "turkce": "İlk Sınıfı Düşürme",
+              "amac": "Gereksiz sütun artışını azaltmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kategorik sütunları one-hot encoding ile sayısallaştırıyoruz' bloğunda metin tabanlı kolonları modele uygun sayısal forma çevirir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "df_encoded.head()",
+          "lineExplanation": "Tablonun ilk satırlarını önizleme olarak gösterir.",
+          "tokens": [
+            {
+              "token": "head()",
+              "explanation": "İlk satırları gösterir.",
+              "turkce": "Önizleme",
+              "amac": "Veri yapısını hızlıca kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kategorik sütunları one-hot encoding ile sayısallaştırıyoruz' bloğunda tablonun ilk satırlarını önizleme olarak gösterir."
+        }
+      ],
+      "expectedOutput": "age  fnlwgt  education_num  capital_gain  capital_loss  hours_per_week  income  workclass_Local-gov  workclass_Private  workclass_Self-emp-inc  ...  native_country_Portugal  \\\n0   39   77516             13          2174             0              40       0                False              False                   False  ...                    False   \n1   50   83311             13             0             0              13       0                False              False                   False  ...                    False   \n2   38  215646              9             0             0              40       0                False               True                   False  ...                    False   \n3   53  234721              7             0             0              40       0                False               True                   False  ...                    False   \n4   28  338409             13             0             0              40       0                False               True                   False  ...                    False   \n\n   native_country_Puerto-Rico  native_country_Scotland  native_country_South  native_country_Taiwan  native_country_Thailand  native_country_Trinadad&Tobago  native_country_United-States  \\\n0                       False                    False                 False                  False                    False                           False                          True   \n1                       False                    False                 False                  False                    False                           False                          True   \n2                       False                    False                 False                  False                    False                           False                          True   \n3                       False                    False                 False                  False                    False                           False                          True   \n4                       False                    False                 False                  False                    False                           False                         False   \n\n   native_country_Vietnam  native_country_Yugoslavia  \n0                   False                      False  \n1                   False                      False  \n2                   False                      False  \n3                   False                      False  \n4                   False                      False  \n\n[5 rows x 97 columns]"
+    },
+    {
+      "id": "hafta5_r_forest-b011",
+      "title": "X = giriş değişkenleri",
+      "blockExplanation": "X = giriş değişkenleri adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "X = df_encoded.drop(\"income\", axis=1)",
+          "lineExplanation": "Hedef sütun income'ı çıkararak modelin giriş matrisi olan X'i oluşturur.",
+          "tokens": [
+            {
+              "token": "drop(\"income\", axis=1)",
+              "explanation": "income sütununu kolon ekseninden çıkarır.",
+              "turkce": "Özellik Seçimi",
+              "amac": "Hedefi giriş matrisinden ayırmak."
+            },
+            {
+              "token": "X",
+              "explanation": "Modelin kullanacağı özellik matrisidir.",
+              "turkce": "Özellik Matrisi",
+              "amac": "Eğitim aşamasında giriş değişkenlerini tutmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'X = giriş değişkenleri' bloğunda bağımsız değişkenleri tek tabloda toplar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "y = df_encoded[\"income\"]",
+          "lineExplanation": "Tahmin edilecek hedef değişken olan income sütununu y olarak ayırır.",
+          "tokens": [
+            {
+              "token": "df_encoded[\"income\"]",
+              "explanation": "Kodlanmış tablodan income sütununu seçer.",
+              "turkce": "Hedef Seçimi",
+              "amac": "Tahmin edilecek etiketi ayırmak."
+            },
+            {
+              "token": "y",
+              "explanation": "Modelin öğreneceği hedef vektördür.",
+              "turkce": "Hedef Vektör",
+              "amac": "Sınıf etiketlerini ayrı tutmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'X = giriş değişkenleri' bloğunda sınıflandırma hedefini ayrı seri olarak tanımlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "X.shape, y.shape",
+          "lineExplanation": "Veri setinin veya eğitim/test parçalarının boyut bilgisini verir.",
+          "tokens": [
+            {
+              "token": ".shape",
+              "explanation": "Satır ve sütun sayısını tuple olarak verir.",
+              "turkce": "Boyut",
+              "amac": "Verinin büyüklüğünü doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'X = giriş değişkenleri' bloğunda veri setinin veya eğitim/test parçalarının boyut bilgisini verir."
+        }
+      ],
+      "expectedOutput": "((30139, 96), (30139,))"
+    },
+    {
+      "id": "hafta5_r_forest-b012",
+      "title": "stratify=y diyerek sınıf oranını koruyoruz",
+      "blockExplanation": "stratify=y diyerek sınıf oranını koruyoruz adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "X_train, X_test, y_train, y_test = train_test_split(",
+          "lineExplanation": "Veriyi eğitim ve test kümelerine bölme işlemini başlatır.",
+          "tokens": [
+            {
+              "token": "train_test_split(...)",
+              "explanation": "Veriyi eğitim ve test kümelerine böler.",
+              "turkce": "Veri Bölme",
+              "amac": "Modeli ayrı veri üzerinde değerlendirebilmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'stratify=y diyerek sınıf oranını koruyoruz' bloğunda veriyi eğitim ve test kümelerine bölme işlemini başlatır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    X, y,",
+          "lineExplanation": "train_test_split içine özellik matrisi X ile hedef vektörü y'yi birlikte gönderir.",
+          "tokens": [
+            {
+              "token": "X",
+              "explanation": "Model girdilerini taşıyan özellik matrisidir.",
+              "turkce": "Özellik Matrisi",
+              "amac": "Eğitim ve test için bölünecek giriş verisini sağlamak."
+            },
+            {
+              "token": "y",
+              "explanation": "Gerçek sınıf etiketlerini taşıyan hedef vektördür.",
+              "turkce": "Hedef Vektör",
+              "amac": "X ile uyumlu etiketlerin aynı anda bölünmesini sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'stratify=y diyerek sınıf oranını koruyoruz' bloğunda giriş ve hedef verisinin aynı anda bölünmesini sağlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    test_size=0.2,",
+          "lineExplanation": "Verinin yüzde 20'sinin test kümesine ayrılacağını belirtir.",
+          "tokens": [
+            {
+              "token": "test_size",
+              "explanation": "Verinin yüzde 20'sinin test kümesine ayrılacağını belirtir.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'stratify=y diyerek sınıf oranını koruyoruz' bloğunda verinin yüzde 20'sinin test kümesine ayrılacağını belirtir."
+            }
+          ],
+          "codeContext": "Bu satır, 'stratify=y diyerek sınıf oranını koruyoruz' bloğunda verinin yüzde 20'sinin test kümesine ayrılacağını belirtir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    random_state=42,",
+          "lineExplanation": "Rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır.",
+          "tokens": [
+            {
+              "token": "random_state",
+              "explanation": "Rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'stratify=y diyerek sınıf oranını koruyoruz' bloğunda rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır."
+            }
+          ],
+          "codeContext": "Bu satır, 'stratify=y diyerek sınıf oranını koruyoruz' bloğunda rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    stratify=y",
+          "lineExplanation": "Sınıf oranlarının eğitim ve testte korunmasını sağlar.",
+          "tokens": [
+            {
+              "token": "stratify",
+              "explanation": "Sınıf oranlarının eğitim ve testte korunmasını sağlar.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'stratify=y diyerek sınıf oranını koruyoruz' bloğunda sınıf oranlarının eğitim ve testte korunmasını sağlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'stratify=y diyerek sınıf oranını koruyoruz' bloğunda sınıf oranlarının eğitim ve testte korunmasını sağlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": ")",
+          "lineExplanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'stratify=y diyerek sınıf oranını koruyoruz' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+            }
+          ],
+          "codeContext": "Bu satır, 'stratify=y diyerek sınıf oranını koruyoruz' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "X_train.shape, X_test.shape",
+          "lineExplanation": "Veri setinin veya eğitim/test parçalarının boyut bilgisini verir.",
+          "tokens": [
+            {
+              "token": ".shape",
+              "explanation": "Satır ve sütun sayısını tuple olarak verir.",
+              "turkce": "Boyut",
+              "amac": "Verinin büyüklüğünü doğrulamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'stratify=y diyerek sınıf oranını koruyoruz' bloğunda veri setinin veya eğitim/test parçalarının boyut bilgisini verir."
+        }
+      ],
+      "expectedOutput": "((24111, 96), (6028, 96))"
+    },
+    {
+      "id": "hafta5_r_forest-b013",
+      "title": "Amaç: az öğrenen bir model görmek",
+      "blockExplanation": "Amaç: az öğrenen bir model görmek adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "dt_small = DecisionTreeClassifier(",
+          "lineExplanation": "Karar ağacı modelini belirtilen hiperparametrelerle oluşturur.",
+          "tokens": [
+            {
+              "token": "DecisionTreeClassifier(...)",
+              "explanation": "Karar ağacı modelini oluşturur.",
+              "turkce": "Karar Ağacı",
+              "amac": "Ağaç tabanlı sınıflandırma modeli kurmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Amaç: az öğrenen bir model görmek' bloğunda karar ağacı modelini belirtilen hiperparametrelerle oluşturur."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    criterion=\"gini\",",
+          "lineExplanation": "Karar ağacında kullanılacak bölme ölçütünü `gini` olarak ayarlar.",
+          "tokens": [
+            {
+              "token": "criterion=\"gini\"",
+              "explanation": "Bölme kriterini `gini` olarak seçer.",
+              "turkce": "Bölme Kriteri",
+              "amac": "Düğümlerde hangi impurity ölçütünün kullanılacağını belirlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Amaç: az öğrenen bir model görmek' bloğunda düğümlerin hangi saflık ölçütüne göre bölüneceğini belirler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    max_depth=5,",
+          "lineExplanation": "Ağacın maksimum derinliğini `5` olarak belirler.",
+          "tokens": [
+            {
+              "token": "max_depth=5",
+              "explanation": "Maksimum ağaç derinliğini `5` yapar.",
+              "turkce": "Derinlik Sınırı",
+              "amac": "Aşırı öğrenmeyi kontrol etmek veya derin modeli test etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Amaç: az öğrenen bir model görmek' bloğunda modelin ne kadar derine dallanabileceğini sınırlar veya serbest bırakır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    random_state=42",
+          "lineExplanation": "Rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır.",
+          "tokens": [
+            {
+              "token": "random_state",
+              "explanation": "Rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Amaç: az öğrenen bir model görmek' bloğunda rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Amaç: az öğrenen bir model görmek' bloğunda rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır."
+        },
+        {
+          "lineNumber": 5,
+          "code": ")",
+          "lineExplanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Amaç: az öğrenen bir model görmek' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Amaç: az öğrenen bir model görmek' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "dt_small.fit(X_train, y_train)",
+          "lineExplanation": "Modeli eğitim verisi üzerinde öğrenme sürecine sokar.",
+          "tokens": [
+            {
+              "token": ".fit(...)",
+              "explanation": "Modeli eğitim verisiyle öğrenme sürecine sokar.",
+              "turkce": "Model Eğitimi",
+              "amac": "Algoritmanın veriden kural çıkarmasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Amaç: az öğrenen bir model görmek' bloğunda modeli eğitim verisi üzerinde öğrenme sürecine sokar."
+        }
+      ],
+      "expectedOutput": "DecisionTreeClassifier(max_depth=5, random_state=42)"
+    },
+    {
+      "id": "hafta5_r_forest-b014",
+      "title": "Train ve test skorlarını görelim",
+      "blockExplanation": "Train ve test skorlarını görelim adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "y_pred_dt_small = dt_small.predict(X_test)",
+          "lineExplanation": "Eğitilmiş model ile yeni veriler için tahmin üretir.",
+          "tokens": [
+            {
+              "token": ".predict(...)",
+              "explanation": "Eğitilmiş modelle tahmin üretir.",
+              "turkce": "Tahmin",
+              "amac": "Test veya yeni veri üzerinde sınıf üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Train ve test skorlarını görelim' bloğunda eğitilmiş model ile yeni veriler için tahmin üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "print(\"Basit Decision Tree - Train Score:\", dt_small.score(X_train, y_train))",
+          "lineExplanation": "Belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır.",
+          "tokens": [
+            {
+              "token": "print(\"Basit Decision Tree - Train Score:\", dt_small.score(X_train, y_train))",
+              "explanation": "Belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Train ve test skorlarını görelim' bloğunda belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Train ve test skorlarını görelim' bloğunda belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "print(\"Basit Decision Tree - Test Score :\", dt_small.score(X_test, y_test))",
+          "lineExplanation": "Belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır.",
+          "tokens": [
+            {
+              "token": "print(\"Basit Decision Tree - Test Score :\", dt_small.score(X_test, y_test))",
+              "explanation": "Belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Train ve test skorlarını görelim' bloğunda belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Train ve test skorlarını görelim' bloğunda belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır."
+        }
+      ],
+      "expectedOutput": "Basit Decision Tree - Train Score: 0.8437642569781427\nBasit Decision Tree - Test Score : 0.8380889183808892"
+    },
+    {
+      "id": "hafta5_r_forest-b015",
+      "title": "Accuracy",
+      "blockExplanation": "Accuracy adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "print(\"Basit Decision Tree Accuracy:\", accuracy_score(y_test, y_pred_dt_small))",
+          "lineExplanation": "Gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar.",
+          "tokens": [
+            {
+              "token": "accuracy_score(...)",
+              "explanation": "Doğruluk oranını hesaplar.",
+              "turkce": "Accuracy",
+              "amac": "Tahmin başarısını tek sayı ile görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Accuracy' bloğunda gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar."
+        }
+      ],
+      "expectedOutput": "Basit Decision Tree Accuracy: 0.8380889183808892"
+    },
+    {
+      "id": "hafta5_r_forest-b016",
+      "title": "Detaylı rapor",
+      "blockExplanation": "Detaylı rapor adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "print(classification_report(y_test, y_pred_dt_small))",
+          "lineExplanation": "Precision, recall ve f1-score değerlerini sınıf bazında raporlar.",
+          "tokens": [
+            {
+              "token": "classification_report(...)",
+              "explanation": "Precision, recall ve f1-score tablosunu üretir.",
+              "turkce": "Detaylı Rapor",
+              "amac": "Sınıf bazlı başarıyı görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Detaylı rapor' bloğunda precision, recall ve f1-score değerlerini sınıf bazında raporlar."
+        }
+      ],
+      "expectedOutput": "precision    recall  f1-score   support\n\n           0       0.85      0.95      0.90      4527\n           1       0.77      0.49      0.60      1501\n\n    accuracy                           0.84      6028\n   macro avg       0.81      0.72      0.75      6028\nweighted avg       0.83      0.84      0.82      6028"
+    },
+    {
+      "id": "hafta5_r_forest-b017",
+      "title": "Amaç: overfitting durumunu gözlemek",
+      "blockExplanation": "Amaç: overfitting durumunu gözlemek adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "dt_deep = DecisionTreeClassifier(",
+          "lineExplanation": "Karar ağacı modelini belirtilen hiperparametrelerle oluşturur.",
+          "tokens": [
+            {
+              "token": "DecisionTreeClassifier(...)",
+              "explanation": "Karar ağacı modelini oluşturur.",
+              "turkce": "Karar Ağacı",
+              "amac": "Ağaç tabanlı sınıflandırma modeli kurmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Amaç: overfitting durumunu gözlemek' bloğunda karar ağacı modelini belirtilen hiperparametrelerle oluşturur."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    criterion=\"gini\",",
+          "lineExplanation": "Karar ağacında kullanılacak bölme ölçütünü `gini` olarak ayarlar.",
+          "tokens": [
+            {
+              "token": "criterion=\"gini\"",
+              "explanation": "Bölme kriterini `gini` olarak seçer.",
+              "turkce": "Bölme Kriteri",
+              "amac": "Düğümlerde hangi impurity ölçütünün kullanılacağını belirlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Amaç: overfitting durumunu gözlemek' bloğunda düğümlerin hangi saflık ölçütüne göre bölüneceğini belirler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    max_depth=None,",
+          "lineExplanation": "Ağacın maksimum derinliğini `None` olarak belirler.",
+          "tokens": [
+            {
+              "token": "max_depth=None",
+              "explanation": "Maksimum ağaç derinliğini `None` yapar.",
+              "turkce": "Derinlik Sınırı",
+              "amac": "Aşırı öğrenmeyi kontrol etmek veya derin modeli test etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Amaç: overfitting durumunu gözlemek' bloğunda modelin ne kadar derine dallanabileceğini sınırlar veya serbest bırakır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    random_state=42",
+          "lineExplanation": "Rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır.",
+          "tokens": [
+            {
+              "token": "random_state",
+              "explanation": "Rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Amaç: overfitting durumunu gözlemek' bloğunda rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Amaç: overfitting durumunu gözlemek' bloğunda rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır."
+        },
+        {
+          "lineNumber": 5,
+          "code": ")",
+          "lineExplanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Amaç: overfitting durumunu gözlemek' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Amaç: overfitting durumunu gözlemek' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "dt_deep.fit(X_train, y_train)",
+          "lineExplanation": "Modeli eğitim verisi üzerinde öğrenme sürecine sokar.",
+          "tokens": [
+            {
+              "token": ".fit(...)",
+              "explanation": "Modeli eğitim verisiyle öğrenme sürecine sokar.",
+              "turkce": "Model Eğitimi",
+              "amac": "Algoritmanın veriden kural çıkarmasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Amaç: overfitting durumunu gözlemek' bloğunda modeli eğitim verisi üzerinde öğrenme sürecine sokar."
+        }
+      ],
+      "expectedOutput": "DecisionTreeClassifier(random_state=42)"
+    },
+    {
+      "id": "hafta5_r_forest-b018",
+      "title": "Test verisi için tahmin",
+      "blockExplanation": "Test verisi için tahmin adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "y_pred_dt_deep = dt_deep.predict(X_test)",
+          "lineExplanation": "Eğitilmiş model ile yeni veriler için tahmin üretir.",
+          "tokens": [
+            {
+              "token": ".predict(...)",
+              "explanation": "Eğitilmiş modelle tahmin üretir.",
+              "turkce": "Tahmin",
+              "amac": "Test veya yeni veri üzerinde sınıf üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisi için tahmin' bloğunda eğitilmiş model ile yeni veriler için tahmin üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "print(\"Derin Decision Tree - Train Score:\", dt_deep.score(X_train, y_train))",
+          "lineExplanation": "Belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır.",
+          "tokens": [
+            {
+              "token": "print(\"Derin Decision Tree - Train Score:\", dt_deep.score(X_train, y_train))",
+              "explanation": "Belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Test verisi için tahmin' bloğunda belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisi için tahmin' bloğunda belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "print(\"Derin Decision Tree - Test Score :\", dt_deep.score(X_test, y_test))",
+          "lineExplanation": "Belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır.",
+          "tokens": [
+            {
+              "token": "print(\"Derin Decision Tree - Test Score :\", dt_deep.score(X_test, y_test))",
+              "explanation": "Belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Test verisi için tahmin' bloğunda belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisi için tahmin' bloğunda belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır."
+        }
+      ],
+      "expectedOutput": "Derin Decision Tree - Train Score: 1.0\nDerin Decision Tree - Test Score : 0.809721300597213"
+    },
+    {
+      "id": "hafta5_r_forest-b019",
+      "title": "Accuracy",
+      "blockExplanation": "Accuracy adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "print(\"Derin Decision Tree Accuracy:\", accuracy_score(y_test, y_pred_dt_deep))",
+          "lineExplanation": "Gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar.",
+          "tokens": [
+            {
+              "token": "accuracy_score(...)",
+              "explanation": "Doğruluk oranını hesaplar.",
+              "turkce": "Accuracy",
+              "amac": "Tahmin başarısını tek sayı ile görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Accuracy' bloğunda gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar."
+        }
+      ],
+      "expectedOutput": "Derin Decision Tree Accuracy: 0.809721300597213"
+    },
+    {
+      "id": "hafta5_r_forest-b020",
+      "title": "Detaylı rapor",
+      "blockExplanation": "Detaylı rapor adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "print(classification_report(y_test, y_pred_dt_deep))",
+          "lineExplanation": "Precision, recall ve f1-score değerlerini sınıf bazında raporlar.",
+          "tokens": [
+            {
+              "token": "classification_report(...)",
+              "explanation": "Precision, recall ve f1-score tablosunu üretir.",
+              "turkce": "Detaylı Rapor",
+              "amac": "Sınıf bazlı başarıyı görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Detaylı rapor' bloğunda precision, recall ve f1-score değerlerini sınıf bazında raporlar."
+        }
+      ],
+      "expectedOutput": "precision    recall  f1-score   support\n\n           0       0.88      0.87      0.87      4527\n           1       0.61      0.64      0.62      1501\n\n    accuracy                           0.81      6028\n   macro avg       0.75      0.75      0.75      6028\nweighted avg       0.81      0.81      0.81      6028"
+    },
+    {
+      "id": "hafta5_r_forest-b021",
+      "title": "Çok sayıda karar ağacı oluşturur",
+      "blockExplanation": "Çok sayıda karar ağacı oluşturur adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "rf_model = RandomForestClassifier(",
+          "lineExplanation": "Random Forest modelini belirtilen hiperparametrelerle oluşturur.",
+          "tokens": [
+            {
+              "token": "RandomForestClassifier(...)",
+              "explanation": "Random Forest modelini oluşturur.",
+              "turkce": "Random Forest",
+              "amac": "Birden çok ağaçtan oluşan topluluk modeli kurmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Çok sayıda karar ağacı oluşturur' bloğunda random forest modelini belirtilen hiperparametrelerle oluşturur."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    n_estimators=200,",
+          "lineExplanation": "Random Forest içinde üretilecek karar ağacı sayısını `200` olarak ayarlar.",
+          "tokens": [
+            {
+              "token": "n_estimators=200",
+              "explanation": "Ormanda `200` adet ağaç kurulacağını belirtir.",
+              "turkce": "Ağaç Sayısı",
+              "amac": "Topluluk modelinin büyüklüğünü ayarlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Çok sayıda karar ağacı oluşturur' bloğunda ormandaki ağaç sayısını belirler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    max_features=\"sqrt\",",
+          "lineExplanation": "Her ağaç bölünürken değerlendirilecek özellik seçim stratejisini `\"sqrt\"` yapar.",
+          "tokens": [
+            {
+              "token": "max_features=\"sqrt\"",
+              "explanation": "Özellik örnekleme stratejisini `\"sqrt\"` olarak ayarlar.",
+              "turkce": "Özellik Örnekleme",
+              "amac": "Ağaçlar arasındaki çeşitliliği kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Çok sayıda karar ağacı oluşturur' bloğunda her splitte kaç/hangi özelliğin aday olacağını belirler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    random_state=42,",
+          "lineExplanation": "Rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır.",
+          "tokens": [
+            {
+              "token": "random_state",
+              "explanation": "Rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Çok sayıda karar ağacı oluşturur' bloğunda rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Çok sayıda karar ağacı oluşturur' bloğunda rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    n_jobs=-1",
+          "lineExplanation": "İşlemci kullanımını `-1` olacak şekilde ayarlar.",
+          "tokens": [
+            {
+              "token": "n_jobs=-1",
+              "explanation": "Paralel işlem ayarını `-1` yapar.",
+              "turkce": "Paralel Çalışma",
+              "amac": "Model eğitimini çok çekirdek kullanarak hızlandırmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Çok sayıda karar ağacı oluşturur' bloğunda modelin hesaplama sırasında kaç çekirdek kullanacağını belirtir."
+        },
+        {
+          "lineNumber": 6,
+          "code": ")",
+          "lineExplanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Çok sayıda karar ağacı oluşturur' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Çok sayıda karar ağacı oluşturur' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "rf_model.fit(X_train, y_train)",
+          "lineExplanation": "Modeli eğitim verisi üzerinde öğrenme sürecine sokar.",
+          "tokens": [
+            {
+              "token": ".fit(...)",
+              "explanation": "Modeli eğitim verisiyle öğrenme sürecine sokar.",
+              "turkce": "Model Eğitimi",
+              "amac": "Algoritmanın veriden kural çıkarmasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Çok sayıda karar ağacı oluşturur' bloğunda modeli eğitim verisi üzerinde öğrenme sürecine sokar."
+        }
+      ],
+      "expectedOutput": "RandomForestClassifier(n_estimators=200, n_jobs=-1, random_state=42)"
+    },
+    {
+      "id": "hafta5_r_forest-b022",
+      "title": "Test verisi için tahmin",
+      "blockExplanation": "Test verisi için tahmin adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "y_pred_rf = rf_model.predict(X_test)",
+          "lineExplanation": "Eğitilmiş model ile yeni veriler için tahmin üretir.",
+          "tokens": [
+            {
+              "token": ".predict(...)",
+              "explanation": "Eğitilmiş modelle tahmin üretir.",
+              "turkce": "Tahmin",
+              "amac": "Test veya yeni veri üzerinde sınıf üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisi için tahmin' bloğunda eğitilmiş model ile yeni veriler için tahmin üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "print(\"Random Forest - Train Score:\", rf_model.score(X_train, y_train))",
+          "lineExplanation": "Belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır.",
+          "tokens": [
+            {
+              "token": "print(\"Random Forest - Train Score:\", rf_model.score(X_train, y_train))",
+              "explanation": "Belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Test verisi için tahmin' bloğunda belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisi için tahmin' bloğunda belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "print(\"Random Forest - Test Score :\", rf_model.score(X_test, y_test))",
+          "lineExplanation": "Belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır.",
+          "tokens": [
+            {
+              "token": "print(\"Random Forest - Test Score :\", rf_model.score(X_test, y_test))",
+              "explanation": "Belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Test verisi için tahmin' bloğunda belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisi için tahmin' bloğunda belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır."
+        }
+      ],
+      "expectedOutput": "Random Forest - Train Score: 1.0\nRandom Forest - Test Score : 0.8528533510285335"
+    },
+    {
+      "id": "hafta5_r_forest-b023",
+      "title": "Accuracy",
+      "blockExplanation": "Accuracy adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "print(\"Random Forest Accuracy:\", accuracy_score(y_test, y_pred_rf))",
+          "lineExplanation": "Gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar.",
+          "tokens": [
+            {
+              "token": "accuracy_score(...)",
+              "explanation": "Doğruluk oranını hesaplar.",
+              "turkce": "Accuracy",
+              "amac": "Tahmin başarısını tek sayı ile görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Accuracy' bloğunda gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar."
+        }
+      ],
+      "expectedOutput": "Random Forest Accuracy: 0.8528533510285335"
+    },
+    {
+      "id": "hafta5_r_forest-b024",
+      "title": "Detaylı rapor",
+      "blockExplanation": "Detaylı rapor adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "print(classification_report(y_test, y_pred_rf))",
+          "lineExplanation": "Precision, recall ve f1-score değerlerini sınıf bazında raporlar.",
+          "tokens": [
+            {
+              "token": "classification_report(...)",
+              "explanation": "Precision, recall ve f1-score tablosunu üretir.",
+              "turkce": "Detaylı Rapor",
+              "amac": "Sınıf bazlı başarıyı görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Detaylı rapor' bloğunda precision, recall ve f1-score değerlerini sınıf bazında raporlar."
+        }
+      ],
+      "expectedOutput": "precision    recall  f1-score   support\n\n           0       0.88      0.93      0.90      4527\n           1       0.74      0.63      0.68      1501\n\n    accuracy                           0.85      6028\n   macro avg       0.81      0.78      0.79      6028\nweighted avg       0.85      0.85      0.85      6028"
+    },
+    {
+      "id": "hafta5_r_forest-b025",
+      "title": "Sonuçları tablo halinde topluyoruz",
+      "blockExplanation": "Sonuçları tablo halinde topluyoruz adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "results = pd.DataFrame({",
+          "lineExplanation": "Modellerin metriklerini tek tabloda toplamak için sonuç DataFrame'ini başlatır.",
+          "tokens": [
+            {
+              "token": "pd.DataFrame(...)",
+              "explanation": "Veriyi DataFrame yapısına dönüştürür.",
+              "turkce": "DataFrame",
+              "amac": "Tablolu yapı üzerinde işlem yapmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda modellerin metriklerini tek tabloda toplamak için sonuç dataframe'ini başlatır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    \"Model\": [",
+          "lineExplanation": "Sonuç tablosundaki model adı sütununu başlatır.",
+          "tokens": [
+            {
+              "token": "\"Model\"",
+              "explanation": "Sonuç tablosunda model adlarının tutulacağı sütundur.",
+              "turkce": "Kolon Adı",
+              "amac": "Karşılaştırma tablosunda model isimlerini yazmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda karşılaştırma tablosunun model isimleri kolonunu tanımlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "        \"Decision Tree (Basit)\",",
+          "lineExplanation": "Sonuç tablosundaki model listesine `Decision Tree (Basit)` satırını ekler.",
+          "tokens": [
+            {
+              "token": "Decision Tree (Basit)",
+              "explanation": "Karşılaştırma tablosunda `Decision Tree (Basit)` model adını temsil eder.",
+              "turkce": "Model Adı",
+              "amac": "Sonuç tablosunda ilgili modeli etiketlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda karşılaştırılacak modellerden birinin adını tabloya yazar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "        \"Decision Tree (Derin)\",",
+          "lineExplanation": "Sonuç tablosundaki model listesine `Decision Tree (Derin)` satırını ekler.",
+          "tokens": [
+            {
+              "token": "Decision Tree (Derin)",
+              "explanation": "Karşılaştırma tablosunda `Decision Tree (Derin)` model adını temsil eder.",
+              "turkce": "Model Adı",
+              "amac": "Sonuç tablosunda ilgili modeli etiketlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda karşılaştırılacak modellerden birinin adını tabloya yazar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "        \"Random Forest\"",
+          "lineExplanation": "Sonuç tablosundaki model listesine `Random Forest` satırını ekler.",
+          "tokens": [
+            {
+              "token": "Random Forest",
+              "explanation": "Karşılaştırma tablosunda `Random Forest` model adını temsil eder.",
+              "turkce": "Model Adı",
+              "amac": "Sonuç tablosunda ilgili modeli etiketlemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda karşılaştırılacak modellerden birinin adını tabloya yazar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    ],",
+          "lineExplanation": "], satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "],",
+              "explanation": "], satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    \"Train Score\": [",
+          "lineExplanation": "Sonuç tablosundaki train score sütununu başlatır.",
+          "tokens": [
+            {
+              "token": "\"Train Score\"",
+              "explanation": "Eğitim başarımını tutacak sütunu tanımlar.",
+              "turkce": "Kolon Adı",
+              "amac": "Train skorlarını tabloya eklemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda eğitim başarım skorlarının yazılacağı kolonu tanımlar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "        dt_small.score(X_train, y_train),",
+          "lineExplanation": "dt_small modelinin eğitim verisi üzerindeki skorunu sonuç listesine ekler.",
+          "tokens": [
+            {
+              "token": "dt_small.score(X_train, y_train)",
+              "explanation": "dt_small modelinin eğitim kümesindeki skorunu hesaplar.",
+              "turkce": "Train Score",
+              "amac": "Modelin eğitime ne kadar uyduğunu tabloya eklemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda ilgili modelin train başarımını karşılaştırma tablosuna taşır."
+        },
+        {
+          "lineNumber": 9,
+          "code": "        dt_deep.score(X_train, y_train),",
+          "lineExplanation": "dt_deep modelinin eğitim verisi üzerindeki skorunu sonuç listesine ekler.",
+          "tokens": [
+            {
+              "token": "dt_deep.score(X_train, y_train)",
+              "explanation": "dt_deep modelinin eğitim kümesindeki skorunu hesaplar.",
+              "turkce": "Train Score",
+              "amac": "Modelin eğitime ne kadar uyduğunu tabloya eklemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda ilgili modelin train başarımını karşılaştırma tablosuna taşır."
+        },
+        {
+          "lineNumber": 10,
+          "code": "        rf_model.score(X_train, y_train)",
+          "lineExplanation": "rf_model modelinin eğitim verisi üzerindeki skorunu sonuç listesine ekler.",
+          "tokens": [
+            {
+              "token": "rf_model.score(X_train, y_train)",
+              "explanation": "rf_model modelinin eğitim kümesindeki skorunu hesaplar.",
+              "turkce": "Train Score",
+              "amac": "Modelin eğitime ne kadar uyduğunu tabloya eklemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda ilgili modelin train başarımını karşılaştırma tablosuna taşır."
+        },
+        {
+          "lineNumber": 11,
+          "code": "    ],",
+          "lineExplanation": "], satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "],",
+              "explanation": "], satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 12,
+          "code": "    \"Test Score\": [",
+          "lineExplanation": "Sonuç tablosundaki test score sütununu başlatır.",
+          "tokens": [
+            {
+              "token": "\"Test Score\"",
+              "explanation": "Test başarımını tutacak sütunu tanımlar.",
+              "turkce": "Kolon Adı",
+              "amac": "Test skorlarını tabloya eklemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda test başarım skorlarının yazılacağı kolonu tanımlar."
+        },
+        {
+          "lineNumber": 13,
+          "code": "        dt_small.score(X_test, y_test),",
+          "lineExplanation": "dt_small modelinin test verisi üzerindeki skorunu sonuç listesine ekler.",
+          "tokens": [
+            {
+              "token": "dt_small.score(X_test, y_test)",
+              "explanation": "dt_small modelinin test kümesindeki skorunu hesaplar.",
+              "turkce": "Test Score",
+              "amac": "Genelleme performansını tabloya eklemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda ilgili modelin test başarımını karşılaştırma tablosuna taşır."
+        },
+        {
+          "lineNumber": 14,
+          "code": "        dt_deep.score(X_test, y_test),",
+          "lineExplanation": "dt_deep modelinin test verisi üzerindeki skorunu sonuç listesine ekler.",
+          "tokens": [
+            {
+              "token": "dt_deep.score(X_test, y_test)",
+              "explanation": "dt_deep modelinin test kümesindeki skorunu hesaplar.",
+              "turkce": "Test Score",
+              "amac": "Genelleme performansını tabloya eklemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda ilgili modelin test başarımını karşılaştırma tablosuna taşır."
+        },
+        {
+          "lineNumber": 15,
+          "code": "        rf_model.score(X_test, y_test)",
+          "lineExplanation": "rf_model modelinin test verisi üzerindeki skorunu sonuç listesine ekler.",
+          "tokens": [
+            {
+              "token": "rf_model.score(X_test, y_test)",
+              "explanation": "rf_model modelinin test kümesindeki skorunu hesaplar.",
+              "turkce": "Test Score",
+              "amac": "Genelleme performansını tabloya eklemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda ilgili modelin test başarımını karşılaştırma tablosuna taşır."
+        },
+        {
+          "lineNumber": 16,
+          "code": "    ],",
+          "lineExplanation": "], satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "],",
+              "explanation": "], satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 17,
+          "code": "    \"Accuracy\": [",
+          "lineExplanation": "Sonuç tablosundaki accuracy sütununu başlatır.",
+          "tokens": [
+            {
+              "token": "\"Accuracy\"",
+              "explanation": "Modellerin accuracy değerlerini tutacak sütunu tanımlar.",
+              "turkce": "Kolon Adı",
+              "amac": "Doğruluk skorlarını tabloya eklemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda doğruluk oranlarının yazılacağı kolonu tanımlar."
+        },
+        {
+          "lineNumber": 18,
+          "code": "        accuracy_score(y_test, y_pred_dt_small),",
+          "lineExplanation": "Gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar.",
+          "tokens": [
+            {
+              "token": "accuracy_score(...)",
+              "explanation": "Doğruluk oranını hesaplar.",
+              "turkce": "Accuracy",
+              "amac": "Tahmin başarısını tek sayı ile görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar."
+        },
+        {
+          "lineNumber": 19,
+          "code": "        accuracy_score(y_test, y_pred_dt_deep),",
+          "lineExplanation": "Gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar.",
+          "tokens": [
+            {
+              "token": "accuracy_score(...)",
+              "explanation": "Doğruluk oranını hesaplar.",
+              "turkce": "Accuracy",
+              "amac": "Tahmin başarısını tek sayı ile görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar."
+        },
+        {
+          "lineNumber": 20,
+          "code": "        accuracy_score(y_test, y_pred_rf)",
+          "lineExplanation": "Gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar.",
+          "tokens": [
+            {
+              "token": "accuracy_score(...)",
+              "explanation": "Doğruluk oranını hesaplar.",
+              "turkce": "Accuracy",
+              "amac": "Tahmin başarısını tek sayı ile görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda gerçek ve tahmin edilen etiketleri karşılaştırarak doğruluk oranını hesaplar."
+        },
+        {
+          "lineNumber": 21,
+          "code": "    ]",
+          "lineExplanation": "Bir önceki metrik listesini kapatır.",
+          "tokens": [
+            {
+              "token": "]",
+              "explanation": "Bir önceki metrik listesinin tanımını sonlandırır.",
+              "turkce": "Liste Kapanışı",
+              "amac": "DataFrame sözlüğündeki dizi tanımını tamamlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda sonuç tablosuna eklenecek metrik dizisinin kapanışını yapar."
+        },
+        {
+          "lineNumber": 22,
+          "code": "})",
+          "lineExplanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+          "tokens": [
+            {
+              "token": "})",
+              "explanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+        },
+        {
+          "lineNumber": 23,
+          "code": "results",
+          "lineExplanation": "Hazırlanan model karşılaştırma tablosunu notebook çıktısı olarak gösterir.",
+          "tokens": [
+            {
+              "token": "results",
+              "explanation": "Model karşılaştırma sonuçlarını içeren DataFrame'dir.",
+              "turkce": "Sonuç Tablosu",
+              "amac": "Accuracy, train ve test skorlarını birlikte görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları tablo halinde topluyoruz' bloğunda daha önce kurulan sonuç DataFrame'ini görünür kılar."
+        }
+      ],
+      "expectedOutput": "Model  Train Score  Test Score  Accuracy\n0  Decision Tree (Basit)     0.843764    0.838089  0.838089\n1  Decision Tree (Derin)     1.000000    0.809721  0.809721\n2          Random Forest     1.000000    0.852853  0.852853"
+    },
+    {
+      "id": "hafta5_r_forest-b026",
+      "title": "Sonuçları görselleştiriyoruz",
+      "blockExplanation": "Sonuçları görselleştiriyoruz adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.figure(figsize=(8,5))",
+          "lineExplanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+          "tokens": [
+            {
+              "token": "plt.figure(figsize=(8,5))",
+              "explanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Sonuçları görselleştiriyoruz' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları görselleştiriyoruz' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "sns.barplot(data=results, x=\"Model\", y=\"Test Score\")",
+          "lineExplanation": "sns.barplot(data=results, x=\"Model\", y=\"Test Score\") satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "sns.barplot(data=results, x=\"Model\", y=\"Test Score\")",
+              "explanation": "sns.barplot(data=results, x=\"Model\", y=\"Test Score\") satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Sonuçları görselleştiriyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları görselleştiriyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.title(\"Modellerin Test Başarı Karşılaştırması\")",
+          "lineExplanation": "Grafiğe açıklayıcı başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title(\"Modellerin Test Başarı Karşılaştırması\")",
+              "explanation": "Grafiğe açıklayıcı başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Sonuçları görselleştiriyoruz' bloğunda grafiğe açıklayıcı başlık ekler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları görselleştiriyoruz' bloğunda grafiğe açıklayıcı başlık ekler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.xticks(rotation=15)",
+          "lineExplanation": "X eksenindeki işaretleri veya yazıları özelleştirir.",
+          "tokens": [
+            {
+              "token": "plt.xticks(rotation=15)",
+              "explanation": "X eksenindeki işaretleri veya yazıları özelleştirir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Sonuçları görselleştiriyoruz' bloğunda x eksenindeki işaretleri veya yazıları özelleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları görselleştiriyoruz' bloğunda x eksenindeki işaretleri veya yazıları özelleştirir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.ylim(0.7, 1.0)",
+          "lineExplanation": "plt.ylim(0.7, 1.0) satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "plt.ylim(0.7, 1.0)",
+              "explanation": "plt.ylim(0.7, 1.0) satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Sonuçları görselleştiriyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları görselleştiriyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda gösterir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Hazırlanan grafiği ekranda gösterir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Sonuçları görselleştiriyoruz' bloğunda hazırlanan grafiği ekranda gösterir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Sonuçları görselleştiriyoruz' bloğunda hazırlanan grafiği ekranda gösterir."
+        }
+      ],
+      "expectedOutput": "<Figure size 800x500 with 0 Axes>\n\n<Axes: xlabel='Model', ylabel='Test Score'>\n\nText(0.5, 1.0, 'Modellerin Test Başarı Karşılaştırması')\n\n([0, 1, 2], [Text(0, 0, 'Decision Tree (Basit)'), Text(1, 0, 'Decision Tree (Derin)'), Text(2, 0, 'Random Forest')])\n\n(0.7, 1.0)\n\n<Figure size 800x500 with 1 Axes>",
+      "plotImage": "h5-rf-adult-b026.png"
+    },
+    {
+      "id": "hafta5_r_forest-b027",
+      "title": "cm_small = confusion_matrix(y_test, y_pred_dt_small)",
+      "blockExplanation": "cm_small = confusion_matrix(y_test, y_pred_dt_small) adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "cm_small = confusion_matrix(y_test, y_pred_dt_small)",
+          "lineExplanation": "Gerçek ve tahmin edilen sınıfların çapraz sayımlarını matris olarak üretir.",
+          "tokens": [
+            {
+              "token": "confusion_matrix(...)",
+              "explanation": "Gerçek ve tahmin edilen sınıfların kesişimini matris olarak çıkarır.",
+              "turkce": "Karmaşıklık Matrisi",
+              "amac": "Hata türlerini görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_small = confusion_matrix(y_test, y_pred_dt_small)' bloğunda gerçek ve tahmin edilen sınıfların çapraz sayımlarını matris olarak üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.figure(figsize=(5,4))",
+          "lineExplanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+          "tokens": [
+            {
+              "token": "plt.figure(figsize=(5,4))",
+              "explanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_small = confusion_matrix(y_test, y_pred_dt_small)' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_small = confusion_matrix(y_test, y_pred_dt_small)' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "sns.heatmap(cm_small, annot=True, fmt=\"d\", cmap=\"Blues\")",
+          "lineExplanation": "Matris yapısını ısı haritası olarak görselleştirir.",
+          "tokens": [
+            {
+              "token": "sns.heatmap(cm_small, annot=True, fmt=\"d\", cmap=\"Blues\")",
+              "explanation": "Matris yapısını ısı haritası olarak görselleştirir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_small = confusion_matrix(y_test, y_pred_dt_small)' bloğunda matris yapısını ısı haritası olarak görselleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_small = confusion_matrix(y_test, y_pred_dt_small)' bloğunda matris yapısını ısı haritası olarak görselleştirir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.title(\"Basit Decision Tree - Confusion Matrix\")",
+          "lineExplanation": "Grafiğe açıklayıcı başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title(\"Basit Decision Tree - Confusion Matrix\")",
+              "explanation": "Grafiğe açıklayıcı başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_small = confusion_matrix(y_test, y_pred_dt_small)' bloğunda grafiğe açıklayıcı başlık ekler."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_small = confusion_matrix(y_test, y_pred_dt_small)' bloğunda grafiğe açıklayıcı başlık ekler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.xlabel(\"Tahmin\")",
+          "lineExplanation": "X eksenine etiket yazar.",
+          "tokens": [
+            {
+              "token": "plt.xlabel(\"Tahmin\")",
+              "explanation": "X eksenine etiket yazar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_small = confusion_matrix(y_test, y_pred_dt_small)' bloğunda x eksenine etiket yazar."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_small = confusion_matrix(y_test, y_pred_dt_small)' bloğunda x eksenine etiket yazar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.ylabel(\"Gerçek\")",
+          "lineExplanation": "Y eksenine etiket yazar.",
+          "tokens": [
+            {
+              "token": "plt.ylabel(\"Gerçek\")",
+              "explanation": "Y eksenine etiket yazar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_small = confusion_matrix(y_test, y_pred_dt_small)' bloğunda y eksenine etiket yazar."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_small = confusion_matrix(y_test, y_pred_dt_small)' bloğunda y eksenine etiket yazar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda gösterir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Hazırlanan grafiği ekranda gösterir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_small = confusion_matrix(y_test, y_pred_dt_small)' bloğunda hazırlanan grafiği ekranda gösterir."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_small = confusion_matrix(y_test, y_pred_dt_small)' bloğunda hazırlanan grafiği ekranda gösterir."
+        }
+      ],
+      "expectedOutput": "<Figure size 500x400 with 0 Axes>\n\n<Axes: >\n\nText(0.5, 1.0, 'Basit Decision Tree - Confusion Matrix')\n\nText(0.5, 10.249999999999995, 'Tahmin')\n\nText(28.75, 0.5, 'Gerçek')\n\n<Figure size 500x400 with 2 Axes>",
+      "plotImage": "h5-rf-adult-b027.png"
+    },
+    {
+      "id": "hafta5_r_forest-b028",
+      "title": "cm_deep = confusion_matrix(y_test, y_pred_dt_deep)",
+      "blockExplanation": "cm_deep = confusion_matrix(y_test, y_pred_dt_deep) adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "cm_deep = confusion_matrix(y_test, y_pred_dt_deep)",
+          "lineExplanation": "Gerçek ve tahmin edilen sınıfların çapraz sayımlarını matris olarak üretir.",
+          "tokens": [
+            {
+              "token": "confusion_matrix(...)",
+              "explanation": "Gerçek ve tahmin edilen sınıfların kesişimini matris olarak çıkarır.",
+              "turkce": "Karmaşıklık Matrisi",
+              "amac": "Hata türlerini görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_deep = confusion_matrix(y_test, y_pred_dt_deep)' bloğunda gerçek ve tahmin edilen sınıfların çapraz sayımlarını matris olarak üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.figure(figsize=(5,4))",
+          "lineExplanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+          "tokens": [
+            {
+              "token": "plt.figure(figsize=(5,4))",
+              "explanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_deep = confusion_matrix(y_test, y_pred_dt_deep)' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_deep = confusion_matrix(y_test, y_pred_dt_deep)' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "sns.heatmap(cm_deep, annot=True, fmt=\"d\", cmap=\"Oranges\")",
+          "lineExplanation": "Matris yapısını ısı haritası olarak görselleştirir.",
+          "tokens": [
+            {
+              "token": "sns.heatmap(cm_deep, annot=True, fmt=\"d\", cmap=\"Oranges\")",
+              "explanation": "Matris yapısını ısı haritası olarak görselleştirir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_deep = confusion_matrix(y_test, y_pred_dt_deep)' bloğunda matris yapısını ısı haritası olarak görselleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_deep = confusion_matrix(y_test, y_pred_dt_deep)' bloğunda matris yapısını ısı haritası olarak görselleştirir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.title(\"Derin Decision Tree - Confusion Matrix\")",
+          "lineExplanation": "Grafiğe açıklayıcı başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title(\"Derin Decision Tree - Confusion Matrix\")",
+              "explanation": "Grafiğe açıklayıcı başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_deep = confusion_matrix(y_test, y_pred_dt_deep)' bloğunda grafiğe açıklayıcı başlık ekler."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_deep = confusion_matrix(y_test, y_pred_dt_deep)' bloğunda grafiğe açıklayıcı başlık ekler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.xlabel(\"Tahmin\")",
+          "lineExplanation": "X eksenine etiket yazar.",
+          "tokens": [
+            {
+              "token": "plt.xlabel(\"Tahmin\")",
+              "explanation": "X eksenine etiket yazar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_deep = confusion_matrix(y_test, y_pred_dt_deep)' bloğunda x eksenine etiket yazar."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_deep = confusion_matrix(y_test, y_pred_dt_deep)' bloğunda x eksenine etiket yazar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.ylabel(\"Gerçek\")",
+          "lineExplanation": "Y eksenine etiket yazar.",
+          "tokens": [
+            {
+              "token": "plt.ylabel(\"Gerçek\")",
+              "explanation": "Y eksenine etiket yazar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_deep = confusion_matrix(y_test, y_pred_dt_deep)' bloğunda y eksenine etiket yazar."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_deep = confusion_matrix(y_test, y_pred_dt_deep)' bloğunda y eksenine etiket yazar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda gösterir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Hazırlanan grafiği ekranda gösterir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_deep = confusion_matrix(y_test, y_pred_dt_deep)' bloğunda hazırlanan grafiği ekranda gösterir."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_deep = confusion_matrix(y_test, y_pred_dt_deep)' bloğunda hazırlanan grafiği ekranda gösterir."
+        }
+      ],
+      "expectedOutput": "<Figure size 500x400 with 0 Axes>\n\n<Axes: >\n\nText(0.5, 1.0, 'Derin Decision Tree - Confusion Matrix')\n\nText(0.5, 10.249999999999995, 'Tahmin')\n\nText(28.75, 0.5, 'Gerçek')\n\n<Figure size 500x400 with 2 Axes>",
+      "plotImage": "h5-rf-adult-b028.png"
+    },
+    {
+      "id": "hafta5_r_forest-b029",
+      "title": "cm_rf = confusion_matrix(y_test, y_pred_rf)",
+      "blockExplanation": "cm_rf = confusion_matrix(y_test, y_pred_rf) adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "cm_rf = confusion_matrix(y_test, y_pred_rf)",
+          "lineExplanation": "Gerçek ve tahmin edilen sınıfların çapraz sayımlarını matris olarak üretir.",
+          "tokens": [
+            {
+              "token": "confusion_matrix(...)",
+              "explanation": "Gerçek ve tahmin edilen sınıfların kesişimini matris olarak çıkarır.",
+              "turkce": "Karmaşıklık Matrisi",
+              "amac": "Hata türlerini görmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_rf = confusion_matrix(y_test, y_pred_rf)' bloğunda gerçek ve tahmin edilen sınıfların çapraz sayımlarını matris olarak üretir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.figure(figsize=(5,4))",
+          "lineExplanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+          "tokens": [
+            {
+              "token": "plt.figure(figsize=(5,4))",
+              "explanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_rf = confusion_matrix(y_test, y_pred_rf)' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_rf = confusion_matrix(y_test, y_pred_rf)' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "sns.heatmap(cm_rf, annot=True, fmt=\"d\", cmap=\"Greens\")",
+          "lineExplanation": "Matris yapısını ısı haritası olarak görselleştirir.",
+          "tokens": [
+            {
+              "token": "sns.heatmap(cm_rf, annot=True, fmt=\"d\", cmap=\"Greens\")",
+              "explanation": "Matris yapısını ısı haritası olarak görselleştirir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_rf = confusion_matrix(y_test, y_pred_rf)' bloğunda matris yapısını ısı haritası olarak görselleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_rf = confusion_matrix(y_test, y_pred_rf)' bloğunda matris yapısını ısı haritası olarak görselleştirir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.title(\"Random Forest - Confusion Matrix\")",
+          "lineExplanation": "Grafiğe açıklayıcı başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title(\"Random Forest - Confusion Matrix\")",
+              "explanation": "Grafiğe açıklayıcı başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_rf = confusion_matrix(y_test, y_pred_rf)' bloğunda grafiğe açıklayıcı başlık ekler."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_rf = confusion_matrix(y_test, y_pred_rf)' bloğunda grafiğe açıklayıcı başlık ekler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.xlabel(\"Tahmin\")",
+          "lineExplanation": "X eksenine etiket yazar.",
+          "tokens": [
+            {
+              "token": "plt.xlabel(\"Tahmin\")",
+              "explanation": "X eksenine etiket yazar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_rf = confusion_matrix(y_test, y_pred_rf)' bloğunda x eksenine etiket yazar."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_rf = confusion_matrix(y_test, y_pred_rf)' bloğunda x eksenine etiket yazar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.ylabel(\"Gerçek\")",
+          "lineExplanation": "Y eksenine etiket yazar.",
+          "tokens": [
+            {
+              "token": "plt.ylabel(\"Gerçek\")",
+              "explanation": "Y eksenine etiket yazar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_rf = confusion_matrix(y_test, y_pred_rf)' bloğunda y eksenine etiket yazar."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_rf = confusion_matrix(y_test, y_pred_rf)' bloğunda y eksenine etiket yazar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda gösterir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Hazırlanan grafiği ekranda gösterir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'cm_rf = confusion_matrix(y_test, y_pred_rf)' bloğunda hazırlanan grafiği ekranda gösterir."
+            }
+          ],
+          "codeContext": "Bu satır, 'cm_rf = confusion_matrix(y_test, y_pred_rf)' bloğunda hazırlanan grafiği ekranda gösterir."
+        }
+      ],
+      "expectedOutput": "<Figure size 500x400 with 0 Axes>\n\n<Axes: >\n\nText(0.5, 1.0, 'Random Forest - Confusion Matrix')\n\nText(0.5, 10.249999999999995, 'Tahmin')\n\nText(28.75, 0.5, 'Gerçek')\n\n<Figure size 500x400 with 2 Axes>",
+      "plotImage": "h5-rf-adult-b029.png"
+    },
+    {
+      "id": "hafta5_r_forest-b030",
+      "title": "Random Forest için en önemli özellikleri bulalım",
+      "blockExplanation": "Random Forest için en önemli özellikleri bulalım adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "rf_importance = pd.Series(rf_model.feature_importances_, index=X.columns)",
+          "lineExplanation": "Random Forest'ın özellik önemlerini seri olarak çıkarır.",
+          "tokens": [
+            {
+              "token": "rf_importance",
+              "explanation": "Random Forest'ın özellik önemlerini seri olarak çıkarır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Random Forest için en önemli özellikleri bulalım' bloğunda random forest'ın özellik önemlerini seri olarak çıkarır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Random Forest için en önemli özellikleri bulalım' bloğunda random forest'ın özellik önemlerini seri olarak çıkarır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "rf_importance.sort_values(ascending=False).head(10)",
+          "lineExplanation": "Özellik önemlerini büyükten küçüğe sıralayıp en önemlilerini seçer.",
+          "tokens": [
+            {
+              "token": "head()",
+              "explanation": "İlk satırları gösterir.",
+              "turkce": "Önizleme",
+              "amac": "Veri yapısını hızlıca kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Random Forest için en önemli özellikleri bulalım' bloğunda özellik önemlerini büyükten küçüğe sıralayıp en önemlilerini seçer."
+        }
+      ],
+      "expectedOutput": "fnlwgt                               0.165448\nage                                  0.155518\ncapital_gain                         0.096860\nhours_per_week                       0.085045\nmarital_status_Married-civ-spouse    0.082888\neducation_num                        0.064438\ncapital_loss                         0.032105\nmarital_status_Never-married         0.030837\nsex_Male                             0.019405\noccupation_Exec-managerial           0.018583\ndtype: float64"
+    },
+    {
+      "id": "hafta5_r_forest-b031",
+      "title": "rf_importance.sort_values(ascending=False).head(10).plot(",
+      "blockExplanation": "rf_importance.sort_values(ascending=False).head(10).plot( adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "rf_importance.sort_values(ascending=False).head(10).plot(",
+          "lineExplanation": "Özellik önemlerini büyükten küçüğe sıralayıp en önemlilerini seçer.",
+          "tokens": [
+            {
+              "token": "head()",
+              "explanation": "İlk satırları gösterir.",
+              "turkce": "Önizleme",
+              "amac": "Veri yapısını hızlıca kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'rf_importance.sort_values(ascending=False).head(10).plot(' bloğunda özellik önemlerini büyükten küçüğe sıralayıp en önemlilerini seçer."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    kind=\"barh\",",
+          "lineExplanation": "kind=\"barh\", satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "kind=\"barh\",",
+              "explanation": "kind=\"barh\", satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'rf_importance.sort_values(ascending=False).head(10).plot(' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'rf_importance.sort_values(ascending=False).head(10).plot(' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    figsize=(8,5)",
+          "lineExplanation": "figsize=(8,5) satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "figsize=(8,5)",
+              "explanation": "figsize=(8,5) satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'rf_importance.sort_values(ascending=False).head(10).plot(' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'rf_importance.sort_values(ascending=False).head(10).plot(' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 4,
+          "code": ")",
+          "lineExplanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'rf_importance.sort_values(ascending=False).head(10).plot(' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+            }
+          ],
+          "codeContext": "Bu satır, 'rf_importance.sort_values(ascending=False).head(10).plot(' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.title(\"Random Forest - En Önemli 10 Özellik\")",
+          "lineExplanation": "Grafiğe açıklayıcı başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title(\"Random Forest - En Önemli 10 Özellik\")",
+              "explanation": "Grafiğe açıklayıcı başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'rf_importance.sort_values(ascending=False).head(10).plot(' bloğunda grafiğe açıklayıcı başlık ekler."
+            }
+          ],
+          "codeContext": "Bu satır, 'rf_importance.sort_values(ascending=False).head(10).plot(' bloğunda grafiğe açıklayıcı başlık ekler."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.xlabel(\"Önem Değeri\")",
+          "lineExplanation": "X eksenine etiket yazar.",
+          "tokens": [
+            {
+              "token": "plt.xlabel(\"Önem Değeri\")",
+              "explanation": "X eksenine etiket yazar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'rf_importance.sort_values(ascending=False).head(10).plot(' bloğunda x eksenine etiket yazar."
+            }
+          ],
+          "codeContext": "Bu satır, 'rf_importance.sort_values(ascending=False).head(10).plot(' bloğunda x eksenine etiket yazar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda gösterir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Hazırlanan grafiği ekranda gösterir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'rf_importance.sort_values(ascending=False).head(10).plot(' bloğunda hazırlanan grafiği ekranda gösterir."
+            }
+          ],
+          "codeContext": "Bu satır, 'rf_importance.sort_values(ascending=False).head(10).plot(' bloğunda hazırlanan grafiği ekranda gösterir."
+        }
+      ],
+      "expectedOutput": "<Axes: title={'center': 'Random Forest - Confusion Matrix'}, ylabel='Gerçek'>\n\nText(0.5, 1.0, 'Random Forest - En Önemli 10 Özellik')\n\nText(0.5, 10.249999999999995, 'Önem Değeri')\n\n<Figure size 800x500 with 2 Axes>",
+      "plotImage": "h5-rf-adult-b031.png"
+    },
+    {
+      "id": "hafta5_r_forest-b032",
+      "title": "from sklearn.tree import plot_tree",
+      "blockExplanation": "from sklearn.tree import plot_tree adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "from sklearn.tree import plot_tree",
+          "lineExplanation": "Karar ağacı modelini veya ağacı görselleştirme fonksiyonunu içe aktarır.",
+          "tokens": [
+            {
+              "token": "plot_tree",
+              "explanation": "Karar ağacı modelini veya ağacı görselleştirme fonksiyonunu içe aktarır.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda karar ağacı modelini veya ağacı görselleştirme fonksiyonunu içe aktarır."
+            }
+          ],
+          "codeContext": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda karar ağacı modelini veya ağacı görselleştirme fonksiyonunu içe aktarır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "Matplotlib'in pyplot modülünü içe aktarır; grafik başlıkları, eksenleri ve figürleri bununla yöneteceğiz.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "Matplotlib'in pyplot modülünü içe aktarır; grafik başlıkları, eksenleri ve figürleri bununla yöneteceğiz.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda matplotlib'in pyplot modülünü içe aktarır; grafik başlıkları, eksenleri ve figürleri bununla yöneteceğiz."
+            }
+          ],
+          "codeContext": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda matplotlib'in pyplot modülünü içe aktarır; grafik başlıkları, eksenleri ve figürleri bununla yöneteceğiz."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.figure(figsize=(22,10))",
+          "lineExplanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+          "tokens": [
+            {
+              "token": "plt.figure(figsize=(22,10))",
+              "explanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plot_tree(",
+          "lineExplanation": "Eğitilmiş karar ağacını görsel olarak çizer.",
+          "tokens": [
+            {
+              "token": "plot_tree(...)",
+              "explanation": "Eğitilmiş ağacın dallarını görselleştirir.",
+              "turkce": "Ağaç Çizimi",
+              "amac": "Karar kurallarını görsel olarak incelemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda eğitilmiş karar ağacını görsel olarak çizer."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    dt_small,                   # veya dt_deep",
+          "lineExplanation": "dt_small, satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "dt_small,",
+              "explanation": "dt_small, satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    filled=True,",
+          "lineExplanation": "filled=True, satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "filled=True,",
+              "explanation": "filled=True, satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    feature_names=X.columns,",
+          "lineExplanation": "feature_names=X.columns, satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "feature_names=X.columns,",
+              "explanation": "feature_names=X.columns, satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 8,
+          "code": "    class_names=[\"<=50K\", \">50K\"],",
+          "lineExplanation": "class_names=[\"<=50K\", \">50K\"], satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "class_names=[\"<=50K\", \">50K\"],",
+              "explanation": "class_names=[\"<=50K\", \">50K\"], satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 9,
+          "code": "    max_depth=3,                # çok büyümemesi için ilk 3 seviye",
+          "lineExplanation": "Ağacın maksimum derinliğini `3` olarak belirler.",
+          "tokens": [
+            {
+              "token": "max_depth=3",
+              "explanation": "Maksimum ağaç derinliğini `3` yapar.",
+              "turkce": "Derinlik Sınırı",
+              "amac": "Aşırı öğrenmeyi kontrol etmek veya derin modeli test etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda modelin ne kadar derine dallanabileceğini sınırlar veya serbest bırakır."
+        },
+        {
+          "lineNumber": 10,
+          "code": "    fontsize=8",
+          "lineExplanation": "fontsize=8 satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "fontsize=8",
+              "explanation": "fontsize=8 satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 11,
+          "code": ")",
+          "lineExplanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+            }
+          ],
+          "codeContext": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+        },
+        {
+          "lineNumber": 12,
+          "code": "plt.title(\"Decision Tree Görselleştirmesi\")",
+          "lineExplanation": "Grafiğe açıklayıcı başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title(\"Decision Tree Görselleştirmesi\")",
+              "explanation": "Grafiğe açıklayıcı başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda grafiğe açıklayıcı başlık ekler."
+            }
+          ],
+          "codeContext": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda grafiğe açıklayıcı başlık ekler."
+        },
+        {
+          "lineNumber": 13,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda gösterir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Hazırlanan grafiği ekranda gösterir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda hazırlanan grafiği ekranda gösterir."
+            }
+          ],
+          "codeContext": "Bu satır, 'from sklearn.tree import plot_tree' bloğunda hazırlanan grafiği ekranda gösterir."
+        }
+      ],
+      "expectedOutput": "<Figure size 2200x1000 with 0 Axes>\n\n[Text(0.5, 0.9, 'marital_status_Married-civ-spouse <= 0.5\\ngini = 0.374\\nsamples = 24111\\nvalue = [18106, 6005]\\nclass = <=50K'), Text(0.25, 0.7, 'capital_gain <= 7073.5\\ngini = 0.128\\nsamples = 12878\\nvalue = [11994.0, 884.0]\\nclass = <=50K'), Text(0.375, 0.8, 'True  '), Text(0.125, 0.5, 'education_num <= 12.5\\ngini = 0.099\\nsamples = 12646\\nvalue = [11986, 660]\\nclass = <=50K'), Text(0.0625, 0.3, 'capital_loss <= 2248.0\\ngini = 0.051\\nsamples = 10083\\nvalue = [9817, 266]\\nclass = <=50K'), Text(0.03125, 0.1, '\\n  (...)  \\n'), Text(0.09375, 0.1, '\\n  (...)  \\n'), Text(0.1875, 0.3, 'hours_per_week <= 43.5\\ngini = 0.26\\nsamples = 2563\\nvalue = [2169, 394]\\nclass = <=50K'), Text(0.15625, 0.1, '\\n  (...)  \\n'), Text(0.21875, 0.1, '\\n  (...)  \\n'), Text(0.375, 0.5, 'capital_gain <= 8296.0\\ngini = 0.067\\nsamples = 232\\nvalue = [8, 224]\\nclass = >50K'), Text(0.3125, 0.3, 'education_num <= 11.5\\ngini = 0.469\\nsamples = 16\\nvalue = [6, 10]\\nclass = >50K'), Text(0.28125, 0.1, '\\n  (...)  \\n'), Text(0.34375, 0.1, '\\n  (...)  \\n'), Text(0.4375, 0.3, 'age <= 19.5\\ngini = 0.018\\nsamples = 216\\nvalue = [2, 214]\\nclass = >50K'), Text(0.40625, 0.1, '\\n  (...)  \\n'), Text(0.46875, 0.1, '\\n  (...)  \\n'), Text(0.75, 0.7, 'education_num <= 12.5\\ngini = 0.496\\nsamples = 11233\\nvalue = [6112.0, 5121.0]\\nclass = <=50K'), Text(0.625, 0.8, '  False'), Text(0.625, 0.5, 'capital_gain <= 5095.5\\ngini = 0.447\\nsamples = 7880\\nvalue = [5217, 2663]\\nclass = <=50K'), Text(0.5625, 0.3, 'education_num <= 8.5\\ngini = 0.423\\nsamples = 7477\\nvalue = [5209, 2268]\\nclass = <=50K'), Text(0.53125, 0.1, '\\n  (...)  \\n'), Text(0.59375, 0.1, '\\n  (...)  \\n'), Text(0.6875, 0.3, 'age <= 63.5\\ngini = 0.039\\nsamples = 403\\nvalue = [8, 395]\\nclass = >50K'), Text(0.65625, 0.1, '\\n  (...)  \\n'), Text(0.71875, 0.1, '\\n  (...)  \\n'), Text(0.875, 0.5, 'capital_gain <= 5095.5\\ngini = 0.391\\nsamples = 3353\\nvalue = [895.0, 2458.0]\\nclass = >50K'), Text(0.8125, 0.3, 'capital_loss <= 1782.5\\ngini = 0.431\\nsamples = 2844\\nvalue = [893.0, 1951.0]\\nclass = >50K'), Text(0.78125, 0.1, '\\n  (...)  \\n'), Text(0.84375, 0.1, '\\n  (...)  \\n'), Text(0.9375, 0.3, 'age <= 84.5\\ngini = 0.008\\nsamples = 509\\nvalue = [2.0, 507.0]\\nclass = >50K'), Text(0.90625, 0.1, '\\n  (...)  \\n'), Text(0.96875, 0.1, '\\n  (...)  \\n')]\n\nText(0.5, 1.0, 'Decision Tree Görselleştirmesi')\n\n<Figure size 2200x1000 with 1 Axes>",
+      "plotImage": "h5-rf-adult-b032.png"
+    },
+    {
+      "id": "hafta5_r_forest-b033",
+      "title": "Ormandaki ilk ağacı alıyoruz",
+      "blockExplanation": "Ormandaki ilk ağacı alıyoruz adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "from sklearn.tree import plot_tree",
+          "lineExplanation": "Karar ağacı modelini veya ağacı görselleştirme fonksiyonunu içe aktarır.",
+          "tokens": [
+            {
+              "token": "plot_tree",
+              "explanation": "Karar ağacı modelini veya ağacı görselleştirme fonksiyonunu içe aktarır.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda karar ağacı modelini veya ağacı görselleştirme fonksiyonunu içe aktarır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda karar ağacı modelini veya ağacı görselleştirme fonksiyonunu içe aktarır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "Matplotlib'in pyplot modülünü içe aktarır; grafik başlıkları, eksenleri ve figürleri bununla yöneteceğiz.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "Matplotlib'in pyplot modülünü içe aktarır; grafik başlıkları, eksenleri ve figürleri bununla yöneteceğiz.",
+              "turkce": "İçe Aktarma",
+              "amac": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda matplotlib'in pyplot modülünü içe aktarır; grafik başlıkları, eksenleri ve figürleri bununla yöneteceğiz."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda matplotlib'in pyplot modülünü içe aktarır; grafik başlıkları, eksenleri ve figürleri bununla yöneteceğiz."
+        },
+        {
+          "lineNumber": 3,
+          "code": "one_tree = rf_model.estimators_[0]",
+          "lineExplanation": "Random Forest içindeki ilk tekil karar ağacını seçer.",
+          "tokens": [
+            {
+              "token": "one_tree",
+              "explanation": "Random Forest içindeki ilk tekil karar ağacını seçer.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda random forest içindeki ilk tekil karar ağacını seçer."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda random forest içindeki ilk tekil karar ağacını seçer."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.figure(figsize=(22,10))",
+          "lineExplanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+          "tokens": [
+            {
+              "token": "plt.figure(figsize=(22,10))",
+              "explanation": "Yeni bir figür alanı oluşturur ve boyutunu ayarlar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda yeni bir figür alanı oluşturur ve boyutunu ayarlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plot_tree(",
+          "lineExplanation": "Eğitilmiş karar ağacını görsel olarak çizer.",
+          "tokens": [
+            {
+              "token": "plot_tree(...)",
+              "explanation": "Eğitilmiş ağacın dallarını görselleştirir.",
+              "turkce": "Ağaç Çizimi",
+              "amac": "Karar kurallarını görsel olarak incelemek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda eğitilmiş karar ağacını görsel olarak çizer."
+        },
+        {
+          "lineNumber": 6,
+          "code": "    one_tree,",
+          "lineExplanation": "one_tree, satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "one_tree,",
+              "explanation": "one_tree, satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "    filled=True,",
+          "lineExplanation": "filled=True, satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "filled=True,",
+              "explanation": "filled=True, satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 8,
+          "code": "    feature_names=X.columns,",
+          "lineExplanation": "feature_names=X.columns, satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "feature_names=X.columns,",
+              "explanation": "feature_names=X.columns, satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 9,
+          "code": "    class_names=[\"<=50K\", \">50K\"],",
+          "lineExplanation": "class_names=[\"<=50K\", \">50K\"], satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "class_names=[\"<=50K\", \">50K\"],",
+              "explanation": "class_names=[\"<=50K\", \">50K\"], satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 10,
+          "code": "    max_depth=3,",
+          "lineExplanation": "Ağacın maksimum derinliğini `3` olarak belirler.",
+          "tokens": [
+            {
+              "token": "max_depth=3",
+              "explanation": "Maksimum ağaç derinliğini `3` yapar.",
+              "turkce": "Derinlik Sınırı",
+              "amac": "Aşırı öğrenmeyi kontrol etmek veya derin modeli test etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda modelin ne kadar derine dallanabileceğini sınırlar veya serbest bırakır."
+        },
+        {
+          "lineNumber": 11,
+          "code": "    fontsize=8",
+          "lineExplanation": "fontsize=8 satırını özel olarak işler.",
+          "tokens": [
+            {
+              "token": "fontsize=8",
+              "explanation": "fontsize=8 satırını özel olarak işler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda belirli bir parametre veya veri tanımını netleştirir."
+        },
+        {
+          "lineNumber": 12,
+          "code": ")",
+          "lineExplanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+        },
+        {
+          "lineNumber": 13,
+          "code": "plt.title(\"Random Forest İçindeki Ağaçlardan Biri\")",
+          "lineExplanation": "Grafiğe açıklayıcı başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title(\"Random Forest İçindeki Ağaçlardan Biri\")",
+              "explanation": "Grafiğe açıklayıcı başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda grafiğe açıklayıcı başlık ekler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda grafiğe açıklayıcı başlık ekler."
+        },
+        {
+          "lineNumber": 14,
+          "code": "plt.show()",
+          "lineExplanation": "Hazırlanan grafiği ekranda gösterir.",
+          "tokens": [
+            {
+              "token": "plt.show()",
+              "explanation": "Hazırlanan grafiği ekranda gösterir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda hazırlanan grafiği ekranda gösterir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Ormandaki ilk ağacı alıyoruz' bloğunda hazırlanan grafiği ekranda gösterir."
+        }
+      ],
+      "expectedOutput": "<Figure size 2200x1000 with 0 Axes>\n\n[Text(0.5431034482758621, 0.9, 'education_Doctorate <= 0.5\\ngini = 0.371\\nsamples = 15292\\nvalue = [18170, 5941]\\nclass = <=50K'), Text(0.27586206896551724, 0.7, 'capital_gain <= 5119.0\\ngini = 0.365\\nsamples = 15120\\nvalue = [18107, 5730]\\nclass = <=50K'), Text(0.40948275862068967, 0.8, 'True  '), Text(0.13793103448275862, 0.5, 'education_num <= 12.5\\ngini = 0.327\\nsamples = 14382\\nvalue = [18046, 4684]\\nclass = <=50K'), Text(0.06896551724137931, 0.3, 'race_White <= 0.5\\ngini = 0.246\\nsamples = 11130\\nvalue = [15054, 2528]\\nclass = <=50K'), Text(0.034482758620689655, 0.1, '\\n  (...)  \\n'), Text(0.10344827586206896, 0.1, '\\n  (...)  \\n'), Text(0.20689655172413793, 0.3, 'marital_status_Never-married <= 0.5\\ngini = 0.487\\nsamples = 3252\\nvalue = [2992.0, 2156.0]\\nclass = <=50K'), Text(0.1724137931034483, 0.1, '\\n  (...)  \\n'), Text(0.2413793103448276, 0.1, '\\n  (...)  \\n'), Text(0.41379310344827586, 0.5, 'occupation_Farming-fishing <= 0.5\\ngini = 0.104\\nsamples = 738\\nvalue = [61.0, 1046.0]\\nclass = >50K'), Text(0.3448275862068966, 0.3, 'marital_status_Married-civ-spouse <= 0.5\\ngini = 0.095\\nsamples = 724\\nvalue = [54, 1027]\\nclass = >50K'), Text(0.3103448275862069, 0.1, '\\n  (...)  \\n'), Text(0.3793103448275862, 0.1, '\\n  (...)  \\n'), Text(0.4827586206896552, 0.3, 'relationship_Not-in-family <= 0.5\\ngini = 0.393\\nsamples = 14\\nvalue = [7, 19]\\nclass = >50K'), Text(0.4482758620689655, 0.1, '\\n  (...)  \\n'), Text(0.5172413793103449, 0.1, '\\n  (...)  \\n'), Text(0.8103448275862069, 0.7, 'occupation_Exec-managerial <= 0.5\\ngini = 0.354\\nsamples = 172\\nvalue = [63, 211]\\nclass = >50K'), Text(0.6767241379310345, 0.8, '  False'), Text(0.6896551724137931, 0.5, 'marital_status_Separated <= 0.5\\ngini = 0.365\\nsamples = 146\\nvalue = [56, 177]\\nclass = >50K'), Text(0.6206896551724138, 0.3, 'capital_loss <= 782.0\\ngini = 0.356\\nsamples = 143\\nvalue = [53, 176]\\nclass = >50K'), Text(0.5862068965517241, 0.1, '\\n  (...)  \\n'), Text(0.6551724137931034, 0.1, '\\n  (...)  \\n'), Text(0.7586206896551724, 0.3, 'age <= 44.5\\ngini = 0.375\\nsamples = 3\\nvalue = [3, 1]\\nclass = <=50K'), Text(0.7241379310344828, 0.1, '\\n  (...)  \\n'), Text(0.7931034482758621, 0.1, '\\n  (...)  \\n'), Text(0.9310344827586207, 0.5, 'workclass_State-gov <= 0.5\\ngini = 0.283\\nsamples = 26\\nvalue = [7.0, 34.0]\\nclass = >50K'), Text(0.896551724137931, 0.3, 'marital_status_Married-civ-spouse <= 0.5\\ngini = 0.334\\nsamples = 19\\nvalue = [7, 26]\\nclass = >50K'), Text(0.8620689655172413, 0.1, '\\n  (...)  \\n'), Text(0.9310344827586207, 0.1, '\\n  (...)  \\n'), Text(0.9655172413793104, 0.3, 'gini = 0.0\\nsamples = 7\\nvalue = [0, 8]\\nclass = >50K')]\n\nText(0.5, 1.0, 'Random Forest İçindeki Ağaçlardan Biri')\n\n<Figure size 2200x1000 with 1 Axes>",
+      "plotImage": "h5-rf-adult-b033.png"
+    },
+    {
+      "id": "hafta5_r_forest-b034",
+      "title": "Test verisi için tahmin",
+      "blockExplanation": "Test verisi için tahmin adımını uygular; veri yükleme, analiz, modelleme veya değerlendirme sürecindeki ilgili kod parçasını parça parça gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "rf1_model = RandomForestClassifier(",
+          "lineExplanation": "Random Forest modelini belirtilen hiperparametrelerle oluşturur.",
+          "tokens": [
+            {
+              "token": "RandomForestClassifier(...)",
+              "explanation": "Random Forest modelini oluşturur.",
+              "turkce": "Random Forest",
+              "amac": "Birden çok ağaçtan oluşan topluluk modeli kurmak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisi için tahmin' bloğunda random forest modelini belirtilen hiperparametrelerle oluşturur."
+        },
+        {
+          "lineNumber": 2,
+          "code": "    n_estimators=1000,",
+          "lineExplanation": "Random Forest içinde üretilecek karar ağacı sayısını `1000` olarak ayarlar.",
+          "tokens": [
+            {
+              "token": "n_estimators=1000",
+              "explanation": "Ormanda `1000` adet ağaç kurulacağını belirtir.",
+              "turkce": "Ağaç Sayısı",
+              "amac": "Topluluk modelinin büyüklüğünü ayarlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisi için tahmin' bloğunda ormandaki ağaç sayısını belirler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "    max_depth=None,",
+          "lineExplanation": "Ağacın maksimum derinliğini `None` olarak belirler.",
+          "tokens": [
+            {
+              "token": "max_depth=None",
+              "explanation": "Maksimum ağaç derinliğini `None` yapar.",
+              "turkce": "Derinlik Sınırı",
+              "amac": "Aşırı öğrenmeyi kontrol etmek veya derin modeli test etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisi için tahmin' bloğunda modelin ne kadar derine dallanabileceğini sınırlar veya serbest bırakır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "    max_features=\"sqrt\",",
+          "lineExplanation": "Her ağaç bölünürken değerlendirilecek özellik seçim stratejisini `\"sqrt\"` yapar.",
+          "tokens": [
+            {
+              "token": "max_features=\"sqrt\"",
+              "explanation": "Özellik örnekleme stratejisini `\"sqrt\"` olarak ayarlar.",
+              "turkce": "Özellik Örnekleme",
+              "amac": "Ağaçlar arasındaki çeşitliliği kontrol etmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisi için tahmin' bloğunda her splitte kaç/hangi özelliğin aday olacağını belirler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "    random_state=42",
+          "lineExplanation": "Rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır.",
+          "tokens": [
+            {
+              "token": "random_state",
+              "explanation": "Rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Test verisi için tahmin' bloğunda rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisi için tahmin' bloğunda rastgele işlemleri tekrar üretilebilir kılmak için sabit tohum kullanır."
+        },
+        {
+          "lineNumber": 6,
+          "code": ")",
+          "lineExplanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+          "tokens": [
+            {
+              "token": ")",
+              "explanation": "Çok satırlı ifade veya veri yapısı tanımını kapatır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Test verisi için tahmin' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisi için tahmin' bloğunda çok satırlı ifade veya veri yapısı tanımını kapatır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "rf1_model.fit(X_train, y_train)",
+          "lineExplanation": "Modeli eğitim verisi üzerinde öğrenme sürecine sokar.",
+          "tokens": [
+            {
+              "token": ".fit(...)",
+              "explanation": "Modeli eğitim verisiyle öğrenme sürecine sokar.",
+              "turkce": "Model Eğitimi",
+              "amac": "Algoritmanın veriden kural çıkarmasını sağlamak."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisi için tahmin' bloğunda modeli eğitim verisi üzerinde öğrenme sürecine sokar."
+        },
+        {
+          "lineNumber": 8,
+          "code": "y_pred_rf1 = rf1_model.predict(X_test)",
+          "lineExplanation": "Eğitilmiş model ile yeni veriler için tahmin üretir.",
+          "tokens": [
+            {
+              "token": ".predict(...)",
+              "explanation": "Eğitilmiş modelle tahmin üretir.",
+              "turkce": "Tahmin",
+              "amac": "Test veya yeni veri üzerinde sınıf üretmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisi için tahmin' bloğunda eğitilmiş model ile yeni veriler için tahmin üretir."
+        },
+        {
+          "lineNumber": 9,
+          "code": "print(\"Random Forest - Train Score:\", rf1_model.score(X_train, y_train))",
+          "lineExplanation": "Belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır.",
+          "tokens": [
+            {
+              "token": "print(\"Random Forest - Train Score:\", rf1_model.score(X_train, y_train))",
+              "explanation": "Belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Test verisi için tahmin' bloğunda belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisi için tahmin' bloğunda belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır."
+        },
+        {
+          "lineNumber": 10,
+          "code": "print(\"Random Forest - Test Score :\", rf1_model.score(X_test, y_test))",
+          "lineExplanation": "Belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır.",
+          "tokens": [
+            {
+              "token": "print(\"Random Forest - Test Score :\", rf1_model.score(X_test, y_test))",
+              "explanation": "Belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Test verisi için tahmin' bloğunda belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Test verisi için tahmin' bloğunda belirtilen metrik veya mesajı terminal çıktısı olarak ekrana yazdırır."
+        }
+      ],
+      "expectedOutput": "Random Forest - Train Score: 1.0\nRandom Forest - Test Score : 0.8541804910418049\n\nRandomForestClassifier(n_estimators=1000, random_state=42)"
+    }
+  ],
+  "csvOptions": {
+    "header": false,
+    "columns": [
+      "age",
+      "workclass",
+      "fnlwgt",
+      "education",
+      "education_num",
+      "marital_status",
+      "occupation",
+      "relationship",
+      "race",
+      "sex",
+      "capital_gain",
+      "capital_loss",
+      "hours_per_week",
+      "native_country",
+      "income"
+    ]
+  }
+}

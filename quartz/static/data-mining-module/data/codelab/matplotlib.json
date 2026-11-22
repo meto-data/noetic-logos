@@ -1,0 +1,2743 @@
+{
+  "id": "matplotlib",
+  "title": "Matplotlib Görselleştirme",
+  "week": 2,
+  "csvFiles": [
+    "enerji_veri.csv"
+  ],
+  "blocks": [
+    {
+      "id": "matplotlib-b001",
+      "title": "Temel Çizgi Grafiği",
+      "blockExplanation": "Matplotlib'in en temel kullanımını gösterir: x ve y değerleri bir çizgi üzerinde birleştirilir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "Matplotlib'in pyplot modülü 'plt' takma adıyla içe aktarılır. Grafik oluşturma ve özelleştirme için kullanılır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "Matplotlib kütüphanesinin grafik çizim arayüzü modülü",
+              "turkce": "Görselleştirme Modülü",
+              "amac": "Verileri grafiksel olarak (çizgi, çubuk, dağılım, histogram vb.) ekrana çizdirmek.",
+              "detay": "Matplotlib, Python ekosisteminin en köklü çizim kütüphanesidir. Pyplot modülü, MATLAB benzeri kolay bir çizim arayüzü sunar."
+            },
+            {
+              "token": "as plt",
+              "explanation": "pyplot için yaygın kullanılan kısa takma ad",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler, Tema ve Veri Yükleme' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import pandas as pd",
+          "lineExplanation": "Pandas kütüphanesini içe aktarır. Tablo şeklinde veri yapıları (DataFrame) için kullanılır.",
+          "tokens": [
+            {
+              "token": "pandas",
+              "explanation": "Tablolu verileri okumak, temizlemek ve analiz etmek için kullanilir.",
+              "turkce": "Veri Analizi Kütüphanesi",
+              "amac": "Tablolu verileri okumak, temizlemek ve analiz etmek için kullanilir.",
+              "detay": "Pandas adi panel data ifadesinden gelir. DataFrame yapısı, satır ve sütunlardan olusan tablo mantigini Python'a tasir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.plot([1,2,3,4], [1,4,9,16])",
+          "lineExplanation": "En basit çizgi grafiği. İlk liste x eksenini, ikinci liste y eksenini temsil eder. Noktalar (1,1), (2,4), (3,9), (4,16) birleştirilir.",
+          "tokens": [
+            {
+              "token": "plot()",
+              "explanation": "Noktalari eksen uzerinde birlestirerek çizgi grafiği olusturur.",
+              "turkce": "Çizgi Cizme",
+              "amac": "Noktalari eksen uzerinde birlestirerek çizgi grafiği olusturur.",
+              "detay": "plot kelimesi 'isaretlemek/cizmek' anlamina gelir. Matplotlib'de en temel çizim komutu budur."
+            },
+            {
+              "token": "[1,2,3,4]",
+              "explanation": "x ekseni değerleri. Listenin her elemanı bir noktanın yatay konumunu belirler.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            },
+            {
+              "token": "[1,4,9,16]",
+              "explanation": "y ekseni değerleri. Her eleman x'in karesi (x²) olarak hesaplanmış.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Temel Çizgi Grafiği' bloğunda veriyi insan gozunun daha hizli yorumlayacagi bir görsel ogesine dönüştürur."
+        },
+        {
+          "lineNumber": 4,
+          "code": "x = [1,2,3,4]",
+          "lineExplanation": "x ekseni değerlerini ayrı bir değişkende saklar. Kodun okunabilirliğini artırır.",
+          "tokens": [
+            {
+              "token": "x",
+              "explanation": "x ekseni koordinatlarını tutan liste değişkeni.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Temel Çizgi Grafiği' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+        },
+        {
+          "lineNumber": 5,
+          "code": "y = [1,4,9,16]",
+          "lineExplanation": "y ekseni değerlerini ayrı bir değişkende saklar.",
+          "tokens": [
+            {
+              "token": "y",
+              "explanation": "y ekseni koordinatlarını tutan liste değişkeni. Her eleman karşılık gelen x değerinin karesidir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Temel Çizgi Grafiği' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.plot(x,y)",
+          "lineExplanation": "Önceden tanımlanmış x ve y listelerini kullanarak çizgi grafiği çizer.",
+          "tokens": [
+            {
+              "token": "x,y",
+              "explanation": "Değişken olarak verilmiş x ve y koordinatları. Doğrudan liste vermekle aynı sonucu verir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "plot()",
+              "explanation": "Noktalari eksen uzerinde birlestirerek çizgi grafiği olusturur.",
+              "turkce": "Çizgi Cizme",
+              "amac": "Noktalari eksen uzerinde birlestirerek çizgi grafiği olusturur.",
+              "detay": "plot kelimesi 'isaretlemek/cizmek' anlamina gelir. Matplotlib'de en temel çizim komutu budur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Temel Çizgi Grafiği' bloğunda veriyi insan gozunun daha hizli yorumlayacagi bir görsel ogesine dönüştürur."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "[<matplotlib.lines.Line2D object at 0x7fda05b05fd0>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05b06660>]\n\n<Figure size 800x500 with 2 Axes>",
+      "plotImage": "matplotlib-b001.png"
+    },
+    {
+      "id": "matplotlib-b002",
+      "title": "Başlık ve Eksen Etiketleri",
+      "blockExplanation": "Grafiğe başlık ve eksen isimleri ekleyerek görseli yorumlanabilir hale getirir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.title(\"İlk grafiğimiz!\")",
+          "lineExplanation": "Grafiğin üst kısmına başlık ekler. Türkçe karakter desteği UTF-8 ile sağlanır.",
+          "tokens": [
+            {
+              "token": "title()",
+              "explanation": "Grafiğin neyi gosterdigini ust kisimda aciklar.",
+              "turkce": "Baslik Ekleme",
+              "amac": "Grafiğin neyi gosterdigini ust kisimda aciklar.",
+              "detay": "title, grafiğin hikayesini bir cumlede özetler; bu yuzden görsel yorumlamada ilk bakilan metindir."
+            },
+            {
+              "token": "\"İlk grafiğimiz!\"",
+              "explanation": "Başlık metni. Türkçe karakterler (İ, ğ, ü) doğrudan kullanılabilir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda görselin neyi anlattigini baslik metniyle netlestirir."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.xlabel('x axis')",
+          "lineExplanation": "x ekseninin altına etiket ekler. Eksenin neyi temsil ettiğini açıklar.",
+          "tokens": [
+            {
+              "token": "xlabel()",
+              "explanation": "Yatay eksende neyin ölçüldüğünü belirtir.",
+              "turkce": "X Ekseni Etiketi",
+              "amac": "Yatay eksende neyin ölçüldüğünü belirtir.",
+              "detay": "x-label ifadesi, x ekseninin adini yazar. Değerlerin birimini ve anlamini netlestirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda eksenlerin neyi ölçtüğünü yazarak görseli yorumlanabilir hale getirir."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.ylabel('y axis')",
+          "lineExplanation": "y ekseninin yanına dikey olarak etiket ekler.",
+          "tokens": [
+            {
+              "token": "ylabel()",
+              "explanation": "Dikey eksende neyin ölçüldüğünü belirtir.",
+              "turkce": "Y Ekseni Etiketi",
+              "amac": "Dikey eksende neyin ölçüldüğünü belirtir.",
+              "detay": "y-label, yuksekliklerin neyi temsil ettigini aciklar; aksi halde grafik sadece sekil olarak kalir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda eksenlerin neyi ölçtüğünü yazarak görseli yorumlanabilir hale getirir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.plot(x,y)",
+          "lineExplanation": "Önceden tanımlanmış x ve y listelerini kullanarak çizgi grafiği çizer.",
+          "tokens": [
+            {
+              "token": "x,y",
+              "explanation": "Değişken olarak verilmiş x ve y koordinatları. Doğrudan liste vermekle aynı sonucu verir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "plot()",
+              "explanation": "Noktalari eksen uzerinde birlestirerek çizgi grafiği olusturur.",
+              "turkce": "Çizgi Cizme",
+              "amac": "Noktalari eksen uzerinde birlestirerek çizgi grafiği olusturur.",
+              "detay": "plot kelimesi 'isaretlemek/cizmek' anlamina gelir. Matplotlib'de en temel çizim komutu budur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Temel Çizgi Grafiği' bloğunda veriyi insan gozunun daha hizli yorumlayacagi bir görsel ogesine dönüştürur."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "Text(0.5, 1.0, 'İlk grafiğimiz!')\n\nText(0.5, 32.249999999999986, 'x axis')\n\nText(66.25, 0.5, 'y axis')\n\n[<matplotlib.lines.Line2D object at 0x7fda05b06510>]\n\n<Figure size 800x500 with 2 Axes>",
+      "plotImage": "matplotlib-b002.png"
+    },
+    {
+      "id": "matplotlib-b003",
+      "title": "X ve Y Çentiklerini Elle Ayarlama",
+      "blockExplanation": "Eksenlerde hangi değerlerin görünmesini istediğimizi elle belirleriz.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.xticks([1,2,3,4])",
+          "lineExplanation": "x ekseninde gösterilecek çentik değerlerini belirler. Sadece bu değerler eksen üzerinde işaretlenir.",
+          "tokens": [
+            {
+              "token": "xticks()",
+              "explanation": "X ekseninde hangi değerlerin etiket olarak gosterilecegini belirler.",
+              "turkce": "X Centiklerini Ayarlama",
+              "amac": "X ekseninde hangi değerlerin etiket olarak gosterilecegini belirler.",
+              "detay": "tiçk, eksen uzerindeki kucuk isaretlere verilen addir. xtiçks ile bu isaretlerin konumu elle secilir."
+            },
+            {
+              "token": "[1,2,3,4]",
+              "explanation": "x ekseninde gösterilecek değerler. Eksen üzerinde yalnızca bu noktalar işaretlenir.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Legend ve Renk Ozellestirme' bloğunda eksen uzerindeki isaret ve etiketlerin tam olarak nerede gorunecegini belirler."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.yticks([1,4,9,16])",
+          "lineExplanation": "y ekseninde gösterilecek çentik değerlerini belirler.",
+          "tokens": [
+            {
+              "token": "yticks()",
+              "explanation": "Y eksenindeki etiket noktalarini elle belirler.",
+              "turkce": "Y Centiklerini Ayarlama",
+              "amac": "Y eksenindeki etiket noktalarini elle belirler.",
+              "detay": "ytiçks, özellikle egitim amacli grafiklerde sadece kritik değerleri gostermek için kullanilir."
+            },
+            {
+              "token": "[1,4,9,16]",
+              "explanation": "y ekseninde gösterilecek değerler. x² fonksiyonunun sonuçlarına karşılık gelir.",
+              "turkce": "Veri Seçimi/Dilimleme",
+              "amac": "Dizi veya tablonun içinden belirli bir kısmı veya koşulu sağlayan verileri çekmek."
+            }
+          ],
+          "codeContext": "Bu satır, 'Legend ve Renk Ozellestirme' bloğunda eksen uzerindeki isaret ve etiketlerin tam olarak nerede gorunecegini belirler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.title(\"İlk grafiğimiz!\")",
+          "lineExplanation": "Grafiğin üst kısmına başlık ekler. Türkçe karakter desteği UTF-8 ile sağlanır.",
+          "tokens": [
+            {
+              "token": "title()",
+              "explanation": "Grafiğin neyi gosterdigini ust kisimda aciklar.",
+              "turkce": "Baslik Ekleme",
+              "amac": "Grafiğin neyi gosterdigini ust kisimda aciklar.",
+              "detay": "title, grafiğin hikayesini bir cumlede özetler; bu yuzden görsel yorumlamada ilk bakilan metindir."
+            },
+            {
+              "token": "\"İlk grafiğimiz!\"",
+              "explanation": "Başlık metni. Türkçe karakterler (İ, ğ, ü) doğrudan kullanılabilir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda görselin neyi anlattigini baslik metniyle netlestirir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.xlabel('x axis')",
+          "lineExplanation": "x ekseninin altına etiket ekler. Eksenin neyi temsil ettiğini açıklar.",
+          "tokens": [
+            {
+              "token": "xlabel()",
+              "explanation": "Yatay eksende neyin ölçüldüğünü belirtir.",
+              "turkce": "X Ekseni Etiketi",
+              "amac": "Yatay eksende neyin ölçüldüğünü belirtir.",
+              "detay": "x-label ifadesi, x ekseninin adini yazar. Değerlerin birimini ve anlamini netlestirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda eksenlerin neyi ölçtüğünü yazarak görseli yorumlanabilir hale getirir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.ylabel('y axis')",
+          "lineExplanation": "y ekseninin yanına dikey olarak etiket ekler.",
+          "tokens": [
+            {
+              "token": "ylabel()",
+              "explanation": "Dikey eksende neyin ölçüldüğünü belirtir.",
+              "turkce": "Y Ekseni Etiketi",
+              "amac": "Dikey eksende neyin ölçüldüğünü belirtir.",
+              "detay": "y-label, yuksekliklerin neyi temsil ettigini aciklar; aksi halde grafik sadece sekil olarak kalir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda eksenlerin neyi ölçtüğünü yazarak görseli yorumlanabilir hale getirir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.plot(x,y)",
+          "lineExplanation": "Önceden tanımlanmış x ve y listelerini kullanarak çizgi grafiği çizer.",
+          "tokens": [
+            {
+              "token": "x,y",
+              "explanation": "Değişken olarak verilmiş x ve y koordinatları. Doğrudan liste vermekle aynı sonucu verir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            },
+            {
+              "token": "plot()",
+              "explanation": "Noktalari eksen uzerinde birlestirerek çizgi grafiği olusturur.",
+              "turkce": "Çizgi Cizme",
+              "amac": "Noktalari eksen uzerinde birlestirerek çizgi grafiği olusturur.",
+              "detay": "plot kelimesi 'isaretlemek/cizmek' anlamina gelir. Matplotlib'de en temel çizim komutu budur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Temel Çizgi Grafiği' bloğunda veriyi insan gozunun daha hizli yorumlayacagi bir görsel ogesine dönüştürur."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "([<matplotlib.axis.XTick object at 0x7fd9e86e2d50>, <matplotlib.axis.XTick object at 0x7fda05994190>, <matplotlib.axis.XTick object at 0x7fda05994550>, <matplotlib.axis.XTick object at 0x7fda06674a50>], [Text(1, 0, ''), Text(2, 0, ''), Text(3, 0, ''), Text(4, 0, '')])\n\n([<matplotlib.axis.YTick object at 0x7fd9e86e3110>, <matplotlib.axis.YTick object at 0x7fda05997890>, <matplotlib.axis.YTick object at 0x7fda05997c50>, <matplotlib.axis.YTick object at 0x7fda05997ed0>], [Text(0, 1, 'Wilderness_Area_3'), Text(0, 4, 'Horizontal_Distance_To_Fire_Points'), Text(0, 9, 'Soil_Type_38'), Text(0, 16, '')])\n\nText(0.5, 1.0, 'İlk grafiğimiz!')\n\nText(0.5, 32.249999999999986, 'x axis')\n\nText(66.25, 0.5, 'y axis')\n\n[<matplotlib.lines.Line2D object at 0x7fda05b063c0>]\n\n<Figure size 800x500 with 2 Axes>",
+      "plotImage": "matplotlib-b003.png"
+    },
+    {
+      "id": "matplotlib-b004",
+      "title": "Legend ve Renk Özelleştirme",
+      "blockExplanation": "Tek bir seriye renk ve etiket verip legend kutusunu açar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.plot(x,y, label='x^2', color='green')",
+          "lineExplanation": "Yeşil renkli çizgi grafiği çizer ve legend'da gösterilecek etiketi belirler.",
+          "tokens": [
+            {
+              "token": "label='x^2'",
+              "explanation": "Bu çizginin legend (açıklama) kutusundaki etiketi. legend() çağrılmadan görünmez.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "color='green'",
+              "explanation": "Çizgi rengini belirler. İngilizce renk isimleri ('red', 'blue', 'green') veya hex kodlar ('#FF0000') kullanılabilir.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "plot()",
+              "explanation": "Noktalari eksen uzerinde birlestirerek çizgi grafiği olusturur.",
+              "turkce": "Çizgi Cizme",
+              "amac": "Noktalari eksen uzerinde birlestirerek çizgi grafiği olusturur.",
+              "detay": "plot kelimesi 'isaretlemek/cizmek' anlamina gelir. Matplotlib'de en temel çizim komutu budur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Cizme' bloğunda veriyi insan gozunun daha hizli yorumlayacagi bir görsel ogesine dönüştürur."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.xticks([1,2,3,4,5])",
+          "lineExplanation": "x eksenindeki çentik değerlerini 1'den 5'e kadar ayarlar.",
+          "tokens": [
+            {
+              "token": "xticks()",
+              "explanation": "X ekseninde hangi değerlerin etiket olarak gosterilecegini belirler.",
+              "turkce": "X Centiklerini Ayarlama",
+              "amac": "X ekseninde hangi değerlerin etiket olarak gosterilecegini belirler.",
+              "detay": "tiçk, eksen uzerindeki kucuk isaretlere verilen addir. xtiçks ile bu isaretlerin konumu elle secilir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Cizme' bloğunda eksen uzerindeki isaret ve etiketlerin tam olarak nerede gorunecegini belirler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.yticks([1,4,9,16,25])",
+          "lineExplanation": "y eksenindeki çentik değerlerini ayarlar.",
+          "tokens": [
+            {
+              "token": "yticks()",
+              "explanation": "Y eksenindeki etiket noktalarini elle belirler.",
+              "turkce": "Y Centiklerini Ayarlama",
+              "amac": "Y eksenindeki etiket noktalarini elle belirler.",
+              "detay": "ytiçks, özellikle egitim amacli grafiklerde sadece kritik değerleri gostermek için kullanilir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Cizme' bloğunda eksen uzerindeki isaret ve etiketlerin tam olarak nerede gorunecegini belirler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.title(\"İlk grafiğimiz!\")",
+          "lineExplanation": "Grafiğin üst kısmına başlık ekler. Türkçe karakter desteği UTF-8 ile sağlanır.",
+          "tokens": [
+            {
+              "token": "title()",
+              "explanation": "Grafiğin neyi gosterdigini ust kisimda aciklar.",
+              "turkce": "Baslik Ekleme",
+              "amac": "Grafiğin neyi gosterdigini ust kisimda aciklar.",
+              "detay": "title, grafiğin hikayesini bir cumlede özetler; bu yuzden görsel yorumlamada ilk bakilan metindir."
+            },
+            {
+              "token": "\"İlk grafiğimiz!\"",
+              "explanation": "Başlık metni. Türkçe karakterler (İ, ğ, ü) doğrudan kullanılabilir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda görselin neyi anlattigini baslik metniyle netlestirir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.xlabel('x axis')",
+          "lineExplanation": "x ekseninin altına etiket ekler. Eksenin neyi temsil ettiğini açıklar.",
+          "tokens": [
+            {
+              "token": "xlabel()",
+              "explanation": "Yatay eksende neyin ölçüldüğünü belirtir.",
+              "turkce": "X Ekseni Etiketi",
+              "amac": "Yatay eksende neyin ölçüldüğünü belirtir.",
+              "detay": "x-label ifadesi, x ekseninin adini yazar. Değerlerin birimini ve anlamini netlestirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda eksenlerin neyi ölçtüğünü yazarak görseli yorumlanabilir hale getirir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.ylabel('y axis')",
+          "lineExplanation": "y ekseninin yanına dikey olarak etiket ekler.",
+          "tokens": [
+            {
+              "token": "ylabel()",
+              "explanation": "Dikey eksende neyin ölçüldüğünü belirtir.",
+              "turkce": "Y Ekseni Etiketi",
+              "amac": "Dikey eksende neyin ölçüldüğünü belirtir.",
+              "detay": "y-label, yuksekliklerin neyi temsil ettigini aciklar; aksi halde grafik sadece sekil olarak kalir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda eksenlerin neyi ölçtüğünü yazarak görseli yorumlanabilir hale getirir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.legend()",
+          "lineExplanation": "Grafiğe legend (açıklama) kutusu ekler. label parametresi verilen tüm çizgilerin etiketlerini gösterir.",
+          "tokens": [
+            {
+              "token": "legend()",
+              "explanation": "Grafikteki renklerin veya çizgilerin hangi veri serisine ait oldugunu gosterir.",
+              "turkce": "Aciklama Kutusu",
+              "amac": "Grafikteki renklerin veya çizgilerin hangi veri serisine ait oldugunu gosterir.",
+              "detay": "legend kelimesi, harita aciklamasi mantigindan gelir. Birden fazla seri varsa okunurlugu dramatik biçimde artirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Cizme' bloğunda renklerin ve çizgilerin hangi veri serisine ait oldugunu aciklayan legend kutusunu ekler."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "[<matplotlib.lines.Line2D object at 0x7fda05b042f0>]\n\n([<matplotlib.axis.XTick object at 0x7fd9e86e2d50>, <matplotlib.axis.XTick object at 0x7fda05994190>, <matplotlib.axis.XTick object at 0x7fda05994550>, <matplotlib.axis.XTick object at 0x7fda06674a50>, <matplotlib.axis.XTick object at 0x7fda06363d90>], [Text(1, 0, ''), Text(2, 0, ''), Text(3, 0, ''), Text(4, 0, ''), Text(5, 0, '')])\n\n([<matplotlib.axis.YTick object at 0x7fd9e86e3110>, <matplotlib.axis.YTick object at 0x7fda05997890>, <matplotlib.axis.YTick object at 0x7fda05997c50>, <matplotlib.axis.YTick object at 0x7fda05997ed0>, <matplotlib.axis.YTick object at 0x7fda059d8410>], [Text(0, 1, 'Wilderness_Area_3'), Text(0, 4, 'Horizontal_Distance_To_Fire_Points'), Text(0, 9, 'Soil_Type_38'), Text(0, 16, ''), Text(0, 25, '')])\n\nText(0.5, 1.0, 'İlk grafiğimiz!')\n\nText(0.5, 32.249999999999986, 'x axis')\n\nText(66.25, 0.5, 'y axis')\n\n<matplotlib.legend.Legend object at 0x7fda05b06270>\n\n<Figure size 800x500 with 2 Axes>",
+      "plotImage": "matplotlib-b004.png"
+    },
+    {
+      "id": "matplotlib-b005",
+      "title": "Çizgi Stili, Kalınlık ve Marker Kullanımı",
+      "blockExplanation": "Aynı veriyi çizgi tipi, kalınlık ve nokta işaretleriyle daha belirgin hale getirir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.plot(x,y, label='x^2', color='blue', linewidth = 2, linestyle = '--', marker='.')",
+          "lineExplanation": "Mavi renkte, 2 piksel kalınlığında, kesikli çizgi tipinde ve nokta işaretçili grafik çizer.",
+          "tokens": [
+            {
+              "token": "color='blue'",
+              "explanation": "Çizgi rengini mavi yapar.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "linewidth = 2",
+              "explanation": "Çizgi kalınlığını 2 piksel olarak ayarlar. Varsayılan değer 1'dir.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "linestyle = '--'",
+              "explanation": "Çizgi stilini kesikli (dashed) yapar. Diğer seçenekler: '-' (düz), ':' (noktalı), '-.' (çizgi-nokta).",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "marker='.'",
+              "explanation": "Her veri noktasında küçük nokta işaretçisi gösterir. Diğer seçenekler: 'o' (daire), 's' (kare), '^' (üçgen), '*' (yıldız).",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "plot()",
+              "explanation": "Noktalari eksen uzerinde birlestirerek çizgi grafiği olusturur.",
+              "turkce": "Çizgi Cizme",
+              "amac": "Noktalari eksen uzerinde birlestirerek çizgi grafiği olusturur.",
+              "detay": "plot kelimesi 'isaretlemek/cizmek' anlamina gelir. Matplotlib'de en temel çizim komutu budur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Temel Çubuk Grafiği' bloğunda veriyi insan gozunun daha hizli yorumlayacagi bir görsel ogesine dönüştürur."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.xticks([1,2,3,4,5])",
+          "lineExplanation": "x eksenindeki çentik değerlerini 1'den 5'e kadar ayarlar.",
+          "tokens": [
+            {
+              "token": "xticks()",
+              "explanation": "X ekseninde hangi değerlerin etiket olarak gosterilecegini belirler.",
+              "turkce": "X Centiklerini Ayarlama",
+              "amac": "X ekseninde hangi değerlerin etiket olarak gosterilecegini belirler.",
+              "detay": "tiçk, eksen uzerindeki kucuk isaretlere verilen addir. xtiçks ile bu isaretlerin konumu elle secilir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Cizme' bloğunda eksen uzerindeki isaret ve etiketlerin tam olarak nerede gorunecegini belirler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.yticks([1,4,9,16,25])",
+          "lineExplanation": "y eksenindeki çentik değerlerini ayarlar.",
+          "tokens": [
+            {
+              "token": "yticks()",
+              "explanation": "Y eksenindeki etiket noktalarini elle belirler.",
+              "turkce": "Y Centiklerini Ayarlama",
+              "amac": "Y eksenindeki etiket noktalarini elle belirler.",
+              "detay": "ytiçks, özellikle egitim amacli grafiklerde sadece kritik değerleri gostermek için kullanilir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Cizme' bloğunda eksen uzerindeki isaret ve etiketlerin tam olarak nerede gorunecegini belirler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.title(\"İlk grafiğimiz!\")",
+          "lineExplanation": "Grafiğin üst kısmına başlık ekler. Türkçe karakter desteği UTF-8 ile sağlanır.",
+          "tokens": [
+            {
+              "token": "title()",
+              "explanation": "Grafiğin neyi gosterdigini ust kisimda aciklar.",
+              "turkce": "Baslik Ekleme",
+              "amac": "Grafiğin neyi gosterdigini ust kisimda aciklar.",
+              "detay": "title, grafiğin hikayesini bir cumlede özetler; bu yuzden görsel yorumlamada ilk bakilan metindir."
+            },
+            {
+              "token": "\"İlk grafiğimiz!\"",
+              "explanation": "Başlık metni. Türkçe karakterler (İ, ğ, ü) doğrudan kullanılabilir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda görselin neyi anlattigini baslik metniyle netlestirir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.xlabel('x axis')",
+          "lineExplanation": "x ekseninin altına etiket ekler. Eksenin neyi temsil ettiğini açıklar.",
+          "tokens": [
+            {
+              "token": "xlabel()",
+              "explanation": "Yatay eksende neyin ölçüldüğünü belirtir.",
+              "turkce": "X Ekseni Etiketi",
+              "amac": "Yatay eksende neyin ölçüldüğünü belirtir.",
+              "detay": "x-label ifadesi, x ekseninin adini yazar. Değerlerin birimini ve anlamini netlestirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda eksenlerin neyi ölçtüğünü yazarak görseli yorumlanabilir hale getirir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.ylabel('y axis')",
+          "lineExplanation": "y ekseninin yanına dikey olarak etiket ekler.",
+          "tokens": [
+            {
+              "token": "ylabel()",
+              "explanation": "Dikey eksende neyin ölçüldüğünü belirtir.",
+              "turkce": "Y Ekseni Etiketi",
+              "amac": "Dikey eksende neyin ölçüldüğünü belirtir.",
+              "detay": "y-label, yuksekliklerin neyi temsil ettigini aciklar; aksi halde grafik sadece sekil olarak kalir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda eksenlerin neyi ölçtüğünü yazarak görseli yorumlanabilir hale getirir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.legend()",
+          "lineExplanation": "Grafiğe legend (açıklama) kutusu ekler. label parametresi verilen tüm çizgilerin etiketlerini gösterir.",
+          "tokens": [
+            {
+              "token": "legend()",
+              "explanation": "Grafikteki renklerin veya çizgilerin hangi veri serisine ait oldugunu gosterir.",
+              "turkce": "Aciklama Kutusu",
+              "amac": "Grafikteki renklerin veya çizgilerin hangi veri serisine ait oldugunu gosterir.",
+              "detay": "legend kelimesi, harita aciklamasi mantigindan gelir. Birden fazla seri varsa okunurlugu dramatik biçimde artirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Cizme' bloğunda renklerin ve çizgilerin hangi veri serisine ait oldugunu aciklayan legend kutusunu ekler."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "[<matplotlib.lines.Line2D object at 0x7fda06386120>]\n\n([<matplotlib.axis.XTick object at 0x7fd9e86e2d50>, <matplotlib.axis.XTick object at 0x7fda05994190>, <matplotlib.axis.XTick object at 0x7fda05994550>, <matplotlib.axis.XTick object at 0x7fda06674a50>, <matplotlib.axis.XTick object at 0x7fda06363d90>], [Text(1, 0, ''), Text(2, 0, ''), Text(3, 0, ''), Text(4, 0, ''), Text(5, 0, '')])\n\n([<matplotlib.axis.YTick object at 0x7fd9e86e3110>, <matplotlib.axis.YTick object at 0x7fda05997890>, <matplotlib.axis.YTick object at 0x7fda05997c50>, <matplotlib.axis.YTick object at 0x7fda05997ed0>, <matplotlib.axis.YTick object at 0x7fda059d8410>], [Text(0, 1, 'Wilderness_Area_3'), Text(0, 4, 'Horizontal_Distance_To_Fire_Points'), Text(0, 9, 'Soil_Type_38'), Text(0, 16, ''), Text(0, 25, '')])\n\nText(0.5, 1.0, 'İlk grafiğimiz!')\n\nText(0.5, 32.249999999999986, 'x axis')\n\nText(66.25, 0.5, 'y axis')\n\n<matplotlib.legend.Legend object at 0x7fda05b041a0>\n\n<Figure size 800x500 with 2 Axes>",
+      "plotImage": "matplotlib-b005.png"
+    },
+    {
+      "id": "matplotlib-b006",
+      "title": "Aynı Grafikte İkinci Çizgi Çizme",
+      "blockExplanation": "NumPy ile yeni x değerleri üretip ikinci seriyi ilk seriyle aynı grafikte karşılaştırır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import numpy as np",
+          "lineExplanation": "NumPy kütüphanesini içe aktarır. Rastgele sayı üretimi ve matematiksel işlemler için kullanılır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "Bilimsel hesaplama kütüphanesi. Diziler, rastgele sayı üretimi ve lineer cebir işlemleri sağlar.",
+              "turkce": "Sayısal Hesaplama Kütüphanesi",
+              "amac": "Çok boyutlu diziler (matrisler) üzerinde yüksek performanslı matematiksel ve istatistiksel işlemler yapmak.",
+              "detay": "C dilinde yazıldığı için Python'ın standart listelerine göre çok daha hızlıdır. Vektörizasyon sayesinde döngü (for loop) kullanmadan matris işlemleri yapılmasını sağlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.plot(x,y, label='x^2', color='green', linewidth = 2, linestyle = '--', marker='.')",
+          "lineExplanation": "x² fonksiyonunu yeşil kesikli çizgiyle çizer. Bu ilk çizgidir.",
+          "tokens": [
+            {
+              "token": "label='x^2'",
+              "explanation": "Legend'da bu çizginin 'x^2' olarak etiketlenmesini sağlar.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "plot()",
+              "explanation": "Noktalari eksen uzerinde birlestirerek çizgi grafiği olusturur.",
+              "turkce": "Çizgi Cizme",
+              "amac": "Noktalari eksen uzerinde birlestirerek çizgi grafiği olusturur.",
+              "detay": "plot kelimesi 'isaretlemek/cizmek' anlamina gelir. Matplotlib'de en temel çizim komutu budur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pasta Grafiği ile Oran Gosterme' bloğunda veriyi insan gozunun daha hizli yorumlayacagi bir görsel ogesine dönüştürur."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.xticks([0,1,2,3,4,5])",
+          "lineExplanation": "x eksenindeki çentik değerlerini 0'dan 5'e kadar ayarlar.",
+          "tokens": [
+            {
+              "token": "xticks()",
+              "explanation": "X ekseninde hangi değerlerin etiket olarak gosterilecegini belirler.",
+              "turkce": "X Centiklerini Ayarlama",
+              "amac": "X ekseninde hangi değerlerin etiket olarak gosterilecegini belirler.",
+              "detay": "tiçk, eksen uzerindeki kucuk isaretlere verilen addir. xtiçks ile bu isaretlerin konumu elle secilir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pasta Grafiği ile Oran Gosterme' bloğunda eksen uzerindeki isaret ve etiketlerin tam olarak nerede gorunecegini belirler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.yticks([0,1,4,9,16,25])",
+          "lineExplanation": "y eksenindeki çentik değerlerini ayarlar. 0 değeri de eklenerek başlangıç noktası gösterilir.",
+          "tokens": [
+            {
+              "token": "yticks()",
+              "explanation": "Y eksenindeki etiket noktalarini elle belirler.",
+              "turkce": "Y Centiklerini Ayarlama",
+              "amac": "Y eksenindeki etiket noktalarini elle belirler.",
+              "detay": "ytiçks, özellikle egitim amacli grafiklerde sadece kritik değerleri gostermek için kullanilir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pasta Grafiği ile Oran Gosterme' bloğunda eksen uzerindeki isaret ve etiketlerin tam olarak nerede gorunecegini belirler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.title(\"İlk grafiğimiz!\")",
+          "lineExplanation": "Grafiğin üst kısmına başlık ekler. Türkçe karakter desteği UTF-8 ile sağlanır.",
+          "tokens": [
+            {
+              "token": "title()",
+              "explanation": "Grafiğin neyi gosterdigini ust kisimda aciklar.",
+              "turkce": "Baslik Ekleme",
+              "amac": "Grafiğin neyi gosterdigini ust kisimda aciklar.",
+              "detay": "title, grafiğin hikayesini bir cumlede özetler; bu yuzden görsel yorumlamada ilk bakilan metindir."
+            },
+            {
+              "token": "\"İlk grafiğimiz!\"",
+              "explanation": "Başlık metni. Türkçe karakterler (İ, ğ, ü) doğrudan kullanılabilir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda görselin neyi anlattigini baslik metniyle netlestirir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.xlabel('x axis')",
+          "lineExplanation": "x ekseninin altına etiket ekler. Eksenin neyi temsil ettiğini açıklar.",
+          "tokens": [
+            {
+              "token": "xlabel()",
+              "explanation": "Yatay eksende neyin ölçüldüğünü belirtir.",
+              "turkce": "X Ekseni Etiketi",
+              "amac": "Yatay eksende neyin ölçüldüğünü belirtir.",
+              "detay": "x-label ifadesi, x ekseninin adini yazar. Değerlerin birimini ve anlamini netlestirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda eksenlerin neyi ölçtüğünü yazarak görseli yorumlanabilir hale getirir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.ylabel('y axis')",
+          "lineExplanation": "y ekseninin yanına dikey olarak etiket ekler.",
+          "tokens": [
+            {
+              "token": "ylabel()",
+              "explanation": "Dikey eksende neyin ölçüldüğünü belirtir.",
+              "turkce": "Y Ekseni Etiketi",
+              "amac": "Dikey eksende neyin ölçüldüğünü belirtir.",
+              "detay": "y-label, yuksekliklerin neyi temsil ettigini aciklar; aksi halde grafik sadece sekil olarak kalir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda eksenlerin neyi ölçtüğünü yazarak görseli yorumlanabilir hale getirir."
+        },
+        {
+          "lineNumber": 8,
+          "code": "x2 = np.arange(0,5,0.5)",
+          "lineExplanation": "`x2 = np.arange(0,5,0.5)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "x2",
+              "explanation": "`x2 = np.arange(0,5,0.5)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Aynı Grafikte İkinci Çizgi Çizme' bloğunda `x2 = np.arange(0,5,0.5)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Çizme' bloğunda `x2 = np.arange(0,5,0.5)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.plot(x2,x2*2,color='red', linewidth = 2, marker='.', label='2*x')",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(x2,x2*2,color='red', linewidth = 2, marker='.', label='2*x')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Aynı Grafikte İkinci Çizgi Çizme' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Çizme' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.legend()",
+          "lineExplanation": "Grafiğe legend (açıklama) kutusu ekler. label parametresi verilen tüm çizgilerin etiketlerini gösterir.",
+          "tokens": [
+            {
+              "token": "legend()",
+              "explanation": "Grafikteki renklerin veya çizgilerin hangi veri serisine ait oldugunu gosterir.",
+              "turkce": "Aciklama Kutusu",
+              "amac": "Grafikteki renklerin veya çizgilerin hangi veri serisine ait oldugunu gosterir.",
+              "detay": "legend kelimesi, harita aciklamasi mantigindan gelir. Birden fazla seri varsa okunurlugu dramatik biçimde artirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Cizme' bloğunda renklerin ve çizgilerin hangi veri serisine ait oldugunu aciklayan legend kutusunu ekler."
+        },
+        {
+          "lineNumber": 11,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "[<matplotlib.lines.Line2D object at 0x7fda063857f0>]\n\n([<matplotlib.axis.XTick object at 0x7fd9e86e2d50>, <matplotlib.axis.XTick object at 0x7fda05994190>, <matplotlib.axis.XTick object at 0x7fda05994550>, <matplotlib.axis.XTick object at 0x7fda06674a50>, <matplotlib.axis.XTick object at 0x7fda06363d90>, <matplotlib.axis.XTick object at 0x7fda05996c10>], [Text(0, 0, ''), Text(1, 0, ''), Text(2, 0, ''), Text(3, 0, ''), Text(4, 0, ''), Text(5, 0, '')])\n\n([<matplotlib.axis.YTick object at 0x7fd9e86e3110>, <matplotlib.axis.YTick object at 0x7fda05997890>, <matplotlib.axis.YTick object at 0x7fda05997c50>, <matplotlib.axis.YTick object at 0x7fda05997ed0>, <matplotlib.axis.YTick object at 0x7fda059d8410>, <matplotlib.axis.YTick object at 0x7fda059d87d0>], [Text(0, 0, 'Elevation'), Text(0, 1, 'Wilderness_Area_3'), Text(0, 4, 'Horizontal_Distance_To_Fire_Points'), Text(0, 9, 'Soil_Type_38'), Text(0, 16, ''), Text(0, 25, '')])\n\nText(0.5, 1.0, 'İlk grafiğimiz!')\n\nText(0.5, 32.249999999999986, 'x axis')\n\nText(66.25, 0.5, 'y axis')\n\n[<matplotlib.lines.Line2D object at 0x7fda063856a0>]\n\n<matplotlib.legend.Legend object at 0x7fda06385e80>\n\n<Figure size 800x500 with 2 Axes>",
+      "plotImage": "matplotlib-b006.png"
+    },
+    {
+      "id": "matplotlib-b007",
+      "title": "Grafiği Dosyaya Kaydetme",
+      "blockExplanation": "Grafiği yalnızca göstermekle kalmayıp diske PNG dosyası olarak kaydeder.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.plot(x,y, label='x^2', color='green', linewidth = 2, linestyle = '--', marker='.')",
+          "lineExplanation": "x² fonksiyonunu yeşil kesikli çizgiyle çizer. Bu ilk çizgidir.",
+          "tokens": [
+            {
+              "token": "label='x^2'",
+              "explanation": "Legend'da bu çizginin 'x^2' olarak etiketlenmesini sağlar.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "plot()",
+              "explanation": "Noktalari eksen uzerinde birlestirerek çizgi grafiği olusturur.",
+              "turkce": "Çizgi Cizme",
+              "amac": "Noktalari eksen uzerinde birlestirerek çizgi grafiği olusturur.",
+              "detay": "plot kelimesi 'isaretlemek/cizmek' anlamina gelir. Matplotlib'de en temel çizim komutu budur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pasta Grafiği ile Oran Gosterme' bloğunda veriyi insan gozunun daha hizli yorumlayacagi bir görsel ogesine dönüştürur."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.xticks([0,1,2,3,4,5])",
+          "lineExplanation": "x eksenindeki çentik değerlerini 0'dan 5'e kadar ayarlar.",
+          "tokens": [
+            {
+              "token": "xticks()",
+              "explanation": "X ekseninde hangi değerlerin etiket olarak gosterilecegini belirler.",
+              "turkce": "X Centiklerini Ayarlama",
+              "amac": "X ekseninde hangi değerlerin etiket olarak gosterilecegini belirler.",
+              "detay": "tiçk, eksen uzerindeki kucuk isaretlere verilen addir. xtiçks ile bu isaretlerin konumu elle secilir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pasta Grafiği ile Oran Gosterme' bloğunda eksen uzerindeki isaret ve etiketlerin tam olarak nerede gorunecegini belirler."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.yticks([0,1,4,9,16,25])",
+          "lineExplanation": "y eksenindeki çentik değerlerini ayarlar. 0 değeri de eklenerek başlangıç noktası gösterilir.",
+          "tokens": [
+            {
+              "token": "yticks()",
+              "explanation": "Y eksenindeki etiket noktalarini elle belirler.",
+              "turkce": "Y Centiklerini Ayarlama",
+              "amac": "Y eksenindeki etiket noktalarini elle belirler.",
+              "detay": "ytiçks, özellikle egitim amacli grafiklerde sadece kritik değerleri gostermek için kullanilir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Pasta Grafiği ile Oran Gosterme' bloğunda eksen uzerindeki isaret ve etiketlerin tam olarak nerede gorunecegini belirler."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.title(\"İlk grafiğimiz!\")",
+          "lineExplanation": "Grafiğin üst kısmına başlık ekler. Türkçe karakter desteği UTF-8 ile sağlanır.",
+          "tokens": [
+            {
+              "token": "title()",
+              "explanation": "Grafiğin neyi gosterdigini ust kisimda aciklar.",
+              "turkce": "Baslik Ekleme",
+              "amac": "Grafiğin neyi gosterdigini ust kisimda aciklar.",
+              "detay": "title, grafiğin hikayesini bir cumlede özetler; bu yuzden görsel yorumlamada ilk bakilan metindir."
+            },
+            {
+              "token": "\"İlk grafiğimiz!\"",
+              "explanation": "Başlık metni. Türkçe karakterler (İ, ğ, ü) doğrudan kullanılabilir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda görselin neyi anlattigini baslik metniyle netlestirir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.xlabel('x axis')",
+          "lineExplanation": "x ekseninin altına etiket ekler. Eksenin neyi temsil ettiğini açıklar.",
+          "tokens": [
+            {
+              "token": "xlabel()",
+              "explanation": "Yatay eksende neyin ölçüldüğünü belirtir.",
+              "turkce": "X Ekseni Etiketi",
+              "amac": "Yatay eksende neyin ölçüldüğünü belirtir.",
+              "detay": "x-label ifadesi, x ekseninin adini yazar. Değerlerin birimini ve anlamini netlestirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda eksenlerin neyi ölçtüğünü yazarak görseli yorumlanabilir hale getirir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.ylabel('y axis')",
+          "lineExplanation": "y ekseninin yanına dikey olarak etiket ekler.",
+          "tokens": [
+            {
+              "token": "ylabel()",
+              "explanation": "Dikey eksende neyin ölçüldüğünü belirtir.",
+              "turkce": "Y Ekseni Etiketi",
+              "amac": "Dikey eksende neyin ölçüldüğünü belirtir.",
+              "detay": "y-label, yuksekliklerin neyi temsil ettigini aciklar; aksi halde grafik sadece sekil olarak kalir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Baslik ve Eksen Etiketleri' bloğunda eksenlerin neyi ölçtüğünü yazarak görseli yorumlanabilir hale getirir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "x2 = np.arange(0,5,0.5)",
+          "lineExplanation": "`x2 = np.arange(0,5,0.5)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "x2",
+              "explanation": "`x2 = np.arange(0,5,0.5)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Grafiği Dosyaya Kaydetme' bloğunda `x2 = np.arange(0,5,0.5)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Grafiği Dosyaya Kaydetme' bloğunda `x2 = np.arange(0,5,0.5)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.plot(x2,x2*2,color='red', linewidth = 2, marker='.', label='2*x')",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(x2,x2*2,color='red', linewidth = 2, marker='.', label='2*x')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Grafiği Dosyaya Kaydetme' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Grafiği Dosyaya Kaydetme' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.legend()",
+          "lineExplanation": "Grafiğe legend (açıklama) kutusu ekler. label parametresi verilen tüm çizgilerin etiketlerini gösterir.",
+          "tokens": [
+            {
+              "token": "legend()",
+              "explanation": "Grafikteki renklerin veya çizgilerin hangi veri serisine ait oldugunu gosterir.",
+              "turkce": "Aciklama Kutusu",
+              "amac": "Grafikteki renklerin veya çizgilerin hangi veri serisine ait oldugunu gosterir.",
+              "detay": "legend kelimesi, harita aciklamasi mantigindan gelir. Birden fazla seri varsa okunurlugu dramatik biçimde artirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Cizme' bloğunda renklerin ve çizgilerin hangi veri serisine ait oldugunu aciklayan legend kutusunu ekler."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.savefig('firstgraph.png', dpi=400)",
+          "lineExplanation": "Mevcut grafiği dosyaya kaydeder.",
+          "tokens": [
+            {
+              "token": "plt.savefig('firstgraph.png', dpi=400)",
+              "explanation": "Mevcut grafiği dosyaya kaydeder.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Grafiği Dosyaya Kaydetme' bloğunda görselin dosyaya yazılmasını sağlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Grafiği Dosyaya Kaydetme' bloğunda görselin dosyaya yazılmasını sağlar."
+        },
+        {
+          "lineNumber": 11,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "[<matplotlib.lines.Line2D object at 0x7fda05b04050>]\n\n([<matplotlib.axis.XTick object at 0x7fd9e86e2d50>, <matplotlib.axis.XTick object at 0x7fda05994190>, <matplotlib.axis.XTick object at 0x7fda05994550>, <matplotlib.axis.XTick object at 0x7fda06674a50>, <matplotlib.axis.XTick object at 0x7fda06363d90>, <matplotlib.axis.XTick object at 0x7fda05996c10>], [Text(0, 0, ''), Text(1, 0, ''), Text(2, 0, ''), Text(3, 0, ''), Text(4, 0, ''), Text(5, 0, '')])\n\n([<matplotlib.axis.YTick object at 0x7fd9e86e3110>, <matplotlib.axis.YTick object at 0x7fda05997890>, <matplotlib.axis.YTick object at 0x7fda05997c50>, <matplotlib.axis.YTick object at 0x7fda05997ed0>, <matplotlib.axis.YTick object at 0x7fda059d8410>, <matplotlib.axis.YTick object at 0x7fda059d87d0>], [Text(0, 0, 'Elevation'), Text(0, 1, 'Wilderness_Area_3'), Text(0, 4, 'Horizontal_Distance_To_Fire_Points'), Text(0, 9, 'Soil_Type_38'), Text(0, 16, ''), Text(0, 25, '')])\n\nText(0.5, 1.0, 'İlk grafiğimiz!')\n\nText(0.5, 32.249999999999986, 'x axis')\n\nText(66.25, 0.5, 'y axis')\n\n[<matplotlib.lines.Line2D object at 0x7fda05b06270>]\n\n<matplotlib.legend.Legend object at 0x7fda06385fd0>\n\n<Figure size 800x500 with 2 Axes>",
+      "plotImage": "matplotlib-b007.png"
+    },
+    {
+      "id": "matplotlib-b008",
+      "title": "Temel Çubuk Grafiği",
+      "blockExplanation": "Kategorik verileri çubukların yüksekliğiyle karşılaştırır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "x = ['Ankara', 'İstanbul', 'İzmir', 'Aydın', 'Sakarya', 'Edirne', 'Düzce']",
+          "lineExplanation": "Kategori isimlerini (şehir adları) bir listede tanımlar. Bu isimler x ekseninde gösterilecektir.",
+          "tokens": [
+            {
+              "token": "x",
+              "explanation": "Kategorileri (şehir adlarını) tutan string listesi. Çubuk grafiğinin x eksenini oluşturur.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Scatter Grafiği ile Iki Değişkeni Karşılaştırma' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "y = [120, 178, 87, 23, 17, 35, 29]",
+          "lineExplanation": "Her şehre karşılık gelen sayısal değerleri tanımlar. Çubukların yüksekliğini belirler.",
+          "tokens": [
+            {
+              "token": "y",
+              "explanation": "Her kategoriye ait sayısal değerler. Çubukların yüksekliğini belirler.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Scatter Grafiği ile Iki Değişkeni Karşılaştırma' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.bar(x,y, color='pink')",
+          "lineExplanation": "Pembe renkli dikey çubuk grafiği oluşturur. Her çubuk bir şehri temsil eder.",
+          "tokens": [
+            {
+              "token": "bar()",
+              "explanation": "Kategorik değerleri yukseklikleriyle karşılaştırmak için çubuklar çizer.",
+              "turkce": "Çubuk Grafiği",
+              "amac": "Kategorik değerleri yukseklikleriyle karşılaştırmak için çubuklar çizer.",
+              "detay": "Bar grafik, kategoriler arasi miktar farklarini hizli karşılaştırmak için en okunakli seceneklerden biridir."
+            },
+            {
+              "token": "color='pink'",
+              "explanation": "Tüm çubukların rengini pembe yapar. Liste vererek her çubuka farklı renk atanabilir.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "Bu satır, 'Scatter Grafiği ile Iki Değişkeni Karşılaştırma' bloğunda veriyi insan gozunun daha hizli yorumlayacagi bir görsel ogesine dönüştürur."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.xlabel('Kategori')",
+          "lineExplanation": "x eksenine 'Kategori' etiketi ekler.",
+          "tokens": [
+            {
+              "token": "xlabel()",
+              "explanation": "Yatay eksende neyin ölçüldüğünü belirtir.",
+              "turkce": "X Ekseni Etiketi",
+              "amac": "Yatay eksende neyin ölçüldüğünü belirtir.",
+              "detay": "x-label ifadesi, x ekseninin adini yazar. Değerlerin birimini ve anlamini netlestirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Scatter Grafiği ile Iki Değişkeni Karşılaştırma' bloğunda eksenlerin neyi ölçtüğünü yazarak görseli yorumlanabilir hale getirir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.ylabel('Değerler')",
+          "lineExplanation": "y eksenine 'Değerler' etiketi ekler.",
+          "tokens": [
+            {
+              "token": "ylabel()",
+              "explanation": "Dikey eksende neyin ölçüldüğünü belirtir.",
+              "turkce": "Y Ekseni Etiketi",
+              "amac": "Dikey eksende neyin ölçüldüğünü belirtir.",
+              "detay": "y-label, yuksekliklerin neyi temsil ettigini aciklar; aksi halde grafik sadece sekil olarak kalir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Scatter Grafiği ile Iki Değişkeni Karşılaştırma' bloğunda eksenlerin neyi ölçtüğünü yazarak görseli yorumlanabilir hale getirir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "<BarContainer object of 7 artists>\n\nText(0.5, 36.24999999999999, 'Kategori')\n\nText(-184.5, 0.5, 'Değerler')\n\n<Figure size 800x500 with 2 Axes>",
+      "plotImage": "matplotlib-b008.png"
+    },
+    {
+      "id": "matplotlib-b009",
+      "title": "Hatch Deseni ile Çubuk Vurgulama",
+      "blockExplanation": "Bazı çubukları farklı desenlerle vurgulayarak belirginleştirir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "x = ['Ankara', 'İstanbul', 'İzmir', 'Kastamonu', 'Sakarya', 'Edirne', 'Düzce']",
+          "lineExplanation": "`x = ['Ankara', 'İstanbul', 'İzmir', 'Kastamonu', 'Sakarya', 'Edirne', 'Düzce']` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "x",
+              "explanation": "`x = ['Ankara', 'İstanbul', 'İzmir', 'Kastamonu', 'Sakarya', 'Edirne', 'Düzce']` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Hatch Deseni ile Çubuk Vurgulama' bloğunda `x = ['ankara', 'i̇stanbul', 'i̇zmir', 'kastamonu', 'sakarya', 'edirne', 'düzce']` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hatch Deseni ile Çubuk Vurgulama' bloğunda `x = ['ankara', 'i̇stanbul', 'i̇zmir', 'kastamonu', 'sakarya', 'edirne', 'düzce']` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "y = [120, 178, 87, 23, 17, 35, 29]",
+          "lineExplanation": "Her şehre karşılık gelen sayısal değerleri tanımlar. Çubukların yüksekliğini belirler.",
+          "tokens": [
+            {
+              "token": "y",
+              "explanation": "Her kategoriye ait sayısal değerler. Çubukların yüksekliğini belirler.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Scatter Grafiği ile Iki Değişkeni Karşılaştırma' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "cubuklar = plt.bar(x,y, color='pink')",
+          "lineExplanation": "`cubuklar = plt.bar(x,y, color='pink')` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "cubuklar = plt.bar(x,y, color='pink')",
+              "explanation": "`cubuklar = plt.bar(x,y, color='pink')` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Hatch Deseni ile Çubuk Vurgulama' bloğunda `cubuklar = plt.bar(x,y, color='pink')` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hatch Deseni ile Çubuk Vurgulama' bloğunda `cubuklar = plt.bar(x,y, color='pink')` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "cubuklar[1].set_hatch('+')",
+          "lineExplanation": "İkinci çubuğa `+` desenini uygulayarak onu görsel olarak ayırır.",
+          "tokens": [
+            {
+              "token": "cubuklar[1].set_hatch('+')",
+              "explanation": "İkinci çubuğa `+` desenini uygulayarak onu görsel olarak ayırır.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, seçilen çubuğu diğerlerinden farklı hatch deseniyle vurgular."
+            }
+          ],
+          "codeContext": "Bu satır, seçilen çubuğu diğerlerinden farklı hatch deseniyle vurgular."
+        },
+        {
+          "lineNumber": 5,
+          "code": "cubuklar[0].set_hatch('.')",
+          "lineExplanation": "İlk çubuğa nokta desenini uygular.",
+          "tokens": [
+            {
+              "token": "cubuklar[0].set_hatch('.')",
+              "explanation": "İlk çubuğa nokta desenini uygular.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, ilk çubuğun yüzeyini farklı bir hatch deseniyle işaretler."
+            }
+          ],
+          "codeContext": "Bu satır, ilk çubuğun yüzeyini farklı bir hatch deseniyle işaretler."
+        },
+        {
+          "lineNumber": 6,
+          "code": "cubuklar[4].set_hatch('/')",
+          "lineExplanation": "Beşinci çubuğa `/` desenini uygular.",
+          "tokens": [
+            {
+              "token": "cubuklar[4].set_hatch('/')",
+              "explanation": "Beşinci çubuğa `/` desenini uygular.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, belirli bir kategoriyi eğik çizgi deseniyle öne çıkarır."
+            }
+          ],
+          "codeContext": "Bu satır, belirli bir kategoriyi eğik çizgi deseniyle öne çıkarır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "<Figure size 800x500 with 2 Axes>",
+      "plotImage": "matplotlib-b009.png"
+    },
+    {
+      "id": "matplotlib-b010",
+      "title": "Pasta Grafiği ile Oran Gösterme",
+      "blockExplanation": "Bir bütünün parçalara nasıl dağıldığını pasta grafiği üzerinde gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "dilimler = [20, 30, 25, 25]",
+          "lineExplanation": "Pasta grafiğindeki her dilimin büyüklüğünü belirleyen değerleri tanımlar. Toplam 100 olduğunda yüzdelerle doğrudan eşleşir.",
+          "tokens": [
+            {
+              "token": "dilimler",
+              "explanation": "Her dilimin oransal büyüklüğünü belirleyen sayısal liste. Matplotlib bu değerleri otomatik olarak yüzdeye çevirir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gerçek Veriyi Okuma ve İlk İnceleme' bloğunda bir ara sonucu değişkene kaydedip sonraki satırlar için hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "etiketler = ['Grup A', 'Grup B', 'Grup C', 'Grup D']",
+          "lineExplanation": "Her dilimin etiketini (ismini) belirleyen liste.",
+          "tokens": [
+            {
+              "token": "etiketler",
+              "explanation": "Pasta grafiğindeki her dilimin yanında gösterilecek isimler.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gerçek Veriyi Okuma ve İlk İnceleme' bloğunda sonraki adimlarin kullanacagi semayi veya eksen etiketlerini tanimlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.pie(dilimler, labels=etiketler, autopct='%1.1f%%', startangle=140)",
+          "lineExplanation": "Pasta grafiğini oluşturur. Dilim boyutları, etiketler, yüzde gösterimi ve başlangıç açısı ayarlanır.",
+          "tokens": [
+            {
+              "token": "pie()",
+              "explanation": "Butunun parcalara nasil dagildigini yuzdesel olarak gosterir.",
+              "turkce": "Pasta Grafiği",
+              "amac": "Butunun parcalara nasil dagildigini yuzdesel olarak gosterir.",
+              "detay": "Pasta grafik, toplam içerisindeki payi vurgular; bu yuzden oran sorularinda dogaldir."
+            },
+            {
+              "token": "labels=etiketler",
+              "explanation": "Her dilimin yanında gösterilecek etiket listesi.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "autopct='%1.1f%%'",
+              "explanation": "Her dilimin üzerinde yüzde değeri gösterir. %1.1f bir ondalık basamak demektir, %% ise % sembolünü yazdırır.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            },
+            {
+              "token": "startangle=140",
+              "explanation": "İlk dilimin başlangıç açısını saat yönünün tersine 140 derece döndürür. Görsel düzeni iyileştirmek için kullanılır.",
+              "turkce": "Atama İşlemi",
+              "amac": "Sağ taraftaki değeri veya sonucu sol taraftaki değişkene kaydeder."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gerçek Veriyi Okuma ve İlk İnceleme' bloğunda veriyi insan gozunun daha hizli yorumlayacagi bir görsel ogesine dönüştürur."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.title('Pasta Grafiği Örneği')",
+          "lineExplanation": "Grafiğe Türkçe başlık ekler.",
+          "tokens": [
+            {
+              "token": "title()",
+              "explanation": "Grafiğin neyi gosterdigini ust kisimda aciklar.",
+              "turkce": "Baslik Ekleme",
+              "amac": "Grafiğin neyi gosterdigini ust kisimda aciklar.",
+              "detay": "title, grafiğin hikayesini bir cumlede özetler; bu yuzden görsel yorumlamada ilk bakilan metindir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gerçek Veriyi Okuma ve İlk İnceleme' bloğunda görselin neyi anlattigini baslik metniyle netlestirir."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.axis('equal')",
+          "lineExplanation": "x ve y eksenlerinin eşit ölçeklenmesini sağlar. Bu sayede pasta grafiği daire (elips değil) şeklinde görünür.",
+          "tokens": [
+            {
+              "token": "plt.axis('equal')",
+              "explanation": "Eksen oranını 1:1 yapar. Pasta grafiğinin düzgün daire şeklinde görünmesi için gereklidir.",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Iki Enerji Serisini Çizgi Grafiğinde Karşılaştırma' bloğunda bir sonraki adimin kullanacagi veri ya da figur durumunu hazırlayan gecis adimidir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "([<matplotlib.patches.Wedge object at 0x7fda08c03620>, <matplotlib.patches.Wedge object at 0x7fda059d9bd0>, <matplotlib.patches.Wedge object at 0x7fda059db4d0>, <matplotlib.patches.Wedge object at 0x7fda059db890>], [Text(-1.0973204557467513, 0.07673211452672334, 'Grup A'), Text(-0.07673219737211265, -1.0973204499536346, 'Grup B'), Text(1.0958141985251735, 0.0958709669849625, 'Grup C'), Text(-0.09587114551575511, 1.095814182905796, 'Grup D')], [Text(-0.5985384304073188, 0.04185388065093999, '20.0%'), Text(-0.04185392583933417, -0.598538427247437, '30.0%'), Text(0.5977168355591855, 0.052293254719070446, '25.0%'), Text(-0.05229335209950278, 0.5977168270395249, '25.0%')])\n\nText(0.5, 1.0, 'Pasta Grafiği Örneği')\n\n(np.float64(-1.4199995151043814), np.float64(7.819999976909732), np.float64(-9.949999781084294), np.float64(186.94999998957545))\n\n<Figure size 800x500 with 2 Axes>",
+      "plotImage": "matplotlib-b010.png"
+    },
+    {
+      "id": "matplotlib-b011",
+      "title": "Histogram ile Dağılım İnceleme",
+      "blockExplanation": "Sayısal verinin hangi aralıklarda yoğunlaştığını histogram ile gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "Matplotlib'in pyplot modülü 'plt' takma adıyla içe aktarılır. Grafik oluşturma ve özelleştirme için kullanılır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "Matplotlib kütüphanesinin grafik çizim arayüzü modülü",
+              "turkce": "Görselleştirme Modülü",
+              "amac": "Verileri grafiksel olarak (çizgi, çubuk, dağılım, histogram vb.) ekrana çizdirmek.",
+              "detay": "Matplotlib, Python ekosisteminin en köklü çizim kütüphanesidir. Pyplot modülü, MATLAB benzeri kolay bir çizim arayüzü sunar."
+            },
+            {
+              "token": "as plt",
+              "explanation": "pyplot için yaygın kullanılan kısa takma ad",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler, Tema ve Veri Yükleme' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import numpy as np",
+          "lineExplanation": "NumPy kütüphanesini içe aktarır. Rastgele sayı üretimi ve matematiksel işlemler için kullanılır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "Bilimsel hesaplama kütüphanesi. Diziler, rastgele sayı üretimi ve lineer cebir işlemleri sağlar.",
+              "turkce": "Sayısal Hesaplama Kütüphanesi",
+              "amac": "Çok boyutlu diziler (matrisler) üzerinde yüksek performanslı matematiksel ve istatistiksel işlemler yapmak.",
+              "detay": "C dilinde yazıldığı için Python'ın standart listelerine göre çok daha hızlıdır. Vektörizasyon sayesinde döngü (for loop) kullanmadan matris işlemleri yapılmasını sağlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "veri = np.random.randn(1000)",
+          "lineExplanation": "0 ile 1 arasında rastgele değerlerden oluşan dizi üretir.",
+          "tokens": [
+            {
+              "token": "veri",
+              "explanation": "0 ile 1 arasında rastgele değerlerden oluşan dizi üretir.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda 0 ile 1 arasında rastgele değerlerden oluşan dizi üretir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda 0 ile 1 arasında rastgele değerlerden oluşan dizi üretir."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.hist(veri, bins=30, color='purple', edgecolor='black')",
+          "lineExplanation": "Histogram grafiği çizer.",
+          "tokens": [
+            {
+              "token": "plt.hist(veri, bins=30, color='purple', edgecolor='black')",
+              "explanation": "Histogram grafiği çizer.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda histogram grafiği çizer."
+            }
+          ],
+          "codeContext": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda histogram grafiği çizer."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.title('Histogram Örneği')",
+          "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title('Histogram Örneği')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.xlabel('Değer Aralığı')",
+          "lineExplanation": "X eksenine etiket ekler.",
+          "tokens": [
+            {
+              "token": "plt.xlabel('Değer Aralığı')",
+              "explanation": "X eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.ylabel('Frekans')",
+          "lineExplanation": "Y eksenine etiket ekler.",
+          "tokens": [
+            {
+              "token": "plt.ylabel('Frekans')",
+              "explanation": "Y eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Histogram ile Dağılım İnceleme' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "(array([ 3.,  3.,  1.,  8., 16.,  9., 15., 19., 34., 49., 76., 79., 81.,\n       84., 76., 75., 84., 72., 52., 43., 31., 29., 22.,  8., 13.,  7.,\n        7.,  0.,  2.,  2.]), array([-2.96699073, -2.7595156 , -2.55204047, -2.34456535, -2.13709022,\n       -1.92961509, -1.72213997, -1.51466484, -1.30718971, -1.09971459,\n       -0.89223946, -0.68476433, -0.47728921, -0.26981408, -0.06233895,\n        0.14513617,  0.3526113 ,  0.56008643,  0.76756155,  0.97503668,\n        1.18251181,  1.38998693,  1.59746206,  1.80493719,  2.01241231,\n        2.21988744,  2.42736257,  2.63483769,  2.84231282,  3.04978795,\n        3.25726307]), <BarContainer object of 30 artists>)\n\nText(0.5, 1.0, 'Histogram Örneği')\n\nText(0.5, 36.24999999999999, 'Değer Aralığı')\n\nText(-184.5, 0.5, 'Frekans')\n\n<Figure size 800x500 with 2 Axes>",
+      "plotImage": "matplotlib-b011.png"
+    },
+    {
+      "id": "matplotlib-b012",
+      "title": "Scatter Grafiği ile İki Değişkeni Karşılaştırma",
+      "blockExplanation": "İki sayısal değişken arasındaki ilişkiyi nokta bulutu ile gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "Matplotlib'in pyplot modülü 'plt' takma adıyla içe aktarılır. Grafik oluşturma ve özelleştirme için kullanılır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "Matplotlib kütüphanesinin grafik çizim arayüzü modülü",
+              "turkce": "Görselleştirme Modülü",
+              "amac": "Verileri grafiksel olarak (çizgi, çubuk, dağılım, histogram vb.) ekrana çizdirmek.",
+              "detay": "Matplotlib, Python ekosisteminin en köklü çizim kütüphanesidir. Pyplot modülü, MATLAB benzeri kolay bir çizim arayüzü sunar."
+            },
+            {
+              "token": "as plt",
+              "explanation": "pyplot için yaygın kullanılan kısa takma ad",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler, Tema ve Veri Yükleme' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import numpy as np",
+          "lineExplanation": "NumPy kütüphanesini içe aktarır. Rastgele sayı üretimi ve matematiksel işlemler için kullanılır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "Bilimsel hesaplama kütüphanesi. Diziler, rastgele sayı üretimi ve lineer cebir işlemleri sağlar.",
+              "turkce": "Sayısal Hesaplama Kütüphanesi",
+              "amac": "Çok boyutlu diziler (matrisler) üzerinde yüksek performanslı matematiksel ve istatistiksel işlemler yapmak.",
+              "detay": "C dilinde yazıldığı için Python'ın standart listelerine göre çok daha hızlıdır. Vektörizasyon sayesinde döngü (for loop) kullanmadan matris işlemleri yapılmasını sağlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "x = np.random.rand(50)",
+          "lineExplanation": "50 rastgele X değeri üretir.",
+          "tokens": [
+            {
+              "token": "x",
+              "explanation": "50 rastgele X değeri üretir.",
+              "turkce": "Atama",
+              "amac": "Bu satır, scatter grafiğinin yatay ekseninde kullanılacak rastgele noktaları oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, scatter grafiğinin yatay ekseninde kullanılacak rastgele noktaları oluşturur."
+        },
+        {
+          "lineNumber": 4,
+          "code": "y = np.random.rand(50)",
+          "lineExplanation": "50 rastgele Y değeri üretir.",
+          "tokens": [
+            {
+              "token": "y",
+              "explanation": "50 rastgele Y değeri üretir.",
+              "turkce": "Atama",
+              "amac": "Bu satır, saçılım grafiğinin dikey ekseninde kullanılacak ikinci rastgele dizi oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, saçılım grafiğinin dikey ekseninde kullanılacak ikinci rastgele dizi oluşturur."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.scatter(x, y, color='green')",
+          "lineExplanation": "Saçılım grafiği çizer.",
+          "tokens": [
+            {
+              "token": "plt.scatter(x, y, color='green')",
+              "explanation": "Saçılım grafiği çizer.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda saçılım grafiği çizer."
+            }
+          ],
+          "codeContext": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda saçılım grafiği çizer."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.title('Scatter Grafiği Örneği')",
+          "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title('Scatter Grafiği Örneği')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.xlabel('X ekseni')",
+          "lineExplanation": "X eksenine etiket ekler.",
+          "tokens": [
+            {
+              "token": "plt.xlabel('X ekseni')",
+              "explanation": "X eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.ylabel('Y ekseni')",
+          "lineExplanation": "Y eksenine etiket ekler.",
+          "tokens": [
+            {
+              "token": "plt.ylabel('Y ekseni')",
+              "explanation": "Y eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.grid(True)",
+          "lineExplanation": "Grafiğe arka planda kılavuz ızgara çizgileri ekler.",
+          "tokens": [
+            {
+              "token": "plt.grid(True)",
+              "explanation": "Grafiğe arka planda kılavuz ızgara çizgileri ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, scatter grafiğindeki noktaların eksen üzerinde daha rahat okunabilmesi için referans ızgarası oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, scatter grafiğindeki noktaların eksen üzerinde daha rahat okunabilmesi için referans ızgarası oluşturur."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "<matplotlib.collections.PathCollection object at 0x7fda05846c10>\n\nText(0.5, 1.0, 'Scatter Grafiği Örneği')\n\nText(0.5, 36.24999999999999, 'X ekseni')\n\nText(-184.5, 0.5, 'Y ekseni')\n\n<Figure size 800x500 with 2 Axes>",
+      "plotImage": "matplotlib-b012.png"
+    },
+    {
+      "id": "matplotlib-b013",
+      "title": "Alan Grafiği ve fill_between Kullanımı",
+      "blockExplanation": "İki serinin altında kalan alanları doldurarak alan grafiği üretir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "Matplotlib'in pyplot modülü 'plt' takma adıyla içe aktarılır. Grafik oluşturma ve özelleştirme için kullanılır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "Matplotlib kütüphanesinin grafik çizim arayüzü modülü",
+              "turkce": "Görselleştirme Modülü",
+              "amac": "Verileri grafiksel olarak (çizgi, çubuk, dağılım, histogram vb.) ekrana çizdirmek.",
+              "detay": "Matplotlib, Python ekosisteminin en köklü çizim kütüphanesidir. Pyplot modülü, MATLAB benzeri kolay bir çizim arayüzü sunar."
+            },
+            {
+              "token": "as plt",
+              "explanation": "pyplot için yaygın kullanılan kısa takma ad",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler, Tema ve Veri Yükleme' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import numpy as np",
+          "lineExplanation": "NumPy kütüphanesini içe aktarır. Rastgele sayı üretimi ve matematiksel işlemler için kullanılır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "Bilimsel hesaplama kütüphanesi. Diziler, rastgele sayı üretimi ve lineer cebir işlemleri sağlar.",
+              "turkce": "Sayısal Hesaplama Kütüphanesi",
+              "amac": "Çok boyutlu diziler (matrisler) üzerinde yüksek performanslı matematiksel ve istatistiksel işlemler yapmak.",
+              "detay": "C dilinde yazıldığı için Python'ın standart listelerine göre çok daha hızlıdır. Vektörizasyon sayesinde döngü (for loop) kullanmadan matris işlemleri yapılmasını sağlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "x = np.arange(0, 5, 1)",
+          "lineExplanation": "`x = np.arange(0, 5, 1)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "x",
+              "explanation": "`x = np.arange(0, 5, 1)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda `x = np.arange(0, 5, 1)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda `x = np.arange(0, 5, 1)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "y1 = [1, 2, 4, 3, 5]",
+          "lineExplanation": "`y1 = [1, 2, 4, 3, 5]` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "y1",
+              "explanation": "`y1 = [1, 2, 4, 3, 5]` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda `y1 = [1, 2, 4, 3, 5]` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda `y1 = [1, 2, 4, 3, 5]` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "y2 = [2, 3, 5, 4, 6]",
+          "lineExplanation": "`y2 = [2, 3, 5, 4, 6]` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "y2",
+              "explanation": "`y2 = [2, 3, 5, 4, 6]` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda `y2 = [2, 3, 5, 4, 6]` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda `y2 = [2, 3, 5, 4, 6]` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.fill_between(x, y1, color=\"skyblue\", alpha=0.4)",
+          "lineExplanation": "İki seri arasındaki alanı doldurarak alan grafiği üretir.",
+          "tokens": [
+            {
+              "token": "plt.fill_between(x, y1, color=\"skyblue\", alpha=0.4)",
+              "explanation": "İki seri arasındaki alanı doldurarak alan grafiği üretir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda i̇ki seri arasındaki alanı doldurarak alan grafiği üretir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda i̇ki seri arasındaki alanı doldurarak alan grafiği üretir."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.fill_between(x, y2, color=\"lightgreen\", alpha=0.4)",
+          "lineExplanation": "İki seri arasındaki alanı doldurarak alan grafiği üretir.",
+          "tokens": [
+            {
+              "token": "plt.fill_between(x, y2, color=\"lightgreen\", alpha=0.4)",
+              "explanation": "İki seri arasındaki alanı doldurarak alan grafiği üretir.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda i̇ki seri arasındaki alanı doldurarak alan grafiği üretir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda i̇ki seri arasındaki alanı doldurarak alan grafiği üretir."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.plot(x, y1, label='Y1', color='blue')",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(x, y1, label='Y1', color='blue')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.plot(x, y2, label='Y2', color='green')",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(x, y2, label='Y2', color='green')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.title('Alan Grafiği Örneği')",
+          "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title('Alan Grafiği Örneği')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Alan Grafiği ve fill_between Kullanımı' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 11,
+          "code": "plt.xlabel('X ekseni')",
+          "lineExplanation": "X eksenine etiket ekler.",
+          "tokens": [
+            {
+              "token": "plt.xlabel('X ekseni')",
+              "explanation": "X eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 12,
+          "code": "plt.ylabel('Y ekseni')",
+          "lineExplanation": "Y eksenine etiket ekler.",
+          "tokens": [
+            {
+              "token": "plt.ylabel('Y ekseni')",
+              "explanation": "Y eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Scatter Grafiği ile İki Değişkeni Karşılaştırma' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 13,
+          "code": "plt.legend()",
+          "lineExplanation": "Grafiğe legend (açıklama) kutusu ekler. label parametresi verilen tüm çizgilerin etiketlerini gösterir.",
+          "tokens": [
+            {
+              "token": "legend()",
+              "explanation": "Grafikteki renklerin veya çizgilerin hangi veri serisine ait oldugunu gosterir.",
+              "turkce": "Aciklama Kutusu",
+              "amac": "Grafikteki renklerin veya çizgilerin hangi veri serisine ait oldugunu gosterir.",
+              "detay": "legend kelimesi, harita aciklamasi mantigindan gelir. Birden fazla seri varsa okunurlugu dramatik biçimde artirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Cizme' bloğunda renklerin ve çizgilerin hangi veri serisine ait oldugunu aciklayan legend kutusunu ekler."
+        },
+        {
+          "lineNumber": 14,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "<matplotlib.collections.FillBetweenPolyCollection object at 0x7fda05845e50>\n\n<matplotlib.collections.FillBetweenPolyCollection object at 0x7fda058460d0>\n\n[<matplotlib.lines.Line2D object at 0x7fda058d9e80>]\n\n[<matplotlib.lines.Line2D object at 0x7fda058da510>]\n\nText(0.5, 1.0, 'Alan Grafiği Örneği')\n\nText(0.5, 36.24999999999999, 'X ekseni')\n\nText(-184.5, 0.5, 'Y ekseni')\n\n<matplotlib.legend.Legend object at 0x7fda058da120>\n\n<Figure size 800x500 with 2 Axes>",
+      "plotImage": "matplotlib-b013.png"
+    },
+    {
+      "id": "matplotlib-b014",
+      "title": "Subplots ile İki Grafik Panosu",
+      "blockExplanation": "Tek bir figür içinde iki ayrı eksen oluşturarak sinüs ve kosinüsü farklı panellere yerleştirir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "Matplotlib'in pyplot modülü 'plt' takma adıyla içe aktarılır. Grafik oluşturma ve özelleştirme için kullanılır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "Matplotlib kütüphanesinin grafik çizim arayüzü modülü",
+              "turkce": "Görselleştirme Modülü",
+              "amac": "Verileri grafiksel olarak (çizgi, çubuk, dağılım, histogram vb.) ekrana çizdirmek.",
+              "detay": "Matplotlib, Python ekosisteminin en köklü çizim kütüphanesidir. Pyplot modülü, MATLAB benzeri kolay bir çizim arayüzü sunar."
+            },
+            {
+              "token": "as plt",
+              "explanation": "pyplot için yaygın kullanılan kısa takma ad",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler, Tema ve Veri Yükleme' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import numpy as np",
+          "lineExplanation": "NumPy kütüphanesini içe aktarır. Rastgele sayı üretimi ve matematiksel işlemler için kullanılır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "Bilimsel hesaplama kütüphanesi. Diziler, rastgele sayı üretimi ve lineer cebir işlemleri sağlar.",
+              "turkce": "Sayısal Hesaplama Kütüphanesi",
+              "amac": "Çok boyutlu diziler (matrisler) üzerinde yüksek performanslı matematiksel ve istatistiksel işlemler yapmak.",
+              "detay": "C dilinde yazıldığı için Python'ın standart listelerine göre çok daha hızlıdır. Vektörizasyon sayesinde döngü (for loop) kullanmadan matris işlemleri yapılmasını sağlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "x = np.linspace(0, 10, 100)",
+          "lineExplanation": "`x = np.linspace(0, 10, 100)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "x",
+              "explanation": "`x = np.linspace(0, 10, 100)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda `x = np.linspace(0, 10, 100)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda `x = np.linspace(0, 10, 100)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "y1 = np.sin(x)",
+          "lineExplanation": "`y1 = np.sin(x)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "y1",
+              "explanation": "`y1 = np.sin(x)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda `y1 = np.sin(x)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda `y1 = np.sin(x)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "y2 = np.cos(x)",
+          "lineExplanation": "`y2 = np.cos(x)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "y2",
+              "explanation": "`y2 = np.cos(x)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda `y2 = np.cos(x)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda `y2 = np.cos(x)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+        },
+        {
+          "lineNumber": 6,
+          "code": "fig, (ax1, ax2) = plt.subplots(2, 1)",
+          "lineExplanation": "Yeni bir çizim alanı oluşturur.",
+          "tokens": [
+            {
+              "token": "fig, (ax1, ax2) = plt.subplots(2, 1)",
+              "explanation": "Yeni bir çizim alanı oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda çizimin yapılacağı figürü kurar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda çizimin yapılacağı figürü kurar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "ax1.plot(x, y1, color='red')",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "ax1.plot(x, y1, color",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 8,
+          "code": "ax1.set_title('Sinüs Grafiği')",
+          "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
+          "tokens": [
+            {
+              "token": "ax1.set_title('Sinüs Grafiği')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 9,
+          "code": "ax2.plot(x, y2, color='blue')",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "ax2.plot(x, y2, color",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 10,
+          "code": "ax2.set_title('Kosinüs Grafiği')",
+          "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
+          "tokens": [
+            {
+              "token": "ax2.set_title('Kosinüs Grafiği')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Subplots ile İki Grafik Panosu' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 11,
+          "code": "plt.tight_layout()",
+          "lineExplanation": "Otomatik boşluk düzenlemesi yapar.",
+          "tokens": [
+            {
+              "token": "tight_layout()",
+              "explanation": "Basliklarin ve etiketlerin ust uste gelmesini onlemek için otomatik bosluk ayarlar.",
+              "turkce": "Yerlesim Duzenleme",
+              "amac": "Basliklarin ve etiketlerin ust uste gelmesini onlemek için otomatik bosluk ayarlar.",
+              "detay": "Özellikle subplot kullaniminda grafiklerin birbirine carpmasini engellemek için son dokunustur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Age ve Income İlişkisi (Boxplot)' bloğunda alt grafikler ve etiketler arasindaki boslugu otomatik ayarlayarak cakismayi onler."
+        },
+        {
+          "lineNumber": 12,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "[<matplotlib.lines.Line2D object at 0x7fda058d97f0>]\n\nText(0.5, 1.0, 'Sinüs Grafiği')\n\n[<matplotlib.lines.Line2D object at 0x7fda058d96a0>]\n\nText(0.5, 1.0, 'Kosinüs Grafiği')\n\n<Figure size 640x480 with 2 Axes>",
+      "plotImage": "matplotlib-b014.png"
+    },
+    {
+      "id": "matplotlib-b015",
+      "title": "Radar Grafiği",
+      "blockExplanation": "Çok değişkenli değerleri kutupsal eksende kapalı bir çokgen olarak gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "import matplotlib.pyplot as plt",
+          "lineExplanation": "Matplotlib'in pyplot modülü 'plt' takma adıyla içe aktarılır. Grafik oluşturma ve özelleştirme için kullanılır.",
+          "tokens": [
+            {
+              "token": "matplotlib.pyplot",
+              "explanation": "Matplotlib kütüphanesinin grafik çizim arayüzü modülü",
+              "turkce": "Görselleştirme Modülü",
+              "amac": "Verileri grafiksel olarak (çizgi, çubuk, dağılım, histogram vb.) ekrana çizdirmek.",
+              "detay": "Matplotlib, Python ekosisteminin en köklü çizim kütüphanesidir. Pyplot modülü, MATLAB benzeri kolay bir çizim arayüzü sunar."
+            },
+            {
+              "token": "as plt",
+              "explanation": "pyplot için yaygın kullanılan kısa takma ad",
+              "turkce": "Kod Sözdizimi",
+              "amac": "Sözdizimsel bir işlemdir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Kütüphaneler, Tema ve Veri Yükleme' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "import numpy as np",
+          "lineExplanation": "NumPy kütüphanesini içe aktarır. Rastgele sayı üretimi ve matematiksel işlemler için kullanılır.",
+          "tokens": [
+            {
+              "token": "numpy",
+              "explanation": "Bilimsel hesaplama kütüphanesi. Diziler, rastgele sayı üretimi ve lineer cebir işlemleri sağlar.",
+              "turkce": "Sayısal Hesaplama Kütüphanesi",
+              "amac": "Çok boyutlu diziler (matrisler) üzerinde yüksek performanslı matematiksel ve istatistiksel işlemler yapmak.",
+              "detay": "C dilinde yazıldığı için Python'ın standart listelerine göre çok daha hızlıdır. Vektörizasyon sayesinde döngü (for loop) kullanmadan matris işlemleri yapılmasını sağlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gürültülü Veri Seti Oluşturma' bloğunun kullanacagi kütüphaneleri yukleyerek calisma ortamini hazırlar."
+        },
+        {
+          "lineNumber": 3,
+          "code": "degerler = [5, 3, 4, 2, 4, 5]",
+          "lineExplanation": "Radar grafiğinde kullanılacak çok değişkenli puan listesini tanımlar.",
+          "tokens": [
+            {
+              "token": "degerler",
+              "explanation": "Radar grafiğinde kullanılacak çok değişkenli puan listesini tanımlar.",
+              "turkce": "Atama",
+              "amac": "Bu satır, kutupsal grafikte her eksene yerleştirilecek sayısal değerleri hazırlar."
+            }
+          ],
+          "codeContext": "Bu satır, kutupsal grafikte her eksene yerleştirilecek sayısal değerleri hazırlar."
+        },
+        {
+          "lineNumber": 4,
+          "code": "etiketler = np.array(['A', 'B', 'C', 'D', 'E', 'F'])",
+          "lineExplanation": "Radar grafiği eksen etiketlerini tanımlar.",
+          "tokens": [
+            {
+              "token": "etiketler",
+              "explanation": "Radar grafiği eksen etiketlerini tanımlar.",
+              "turkce": "Atama",
+              "amac": "Bu satır, radar grafiğinin köşelerinde görünecek kategori adlarını belirler."
+            }
+          ],
+          "codeContext": "Bu satır, radar grafiğinin köşelerinde görünecek kategori adlarını belirler."
+        },
+        {
+          "lineNumber": 5,
+          "code": "angles = np.linspace(0, 2 * np.pi, len(degerler), endpoint=False).tolist()",
+          "lineExplanation": "Eksen açılarını eşit aralıklarla hesaplar.",
+          "tokens": [
+            {
+              "token": "angles",
+              "explanation": "Eksen açılarını eşit aralıklarla hesaplar.",
+              "turkce": "Atama",
+              "amac": "Bu satır, kutupsal eksende her kategoriye düşecek açıyı matematiksel olarak üretir."
+            }
+          ],
+          "codeContext": "Bu satır, kutupsal eksende her kategoriye düşecek açıyı matematiksel olarak üretir."
+        },
+        {
+          "lineNumber": 6,
+          "code": "degerler += degerler[:1]",
+          "lineExplanation": "Poligonun kapanması için ilk değeri listenin sonuna tekrar ekler.",
+          "tokens": [
+            {
+              "token": "degerler +",
+              "explanation": "Poligonun kapanması için ilk değeri listenin sonuna tekrar ekler.",
+              "turkce": "Atama",
+              "amac": "Bu satır, radar grafiğinde şeklin açık kalmaması için başlangıç değerini sona kopyalar."
+            }
+          ],
+          "codeContext": "Bu satır, radar grafiğinde şeklin açık kalmaması için başlangıç değerini sona kopyalar."
+        },
+        {
+          "lineNumber": 7,
+          "code": "angles += angles[:1]",
+          "lineExplanation": "Açı listesini de aynı nedenle son elemanla kapatır.",
+          "tokens": [
+            {
+              "token": "angles +",
+              "explanation": "Açı listesini de aynı nedenle son elemanla kapatır.",
+              "turkce": "Atama",
+              "amac": "Bu satır, değer listesiyle uyumlu olacak şekilde açı listesini kapalı şekle dönüştürür."
+            }
+          ],
+          "codeContext": "Bu satır, değer listesiyle uyumlu olacak şekilde açı listesini kapalı şekle dönüştürür."
+        },
+        {
+          "lineNumber": 8,
+          "code": "fig, ax = plt.subplots(figsize=(6,6), subplot_kw=dict(polar=True))",
+          "lineExplanation": "Yeni bir çizim alanı oluşturur.",
+          "tokens": [
+            {
+              "token": "fig, ax = plt.subplots(figsize=(6,6), subplot_kw=dict(polar=True))",
+              "explanation": "Yeni bir çizim alanı oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Radar Grafiği' bloğunda çizimin yapılacağı figürü kurar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Radar Grafiği' bloğunda çizimin yapılacağı figürü kurar."
+        },
+        {
+          "lineNumber": 9,
+          "code": "ax.fill(angles, degerler, color='blue', alpha=0.25)",
+          "lineExplanation": "`ax.fill(angles, degerler, color='blue', alpha=0.25)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+          "tokens": [
+            {
+              "token": "ax.fill(angles, degerler, color='blue', alpha=0.25)",
+              "explanation": "`ax.fill(angles, degerler, color='blue', alpha=0.25)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Radar Grafiği' bloğunda `ax.fill(angles, degerler, color='blue', alpha=0.25)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Radar Grafiği' bloğunda `ax.fill(angles, degerler, color='blue', alpha=0.25)` ifadesi bu blokta ara sonucu üretmek veya sonraki adımı beslemek için çalıştırılır."
+        },
+        {
+          "lineNumber": 10,
+          "code": "ax.plot(angles, degerler, color='blue')",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "ax.plot(angles, degerler, color='blue')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Radar Grafiği' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Radar Grafiği' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 11,
+          "code": "ax.set_xticks(angles[:-1])",
+          "lineExplanation": "Eksen üzerindeki işaretleri veya etiketleri ayarlar.",
+          "tokens": [
+            {
+              "token": "ax.set_xticks(angles[:-1])",
+              "explanation": "Eksen üzerindeki işaretleri veya etiketleri ayarlar.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Radar Grafiği' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Radar Grafiği' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 12,
+          "code": "ax.set_xticklabels(etiketler)",
+          "lineExplanation": "Radar grafiğinin çevresindeki eksen etiketlerini A-F kategorileriyle doldurur.",
+          "tokens": [
+            {
+              "token": "ax.set_xticklabels(etiketler)",
+              "explanation": "Radar grafiğinin çevresindeki eksen etiketlerini A-F kategorileriyle doldurur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, kutupsal eksendeki her köşeye hangi kategori adının yazılacağını belirleyerek grafiği okunur hale getirir."
+            }
+          ],
+          "codeContext": "Bu satır, kutupsal eksendeki her köşeye hangi kategori adının yazılacağını belirleyerek grafiği okunur hale getirir."
+        },
+        {
+          "lineNumber": 13,
+          "code": "plt.title('Radar Grafiği Örneği')",
+          "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title('Radar Grafiği Örneği')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Radar Grafiği' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Radar Grafiği' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 14,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "[<matplotlib.patches.Polygon object at 0x7fd9f830f230>]\n\n[<matplotlib.lines.Line2D object at 0x7fd9f830f0e0>]\n\n[<matplotlib.projections.polar.ThetaTick object at 0x7fda05daf750>, <matplotlib.projections.polar.ThetaTick object at 0x7fda05d70a50>, <matplotlib.projections.polar.ThetaTick object at 0x7fda05d70cd0>, <matplotlib.projections.polar.ThetaTick object at 0x7fda05d70f50>, <matplotlib.projections.polar.ThetaTick object at 0x7fda05d71310>, <matplotlib.projections.polar.ThetaTick object at 0x7fda05d716d0>]\n\n[Text(0.0, 0, 'A'), Text(1.0471975511965976, 0, 'B'), Text(2.0943951023931953, 0, 'C'), Text(3.141592653589793, 0, 'D'), Text(4.1887902047863905, 0, 'E'), Text(5.235987755982988, 0, 'F')]\n\nText(0.5, 1.0, 'Radar Grafiği Örneği')\n\n<Figure size 600x600 with 1 Axes>",
+      "plotImage": "matplotlib-b015.png"
+    },
+    {
+      "id": "matplotlib-b016",
+      "title": "Gerçek Veriyi Okuma ve İlk İnceleme",
+      "blockExplanation": "enerji_veri.csv dosyasını okuyup ilk satırları inceleyerek gerçek veriyle çalışmaya başlar.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "gas = pd.read_csv('enerji_veri.csv')",
+          "lineExplanation": "CSV dosyasını okuyup bir DataFrame oluşturur.",
+          "tokens": [
+            {
+              "token": "gas",
+              "explanation": "CSV dosyasını okuyup bir DataFrame oluşturur.",
+              "turkce": "Atama",
+              "amac": "Bu satır, 'Gerçek Veriyi Okuma ve İlk İnceleme' bloğunda dış kaynaktaki veriyi içeri alır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Gerçek Veriyi Okuma ve İlk İnceleme' bloğunda dış kaynaktaki veriyi içeri alır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "gas",
+          "lineExplanation": "Okunan enerji veri setini notebook çıktısı olarak tablo halinde gösterir.",
+          "tokens": [
+            {
+              "token": "gas",
+              "explanation": "Okunan enerji veri setini notebook çıktısı olarak tablo halinde gösterir.",
+              "turkce": "Kod Parçası",
+              "amac": "Bu satır, `gas` DataFrame'inin satırlarını doğrudan ekrana basarak veri yapısını ilk kez görünür kılar."
+            }
+          ],
+          "codeContext": "Bu satır, `gas` DataFrame'inin satırlarını doğrudan ekrana basarak veri yapısını ilk kez görünür kılar."
+        }
+      ],
+      "expectedOutput": "Year  Australia  Canada  France  Germany  Italy  Japan  Mexico  South Korea    UK   USA\n0   1990        NaN    1.77    3.62     2.65   4.59   3.16    1.00         2.05  2.82  1.16\n1   1991       1.96    1.92    3.45     2.90   4.50   3.46    1.30         2.49  3.01  1.14\n2   1992       1.89    1.73    3.56     3.27   4.53   3.58    1.50         2.65  3.06  1.13\n3   1993       1.73    1.57    3.41     3.07   3.68   4.16    1.56         2.88  2.84  1.11\n4   1994       1.84    1.45    3.59     3.52   3.70   4.36    1.48         2.87  2.99  1.11\n..   ...        ...     ...     ...      ...    ...    ...     ...          ...   ...   ...\n14  2004       2.72    2.37    4.99     5.24   5.29   3.93    2.03         4.51  5.56  1.88\n15  2005       3.23    2.89    5.46     5.66   5.74   4.28    2.22         5.28  5.97  2.30\n16  2006       3.54    3.26    5.88     6.03   6.10   4.47    2.31         5.92  6.36  2.59\n17  2007       3.85    3.59    6.60     6.88   6.73   4.49    2.40         6.21  7.13  2.80\n18  2008       4.45    4.08    7.51     7.75   7.63   5.74    2.45         5.83  7.42  3.27\n\n[19 rows x 11 columns]"
+    },
+    {
+      "id": "matplotlib-b017",
+      "title": "Tek Enerji Serisini Çizmek",
+      "blockExplanation": "Gerçek veri setinden tek bir ülkenin enerji serisini çizgi grafiği olarak gösterir.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.title('Gas Fiyatları')",
+          "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title('Gas Fiyatları')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.plot(gas['Year'], gas['USA'], 'b-', label='USA')",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas['Year'], gas['USA'], 'b-', label='USA')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.xlabel('Yıl')",
+          "lineExplanation": "X eksenine etiket ekler.",
+          "tokens": [
+            {
+              "token": "plt.xlabel('Yıl')",
+              "explanation": "X eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.ylabel('Dolar')",
+          "lineExplanation": "Y eksenine etiket ekler.",
+          "tokens": [
+            {
+              "token": "plt.ylabel('Dolar')",
+              "explanation": "Y eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.legend()",
+          "lineExplanation": "Grafiğe legend (açıklama) kutusu ekler. label parametresi verilen tüm çizgilerin etiketlerini gösterir.",
+          "tokens": [
+            {
+              "token": "legend()",
+              "explanation": "Grafikteki renklerin veya çizgilerin hangi veri serisine ait oldugunu gosterir.",
+              "turkce": "Aciklama Kutusu",
+              "amac": "Grafikteki renklerin veya çizgilerin hangi veri serisine ait oldugunu gosterir.",
+              "detay": "legend kelimesi, harita aciklamasi mantigindan gelir. Birden fazla seri varsa okunurlugu dramatik biçimde artirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Cizme' bloğunda renklerin ve çizgilerin hangi veri serisine ait oldugunu aciklayan legend kutusunu ekler."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "Text(0.5, 1.0, 'Gas Fiyatları')\n\n[<matplotlib.lines.Line2D object at 0x7fda05d88d70>]\n\nText(0.5, 0, 'Yıl')\n\nText(0, 0.5, 'Dolar')\n\n<matplotlib.legend.Legend object at 0x7fda05d88ad0>\n\n<Figure size 600x600 with 1 Axes>",
+      "plotImage": "matplotlib-b017.png"
+    },
+    {
+      "id": "matplotlib-b018",
+      "title": "Birden Fazla Enerji Serisini Karşılaştırma",
+      "blockExplanation": "Birden fazla ülkenin enerji serisini aynı grafikte karşılaştırır.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.title('Gas Fiyatları')",
+          "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title('Gas Fiyatları')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.plot(gas.Year, gas.Japan, 'b-', label='Japonya')",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas.Year, gas.Japan, 'b-', label='Japonya')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.plot(gas.Year, gas['Mexico'], 'r-', label=\"Meksika\")",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas.Year, gas['Mexico'], 'r-', label=\"Meksika\")",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.plot(gas.Year, gas['Italy'], 'g.-', label='İtalya')",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas.Year, gas['Italy'], 'g.-', label='İtalya')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.plot(gas.Year, gas['Canada'], 'y.-', label='Kanada')",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas.Year, gas['Canada'], 'y.-', label='Kanada')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.plot(gas['Year'], gas.UK, color='orange', label='Birleşik Krallık')",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas['Year'], gas.UK, color='orange', label='Birleşik Krallık')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Birden Fazla Enerji Serisini Karşılaştırma' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.xlabel('Yıl')",
+          "lineExplanation": "X eksenine etiket ekler.",
+          "tokens": [
+            {
+              "token": "plt.xlabel('Yıl')",
+              "explanation": "X eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.ylabel('Dolar')",
+          "lineExplanation": "Y eksenine etiket ekler.",
+          "tokens": [
+            {
+              "token": "plt.ylabel('Dolar')",
+              "explanation": "Y eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.legend()",
+          "lineExplanation": "Grafiğe legend (açıklama) kutusu ekler. label parametresi verilen tüm çizgilerin etiketlerini gösterir.",
+          "tokens": [
+            {
+              "token": "legend()",
+              "explanation": "Grafikteki renklerin veya çizgilerin hangi veri serisine ait oldugunu gosterir.",
+              "turkce": "Aciklama Kutusu",
+              "amac": "Grafikteki renklerin veya çizgilerin hangi veri serisine ait oldugunu gosterir.",
+              "detay": "legend kelimesi, harita aciklamasi mantigindan gelir. Birden fazla seri varsa okunurlugu dramatik biçimde artirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Cizme' bloğunda renklerin ve çizgilerin hangi veri serisine ait oldugunu aciklayan legend kutusunu ekler."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "Text(0.5, 1.0, 'Gas Fiyatları')\n\n[<matplotlib.lines.Line2D object at 0x7fda05d89160>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05d892b0>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05d89400>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05d89550>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05d896a0>]\n\nText(0.5, 0, 'Yıl')\n\nText(0, 0.5, 'Dolar')\n\n<matplotlib.legend.Legend object at 0x7fda05d88ec0>\n\n<Figure size 600x600 with 1 Axes>",
+      "plotImage": "matplotlib-b018.png"
+    },
+    {
+      "id": "matplotlib-b019",
+      "title": "Figure Size Ayarı ve Grafiği Kaydetme",
+      "blockExplanation": "Aynı çoklu ülke grafiğini daha geniş figürde çizip dosyaya kaydeder.",
+      "lines": [
+        {
+          "lineNumber": 1,
+          "code": "plt.figure(figsize=(14,5))",
+          "lineExplanation": "Yeni bir çizim alanı oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.figure(figsize=(14,5))",
+              "explanation": "Yeni bir çizim alanı oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizimin yapılacağı figürü kurar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizimin yapılacağı figürü kurar."
+        },
+        {
+          "lineNumber": 2,
+          "code": "plt.title('Gas Fiyatları')",
+          "lineExplanation": "Grafiğe açıklayıcı bir başlık ekler.",
+          "tokens": [
+            {
+              "token": "plt.title('Gas Fiyatları')",
+              "explanation": "Grafiğe açıklayıcı bir başlık ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 3,
+          "code": "plt.plot(gas.Year, gas.Japan, 'b-', label='Japonya')",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas.Year, gas.Japan, 'b-', label='Japonya')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 4,
+          "code": "plt.plot(gas.Year, gas['Mexico'], 'r-', label=\"Meksika\")",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas.Year, gas['Mexico'], 'r-', label=\"Meksika\")",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 5,
+          "code": "plt.plot(gas.Year, gas['Italy'], 'g.-', label='İtalya')",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas.Year, gas['Italy'], 'g.-', label='İtalya')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 6,
+          "code": "plt.plot(gas.Year, gas['Canada'], 'y.-', label='Kanada')",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas.Year, gas['Canada'], 'y.-', label='Kanada')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 7,
+          "code": "plt.plot(gas['Year'], gas.UK, color='orange', label='Birleşik Krallık')",
+          "lineExplanation": "Çizgi grafiği oluşturur.",
+          "tokens": [
+            {
+              "token": "plt.plot(gas['Year'], gas.UK, color='orange', label='Birleşik Krallık')",
+              "explanation": "Çizgi grafiği oluşturur.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
+            }
+          ],
+          "codeContext": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda çizgi grafiği oluşturur."
+        },
+        {
+          "lineNumber": 8,
+          "code": "plt.xlabel('Yıl')",
+          "lineExplanation": "X eksenine etiket ekler.",
+          "tokens": [
+            {
+              "token": "plt.xlabel('Yıl')",
+              "explanation": "X eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 9,
+          "code": "plt.ylabel('Dolar')",
+          "lineExplanation": "Y eksenine etiket ekler.",
+          "tokens": [
+            {
+              "token": "plt.ylabel('Dolar')",
+              "explanation": "Y eksenine etiket ekler.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+            }
+          ],
+          "codeContext": "Bu satır, 'Tek Enerji Serisini Çizmek' bloğunda anlatılan işlemin bir parçasıdır."
+        },
+        {
+          "lineNumber": 10,
+          "code": "plt.legend()",
+          "lineExplanation": "Grafiğe legend (açıklama) kutusu ekler. label parametresi verilen tüm çizgilerin etiketlerini gösterir.",
+          "tokens": [
+            {
+              "token": "legend()",
+              "explanation": "Grafikteki renklerin veya çizgilerin hangi veri serisine ait oldugunu gosterir.",
+              "turkce": "Aciklama Kutusu",
+              "amac": "Grafikteki renklerin veya çizgilerin hangi veri serisine ait oldugunu gosterir.",
+              "detay": "legend kelimesi, harita aciklamasi mantigindan gelir. Birden fazla seri varsa okunurlugu dramatik biçimde artirir."
+            }
+          ],
+          "codeContext": "Bu satır, 'Aynı Grafikte İkinci Çizgi Cizme' bloğunda renklerin ve çizgilerin hangi veri serisine ait oldugunu aciklayan legend kutusunu ekler."
+        },
+        {
+          "lineNumber": 11,
+          "code": "plt.savefig('secondgraph.png', dpi=300)",
+          "lineExplanation": "Mevcut grafiği dosyaya kaydeder.",
+          "tokens": [
+            {
+              "token": "plt.savefig('secondgraph.png', dpi=300)",
+              "explanation": "Mevcut grafiği dosyaya kaydeder.",
+              "turkce": "Grafik Komutu",
+              "amac": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda görselin dosyaya yazılmasını sağlar."
+            }
+          ],
+          "codeContext": "Bu satır, 'Figure Size Ayarı ve Grafiği Kaydetme' bloğunda görselin dosyaya yazılmasını sağlar."
+        },
+        {
+          "lineNumber": 12,
+          "code": "plt.show()",
+          "lineExplanation": "Grafiği ekranda görüntüler.",
+          "tokens": [
+            {
+              "token": "show()",
+              "explanation": "Hazirlanan grafiği ekrana basar.",
+              "turkce": "Grafiği Gosterme",
+              "amac": "Hazirlanan grafiği ekrana basar.",
+              "detay": "Pyplot akisinda show, o ana kadar biriken çizimleri görünür hale getirir. Ayriça ogretimde çıktınin sinirini belirler."
+            }
+          ],
+          "codeContext": "Bu satır, 'Hedef Değişkeni Countplot ile Görsellestirme' bloğunda o ana kadar hazırlanan görseli ekrana basarak çıktıyi sonlandirir."
+        }
+      ],
+      "expectedOutput": "<Figure size 1400x500 with 0 Axes>\n\nText(0.5, 1.0, 'Gas Fiyatları')\n\n[<matplotlib.lines.Line2D object at 0x7fda05d8af90>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05d8b0e0>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05d8b230>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05d8b380>]\n\n[<matplotlib.lines.Line2D object at 0x7fda05d8b4d0>]\n\nText(0.5, 0, 'Yıl')\n\nText(0, 0.5, 'Dolar')\n\n<matplotlib.legend.Legend object at 0x7fda05d8acf0>\n\n<Figure size 1400x500 with 1 Axes>",
+      "plotImage": "matplotlib-b019.png"
+    }
+  ]
+}

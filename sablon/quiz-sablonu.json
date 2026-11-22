@@ -1,0 +1,78 @@
+{
+  "title": "Hafta 1 - Information Technology 101 Test Simülatörü",
+  "description": "Vize ve final soru formatına uygun çoktan seçmeli test.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "An \"external computer add-on, such as a printer or a scanner; also known as an accessory\" is formally defined as a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "component",
+          "isCorrect": false,
+          "explanation": "Yanlış. Component (bileşen), anakart veya dahili disk gibi bilgisayar kasasının İÇİNDE (internal) yer alan donanımlardır; harici eklentiler değildir."
+        },
+        {
+          "key": "B",
+          "text": "peripheral",
+          "isCorrect": true,
+          "explanation": "Doğru! Tetikleyici Anahtar Kelimeler: \"external computer add-on\" (harici bilgisayar eklentisi) ve \"accessory\" (aksesuar) doğrudan çevre birimlerini (peripheral) işaret eder."
+        },
+        {
+          "key": "C",
+          "text": "software",
+          "isCorrect": false,
+          "explanation": "Yanlış. Software (yazılım) fiziksel bir donanım veya aksesuar değil; bilgisayarın ne yapacağını belirten programlar bütünüdür."
+        },
+        {
+          "key": "D",
+          "text": "database",
+          "isCorrect": false,
+          "explanation": "Yanlış. Database (veritabanı), organize edilmiş elektronik bilgi koleksiyonudur; harici bir cihaz/eklenti değildir."
+        },
+        {
+          "key": "E",
+          "text": "network",
+          "isCorrect": false,
+          "explanation": "Yanlış. Network (ağ), kaynak paylaşımı için birbirine bağlanmış bilgisayarlar grubudur; harici çevre birimi değildir."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "The term that literally means \"that which is given\", referring to \"raw information of any kind\", is:",
+      "options": [
+        {
+          "key": "A",
+          "text": "data",
+          "isCorrect": true,
+          "explanation": "Doğru! Tetikleyici Anahtar Kelimeler: Köken anlamı \"that which is given\" (verilen şey) olan ve ham bilgiyi (\"raw information of any kind\") ifade eden terim 'data'dır."
+        },
+        {
+          "key": "B",
+          "text": "application",
+          "isCorrect": false,
+          "explanation": "Yanlış. Application, kullanıcının belirli görevleri (kelime işlemci, e-posta vb.) yapmasını sağlayan yazılım programıdır."
+        },
+        {
+          "key": "C",
+          "text": "hardware",
+          "isCorrect": false,
+          "explanation": "Yanlış. Hardware, bilgisayarı oluşturan tüm fiziksel parçaların genel adıdır; ham bilgi anlamına gelmez."
+        },
+        {
+          "key": "D",
+          "text": "Internet",
+          "isCorrect": false,
+          "explanation": "Yanlış. Internet, milyonlarca bilgisayarı bağlayan dünyanın en büyük genel ağıdır."
+        },
+        {
+          "key": "E",
+          "text": "peripheral",
+          "isCorrect": false,
+          "explanation": "Yanlış. Peripheral, harici eklenti veya aksesuar anlamına gelir."
+        }
+      ]
+    }
+  ]
+}
