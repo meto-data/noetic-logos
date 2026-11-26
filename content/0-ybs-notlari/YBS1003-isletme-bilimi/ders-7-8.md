@@ -2,7 +2,7 @@
 created: 2026-11-22
 title: "Yönetim Fonksiyonları: Yönetim Düşüncesinin Evrimi, Yönetsel Beceriler ve Yönetimin Fonksiyonları"
 ---
-> Vizelerden önce olan 7. ders ve vizelerden sonra olan 8. ders birleştirilmiştir, nitekim yönetimin fonksiyonlarına 8. derste devam edildi.
+> Vizelerden önce olan 7. ders ve vizelerden sonra olan 8. ders birleştirilmiştir, nitekim yönetimin fonksiyonlarına 8. derste de devam edildi.
 
 
 ## Yönetime Dair Bütüncül Çerçeve

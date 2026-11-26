@@ -210,7 +210,7 @@ graph TD
 - **Türkçe Açıklaması:** Bir yazılımın yapması tasarlanan ve beklenen görevlerdir. Kullanıcıların bir yazılımı tercih etme ya da üst sürüme yükseltme gerekçesini oluşturur.
 - **Örnek Cümle & Çevirisi:** *"The man upgraded his copy of Word because of a new feature that allowed him to spell-check documents in Spanish."* (Adam, İspanyolca belgeleri denetlemesine olanak tanıyan yeni bir özellik nedeniyle Word kopyasını yükseltti.)
 > [!tip] **Sınavda Yakalama Noktası (Trigger Words):**
-> Derste altının çizildiği üzere: Soru kökünde **`"supposed to do"`** veya **`"reasons to use... or upgrade"`** ifadeleri görüldüğünde cevap kesinlikle **`feature`**'dır.
+> Hocanın ders transkriptinde altını çizdiği üzere: Soru kökünde **`"supposed to do"`** veya **`"reasons to use... or upgrade"`** ifadeleri görüldüğünde cevap kesinlikle **`feature`**'dır.
 
 ---
 

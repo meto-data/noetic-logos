@@ -118,7 +118,7 @@ graph TD
 * **Sınav Tetikleyicisi (Trigger Words):** **`ICON-BASED LINK`**, **`WINDOWS`**, **`KDE`**, **`GNOME`**.
 
 ### 3. Kernel
-* **Resmî Tanım:** `The fundamental part of an operating system responsible for providing access to the machine's hardware` (veya dersteki tanımıyla: `The lowest level or core of the operating system, responsible for resource management and file access`).
+* **Resmî Tanım:** `The fundamental part of an operating system responsible for providing access to the machine's hardware` (veya ders ses kaydındaki tanımıyla: `The lowest level or core of the operating system, responsible for resource management and file access`).
 * **Türkçe Anlamı:** Çekirdek; işletim sisteminin en alt seviyesinde donanıma erişim ve kaynak yönetimini yürüten temel merkezdir.
 * **Örnek Cümle:** *"The system administrator needed to upgrade the kernel in order to provide native support for Serial ATA drives."*
 * **Sınav Tetikleyicisi (Trigger Words):** **`CORE OF THE OS`**, **`LOWEST LEVEL`**, **`FUNDAMENTAL PART`**, **`ACCESS TO HARDWARE`**, **`RESOURCE MANAGEMENT`**.

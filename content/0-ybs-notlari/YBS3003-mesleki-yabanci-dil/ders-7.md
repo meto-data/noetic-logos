@@ -16,7 +16,7 @@ created: 2026-11-12
 > 3. **Büyük Çarpanlar vs. Küçük Çarpanlar (`-th` Tuzağı):**
 >    - Sonunda **`-th`** eki bulunan tanımlar (*one thousandth*, *one millionth*, *one billionth*) kesirli/küçük çarpanlardır: **`milli`** ($10^{-3}$), **`micro`** ($10^{-6}$), **`nano`** ($10^{-9}$).
 >    - Sonunda **`-th`** olmayanlar (*one thousand*, *one million*, *one billion*, *one trillion*) büyük çarpanlardır: **`kilo`** ($10^{3}$), **`mega`** ($10^{6}$), **`giga`** ($10^{9}$), **`tera`** ($10^{12}$).
->    - *Dikkat (Resmî Tanım Farkı):* Sözlü anlatımda *nano* için "one trillionth" geçse de resmî kelime listesi ve slaytlarda **Nano = `one billionth`** (bir milyarıncı) olarak tanımlanmıştır; sınavda resmî tanım esas alınır. Ayrıca `microprocessor` ve `nanotechnology` kelimeleri matematiksel ön ekleri tam anlamıyla değil, genel olarak **"really damn small" (gerçekten çok küçük)** anlamında hatalı kullanır.
+>    - *Dikkat (Metin vs. Ses Kaydı Farkı):* Ses kaydında *nano* için "one trillionth" geçse de resmî kelime listesi ve slaytlarda **Nano = `one billionth`** (bir milyarıncı) olarak tanımlanmıştır; sınavda resmî tanım esas alınır. Ayrıca `microprocessor` ve `nanotechnology` kelimeleri matematiksel ön ekleri tam anlamıyla değil, genel olarak **"really damn small" (gerçekten çok küçük)** anlamında hatalı kullanır.
 > 4. **Hız ve Aktarım Birimleri Ayrımı:**
 >    - **`bps`** $\rightarrow$ *Data transmission throughput* (veri aktarım hacmi/hızı)
 >    - **`Hz (Hertz)`** $\rightarrow$ *Frequency unit / one cycle per second* (frekans birimi)
